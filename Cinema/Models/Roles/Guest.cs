@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.Models.Roles
 {
-    public class Guest : User, IUserRole
+    public class Guest : IUserRole
     {
         public bool NeedsRegistration { get; set; } = false;
     }

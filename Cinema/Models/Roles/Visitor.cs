@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.Models.Roles
 {
-    public class Visitor : User, IUserRole
+    public class Visitor : IUserRole
     {
         public Visitor()
         {
