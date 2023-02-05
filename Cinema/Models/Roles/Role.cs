@@ -1,4 +1,4 @@
-﻿using Cinema.Models.Interfaces;
+﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Cinema.Models.Roles
 {
-    public class Root : IUserRole
+    public enum Role
     {
-        public bool NeedsRegistration { get; set; } = true;
+        Root, Owner, Visitor
     }
 }

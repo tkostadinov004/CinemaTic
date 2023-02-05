@@ -13,12 +13,11 @@ namespace Cinema.Models
         public int Id { get; set; }
         public string SerialNumber { get; set; }
         public int MovieId { get; set; }
-        public int VisitorId { get; set; }
         public int SeatId { get; set; }
         public decimal Price { get => this.Seat.Price; set { } }
 
         public virtual Seat Seat { get; set; }
-        public virtual Visitor Visitor { get; set; }
+        public virtual ApplicationUser Visitor { get; set; }
         public virtual Movie Movie { get; set; }
     }
 }
