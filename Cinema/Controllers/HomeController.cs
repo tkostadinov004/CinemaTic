@@ -1,5 +1,8 @@
 ﻿using Cinema.Models;
+using Cinema.Models.Enums;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -23,6 +26,7 @@ namespace Cinema.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Administrator")]
         public IActionResult Privacy()
         {
             return View();

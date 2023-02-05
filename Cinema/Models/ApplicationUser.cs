@@ -1,4 +1,4 @@
-﻿using Cinema.Models.Roles;
+﻿using Cinema.Models.Enums;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;

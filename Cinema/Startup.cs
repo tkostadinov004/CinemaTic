@@ -1,6 +1,6 @@
 using Cinema.Data;
 using Cinema.Models;
-using Cinema.Models.Roles;
+using Cinema.Models.Enums;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,7 +34,6 @@ namespace Cinema
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-           // services.AddDbContext<CinemaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CinemaConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -43,6 +42,68 @@ namespace Cinema
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
+
+        //private void CreateRoles(IServiceProvider serviceProvider)
+        //{
+        //    using (var scope = serviceProvider.CreateScope())
+        //    {
+        //        var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+        //        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+        //        Task<IdentityResult> roleResult;
+        //        string email = "admin@admin.com";
+
+        //        //Check that there is an Administrator role and create if not
+        //        Task<bool> hasAdminRole = roleManager.RoleExistsAsync("Administrator");
+        //        hasAdminRole.Wait();
+
+        //        if (!hasAdminRole.Result)
+        //        {
+        //            roleResult = roleManager.CreateAsync(new IdentityRole("Administrator"));
+        //            roleResult.Wait();
+        //        }
+
+        //        Task<bool> hasOwnerRole = roleManager.RoleExistsAsync("Owner");
+        //        hasOwnerRole.Wait();
+
+        //        if (!hasOwnerRole.Result)
+        //        {
+        //            roleResult = roleManager.CreateAsync(new IdentityRole("Owner"));
+        //            roleResult.Wait();
+        //        }
+
+        //        Task<bool> hasVisitorRole = roleManager.RoleExistsAsync("Visitor");
+        //        hasVisitorRole.Wait();
+
+        //        if (!hasVisitorRole.Result)
+        //        {
+        //            roleResult = roleManager.CreateAsync(new IdentityRole("Visitor"));
+        //            roleResult.Wait();
+        //        }
+        //        //Check if the admin user exists and create it if not
+        //        //Add to the Administrator role
+
+        //        Task<ApplicationUser> testUser = userManager.FindByEmailAsync(email);
+        //        testUser.Wait();
+
+        //        if (testUser.Result == null)
+        //        {
+        //            ApplicationUser administrator = new ApplicationUser();
+        //            administrator.Email = email;
+        //            administrator.UserName = email;
+        //            administrator.FirstName = "Admin";
+        //            administrator.LastName = "Adminovski";
+
+        //            Task<IdentityResult> newUser = userManager.CreateAsync(administrator, "adminPass123*");  
+        //            newUser.Wait();
+
+        //            if (newUser.Result.Succeeded)
+        //            {
+        //                Task<IdentityResult> newUserRole = userManager.AddToRoleAsync(administrator, "Administrator");
+        //                newUserRole.Wait();
+        //            }
+        //        }
+        //    }
+        //}
         //public async Task CreateRolesAsync(IServiceProvider serviceProvider)
         //{
         //    var roles = new string[] { "Owner", "Root", "Visitor" };
@@ -55,7 +116,6 @@ namespace Cinema
         //        {
         //            await roleManager.CreateAsync(new IdentityRole { Name = role });
         //        }
-
         //    }
         //}
 
@@ -88,6 +148,7 @@ namespace Cinema
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+            //CreateRoles(app.ApplicationServices);
         }
     }
 }

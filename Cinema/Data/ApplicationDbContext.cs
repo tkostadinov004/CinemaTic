@@ -1,5 +1,5 @@
 ﻿using Cinema.Models;
-using Cinema.Models.Roles;
+using Cinema.Models.Enums;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
