@@ -4,14 +4,16 @@ using Cinema.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Cinema.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230226135825_NoPrecision")]
+    partial class NoPrecision
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -145,26 +147,6 @@ namespace Cinema.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("Cinema.Models.Genre", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("BulgarianName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EnglishName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Genres");
-                });
-
             modelBuilder.Entity("Cinema.Models.Movie", b =>
                 {
                     b.Property<int>("Id")
@@ -178,7 +160,7 @@ namespace Cinema.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("GenreId")
+                    b.Property<int>("Genre")
                         .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
@@ -186,9 +168,6 @@ namespace Cinema.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("RatingCount")
-                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -198,8 +177,6 @@ namespace Cinema.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("GenreId");
 
                     b.ToTable("Movies");
                 });
@@ -410,17 +387,6 @@ namespace Cinema.Migrations
                     b.Navigation("Actor");
 
                     b.Navigation("Movie");
-                });
-
-            modelBuilder.Entity("Cinema.Models.Movie", b =>
-                {
-                    b.HasOne("Cinema.Models.Genre", "Genre")
-                        .WithMany()
-                        .HasForeignKey("GenreId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Genre");
                 });
 
             modelBuilder.Entity("Cinema.Models.Ticket", b =>
