@@ -20,7 +20,6 @@ namespace Cinema.Models
         public string FirstName { get; set; }
         [Required, MaxLength(100), RegularExpression("^[A-Za-z]+$")]
         public string LastName { get; set; }
-        public Role? Role { get; set; }
         public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }
