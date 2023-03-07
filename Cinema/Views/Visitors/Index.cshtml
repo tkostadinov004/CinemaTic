@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Cinema.Models.ApplicationUser>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tickets)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td style="display:flex; flex-direction:column;">
+                    @foreach (var ticket in item.Tickets)
+                    {
+                        <span style="margin-bottom: 10px;">@ticket.Movie.Title (@ticket.SerialNumber) (@ticket.Movie.Date.ToString("dd/MM/yyyy"))</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
