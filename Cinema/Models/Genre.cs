@@ -8,6 +8,11 @@ namespace Cinema.Models
 {
     public class Genre
     {
+        public Genre()
+        {
+            Movies = new List<Movie>();
+        }
+
         [Key]
         public int Id { get; set; }
 
@@ -15,5 +20,7 @@ namespace Cinema.Models
         public string EnglishName { get; set; }
         [Required]
         public string BulgarianName { get; set; }
+
+        public virtual ICollection<Movie> Movies { get; set; }
     }
 }

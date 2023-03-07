@@ -24,7 +24,6 @@ namespace Cinema.Models
         public string ImageUrl { get; set; }
         [Display(Name = "Кратко описание")]
         public string Description { get; set; }
-        [Range(1.0, 10.0)]
         public decimal? UserRating { get; set; }
         public int RatingCount { get; set; }
         [Display(Name = "Дата")]
