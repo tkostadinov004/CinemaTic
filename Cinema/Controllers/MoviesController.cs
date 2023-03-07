@@ -9,22 +9,30 @@ using Cinema.Data;
 using Cinema.Models;
 using Microsoft.AspNetCore.Authorization;
 using Cinema.Models.Enums;
-
+using Microsoft.AspNetCore.Identity;
+using System.Globalization;
 namespace Cinema.Controllers
 {
     public class MoviesController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public MoviesController(ApplicationDbContext context)
+        private readonly UserManager<ApplicationUser> _userManager;
+        public MoviesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Movies
-        public async Task<IActionResult> Index()
+        [AllowAnonymous]
+        public async Task<IActionResult> Index(DateTime? date)
         {
-            return View(await _context.Movies.Include(i => i.Genre).ToListAsync());
+            var movies = await _context.Movies.Include(i => i.Genre).Include(i => i.Actors).ThenInclude(a => a.Actor).Where(i => i.Date >= DateTime.Today).ToListAsync();
+            if (date != null)
+            {
+                return View(movies.Where(i => Math.Abs((i.Date - date.Value).TotalDays) <= 7));
+            }
+            return View(movies);
         }
 
         // GET: Movies/Details/5
@@ -51,6 +59,7 @@ namespace Cinema.Controllers
         public IActionResult Create()
         {
             ViewBag.Genres = new SelectList(_context.Genres.AsNoTracking().ToList(), nameof(Genre.Id), nameof(Genre.BulgarianName));
+            ViewBag.Actors = new SelectList(_context.Actors.AsNoTracking().ToList(), nameof(Actor.Id), nameof(Actor.FirstName));
             return View();
         }
 
@@ -60,13 +69,23 @@ namespace Cinema.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Owner")]
-        public async Task<IActionResult> Create([Bind("Id,Title,GenreId,ImageUrl,Description,UserRating,Date,Price")] Movie movie)
+        public async Task<IActionResult> Create([Bind("Id,Title,Genre,GenreId,ImageUrl,Description,UserRating,Date,Price,Actors")] Movie movie, IEnumerable<string> acts)
         {
             if (ModelState.IsValid)
             {
+                var genre = _context.Genres.Include(i => i.Movies).FirstOrDefault(i => i.Id == movie.GenreId);
                 movie.UserRating = 0;
-                movie.Genre = _context.Genres.FirstOrDefault(i => i.Id == movie.GenreId);
-                _context.Add(movie);
+                movie.Genre = genre;
+                movie.Genre.Movies.Add(movie);
+
+                foreach (string id in acts)
+                {
+                    movie.Actors.Add(new ActorMovie
+                    {
+                        ActorId = int.Parse(id),
+                        MovieId = movie.Id
+                    });
+                }
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -181,9 +200,33 @@ namespace Cinema.Controllers
         [Authorize(Roles = "Visitor")]
         public async Task<IActionResult> SetRating(int id, decimal rating)
         {
+            var user = await _userManager.FindByEmailAsync(User.Identity.Name);
             var movie = await _context.Movies.FindAsync(id);
-            movie.UserRating = ((movie.UserRating * movie.RatingCount) + rating) / (movie.RatingCount + 1);
-            movie.RatingCount++;
+            var usersRatedMovie = _context.UsersMovies.Include(i => i.Movie).Include(i => i.User).ToList();
+
+            decimal userRating = rating;
+
+            var userMovie = usersRatedMovie.FirstOrDefault(i => i.User.Email == user.Email && i.Movie.Id == movie.Id);
+
+            if (userMovie == null)
+            {
+                movie.UserRating = ((movie.UserRating * movie.RatingCount) + userRating) / (movie.RatingCount + 1);
+                movie.RatingCount++;
+
+                _context.UsersMovies.Add(new UserMovie
+                {
+                    MovieId = movie.Id,
+                    UserId = user.Id,
+                    Rating = userRating
+                });
+            }
+            else
+            {
+                userRating = usersRatedMovie.FirstOrDefault(i => i.User.Email == user.Email && i.Movie.Id == movie.Id).Rating - rating;
+
+                userMovie.Rating = rating;
+                movie.UserRating = ((movie.UserRating * movie.RatingCount) - userRating) / movie.RatingCount;
+            }
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
