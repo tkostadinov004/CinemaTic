@@ -4,14 +4,16 @@ using Cinema.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Cinema.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230228173851_AddedUserMovie")]
+    partial class AddedUserMovie
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -265,9 +267,6 @@ namespace Cinema.Migrations
 
                     b.Property<int>("MovieId")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("Rating")
-                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("UserId", "MovieId");
 

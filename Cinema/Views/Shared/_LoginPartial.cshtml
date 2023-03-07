@@ -3,8 +3,9 @@
 @inject UserManager<ApplicationUser> UserManager
 
 <ul class="navbar-nav">
+
     @if (SignInManager.IsSignedIn(User))
-    {
+     {
         var currentUser = UserManager.Users.FirstOrDefault(user => user.Email == User.Identity.Name);
 
         <li class="nav-item">
@@ -15,9 +16,15 @@
                 <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
             </form>
         </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-controller="Movies" asp-action="Index">Movies</a>
-            </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Visitors" asp-action="Index">Visitors</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Genres" asp-action="Index">Genres</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Actors" asp-action="Index">Actors</a>
+        </li>
     }
     else
     {
@@ -28,4 +35,7 @@
             <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
         </li>
     }
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="Movies" asp-action="Index">Movies</a>
+    </li>
 </ul>

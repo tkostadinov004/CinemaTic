@@ -168,3 +168,14 @@ C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\Movies\Edit.cshtml.g.cs
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\Movies\Index.cshtml.g.cs
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\Movies\SetRating.cshtml.g.cs
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\Visitors\Index.cshtml.g.cs
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\Genres\Create.cshtml.g.cs
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\Genres\Delete.cshtml.g.cs
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\Genres\Details.cshtml.g.cs
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\Genres\Edit.cshtml.g.cs
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\Genres\Index.cshtml.g.cs
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\Actors\Create.cshtml.g.cs
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\Actors\Delete.cshtml.g.cs
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\Actors\Details.cshtml.g.cs
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\Actors\Edit.cshtml.g.cs
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\Actors\Index.cshtml.g.cs
