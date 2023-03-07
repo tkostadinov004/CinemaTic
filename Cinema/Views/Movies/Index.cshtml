@@ -9,6 +9,25 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+@if (!User.IsInRole("Owner"))
+{
+    <div style="display:flex; flex-direction: row;">
+        <form asp-controller="Movies" asp-action="Index">
+            <a class="btn btn-primary" asp-route-date="@DateTime.Today">Днес</a>
+        </form>
+        <form asp-controller="Movies" asp-action="Index">
+            <a class="btn btn-primary" asp-route-date="@DateTime.Today.AddDays(1)">Утре</a>
+        </form>
+        @for (int i = 2; i <= 7; i++)
+        {
+            DateTime date = DateTime.Today.AddDays(i);
+
+            <form asp-controller="Movies" asp-action="Index">
+                <a class="btn btn-primary" asp-route-date="@date">@date.ToString("dd.MM.yyyy")</a>
+            </form>
+        }
+    </div>
+}
 <table class="table">
     <thead>
         <tr>
@@ -36,11 +55,16 @@
             <th>
                 @Html.DisplayNameFor(model => model.Price)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Actors)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
+            var date = item.Date.ToString("dd.MM.yyyy");
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
@@ -61,10 +85,16 @@
                 @Html.DisplayFor(modelItem => item.RatingCount)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Date)
+                @Html.DisplayFor(modelItem => date)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @foreach (var actor in item.Actors)
+                {
+                    <p>@actor.Actor.FirstName</p>
+                }
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
@@ -73,6 +103,6 @@
                 <a asp-action="SetRating" asp-route-id="@item.Id">Set rating</a>
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>
