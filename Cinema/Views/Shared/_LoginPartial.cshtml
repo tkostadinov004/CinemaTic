@@ -2,40 +2,99 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-<ul class="navbar-nav">
 
-    @if (SignInManager.IsSignedIn(User))
-     {
-        var currentUser = UserManager.Users.FirstOrDefault(user => user.Email == User.Identity.Name);
+@if (UserManager.Users.Count() > 0 && SignInManager.IsSignedIn(User))
+{
+    @*var currentUser = UserManager.Users.FirstOrDefault(user => user.Email == User.Identity.Name);
 
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello, @currentUser.FirstName @currentUser.LastName!</a>
+        <li class="" id="app-user">
+            <a class="" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@currentUser.FirstName @currentUser.LastName</a>
         </li>
-        <li class="nav-item">
+        <li class="">
             <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                 <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
             </form>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-controller="Visitors" asp-action="Index">Visitors</a>
+            <a class="" asp-controller="Visitors" asp-action="Index">Visitors</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-controller="Genres" asp-action="Index">Genres</a>
+            <a class="" asp-controller="Genres" asp-action="Index">Genres</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-controller="Actors" asp-action="Index">Actors</a>
-        </li>
-    }
-    else
+            <a class="" asp-controller="Actors" asp-action="Index">Actors</a>
+        </li>*@
+<ul class="nav-links" role="list">
+    @if ((string)ViewData["Title"] != "Начало")
     {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        @if (User.IsInRole("Administrator"))
+        {
+            <li><a class="nx-btn" asp-controller="Admin" asp-action="Index">Назад</a></li>
+        }
+        else
+        {
+            <li><a class="nx-btn" href="javascript:history.back()">Назад</a></li>
+        }
+    }
+    <li>
+        <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button type="submit" class="nx-btn">Излез от профила си</button>
+        </form>
+    </li>
+    @if (User.IsInRole("Administrator") == false)
+    {
+        <li>
+            <div id="myNav" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="overlay-content">
+                    @{
+                        var user = @UserManager.FindByEmailAsync(User.Identity.Name).Result;
+                        string names = $"{user.FirstName} {user.LastName}";
+                    }
+                    <h1 class="welcome-title">Добре дошъл, @names!</h1>
+                    @if (User.IsInRole("Owner"))
+                    {
+                        <a class="" asp-controller="Visitors" asp-action="Index">Посетители</a>
+                        <a class="" asp-controller="Genres" asp-action="Index">Жанрове</a>
+                        <a class="" asp-controller="Actors" asp-action="Index">Актьори</a>
+                        <a class="" asp-controller="Movies" asp-action="Index">Филми</a>
+                    }
+                    @if (User.IsInRole("Visitor"))
+                    {
+                        <a class="" asp-controller="Tickets" asp-action="Index">Вашите билети</a>
+                    }
+                </div>
+            </div>
+            <span class="hamburger-icon" onclick="openNav()">&#9776;</span>
         </li>
     }
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-controller="Movies" asp-action="Index">Movies</a>
-    </li>
 </ul>
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.height = "100%";
+            document.body.style.overflow = "hidden";
+        }
+        function closeNav() {
+            document.getElementById("myNav").style.height = "0%";
+            document.body.style.overflow = "visible";
+        }
+    </script>
+}
+else
+{
+    <ul class="nav-links" role="list">
+        @if ((string)ViewData["Title"] == "Начало")
+        {
+            <li>
+                <a class="nx-btn" asp-area="Identity" asp-page="/Account/Login">Влез</a>
+            </li>
+            <li>
+                <a class="nx-btn" asp-area="Identity" asp-page="/Account/Register">Регистрирай се</a>
+            </li>
+        }
+        else
+        {
+            <a class="nx-btn" href="/">Назад</a>
+        }
+    </ul>
+}

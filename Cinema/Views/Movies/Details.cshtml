@@ -1,60 +1,137 @@
-﻿@model Cinema.Models.Movie
+﻿@model Cinema.Models.ViewModels.MovieDetailsViewModel
 
 @{
     ViewData["Title"] = "Details";
 }
+<link href="~/css/ratingModal.css" rel="stylesheet" />
+<div class="details front-panel">
+    <div>
+        <div class="short-info">
+            <h1 class="section-line">@Model.Movie.Title</h1>
+            <div class="short-info-line">
+                <div class="info-box">
+                    <p class="info-box-title">@Html.DisplayNameFor(model => model.Movie.RunningTime)</p>
+                    <p class="info-box-desc">@Html.DisplayFor(model => model.Movie.RunningTime) минути</p>
+                </div>
+                <div class="rating-container">
+                    <span>CinemaTic рейтинг</span>
+                    <div class="rating-box">
+                        <i class="fa-solid fa-star ct-rating-star"></i>
+                        <div class="rating-number-box">
+                            <span>@string.Format($"{Model.AverageRating:f1}/10")</span>
+                            <span>@Model.RatingCount глас</span>
+                        </div>
+                    </div>
+                </div>
+                @if (User.IsInRole("Visitor"))
+                {
+                    <div class="rating-container">
+                        <div id="modal" role="dialog" aria-modal="true" aria-labelledby="add-review-header" class="">
+                            <button class="close-btn" aria-label="close" title="Close">x</button>
+                            @if (Model.CurrentUserRating == null)
+                            {
+                                <h2 id="add-review-header">Оцени филма @Model.Movie.Title</h2>
+                            }
+                            else
+                            {
+                                <h2 id="add-review-header">Промени оценката си за филма @Model.Movie.Title</h2>
+                            }
+                            <div id="review-form-container">
+                                <form id="review-form" asp-controller="Movies" asp-action="SetRating" method="post">
+                                    <div class="fieldset">
+                                        <div class="rate">
+                                            @for (int i = 0; i < 10; i++)
+                                            {
+                                                <label class="modal-star-container">
+                                                    <input type="radio" name="userRating" class="star" value="@(i + 1)" onclick="editButtons(this)" onmouseover="highlight(this)" onmouseout="highlight(this)" />
+                                                    <i class="fa-solid fa-star yellow"></i>
+                                                </label>
+                                            }
+                                        </div>
+                                        <input asp-controller="Movies" asp-action="SetRating" asp-route-movieId="@Model.Movie.Id" method="post" id="submit-review-btn" class="nx-btn primary" value="@(Model.CurrentUserRating == null ? "Потвърди" : "Промени оценката")" type="submit" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal-overlay"></div>
 
-<h1>Details</h1>
+                        <span>Вашият рейтинг</span>
+                        <div class="rating-box">
+                            <button id="review-add-btn" aria-label="add review" title="Add Review">
+                                <i class="fa-solid fa-star ct-user-rating-star"></i>
+                            </button>
+                            <div class="rating-number-box">
+                                @if (Model.CurrentUserRating == null)
+                                {
+                                    <span>Оцени сега!</span>
+                                }
+                                else
+                                {
+                                    <span>@string.Format($"{Model.CurrentUserRating:f1}/10")</span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
 
-<div>
-    <h4>Movie</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Genre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Genre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UserRating)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UserRating)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
+                <script src="~/js/rating-modal.js"></script>
+            </div>
+        </div>
+        <hr class="section-line" />
+        <div class="details-grid">
+            <img class="cover-photo" src="@Model.Movie.ImageUrl" />
+            <p>@Model.Movie.Description</p>
+            <section class="details-info">
+                <div class="info-box">
+                    <p class="info-box-title">@Html.DisplayNameFor(model => model.Movie.Genre)</p>
+                    <p class="info-box-desc">@Html.DisplayFor(model => model.Movie.Genre.BulgarianName)</p>
+                </div>
+                <div class="info-box actors">
+                    <p class="info-box-title">@Html.DisplayNameFor(model => model.Movie.Actors)</p>
+                    <div class="info-box-desc">
+                        @foreach (string actor in Model.Movie.Actors.Select(i => $"{i.Actor.FirstName} {i.Actor.LastName}"))
+                        {
+                            <p class="actor-name">@actor</p>
+                        }
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="details-schedule">
+        <div class="details-schedule-dates">
+            <button class="nx-btn primary" value="@DateTime.Today.ToString("dd.MM.yyyy")" onclick="showByDate(this)">Днес</button>
+            <button class="nx-btn primary" value="@DateTime.Today.AddDays(1).ToString("dd.MM.yyyy")" onclick="showByDate(this)">Утре</button>
+            @for (int i = 2; i <= 7; i++)
+            {
+                string date = DateTime.Today.AddDays(i).ToString("dd.MM.yyyy");
+                <button class="nx-btn primary" value="@date" onclick="showByDate(this)">@date</button>
+            }
+        </div>
+        <div class="details-schedule-projections">
+            @for (int i = 2; i < 7; i++)
+            {
+                <div class="projection hidden @DateTime.Today.AddDays(i).ToString("dd.MM.yyyy")">
+                    <a class="nx-btn projection-hour" asp-controller="Tickets" asp-action="Create" asp-route-movieId="@Model.Movie.Id">@Model.Movie.Date.ToString("HH:mm")</a>
+                </div>
+            }
+        </div>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<script>
+    function showByDate(button) {
+        var date = button.value;
+        var projections = document.getElementsByClassName("projection");
+        for (var i = 0; i < projections.length; i++) {
+            if (projections[i].classList.contains(date)) {
+                projections[i].classList.remove("hidden");
+            }
+            else {
+                projections[i].classList.add("hidden");
+            }
+        }
+        //if (Array(projections).filter(i => i.classList.contains("hidden") == false).length == 0) {
+        //    document.getElementByClassName("details-schedule-projections")[0].innerHTML = "Няма прожекции за тази дата";
+        //}
+    }
+</script>

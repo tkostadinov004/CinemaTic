@@ -41,8 +41,33 @@ namespace Cinema
                .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequiredLength = 8;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireDigit = false;
+            });
+            services.AddTransient<DbInitializer>();
         }
 
+        private void InitializeDB(IServiceProvider serviceProvider)
+        {
+            using var scope = serviceProvider.CreateScope();
+            var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            var services = scope.ServiceProvider;
+
+            for (int i = 0; i < 21; i++)
+            {
+                for (int j = 0; j < 31; j++)
+                {
+                    context.Seats.Add(new Seat($"R{(i + 1).ToString("D2")}C{(j + 1).ToString("D2")}")
+                    {
+                        IsOccupied = false
+                    });
+                }
+            }
+            context.SaveChanges();
+        }
         private void CreateRoles(IServiceProvider serviceProvider)
         {
             using (var scope = serviceProvider.CreateScope())
@@ -85,6 +110,7 @@ namespace Cinema
                 Task<ApplicationUser> testUser = userManager.FindByEmailAsync(email);
                 testUser.Wait();
 
+                Task<IdentityResult> userResult = null;
                 if (testUser.Result == null)
                 {
                     ApplicationUser administrator = new ApplicationUser();
@@ -92,11 +118,11 @@ namespace Cinema
                     administrator.UserName = email;
                     administrator.FirstName = "Admin";
                     administrator.LastName = "Adminovski";
+                    administrator.EmailConfirmed = true;
 
-                    Task<IdentityResult> newUser = userManager.CreateAsync(administrator, "adminPass123*");
-                    newUser.Wait();
-
-                    if (newUser.Result.Succeeded)
+                    userResult = userManager.CreateAsync(administrator, "adminPass123*");
+                    userResult.Wait();
+                    if (userResult.Result.Succeeded)
                     {
                         Task<IdentityResult> newUserRole = userManager.AddToRoleAsync(administrator, "Administrator");
                         newUserRole.Wait();
@@ -148,6 +174,7 @@ namespace Cinema
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+            //InitializeDB(app.ApplicationServices);
             CreateRoles(app.ApplicationServices);
         }
     }

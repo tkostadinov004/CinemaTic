@@ -11,7 +11,9 @@ a.navbar-brand {
 a {
   color: #0366d6;
 }
-
+button {
+    cursor: pointer;
+}
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
@@ -54,14 +56,10 @@ button.accept-policy {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
 .footer {
   position: absolute;
   bottom: 0;

@@ -3,46 +3,46 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Cinema</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>@ViewData["Title"] - CinemaTic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link href="~/fontawesome/css/all.css" rel="stylesheet" />
+    <script src="~/fontawesome/js/all.js"></script>
+    <link rel="stylesheet" href="~/css/reset.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css//layoutStyle.css" />
+    <link rel="shortcut icon" href="~/img/favicon.ico" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Cinema</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
+        <a asp-controller="Home" asp-action="Index" class="header-logo"><img src="~/assets/logo.png" alt="Logo" /></a>
+        <partial name="_LoginPartial" />
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <main>
+        <section class="ad-info">
+            <img src="~/assets/bg.jpg" alt="Background" class="bg" />
+            <div style="margin-top: 200px; margin-bottom: 200px;">
+                @RenderBody()
+            </div>
+        </section>
+        @if ((string)ViewData["Title"] == "Начало")
+        {
+            <!--Sections-->
+        }
+    </main>
+    <footer>
+        <h5>Въпроси? Свържете се с нас</h5>
+        <ul class="links" role="list">
+            <li class="link-item">Често задавани въпроси</li>
+            <li class="link-item">Privacy</li>
+            <li class="link-item">Права на ползване</li>
+            <li class="link-item">Свържете се с нас</li>
+        </ul>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - Cinema - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+        <p class="link-item">CinemaTic&copy; 2023</p>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

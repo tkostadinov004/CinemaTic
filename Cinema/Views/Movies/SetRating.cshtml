@@ -1,4 +1,4 @@
-﻿@model Cinema.Models.Movie
+﻿@model Cinema.Models.ViewModels.SetRatingViewModel
 
 @{
     ViewData["Title"] = "SetRating";
@@ -13,9 +13,9 @@
         <form asp-action="SetRating">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="UserRating" class="control-label"></label>
-                <input asp-for="UserRating" name="rating" class="form-control" />
-                <span asp-validation-for="UserRating" class="text-danger"></span>
+                <label asp-for="PersonalUserRating" class="control-label"></label>
+                <input asp-for="PersonalUserRating" name="rating" class="form-control" />
+                <span asp-validation-for="PersonalUserRating" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

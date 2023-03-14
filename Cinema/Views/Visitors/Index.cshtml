@@ -4,42 +4,29 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tickets)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<link href="~/css/cardStyle.css" rel="stylesheet" />
+<div class="moviesContainer flex-column front-panel">
+    <h1>Посетители</h1>
+    <table class="rwd-table">
+        <tbody>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
-                </td>
-                <td style="display:flex; flex-direction:column;">
-                    @foreach (var ticket in item.Tickets)
-                    {
-                        <span style="margin-bottom: 10px;">@ticket.Movie.Title (@ticket.SerialNumber) (@ticket.Movie.Date.ToString("dd/MM/yyyy"))</span>
-                    }
-                </td>
+                <th>Имена</th>
+                <th>Билет за: </th>
             </tr>
-        }
-    </tbody>
-</table>
+            @foreach (var visitor in Model)
+            {
+                <tr class="owner">
+                    <td>
+                        @string.Format($"{visitor.FirstName} {visitor.LastName}")
+                    </td>
+                    <td>
+                        @foreach (var ticket in visitor.Tickets)
+                        {
+                            <p>@ticket.Movie - @ticket.ForDate.ToString("dd-MM-yyyy") - @ticket.Seat.SeatNumber</p>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

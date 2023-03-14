@@ -1,0 +1,78 @@
+﻿html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+    font-size: 62.5%;
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 2rem;
+}
+h4 {
+    font-size: 1.5rem;
+}
+form .form-group {
+    font-size: 1.5rem;
+}
+.row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.row h4 {
+    text-align: center;
+}
+
+form label {
+    font-size: 16px;
+}
+form input.form-control {
+    font-size: 1rem;
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+}
+form button {
+    width: 100%;
+}
+
+.text-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.text-fields .form-group .active-form{
+    display: grid;
+    grid-template-columns: 50% 60%;
+    align-items: center;
+    justify-content: center;
+    justify-items: start;
+}
+.text-fields .form-group {
+    display: flex;
+    flex-direction: column;
+}
+.text-fields .form-group .text-danger {
+    display: none;
+    font-size: 1rem;
+}
+form .account {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+hr {
+    width: 100%;
+}
+#validationSummary ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+.nx-btn {
+    margin-top: 20px;
+}
+/*Checkbox*/

@@ -1,7 +1,33 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<Cinema.Models.Movie>
+
+@{
+    ViewData["Title"] = "Начало";
 }
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<link rel="stylesheet" href="~/css/cardStyle.css" />
+    <div class="moviesContainer">
+        @foreach (var movie in Model)
+        {
+            <div class="card-wrapper">
+                <div class="card">
+                    <img src="@movie.ImageUrl" />
+                    <div class="descriptions">
+                        <div class="description-buttons">
+                            <div class="desc-button">
+                                <i class="fa-solid fa-film f-size-b"></i>
+                                <a>Гледай трейлър</a>
+                            </div>
+                            <a class="desc-button" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">
+                                <i class="fa-solid fa-circle-info f-size-b"></i>
+                                Детайли
+                            </a>
+                            <a class="desc-button" asp-controller="Tickets" asp-action="Create" asp-route-movieId="@movie.Id">
+                                <i class="fa-solid fa-cart-shopping f-size-b"></i>
+                                Купи билет
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
