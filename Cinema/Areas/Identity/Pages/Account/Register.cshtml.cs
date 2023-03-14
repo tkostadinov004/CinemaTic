@@ -72,11 +72,7 @@ namespace Cinema.Areas.Identity.Pages.Account
             [StringLength(100, ErrorMessage = "Фамилното име трябва да бъде поне {2} символа и най-много {1} символа", MinimumLength = 5)]
             [Display(Name = "Фамилно име")]
             public string LastName { get; set; }
-
-            [Display(Name = "Изберете роля")]
-            public Role Role { get; set; }
         }
-        public SelectList Roles { get; set; } = new SelectList(Enum.GetValues(typeof(Role)));
         public async Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
@@ -94,7 +90,7 @@ namespace Cinema.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-                    await _userManager.AddToRoleAsync(user, Input.Role.ToString());
+                    await _userManager.AddToRoleAsync(user, "Visitor");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
