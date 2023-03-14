@@ -12,7 +12,6 @@ namespace Cinema.Models.ControllerModels
     [NotMapped]
     public class VisitorViewModel : IApplicationUser
     {
-        [Key]
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

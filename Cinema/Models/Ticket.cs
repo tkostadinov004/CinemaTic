@@ -14,7 +14,8 @@ namespace Cinema.Models
         public string SerialNumber { get; set; }
         public int MovieId { get; set; }
         public int SeatId { get; set; }
-        public decimal Price { get => this.Seat == null ? 0 : this.Seat.Price; set { } }
+        public decimal Price { get; set; }
+        public DateTime ForDate { get; set; }
 
         public virtual Seat Seat { get; set; }
         public virtual ApplicationUser Visitor { get; set; }

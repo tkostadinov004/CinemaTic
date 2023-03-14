@@ -30,8 +30,11 @@ namespace Cinema.Models
         public DateTime Date { get; set; }
         [Display(Name = "Цена"), Range(1, double.MaxValue)]
         public decimal Price { get; set; }
+        [Display(Name = "Времетраене")]
+        public int RunningTime { get; set; }
         [Display(Name = "Жанр")]
         public virtual Genre Genre { get; set; }
+        [Display(Name = "Актьори")]
         public virtual ICollection<ActorMovie> Actors { get; set; }
     }
 }
