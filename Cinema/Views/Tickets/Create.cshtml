@@ -1,0 +1,146 @@
+﻿@model Cinema.Models.ViewModels.BuyTicketViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Купи билет за филм @Model.Movie.Title</h1>
+<hr />
+<link href="~/css/seatsStyle.css" rel="stylesheet" />
+<script>
+    function scale(siteElement) {
+        if (siteElement.checked) {
+            siteElement.style.transform = "scale(1.5)";
+        }
+        else {
+            siteElement.style.transform = "scale(1.0)";
+        }
+    }
+</script>
+<div class="row front-panel">
+    @*<div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <div class="seats">
+                <form asp-controller="Tickets" asp-action="Create">
+                    @for (int i = 0; i < 21; i++)
+                    {
+                        <div class="seat-row">
+                            @for (int j = 0; j < 31; j++)
+                            {
+                            <div class="seat seat-ind">
+                                <label>
+                                    <input type="radio" class="radio" name="seatCoords" value="@i @j" onclick="scale(this)"/>
+
+                                    <i class="fa-solid fa-couch @(((string[,])ViewData["Colors"])[i,j]) "></i>
+                                </label>
+                            </div>
+                            }
+                        </div>
+                    }
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" asp-route-movieId="@Model.Id" />
+                    </div>
+                </form>
+            </div>
+        </div>*@
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <div class="seats">
+                @if (string.IsNullOrEmpty(Model.Sector))
+                {
+                    <div class="sector-selector sector-container">
+                        <div class="sector-container-row-heading">РЕДОВЕ</div>
+                        <div class="sector-grid">
+                            <div class="sector-container-col-heading">КОЛОНИ</div>
+                            <div class="sector-line">
+                                <div class="sector-box">
+                                    <div class="seats-line">
+                                        <span>1</span>
+                                        <span class="right-seat">10</span>
+                                    </div>
+                                    <a class="sector" asp-controller="Tickets" asp-action="Create" asp-route-sector="A" asp-route-movieId="@Model.Movie.Id">A</a>
+                                </div>
+                                <div class="sector-box">
+                                    <div class="seats-line">
+                                        <span>11</span>
+                                        <span class="right-seat">20</span>
+                                    </div>
+                                    <a class="sector" asp-controller="Tickets" asp-action="Create" asp-route-sector="B" asp-route-movieId="@Model.Movie.Id">B</a>
+                                </div>
+                                <div class="sector-box">
+                                    <div class="seats-line">
+                                        <span>21</span>
+                                        <span class="right-seat">31</span>
+                                    </div>
+                                    <a class="sector" asp-controller="Tickets" asp-action="Create" asp-route-sector="C" asp-route-movieId="@Model.Movie.Id">C</a>
+                                </div>
+                            </div>
+                            <div class="sector-line">
+                                <div class="sector-box">
+                                    <a class="sector" asp-controller="Tickets" asp-action="Create" asp-route-sector="D" asp-route-movieId="@Model.Movie.Id">D</a>
+                                </div>
+                                <div class="sector-box">
+                                    <a class="sector" asp-controller="Tickets" asp-action="Create" asp-route-sector="E" asp-route-movieId="@Model.Movie.Id">E</a>
+                                </div>
+                                <div class="sector-box">
+                                    <a class="sector" asp-controller="Tickets" asp-action="Create" asp-route-sector="F" asp-route-movieId="@Model.Movie.Id">F</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <form asp-controller="Tickets" asp-action="Create" method="post">
+                        @for (int i = Model.StartingRow - 1; i < Model.EndingRow; i++)
+                        {
+                            <div class="seat-row">
+                                @for (int j = Model.StartingCol - 1; j < Model.EndingCol; j++)
+                                {
+                                    <div class="seat seat-ind">
+                                        <label>
+                                            <input type="radio" class="radio" name="seatCoords" value="@i @j" onclick="scale(this)" />
+
+                                            <i class="fa-solid fa-couch @(Model.Occupied[i, j] == true ? "red" : "green") "></i> <!--Change-->
+                                        </label>
+                                    </div>
+                                }
+                            </div>
+                        }
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary" asp-route-movieId="@Model.Movie.Id" />
+                        </div>
+                    </form>
+                }
+                @*<form asp-controller="Tickets" asp-action="Create">
+                        @for (int i = 0; i < 21; i++)
+                        {
+                            <div class="seat-row">
+                                @for (int j = 0; j < 31; j++)
+                                {
+                                    <div class="seat seat-ind">
+                                        <label>
+                                            <input type="radio" class="radio" name="seatCoords" value="@i @j" onclick="scale(this)" />
+
+                                            <i class="fa-solid fa-couch @(((string[,])ViewData["Colors"])[i,j]) "></i>
+                                        </label>
+                                    </div>
+                                }
+                            </div>
+                        }
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary" asp-route-movieId="@Model.Id" />
+                        </div>
+                    </form>*@
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
