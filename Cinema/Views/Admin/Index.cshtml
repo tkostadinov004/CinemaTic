@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Cinema.Models.ApplicationUser>
+
+@{
+    ViewData["Title"] = "Администраторски панел";
+}
+<link href="~/css/adminStyle.css" rel="stylesheet" />
+<link href="~/css/cardStyle.css" rel="stylesheet" />
+<div class="moviesContainer flex-column front-panel">
+    <h1>Собственици на CinemaTic</h1>
+    <table class="rwd-table">
+        <tbody>
+            <tr>
+                <th>Име на собственика</th>
+                <th></th>
+            </tr>
+            @foreach (var owner in Model)
+            {
+                <tr class="owner">
+                    <td>@string.Format($"{owner.FirstName} {owner.LastName}")</td>
+                    <td>
+                        <a asp-controller="Admin" asp-action="DeleteOwner" asp-route-ownerId="@owner.Id">
+                            <i class="fa-solid fa-circle-xmark f-color-size-b"></i>
+                            Премахни
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="nx-btn front-panel" asp-area="Identity" asp-page="/Admin/RegisterOwner">Създай акаунт за нов собственик на CinemaTic</a>
+</div>
