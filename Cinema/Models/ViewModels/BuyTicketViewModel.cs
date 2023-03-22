@@ -11,6 +11,7 @@ namespace Cinema.Models.ViewModels
     {
         public Movie Movie { get; set; }
         public string? Sector { get; set; }
+        public DateTime ForDate { get; set; }
         public int StartingRow { get; set; }
         public int StartingCol { get; set; }
         public bool[,] Occupied { get; set; }

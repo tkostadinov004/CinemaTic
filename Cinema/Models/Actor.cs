@@ -15,16 +15,24 @@ namespace Cinema.Models
         [Key]
         public int Id { get; set; }
         [Required, MaxLength(100), RegularExpression("^[A-Za-z]+$")]
+        [Display(Name ="Име")]
         public string FirstName { get; set; }
         [Required, MaxLength(100), RegularExpression("^[A-Za-z]+$")]
+        [Display(Name = "Фамилия")]
         public string LastName { get; set; }
         [Required]
+        [Display(Name = "Име и фамилия на български")]
+        public string BulgarianFullName { get; set; }
+        [Required]
+        [Display(Name = "Дата на раждане")]
         public DateTime Birthdate { get; set; }
-        [Required]
+        [Display(Name = "Националност")]
         public string Nationality { get; set; }
+
+        [Display(Name = "Рейтинг от IMDB")]
         public decimal Rating { get; set; }
-        [Required]
-        public string ImageUrl { get; set; }
+        [Display(Name = "Снимка")]
+        public string? ImageUrl { get; set; }
 
         public virtual ICollection<ActorMovie> Movies { get; set; }
     }

@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ZorpSYnsmwWcBySbT1qr3iZfxn36Nwp+e7katXpWYcN7RCRaKK6tB5VTiG0dOUHb1lfwM7lzFEpk9ULyKCrOzw==",
+  "dgSpecHash": "K97PyWRjA56ZWxJxmnrPjyWJXWw3G0CPj6wvddYb3ENYcBK5cWcYQdCrckTk3C86rlwHEieQFF4F6/egt6hzWg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\Cinema.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\Lenovo User PC\\.nuget\\packages\\isonames\\1.1.0\\isonames.1.1.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.9\\microsoft.aspnet.mvc.5.2.9.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.9\\microsoft.aspnet.razor.3.2.9.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.aspnet.webpages\\3.2.9\\microsoft.aspnet.webpages.3.2.9.nupkg.sha512",
@@ -143,6 +144,16 @@
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'IsoNames 1.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "IsoNames",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",

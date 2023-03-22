@@ -29,13 +29,16 @@ namespace Cinema.Migrations
                     b.Property<DateTime>("Birthdate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("BulgarianFullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")

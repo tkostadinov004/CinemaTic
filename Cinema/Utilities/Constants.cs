@@ -18,5 +18,7 @@ namespace Cinema.Utilities
             {"E", new Tuple<Coords, Coords>(new Coords{Row =  10, Col = 11},  new Coords{Row= 21, Col = 20 })},
             {"F", new Tuple<Coords, Coords>(new Coords{Row =  10, Col = 21},  new Coords{Row= 21, Col = 31 })},
         };
+
+        public static string ImagesFolder = "client-images";
     }
 }

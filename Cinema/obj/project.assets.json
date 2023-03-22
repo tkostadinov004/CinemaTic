@@ -11,6 +11,18 @@
           "lib/netstandard2.0/Humanizer.dll": {}
         }
       },
+      "IsoNames/1.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "6.0.3"
+        },
+        "compile": {
+          "lib/net45/IsoNames.dll": {}
+        },
+        "runtime": {
+          "lib/net45/IsoNames.dll": {}
+        }
+      },
       "Microsoft.AspNet.Mvc/5.2.9": {
         "type": "package",
         "dependencies": {
@@ -2211,6 +2223,18 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "IsoNames/1.1.0": {
+      "sha512": "K+4xzWCkb9kLgHhKJMNnW54HdmsUeEQSWwai9bhm/tAHOqUmOrTKyNXF/uuSCC/0UNtBVKWU32laZ4SMWQyhoA==",
+      "type": "package",
+      "path": "isonames/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "isonames.1.1.0.nupkg.sha512",
+        "isonames.nuspec",
+        "lib/net45/IsoNames.dll"
       ]
     },
     "Microsoft.AspNet.Mvc/5.2.9": {
@@ -7601,6 +7625,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "IsoNames >= 1.1.0",
       "Microsoft.AspNet.Mvc >= 5.2.9",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 5.0.4",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 5.0.17",
@@ -7650,6 +7675,10 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "IsoNames": {
+            "target": "Package",
+            "version": "[1.1.0, )"
+          },
           "Microsoft.AspNet.Mvc": {
             "target": "Package",
             "version": "[5.2.9, )"
@@ -7710,6 +7739,16 @@
     }
   },
   "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'IsoNames 1.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "IsoNames",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",

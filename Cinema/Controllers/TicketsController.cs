@@ -67,11 +67,11 @@ namespace Cinema.Controllers
         // GET: Tickets/Create
         [Authorize(Roles = "Visitor")]
         [AllowAnonymous]
-        public IActionResult Create(int movieId, string? sector)
+        public IActionResult Create(int movieId, string? sector, DateTime forDate)
         {
             bool CheckPlace(int row, int col)
             {
-                return _context.Tickets.Include(k => k.Movie).Include(k => k.Seat).ToList().Where(i => i.Movie.Id == movieId).Select(i => SeatCoords(i.Seat.SeatNumber)).Any(i => i.Item1 == row && i.Item2 == col);
+                return _context.Tickets.Include(k => k.Movie).Include(k => k.Seat).ToList().Where(i => i.Movie.Id == movieId).Select(i => new { Coords = SeatCoords(i.Seat.SeatNumber), ForDate = i.ForDate }).Any(i => i.Coords.Item1 == row && i.Coords.Item2 == col && i.ForDate == forDate);
             }
 
             //ViewData["Colors"] = colors;
@@ -90,7 +90,8 @@ namespace Cinema.Controllers
                 Movie = _context.Movies.FirstOrDefault(i => i.Id == movieId),
                 Sector = sector,
                // Seats = _context.Seats.ToList().Where(i => i.Sector == sector).ToList(),
-               Occupied = isOccupied
+               Occupied = isOccupied,
+               ForDate = forDate
             };
             if (string.IsNullOrEmpty(sector) == false)
             {
@@ -112,7 +113,7 @@ namespace Cinema.Controllers
         [ValidateAntiForgeryToken]
         //[Bind("Id,SerialNumber,MovieId,SeatId,Price")] Ticket ticket
         //[Bind("Movie, MovieId")] BuyTicketViewModel vm
-        public async Task<IActionResult> Create(string seatCoords, int movieId)
+        public async Task<IActionResult> Create(string seatCoords, int movieId, DateTime forDate)
         {
             int[] seatCoordsInt = seatCoords.Split().Select(int.Parse).Select(i => i + 1).ToArray();
 
@@ -120,13 +121,15 @@ namespace Cinema.Controllers
             {
                 IsOccupied = true
             };
+            var movie = await _context.Movies.FindAsync(movieId);
             var ticket = new Ticket
             {
-                Movie = await _context.Movies.FindAsync(movieId),
+                ForDate = forDate,
+                Movie = movie,
                 Visitor = User == null ? null : await _userManager.FindByEmailAsync(User.Identity.Name)
             };
             ticket.Seat = ticketSeat;
-            ticket.Price = ticket.Seat.Price;
+            ticket.Price = ticket.Seat.Price + movie.Price;
 
             if (ModelState.IsValid)
             {

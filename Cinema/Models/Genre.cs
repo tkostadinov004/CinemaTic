@@ -17,8 +17,10 @@ namespace Cinema.Models
         public int Id { get; set; }
 
         [Required]
+        [Display(Name = "Име на английски")]
         public string EnglishName { get; set; }
         [Required]
+        [Display(Name = "Име на български")]
         public string BulgarianName { get; set; }
 
         public virtual ICollection<Movie> Movies { get; set; }

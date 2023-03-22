@@ -195,3 +195,7 @@ C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net5.0\System.Web.W
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net5.0\System.Web.WebPages.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net5.0\Microsoft.Web.Infrastructure.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\AccessDenied.cshtml.g.cs
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\Admin\SetToOwner.cshtml.g.cs
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\Admin\DeleteFromOwnerRole.cshtml.g.cs
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\Shared\HomeMoviesPartial.cshtml.g.cs
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net5.0\IsoNames.dll

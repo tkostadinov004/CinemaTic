@@ -20,15 +20,17 @@ namespace Cinema.Models
         [Required]
         [Display(Name = "Име на филма")]
         public string Title { get; set; }
+        [Display(Name = "Жанр")]
         public int GenreId { get; set; }
-        public string ImageUrl { get; set; }
+        [Display(Name = "Снимка")]
+        public string? ImageUrl { get; set; }
         [Display(Name = "Кратко описание")]
         public string Description { get; set; }
         public decimal? UserRating { get; set; }
         public int RatingCount { get; set; }
         [Display(Name = "Дата")]
         public DateTime Date { get; set; }
-        [Display(Name = "Цена"), Range(1, double.MaxValue)]
+        [Display(Name = "Цена")]
         public decimal Price { get; set; }
         [Display(Name = "Времетраене")]
         public int RunningTime { get; set; }

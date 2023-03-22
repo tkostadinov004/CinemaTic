@@ -29,26 +29,47 @@ namespace Cinema.Controllers
 
         public IActionResult Index()
         {
-            return View(_context.Users.ToListAsync().Result.Where(i => _userManager.IsInRoleAsync(i, "Owner").Result == true));
+            return View(_context.Users.ToListAsync().Result);
         }
 
         [HttpGet]
-        public IActionResult DeleteOwner(string ownerId)
+        public IActionResult DeleteFromOwnerRole(string ownerId)
         {
-            var owner = _context.Users.ToListAsync().Result.FirstOrDefault(i => i.Id == ownerId &&  _userManager.IsInRoleAsync(i, "Owner").Result == true);
+            var owner = _userManager.FindByIdAsync(ownerId).Result;
             if (owner == null)
             {
                 return RedirectToAction(nameof(Index));
             }
             return View(owner);
         }
-        [HttpPost, ActionName("DeleteOwner")]
+        [HttpPost, ActionName("DeleteFromOwnerRole")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var owner = _context.Users.ToListAsync().Result.FirstOrDefault(i => i.Id == id);
-            _context.Users.Remove(owner);
-            await _context.SaveChangesAsync();
+            var owner = _userManager.FindByIdAsync(id).Result;
+            if (_userManager.IsInRoleAsync(owner, "Owner").Result)
+            {
+                await _userManager.RemoveFromRoleAsync(owner, "Owner");
+                await _userManager.AddToRoleAsync(owner, "Visitor");
+            }
+            
+            return RedirectToAction(nameof(Index));
+        }
+        [HttpGet]
+        public async Task<IActionResult> SetToOwner(string userId)
+        {
+            return View(await _userManager.FindByIdAsync(userId));
+        }
+        [HttpPost, ActionName("SetToOwner")]
+        public async Task<IActionResult> SetToOwnerConfirmed(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+
+            if (_userManager.IsInRoleAsync(user, "Owner").Result == false)
+            {
+                await _userManager.RemoveFromRoleAsync(user, "Visitor");
+                await _userManager.AddToRoleAsync(user, "Owner");
+            }
             return RedirectToAction(nameof(Index));
         }
     }

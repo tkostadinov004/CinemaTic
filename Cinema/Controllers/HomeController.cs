@@ -32,7 +32,7 @@ namespace Cinema.Controllers
                 return RedirectToAction("Index", "Admin");
             }
 
-            return View(_context.Movies.ToList().Where(i => i.Date >= DateTime.Today));
+            return View(_context.Movies.ToList().Where(i => Math.Abs((i.Date - DateTime.Today).TotalDays) <= 7));
         }
 
         public IActionResult Privacy()

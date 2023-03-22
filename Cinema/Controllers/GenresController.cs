@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Cinema.Data;
 using Cinema.Models;
 using Microsoft.AspNetCore.Authorization;
+using Cinema.Models.ViewModels;
 
 namespace Cinema.Controllers
 {
@@ -36,12 +37,12 @@ namespace Cinema.Controllers
             }
 
             var genre = await _context.Genres
+                .Include(i => i.Movies)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (genre == null)
             {
                 return NotFound();
             }
-
             return View(genre);
         }
 
@@ -131,10 +132,6 @@ namespace Cinema.Controllers
             if (genre == null)
             {
                 return NotFound();
-            }
-            if (genre.Movies.Count != 0)
-            {
-                return Problem("Genre is assoc with movies.");
             }
             return View(genre);
         }
