@@ -34,6 +34,7 @@ namespace Cinema.Models
         [Display(Name = "Снимка")]
         public string? ImageUrl { get; set; }
 
+        [Display(Name = "Филми")]
         public virtual ICollection<ActorMovie> Movies { get; set; }
     }
 }

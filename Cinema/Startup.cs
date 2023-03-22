@@ -55,86 +55,10 @@ namespace Cinema
             {
                 var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
                 DbInitializer initializer = new DbInitializer(context);
-                initializer.Run();
+                initializer.Run(serviceProvider, shouldDeleteDB: false); //change shouldDeleteDB to false after execution!!!
             }
         }
-        private void CreateRoles(IServiceProvider serviceProvider)
-        {
-            using (var scope = serviceProvider.CreateScope())
-            {
-                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-                Task<IdentityResult> roleResult;
-                string email = "admin@admin.com";
-
-                //Check that there is an Administrator role and create if not
-                Task<bool> hasAdminRole = roleManager.RoleExistsAsync("Administrator");
-                hasAdminRole.Wait();
-
-                if (!hasAdminRole.Result)
-                {
-                    roleResult = roleManager.CreateAsync(new IdentityRole("Administrator"));
-                    roleResult.Wait();
-                }
-
-                Task<bool> hasOwnerRole = roleManager.RoleExistsAsync("Owner");
-                hasOwnerRole.Wait();
-
-                if (!hasOwnerRole.Result)
-                {
-                    roleResult = roleManager.CreateAsync(new IdentityRole("Owner"));
-                    roleResult.Wait();
-                }
-
-                Task<bool> hasVisitorRole = roleManager.RoleExistsAsync("Visitor");
-                hasVisitorRole.Wait();
-
-                if (!hasVisitorRole.Result)
-                {
-                    roleResult = roleManager.CreateAsync(new IdentityRole("Visitor"));
-                    roleResult.Wait();
-                }
-                //Check if the admin user exists and create it if not
-                //Add to the Administrator role
-
-                Task<ApplicationUser> testUser = userManager.FindByEmailAsync(email);
-                testUser.Wait();
-
-                Task<IdentityResult> userResult = null;
-                if (testUser.Result == null)
-                {
-                    ApplicationUser administrator = new ApplicationUser();
-                    administrator.Email = email;
-                    administrator.UserName = email;
-                    administrator.FirstName = "Admin";
-                    administrator.LastName = "Adminovski";
-                    administrator.EmailConfirmed = true;
-
-                    userResult = userManager.CreateAsync(administrator, "adminPass123*");
-                    userResult.Wait();
-                    if (userResult.Result.Succeeded)
-                    {
-                        Task<IdentityResult> newUserRole = userManager.AddToRoleAsync(administrator, "Administrator");
-                        newUserRole.Wait();
-                    }
-                }
-            }
-        }
-        public async Task CreateRolesAsync(IServiceProvider serviceProvider)
-        {
-            var roles = new string[] { "Owner", "Root", "Visitor" };
-
-            var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
-            foreach (var role in roles)
-            {
-                if (!await roleManager.RoleExistsAsync(role))
-                {
-                    await roleManager.CreateAsync(new IdentityRole { Name = role });
-                }
-            }
-        }
-
+        
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -165,7 +89,6 @@ namespace Cinema
                 endpoints.MapRazorPages();
             });
             InitializeDB(app.ApplicationServices);
-            CreateRoles(app.ApplicationServices);
         }
     }
 }

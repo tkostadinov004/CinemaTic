@@ -7,7 +7,7 @@
 <div class="details front-panel">
     <div>
         <div class="short-info">
-            <h1 class="section-line">@Model.Movie.Title</h1>
+            <h1 class="section-line">@Model.Movie.BulgarianTitle (@Model.Movie.EnglishTitle)</h1>
             <div class="short-info-line">
                 <div class="info-box">
                     <p class="info-box-title">@Html.DisplayNameFor(model => model.Movie.RunningTime)</p>
@@ -30,11 +30,11 @@
                             <button class="close-btn" aria-label="close" title="Close">x</button>
                             @if (Model.CurrentUserRating == null)
                             {
-                                <h2 id="add-review-header">Оцени филма @Model.Movie.Title</h2>
+                                <h2 id="add-review-header">Оцени филма @Model.Movie.BulgarianTitle (@Model.Movie.EnglishTitle)</h2>
                             }
                             else
                             {
-                                <h2 id="add-review-header">Промени оценката си за филма @Model.Movie.Title</h2>
+                                <h2 id="add-review-header">Промени оценката си за филма @Model.Movie.BulgarianTitle (@Model.Movie.EnglishTitle)</h2>
                             }
                             <div id="review-form-container">
                                 <form id="review-form" asp-controller="Movies" asp-action="SetRating" method="post">
@@ -83,13 +83,17 @@
             <p>@Model.Movie.Description</p>
             <section class="details-info">
                 <div class="info-box">
+                    <p class="info-box-title">@Html.DisplayNameFor(model => model.Movie.Price)</p>
+                    <p class="info-box-desc">@Html.DisplayFor(model => model.Movie.Price) лв.</p>
+                </div>
+                <div class="info-box">
                     <p class="info-box-title">@Html.DisplayNameFor(model => model.Movie.Genre)</p>
                     <p class="info-box-desc">@Html.DisplayFor(model => model.Movie.Genre.BulgarianName)</p>
                 </div>
                 <div class="info-box actors">
                     <p class="info-box-title">@Html.DisplayNameFor(model => model.Movie.Actors)</p>
                     <div class="info-box-desc">
-                        @foreach (string actor in Model.Movie.Actors.Select(i => $"{i.Actor.FirstName} {i.Actor.LastName}"))
+                        @foreach (string actor in Model.Movie.Actors.Select(i => i.Actor.BulgarianFullName))
                         {
                             <p class="actor-name">@actor</p>
                         }

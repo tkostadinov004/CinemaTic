@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Купи билет за филм @Model.Movie.Title</h1>
+<h1>Купи билет за филм @Model.Movie.BulgarianTitle</h1>
 <hr />
 <link href="~/css/seatsStyle.css" rel="stylesheet" />
 @if (Model.Occupied.Cast<bool>().All(i => i == true) == false)

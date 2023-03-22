@@ -8,16 +8,15 @@
 <div class="moviesContainer flex-column front-panel">
     <h1>Филми</h1>
     <a class="nx-btn front-panel" asp-controller="Movies" asp-action="Create">Добави нов филм</a>
-    <table class="rwd-table">
+    <table class="rwd-table movies-table">
         <tbody>
             <tr>
                 <th>Име</th>
                 <th>Жанр </th>
                 <th>Среден потребителски рейтинг </th>
                 <th>Брой оценки </th>
-                <th>Добавен на </th>
+                <th>Започва прожекции на: </th>
                 <th>Цена </th>
-                <th>Времетраене </th>
                 <th>Наличен? </th>
                 <th></th>
                 <th></th>
@@ -26,7 +25,7 @@
             @foreach (var movie in Model)
             {
                 <tr class="owner">
-                    <td>@movie.Title</td>
+                    <td>@movie.BulgarianTitle</td>
                     <td>
                         <a asp-controller="Genres" asp-action="Details" asp-route-id="@movie.Genre.Id"><b>@movie.Genre.BulgarianName</b></a>
                     </td>
@@ -34,7 +33,6 @@
                     <td>@movie.RatingCount</td>
                     <td>@movie.Date.ToString("dd-MM-yyyy")</td>
                     <td>@movie.Price</td>
-                    <td>@movie.RunningTime минути</td>
                     @{ 
                         var isAvailable = Math.Abs((movie.Date - DateTime.Now).TotalDays) <= 7;
                     }

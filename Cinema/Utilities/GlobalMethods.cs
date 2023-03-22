@@ -52,8 +52,9 @@ namespace Cinema.Utilities
             
             var countries = cultures.Select(cult => (new RegionInfo(cult.LCID)).TwoLetterISORegionName).Distinct();
 
-            var bulgarianCountries = countries.Select(i => IsoNames.CountryNames.GetName(CultureInfo.GetCultureInfo("bg"), i)).Where(i => i != null).OrderBy(i => i);
+            var bulgarianCountries = countries.Select(i => IsoNames.CountryNames.GetName(CultureInfo.GetCultureInfo("bg"), i)).Where(i => i != null).OrderBy(i => i).ToList();
 
+            bulgarianCountries.Insert(0, null);
             return bulgarianCountries;
         }
     }

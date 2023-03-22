@@ -100,7 +100,8 @@ namespace Cinema.Controllers
                     Date = movieVM.Date,
                     Description = movieVM.Description,
                     RunningTime = movieVM.RunningTime,
-                    Title = movieVM.Title,
+                    BulgarianTitle = movieVM.BulgarianTitle,
+                    EnglishTitle = movieVM.EnglishTitle,
                     ImageUrl = photoName,
                     Price = movieVM.Price,
                     TrailerUrl = movieVM.TrailerUrl
@@ -142,7 +143,8 @@ namespace Cinema.Controllers
             var vm = new CreateEditMovieViewModel
             {
                 Id = movie.Id,
-                Title = movie.Title,
+                BulgarianTitle = movie.BulgarianTitle,
+                EnglishTitle = movie.EnglishTitle,
                 Genre = movie.Genre,
                 GenreId = movie.GenreId,
                 Description = movie.Description,
@@ -175,7 +177,8 @@ namespace Cinema.Controllers
                     var movie = await _context.Movies.AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
                     string photoName = GlobalMethods.UploadPhoto("Movies", vm.Image, _webHostEnvironment);
 
-                    movie.Title = vm.Title;
+                    movie.BulgarianTitle = vm.BulgarianTitle;
+                    movie.EnglishTitle = vm.EnglishTitle;
                     movie.Genre = await _context.Genres.FirstOrDefaultAsync(i => i.Id == genreId);
                     movie.Description = vm.Description;
                     movie.RunningTime = vm.RunningTime;

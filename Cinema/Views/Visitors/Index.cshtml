@@ -20,9 +20,16 @@
                         @string.Format($"{visitor.FirstName} {visitor.LastName}")
                     </td>
                     <td>
-                        @foreach (var ticket in visitor.Tickets)
+                        @if (visitor.Tickets.Count > 0)
                         {
-                            <p><a asp-controller="Movies" asp-action="Details" asp-route-id="@ticket.Movie.Id">@ticket.Movie.Title</a> - @ticket.ForDate.ToString("dd-MM-yyyy") - @ticket.Seat.SeatNumber</p>
+                            @foreach (var ticket in visitor.Tickets)
+                            {
+                                <p><a asp-controller="Movies" asp-action="Details" asp-route-id="@ticket.Movie.Id">@ticket.Movie.BulgarianTitle</a> - @ticket.ForDate.ToString("dd-MM-yyyy") - @ticket.Seat.SeatNumber</p>
+                            }
+                        }
+                        else
+                        {
+                           <b>Няма билети!</b>
                         }
                     </td>
                 </tr>

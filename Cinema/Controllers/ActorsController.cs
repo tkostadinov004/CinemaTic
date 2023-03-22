@@ -119,7 +119,7 @@ namespace Cinema.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(CreateEditActorViewModel actorVM,int id, string country)
+        public async Task<IActionResult> Edit(CreateEditActorViewModel actorVM,int id, string? country)
         {
             if (ModelState.IsValid)
             {
@@ -130,10 +130,13 @@ namespace Cinema.Controllers
                     actor.FirstName = actorVM.FirstName;
                     actor.LastName = actorVM.LastName;
                     actor.BulgarianFullName = actorVM.BulgarianFullName;
-                    actor.Nationality = country;
                     actor.Birthdate = actorVM.Birthdate;
                     actor.Rating = actorVM.Rating;
 
+                    if (country != null)
+                    {
+                        actor.Nationality = country;
+                    }
                     if (actorVM.Image != null)
                     {
                         actor.ImageUrl = photoName;

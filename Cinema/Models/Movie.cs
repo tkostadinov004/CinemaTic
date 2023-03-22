@@ -18,8 +18,11 @@ namespace Cinema.Models
             Actors = new List<ActorMovie>();
         }
         [Required]
-        [Display(Name = "Име на филма")]
-        public string Title { get; set; }
+        [Display(Name = "Име на филма (на английски)")]
+        public string EnglishTitle { get; set; }
+        [Required]
+        [Display(Name = "Име на филма (на български)")]
+        public string BulgarianTitle { get; set; }
         [Display(Name = "Жанр")]
         public int GenreId { get; set; }
         [Display(Name = "Снимка")]

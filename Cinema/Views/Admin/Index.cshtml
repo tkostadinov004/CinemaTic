@@ -11,12 +11,14 @@
         <tbody>
             <tr>
                 <th>Име на собственика</th>
+                <th>Имейл на собственика</th>
                 <th></th>
             </tr>
             @foreach (var owner in Model.Where(i => _userManager.IsInRoleAsync(i, "Owner").Result == true))
             {
                 <tr class="owner">
                     <td>@string.Format($"{owner.FirstName} {owner.LastName}")</td>
+                    <td>@owner.Email</td>
                     <td>
                         <a asp-controller="Admin" asp-action="DeleteFromOwnerRole" asp-route-ownerId="@owner.Id">
                             <i class="fa-solid fa-circle-xmark f-color-size-b"></i>
@@ -32,6 +34,7 @@
         <tbody>
             <tr>
                 <th>Име на посетителя</th>
+                <th>Имейл на посетителя</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -39,6 +42,7 @@
             {
                 <tr class="owner">
                     <td>@string.Format($"{visitor.FirstName} {visitor.LastName}")</td>
+                    <td>@visitor.Email</td>
                     <td>
                         <a asp-controller="Admin" asp-action="SetToOwner" asp-route-userId="@visitor.Id">
                             <i class="fa-solid fa-user f-green-color-size-b"></i>

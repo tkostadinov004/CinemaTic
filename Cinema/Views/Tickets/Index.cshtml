@@ -22,23 +22,34 @@
                 <th>Цена</th>
                 <th>Номер на място</th>
             </tr>
-            @foreach (var ticket in Model)
+            @if (Model.Count() > 0)
+            {
+                @foreach (var ticket in Model)
+                {
+                    <tr class="owner">
+                        <td>
+                            <div class="movie-table-info">
+                                <div>@ticket.Movie.BulgarianTitle</div>
+                                <a asp-controller="Movies" asp-action="Details" asp-route-id="@ticket.Movie.Id"><b>Виж повече</b></a>
+                            </div>
+                        </td>
+                        <td>
+                            @ticket.ForDate.ToString("dd-MM-yyyy")
+                        </td>
+                        <td>
+                            @ticket.Price лв.
+                        </td>
+                        <td>
+                            @ticket.Seat.SeatNumber
+                        </td>
+                    </tr>
+                }
+            }
+            else
             {
                 <tr class="owner">
-                    <td>
-                        <div class="movie-table-info">
-                            <div>@ticket.Movie.Title</div>
-                            <a asp-controller="Movies" asp-action="Details" asp-route-id="@ticket.Movie.Id"><b>Виж повече</b></a>
-                        </div>
-                    </td>
-                    <td>
-                        @ticket.ForDate.ToString("dd-MM-yyyy")
-                    </td>
-                    <td>
-                        @ticket.Price лв.
-                    </td>
-                    <td>
-                        @ticket.Seat.SeatNumber
+                    <td colspan="4" style="text-align: center;">
+                        <b>Няма билети!</b>
                     </td>
                 </tr>
             }

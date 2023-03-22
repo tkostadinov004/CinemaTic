@@ -16,6 +16,10 @@
                     <p class="info-box-title">@Html.DisplayNameFor(model => model.Nationality)</p>
                     <p class="info-box-desc">@Html.DisplayFor(model => model.Nationality)</p>
                 </div>
+                <div class="info-box">
+                    <p class="info-box-title">@Html.DisplayNameFor(model => model.Birthdate)</p>
+                    <p class="info-box-desc">@Model.Birthdate.ToString("dd.MM.yyyy")</p>
+                </div>
                 <div class="rating-container">
                     <span>IMDB рейтинг</span>
                     <div class="rating-box">
@@ -28,20 +32,19 @@
             </div>
         </div>
         <hr class="section-line" />
-        <div class="details-grid">
+        <div class="details-grid actor-details">
             <img class="cover-photo" src="~/@Cinema.Utilities.Constants.ImagesFolder/Actors/@Model.ImageUrl" />
-            <p>@Model.Birthdate.ToString("dd.MM.yyyy")</p>
             <section class="details-info">
                 <div class="info-box">
                     @*<p class="info-box-title">@Html.DisplayNameFor(model => model.Movie.Genre)</p>
-                    <p class="info-box-desc">@Html.DisplayFor(model => model.Movie.Genre.BulgarianName)</p>*@
+            <p class="info-box-desc">@Html.DisplayFor(model => model.Movie.Genre.BulgarianName)</p>*@
                 </div>
                 <div class="info-box actors">
                     <p class="info-box-title">@Html.DisplayNameFor(model => model.Movies)</p>
                     <div class="info-box-desc">
-                        @foreach (string movie in Model.Movies.Select(i => i.Movie.Title))
+                        @foreach (var movie in Model.Movies)
                         {
-                            <p class="actor-name">@movie</p>
+                        <a class="actor-name" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.MovieId"><b>@movie.Movie.BulgarianTitle</b></a>
                         }
                     </div>
                 </div>

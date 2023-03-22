@@ -31,8 +31,11 @@ namespace Cinema.Controllers
             {
                 return RedirectToAction("Index", "Admin");
             }
-
-            return View(_context.Movies.ToList().Where(i => Math.Abs((i.Date - DateTime.Today).TotalDays) <= 7));
+            if (User.IsInRole("Owner"))
+            {
+                return RedirectToAction("Index", "Movies");
+            }
+            return View(_context.Movies.ToList());
         }
 
         public IActionResult Privacy()
