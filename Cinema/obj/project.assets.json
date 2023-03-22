@@ -2205,6 +2205,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "DbSeeder.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/DbSeeder.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DbSeeder.Data.dll": {}
+        }
       }
     }
   },
@@ -7621,10 +7631,16 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "DbSeeder.Data/1.0.0": {
+      "type": "project",
+      "path": "../DbSeeder.Data/DbSeeder.Data.csproj",
+      "msbuildProject": "../DbSeeder.Data/DbSeeder.Data.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "DbSeeder.Data >= 1.0.0",
       "IsoNames >= 1.1.0",
       "Microsoft.AspNet.Mvc >= 5.2.9",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 5.0.4",
@@ -7662,7 +7678,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\DbSeeder.Data\\DbSeeder.Data.csproj": {
+              "projectPath": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\DbSeeder.Data\\DbSeeder.Data.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

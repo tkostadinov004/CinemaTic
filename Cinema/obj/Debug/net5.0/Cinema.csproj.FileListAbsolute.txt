@@ -199,3 +199,9 @@ C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\Admin\DeleteFromOwnerRole.cshtml.g.cs
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\obj\Debug\net5.0\Razor\Views\Shared\HomeMoviesPartial.cshtml.g.cs
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net5.0\IsoNames.dll
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net5.0\DbSeeder.Data.deps.json
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net5.0\DbSeeder.Data.runtimeconfig.json
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net5.0\DbSeeder.Data.runtimeconfig.dev.json
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net5.0\DbSeeder.Data.exe
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net5.0\DbSeeder.Data.dll
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net5.0\DbSeeder.Data.pdb
