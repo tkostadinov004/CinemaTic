@@ -12,6 +12,8 @@ using Cinema.Models.Enums;
 using Microsoft.AspNetCore.Identity;
 using System.Globalization;
 using Cinema.Models.ViewModels;
+using Cinema.Utilities;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Cinema.Controllers
 {
@@ -19,21 +21,24 @@ namespace Cinema.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
-        public MoviesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public MoviesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _userManager = userManager;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: Movies
         [AllowAnonymous]
         public async Task<IActionResult> Index(DateTime? date)
         {
-            var movies = await _context.Movies.Include(i => i.Genre).Include(i => i.Actors).ThenInclude(a => a.Actor).Where(i => i.Date >= DateTime.Today).ToListAsync();
-            if (date != null)
-            {
-                return View(movies.Where(i => Math.Abs((i.Date - date.Value).TotalDays) <= 7));
-            }
+            var movies = _context.Movies.Include(i => i.Genre).Include(i => i.Actors).ThenInclude(a => a.Actor).ToListAsync().Result.ToList();
+            //.Where(i => Math.Abs((i.Date - DateTime.Now).TotalDays) <= 7)
+            //if (date != null)
+            //{
+            //    return View(movies.Where(i => Math.Abs((i.Date - date.Value).TotalDays) <= 7));
+            //}
             return View(movies);
         }
 
@@ -85,11 +90,21 @@ namespace Cinema.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Owner")]
-        public async Task<IActionResult> Create([Bind("Id,Title,Genre,GenreId,ImageUrl,Description,UserRating,Date,Price,Actors")] Movie movie, IEnumerable<string> acts)
+        public async Task<IActionResult> Create(CreateMovieViewModel movieVM, IEnumerable<string> acts, int genreId)
         {
             if (ModelState.IsValid)
             {
-                var genre = _context.Genres.Include(i => i.Movies).FirstOrDefault(i => i.Id == movie.GenreId);
+                string photoName = GlobalMethods.UploadPhoto("Movies", movieVM.Image, _webHostEnvironment);
+                Movie movie = new Movie
+                {
+                    Date = movieVM.Date,
+                    Description = movieVM.Description,
+                    RunningTime = movieVM.RunningTime,
+                    Title = movieVM.Title,
+                    ImageUrl = photoName
+                };
+
+                var genre = _context.Genres.Include(i => i.Movies).FirstOrDefault(i => i.Id == genreId);
                 movie.UserRating = 0;
                 movie.Genre = genre;
                 movie.Genre.Movies.Add(movie);
@@ -102,17 +117,16 @@ namespace Cinema.Controllers
                         MovieId = movie.Id
                     });
                 }
+                _context.Movies.Add(movie);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
             }
-            return View(movie);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Movies/Edit/5
         [Authorize(Roles = "Owner")]
         public async Task<IActionResult> Edit(int? id)
         {
-
             if (id == null)
             {
                 return NotFound();
@@ -175,6 +189,7 @@ namespace Cinema.Controllers
             }
 
             var movie = await _context.Movies
+                .Include(i => i.Genre)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (movie == null)
             {
