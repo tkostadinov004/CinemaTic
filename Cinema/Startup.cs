@@ -47,26 +47,16 @@ namespace Cinema
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireDigit = false;
             });
-            services.AddTransient<DbInitializer>();
         }
 
         private void InitializeDB(IServiceProvider serviceProvider)
         {
-            using var scope = serviceProvider.CreateScope();
-            var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-            var services = scope.ServiceProvider;
-
-            for (int i = 0; i < 21; i++)
+            using (var scope = serviceProvider.CreateScope())
             {
-                for (int j = 0; j < 31; j++)
-                {
-                    context.Seats.Add(new Seat($"R{(i + 1).ToString("D2")}C{(j + 1).ToString("D2")}")
-                    {
-                        IsOccupied = false
-                    });
-                }
+                var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                DbInitializer initializer = new DbInitializer(context);
+                initializer.Run();
             }
-            context.SaveChanges();
         }
         private void CreateRoles(IServiceProvider serviceProvider)
         {
@@ -174,7 +164,7 @@ namespace Cinema
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
-            //InitializeDB(app.ApplicationServices);
+            InitializeDB(app.ApplicationServices);
             CreateRoles(app.ApplicationServices);
         }
     }
