@@ -36,12 +36,14 @@ a {
         background-color: var(--nx-red);
         transition: 0.2s ease-in-out;
     }
-
-.nx-btn.primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
+    form.edit-button {
+        margin-top: 50px;
+    }
+    .nx-btn.primary {
+        color: #fff;
+        background-color: #1b6ec2;
+        border-color: #1861ac;
+    }
 
 .nx-btn.green {
     color: #fff;
@@ -452,9 +454,11 @@ footer {
     .rwd-table td {
         display: block;
         word-break: break-word;
-        min-width: 100px;
+        min-width: 80px;
     }
-
+    .rwd-table td.control {
+        min-width: 120px;
+    }
         .rwd-table td:first-child {
             margin-top: .5em;
             min-width: 200px;

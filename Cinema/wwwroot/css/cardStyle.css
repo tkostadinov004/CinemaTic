@@ -178,6 +178,9 @@
 .f-green-color-size-b {
     color: #17bd43;
 }
+.f-blue-color-size-b {
+    color: #1b6ec2;
+}
 .desc-button:not(.projection-info):hover {
     transition: 0.5s;
     background-color: rgba(130, 3, 1, 0.5);
