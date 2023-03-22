@@ -456,8 +456,18 @@ footer {
         word-break: break-word;
         min-width: 80px;
     }
+    .rwd-table td:nth-child(2) {
+        min-width: 150px;
+    }
     .rwd-table td.control {
         min-width: 120px;
+    }
+    .rwd-table:not(.movies-table) {
+        font-size: 16px;
+        max-width: 100%;
+    }
+    .rwd-table:not(.movies-table) {
+        min-width: 200px;
     }
         .rwd-table td:first-child {
             margin-top: .5em;
@@ -568,10 +578,20 @@ footer {
         overflow: hidden;
         width: 350px;
     }
-.details-info {
-    display: flex;
-    flex-direction: column;
-}
+    .details-grid.actor-details {
+        grid-template-areas: "photo info info";
+    }
+        .details-grid.actor-details .cover-photo {
+            grid-area: photo;
+        }
+    .details-grid.actor-details .details-info {
+        align-items: flex-start;
+        grid-area: info;
+    }
+    .details-info {
+        display: flex;
+        flex-direction: column;
+    }
 .info-box {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
