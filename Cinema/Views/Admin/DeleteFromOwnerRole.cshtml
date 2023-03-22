@@ -1,0 +1,17 @@
+﻿@model Cinema.Models.ApplicationUser
+
+@{
+    ViewData["Title"] = "Начало";
+}
+<link href="~/css/adminStyle.css" rel="stylesheet" />
+<link href="~/css/cardStyle.css" rel="stylesheet" />
+<div class="moviesContainer flex-column front-panel">
+    <h1>Сигурни ли сте, че искате да изтриете следния собственик?</h1>
+    <div class="owner-info">
+        <p>Име: @string.Format($"{Model.FirstName} {Model.LastName}")</p>
+    </div>
+    <form class="agreement-buttons" asp-controller="Admin" asp-action="DeleteFromOwnerRole">
+        <button type="submit" class="nx-btn green front-panel" asp-route-id="@Model.Id">Да</button>
+        <a class="nx-btn front-panel" asp-controller="Admin" asp-action="Index">Не</a>
+    </form>
+</div>

@@ -1,17 +1,6 @@
 ﻿@model IEnumerable<Cinema.Models.Movie>
-
-@{
-    ViewData["Title"] = "Начало";
-}
-
-<link rel="stylesheet" href="~/css/cardStyle.css" />
-<h1>Киносалон CinemaTic</h1>
-
-<h3>Филмите днес: </h3>
-<partial name="HomeMoviesPartial" model="@Model.Where(i => Math.Abs((i.Date - DateTime.Now).TotalDays) <= 7)" />
-<hr class="section-line" style="margin: 40px 0px;"/>
-<h3>Всички филми: </h3>
 <div class="moviesContainer">
+    <link rel="stylesheet" href="~/css/cardStyle.css" />
     @foreach (var movie in Model)
     {
         <div class="card-wrapper">

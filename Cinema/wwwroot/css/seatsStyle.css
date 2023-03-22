@@ -43,16 +43,23 @@ input.radio {
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 15px;
 }
 .sector-line {
     display: flex;
     flex-direction: row;
+    gap: 15px;
+    margin-bottom: 15px;
 }
 .sector {
-    background-color: red;
+    background-color: rgba(6, 125, 6, .7);
     padding: 80px;
-    border: 2px solid lightblue;
+    border: 2px solid black;
 }
+    .sector:hover {
+        background-color: rgba(4, 84, 4, .7);
+        transition: 0.6s ease-in-out;
+    }
 .sector-container.sector-selector {
     position: relative;
     margin-left: auto;
@@ -64,12 +71,13 @@ input.radio {
     margin-right: 60px;
 }
 .sector-container-col-heading {
-    margin-bottom: 60px;
+    margin-bottom: 15px;
 }
 .sector-box {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    flex: 1 1 33%;
 }
 .seats-line {
     display: flex;
@@ -79,3 +87,17 @@ input.radio {
 .right-seat {
     margin-right: 10px;
 }
+.seat label {
+    cursor: pointer;
+}
+input.disabled {
+    pointer-events: none;
+}
+#submit-seat-btn:not([disabled]) {
+    cursor: pointer;
+}
+#submit-seat-btn[disabled] {
+    background-color: gray;
+    border-color: gray;
+}
+/*Occupied seat popup*/

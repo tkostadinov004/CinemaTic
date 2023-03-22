@@ -50,7 +50,6 @@ form button {
     grid-template-columns: 50% 60%;
     align-items: center;
     justify-content: center;
-    justify-items: start;
 }
 .text-fields .form-group {
     display: flex;
@@ -72,7 +71,7 @@ hr {
     list-style-type: none;
     padding-left: 0;
 }
-.nx-btn {
+.front-panel .nx-btn {
     margin-top: 20px;
 }
 /*Checkbox*/

@@ -4,27 +4,36 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>Genre</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EnglishName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EnglishName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BulgarianName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BulgarianName)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<link rel="stylesheet" href="~/css/cardStyle.css" />
+<div class="moviesContainer flex-column front-panel">
+    <h1>@Model.BulgarianName</h1>
+    <div class="moviesContainer">
+        @foreach (var movie in Model.Movies)
+        {
+            <div class="card-wrapper">
+                <div class="card">
+                    <img src="~/@Cinema.Utilities.Constants.ImagesFolder/Movies/@movie.ImageUrl" />
+                    <div class="descriptions">
+                        <div class="description-buttons">
+                            <div class="desc-button">
+                                <i class="fa-solid fa-film f-size-b"></i>
+                                <a>Гледай трейлър</a>
+                            </div>
+                            <a class="desc-button" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">
+                                <i class="fa-solid fa-circle-info f-size-b"></i>
+                                Детайли
+                            </a>
+                            @if (User.IsInRole("Owner") == false)
+                            {
+                                <a class="desc-button" asp-controller="Tickets" asp-action="Create" asp-route-movieId="@movie.Id">
+                                    <i class="fa-solid fa-cart-shopping f-size-b"></i>
+                                    Купи билет
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>

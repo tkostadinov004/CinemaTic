@@ -4,71 +4,32 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Birthdate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nationality)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rating)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Movies)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Birthdate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nationality)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageUrl)
-            </td>
-            <td>
-               @foreach (var movie in item.Movies)
-               {
-                   <p>@movie.Movie.Title</p>
-               }
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<link rel="stylesheet" href="~/css/cardStyle.css" />
+<section class="front-panel">
+    <h1 data-content="Actors" style="margin-bottom: 20px;">Актьори</h1>
+    <a class="nx-btn front-panel" asp-controller="Actors" asp-action="Create">Добави нов актьор</a>
+    <div class="moviesContainer left-align">
+        @foreach (var actor in Model)
+        {
+            <div class="card-wrapper card-wrapper-actors">
+                <div class="card">
+                    <img src="~/@Cinema.Utilities.Constants.ImagesFolder/Actors/@actor.ImageUrl" />
+                    <div class="descriptions">
+                        <div class="description-buttons">
+                            <a class="desc-button" asp-controller="Actors" asp-action="Details" asp-route-id="@actor.Id">
+                                <i class="fa-solid fa-circle-info f-size-b"></i>
+                            </a>
+                            <a class="desc-button" asp-controller="Actors" asp-action="Delete" asp-route-id="@actor.Id">
+                                <i class="fa-solid fa-xmark f-size-b"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <p class="actor-name">@actor.BulgarianFullName</p>
+            </div>
+        }
+    </div>
+</section>
+<script>
+    document.getElementsByClassName("layout-centered-container")[0].classList.add("h-width");
+</script>

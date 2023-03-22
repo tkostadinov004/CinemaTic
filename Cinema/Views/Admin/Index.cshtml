@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<Cinema.Models.ApplicationUser>
-
+@inject Microsoft.AspNetCore.Identity.UserManager<ApplicationUser> _userManager
 @{
     ViewData["Title"] = "Администраторски панел";
 }
@@ -13,12 +13,40 @@
                 <th>Име на собственика</th>
                 <th></th>
             </tr>
-            @foreach (var owner in Model)
+            @foreach (var owner in Model.Where(i => _userManager.IsInRoleAsync(i, "Owner").Result == true))
             {
                 <tr class="owner">
                     <td>@string.Format($"{owner.FirstName} {owner.LastName}")</td>
                     <td>
-                        <a asp-controller="Admin" asp-action="DeleteOwner" asp-route-ownerId="@owner.Id">
+                        <a asp-controller="Admin" asp-action="DeleteFromOwnerRole" asp-route-ownerId="@owner.Id">
+                            <i class="fa-solid fa-circle-xmark f-color-size-b"></i>
+                            Премахни от роля "собственик"
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <h1>Посетители на CinemaTic</h1>
+    <table class="rwd-table">
+        <tbody>
+            <tr>
+                <th>Име на посетителя</th>
+                <th></th>
+                <th></th>
+            </tr>
+            @foreach (var visitor in Model.Where(i => _userManager.IsInRoleAsync(i, "Visitor").Result == true))
+            {
+                <tr class="owner">
+                    <td>@string.Format($"{visitor.FirstName} {visitor.LastName}")</td>
+                    <td>
+                        <a asp-controller="Admin" asp-action="SetToOwner" asp-route-userId="@visitor.Id">
+                            <i class="fa-solid fa-user f-green-color-size-b"></i>
+                            Направи собственик
+                        </a>
+                    </td>
+                    <td>
+                        <a asp-controller="Admin" asp-action="DeleteOwner" asp-route-ownerId="@visitor.Id">
                             <i class="fa-solid fa-circle-xmark f-color-size-b"></i>
                             Премахни
                         </a>
@@ -27,5 +55,4 @@
             }
         </tbody>
     </table>
-    <a class="nx-btn front-panel" asp-area="Identity" asp-page="/Admin/RegisterOwner">Създай акаунт за нов собственик на CinemaTic</a>
 </div>

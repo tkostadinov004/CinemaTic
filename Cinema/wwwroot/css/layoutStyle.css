@@ -6,7 +6,7 @@
 
 body {
     font-family: "Raleway", Arial, Helvetica, sans-serif;
-    background-color: var(--nx-gray);
+    background-color: black;
 }
 
 a {
@@ -258,6 +258,9 @@ footer {
     color: var(--nx-gray);
     margin-top: 0;
     padding: 30px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }
 
     footer h5 {
@@ -419,14 +422,17 @@ footer {
 .rwd-table {
     margin: auto;
     min-width: 300px;
-    max-width: 100%;
+    max-width: 90%;
     border-collapse: collapse;
+    font-size: 14px;
 }
 
     .rwd-table tr:first-child {
         border-top: none;
-        background: #428bca;
+        background: var(--nx-red);
         color: #fff;
+        background-color: #1b6ec2;
+        border-color: #1861ac;
     }
 
     .rwd-table tr {
@@ -445,10 +451,13 @@ footer {
 
     .rwd-table td {
         display: block;
+        word-break: break-word;
+        min-width: 100px;
     }
 
         .rwd-table td:first-child {
             margin-top: .5em;
+            min-width: 200px;
         }
 
         .rwd-table td:last-child {
@@ -482,7 +491,9 @@ footer {
     .rwd-table td {
         padding: .5em 1em;
     }
-
+.owner td p {
+    margin: 0;
+}
 @media screen and (max-width: 601px) {
     .rwd-table tr:nth-child(2) {
         border-top: none;
@@ -584,6 +595,7 @@ footer {
     display: flex;
     flex-direction: row;
     gap: 30px;
+    justify-content: space-between;
 }
 
 .short-info {
@@ -643,4 +655,39 @@ footer {
 }
 .nx-btn.projection-hour {
     background-color: #1e9c3f;
+}
+.h-width {
+    width: 100%;
+}
+.moviesContainer.left-align {
+    justify-content: flex-start;
+    margin-left: 50px;
+    gap: 50px;
+}
+.layout-centered-container > section.front-panel:has(h1[data-content="Actors"]) .card {
+    flex-basis: 150px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+    .layout-centered-container > section.front-panel:has(h1[data-content="Actors"]) .card img {
+        overflow: hidden;
+        object-fit: cover;
+    }
+.section-line p {
+    margin: 0;
+}
+.col-green {
+    color: #fff;
+    background-color: #17bd43;
+}
+.col-red {
+    color: #fff;
+    background-color: var(--nx-red);
+}
+.form-group select {
+    font-size: 15px;
+}
+.active-form label {
+    text-align: left;
 }

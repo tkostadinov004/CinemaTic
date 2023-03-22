@@ -3,52 +3,49 @@
 @{
     ViewData["Title"] = "Details";
 }
-
-<h1>Details</h1>
-
-<div>
-    <h4>Actor</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Birthdate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Birthdate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nationality)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nationality)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Rating)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Rating)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<link href="~/css/ratingModal.css" rel="stylesheet" />
+<div class="details front-panel">
+    <div>
+        <div class="short-info">
+            <div class="section-line">
+                <p class="section-line" style="font-size: 2rem; font-weight: bold;">@Model.BulgarianFullName</p>
+                <p class="section-line">@string.Format($"({Model.FirstName} {Model.LastName})")</p>
+            </div>
+            <div class="short-info-line">
+                <div class="info-box">
+                    <p class="info-box-title">@Html.DisplayNameFor(model => model.Nationality)</p>
+                    <p class="info-box-desc">@Html.DisplayFor(model => model.Nationality)</p>
+                </div>
+                <div class="rating-container">
+                    <span>IMDB рейтинг</span>
+                    <div class="rating-box">
+                        <i class="fa-solid fa-star ct-rating-star"></i>
+                        <div class="rating-number-box">
+                            <span>@string.Format($"{Model.Rating:f1}/10")</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="section-line" />
+        <div class="details-grid">
+            <img class="cover-photo" src="~/@Cinema.Utilities.Constants.ImagesFolder/Actors/@Model.ImageUrl" />
+            <p>@Model.Birthdate.ToString("dd.MM.yyyy")</p>
+            <section class="details-info">
+                <div class="info-box">
+                    @*<p class="info-box-title">@Html.DisplayNameFor(model => model.Movie.Genre)</p>
+                    <p class="info-box-desc">@Html.DisplayFor(model => model.Movie.Genre.BulgarianName)</p>*@
+                </div>
+                <div class="info-box actors">
+                    <p class="info-box-title">@Html.DisplayNameFor(model => model.Movies)</p>
+                    <div class="info-box-desc">
+                        @foreach (string movie in Model.Movies.Select(i => i.Movie.Title))
+                        {
+                            <p class="actor-name">@movie</p>
+                        }
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 </div>

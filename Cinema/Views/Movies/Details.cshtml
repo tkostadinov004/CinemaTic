@@ -79,7 +79,7 @@
         </div>
         <hr class="section-line" />
         <div class="details-grid">
-            <img class="cover-photo" src="@Model.Movie.ImageUrl" />
+            <img class="cover-photo" src="~/@Cinema.Utilities.Constants.ImagesFolder/Movies/@Model.Movie.ImageUrl" />
             <p>@Model.Movie.Description</p>
             <section class="details-info">
                 <div class="info-box">
@@ -98,25 +98,31 @@
             </section>
         </div>
     </div>
-    <div class="details-schedule">
-        <div class="details-schedule-dates">
-            <button class="nx-btn primary" value="@DateTime.Today.ToString("dd.MM.yyyy")" onclick="showByDate(this)">Днес</button>
-            <button class="nx-btn primary" value="@DateTime.Today.AddDays(1).ToString("dd.MM.yyyy")" onclick="showByDate(this)">Утре</button>
-            @for (int i = 2; i <= 7; i++)
-            {
-                string date = DateTime.Today.AddDays(i).ToString("dd.MM.yyyy");
-                <button class="nx-btn primary" value="@date" onclick="showByDate(this)">@date</button>
-            }
+    @if (User.IsInRole("Owner") == false)
+    {
+        <div class="details-schedule">
+            <div class="details-schedule-dates">
+                <button class="nx-btn primary" value="@DateTime.Today.ToString("dd.MM.yyyy")" onclick="showByDate(this)">Днес</button>
+                <button class="nx-btn primary" value="@DateTime.Today.AddDays(1).ToString("dd.MM.yyyy")" onclick="showByDate(this)">Утре</button>
+                @for (int i = 2; i <= 7; i++)
+                {
+                    string date = DateTime.Today.AddDays(i).ToString("dd.MM.yyyy");
+                    <button class="nx-btn primary" value="@date" onclick="showByDate(this)">@date</button>
+                }
+            </div>
+            <div class="details-schedule-projections">
+                @{
+                    var startingDate = Model.Movie.Date;
+                }
+                @for (DateTime date = startingDate; date < startingDate.AddDays(7); date = date.AddDays(1))
+                {
+                    <div class="projection hidden @date.ToString("dd.MM.yyyy")">
+                        <a class="nx-btn projection-hour" asp-controller="Tickets" asp-action="Create" asp-route-movieId="@Model.Movie.Id" asp-route-forDate="@date">@Model.Movie.Date.ToString("HH:mm")</a>
+                    </div>
+                }
+            </div>
         </div>
-        <div class="details-schedule-projections">
-            @for (int i = 2; i < 7; i++)
-            {
-                <div class="projection hidden @DateTime.Today.AddDays(i).ToString("dd.MM.yyyy")">
-                    <a class="nx-btn projection-hour" asp-controller="Tickets" asp-action="Create" asp-route-movieId="@Model.Movie.Id">@Model.Movie.Date.ToString("HH:mm")</a>
-                </div>
-            }
-        </div>
-    </div>
+    }
 </div>
 <script>
     function showByDate(button) {

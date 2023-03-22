@@ -6,6 +6,7 @@
     justify-content: space-between;
 }
 .moviesContainer {
+    margin-top: 25px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -164,10 +165,26 @@
     font-weight: normal;
     font-size: 1.2rem;
 }
+    .desc-button.projection-info {
+        background-color: rgba(43, 96, 143, 0.5);
+        font-weight: bold;
+    }
 .f-size-b {
     font-size: 30px;
 }
-.desc-button:hover {
+.f-color-size-b {
+    color: red;
+}
+.f-green-color-size-b {
+    color: #17bd43;
+}
+.desc-button:not(.projection-info):hover {
     transition: 0.5s;
     background-color: rgba(130, 3, 1, 0.5);
+}
+.card-wrapper-actors {
+    flex-direction: column;
+}
+.actor-name {
+
 }
