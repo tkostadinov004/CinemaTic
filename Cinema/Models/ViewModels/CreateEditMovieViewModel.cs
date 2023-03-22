@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.Models.ViewModels
 {
-    public class CreateMovieViewModel : Movie
+    public class CreateEditMovieViewModel : Movie
     {
         [Display(Name = "Снимка")]
         public IFormFile Image { get; set; }

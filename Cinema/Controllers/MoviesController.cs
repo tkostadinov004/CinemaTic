@@ -90,7 +90,7 @@ namespace Cinema.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Owner")]
-        public async Task<IActionResult> Create(CreateMovieViewModel movieVM, IEnumerable<string> acts, int genreId)
+        public async Task<IActionResult> Create(CreateEditMovieViewModel movieVM, IEnumerable<string> acts, int genreId)
         {
             if (ModelState.IsValid)
             {
@@ -101,7 +101,9 @@ namespace Cinema.Controllers
                     Description = movieVM.Description,
                     RunningTime = movieVM.RunningTime,
                     Title = movieVM.Title,
-                    ImageUrl = photoName
+                    ImageUrl = photoName,
+                    Price = movieVM.Price,
+                    TrailerUrl = movieVM.TrailerUrl
                 };
 
                 var genre = _context.Genres.Include(i => i.Movies).FirstOrDefault(i => i.Id == genreId);
@@ -132,12 +134,30 @@ namespace Cinema.Controllers
                 return NotFound();
             }
 
-            var movie = await _context.Movies.FindAsync(id);
+            var movie = await _context.Movies.Include(i => i.Actors).ThenInclude(i => i.Actor).FirstOrDefaultAsync(i => i.Id == id);
             if (movie == null)
             {
                 return NotFound();
             }
-            return View(movie);
+            var vm = new CreateEditMovieViewModel
+            {
+                Id = movie.Id,
+                Title = movie.Title,
+                Genre = movie.Genre,
+                GenreId = movie.GenreId,
+                Description = movie.Description,
+                RunningTime = movie.RunningTime,
+                TrailerUrl = movie.TrailerUrl,
+                Date = movie.Date,
+                Price = movie.Price,
+                Actors = movie.Actors,
+                ImageUrl = movie.ImageUrl
+            };
+            ViewBag.Genres = new SelectList(_context.Genres.AsNoTracking().ToList(), nameof(Genre.Id), nameof(Genre.BulgarianName));
+
+            var actors = _context.Actors.AsNoTracking().ToList();
+            ViewBag.Actors = new SelectList(from a in actors select new { Id = a.Id, FullName = $"{a.FirstName} {a.LastName}" }, nameof(Actor.Id), "FullName");
+            return View(vm);
         }
 
         // POST: Movies/Edit/5
@@ -146,26 +166,44 @@ namespace Cinema.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Owner")]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Genre,ImageUrl,Description,Date,Price")] Movie movie)
+        public async Task<IActionResult> Edit(CreateEditMovieViewModel vm, int id, int genreId, IEnumerable<string> acts)
         {
-            if (id != movie.Id)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var originalMovie = await _context.Movies.AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
-                    movie.UserRating = originalMovie.UserRating;
+                    var movie = await _context.Movies.AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
+                    string photoName = GlobalMethods.UploadPhoto("Movies", vm.Image, _webHostEnvironment);
 
+                    movie.Title = vm.Title;
+                    movie.Genre = await _context.Genres.FirstOrDefaultAsync(i => i.Id == genreId);
+                    movie.Description = vm.Description;
+                    movie.RunningTime = vm.RunningTime;
+                    movie.TrailerUrl = vm.TrailerUrl;
+                    movie.Date = vm.Date;
+                    movie.Price = vm.Price;
+
+                    if (vm.Image != null)
+                    {
+                        movie.ImageUrl = photoName;
+                    }
+                    foreach (string actorId in acts)
+                    {
+                        if (!movie.Actors.Contains(_context.ActorsMovies.FirstOrDefaultAsync(i => i.ActorId == int.Parse(actorId)).Result))
+                        {
+                            movie.Actors.Add(new ActorMovie
+                            {
+                                ActorId = int.Parse(actorId),
+                                MovieId = movie.Id
+                            });
+                        }
+                    }
                     _context.Update(movie);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MovieExists(movie.Id))
+                    if (!MovieExists(vm.Id))
                     {
                         return NotFound();
                     }
@@ -176,7 +214,7 @@ namespace Cinema.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(movie);
+            return View(vm);
         }
 
         // GET: Movies/Delete/5

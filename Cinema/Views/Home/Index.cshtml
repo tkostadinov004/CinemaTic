@@ -10,7 +10,7 @@
 <h3>Филмите днес: </h3>
 <partial name="HomeMoviesPartial" model="@Model.Where(i => Math.Abs((i.Date - DateTime.Now).TotalDays) <= 7)" />
 <hr class="section-line" style="margin: 40px 0px;"/>
-<h3>Всички филми: </h3>
+<h3>Предстоящи филми: </h3>
 <div class="moviesContainer">
     @foreach (var movie in Model)
     {

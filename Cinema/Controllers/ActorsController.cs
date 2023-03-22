@@ -63,7 +63,7 @@ namespace Cinema.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(CreateActorViewModel actorVM, string country)
+        public async Task<IActionResult> Create(CreateEditActorViewModel actorVM, string country)
         {
             actorVM.Nationality = country;
             if (ModelState.IsValid)
@@ -99,7 +99,19 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            return View(actor);
+            var vm = new CreateEditActorViewModel
+            {
+                Id = actor.Id,
+                FirstName = actor.FirstName,
+                LastName = actor.LastName,
+                BulgarianFullName = actor.BulgarianFullName,
+                Nationality = actor.Nationality,
+                Birthdate = actor.Birthdate,
+                Rating = actor.Rating,
+                ImageUrl = actor.ImageUrl
+            };
+            ViewBag.Countries = new SelectList(GlobalMethods.GetCountries());
+            return View(vm);
         }
 
         // POST: Actors/Edit/5
@@ -107,23 +119,31 @@ namespace Cinema.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Birthdate,Nationality,Rating,ImageUrl")] Actor actor)
+        public async Task<IActionResult> Edit(CreateEditActorViewModel actorVM,int id, string country)
         {
-            if (id != actor.Id)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
                 try
                 {
+                    var actor = await _context.Actors.FirstOrDefaultAsync(i => i.Id == id);
+                    string photoName = GlobalMethods.UploadPhoto("Actors", actorVM.Image, _webHostEnvironment);
+                    actor.FirstName = actorVM.FirstName;
+                    actor.LastName = actorVM.LastName;
+                    actor.BulgarianFullName = actorVM.BulgarianFullName;
+                    actor.Nationality = country;
+                    actor.Birthdate = actorVM.Birthdate;
+                    actor.Rating = actorVM.Rating;
+
+                    if (actorVM.Image != null)
+                    {
+                        actor.ImageUrl = photoName;
+                    }
                     _context.Update(actor);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ActorExists(actor.Id))
+                    if (!ActorExists(actorVM.Id))
                     {
                         return NotFound();
                     }
@@ -134,7 +154,7 @@ namespace Cinema.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(actor);
+            return View(actorVM);
         }
 
         // GET: Actors/Delete/5

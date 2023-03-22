@@ -34,6 +34,8 @@ namespace Cinema.Models
         public decimal Price { get; set; }
         [Display(Name = "Времетраене")]
         public int RunningTime { get; set; }
+        [Display(Name = "Линк към трейлъра")]
+        public string TrailerUrl { get; set; }
         [Display(Name = "Жанр")]
         public virtual Genre Genre { get; set; }
         [Display(Name = "Актьори")]

@@ -24,9 +24,9 @@
                         </a>
                         @if (User.IsInRole("Owner") == false)
                         {
-                            <a class="desc-button" asp-controller="Tickets" asp-action="Create" asp-route-movieId="@movie.Id">
+                            <a class="desc-button" asp-controller="Tickets" asp-action="Create" asp-route-movieId="@movie.Id"  asp-route-forDate="@DateTime.Today">
                                 <i class="fa-solid fa-cart-shopping f-size-b"></i>
-                                Купи билет
+                                Купи билет за днес
                             </a>
                         }
                     </div>

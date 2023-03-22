@@ -21,6 +21,7 @@
                 <th>Наличен? </th>
                 <th></th>
                 <th></th>
+                <th></th>
             </tr>
             @foreach (var movie in Model)
             {
@@ -40,13 +41,19 @@
                     <td class="col-@(isAvailable ? "green" : "red")">
                         <b>@string.Format($"{(isAvailable ? "ДА" : "НЕ")}")</b>
                     </td>
-                    <td>
+                    <td class="control">
                         <a asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">
                             <i class="fa-solid fa-circle-info f-green-color-size-b"></i>
                             <b>Детайли</b>
                         </a>
                     </td>
-                    <td>
+                    <td class="control">
+                        <a asp-controller="Movies" asp-action="Edit" asp-route-id="@movie.Id">
+                            <i class="fa-solid fa-pencil"></i>
+                            <b>Промени</b>
+                        </a>
+                    </td>
+                    <td class="control">
                         <a asp-controller="Movies" asp-action="Delete" asp-route-id="@movie.Id">
                             <i class="fa-solid fa-circle-xmark f-color-size-b"></i>
                             <b>Премахни</b>
