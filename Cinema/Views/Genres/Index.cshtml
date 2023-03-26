@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Cinema.Models.Genre>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Жанрове";
 }
 
 <link href="~/css/cardStyle.css" rel="stylesheet" />
@@ -12,6 +12,7 @@
             <tr>
                 <th>Име на жанра</th>
                 <th>Брой филми</th>
+                <th></th>
                 <th></th>
                 <th></th>
             </tr>
@@ -31,6 +32,12 @@
                         <a asp-controller="Genres" asp-action="Delete" asp-route-id="@genre.Id">
                             <i class="fa-solid fa-circle-xmark f-color-size-b"></i>
                             Премахни
+                        </a>
+                    </td>
+                    <td>
+                        <a asp-controller="Genres" asp-action="Edit" asp-route-id="@genre.Id">
+                            <i class="fa-solid fa-pencil"></i>
+                            Промени
                         </a>
                     </td>
                 </tr>

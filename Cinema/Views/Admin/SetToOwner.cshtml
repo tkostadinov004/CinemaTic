@@ -1,12 +1,12 @@
 ﻿@model Cinema.Models.ApplicationUser
 
 @{
-    ViewData["Title"] = "Начало";
+    ViewData["Title"] = "Направи собственик";
 }
 <link href="~/css/adminStyle.css" rel="stylesheet" />
 <link href="~/css/cardStyle.css" rel="stylesheet" />
 <div class="moviesContainer flex-column front-panel">
-    <h1>Сигурни ли сте, че искате да направите следния потребител собственик?</h1>
+    <h1 class="change-header">Сигурни ли сте, че искате да направите следния потребител собственик?</h1>
     <div class="owner-info">
         <p>Име: @string.Format($"{Model.FirstName} {Model.LastName}")</p>
     </div>

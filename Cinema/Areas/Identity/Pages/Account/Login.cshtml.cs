@@ -107,7 +107,7 @@ namespace Cinema.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Грешно потребителско име или парола.");
                     return Page();
                 }
             }

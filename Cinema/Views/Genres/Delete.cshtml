@@ -1,7 +1,7 @@
 ﻿@model Cinema.Models.Genre
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Изтрий жанр";
 }
 
 <link href="~/css/adminStyle.css" rel="stylesheet" />
@@ -9,7 +9,7 @@
 <div class="moviesContainer flex-column front-panel">
     @if (Model.Movies.Count == 0)
     {
-        <h1>Сигурни ли сте, че искате да изтриете следния жанр?</h1>
+        <h1 class="change-header">Сигурни ли сте, че искате да изтриете следния жанр?</h1>
         <div class="owner-info">
             <p>Име: @Model.BulgarianName</p>
         </div>

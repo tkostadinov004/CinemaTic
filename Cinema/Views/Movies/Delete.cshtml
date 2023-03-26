@@ -1,14 +1,14 @@
 ﻿@model Cinema.Models.Movie
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Премахни филм";
 }
 
 
 <link href="~/css/adminStyle.css" rel="stylesheet" />
 <link href="~/css/cardStyle.css" rel="stylesheet" />
 <div class="moviesContainer flex-column front-panel">
-    <h1>Сигурни ли сте, че искате да изтриете следния филм?</h1>
+    <h1 class="change-header">Сигурни ли сте, че искате да изтриете следния филм?</h1>
     <div class="owner-info">
         <p>Име: <b>@Model.BulgarianTitle</b></p>
         <p>Жанр: @Model.Genre.BulgarianName</p>

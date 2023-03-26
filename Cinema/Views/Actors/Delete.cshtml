@@ -1,17 +1,17 @@
 ﻿@model Cinema.Models.Actor
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Изтрий актьор";
 }
 
 <link href="~/css/adminStyle.css" rel="stylesheet" />
 <link href="~/css/cardStyle.css" rel="stylesheet" />
 <div class="moviesContainer flex-column front-panel">
-    <h1>Сигурни ли сте, че искате да изтриете следния актьор?</h1>
+    <h1 class="change-header">Сигурни ли сте, че искате да изтриете следния актьор?</h1>
     <div class="owner-info">
         <p>Име: <b>@Model.BulgarianFullName</b> (@string.Format($"{Model.FirstName} {Model.LastName}"))</p>
         <p>Националност: @Model.Nationality</p>
-        <p>Дата на раждане: @Model.Birthdate.ToString("dd-MM-yyyy")</p>
+        <p>Дата на раждане: @Model.Birthdate.ToString("dd.MM.yyyy")</p>
         <p>IMDB рейтинг: @Model.Rating / 10.0</p>
     </div>
     <form class="agreement-buttons" asp-controller="Actors" asp-action="Delete">

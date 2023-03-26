@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Cinema.Models.Ticket>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = (User.IsInRole("Owner") ? "Билети" : "Вашите билети");
 }
 
 <link href="~/css/cardStyle.css" rel="stylesheet" />
@@ -34,7 +34,7 @@
                             </div>
                         </td>
                         <td>
-                            @ticket.ForDate.ToString("dd-MM-yyyy")
+                            @ticket.ForDate.ToString("dd.MM.yyyy")
                         </td>
                         <td>
                             @ticket.Price лв.

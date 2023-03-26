@@ -27,7 +27,8 @@ namespace Cinema.Controllers
             IEnumerable<ApplicationUser> users = userManager.Users
                 .Include(i => i.Tickets).ThenInclude(i => i.Seat)
                 .Include(i => i.Tickets).ThenInclude(ticket => ticket.Movie)
-                .ToList().Where(i => userManager.IsInRoleAsync(i, "Visitor").Result);
+                .ToList()
+                .Where(i => userManager.IsInRoleAsync(i, "Visitor").Result);
 
             return View(users);
         }

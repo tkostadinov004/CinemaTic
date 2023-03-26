@@ -1,0 +1,14 @@
+﻿@model Cinema.Models.Movie
+
+@{
+    ViewData["Title"] = "Трейлър";
+}
+@{ 
+    var linkPart = Model.TrailerUrl.Split('=')[1];
+}
+
+<link href="~/css/adminStyle.css" rel="stylesheet" />
+<link href="~/css/cardStyle.css" rel="stylesheet" />
+<div class="moviesContainer flex-column front-panel">
+    <iframe width="800" height="450" src="@("https://www.youtube.com/embed/" + linkPart)" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>

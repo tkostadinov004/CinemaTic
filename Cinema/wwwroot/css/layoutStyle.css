@@ -567,7 +567,7 @@ footer {
 }
 
 .details-grid {
-    margin-top: 20px;
+    margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 30px;
@@ -687,6 +687,7 @@ footer {
     justify-content: flex-start;
     margin-left: 50px;
     gap: 50px;
+    margin-top: 50px;
 }
 .layout-centered-container > section.front-panel:has(h1[data-content="Actors"]) .card {
     flex-basis: 150px;
@@ -714,4 +715,23 @@ footer {
 }
 .active-form label {
     text-align: left;
+}
+h1.change-header {
+    font-size: 1.5rem;
+}
+.form-group.seat-submit-form {
+    margin-top: 30px;
+}
+.form-group.seat-submit-form input#submit-seat-btn {
+    cursor: default;
+}
+.details-grid p {
+    margin-top: 0;
+    text-align: left;
+}
+.details-info .info-box {
+    margin-top: 0;
+}
+.t-area {
+    font-size: 1rem;
 }

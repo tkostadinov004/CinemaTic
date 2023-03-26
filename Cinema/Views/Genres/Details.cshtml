@@ -1,39 +1,46 @@
 ﻿@model Cinema.Models.Genre
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = $"Детайли - жанр {Model.BulgarianName}";
 }
 
 <link rel="stylesheet" href="~/css/cardStyle.css" />
 <div class="moviesContainer flex-column front-panel">
     <h1>@Model.BulgarianName</h1>
     <div class="moviesContainer">
-        @foreach (var movie in Model.Movies)
+        @if (Model.Movies.Count > 0)
         {
-            <div class="card-wrapper">
-                <div class="card">
-                    <img src="~/@Cinema.Utilities.Constants.ImagesFolder/Movies/@movie.ImageUrl" />
-                    <div class="descriptions">
-                        <div class="description-buttons">
-                            <div class="desc-button">
-                                <i class="fa-solid fa-film f-size-b"></i>
-                                <a>Гледай трейлър</a>
-                            </div>
-                            <a class="desc-button" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">
-                                <i class="fa-solid fa-circle-info f-size-b"></i>
-                                Детайли
-                            </a>
-                            @if (User.IsInRole("Owner") == false)
-                            {
-                                <a class="desc-button" asp-controller="Tickets" asp-action="Create" asp-route-movieId="@movie.Id">
-                                    <i class="fa-solid fa-cart-shopping f-size-b"></i>
-                                    Купи билет
+            @foreach (var movie in Model.Movies)
+            {
+                <div class="card-wrapper">
+                    <div class="card">
+                        <img src="~/@Cinema.Utilities.Constants.ImagesFolder/Movies/@movie.ImageUrl" />
+                        <div class="descriptions">
+                            <div class="description-buttons">
+                                <div class="desc-button">
+                                    <i class="fa-solid fa-film f-size-b"></i>
+                                    <a>Гледай трейлър</a>
+                                </div>
+                                <a class="desc-button" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">
+                                    <i class="fa-solid fa-circle-info f-size-b"></i>
+                                    Детайли
                                 </a>
-                            }
+                                @if (User.IsInRole("Owner") == false)
+                                {
+                                    <a class="desc-button" asp-controller="Tickets" asp-action="Create" asp-route-movieId="@movie.Id">
+                                        <i class="fa-solid fa-cart-shopping f-size-b"></i>
+                                        Купи билет
+                                    </a>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            }
+        }
+        else
+        {
+            <h2><i>Няма филми, свързани с този жанр!</i></h2>
         }
     </div>
 </div>

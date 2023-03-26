@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Cinema.Models.Movie>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Филми";
 }
 
 <link href="~/css/cardStyle.css" rel="stylesheet" />
@@ -31,10 +31,10 @@
                     </td>
                     <td>@movie.UserRating / 10.0</td>
                     <td>@movie.RatingCount</td>
-                    <td>@movie.Date.ToString("dd-MM-yyyy")</td>
+                    <td>@movie.Date.ToString("dd.MM.yyyy")</td>
                     <td>@movie.Price</td>
                     @{ 
-                        var isAvailable = Math.Abs((movie.Date - DateTime.Now).TotalDays) <= 7;
+                        var isAvailable = DateTime.Now >= movie.Date && Math.Abs((movie.Date - DateTime.Now).TotalDays) <= 7;
                     }
                     <td class="col-@(isAvailable ? "green" : "red")">
                         <b>@string.Format($"{(isAvailable ? "ДА" : "НЕ")}")</b>

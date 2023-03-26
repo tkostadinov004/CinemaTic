@@ -1,39 +1,38 @@
 ﻿@model Cinema.Models.Genre
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Редактирай жанр";
 }
 
-<h1>Edit</h1>
-
-<h4>Genre</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="EnglishName" class="control-label"></label>
-                <input asp-for="EnglishName" class="form-control" />
-                <span asp-validation-for="EnglishName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BulgarianName" class="control-label"></label>
-                <input asp-for="BulgarianName" class="form-control" />
-                <span asp-validation-for="BulgarianName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<link href="~/css/loginRegisterStyle.css" rel="stylesheet" />
+<section class="front-panel">
+    <div class="row">
+        <h1>Промени жанр @Model.BulgarianName</h1>
+        <div class="col-md-4">
+            <form class="account" asp-controller="Genres" asp-action="Edit" method="post">
+                <hr class="section-line" />
+                <div class="text-fields">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <div class="active-form">
+                            <label asp-for="BulgarianName"></label>
+                            <input asp-for="BulgarianName" class="form-control" />
+                        </div>
+                        <span asp-validation-for="BulgarianName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="active-form">
+                            <label asp-for="EnglishName"></label>
+                            <input asp-for="EnglishName" class="form-control" />
+                        </div>
+                        <span asp-validation-for="EnglishName" class="text-danger"></span>
+                    </div>
+                </div>
+                <button type="submit" asp-route-id="@Model.Id" class="nx-btn primary">Промени</button>
+            </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
+</section>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

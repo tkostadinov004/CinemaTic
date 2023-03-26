@@ -15,7 +15,7 @@
                             </div>
                             <div class="desc-button">
                                 <i class="fa-solid fa-film f-size-b"></i>
-                                <a>Гледай трейлър</a>
+                                <a asp-controller="Movies" asp-action="WatchTrailer"  asp-route-id="@movie.Id">Гледай трейлър</a>
                             </div>
                         }
                         <a class="desc-button" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">

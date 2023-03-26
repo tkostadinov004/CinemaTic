@@ -316,6 +316,10 @@ namespace Cinema.Controllers
 
             return RedirectToAction("Details", new {id = movie.Id });
         }
+        public async Task<IActionResult> WatchTrailer(int id)
+        {
+            return View(await _context.Movies.FindAsync(id));
+        }
         private bool MovieExists(int id)
         {
             return _context.Movies.Any(e => e.Id == id);

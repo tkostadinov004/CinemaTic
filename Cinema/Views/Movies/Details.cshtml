@@ -1,7 +1,7 @@
 ﻿@model Cinema.Models.ViewModels.MovieDetailsViewModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = $"Детайли - {Model.Movie.BulgarianTitle}";
 }
 <link href="~/css/ratingModal.css" rel="stylesheet" />
 <div class="details front-panel">
@@ -19,7 +19,7 @@
                         <i class="fa-solid fa-star ct-rating-star"></i>
                         <div class="rating-number-box">
                             <span>@string.Format($"{Model.AverageRating:f1}/10")</span>
-                            <span>@Model.RatingCount глас</span>
+                            <span>@Model.RatingCount @string.Format($"{(Model.RatingCount == 1 ? "глас" : "гласа")}")</span>
                         </div>
                     </div>
                 </div>
@@ -93,9 +93,18 @@
                 <div class="info-box actors">
                     <p class="info-box-title">@Html.DisplayNameFor(model => model.Movie.Actors)</p>
                     <div class="info-box-desc">
-                        @foreach (string actor in Model.Movie.Actors.Select(i => i.Actor.BulgarianFullName))
+                        @foreach (var actor in Model.Movie.Actors)
                         {
-                            <p class="actor-name">@actor</p>
+                            <p class="actor-name">
+                                @if (User.IsInRole("Owner"))
+                                {
+                                    <a asp-controller="Actors" asp-action="Details" asp-route-id="@actor.Actor.Id"><b>@actor.Actor.BulgarianFullName</b></a>
+                                }
+                                else
+                                {
+                                    @actor.Actor.BulgarianFullName
+                                }
+                            </p>
                         }
                     </div>
                 </div>
