@@ -1,16 +1,16 @@
 ﻿@model Cinema.Models.ApplicationUser
 
 @{
-    ViewData["Title"] = "Премахни собственик";
+    ViewData["Title"] = "Изтрий акаунт на посетител";
 }
 <link href="~/css/adminStyle.css" rel="stylesheet" />
 <link href="~/css/cardStyle.css" rel="stylesheet" />
 <div class="moviesContainer flex-column front-panel">
-    <h1 class="change-header">Сигурни ли сте, че искате да изтриете следния собственик?</h1>
+    <h1 class="change-header">Сигурни ли сте, че искате да изтриете акаунта на следния посетител?</h1>
     <div class="owner-info">
         <p class="edited-object">Име: <b>@string.Format($"{Model.FirstName} {Model.LastName}")</b></p>
     </div>
-    <form class="agreement-buttons" asp-controller="Admin" asp-action="DeleteFromOwnerRole">
+    <form class="agreement-buttons" asp-controller="Admin" asp-action="DeleteVisitorAccount">
         <button type="submit" class="nx-btn green front-panel" asp-route-id="@Model.Id">Да</button>
         <a class="nx-btn front-panel" asp-controller="Admin" asp-action="Index">Не</a>
     </form>

@@ -8,7 +8,7 @@
 <div class="moviesContainer flex-column front-panel">
     <h1 class="change-header">Сигурни ли сте, че искате да направите следния потребител собственик?</h1>
     <div class="owner-info">
-        <p>Име: @string.Format($"{Model.FirstName} {Model.LastName}")</p>
+        <p class="edited-object">Име: <b>@string.Format($"{Model.FirstName} {Model.LastName}")</b></p>
     </div>
     <form class="agreement-buttons" asp-controller="Admin" asp-action="SetToOwner">
         <button type="submit" class="nx-btn green front-panel" asp-route-userId="@Model.Id">Да</button>

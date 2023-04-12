@@ -100,4 +100,7 @@ input.disabled {
     background-color: gray;
     border-color: gray;
 }
-/*Occupied seat popup*/
+input[type="radio"]:checked + svg {
+    color: #50a4fa;
+    transition: 0.1s ease-in-out;
+}

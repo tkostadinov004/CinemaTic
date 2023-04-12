@@ -16,10 +16,10 @@ namespace Cinema.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Въведете име на английски!")]
         [Display(Name = "Име на английски")]
         public string EnglishName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Въведете име на български!")]
         [Display(Name = "Име на български")]
         public string BulgarianName { get; set; }
 

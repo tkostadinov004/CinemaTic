@@ -735,3 +735,6 @@ h1.change-header {
 .t-area {
     font-size: 1rem;
 }
+p.edited-object {
+    font-size: 1.5rem;
+}
