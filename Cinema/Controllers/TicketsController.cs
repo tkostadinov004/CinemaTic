@@ -105,7 +105,7 @@ namespace Cinema.Controllers
             {
                 ForDate = forDate,
                 Movie = movie,
-                Visitor = User == null ? null : await _userManager.FindByEmailAsync(User.Identity.Name)
+                Visitor = User.Identity.Name == null ? null : await _userManager.FindByEmailAsync(User.Identity.Name)
             };
             ticket.Seat = ticketSeat;
             ticket.Price = ticket.Seat.Price + movie.Price;
@@ -114,6 +114,10 @@ namespace Cinema.Controllers
             {
                 _context.Add(ticket);
                 await _context.SaveChangesAsync();
+                if (User.Identity.Name == null)
+                {
+                    return RedirectToAction(nameof(Index), "Home");
+                }
                 return RedirectToAction(nameof(Index));
             }
             ViewData["MovieId"] = new SelectList(_context.Movies, "Id", "Title", ticket.MovieId);
