@@ -505,6 +505,10 @@ footer {
     .rwd-table td {
         padding: .5em 1em;
     }
+.rwd-table.statistics-table {
+    min-width: 700px;
+    font-size: 16px;
+}
 .owner td p {
     margin: 0;
 }
