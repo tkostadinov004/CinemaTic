@@ -44,7 +44,7 @@ namespace Cinema.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required(ErrorMessage = "Въведете правилен Email адрес!")]
-            [EmailAddress]
+            [EmailAddress(ErrorMessage = "Въведете правилен имейл!")]
             public string Email { get; set; }
 
             [Required(ErrorMessage = "Паролата трябва да бъде минимум 8 символа!")]

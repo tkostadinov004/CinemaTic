@@ -48,12 +48,12 @@ namespace Cinema.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "Въведете имейл!")]
+            [EmailAddress(ErrorMessage = "Въведете правилен имейл!")]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "Въведете парола!")]
             [StringLength(100, ErrorMessage = "Паролата трябва да бъде поне {2} символа и най-много {1} символа.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Парола")]
