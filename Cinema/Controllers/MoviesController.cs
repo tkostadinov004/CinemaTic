@@ -80,7 +80,7 @@ namespace Cinema.Controllers
             ViewBag.Genres = new SelectList(_context.Genres.AsNoTracking().ToList(), nameof(Genre.Id), nameof(Genre.BulgarianName));
 
             var actors = _context.Actors.AsNoTracking().ToList();
-            ViewBag.Actors = new SelectList(from a in actors select new {Id = a.Id, FullName = $"{a.FirstName} {a.LastName}" }, nameof(Actor.Id), "FullName");
+            ViewBag.Actors = new SelectList(from a in actors select new { Id = a.Id, FullName = a.BulgarianFullName }, nameof(Actor.Id), "FullName");
             return View();
         }
 
@@ -282,7 +282,7 @@ namespace Cinema.Controllers
         {
             if (userRating == 0)
             {
-                return RedirectToAction("Details", new { id = movieId});
+                return RedirectToAction("Details", new { id = movieId });
             }
 
             var user = await _userManager.FindByEmailAsync(User.Identity.Name);
@@ -314,11 +314,24 @@ namespace Cinema.Controllers
             }
             await _context.SaveChangesAsync();
 
-            return RedirectToAction("Details", new {id = movie.Id });
+            return RedirectToAction("Details", new { id = movie.Id });
         }
         public async Task<IActionResult> WatchTrailer(int id)
         {
             return View(await _context.Movies.FindAsync(id));
+        }
+        public async Task<IActionResult> Statistics()
+        {
+            var movies = await _context.Movies.ToListAsync();
+            var tickets = await _context.Tickets.Include(i => i.Movie).ToListAsync();
+            StatisticsViewModel vm = new StatisticsViewModel
+            {
+                Income = tickets.Select(i => i.Price).Sum(),
+                TicketsSold = tickets.Count,
+                MostPopularMovie = movies.OrderByDescending(i => i.RatingCount).First()
+            };
+
+            return View(vm);
         }
         private bool MovieExists(int id)
         {

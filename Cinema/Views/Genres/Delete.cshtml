@@ -11,7 +11,7 @@
     {
         <h1 class="change-header">Сигурни ли сте, че искате да изтриете следния жанр?</h1>
         <div class="owner-info">
-            <p>Име: @Model.BulgarianName</p>
+            <p class="edited-object">Име: <b>@Model.BulgarianName</b></p>
         </div>
         <form class="agreement-buttons" asp-controller="Genres" asp-action="Delete">
             <button type="submit" class="nx-btn green front-panel" asp-route-id="@Model.Id">Да</button>

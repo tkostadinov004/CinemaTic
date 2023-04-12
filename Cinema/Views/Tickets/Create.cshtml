@@ -4,7 +4,7 @@
     ViewData["Title"] = "Купи билет";
 }
 
-<h1>Купи билет за филм @Model.Movie.BulgarianTitle</h1>
+<h1>Купи билет за филм "@Model.Movie.BulgarianTitle"</h1>
 <hr />
 <link href="~/css/seatsStyle.css" rel="stylesheet" />
 @if (Model.Occupied.Cast<bool>().All(i => i == true) == false)
@@ -22,7 +22,7 @@
     </script>
     <div class="row front-panel">
         <div class="col-md-4">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div role="list" asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
                 <div class="seats">
@@ -88,6 +88,7 @@
                                 </div>
                             }
                             <div class="form-group seat-submit-form">
+                                <p id="selected-seat">Нямате избрано място</p>
                                 <input id="submit-seat-btn" disabled type="submit" value="Купи" class="nx-btn primary" asp-route-movieId="@Model.Movie.Id" asp-route-forDate="@Model.ForDate" />
                             </div>
                         </form>
@@ -101,6 +102,16 @@
             if (seat.checked == true) {
                 document.getElementById("submit-seat-btn").removeAttribute("disabled");
                 document.getElementById("submit-seat-btn").style.cursor = "pointer";
+
+                var coords = seat.getAttribute("value").split(" ");
+
+                let row = coords[0];
+                let col = coords[1];
+
+                const zeroPad = (num, places) => String(num).padStart(places, '0');
+
+                let line = document.getElementById("selected-seat");
+                line.innerHTML = `Вашето място е R${zeroPad(row, 2)}C${zeroPad(col, 2)}.`;
             }
         }
     </script>

@@ -1,12 +1,14 @@
 ﻿@model IEnumerable<Cinema.Models.Movie>
 
 @{
-    ViewData["Title"] = "Филми";
+    ViewData["Title"] = "Панел на собствениците";
 }
 
 <link href="~/css/cardStyle.css" rel="stylesheet" />
 <div class="moviesContainer flex-column front-panel">
-    <h1>Филми</h1>
+    <h1>Панел на собствениците</h1>
+    <a class="nx-btn front-panel" asp-controller="Movies" asp-action="Statistics">Статистика</a>
+    <h2>Филми</h2>
     <a class="nx-btn front-panel" asp-controller="Movies" asp-action="Create">Добави нов филм</a>
     <table class="rwd-table movies-table">
         <tbody>
@@ -33,7 +35,7 @@
                     <td>@movie.RatingCount</td>
                     <td>@movie.Date.ToString("dd.MM.yyyy")</td>
                     <td>@movie.Price</td>
-                    @{ 
+                    @{
                         var isAvailable = DateTime.Now >= movie.Date && Math.Abs((movie.Date - DateTime.Now).TotalDays) <= 7;
                     }
                     <td class="col-@(isAvailable ? "green" : "red")">

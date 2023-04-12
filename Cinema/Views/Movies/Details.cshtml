@@ -130,7 +130,7 @@
                 @for (DateTime date = startingDate; date < startingDate.AddDays(7); date = date.AddDays(1))
                 {
                     <div class="projection hidden @date.ToString("dd.MM.yyyy")">
-                        <a class="nx-btn projection-hour" asp-controller="Tickets" asp-action="Create" asp-route-movieId="@Model.Movie.Id" asp-route-forDate="@date">@Model.Movie.Date.ToString("HH:mm")</a>
+                        <a class="nx-btn projection-hour" asp-controller="Tickets" asp-action="Create" asp-route-movieId="@Model.Movie.Id" asp-route-forDate="@date">Купи билет</a>
                     </div>
                 }
             </div>

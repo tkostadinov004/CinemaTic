@@ -1,0 +1,28 @@
+﻿@model Cinema.Models.ViewModels.StatisticsViewModel
+
+@{
+    ViewData["Title"] = "Статистика";
+}
+
+<link href="~/css/cardStyle.css" rel="stylesheet" />
+<div class="moviesContainer flex-column front-panel">
+    <h1>Статистика</h1>
+    <table class="rwd-table movies-table">
+        <tbody>
+            <tr>
+                <th>Брой продадени билети</th>
+                <th>Печалба </th>
+                <th>Най-популярен филм</th>
+            </tr>
+            <tr class="owner">
+                <td>@Model.TicketsSold</td>
+                <td>@Model.Income</td>
+                <td>
+                    <a asp-controller="Movies" asp-action="Details" asp-route-id="@Model.MostPopularMovie.Id">
+                        <b>@Model.MostPopularMovie.BulgarianTitle</b>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -46,13 +46,35 @@ namespace Cinema.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var owner = _userManager.FindByIdAsync(id).Result;
+            var owner = await _userManager.FindByIdAsync(id);
             if (_userManager.IsInRoleAsync(owner, "Owner").Result)
             {
                 await _userManager.RemoveFromRoleAsync(owner, "Owner");
                 await _userManager.AddToRoleAsync(owner, "Visitor");
             }
             
+            return RedirectToAction(nameof(Index));
+        }
+        [HttpGet]
+        public async Task<IActionResult> DeleteVisitorAccount(string userId)
+        {
+            var visitor = await _userManager.FindByIdAsync(userId);
+            if (visitor == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return View(visitor);
+        }
+        [HttpPost, ActionName("DeleteVisitorAccount")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteVisitorAccountConfirmed(string id)
+        {
+            var visitor = await _userManager.FindByIdAsync(id);
+            if (visitor != null)
+            {
+                await _userManager.DeleteAsync(visitor);
+            }
+
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]

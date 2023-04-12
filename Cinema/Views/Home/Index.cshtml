@@ -12,7 +12,7 @@
 <hr class="section-line" style="margin: 40px 0px;"/>
 <h3>Предстоящи филми: </h3>
 <div class="moviesContainer">
-    @foreach (var movie in Model.Where(i => Math.Abs((i.Date - DateTime.Today).TotalDays) > 7))
+    @foreach (var movie in Model.Where(i => (i.Date - DateTime.Today).TotalDays > 7))
     {
         <div class="card-wrapper">
             <div class="card">
@@ -33,13 +33,6 @@
                             <i class="fa-solid fa-circle-info f-size-b"></i>
                             Детайли
                         </a>
-                        @if (User.IsInRole("Owner") == false)
-                        {
-                            <a class="desc-button" asp-controller="Tickets" asp-action="Create" asp-route-movieId="@movie.Id">
-                                <i class="fa-solid fa-cart-shopping f-size-b"></i>
-                                Купи билет
-                            </a>
-                        }
                     </div>
                 </div>
             </div>
