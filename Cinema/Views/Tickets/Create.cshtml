@@ -105,8 +105,8 @@
 
                 var coords = seat.getAttribute("value").split(" ");
 
-                let row = coords[0];
-                let col = coords[1];
+                let row = Number(coords[0]) + 1;
+                let col = Number(coords[1]) + 1;
 
                 const zeroPad = (num, places) => String(num).padStart(places, '0');
 

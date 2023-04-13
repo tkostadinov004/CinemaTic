@@ -8,7 +8,8 @@
 <h1>Киносалон CinemaTic</h1>
 
 <h3>Филмите днес: </h3>
-<partial name="HomeMoviesPartial" model="@Model.Where(i => DateTime.Now >= i.Date && Math.Abs((i.Date - DateTime.Now).TotalDays) <= 7)" />
+<partial name="HomeMoviesPartial" 
+         model="@Model.Where(i => DateTime.Now >= i.Date && Math.Abs((i.Date - DateTime.Now).TotalDays) <= 7)" />
 <hr class="section-line" style="margin: 40px 0px;"/>
 <h3>Предстоящи филми: </h3>
 <div class="moviesContainer">

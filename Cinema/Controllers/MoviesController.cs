@@ -30,7 +30,7 @@ namespace Cinema.Controllers
         }
 
         // GET: Movies
-        [AllowAnonymous]
+        [Authorize(Roles = "Owner")]
         public async Task<IActionResult> Index(DateTime? date)
         {
             var movies = _context.Movies.Include(i => i.Genre).Include(i => i.Actors).ThenInclude(a => a.Actor).ToListAsync().Result.ToList();
@@ -316,10 +316,12 @@ namespace Cinema.Controllers
 
             return RedirectToAction("Details", new { id = movie.Id });
         }
+        [AllowAnonymous]
         public async Task<IActionResult> WatchTrailer(int id)
         {
             return View(await _context.Movies.FindAsync(id));
         }
+        [Authorize(Roles = "Owner")]
         public async Task<IActionResult> Statistics()
         {
             var movies = await _context.Movies.ToListAsync();
