@@ -5,24 +5,14 @@
 }
 
 <link href="~/css/cardStyle.css" rel="stylesheet" />
-<div class="moviesContainer flex-column front-panel">
+<div class="moviesContainer flex-column front-panel statistics-table">
     <h1>Статистика</h1>
-    <table class="rwd-table movies-table statistics-table">
-        <tbody>
-            <tr>
-                <th>Брой продадени билети</th>
-                <th>Печалба </th>
-                <th>Най-популярен филм</th>
-            </tr>
-            <tr class="owner">
-                <td>@Model.TicketsSold</td>
-                <td>@Model.Income лв.</td>
-                <td>
-                    <a asp-controller="Movies" asp-action="Details" asp-route-id="@Model.MostPopularMovie.Id">
-                        <b>@Model.MostPopularMovie.BulgarianTitle</b>
-                    </a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <p>Брой продадени билети - @Model.TicketsSold</p>
+    <p>Печалба - @Model.Income лв.</p>
+    <p>
+        Най-популярен филм -
+        <a asp-controller="Movies" asp-action="Details" asp-route-id="@Model.MostPopularMovie.Id">
+            <b>@Model.MostPopularMovie.BulgarianTitle</b>
+        </a>
+    </p>
 </div>
