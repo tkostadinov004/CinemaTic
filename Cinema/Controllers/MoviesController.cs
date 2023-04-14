@@ -34,11 +34,6 @@ namespace Cinema.Controllers
         public async Task<IActionResult> Index(DateTime? date)
         {
             var movies = _context.Movies.Include(i => i.Genre).Include(i => i.Actors).ThenInclude(a => a.Actor).ToListAsync().Result.ToList();
-            //.Where(i => Math.Abs((i.Date - DateTime.Now).TotalDays) <= 7)
-            //if (date != null)
-            //{
-            //    return View(movies.Where(i => Math.Abs((i.Date - date.Value).TotalDays) <= 7));
-            //}
             return View(movies);
         }
 

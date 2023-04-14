@@ -53,9 +53,6 @@ namespace Cinema.Controllers
                 return _context.Tickets.Include(k => k.Movie).Include(k => k.Seat).ToList().Where(i => i.Movie.Id == movieId).Select(i => new { Coords = SeatCoords(i.Seat.SeatNumber), ForDate = i.ForDate }).Any(i => i.Coords.Item1 == row && i.Coords.Item2 == col && i.ForDate == forDate);
             }
 
-            //ViewData["Colors"] = colors;
-            //var movie = _context.Movies.FirstOrDefault(i => i.Id == movieId);
-            //return View(movie);
             bool[,] isOccupied = new bool[Constants.HallRows, Constants.HallCols];
             for (int i = 0; i < Constants.HallRows; i++)
             {
@@ -68,7 +65,6 @@ namespace Cinema.Controllers
             {
                 Movie = _context.Movies.FirstOrDefault(i => i.Id == movieId),
                 Sector = sector,
-               // Seats = _context.Seats.ToList().Where(i => i.Sector == sector).ToList(),
                Occupied = isOccupied,
                ForDate = forDate
             };
@@ -90,8 +86,6 @@ namespace Cinema.Controllers
         [Authorize(Roles = "Visitor")]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        //[Bind("Id,SerialNumber,MovieId,SeatId,Price")] Ticket ticket
-        //[Bind("Movie, MovieId")] BuyTicketViewModel vm
         public async Task<IActionResult> Create(string seatCoords, int movieId, DateTime forDate)
         {
             int[] seatCoordsInt = seatCoords.Split().Select(int.Parse).Select(i => i + 1).ToArray();
