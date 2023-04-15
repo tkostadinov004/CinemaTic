@@ -1,6 +1,5 @@
 ﻿using Cinema.Data;
 using Cinema.Models;
-using Cinema.Models.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;

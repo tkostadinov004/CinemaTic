@@ -15,7 +15,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Cinema.Models.Enums;
 
 namespace Cinema.Areas.Identity.Pages.Account
 {

@@ -1,5 +1,4 @@
-﻿using Cinema.Models.Enums;
-using Cinema.Models.Interfaces;
+﻿using Cinema.Models.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
