@@ -185,6 +185,7 @@ namespace Cinema.Controllers
         {
             var actor = await _context.Actors.FindAsync(id);
             _context.Actors.Remove(actor);
+            await GlobalMethods.DeleteImage("Actors", actor.ImageUrl, _context, _webHostEnvironment);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

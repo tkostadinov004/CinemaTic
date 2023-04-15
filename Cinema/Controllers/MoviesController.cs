@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using Cinema.Data;
 using Cinema.Models;
 using Microsoft.AspNetCore.Authorization;
-using Cinema.Models.Enums;
 using Microsoft.AspNetCore.Identity;
 using System.Globalization;
 using Cinema.Models.ViewModels;
@@ -243,6 +242,7 @@ namespace Cinema.Controllers
         {
             var movie = await _context.Movies.FindAsync(id);
             _context.Movies.Remove(movie);
+            await GlobalMethods.DeleteImage("Movies", movie.ImageUrl, _context, _webHostEnvironment);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
