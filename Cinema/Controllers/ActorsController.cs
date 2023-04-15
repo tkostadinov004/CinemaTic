@@ -63,7 +63,7 @@ namespace Cinema.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(CreateEditActorViewModel actorVM, string country)
+        public async Task<IActionResult> Create(CreateActorViewModel actorVM, string country)
         {
             actorVM.Nationality = country;
             if (ModelState.IsValid)
@@ -81,7 +81,7 @@ namespace Cinema.Controllers
                 };
 
                 _context.Add(actor);
-                await _context.SaveChangesAsync();      
+                await _context.SaveChangesAsync();
             }
             return RedirectToAction(nameof(Index));
         }
@@ -99,7 +99,7 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            var vm = new CreateEditActorViewModel
+            var vm = new EditActorViewModel
             {
                 Id = actor.Id,
                 FirstName = actor.FirstName,
@@ -119,7 +119,7 @@ namespace Cinema.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(CreateEditActorViewModel actorVM,int id, string? country)
+        public async Task<IActionResult> Edit(EditActorViewModel actorVM, int id, string? country)
         {
             if (ModelState.IsValid)
             {

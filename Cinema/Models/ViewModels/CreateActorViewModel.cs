@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace Cinema.Models.ViewModels
 {
-    public class CreateEditActorViewModel : Actor
+    public class CreateActorViewModel : Actor
     {
         [Display(Name = "Снимка")]
+        [Required(ErrorMessage = "Добавете снимка!")]
         public IFormFile Image { get; set; }
     }
 }
