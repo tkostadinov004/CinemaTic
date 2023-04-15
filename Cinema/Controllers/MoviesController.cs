@@ -84,7 +84,7 @@ namespace Cinema.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Owner")]
-        public async Task<IActionResult> Create(CreateMovieViewModel movieVM, IEnumerable<string> acts, int genreId)
+        public async Task<IActionResult> Create(CreateEditMovieViewModel movieVM, IEnumerable<string> acts, int genreId)
         {
             if (ModelState.IsValid)
             {
@@ -134,7 +134,7 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            var vm = new EditMovieViewModel
+            var vm = new CreateEditMovieViewModel
             {
                 Id = movie.Id,
                 BulgarianTitle = movie.BulgarianTitle,
@@ -162,7 +162,7 @@ namespace Cinema.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Owner")]
-        public async Task<IActionResult> Edit(EditMovieViewModel vm, int id, int genreId, IEnumerable<string> acts)
+        public async Task<IActionResult> Edit(CreateEditMovieViewModel vm, int id, int genreId, IEnumerable<string> acts)
         {
             if (ModelState.IsValid)
             {
