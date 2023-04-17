@@ -34,7 +34,6 @@ namespace Cinema.Data
                 AddActorMovies();
                 AddRoles(serviceProvider);
                 AddUsers(serviceProvider);
-                AddSeats();
             }
         }
         public void AddRoles(IServiceProvider serviceProvider)
@@ -296,19 +295,6 @@ namespace Cinema.Data
                 });
             }
             _context.SaveChanges();
-        }
-        public void AddSeats()
-        {
-            for (int i = 0; i < 21; i++)
-            {
-                for (int j = 0; j < 31; j++)
-                {
-                    _context.Seats.Add(new Seat($"R{(i + 1).ToString("D2")}C{(j + 1).ToString("D2")}")
-                    {
-                        IsOccupied = false
-                    });
-                }
-            }
         }
     }
 }
