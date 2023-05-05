@@ -1,25 +1,25 @@
 ﻿@model Cinema.Models.ViewModels.MovieDetailsViewModel
 
 @{
-    ViewData["Title"] = $"Детайли - {Model.Movie.BulgarianTitle}";
+    ViewData["Title"] = $"Details - {Model.Movie.Title}";
 }
 <link href="~/css/ratingModal.css" rel="stylesheet" />
 <div class="details front-panel">
     <div>
         <div class="short-info">
-            <h1 class="section-line">@Model.Movie.BulgarianTitle (@Model.Movie.EnglishTitle)</h1>
+            <h1 class="section-line">@Model.Movie.Title</h1>
             <div class="short-info-line">
                 <div class="info-box">
                     <p class="info-box-title">@Html.DisplayNameFor(model => model.Movie.RunningTime)</p>
-                    <p class="info-box-desc">@Html.DisplayFor(model => model.Movie.RunningTime) минути</p>
+                    <p class="info-box-desc">@Html.DisplayFor(model => model.Movie.RunningTime) minutes</p>
                 </div>
                 <div class="rating-container">
-                    <span>CinemaTic рейтинг</span>
+                    <span>CinemaTic user rating</span>
                     <div class="rating-box">
                         <i class="fa-solid fa-star ct-rating-star"></i>
                         <div class="rating-number-box">
                             <span>@string.Format($"{Model.AverageRating:f1}/10")</span>
-                            <span>@Model.RatingCount @string.Format($"{(Model.RatingCount == 1 ? "глас" : "гласа")}")</span>
+                            <span>@Model.RatingCount @string.Format($"{(Model.RatingCount == 1 ? "vote" : "votes")}")</span>
                         </div>
                     </div>
                 </div>
@@ -30,11 +30,11 @@
                             <button class="close-btn" aria-label="close" title="Close">x</button>
                             @if (Model.CurrentUserRating == null)
                             {
-                                <h2 id="add-review-header">Оцени филма @Model.Movie.BulgarianTitle (@Model.Movie.EnglishTitle)</h2>
+                                <h2 id="add-review-header">Rate @Model.Movie.Title</h2>
                             }
                             else
                             {
-                                <h2 id="add-review-header">Промени оценката си за филма @Model.Movie.BulgarianTitle (@Model.Movie.EnglishTitle)</h2>
+                                <h2 id="add-review-header">Change your vote @Model.Movie.Title</h2>
                             }
                             <div id="review-form-container">
                                 <form id="review-form" asp-controller="Movies" asp-action="SetRating" method="post">
@@ -55,7 +55,7 @@
                         </div>
                         <div class="modal-overlay"></div>
 
-                        <span>Вашият рейтинг</span>
+                        <span>Your rating</span>
                         <div class="rating-box">
                             <button id="review-add-btn" aria-label="add review" title="Add Review">
                                 <i class="fa-solid fa-star ct-user-rating-star"></i>
@@ -63,7 +63,7 @@
                             <div class="rating-number-box">
                                 @if (Model.CurrentUserRating == null)
                                 {
-                                    <span>Оцени сега!</span>
+                                    <span>Rate now!</span>
                                 }
                                 else
                                 {
@@ -84,11 +84,11 @@
             <section class="details-info">
                 <div class="info-box">
                     <p class="info-box-title">@Html.DisplayNameFor(model => model.Movie.Price)</p>
-                    <p class="info-box-desc">@Html.DisplayFor(model => model.Movie.Price) лв.</p>
+                    <p class="info-box-desc">@Html.DisplayFor(model => model.Movie.Price)</p>
                 </div>
                 <div class="info-box">
                     <p class="info-box-title">@Html.DisplayNameFor(model => model.Movie.Genre)</p>
-                    <p class="info-box-desc">@Html.DisplayFor(model => model.Movie.Genre.BulgarianName)</p>
+                    <p class="info-box-desc">@Html.DisplayFor(model => model.Movie.Genre.Name)</p>
                 </div>
                 <div class="info-box actors">
                     <p class="info-box-title">@Html.DisplayNameFor(model => model.Movie.Actors)</p>
@@ -98,11 +98,11 @@
                             <p class="actor-name">
                                 @if (User.IsInRole("Owner"))
                                 {
-                                    <a asp-controller="Actors" asp-action="Details" asp-route-id="@actor.Actor.Id"><b>@actor.Actor.BulgarianFullName</b></a>
+                                    <a asp-controller="Actors" asp-action="Details" asp-route-id="@actor.Actor.Id"><b>@actor.Actor.FirstName @actor.Actor.LastName</b></a>
                                 }
                                 else
                                 {
-                                    @actor.Actor.BulgarianFullName
+                                    @string.Format($"{@actor.Actor.FirstName} {@actor.Actor.LastName}")
                                 }
                             </p>
                         }
@@ -115,8 +115,8 @@
     {
         <div class="details-schedule">
             <div class="details-schedule-dates">
-                <button class="nx-btn primary" value="@DateTime.Today.ToString("dd.MM.yyyy")" onclick="showByDate(this)">Днес</button>
-                <button class="nx-btn primary" value="@DateTime.Today.AddDays(1).ToString("dd.MM.yyyy")" onclick="showByDate(this)">Утре</button>
+                <button class="nx-btn primary" value="@DateTime.Today.ToString("dd.MM.yyyy")" onclick="showByDate(this)">Today</button>
+                <button class="nx-btn primary" value="@DateTime.Today.AddDays(1).ToString("dd.MM.yyyy")" onclick="showByDate(this)">Tomorrow</button>
                 @for (int i = 2; i <= 7; i++)
                 {
                     string date = DateTime.Today.AddDays(i).ToString("dd.MM.yyyy");
@@ -130,7 +130,7 @@
                 @for (DateTime date = startingDate; date < startingDate.AddDays(7); date = date.AddDays(1))
                 {
                     <div class="projection hidden @date.ToString("dd.MM.yyyy")">
-                        <a class="nx-btn projection-hour" asp-controller="Tickets" asp-action="Create" asp-route-movieId="@Model.Movie.Id" asp-route-forDate="@date">Купи билет</a>
+                        <a class="nx-btn projection-hour" asp-controller="Tickets" asp-action="Create" asp-route-movieId="@Model.Movie.Id" asp-route-forDate="@date">Buy a ticket</a>
                     </div>
                 }
             </div>

@@ -2,13 +2,13 @@
 @model LoginModel
 
 @{
-    ViewData["Title"] = "Вход";
+    ViewData["Title"] = "Login";
 }
 <link rel="stylesheet" href="~/css/loginRegisterStyle.css" />
 
 <section class="front-panel">
     <form class="account" method="post">
-        <h4>Влез в CinemaTic профила си!</h4>
+        <h4>Log in your CinemaTic account!</h4>
         <hr class="section-line" />
         <div class="text-fields" id="inputs">
             <div role="list" id="validationSummary" asp-validation-summary="All" class="text-danger"></div>
@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
                 <div class="active-form">
-                    <label asp-for="Input.Password">Парола</label>
+                    <label asp-for="Input.Password"></label>
                     <input asp-for="Input.Password" class="form-control" />
                 </div>
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
@@ -36,62 +36,18 @@
             </div>
         </div>
         <div class="form-group">
-            <button type="submit" class="nx-btn primary">Влез</button>
+            <button type="submit" class="nx-btn primary">Login</button>
         </div>
         <div class="form-group">
             <p>
-                <a id="forgot-password" class="hover-link" asp-page="./ForgotPassword">Забравена парола</a>
+                <a id="forgot-password" class="hover-link" asp-page="./ForgotPassword">Forgot password?</a>
             </p>
             <p>
-                <a class="hover-link" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Нямаш акаунт? Регистрирай се!</a>
+                <a class="hover-link" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Don't have an account? Register now!</a>
             </p>
         </div>
     </form>
 </section>
-@*<div class="row">
-    <div class="col-md-4">
-        <section>
-            <form id="account" method="post">
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Input.Email"></label>
-                    <input asp-for="Input.Email" class="form-control" />
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Input.Password"></label>
-                    <input asp-for="Input.Password" class="form-control" />
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <div class="checkbox">
-                        <label asp-for="Input.RememberMe">
-                            <input asp-for="Input.RememberMe" />
-                            @Html.DisplayNameFor(m => m.Input.RememberMe)
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Log in</button>
-                </div>
-                <div class="form-group">
-                    <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                    </p>
-                    <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                    </p>
-                    <p>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                    </p>
-                </div>
-            </form>
-        </section>
-    </div>*@
-@*</div>*@
-
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }

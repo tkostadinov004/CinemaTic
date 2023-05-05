@@ -15,13 +15,13 @@ namespace Cinema.Models
         {
             Tickets = new List<Ticket>();
         }
-        [Display(Name = "Собствено име")]
+        [Display(Name = "First name")]
         [Required, MaxLength(100), RegularExpression("^[A-Za-z]+$")]
         public string FirstName { get; set; }
-        [Display(Name = "Фамилно име")]
+        [Display(Name = "Last name")]
         [Required, MaxLength(100), RegularExpression("^[A-Za-z]+$")]
         public string LastName { get; set ; }
-        [Display(Name = "Билети за: ")]
+        [Display(Name = "Tickets for: ")]
         public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }

@@ -106,17 +106,17 @@ namespace Cinema.Data
                     }
                 }
 
-                Task<ApplicationUser> visitorUser1 = userManager.FindByEmailAsync("visitor@visitor.bg");
+                Task<ApplicationUser> visitorUser1 = userManager.FindByEmailAsync("visitor@visitor.com");
                 visitorUser1.Wait();
 
                 Task<IdentityResult> visitorUser1Result = null;
                 if (visitorUser1.Result == null)
                 {
                     ApplicationUser visitor = new ApplicationUser();
-                    visitor.Email = "visitor@visitor.bg";
-                    visitor.UserName = "visitor@visitor.bg";
-                    visitor.FirstName = "Петър";
-                    visitor.LastName = "Йорданов";
+                    visitor.Email = "visitor@visitor.com";
+                    visitor.UserName = "visitor@visitor.com";
+                    visitor.FirstName = "George";
+                    visitor.LastName = "Jameson";
                     visitor.EmailConfirmed = true;
 
                     visitorUser1Result = userManager.CreateAsync(visitor, "visitorPass123*");
@@ -128,17 +128,17 @@ namespace Cinema.Data
                     }
                 }
 
-                Task<ApplicationUser> visitorUser2 = userManager.FindByEmailAsync("visitor2@visitor.bg");
+                Task<ApplicationUser> visitorUser2 = userManager.FindByEmailAsync("visitor2@visitor.com");
                 visitorUser2.Wait();
 
                 Task<IdentityResult> visitorUser2Result = null;
                 if (visitorUser2.Result == null)
                 {
                     ApplicationUser visitor = new ApplicationUser();
-                    visitor.Email = "visitor2@visitor.bg";
-                    visitor.UserName = "visitor2@visitor.bg";
-                    visitor.FirstName = "Иван";
-                    visitor.LastName = "Петков";
+                    visitor.Email = "visitor2@visitor.com";
+                    visitor.UserName = "visitor2@visitor.com";
+                    visitor.FirstName = "Ivan";
+                    visitor.LastName = "Moody";
                     visitor.EmailConfirmed = true;
 
                     visitorUser2Result = userManager.CreateAsync(visitor, "visitorPass123*");
@@ -150,17 +150,17 @@ namespace Cinema.Data
                     }
                 }
 
-                Task<ApplicationUser> visitorUser3 = userManager.FindByEmailAsync("visitor3@visitor.bg");
+                Task<ApplicationUser> visitorUser3 = userManager.FindByEmailAsync("visitor3@visitor.com");
                 visitorUser3.Wait();
 
                 Task<IdentityResult> visitorUser3Result = null;
                 if (visitorUser3.Result == null)
                 {
                     ApplicationUser visitor = new ApplicationUser();
-                    visitor.Email = "visitor3@visitor.bg";
-                    visitor.UserName = "visitor3@visitor.bg";
-                    visitor.FirstName = "Йордан";
-                    visitor.LastName = "Костов";
+                    visitor.Email = "visitor3@visitor.com";
+                    visitor.UserName = "visitor3@visitor.com";
+                    visitor.FirstName = "Jack";
+                    visitor.LastName = "Carson";
                     visitor.EmailConfirmed = true;
 
                     visitorUser3Result = userManager.CreateAsync(visitor, "visitorPass123*");
@@ -172,17 +172,17 @@ namespace Cinema.Data
                     }
                 }
 
-                Task<ApplicationUser> ownerUser1 = userManager.FindByEmailAsync("owner@owner.bg");
+                Task<ApplicationUser> ownerUser1 = userManager.FindByEmailAsync("owner@owner.com");
                 ownerUser1.Wait();
 
                 Task<IdentityResult> ownerUser1Result = null;
                 if (ownerUser1.Result == null)
                 {
                     ApplicationUser owner = new ApplicationUser();
-                    owner.Email = "owner@owner.bg";
-                    owner.UserName = "owner@owner.bg";
-                    owner.FirstName = "Костадин";
-                    owner.LastName = "Миленов";
+                    owner.Email = "owner@owner.com";
+                    owner.UserName = "owner@owner.com";
+                    owner.FirstName = "Carl";
+                    owner.LastName = "Milhouse";
                     owner.EmailConfirmed = true;
 
                     ownerUser1Result = userManager.CreateAsync(owner, "ownerPass123*");
@@ -194,17 +194,17 @@ namespace Cinema.Data
                     }
                 }
 
-                Task<ApplicationUser> ownerUser2 = userManager.FindByEmailAsync("owner1@owner.bg");
+                Task<ApplicationUser> ownerUser2 = userManager.FindByEmailAsync("owner1@owner.com");
                 ownerUser2.Wait();
 
                 Task<IdentityResult> ownerUser2Result = null;
                 if (ownerUser2.Result == null)
                 {
                     ApplicationUser owner = new ApplicationUser();
-                    owner.Email = "owner1@owner.bg";
-                    owner.UserName = "owner1@owner.bg";
-                    owner.FirstName = "Стоян";
-                    owner.LastName = "Грозев";
+                    owner.Email = "owner1@owner.com";
+                    owner.UserName = "owner1@owner.com";
+                    owner.FirstName = "Jim";
+                    owner.LastName = "Warren";
                     owner.EmailConfirmed = true;
 
                     ownerUser2Result = userManager.CreateAsync(owner, "ownerPass123*");
@@ -226,8 +226,7 @@ namespace Cinema.Data
             {
                 _context.Genres.Add(new Genre
                 {
-                    EnglishName = genre.EnglishName,
-                    BulgarianName = genre.BulgarianName
+                    Name = genre.Name,
                 });
             }
             _context.SaveChanges();
@@ -243,7 +242,6 @@ namespace Cinema.Data
                 {
                     FirstName = actor.FirstName,
                     LastName = actor.LastName,
-                    BulgarianFullName = actor.BulgarianFullName,
                     Birthdate = DateTime.ParseExact(actor.Birthdate, "dd.MM.yyyy", CultureInfo.InvariantCulture),
                     Nationality = actor.Nationality,
                     Rating = decimal.Parse(actor.IMDBRating),
@@ -261,9 +259,8 @@ namespace Cinema.Data
             {
                 _context.Movies.Add(new Movie
                 {
-                    EnglishTitle = movie.EnglishTitle,
-                    BulgarianTitle = movie.BulgarianTitle,
-                    GenreId = _context.Genres.FirstOrDefault(i => i.EnglishName == movie.Genre).Id,
+                    Title = movie.Title,
+                    GenreId = _context.Genres.FirstOrDefault(i => i.Name == movie.Genre).Id,
                     Description = movie.Description,
                     Date = DateTime.ParseExact(movie.Date, "dd.MM.yyyy", CultureInfo.InvariantCulture),
                     Price = decimal.Parse(movie.Price),
@@ -271,7 +268,7 @@ namespace Cinema.Data
                     TrailerUrl = movie.TrailerUrl,
                     UserRating = 0,
                     RatingCount = 0,
-                    ImageUrl = $"{string.Join("-", movie.EnglishTitle.Replace(":", "").Split())}.jpg"
+                    ImageUrl = $"{string.Join("-", movie.Title.Replace(":", "").Split())}.jpg"
                 });
             }
             _context.SaveChanges();
@@ -286,12 +283,12 @@ namespace Cinema.Data
                 var am = new ActorMovie
                 {
                     ActorId = _context.Actors.ToList().FirstOrDefault(i => $"{i.FirstName} {i.LastName}" == actorMovie.Actor).Id,
-                    MovieId = _context.Movies.ToList().FirstOrDefault(i => i.EnglishTitle == actorMovie.Movie).Id,
+                    MovieId = _context.Movies.ToList().FirstOrDefault(i => i.Title == actorMovie.Movie).Id,
                 };
                 _context.ActorsMovies.Add(new ActorMovie
                 {
                     ActorId = _context.Actors.ToList().FirstOrDefault(i => $"{i.FirstName} {i.LastName}" == actorMovie.Actor).Id,
-                    MovieId = _context.Movies.ToList().FirstOrDefault(i => i.EnglishTitle == actorMovie.Movie).Id,
+                    MovieId = _context.Movies.ToList().FirstOrDefault(i => i.Title == actorMovie.Movie).Id,
                 });
             }
             _context.SaveChanges();

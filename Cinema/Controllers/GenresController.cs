@@ -57,7 +57,7 @@ namespace Cinema.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,EnglishName,BulgarianName")] Genre genre)
+        public async Task<IActionResult> Create([Bind("Id,Name")] Genre genre)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +89,7 @@ namespace Cinema.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,EnglishName,BulgarianName")] Genre genre)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Genre genre)
         {
             if (id != genre.Id)
             {

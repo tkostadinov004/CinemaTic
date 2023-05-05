@@ -1,17 +1,17 @@
 ﻿@model IEnumerable<Cinema.Models.Genre>
 
 @{
-    ViewData["Title"] = "Жанрове";
+    ViewData["Title"] = "Genres";
 }
 
 <link href="~/css/cardStyle.css" rel="stylesheet" />
 <div class="moviesContainer flex-column front-panel">
-    <h1>Жанрове</h1>
+    <h1>Genres</h1>
     <table class="rwd-table">
         <tbody>
             <tr>
-                <th>Име на жанра</th>
-                <th>Брой филми</th>
+                <th>Genre name</th>
+                <th>Movies count</th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -20,29 +20,29 @@
             {
                 <tr class="owner">
                     <td>
-                        @genre.BulgarianName (@genre.EnglishName)
+                        @genre.Name
                     </td>
                     <td>
                         @genre.Movies.Count
                     </td>
                     <td>
-                        <a asp-controller="Genres" asp-action="Details" asp-route-id="@genre.Id"><b>Списък с филми</b></a>
+                        <a asp-controller="Genres" asp-action="Details" asp-route-id="@genre.Id"><b>Movies</b></a>
                     </td>
                     <td>
                         <a asp-controller="Genres" asp-action="Delete" asp-route-id="@genre.Id">
                             <i class="fa-solid fa-circle-xmark f-color-size-b"></i>
-                            Премахни
+                            Remove
                         </a>
                     </td>
                     <td>
                         <a asp-controller="Genres" asp-action="Edit" asp-route-id="@genre.Id">
                             <i class="fa-solid fa-pencil"></i>
-                            Промени
+                            Edit
                         </a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
-    <a class="nx-btn front-panel" asp-controller="Genres" asp-action="Create">Добави нов жанр</a>
+    <a class="nx-btn front-panel" asp-controller="Genres" asp-action="Create">Add a new genre</a>
 </div>

@@ -14,28 +14,24 @@ namespace Cinema.Models
         }
         [Key]
         public int Id { get; set; }
-        [Required(ErrorMessage = "Въведете собствено име!"), MaxLength(100), RegularExpression("^[A-Za-z]+$")]
-        [Display(Name ="Име")]
+        [Required(ErrorMessage = "Enter a first name!"), MaxLength(100), RegularExpression("^[A-Za-z]+$")]
+        [Display(Name ="First name")]
         public string FirstName { get; set; }
-        [Required(ErrorMessage = "Въведете фамилно име!"), MaxLength(100), RegularExpression("^[A-Za-z]+$")]
-        [Display(Name = "Фамилия")]
+        [Required(ErrorMessage = "Enter a family name!"), MaxLength(100), RegularExpression("^[A-Za-z]+$")]
+        [Display(Name = "Last name")]
         public string LastName { get; set; }
-        [Required(ErrorMessage = "Въведете име и фамилия на български!")]
-        [Display(Name = "Име и фамилия на български")]
-        public string BulgarianFullName { get; set; }
-        [Required(ErrorMessage = "Въведете дата на раждане!")]
-        [Display(Name = "Дата на раждане")]
+        [Required(ErrorMessage = "Enter a birthdate!")]
+        [Display(Name = "Birthdate")]
         public DateTime Birthdate { get; set; }
-        [Display(Name = "Националност")]
+        [Display(Name = "Nationality")]
         public string Nationality { get; set; }
-        [Required(ErrorMessage = "Въведете рейтинг от IMDB!")]
-        [Range(1, 10, ErrorMessage = "Въведете рейтинг от 1 до 10!")]
-        [Display(Name = "Рейтинг от IMDB")]
+        [Required(ErrorMessage = "Enter a rating from IMDB!")]
+        [Range(1, 10, ErrorMessage = "The rating should be in the range of 1 to 10")]
+        [Display(Name = "IMDB rating")]
         public decimal Rating { get; set; }
-        [Display(Name = "Снимка")]
+        [Display(Name = "Image")]
         public string? ImageUrl { get; set; }
-
-        [Display(Name = "Филми")]
+        [Display(Name = "Movies")]
         public virtual ICollection<ActorMovie> Movies { get; set; }
     }
 }

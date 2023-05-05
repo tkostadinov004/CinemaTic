@@ -1,25 +1,25 @@
 ﻿@model IEnumerable<Cinema.Models.Movie>
 
 @{
-    ViewData["Title"] = "Панел на собствениците";
+    ViewData["Title"] = "Owner panel";
 }
 
 <link href="~/css/cardStyle.css" rel="stylesheet" />
 <div class="moviesContainer flex-column front-panel">
-    <h1>Панел на собствениците</h1>
-    <a class="nx-btn front-panel" asp-controller="Movies" asp-action="Statistics">Статистика</a>
-    <h1>Филми</h1>
-    <a class="nx-btn front-panel" asp-controller="Movies" asp-action="Create">Добави нов филм</a>
+    <h1>Owner panel</h1>
+    <a class="nx-btn front-panel" asp-controller="Movies" asp-action="Statistics">Statistics</a>
+    <h1>Movies</h1>
+    <a class="nx-btn front-panel" asp-controller="Movies" asp-action="Create">Add a new movie</a>
     <table class="rwd-table movies-table">
         <tbody>
             <tr>
-                <th>Име</th>
-                <th>Жанр </th>
-                <th>Среден потребителски рейтинг </th>
-                <th>Брой оценки </th>
-                <th>Започва прожекции на: </th>
-                <th>Цена </th>
-                <th>Наличен? </th>
+                <th>Title</th>
+                <th>Genre </th>
+                <th>Average user rating </th>
+                <th>Ratings count </th>
+                <th>Screening starts on: </th>
+                <th>Price </th>
+                <th>Available? </th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -27,9 +27,9 @@
             @foreach (var movie in Model)
             {
                 <tr class="owner">
-                    <td>@movie.BulgarianTitle</td>
+                    <td>@movie.Title</td>
                     <td>
-                        <a asp-controller="Genres" asp-action="Details" asp-route-id="@movie.Genre.Id"><b>@movie.Genre.BulgarianName</b></a>
+                        <a asp-controller="Genres" asp-action="Details" asp-route-id="@movie.Genre.Id"><b>@movie.Genre.Name</b></a>
                     </td>
                     <td>@movie.UserRating / 10.0</td>
                     <td>@movie.RatingCount</td>
@@ -39,24 +39,24 @@
                         var isAvailable = DateTime.Now >= movie.Date && Math.Abs((movie.Date - DateTime.Now).TotalDays) <= 7;
                     }
                     <td class="col-@(isAvailable ? "green" : "red")">
-                        <b>@string.Format($"{(isAvailable ? "ДА" : "НЕ")}")</b>
+                        <b>@string.Format($"{(isAvailable ? "YES" : "NO")}")</b>
                     </td>
                     <td class="control">
                         <a asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">
                             <i class="fa-solid fa-circle-info f-green-color-size-b"></i>
-                            <b>Детайли</b>
+                            <b>Details</b>
                         </a>
                     </td>
                     <td class="control">
                         <a asp-controller="Movies" asp-action="Edit" asp-route-id="@movie.Id">
                             <i class="fa-solid fa-pencil"></i>
-                            <b>Промени</b>
+                            <b>Edit</b>
                         </a>
                     </td>
                     <td class="control">
                         <a asp-controller="Movies" asp-action="Delete" asp-route-id="@movie.Id">
                             <i class="fa-solid fa-circle-xmark f-color-size-b"></i>
-                            <b>Премахни</b>
+                            <b>Delete</b>
                         </a>
                     </td>
                 </tr>

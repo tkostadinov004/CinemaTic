@@ -6,20 +6,20 @@
 @if (UserManager.Users.Count() > 0 && SignInManager.IsSignedIn(User))
 {
     <ul class="nav-links" role="list">
-        @if ((string)ViewData["Title"] != "Начало")
+        @if ((string)ViewData["Title"] != "Home")
         {
             @if (User.IsInRole("Administrator"))
             {
-                <li><a class="nx-btn" asp-controller="Admin" asp-action="Index">Назад</a></li>
+                <li><a class="nx-btn" asp-controller="Admin" asp-action="Index">Go back</a></li>
             }
             else
             {
-                <li><a class="nx-btn" href="javascript:history.back()">Назад</a></li>
+                <li><a class="nx-btn" href="javascript:history.back()">Go back</a></li>
             }
         }
         <li>
             <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button type="submit" class="nx-btn">Излез от профила си</button>
+                <button type="submit" class="nx-btn">Logout</button>
             </form>
         </li>
         @if (User.IsInRole("Administrator") == false)
@@ -32,17 +32,17 @@
                             var user = @UserManager.FindByEmailAsync(User.Identity.Name).Result;
                             string names = $"{user.FirstName} {user.LastName}";
                         }
-                        <h1 class="welcome-title">Добре дошъл, @names!</h1>
+                        <h1 class="welcome-title">Welcome, @names!</h1>
                         @if (User.IsInRole("Owner"))
                         {
-                            <a class="" asp-controller="Visitors" asp-action="Index">Посетители</a>
-                            <a class="" asp-controller="Genres" asp-action="Index">Жанрове</a>
-                            <a class="" asp-controller="Actors" asp-action="Index">Актьори</a>
-                            <a class="" asp-controller="Movies" asp-action="Index">Филми</a>
+                            <a class="" asp-controller="Visitors" asp-action="Index">Visitors</a>
+                            <a class="" asp-controller="Genres" asp-action="Index">Genres</a>
+                            <a class="" asp-controller="Actors" asp-action="Index">Actors</a>
+                            <a class="" asp-controller="Movies" asp-action="Index">Movies</a>
                         }
                         @if (User.IsInRole("Visitor"))
                         {
-                            <a class="" asp-controller="Tickets" asp-action="Index">Вашите билети</a>
+                            <a class="" asp-controller="Tickets" asp-action="Index">Your tickets</a>
                         }
                     </div>
                 </div>
@@ -64,18 +64,18 @@
 else
 {
     <ul class="nav-links" role="list">
-        @if ((string)ViewData["Title"] == "Начало")
+        @if ((string)ViewData["Title"] == "Home")
         {
             <li>
-                <a class="nx-btn" asp-area="Identity" asp-page="/Account/Login">Влез</a>
+                <a class="nx-btn" asp-area="Identity" asp-page="/Account/Login">Login</a>
             </li>
             <li>
-                <a class="nx-btn" asp-area="Identity" asp-page="/Account/Register">Регистрирай се</a>
+                <a class="nx-btn" asp-area="Identity" asp-page="/Account/Register">Register</a>
             </li>
         }
         else
         {
-            <a class="nx-btn" href="/">Назад</a>
+            <a class="nx-btn" href="/">Go back</a>
         }
     </ul>
 }

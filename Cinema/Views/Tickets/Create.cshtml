@@ -1,10 +1,10 @@
 ﻿@model Cinema.Models.ViewModels.BuyTicketViewModel
 
 @{
-    ViewData["Title"] = "Купи билет";
+    ViewData["Title"] = "Buy a ticket";
 }
 
-<h1>Купи билет за филм "@Model.Movie.BulgarianTitle"</h1>
+<h1>Buy a ticket for "@Model.Movie.Title"</h1>
 <hr />
 <link href="~/css/seatsStyle.css" rel="stylesheet" />
 @if (Model.Occupied.Cast<bool>().All(i => i == true) == false)
@@ -29,9 +29,9 @@
                     @if (string.IsNullOrEmpty(Model.Sector))
                     {
                         <div class="sector-selector sector-container">
-                            <div class="sector-container-row-heading">РЕДОВЕ</div>
+                            <div class="sector-container-row-heading">ROWS</div>
                             <div class="sector-grid">
-                                <div class="sector-container-col-heading">КОЛОНИ</div>
+                                <div class="sector-container-col-heading">COLUMNS</div>
                                 <div class="sector-line">
                                     <div class="sector-box">
                                         <div class="seats-line">
@@ -88,8 +88,8 @@
                                 </div>
                             }
                             <div class="form-group seat-submit-form">
-                                <p id="selected-seat">Нямате избрано място</p>
-                                <input id="submit-seat-btn" disabled type="submit" value="Купи" class="nx-btn primary" asp-route-movieId="@Model.Movie.Id" asp-route-forDate="@Model.ForDate" />
+                                <p id="selected-seat">Select a place!</p>
+                                <input id="submit-seat-btn" disabled type="submit" value="Buy" class="nx-btn primary" asp-route-movieId="@Model.Movie.Id" asp-route-forDate="@Model.ForDate" />
                             </div>
                         </form>
                     }
@@ -111,7 +111,7 @@
                 const zeroPad = (num, places) => String(num).padStart(places, '0');
 
                 let line = document.getElementById("selected-seat");
-                line.innerHTML = `Вашето място е R${zeroPad(row, 2)}C${zeroPad(col, 2)}.`;
+                line.innerHTML = `Your seat number is R${zeroPad(row, 2)}C${zeroPad(col, 2)}.`;
             }
         }
     </script>

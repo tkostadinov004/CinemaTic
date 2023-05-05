@@ -1,38 +1,29 @@
 [
   {
-    "EnglishName": "Adventure",
-    "BulgarianName": "Приключенски"
+    "Name": "Adventure"
   },
   {
-    "EnglishName": "Drama",
-    "BulgarianName": "Драма"
+    "Name": "Drama"
   },
   {
-    "EnglishName": "History",
-    "BulgarianName": "Исторически"
+    "Name": "History"
   },
   {
-    "EnglishName": "Thriller",
-    "BulgarianName": "Трилър"
+    "Name": "Thriller"
   },
   {
-    "EnglishName": "Fantasy",
-    "BulgarianName": "Фентъзи"
+    "Name": "Fantasy"
   },
   {
-    "EnglishName": "Sci-Fi",
-    "BulgarianName": "Sci-Fi"
+    "Name": "Sci-Fi"
   },
   {
-    "EnglishName": "Comedy",
-    "BulgarianName": "Комедия"
+    "Name": "Comedy"
   },
   {
-    "EnglishName": "Romance",
-    "BulgarianName": "Романтичен"
+    "Name": "Romance"
   },
   {
-    "EnglishName": "Action",
-    "BulgarianName": "Екшън"
+    "Name": "Action"
   }
 ]

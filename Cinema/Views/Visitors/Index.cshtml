@@ -1,17 +1,17 @@
 ﻿@model IEnumerable<Cinema.Models.ApplicationUser>
 
 @{
-    ViewData["Title"] = "Посетители";
+    ViewData["Title"] = "Visitors";
 }
 
 <link href="~/css/cardStyle.css" rel="stylesheet" />
 <div class="moviesContainer flex-column front-panel">
-    <h1>Посетители</h1>
+    <h1>Visitors</h1>
     <table class="rwd-table">
         <tbody>
             <tr>
-                <th>Имена</th>
-                <th>Билет за: </th>
+                <th>Name</th>
+                <th>Tickets for: </th>
             </tr>
             @foreach (var visitor in Model)
             {
@@ -24,12 +24,12 @@
                         {
                             @foreach (var ticket in visitor.Tickets)
                             {
-                                <p><a asp-controller="Movies" asp-action="Details" asp-route-id="@ticket.Movie.Id"><b>@ticket.Movie.BulgarianTitle</b></a> - @ticket.ForDate.ToString("dd.MM.yyyy") - @ticket.Seat.SeatNumber</p>
+                                <p><a asp-controller="Movies" asp-action="Details" asp-route-id="@ticket.Movie.Id"><b>@ticket.Movie.Title</b></a> - @ticket.ForDate.ToString("dd.MM.yyyy") - @ticket.Seat.SeatNumber</p>
                             }
                         }
                         else
                         {
-                           <i><b>Няма билети!</b></i>
+                           <i><b>No tickets!</b></i>
                         }
                     </td>
                 </tr>

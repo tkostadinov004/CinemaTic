@@ -1,15 +1,14 @@
 ﻿@model Cinema.Models.Actor
 
 @{
-    ViewData["Title"] = $"Детайли - {Model.BulgarianFullName}";
+    ViewData["Title"] = "Details";
 }
 <link href="~/css/ratingModal.css" rel="stylesheet" />
 <div class="details front-panel">
     <div>
         <div class="short-info">
             <div class="section-line">
-                <p class="section-line" style="font-size: 2rem; font-weight: bold;">@Model.BulgarianFullName</p>
-                <p class="section-line">@string.Format($"({Model.FirstName} {Model.LastName})")</p>
+                <h1 class="section-line">@string.Format($"{Model.FirstName} {Model.LastName}")</h1>
             </div>
             <div class="short-info-line">
                 <div class="info-box">
@@ -21,7 +20,7 @@
                     <p class="info-box-desc">@Model.Birthdate.ToString("dd.MM.yyyy")</p>
                 </div>
                 <div class="rating-container">
-                    <span>IMDB рейтинг</span>
+                    <span>IMDB rating</span>
                     <div class="rating-box">
                         <i class="fa-solid fa-star ct-rating-star"></i>
                         <div class="rating-number-box">
@@ -36,22 +35,20 @@
             <img class="cover-photo" src="~/@Cinema.Utilities.Constants.ImagesFolder/Actors/@Model.ImageUrl" />
             <section class="details-info">
                 <div class="info-box">
-                    @*<p class="info-box-title">@Html.DisplayNameFor(model => model.Movie.Genre)</p>
-            <p class="info-box-desc">@Html.DisplayFor(model => model.Movie.Genre.BulgarianName)</p>*@
                 </div>
                 <div class="info-box actors">
                     <p class="info-box-title">@Html.DisplayNameFor(model => model.Movies)</p>
                     <div class="info-box-desc">
                         @foreach (var movie in Model.Movies)
                         {
-                        <a class="actor-name" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.MovieId"><b>@movie.Movie.BulgarianTitle</b></a>
+                        <a class="actor-name" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.MovieId"><b>@movie.Movie.Title</b></a>
                         }
                     </div>
                 </div>
             </section>
         </div>
         <form class="edit-button">
-            <a asp-controller="Actors" asp-action="Edit" asp-route-id="@Model.Id" class="nx-btn primary">Промени</a>
+            <a asp-controller="Actors" asp-action="Edit" asp-route-id="@Model.Id" class="nx-btn primary">Edit</a>
         </form>
     </div>
 </div>

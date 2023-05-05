@@ -76,7 +76,6 @@ namespace Cinema.Controllers
                     LastName = actorVM.LastName,
                     ImageUrl = photoName,
                     Nationality = actorVM.Nationality,
-                    BulgarianFullName = actorVM.BulgarianFullName,
                     Rating = actorVM.Rating
                 };
 
@@ -104,7 +103,6 @@ namespace Cinema.Controllers
                 Id = actor.Id,
                 FirstName = actor.FirstName,
                 LastName = actor.LastName,
-                BulgarianFullName = actor.BulgarianFullName,
                 Nationality = actor.Nationality,
                 Birthdate = actor.Birthdate,
                 Rating = actor.Rating,
@@ -129,7 +127,6 @@ namespace Cinema.Controllers
                     string photoName = GlobalMethods.UploadPhoto("Actors", actorVM.Image, _webHostEnvironment);
                     actor.FirstName = actorVM.FirstName;
                     actor.LastName = actorVM.LastName;
-                    actor.BulgarianFullName = actorVM.BulgarianFullName;
                     actor.Birthdate = actorVM.Birthdate;
                     actor.Rating = actorVM.Rating;
 

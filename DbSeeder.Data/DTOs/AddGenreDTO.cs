@@ -8,7 +8,6 @@ namespace DbSeeder.Data.DTOs
 {
     public class AddGenreDTO
     {
-        public string EnglishName { get; set; }
-        public string BulgarianName { get; set; }
+        public string Name { get; set; }
     }
 }

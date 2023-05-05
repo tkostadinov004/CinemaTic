@@ -1,26 +1,26 @@
 ﻿@model IEnumerable<Cinema.Models.Ticket>
 
 @{
-    ViewData["Title"] = (User.IsInRole("Owner") ? "Билети" : "Вашите билети");
+    ViewData["Title"] = (User.IsInRole("Owner") ? "Tickets" : "Your tickets");
 }
 
 <link href="~/css/cardStyle.css" rel="stylesheet" />
 <div class="moviesContainer flex-column front-panel">
     @if (User.IsInRole("Owner"))
     {
-        <h1>Билети</h1>
+        <h1>Tickets</h1>
     }
     else
     {
-        <h1>Вашите билети</h1>
+        <h1>Your tickets</h1>
     }
     <table class="rwd-table">
         <tbody>
             <tr>
-                <th>Филм</th>
-                <th>Дата</th>
-                <th>Цена</th>
-                <th>Номер на място</th>
+                <th>Movie</th>
+                <th>Date</th>
+                <th>Price</th>
+                <th>Seat number</th>
             </tr>
             @if (Model.Count() > 0)
             {
@@ -29,15 +29,15 @@
                     <tr class="owner">
                         <td>
                             <div class="movie-table-info">
-                                <div>@ticket.Movie.BulgarianTitle</div>
-                                <a asp-controller="Movies" asp-action="Details" asp-route-id="@ticket.Movie.Id"><b>Виж повече</b></a>
+                                <div>@ticket.Movie.Title</div>
+                                <a asp-controller="Movies" asp-action="Details" asp-route-id="@ticket.Movie.Id"><b>See more</b></a>
                             </div>
                         </td>
                         <td>
                             @ticket.ForDate.ToString("dd.MM.yyyy")
                         </td>
                         <td>
-                            @ticket.Price лв.
+                            @ticket.Price
                         </td>
                         <td>
                             @ticket.Seat.SeatNumber
@@ -49,7 +49,7 @@
             {
                 <tr class="owner">
                     <td colspan="4" style="text-align: center;">
-                        <b>Няма билети!</b>
+                        <b>No tickets!</b>
                     </td>
                 </tr>
             }

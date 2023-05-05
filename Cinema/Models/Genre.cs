@@ -16,12 +16,9 @@ namespace Cinema.Models
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Въведете име на английски!")]
-        [Display(Name = "Име на английски")]
-        public string EnglishName { get; set; }
-        [Required(ErrorMessage = "Въведете име на български!")]
-        [Display(Name = "Име на български")]
-        public string BulgarianName { get; set; }
+        [Required(ErrorMessage = "Enter a genre name!")]
+        [Display(Name = "Name")]
+        public string Name { get; set; }
 
         public virtual ICollection<Movie> Movies { get; set; }
     }

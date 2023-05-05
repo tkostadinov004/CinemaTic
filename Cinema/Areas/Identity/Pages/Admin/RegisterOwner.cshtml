@@ -1,17 +1,17 @@
 ﻿@page
 @model Cinema.Areas.Identity.Pages.Admin.RegisterOwnerModel
 @{
-    ViewData["Title"] = "Регистрирай собственик";
+    ViewData["Title"] = "Register owner";
 }
 
 <link href="~/css/loginRegisterStyle.css" rel="stylesheet" />
 
 <section class="front-panel">
     <div class="row">
-        <h1>Регистрирай собственик</h1>
+        <h1>Register owner</h1>
         <div class="col-md-4">
             <form class="account" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                <h4>Създай нов акаунт</h4>
+                <h4>Create a new account</h4>
                 <hr class="section-line" />
                 <div class="text-fields">
                     <div asp-validation-summary="All" class="text-danger"></div>
@@ -51,7 +51,7 @@
                         <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                     </div>
                 </div>
-                <button type="submit" class="nx-btn primary">Регистрирай нов собственик</button>
+                <button type="submit" class="nx-btn primary">Register a new owner</button>
             </form>
         </div>
     </div>

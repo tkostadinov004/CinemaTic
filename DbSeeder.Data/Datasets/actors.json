@@ -2,97 +2,85 @@
   {
     "FirstName": "Jason",
     "LastName": "Statham",
-    "BulgarianFullName": "Джейсън Стейтъм",
     "Birthdate": "26.06.1967",
-    "Nationality": "Великобритания",
+    "Nationality": "United Kingdom",
     "IMDBRating": "8.3"
   },
   {
     "FirstName": "Denzel",
     "LastName": "Washington",
-    "BulgarianFullName": "Дензел Уошингтън",
     "Birthdate": "28.12.1954",
-    "Nationality": "Съединени американски щати",
+    "Nationality": "United States",
     "IMDBRating": "8.1"
   },
   {
     "FirstName": "Mark",
     "LastName": "Wahlberg",
-    "BulgarianFullName": "Марк Уолбърг",
     "Birthdate": "05.06.1971",
-    "Nationality": "Съединени американски щати",
+    "Nationality": "United States",
     "IMDBRating": "7.2"
   },
   {
     "FirstName": "Matt",
     "LastName": "Damon",
-    "BulgarianFullName": "Мат Деймън",
     "Birthdate": "08.10.1970",
-    "Nationality": "Съединени американски щати",
+    "Nationality": "United States",
     "IMDBRating": "7.6"
   },
   {
     "FirstName": "Jack",
     "LastName": "Nicholson",
-    "BulgarianFullName": "Джак Никълсън",
     "Birthdate": "22.04.1937",
-    "Nationality": "Съединени американски щати",
+    "Nationality": "United States",
     "IMDBRating": "9.4"
   },
   {
     "FirstName": "Leonardo",
     "LastName": "DiCaprio",
-    "BulgarianFullName": "Леонардо ДиКаприо",
     "Birthdate": "11.11.1974",
-    "Nationality": "Съединени американски щати",
+    "Nationality": "United States",
     "IMDBRating": "8.6"
   },
   {
     "FirstName": "Russell",
     "LastName": "Crowe",
-    "BulgarianFullName": "Ръсел Кроу",
     "Birthdate": "07.04.1964",
-    "Nationality": "Нова Зеландия",
+    "Nationality": "New Zealand",
     "IMDBRating": "6.9"
   },
   {
     "FirstName": "Mark",
     "LastName": "Strong",
-    "BulgarianFullName": "Марк Стронг",
     "Birthdate": "05.08.1963",
-    "Nationality": "Великобритания",
+    "Nationality": "United Kingdom",
     "IMDBRating": "7.4"
   },
   {
     "FirstName": "Taron",
     "LastName": "Egerton",
-    "BulgarianFullName": "Тарън Еджъртън",
     "Birthdate": "10.11.1989",
-    "Nationality": "Великобритания",
+    "Nationality": "United Kingdom",
     "IMDBRating": "7.0"
   },
   {
     "FirstName": "Samuel",
     "LastName": "Jackson",
-    "BulgarianFullName": "Самюъл Джаксън",
     "Birthdate": "21.12.1948",
-    "Nationality": "Съединени американски щати",
+    "Nationality": "United States",
     "IMDBRating": "9.0"
   },
   {
     "FirstName": "Jamie",
     "LastName": "Foxx",
-    "BulgarianFullName": "Джейми Фокс",
     "Birthdate": "13.12.1967",
-    "Nationality": "Съединени американски щати",
+    "Nationality": "United States",
     "IMDBRating": "8.0"
   },
   {
     "FirstName": "Christoph",
     "LastName": "Waltz",
-    "BulgarianFullName": "Кристоф Уолц",
     "Birthdate": "04.10.1956",
-    "Nationality": "Австрия",
+    "Nationality": "Austria",
     "IMDBRating": "7.2"
   }
 ]

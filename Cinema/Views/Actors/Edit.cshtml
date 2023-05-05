@@ -1,13 +1,13 @@
 ﻿@model Cinema.Models.ViewModels.EditActorViewModel
 
 @{
-    ViewData["Title"] = "Промени актьор";
+    ViewData["Title"] = "Edit an actor";
 }
 
 <link href="~/css/loginRegisterStyle.css" rel="stylesheet" />
 <section class="front-panel">
     <div class="row">
-        <h1>Промени актьор @Model.BulgarianFullName</h1>
+        <h1>Edit information for actor @Model.FirstName @Model.LastName</h1>
         <div class="col-md-4">
             <form class="account" enctype="multipart/form-data" asp-controller="Actors" asp-action="Edit" method="post">
                 <hr class="section-line" />
@@ -26,13 +26,6 @@
                             <input asp-for="LastName" class="form-control" />
                         </div>
                         <span asp-validation-for="LastName" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <div class="active-form">
-                            <label asp-for="BulgarianFullName"></label>
-                            <input asp-for="BulgarianFullName" class="form-control" />
-                        </div>
-                        <span asp-validation-for="BulgarianFullName" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <div class="active-form">
@@ -63,7 +56,7 @@
                         <span asp-validation-for="Image" class="text-danger"></span>
                     </div>
                 </div>
-                <button type="submit" asp-route-id="@Model.Id" class="nx-btn primary">Промени</button>
+                <button type="submit" asp-route-id="@Model.Id" class="nx-btn primary">Edit</button>
             </form>
         </div>
     </div>

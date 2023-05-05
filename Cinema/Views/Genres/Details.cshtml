@@ -1,12 +1,12 @@
 ﻿@model Cinema.Models.Genre
 
 @{
-    ViewData["Title"] = $"Детайли - жанр \"{Model.BulgarianName}\"";
+    ViewData["Title"] = $"Details - \"{Model.Name}\"";
 }
 
 <link rel="stylesheet" href="~/css/cardStyle.css" />
 <div class="moviesContainer flex-column front-panel">
-    <h1>@Model.BulgarianName</h1>
+    <h1>@Model.Name</h1>
     <div class="moviesContainer">
         @if (Model.Movies.Count > 0)
         {
@@ -19,17 +19,17 @@
                             <div class="description-buttons">
                                 <div class="desc-button">
                                     <i class="fa-solid fa-film f-size-b"></i>
-                                    <a>Гледай трейлър</a>
+                                    <a>Watch trailer</a>
                                 </div>
                                 <a class="desc-button" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">
                                     <i class="fa-solid fa-circle-info f-size-b"></i>
-                                    Детайли
+                                    Details
                                 </a>
                                 @if (User.IsInRole("Owner") == false)
                                 {
                                     <a class="desc-button" asp-controller="Tickets" asp-action="Create" asp-route-movieId="@movie.Id">
                                         <i class="fa-solid fa-cart-shopping f-size-b"></i>
-                                        Купи билет
+                                        Buy ticket
                                     </a>
                                 }
                             </div>
@@ -40,7 +40,7 @@
         }
         else
         {
-            <h2><i>Няма филми, свързани с този жанр!</i></h2>
+            <h2><i>There are no @Model.Name movies!</i></h2>
         }
     </div>
 </div>

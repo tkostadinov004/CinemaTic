@@ -16,39 +16,36 @@ namespace Cinema.Models
         {
             Actors = new List<ActorMovie>();
         }
-        [Required(ErrorMessage ="Въведете име на английски!")]
-        [Display(Name = "Име на филма (на английски)")]
-        public string EnglishTitle { get; set; }
-        [Required(ErrorMessage = "Въведете име на български!")]
-        [Display(Name = "Име на филма (на български)")]
-        public string BulgarianTitle { get; set; }
-        [Required(ErrorMessage = "Изберете жанр!")]
-        [Display(Name = "Жанр")]
+        [Required(ErrorMessage ="Enter a title!")]
+        [Display(Name = "Movie title")]
+        public string Title { get; set; }
+        [Required(ErrorMessage = "Choose a genre!")]
+        [Display(Name = "Genre")]
         public int GenreId { get; set; }
-        [Display(Name = "Снимка")]
+        [Display(Name = "Image")]
         public string? ImageUrl { get; set; }
-        [Required(ErrorMessage = "Въведете кратко описание")]
-        [Display(Name = "Кратко описание")]
+        [Required(ErrorMessage = "Enter a brief plot description!")]
+        [Display(Name = "Plot description")]
         public string Description { get; set; }
         public decimal? UserRating { get; set; }
         public int RatingCount { get; set; }
-        [Required(ErrorMessage = "Въведете дата!")]
-        [Display(Name = "Дата")]
+        [Required(ErrorMessage = "Enter a date!")]
+        [Display(Name = "Date")]
         public DateTime Date { get; set; }
-        [Required(ErrorMessage = "Въведете цена!")]
-        [Range(1, double.MaxValue, ErrorMessage = "Цената трябва да бъде повече от 1 лев!")]
-        [Display(Name = "Цена")]
+        [Required(ErrorMessage = "Enter a price!")]
+        [Range(1, double.MaxValue, ErrorMessage = "The price should be at least $1!")]
+        [Display(Name = "Price")]
         public decimal Price { get; set; }
-        [Required(ErrorMessage = "Въведете времетраене!")]
-        [Range(1, double.MaxValue, ErrorMessage = "Филмът трябва да бъде поне 1 минута!")]
-        [Display(Name = "Времетраене")]
+        [Required(ErrorMessage = "Enter a movie duration!")]
+        [Range(1, double.MaxValue, ErrorMessage = "The movie should be at least 1 minute long!")]
+        [Display(Name = "Duration")]
         public int RunningTime { get; set; }
-        [Required(ErrorMessage = "Въведете линк за трейлър!")]
-        [Display(Name = "Линк към трейлъра")]
+        [Required(ErrorMessage = "Enter a trailer url!")]
+        [Display(Name = "Trailer URL")]
         public string TrailerUrl { get; set; }
-        [Display(Name = "Жанр")]
+        [Display(Name = "Genre")]
         public virtual Genre Genre { get; set; }
-        [Display(Name = "Актьори")]
+        [Display(Name = "Actors")]
         public virtual ICollection<ActorMovie> Actors { get; set; }
     }
 }

@@ -47,29 +47,29 @@ namespace Cinema.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required(ErrorMessage = "Въведете имейл!")]
-            [EmailAddress(ErrorMessage = "Въведете правилен имейл!")]
+            [Required(ErrorMessage = "Enter an email address!")]
+            [EmailAddress(ErrorMessage = "Enter a correct email address!")]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
-            [Required(ErrorMessage = "Въведете парола!")]
-            [StringLength(100, ErrorMessage = "Паролата трябва да бъде поне {2} символа и най-много {1} символа.", MinimumLength = 6)]
+            [Required(ErrorMessage = "Enter a password!")]
+            [StringLength(100, ErrorMessage = "The password must contain at least {2} characters and no more than {1} characters!", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Парола")]
+            [Display(Name = "Password")]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Потвърди парола")]
-            [Compare("Password", ErrorMessage = "Двете пароли не съвпадат.")]
+            [Display(Name = "Confirm password")]
+            [Compare("Password", ErrorMessage = "The two passwords don't match!")]
             public string ConfirmPassword { get; set; }
 
             [DataType(DataType.Text)]
-            [StringLength(100, ErrorMessage = "Собственото име трябва да бъде поне {2} символа и най-много {1} символа", MinimumLength = 5)]
-            [Display(Name = "Собствено име")]
+            [StringLength(100, ErrorMessage = "The first name should be at least {2} characters long and no more than {1} characters long!", MinimumLength = 5)]
+            [Display(Name = "First name")]
             public string FirstName { get; set; }
             [DataType(DataType.Text)]
-            [StringLength(100, ErrorMessage = "Фамилното име трябва да бъде поне {2} символа и най-много {1} символа", MinimumLength = 5)]
-            [Display(Name = "Фамилно име")]
+            [StringLength(100, ErrorMessage = "The last name should be at least {2} characters long and no more than {1} characters long!", MinimumLength = 5)]
+            [Display(Name = "Last name")]
             public string LastName { get; set; }
         }
         public async Task OnGetAsync(string returnUrl = null)

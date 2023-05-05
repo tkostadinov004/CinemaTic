@@ -8,8 +8,7 @@ namespace DbSeeder.Data.DTOs
 {
     public class AddMovieDTO
     {
-        public string EnglishTitle { get; set; }
-        public string BulgarianTitle { get; set; }
+        public string Title { get; set; }
         public string Genre { get; set; }
         public string Description { get; set; }
         public string Date { get; set; }

@@ -6,8 +6,8 @@
 
 <link rel="stylesheet" href="~/css/cardStyle.css" />
 <section class="front-panel">
-    <h1 data-content="Actors" style="margin-bottom: 20px;">Актьори</h1>
-    <a class="nx-btn front-panel" asp-controller="Actors" asp-action="Create">Добави нов актьор</a>
+    <h1 data-content="Actors" style="margin-bottom: 20px;">Actors</h1>
+    <a class="nx-btn front-panel" asp-controller="Actors" asp-action="Create">Add a new actor</a>
     <div class="moviesContainer left-align">
         @foreach (var actor in Model)
         {
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                 </div>
-                <p class="actor-name">@actor.BulgarianFullName</p>
+                <p class="actor-name">@actor.FirstName @actor.LastName</p>
             </div>
         }
     </div>

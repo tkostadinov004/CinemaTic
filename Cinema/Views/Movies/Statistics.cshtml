@@ -1,18 +1,18 @@
 ﻿@model Cinema.Models.ViewModels.StatisticsViewModel
 
 @{
-    ViewData["Title"] = "Статистика";
+    ViewData["Title"] = "Statistics";
 }
 
 <link href="~/css/cardStyle.css" rel="stylesheet" />
 <div class="moviesContainer flex-column front-panel statistics-table">
-    <h1>Статистика</h1>
-    <p>Брой продадени билети - @Model.TicketsSold</p>
-    <p>Печалба - @Model.Income лв.</p>
+    <h1>Statistics</h1>
+    <p>Tickets sold - @Model.TicketsSold</p>
+    <p>Income - $@Model.Income</p>
     <p>
-        Най-популярен филм -
+        Most popular movie (by the amount of votes) -
         <a asp-controller="Movies" asp-action="Details" asp-route-id="@Model.MostPopularMovie.Id">
-            <b>@Model.MostPopularMovie.BulgarianTitle</b>
+            <b>@Model.MostPopularMovie.Title</b>
         </a>
     </p>
 </div>

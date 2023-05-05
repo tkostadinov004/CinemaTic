@@ -71,10 +71,10 @@ namespace Cinema.Controllers
         [Authorize(Roles = "Owner")]
         public IActionResult Create()
         {
-            ViewBag.Genres = new SelectList(_context.Genres.AsNoTracking().ToList(), nameof(Genre.Id), nameof(Genre.BulgarianName));
+            ViewBag.Genres = new SelectList(_context.Genres.AsNoTracking().ToList(), nameof(Genre.Id), nameof(Genre.Name));
 
             var actors = _context.Actors.AsNoTracking().ToList();
-            ViewBag.Actors = new SelectList(from a in actors select new { Id = a.Id, FullName = a.BulgarianFullName }, nameof(Actor.Id), "FullName");
+            ViewBag.Actors = new SelectList(from a in actors select new { Id = a.Id, FullName = $"{a.FirstName} {a.LastName}" }, nameof(Actor.Id), "FullName");
             return View();
         }
 
@@ -94,8 +94,7 @@ namespace Cinema.Controllers
                     Date = movieVM.Date,
                     Description = movieVM.Description,
                     RunningTime = movieVM.RunningTime,
-                    BulgarianTitle = movieVM.BulgarianTitle,
-                    EnglishTitle = movieVM.EnglishTitle,
+                    Title = movieVM.Title,
                     ImageUrl = photoName,
                     Price = movieVM.Price,
                     TrailerUrl = movieVM.TrailerUrl
@@ -137,8 +136,7 @@ namespace Cinema.Controllers
             var vm = new EditMovieViewModel
             {
                 Id = movie.Id,
-                BulgarianTitle = movie.BulgarianTitle,
-                EnglishTitle = movie.EnglishTitle,
+                Title = movie.Title,
                 Genre = movie.Genre,
                 GenreId = movie.GenreId,
                 Description = movie.Description,
@@ -149,7 +147,7 @@ namespace Cinema.Controllers
                 Actors = movie.Actors,
                 ImageUrl = movie.ImageUrl
             };
-            ViewBag.Genres = new SelectList(_context.Genres.AsNoTracking().ToList(), nameof(Genre.Id), nameof(Genre.BulgarianName));
+            ViewBag.Genres = new SelectList(_context.Genres.AsNoTracking().ToList(), nameof(Genre.Id), nameof(Genre.Name));
 
             var actors = _context.Actors.AsNoTracking().ToList();
             ViewBag.Actors = new SelectList(from a in actors select new { Id = a.Id, FullName = $"{a.FirstName} {a.LastName}" }, nameof(Actor.Id), "FullName");
@@ -171,8 +169,7 @@ namespace Cinema.Controllers
                     var movie = await _context.Movies.AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
                     string photoName = GlobalMethods.UploadPhoto("Movies", vm.Image, _webHostEnvironment);
 
-                    movie.BulgarianTitle = vm.BulgarianTitle;
-                    movie.EnglishTitle = vm.EnglishTitle;
+                    movie.Title = vm.Title;
                     movie.Genre = await _context.Genres.FirstOrDefaultAsync(i => i.Id == genreId);
                     movie.Description = vm.Description;
                     movie.RunningTime = vm.RunningTime;

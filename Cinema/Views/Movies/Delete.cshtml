@@ -1,21 +1,21 @@
 ﻿@model Cinema.Models.Movie
 
 @{
-    ViewData["Title"] = "Премахни филм";
+    ViewData["Title"] = "Delete a movie";
 }
 
 
 <link href="~/css/adminStyle.css" rel="stylesheet" />
 <link href="~/css/cardStyle.css" rel="stylesheet" />
 <div class="moviesContainer flex-column front-panel">
-    <h1 class="change-header">Сигурни ли сте, че искате да изтриете следния филм?</h1>
+    <h1 class="change-header">Are you sure you want to delete the following movie?</h1>
     <div class="owner-info">
-        <p class="edited-object">Име: <b>@Model.BulgarianTitle</b></p>
-        <p class="edited-object">Жанр: @Model.Genre.BulgarianName</p>
-        <p class="edited-object">Среден потребителски рейтинг: @Model.UserRating / 10.0</p>
+        <p class="edited-object">Name: <b>@Model.Title</b></p>
+        <p class="edited-object">Genre: @Model.Genre.Name</p>
+        <p class="edited-object">Average user rating: @Model.UserRating / 10.0</p>
     </div>
     <form class="agreement-buttons" asp-controller="Movies" asp-action="Delete">
-        <button type="submit" class="nx-btn green front-panel" asp-route-id="@Model.Id">Да</button>
-        <a class="nx-btn" asp-controller="Movies" asp-action="Index">Не</a>
+        <button type="submit" class="nx-btn green front-panel" asp-route-id="@Model.Id">Yes</button>
+        <a class="nx-btn" asp-controller="Movies" asp-action="Index">No</a>
     </form>
 </div>

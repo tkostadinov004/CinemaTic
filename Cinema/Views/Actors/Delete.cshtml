@@ -1,22 +1,22 @@
 ﻿@model Cinema.Models.Actor
 
 @{
-    ViewData["Title"] = "Изтрий актьор";
+    ViewData["Title"] = "Delete an actor";
 }
 
 <link href="~/css/adminStyle.css" rel="stylesheet" />
 <link href="~/css/cardStyle.css" rel="stylesheet" />
 <div class="moviesContainer flex-column front-panel">
-    <h1 class="change-header">Сигурни ли сте, че искате да изтриете следния актьор?</h1>
+    <h1 class="change-header">Are you sure you want to delete the following actor?</h1>
     <div class="owner-info">
-        <p class="edited-object">Име: <b>@Model.BulgarianFullName</b> (@string.Format($"{Model.FirstName} {Model.LastName}"))</p>
-        <p class="edited-object">Националност: @Model.Nationality</p>
-        <p class="edited-object">Дата на раждане: @Model.Birthdate.ToString("dd.MM.yyyy")</p>
-        <p class="edited-object">IMDB рейтинг: @Model.Rating / 10.0</p>
+        <p class="edited-object">Name: @string.Format($"{Model.FirstName} {Model.LastName}")</p>
+        <p class="edited-object">Nationality: @Model.Nationality</p>
+        <p class="edited-object">Birthdate: @Model.Birthdate.ToString("dd.MM.yyyy")</p>
+        <p class="edited-object">IMDB rating: @Model.Rating / 10.0</p>
     </div>
     <form class="agreement-buttons" asp-controller="Actors" asp-action="Delete">
-        <button type="submit" class="nx-btn green front-panel" asp-route-id="@Model.Id">Да</button>
-        <a class="nx-btn" asp-controller="Actors" asp-action="Index">Не</a>
+        <button type="submit" class="nx-btn green front-panel" asp-route-id="@Model.Id">Yes</button>
+        <a class="nx-btn" asp-controller="Actors" asp-action="Index">No</a>
     </form>
 </div>
 

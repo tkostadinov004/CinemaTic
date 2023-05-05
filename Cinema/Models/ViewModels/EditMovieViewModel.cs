@@ -9,7 +9,7 @@ namespace Cinema.Models.ViewModels
 {
     public class EditMovieViewModel : Movie
     {
-        [Display(Name = "Снимка")]
+        [Display(Name = "Image")]
         public IFormFile Image { get; set; }
     }
 }

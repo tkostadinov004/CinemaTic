@@ -1,13 +1,13 @@
 ﻿@model Cinema.Models.ViewModels.CreateMovieViewModel
 
 @{
-    ViewData["Title"] = "Добави нов филм";
+    ViewData["Title"] = "Add a new movie";
 }
 
 <link href="~/css/loginRegisterStyle.css" rel="stylesheet" />
 <section class="front-panel">
     <div class="row">
-        <h1>Добави нов филм</h1>
+        <h1>Add a new movie</h1>
         <div class="col-md-4">
             <form class="account" asp-controller="Movies" asp-action="Create" enctype="multipart/form-data">
                 <hr class="section-line" />
@@ -15,23 +15,16 @@
                     <div role="list" asp-validation-summary="All" class="text-danger"></div>
                     <div class="form-group">
                         <div class="active-form">
-                            <label asp-for="EnglishTitle" class="control-label"></label>
-                            <input asp-for="EnglishTitle" class="form-control" />
+                            <label asp-for="Title" class="control-label"></label>
+                            <input asp-for="Title" class="form-control" />
                         </div>
-                        <span asp-validation-for="EnglishTitle" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <div class="active-form">
-                            <label asp-for="BulgarianTitle" class="control-label"></label>
-                            <input asp-for="BulgarianTitle" class="form-control" />
-                        </div>
-                        <span asp-validation-for="BulgarianTitle" class="text-danger"></span>
+                        <span asp-validation-for="Title" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <div class="active-form">
                             <label asp-for="GenreId" class="control-label"></label>
                             <select asp-for="GenreId" asp-items="@ViewBag.Genres" name="genreId" class="form-control">
-                                <option disabled selected value="">-Изберете жанр-</option>
+                                <option disabled selected value="">-Select a genre-</option>
                             </select>
                         </div>
                         <span asp-validation-for="GenreId" class="text-danger"></span>
@@ -86,7 +79,7 @@
                         <span asp-validation-for="Image" class="text-danger"></span>
                     </div>
                 </div>
-                <button type="submit" class="nx-btn primary">Добави</button>
+                <button type="submit" class="nx-btn primary">Add</button>
             </form>
         </div>
     </div>

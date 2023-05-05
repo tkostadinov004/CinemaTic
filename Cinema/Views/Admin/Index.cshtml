@@ -1,17 +1,17 @@
 ﻿@model IEnumerable<Cinema.Models.ApplicationUser>
 @inject Microsoft.AspNetCore.Identity.UserManager<ApplicationUser> _userManager
 @{
-    ViewData["Title"] = "Администраторски панел";
+    ViewData["Title"] = "Admin dashboard";
 }
 <link href="~/css/adminStyle.css" rel="stylesheet" />
 <link href="~/css/cardStyle.css" rel="stylesheet" />
 <div class="moviesContainer flex-column front-panel">
-    <h1>Собственици на CinemaTic</h1>
+    <h1>CinemaTic owners</h1>
     <table class="rwd-table">
         <tbody>
             <tr>
-                <th>Име на собственика</th>
-                <th>Имейл на собственика</th>
+                <th>Owner name</th>
+                <th>Owner email</th>
                 <th></th>
             </tr>
             @foreach (var owner in Model.Where(i => _userManager.IsInRoleAsync(i, "Owner").Result == true))
@@ -22,19 +22,19 @@
                     <td>
                         <a asp-controller="Admin" asp-action="DeleteFromOwnerRole" asp-route-ownerId="@owner.Id">
                             <i class="fa-solid fa-circle-xmark f-color-size-b"></i>
-                            Премахни от роля "собственик"
+                            Remove owner credentials
                         </a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
-    <h1>Посетители на CinemaTic</h1>
+    <h1>CinemaTic visitors</h1>
     <table class="rwd-table">
         <tbody>
             <tr>
-                <th>Име на посетителя</th>
-                <th>Имейл на посетителя</th>
+                <th>Visitor name</th>
+                <th>Visitor email</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -46,13 +46,13 @@
                     <td>
                         <a asp-controller="Admin" asp-action="SetToOwner" asp-route-userId="@visitor.Id">
                             <i class="fa-solid fa-user f-green-color-size-b"></i>
-                            Направи собственик
+                            Make this user owner
                         </a>
                     </td>
                     <td>
                         <a asp-controller="Admin" asp-action="DeleteVisitorAccount" asp-route-userId="@visitor.Id">
                             <i class="fa-solid fa-circle-xmark f-color-size-b"></i>
-                            Премахни
+                            Remove visitor account
                         </a>
                     </td>
                 </tr>

@@ -9,8 +9,8 @@ namespace Cinema.Models.ViewModels
 {
     public class CreateMovieViewModel : Movie
     {
-        [Display(Name = "Снимка")]
-        [Required(ErrorMessage = "Добавете снимка!")]
+        [Display(Name = "Image")]
+        [Required(ErrorMessage = "Add an image!")]
         public IFormFile Image { get; set; }
     }
 }
