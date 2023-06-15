@@ -3,9 +3,7 @@ C:\Users\Lenovo User PC\source\repos\Cinema\DbSeeder.Data\bin\Debug\net5.0\DbSee
 C:\Users\Lenovo User PC\source\repos\Cinema\DbSeeder.Data\bin\Debug\net5.0\DbSeeder.Data.runtimeconfig.json
 C:\Users\Lenovo User PC\source\repos\Cinema\DbSeeder.Data\bin\Debug\net5.0\DbSeeder.Data.runtimeconfig.dev.json
 C:\Users\Lenovo User PC\source\repos\Cinema\DbSeeder.Data\bin\Debug\net5.0\DbSeeder.Data.dll
-C:\Users\Lenovo User PC\source\repos\Cinema\DbSeeder.Data\bin\Debug\net5.0\ref\DbSeeder.Data.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\DbSeeder.Data\bin\Debug\net5.0\DbSeeder.Data.pdb
-C:\Users\Lenovo User PC\source\repos\Cinema\DbSeeder.Data\obj\Debug\net5.0\DbSeeder.Data.csprojAssemblyReference.cache
 C:\Users\Lenovo User PC\source\repos\Cinema\DbSeeder.Data\obj\Debug\net5.0\DbSeeder.Data.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Lenovo User PC\source\repos\Cinema\DbSeeder.Data\obj\Debug\net5.0\DbSeeder.Data.AssemblyInfoInputs.cache
 C:\Users\Lenovo User PC\source\repos\Cinema\DbSeeder.Data\obj\Debug\net5.0\DbSeeder.Data.AssemblyInfo.cs
@@ -14,3 +12,5 @@ C:\Users\Lenovo User PC\source\repos\Cinema\DbSeeder.Data\obj\Debug\net5.0\DbSee
 C:\Users\Lenovo User PC\source\repos\Cinema\DbSeeder.Data\obj\Debug\net5.0\ref\DbSeeder.Data.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\DbSeeder.Data\obj\Debug\net5.0\DbSeeder.Data.pdb
 C:\Users\Lenovo User PC\source\repos\Cinema\DbSeeder.Data\obj\Debug\net5.0\DbSeeder.Data.genruntimeconfig.cache
+C:\Users\Lenovo User PC\source\repos\Cinema\DbSeeder.Data\obj\Debug\net5.0\DbSeeder.Data.csproj.AssemblyReference.cache
+C:\Users\Lenovo User PC\source\repos\Cinema\DbSeeder.Data\obj\Debug\net5.0\refint\DbSeeder.Data.dll
