@@ -24,6 +24,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DbSeeder.Data\DbSeeder.Data.csproj" />
+    <ProjectReference Include="..\Cinema.Core\Cinema.Core.csproj" />
+    <ProjectReference Include="..\Cinema.Data\Cinema.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
 </Project>

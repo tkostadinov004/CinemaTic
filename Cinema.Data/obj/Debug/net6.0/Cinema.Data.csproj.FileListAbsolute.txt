@@ -1,0 +1,5 @@
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Data\obj\Debug\net6.0\Cinema.Data.csproj.AssemblyReference.cache
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Data\obj\Debug\net6.0\Cinema.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Data\obj\Debug\net6.0\Cinema.Data.AssemblyInfoInputs.cache
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Data\obj\Debug\net6.0\Cinema.Data.AssemblyInfo.cs
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Data\obj\Debug\net6.0\Cinema.Data.csproj.CoreCompileInputs.cache

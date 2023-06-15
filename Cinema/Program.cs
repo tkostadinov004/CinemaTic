@@ -1,4 +1,7 @@
+using Cinema.Core.Contracts.Common;
+using Cinema.Core.Services;
 using Cinema.Data;
+using Cinema.Data.Models;
 using Cinema.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
@@ -12,10 +15,12 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<CinemaDbContext>(options =>
+    options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddRoles<IdentityRole>()
+   .AddRoles<IdentityRole>()
    .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
@@ -25,6 +30,12 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireDigit = false;
 });
+
+builder.Services.AddScoped<ICinemaService<Actor>, ActorsService>();
+builder.Services.AddScoped<ICinemaService<ApplicationUser>, AdminService>();
+builder.Services.AddScoped<ICinemaService<Genre>, GenresService>();
+builder.Services.AddScoped<ICinemaService<Movie>, MoviesService>();
+builder.Services.AddScoped<ICinemaService<Ticket>, TicketsService>();
 
 var app = builder.Build();
 

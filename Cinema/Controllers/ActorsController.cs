@@ -6,11 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Cinema.Data;
-using Cinema.Models;
-using Cinema.Models.ViewModels;
 using Cinema.Utilities;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Authorization;
+using Cinema.ViewModels;
 
 namespace Cinema.Controllers
 {
