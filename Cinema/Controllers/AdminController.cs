@@ -1,12 +1,6 @@
-﻿using Cinema.Data;
-using Cinema.Models;
+﻿using Cinema.Core.Contracts;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Cinema.Controllers
@@ -14,28 +8,22 @@ namespace Cinema.Controllers
     [Authorize(Roles = "Administrator")]
     public class AdminController : Controller
     {
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly ApplicationDbContext _context;
+        private readonly IAdminService _adminService;
 
-        public AdminController(
-            UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager, ApplicationDbContext context)
+        public AdminController(IAdminService adminService)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
-            _context = context;
+            _adminService = adminService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(_context.Users.ToListAsync().Result);
+            return View(await _adminService.GetAllAsync());
         }
 
         [HttpGet]
-        public IActionResult DeleteFromOwnerRole(string ownerId)
+        public async Task<IActionResult> DeleteFromOwnerRole(string ownerId)
         {
-            var owner = _userManager.FindByIdAsync(ownerId).Result;
+            var owner = await _adminService.FindById(ownerId);
             if (owner == null)
             {
                 return RedirectToAction(nameof(Index));
@@ -46,19 +34,13 @@ namespace Cinema.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var owner = await _userManager.FindByIdAsync(id);
-            if (_userManager.IsInRoleAsync(owner, "Owner").Result)
-            {
-                await _userManager.RemoveFromRoleAsync(owner, "Owner");
-                await _userManager.AddToRoleAsync(owner, "Visitor");
-            }
-            
+            await _adminService.DemoteUser(id);
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]
         public async Task<IActionResult> DeleteVisitorAccount(string userId)
         {
-            var visitor = await _userManager.FindByIdAsync(userId);
+            var visitor = await _adminService.FindById(userId);
             if (visitor == null)
             {
                 return RedirectToAction(nameof(Index));
@@ -69,29 +51,18 @@ namespace Cinema.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteVisitorAccountConfirmed(string id)
         {
-            var visitor = await _userManager.FindByIdAsync(id);
-            if (visitor != null)
-            {
-                await _userManager.DeleteAsync(visitor);
-            }
-
+            await _adminService.DeleteAccount(id);
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]
         public async Task<IActionResult> SetToOwner(string userId)
         {
-            return View(await _userManager.FindByIdAsync(userId));
+            return View(await _adminService.FindById(userId));
         }
         [HttpPost, ActionName("SetToOwner")]
         public async Task<IActionResult> SetToOwnerConfirmed(string userId)
         {
-            var user = await _userManager.FindByIdAsync(userId);
-
-            if (_userManager.IsInRoleAsync(user, "Owner").Result == false)
-            {
-                await _userManager.RemoveFromRoleAsync(user, "Visitor");
-                await _userManager.AddToRoleAsync(user, "Owner");
-            }
+            await _adminService.PromoteUser(userId);
             return RedirectToAction(nameof(Index));
         }
     }
