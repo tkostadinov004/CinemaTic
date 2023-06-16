@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "6xD/hRXjwMc1QSH7mfZE+wPxigO7Vg9o6sKLWs/capWQVpyEds7gvVs3nYi6lEsAjPbqXorZ9xW2EeI+w4XMgQ==",
+  "dgSpecHash": "oH5J0zc6z0/ZjjeTR3Hr5dObYodp+cA/LMS/XnxYbw+91QbQsSoSJnkME8R0k51qU3Y6cyM3+am8GCqAogPC5w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema.Data\\Cinema.Data.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Lenovo User PC\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.0\\microsoft.aspnetcore.cryptography.internal.6.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.0\\microsoft.aspnetcore.cryptography.keyderivation.6.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.0\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.0.nupkg.sha512",
@@ -13,6 +14,7 @@
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.0\\microsoft.entityframeworkcore.6.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.0\\microsoft.entityframeworkcore.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.0\\microsoft.entityframeworkcore.analyzers.6.0.0.nupkg.sha512",
+    "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.0\\microsoft.entityframeworkcore.design.6.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.0\\microsoft.entityframeworkcore.relational.6.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\6.0.0\\microsoft.entityframeworkcore.sqlserver.6.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",

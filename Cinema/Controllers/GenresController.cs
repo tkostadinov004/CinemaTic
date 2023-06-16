@@ -1,11 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Cinema.Data;
 using Microsoft.AspNetCore.Authorization;
-using Cinema.Core.Contracts.Common;
 using Cinema.Core.Contracts;
 using Cinema.ViewModels.Genres;
 

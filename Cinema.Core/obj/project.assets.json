@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "IsoNames/1.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "6.0.3"
+        },
+        "compile": {
+          "lib/net45/IsoNames.dll": {}
+        },
+        "runtime": {
+          "lib/net45/IsoNames.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/6.0.0": {
         "type": "package",
         "compile": {
@@ -903,6 +915,18 @@
     }
   },
   "libraries": {
+    "IsoNames/1.1.0": {
+      "sha512": "K+4xzWCkb9kLgHhKJMNnW54HdmsUeEQSWwai9bhm/tAHOqUmOrTKyNXF/uuSCC/0UNtBVKWU32laZ4SMWQyhoA==",
+      "type": "package",
+      "path": "isonames/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "isonames.1.1.0.nupkg.sha512",
+        "isonames.nuspec",
+        "lib/net45/IsoNames.dll"
+      ]
+    },
     "Microsoft.AspNetCore.Cryptography.Internal/6.0.0": {
       "sha512": "ZWFBiHwkmipr+7t3MEPa7oB/iE8Kf5wvUptn9AXj7P7l/tGHEmRb1606Mlh/e2zkYwfjNGDH4Z5dUUlcnyccIw==",
       "type": "package",
@@ -2246,7 +2270,8 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "Cinema.Data >= 1.0.0",
-      "Cinema.ViewModels >= 1.0.0"
+      "Cinema.ViewModels >= 1.0.0",
+      "IsoNames >= 1.1.0"
     ]
   },
   "packageFolders": {
@@ -2294,6 +2319,12 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "IsoNames": {
+            "target": "Package",
+            "version": "[1.1.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -2316,5 +2347,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'IsoNames 1.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "IsoNames",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

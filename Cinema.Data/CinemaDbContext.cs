@@ -1,14 +1,10 @@
 ﻿using Cinema.Data.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cinema.Data
 {
-    public class CinemaDbContext : DbContext
+    public class CinemaDbContext : IdentityDbContext<ApplicationUser>
     {
         public CinemaDbContext(DbContextOptions<CinemaDbContext> options)
             : base(options)
@@ -21,7 +17,6 @@ namespace Cinema.Data
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<UserMovie> UsersMovies { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

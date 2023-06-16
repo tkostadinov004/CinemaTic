@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "QE3uE6ZwE4MwlCeYluZKg5jvpxI8aZi6lCTyODUtANCCnf8Y1cl6kmmCvxQSuA7WfHWJPTsxILAl7O3SyZWelQ==",
+  "dgSpecHash": "cPKpirUzO6j10/oZrD4dJAFmb1mHdmVGn+AFU7LEl87jEZaHHeEJU98b4BS85D58HsWswcSzDRVir0is0kUvhQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema.Core\\Cinema.Core.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Lenovo User PC\\.nuget\\packages\\isonames\\1.1.0\\isonames.1.1.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.0\\microsoft.aspnetcore.cryptography.internal.6.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.0\\microsoft.aspnetcore.cryptography.keyderivation.6.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
@@ -53,5 +54,16 @@
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'IsoNames 1.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "IsoNames",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

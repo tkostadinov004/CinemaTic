@@ -1,5 +1,17 @@
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.ViewModels\bin\Debug\net6.0\Cinema.ViewModels.deps.json
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.ViewModels\bin\Debug\net6.0\Cinema.ViewModels.dll
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.ViewModels\bin\Debug\net6.0\Cinema.ViewModels.pdb
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.ViewModels\bin\Debug\net6.0\Cinema.Data.dll
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.ViewModels\bin\Debug\net6.0\Cinema.Data.Seeder.dll
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.ViewModels\bin\Debug\net6.0\Cinema.Data.pdb
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.ViewModels\bin\Debug\net6.0\Cinema.Data.Seeder.pdb
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.ViewModels\obj\Debug\net6.0\Cinema.ViewModels.csproj.AssemblyReference.cache
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.ViewModels\obj\Debug\net6.0\Cinema.ViewModels.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.ViewModels\obj\Debug\net6.0\Cinema.ViewModels.AssemblyInfoInputs.cache
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.ViewModels\obj\Debug\net6.0\Cinema.ViewModels.AssemblyInfo.cs
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.ViewModels\obj\Debug\net6.0\Cinema.ViewModels.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.ViewModels\obj\Debug\net6.0\Cinema.ViewModels.csproj.CopyComplete
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.ViewModels\obj\Debug\net6.0\Cinema.ViewModels.dll
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.ViewModels\obj\Debug\net6.0\refint\Cinema.ViewModels.dll
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.ViewModels\obj\Debug\net6.0\Cinema.ViewModels.pdb
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.ViewModels\obj\Debug\net6.0\ref\Cinema.ViewModels.dll

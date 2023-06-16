@@ -1,9 +1,7 @@
 using Cinema.Core.Contracts;
-using Cinema.Core.Contracts.Common;
 using Cinema.Core.Services;
 using Cinema.Data;
 using Cinema.Data.Models;
-using Cinema.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +12,7 @@ using Microsoft.Extensions.Hosting;
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContext<CinemaDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDbContext<CinemaDbContext>(options =>
     options.UseSqlServer(connectionString));
@@ -22,7 +20,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
    .AddRoles<IdentityRole>()
-   .AddEntityFrameworkStores<ApplicationDbContext>();
+   .AddEntityFrameworkStores<CinemaDbContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.Configure<IdentityOptions>(options =>
@@ -32,12 +30,12 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequireDigit = false;
 });
 
-builder.Services.AddScoped<ICinemaService<Actor>, ActorsService>();
+builder.Services.AddScoped<IActorsService, ActorsService>();
 builder.Services.AddScoped<IAdminService, AdminService>();
-builder.Services.AddScoped<ICinemaService<Genre>, GenresService>();
-builder.Services.AddScoped<ICinemaService<Movie>, MoviesService>();
-builder.Services.AddScoped<ICinemaService<Ticket>, TicketsService>();
-builder.Services.AddScoped<ICinemaService<ApplicationUser>, VisitorsService>();
+builder.Services.AddScoped<IGenresService, GenresService>();
+builder.Services.AddScoped<IMoviesService, MoviesService>();
+builder.Services.AddScoped<ITicketsService, TicketsService>();
+builder.Services.AddScoped<IVisitorsService, VisitorsService>();
 
 var app = builder.Build();
 
@@ -66,5 +64,8 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
-app.Run();
+using var scope = app.Services.CreateScope();
+var initializer = new DbInitializer(scope.ServiceProvider.GetService<CinemaDbContext>());
+initializer.Run(scope.ServiceProvider, true);
 
+app.Run();

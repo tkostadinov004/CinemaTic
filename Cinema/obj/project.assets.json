@@ -3767,7 +3767,8 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Cinema.Data": "1.0.0",
-          "Cinema.ViewModels": "1.0.0"
+          "Cinema.ViewModels": "1.0.0",
+          "IsoNames": "1.1.0"
         },
         "compile": {
           "bin/placeholder/Cinema.Core.dll": {}
@@ -10669,6 +10670,7 @@
     "net6.0": [
       "Cinema.Core >= 1.0.0",
       "Cinema.Data >= 1.0.0",
+      "Cinema.ViewModels >= 1.0.0",
       "IsoNames >= 1.1.0",
       "Microsoft.AspNet.Mvc >= 5.2.9",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 6.0.0",
@@ -10713,6 +10715,9 @@
             },
             "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema.Data\\Cinema.Data.csproj": {
               "projectPath": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema.Data\\Cinema.Data.csproj"
+            },
+            "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema.ViewModels\\Cinema.ViewModels.csproj": {
+              "projectPath": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema.ViewModels\\Cinema.ViewModels.csproj"
             }
           }
         }

@@ -15,11 +15,11 @@ namespace Cinema.Core.Services
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly ApplicationDbContext _context;
+        private readonly CinemaDbContext _context;
 
         public AdminService(
             UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager, ApplicationDbContext context)
+            SignInManager<ApplicationUser> signInManager, CinemaDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;

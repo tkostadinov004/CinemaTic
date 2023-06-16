@@ -46,6 +46,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "IsoNames": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -165,6 +171,12 @@
           "targetAlias": "net6.0",
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.0, )"
             },
@@ -292,6 +304,9 @@
               },
               "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema.Data\\Cinema.Data.csproj": {
                 "projectPath": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema.Data\\Cinema.Data.csproj"
+              },
+              "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema.ViewModels\\Cinema.ViewModels.csproj": {
+                "projectPath": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema.ViewModels\\Cinema.ViewModels.csproj"
               }
             }
           }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.Data.Models
 {
+    [NotMapped]
     public class ApplicationUser : IdentityUser, IApplicationUser
     {
         public ApplicationUser()

@@ -26,9 +26,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Cinema.Core\Cinema.Core.csproj" />
     <ProjectReference Include="..\Cinema.Data\Cinema.Data.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\" />
+    <ProjectReference Include="..\Cinema.ViewModels\Cinema.ViewModels.csproj" />
   </ItemGroup>
 </Project>
