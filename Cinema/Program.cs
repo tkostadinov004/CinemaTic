@@ -1,3 +1,4 @@
+using Cinema.Core.Contracts;
 using Cinema.Core.Contracts.Common;
 using Cinema.Core.Services;
 using Cinema.Data;
@@ -32,10 +33,11 @@ builder.Services.Configure<IdentityOptions>(options =>
 });
 
 builder.Services.AddScoped<ICinemaService<Actor>, ActorsService>();
-builder.Services.AddScoped<ICinemaService<ApplicationUser>, AdminService>();
+builder.Services.AddScoped<IAdminService, AdminService>();
 builder.Services.AddScoped<ICinemaService<Genre>, GenresService>();
 builder.Services.AddScoped<ICinemaService<Movie>, MoviesService>();
 builder.Services.AddScoped<ICinemaService<Ticket>, TicketsService>();
+builder.Services.AddScoped<ICinemaService<ApplicationUser>, VisitorsService>();
 
 var app = builder.Build();
 

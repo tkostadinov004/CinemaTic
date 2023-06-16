@@ -1,18 +1,11 @@
 ﻿using Cinema.Core.Contracts;
-using Cinema.Core.Contracts.Common;
 using Cinema.Data;
 using Cinema.Data.Models;
 using Cinema.Utilities;
-using Cinema.ViewModels;
+using Cinema.ViewModels.Actors;
 using Cinema.ViewModels.Contracts;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cinema.Core.Services
 {
@@ -44,7 +37,7 @@ namespace Cinema.Core.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteByIdAsync(int id)
+        public async Task DeleteByIdAsync(int? id)
         {
             var actor = await _context.Actors.FindAsync(id);
             _context.Actors.Remove(actor);
@@ -67,7 +60,7 @@ namespace Cinema.Core.Services
             {
                 actor.Nationality = country;
             }
-            if (actorVM.Image != null)
+            if (viewModel.Image != null)
             {
                 actor.ImageUrl = photoName;
             }
@@ -75,14 +68,24 @@ namespace Cinema.Core.Services
             await _context.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<Actor>> GetAllAsync()
+        public async Task<bool> ExistsByIdAsync(int? id)
         {
-            throw new NotImplementedException();
+            return await _context.Actors.AnyAsync(e => e.Id == id);
         }
 
-        public Task<Actor> GetByIdAsync(int id)
+        public async Task<IEnumerable<Actor>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Actors.Include(i => i.Movies).ThenInclude(m => m.Movie).ToListAsync();
+        }
+
+        public async Task<Actor> GetByIdAsync(int? id)
+        {
+            var actor = await _context.Actors
+                .Include(i => i.Movies).ThenInclude(m => m.Movie)
+                .Include(i => i.Movies).ThenInclude(m => m.Actor)
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            return actor;
         }
     }
 }

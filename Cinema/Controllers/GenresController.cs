@@ -1,31 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Cinema.Data;
-using Cinema.Models;
 using Microsoft.AspNetCore.Authorization;
-using Cinema.Models.ViewModels;
+using Cinema.Core.Contracts.Common;
+using Cinema.Core.Contracts;
+using Cinema.ViewModels.Genres;
 
 namespace Cinema.Controllers
 {
     [Authorize(Roles = "Owner")]
     public class GenresController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IGenresService _genresService;
 
-        public GenresController(ApplicationDbContext context)
+        public GenresController(IGenresService genresService)
         {
-            _context = context;
+            _genresService = genresService;
         }
 
         // GET: Genres
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Genres.Include(i => i.Movies).ToListAsync());
+            return View(await _genresService.GetAllAsync());
         }
 
         // GET: Genres/Details/5
@@ -36,9 +35,7 @@ namespace Cinema.Controllers
                 return NotFound();
             }
 
-            var genre = await _context.Genres
-                .Include(i => i.Movies)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var genre = await _genresService.GetByIdAsync(id);
             if (genre == null)
             {
                 return NotFound();
@@ -57,15 +54,14 @@ namespace Cinema.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] Genre genre)
+        public async Task<IActionResult> Create([Bind("Id,Name")] CreateGenreViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(genre);
-                await _context.SaveChangesAsync();
+                await _genresService.CreateAsync(viewModel);
                 return RedirectToAction(nameof(Index));
             }
-            return View(genre);
+            return View(viewModel);
         }
 
         // GET: Genres/Edit/5
@@ -76,7 +72,7 @@ namespace Cinema.Controllers
                 return NotFound();
             }
 
-            var genre = await _context.Genres.FindAsync(id);
+            var genre = await _genresService.GetByIdAsync(id);
             if (genre == null)
             {
                 return NotFound();
@@ -89,9 +85,9 @@ namespace Cinema.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Genre genre)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] EditGenreViewModel viewModel)
         {
-            if (id != genre.Id)
+            if (id != viewModel.Id)
             {
                 return NotFound();
             }
@@ -100,12 +96,12 @@ namespace Cinema.Controllers
             {
                 try
                 {
-                    _context.Update(genre);
-                    await _context.SaveChangesAsync();
+                    await _genresService.EditByIdAsync(viewModel, id);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!GenreExists(genre.Id))
+                    bool genreExists = await _genresService.ExistsByIdAsync(id);
+                    if (!genreExists)
                     {
                         return NotFound();
                     }
@@ -116,7 +112,7 @@ namespace Cinema.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(genre);
+            return View(viewModel);
         }
 
         // GET: Genres/Delete/5
@@ -127,8 +123,7 @@ namespace Cinema.Controllers
                 return NotFound();
             }
 
-            var genre = await _context.Genres.Include(i => i.Movies)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var genre = await _genresService.GetByIdAsync(id);
             if (genre == null)
             {
                 return NotFound();
@@ -141,15 +136,8 @@ namespace Cinema.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var genre = await _context.Genres.FindAsync(id);
-            _context.Genres.Remove(genre);
-            await _context.SaveChangesAsync();
+            await _genresService.DeleteByIdAsync(id);
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool GenreExists(int id)
-        {
-            return _context.Genres.Any(e => e.Id == id);
         }
     }
 }

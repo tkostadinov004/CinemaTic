@@ -3774,7 +3774,10 @@
         },
         "runtime": {
           "bin/placeholder/Cinema.Core.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Cinema.Data/1.0.0": {
         "type": "project",

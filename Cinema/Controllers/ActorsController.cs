@@ -9,25 +9,25 @@ using Cinema.Data;
 using Cinema.Utilities;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Authorization;
-using Cinema.ViewModels;
+using Cinema.Core.Contracts.Common;
+using Cinema.Core.Contracts;
+using Cinema.ViewModels.Actors;
 
 namespace Cinema.Controllers
 {
     [Authorize(Roles = "Owner")]
     public class ActorsController : Controller
     {
-        private readonly ApplicationDbContext _context;
-        private readonly IWebHostEnvironment _webHostEnvironment;
-        public ActorsController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
+        private readonly IActorsService _actorsService;
+        public ActorsController(IActorsService actorsService)
         {
-            _context = context;
-            _webHostEnvironment = webHostEnvironment;
+            _actorsService = actorsService;
         }
 
         // GET: Actors
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Actors.Include(i => i.Movies).ThenInclude(m => m.Movie).ToListAsync());
+            return View(await _actorsService.GetAllAsync());
         }
 
         // GET: Actors/Details/5
@@ -38,10 +38,7 @@ namespace Cinema.Controllers
                 return NotFound();
             }
 
-            var actor = await _context.Actors
-                .Include(i => i.Movies).ThenInclude(m => m.Movie)
-                .Include(i => i.Movies).ThenInclude(m => m.Actor)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var actor = await _actorsService.GetByIdAsync(id);
             if (actor == null)
             {
                 return NotFound();
@@ -63,23 +60,10 @@ namespace Cinema.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CreateActorViewModel actorVM, string country)
-        {
-            actorVM.Nationality = country;
+        { 
             if (ModelState.IsValid)
             {
-                string photoName = GlobalMethods.UploadPhoto("Actors", actorVM.Image, _webHostEnvironment);
-                Actor actor = new Actor
-                {
-                    Birthdate = actorVM.Birthdate,
-                    FirstName = actorVM.FirstName,
-                    LastName = actorVM.LastName,
-                    ImageUrl = photoName,
-                    Nationality = actorVM.Nationality,
-                    Rating = actorVM.Rating
-                };
-
-                _context.Add(actor);
-                await _context.SaveChangesAsync();      
+                await _actorsService.CreateAsync(actorVM, country);
             }
             return RedirectToAction(nameof(Index));
         }
@@ -92,7 +76,7 @@ namespace Cinema.Controllers
                 return NotFound();
             }
 
-            var actor = await _context.Actors.FindAsync(id);
+            var actor = await _actorsService.GetByIdAsync(id);
             if (actor == null)
             {
                 return NotFound();
@@ -122,27 +106,12 @@ namespace Cinema.Controllers
             {
                 try
                 {
-                    var actor = await _context.Actors.FirstOrDefaultAsync(i => i.Id == id);
-                    string photoName = GlobalMethods.UploadPhoto("Actors", actorVM.Image, _webHostEnvironment);
-                    actor.FirstName = actorVM.FirstName;
-                    actor.LastName = actorVM.LastName;
-                    actor.Birthdate = actorVM.Birthdate;
-                    actor.Rating = actorVM.Rating;
-
-                    if (country != null)
-                    {
-                        actor.Nationality = country;
-                    }
-                    if (actorVM.Image != null)
-                    {
-                        actor.ImageUrl = photoName;
-                    }
-                    _context.Update(actor);
-                    await _context.SaveChangesAsync();
+                    await _actorsService.EditByIdAsync(actorVM, id, country);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ActorExists(actorVM.Id))
+                    bool actorExists = await _actorsService.ExistsByIdAsync(actorVM.Id);
+                    if (!actorExists)
                     {
                         return NotFound();
                     }
@@ -164,8 +133,7 @@ namespace Cinema.Controllers
                 return NotFound();
             }
 
-            var actor = await _context.Actors
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var actor = await _actorsService.GetByIdAsync(id);
             if (actor == null)
             {
                 return NotFound();
@@ -179,16 +147,8 @@ namespace Cinema.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var actor = await _context.Actors.FindAsync(id);
-            _context.Actors.Remove(actor);
-            await GlobalMethods.DeleteImage("Actors", actor.ImageUrl, _context, _webHostEnvironment);
-            await _context.SaveChangesAsync();
+            await _actorsService.DeleteByIdAsync(id);
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool ActorExists(int id)
-        {
-            return _context.Actors.Any(e => e.Id == id);
         }
     }
 }
