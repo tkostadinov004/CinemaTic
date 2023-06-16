@@ -8,11 +8,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Cinema.ViewModels
+namespace Cinema.ViewModels.Movies
 {
-    public class EditActorViewModel : Actor, IViewModel
+    public class CreateMovieViewModel : Movie, IViewModel
     {
         [Display(Name = "Image")]
+        [Required(ErrorMessage = "Add an image!")]
         public IFormFile Image { get; set; }
     }
 }
