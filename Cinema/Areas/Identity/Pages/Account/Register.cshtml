@@ -5,55 +5,50 @@
 }
 
 <link href="~/css/loginRegisterStyle.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/layoutStyle.css" />
+<section class="hero-section">
+    <div class="container login-container">
+        <h2 class="login-title">Log in</h2>
 
-<section class="front-panel">
-    <div class="row">
-        <h1>@ViewData["Title"]</h1>
-        <div class="col-md-4">
-            <form class="account" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                <h4>Create a new account</h4>
-                <hr class="section-line" />
-                <div class="text-fields">
-                    <div role="list" asp-validation-summary="All" class="text-danger"></div>
-                    <div class="form-group">
-                        <div class="active-form">
-                            <label asp-for="Input.Email"></label>
-                            <input asp-for="Input.Email" class="form-control" />
-                        </div>
-                        <span asp-validation-for="Input.Email" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <div class="active-form">
-                            <label asp-for="Input.FirstName"></label>
-                            <input asp-for="Input.FirstName" class="form-control" />
-                        </div>
-                        <span asp-validation-for="Input.FirstName" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <div class="active-form">
-                            <label asp-for="Input.LastName"></label>
-                            <input asp-for="Input.LastName" class="form-control" />
-                        </div>
-                        <span asp-validation-for="Input.LastName" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <div class="active-form">
-                            <label asp-for="Input.Password"></label>
-                            <input asp-for="Input.Password" class="form-control" />
-                        </div>
-                        <span asp-validation-for="Input.Password" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <div class="active-form">
-                            <label asp-for="Input.ConfirmPassword"></label>
-                            <input asp-for="Input.ConfirmPassword" class="form-control" />
-                        </div>
-                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-                    </div>
+        <form class="login-form" method="post">
+            <div role="list" asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <div class="active-form">
+                    <label asp-for="Input.Email"></label>
+                    <input asp-for="Input.Email" class="form-control" />
                 </div>
-                <button type="submit" class="nx-btn primary">Register</button>
-            </form>
-        </div>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="active-form">
+                    <label asp-for="Input.FirstName"></label>
+                    <input asp-for="Input.FirstName" class="form-control" />
+                </div>
+                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="active-form">
+                    <label asp-for="Input.LastName"></label>
+                    <input asp-for="Input.LastName" class="form-control" />
+                </div>
+                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="active-form">
+                    <label asp-for="Input.Password"></label>
+                    <input asp-for="Input.Password" class="form-control" />
+                </div>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="active-form">
+                    <label asp-for="Input.ConfirmPassword"></label>
+                    <input asp-for="Input.ConfirmPassword" class="form-control" />
+                </div>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn--form">Register</button>
+        </form>
     </div>
 </section>
 

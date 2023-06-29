@@ -19,12 +19,6 @@ C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\Humanizer.dl
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\IsoNames.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\MessagePack.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\MessagePack.Annotations.dll
-C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\System.Web.Mvc.dll
-C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\System.Web.Razor.dll
-C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\System.Web.Helpers.dll
-C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
-C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
-C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\System.Web.WebPages.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
@@ -53,7 +47,6 @@ C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\Microsoft.Di
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\Microsoft.DotNet.Scaffolding.Shared.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\Microsoft.Identity.Client.dll
@@ -70,7 +63,6 @@ C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\Microsoft.Vi
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema\bin\Debug\net6.0\NuGet.Common.dll

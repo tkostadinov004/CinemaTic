@@ -66,6 +66,6 @@ app.MapRazorPages();
 
 using var scope = app.Services.CreateScope();
 var initializer = new DbInitializer(scope.ServiceProvider.GetService<CinemaDbContext>());
-initializer.Run(scope.ServiceProvider, true);
+initializer.Run(scope.ServiceProvider, false);
 
 app.Run();

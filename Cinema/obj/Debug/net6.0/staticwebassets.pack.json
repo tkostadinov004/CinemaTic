@@ -8577,8 +8577,64 @@
       "PackagePath": "staticwebassets\\fontawesome\\webfonts\\fa-v4compatibility.woff2"
     },
     {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\img\\18778.jpg",
+      "PackagePath": "staticwebassets\\img\\18778.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\img\\20681.jpg",
+      "PackagePath": "staticwebassets\\img\\20681.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\img\\20943943.jpg",
+      "PackagePath": "staticwebassets\\img\\20943943.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\img\\2829247.jpg",
+      "PackagePath": "staticwebassets\\img\\2829247.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\img\\43269.jpg",
+      "PackagePath": "staticwebassets\\img\\43269.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\img\\4740249.jpg",
+      "PackagePath": "staticwebassets\\img\\4740249.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\img\\5124709.jpg",
+      "PackagePath": "staticwebassets\\img\\5124709.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\img\\8454.jpg",
+      "PackagePath": "staticwebassets\\img\\8454.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\img\\Sandy_Ppl-05_Single-05.jpg",
+      "PackagePath": "staticwebassets\\img\\Sandy_Ppl-05_Single-05.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\img\\christiann-koepke-dQyS2pMYtok-unsplash.jpg",
+      "PackagePath": "staticwebassets\\img\\christiann-koepke-dQyS2pMYtok-unsplash.jpg"
+    },
+    {
       "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\img\\favicon.ico",
       "PackagePath": "staticwebassets\\img\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\img\\glenn-carstens-peters-npxXWgQ33ZQ-unsplash.jpg",
+      "PackagePath": "staticwebassets\\img\\glenn-carstens-peters-npxXWgQ33ZQ-unsplash.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\img\\noom-peerapong-2uwFEAGUm6E-unsplash.jpg",
+      "PackagePath": "staticwebassets\\img\\noom-peerapong-2uwFEAGUm6E-unsplash.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\js\\click-scroll.js",
+      "PackagePath": "staticwebassets\\js\\click-scroll.js"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\js\\custom.js",
+      "PackagePath": "staticwebassets\\js\\custom.js"
     },
     {
       "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\js\\rating-modal.js",
@@ -8609,6 +8665,26 @@
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-icons.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-icons.css"
+    },
+    {
       "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
@@ -8623,6 +8699,54 @@
     {
       "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
       "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
@@ -8641,6 +8765,30 @@
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\fonts\\bootstrap-icons.woff",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\fonts\\bootstrap-icons.woff"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\css\\fonts\\bootstrap-icons.woff2",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\fonts\\bootstrap-icons.woff2"
+    },
+    {
       "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
@@ -8655,6 +8803,22 @@
     {
       "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
       "Id": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",

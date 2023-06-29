@@ -2,10 +2,13 @@
 @inject Microsoft.AspNetCore.Identity.UserManager<Cinema.Data.Models.ApplicationUser> _userManager
 @{
     ViewData["Title"] = "Admin dashboard";
+    var currentDate = DateTime.Now;
+    string month = currentDate.Date.ToString("MMMM");
+    int day = currentDate.Day;
 }
 <link href="~/css/adminStyle.css" rel="stylesheet" />
 <link href="~/css/cardStyle.css" rel="stylesheet" />
-<div class="moviesContainer flex-column front-panel">
+@*<div class="main-section hero-section">
     <h1>CinemaTic owners</h1>
     <table class="rwd-table">
         <tbody>
@@ -59,4 +62,78 @@
             }
         </tbody>
     </table>
-</div>
+</div>*@
+
+<section class="main-section hero-section">
+    <div class="main-board d-flex">
+        <div class="admin-icons d-flex flex-md-column">
+            <div class="admin-pfp-container">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar">
+                <p class="pf-heading">Your profile</p>
+                <p class="pf-name">PROFILE</p>
+            </div>
+            <div class="admin-menu">
+                <ul class="admin-menu-categories" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <i class="fa-solid fa-gear"></i>
+                        <button class="nav-link active" id="create-tab" data-bs-toggle="tab" data-bs-target="#main-dashboard" type="button" role="tab" aria-controls="main-dashboard" aria-selected="true">Dashboard</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <i class="fa-solid fa-gear"></i>
+                        <button class="nav-link" id="manage-tab" data-bs-toggle="tab" data-bs-target="#owners-tab-pane" type="button" role="tab" aria-controls="owners-tab-pane" aria-selected="false">Cinemas</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <i class="fa-solid fa-gear"></i>
+                        <button class="nav-link" id="manage-tab" data-bs-toggle="tab" data-bs-target="#owners-tab-pane" type="button" role="tab" aria-controls="owners-tab-pane" aria-selected="false">Users</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container features-container">
+            <div class="tab-content">
+                <div class="tab-pane fade show active d-flex justify-content-between" id="main-dashboard" role="tabpanel" aria-labelledby="create-tab" tabindex="0">
+                    <div class="dashboard-pane">
+                        <div class="admin-date-main d-flex justify-content-between mb-4">
+                            <span>Cinemas</span>
+                            <span>@month, @day</span>
+                        </div>
+                        <div class="admin-cinema-statuses d-flex justify-content-between">
+                            <div class="admin-cinema-statuses-counts d-flex">
+                                <div class="d-flex flex-column">
+                                    <h6>23</h6> <!--Mock-->
+                                    <p>In operation</p>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <h6>12</h6> <!--Mock-->
+                                    <p>Waiting for approval</p>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <h6>6</h6> <!--Mock-->
+                                    <p>Out of operation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-cinemas-approval">
+                        <span>Cinemas for approval</span>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="owners-tab-pane" role="tabpanel" aria-labelledby="manage-tab" tabindex="0">
+                    fgh
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@*<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="create-tab" data-bs-toggle="tab" data-bs-target="#main-dashboard" type="button" role="tab" aria-controls="main-dashboard" aria-selected="true">Create</button>
+    </li>
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="manage-tab" data-bs-toggle="tab" data-bs-target="#owners-tab-pane" type="button" role="tab" aria-controls="owners-tab-pane" aria-selected="false">Manage</button>
+    </li>
+</ul>
+
+*@

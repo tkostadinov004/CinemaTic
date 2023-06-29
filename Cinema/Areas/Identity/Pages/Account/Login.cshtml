@@ -5,13 +5,13 @@
     ViewData["Title"] = "Login";
 }
 <link rel="stylesheet" href="~/css/loginRegisterStyle.css" />
+<link rel="stylesheet" href="~/css/layoutStyle.css" />
+<section class="main-section hero-section">
+    <div class="container login-container">
+        <h2 class="login-title">Log in</h2>
 
-<section class="front-panel">
-    <form class="account" method="post">
-        <h4>Log in your CinemaTic account!</h4>
-        <hr class="section-line" />
-        <div class="text-fields" id="inputs">
-            <div role="list" id="validationSummary" asp-validation-summary="All" class="text-danger"></div>
+        <form class="login-form" method="post">
+            <div role="list" id="validationSummary" asp-validation-summary="All" class="text-danger" hidden></div>
             <div class="form-group">
                 <div class="active-form">
                     <label asp-for="Input.Email"></label>
@@ -26,27 +26,28 @@
                 </div>
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="checkbox">
-                <label asp-for="Input.RememberMe">
-                    <input asp-for="Input.RememberMe" type="checkbox" />
-                    @Html.DisplayNameFor(m => m.Input.RememberMe)
-                </label>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label asp-for="Input.RememberMe">
+                        <input asp-for="Input.RememberMe" type="checkbox" />
+                        @Html.DisplayNameFor(m => m.Input.RememberMe)
+                    </label>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="nx-btn primary">Login</button>
-        </div>
-        <div class="form-group">
-            <p>
-                <a id="forgot-password" class="hover-link" asp-page="./ForgotPassword">Forgot password?</a>
-            </p>
-            <p>
-                <a class="hover-link" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Don't have an account? Register now!</a>
-            </p>
-        </div>
-    </form>
+            <button class="btn btn--form" type="submit" value="Log in">
+                Log in
+            </button>
+
+            <div class="form-group">
+                <p>
+                    <a id="forgot-password" class="hover-link" asp-page="./ForgotPassword">Forgot password?</a>
+                </p>
+                <p>
+                    <a class="hover-link" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Don't have an account? Register now!</a>
+                </p>
+            </div>
+        </form>
+    </div>
 </section>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

@@ -20,15 +20,16 @@ namespace Cinema.Controllers
 
         public IActionResult Index()
         {
-            if (User.IsInRole("Administrator"))
-            {
-                return RedirectToAction("Index", "Admin");
-            }
-            if (User.IsInRole("Owner"))
-            {
-                return RedirectToAction("Index", "Movies");
-            }
-            return View(_context.Movies.ToList());
+            //if (User.IsInRole("Administrator"))
+            //{
+            //    return RedirectToAction("Index", "Admin");
+            //}
+            //if (User.IsInRole("Owner"))
+            //{
+            //    return RedirectToAction("Index", "Movies");
+            //}
+            //return View(_context.Movies.ToList());
+            return View();
         }
 
         public IActionResult Privacy()

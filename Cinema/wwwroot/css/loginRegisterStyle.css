@@ -1,77 +1,70 @@
-﻿html,
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Raleway", sans-serif;
-    font-size: 62.5%;
-    font-size: 16px;
+﻿.login-container {
+    width: 500px;
+    margin: auto;
+    padding: 36px 48px 48px 48px;
+    background-color: #f2efee;
+    border-radius: 11px;
+    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
 }
-
-h1 {
-    font-size: 2rem;
-}
-h4 {
-    font-size: 1.5rem;
-}
-form .form-group {
-    font-size: 1.5rem;
-}
-.row {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.row h4 {
+.login-title {
+    padding: 15px;
+    font-size: 22px;
+    font-weight: 600;
     text-align: center;
 }
 
-form label {
-    font-size: 16px;
-}
-form input.form-control {
-    font-size: 1rem;
-    border-radius: 5px;
-    font-family: 'Arial', sans-serif;
-}
-form button {
-    width: 100%;
+.login-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 16px;
 }
 
-.text-fields {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 10px;
+    .login-form label {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .login-form input {
+        width: 100%;
+        padding: 1.2rem;
+        border-radius: 9px;
+        border: none;
+    }
+
+        .login-form input:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(253, 242, 233, 0.5);
+        }
+
+.btn--form {
+    background-color: #f48982;
+    color: #fdf2e9;
+    align-self: end;
+    padding: 8px;
 }
-.text-fields .form-group .active-form{
-    display: grid;
-    grid-template-columns: 50% 60%;
-    align-items: center;
-    justify-content: center;
+
+.btn,
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.3s;
 }
-.text-fields .form-group {
-    display: flex;
-    flex-direction: column;
+
+.btn {
+    outline: 1px solid #f48982;
 }
-.text-fields .form-group .text-danger {
-    display: none;
-    font-size: 1rem;
+
+.btn--form:hover {
+    background-color: #fdf2e9;
+    color: #f48982;
 }
-form .account {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.login-form .checkbox label input {
+    width: fit-content;
 }
-hr {
-    width: 100%;
-}
-#validationSummary ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-.front-panel .nx-btn {
-    margin-top: 20px;
-}
-/*Checkbox*/
