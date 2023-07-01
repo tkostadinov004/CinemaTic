@@ -1,5 +1,4 @@
-﻿using Cinema.Data.Contracts;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,19 +9,17 @@ using System.Threading.Tasks;
 namespace Cinema.Data.Models
 {
     [NotMapped]
-    public class ApplicationUser : IdentityUser, IApplicationUser
+    public class ApplicationUser : IdentityUser
     {
-        public ApplicationUser()
-        {
-            Tickets = new List<Ticket>();
-        }
         [Display(Name = "First name")]
         [Required, MaxLength(100), RegularExpression("^[A-Za-z]+$")]
         public string FirstName { get; set; }
         [Display(Name = "Last name")]
         [Required, MaxLength(100), RegularExpression("^[A-Za-z]+$")]
         public string LastName { get; set ; }
+        public virtual ICollection<Cinema> CinemasOwned { get; set; }
         [Display(Name = "Tickets for: ")]
         public virtual ICollection<Ticket> Tickets { get; set; }
+        public virtual ICollection<VisitorCinema> CinemasVisited { get; set; }
     }
 }

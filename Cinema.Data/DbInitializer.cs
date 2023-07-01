@@ -1,6 +1,7 @@
 ﻿using Cinema.Data.Models;
 using Cinema.Data.Seeder.DTOs;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using System;
@@ -34,6 +35,10 @@ namespace Cinema.Data
                 AddActorMovies();
                 AddRoles(serviceProvider);
                 AddUsers(serviceProvider);
+            }
+            else if(_context.Database.GetAppliedMigrations().Count() == 0)
+            {
+               // _context.Database.Migrate();
             }
         }
         public void AddRoles(IServiceProvider serviceProvider)

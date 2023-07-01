@@ -20,11 +20,12 @@ namespace Cinema.Core.Services
         }
         public async Task<IEnumerable<ApplicationUser>> GetAllAsync()
         {
-            var users = await _userManager.Users
-                .Include(i => i.Tickets).ThenInclude(i => i.Seat)
-                .Include(i => i.Tickets).ThenInclude(ticket => ticket.Movie)
-                .ToListAsync();
-            return users.Where(i => this.IsVisitorAsync(i).Result);
+            //var users = await _userManager.Users
+            //    .Include(i => i.Tickets).ThenInclude(i => i.Seat)
+            //    .Include(i => i.Tickets).ThenInclude(ticket => ticket.Movie)
+            //    .ToListAsync();
+            //return users.Where(i => this.IsVisitorAsync(i).Result);
+            return null;
         }
         private async Task<bool> IsVisitorAsync(ApplicationUser user)
         {

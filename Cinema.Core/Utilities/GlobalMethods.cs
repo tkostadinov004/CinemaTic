@@ -33,7 +33,7 @@ namespace Cinema.Utilities
         }
         public static async Task<bool> DeleteImage(string imageType, string imageUrl, CinemaDbContext context, IWebHostEnvironment webHostEnvironment)
         {
-            string profilePhotoFileName = Path.Combine(webHostEnvironment.WebRootPath, Constants.ImagesFolder,imageType, imageUrl);
+            string profilePhotoFileName = Path.Combine(webHostEnvironment.WebRootPath, Constants.ImagesFolder, imageType, imageUrl);
 
             if (await context.SaveChangesAsync() > 0)
             {
@@ -45,11 +45,10 @@ namespace Cinema.Utilities
             }
             return false;
         }
-
         public static IEnumerable<string> GetCountries()
         {
             CultureInfo[] cultures = CultureInfo.GetCultures(CultureTypes.SpecificCultures);
-            
+
             var countries = cultures.Select(cult => (new RegionInfo(cult.LCID)).TwoLetterISORegionName).Distinct();
 
             var userCountries = countries.Select(i => IsoNames.CountryNames.GetName(CultureInfo.GetCultureInfo("en"), i)).Where(i => i != null).OrderBy(i => i).ToList();

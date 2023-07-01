@@ -47,5 +47,6 @@ namespace Cinema.Data.Models
         public virtual Genre Genre { get; set; }
         [Display(Name = "Actors")]
         public virtual ICollection<ActorMovie> Actors { get; set; }
+        public virtual ICollection<CinemaMovie> Cinemas { get; set; }
     }
 }

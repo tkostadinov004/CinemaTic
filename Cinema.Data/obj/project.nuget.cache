@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oH5J0zc6z0/ZjjeTR3Hr5dObYodp+cA/LMS/XnxYbw+91QbQsSoSJnkME8R0k51qU3Y6cyM3+am8GCqAogPC5w==",
+  "dgSpecHash": "4ObHzlWntQLHG/axaLDlbkPQBVdVv3qrLxKK7Elk4/5MUnzq3Urwht3wx2YmGTPJR3qAPtSFea13PKn9KsTK4w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema.Data\\Cinema.Data.csproj",
   "expectedPackageFiles": [
@@ -17,6 +17,7 @@
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.0\\microsoft.entityframeworkcore.design.6.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.0\\microsoft.entityframeworkcore.relational.6.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\6.0.0\\microsoft.entityframeworkcore.sqlserver.6.0.0.nupkg.sha512",
+    "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\6.0.0\\microsoft.entityframeworkcore.tools.6.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.extensions.caching.memory\\6.0.0\\microsoft.extensions.caching.memory.6.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
