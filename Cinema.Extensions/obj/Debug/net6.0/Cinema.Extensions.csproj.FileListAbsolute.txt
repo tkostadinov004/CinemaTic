@@ -1,0 +1,12 @@
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Extensions\bin\Debug\net6.0\Cinema.Extensions.deps.json
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Extensions\bin\Debug\net6.0\Cinema.Extensions.dll
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Extensions\bin\Debug\net6.0\Cinema.Extensions.pdb
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Extensions\obj\Debug\net6.0\Cinema.Extensions.csproj.AssemblyReference.cache
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Extensions\obj\Debug\net6.0\Cinema.Extensions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Extensions\obj\Debug\net6.0\Cinema.Extensions.AssemblyInfoInputs.cache
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Extensions\obj\Debug\net6.0\Cinema.Extensions.AssemblyInfo.cs
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Extensions\obj\Debug\net6.0\Cinema.Extensions.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Extensions\obj\Debug\net6.0\Cinema.Extensions.dll
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Extensions\obj\Debug\net6.0\refint\Cinema.Extensions.dll
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Extensions\obj\Debug\net6.0\Cinema.Extensions.pdb
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Extensions\obj\Debug\net6.0\ref\Cinema.Extensions.dll
