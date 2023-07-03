@@ -35,14 +35,6 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: var(--dark-color);
-}
-
 h1,
 h2,
 h3,
@@ -76,14 +68,7 @@ h5 {
 }
 
 h6 {
-    color: var(--primary-color);
     font-size: var(--h6-font-size);
-}
-
-p {
-    color: var(--p-color);
-    font-size: var(--p-font-size);
-    font-weight: var(--font-weight-normal);
 }
 
 ul li {
@@ -103,10 +88,6 @@ a {
     color: var(--primary-color);
     text-decoration: none;
 }
-
-    a:hover {
-        color: var(--link-hover-color);
-    }
 
 b,
 strong {

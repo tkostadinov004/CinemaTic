@@ -4,6 +4,7 @@ using Cinema.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cinema.Data.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230702125247_CinemaRef")]
+    partial class CinemaRef
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,21 +23,6 @@ namespace Cinema.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("ActorMovie", b =>
-                {
-                    b.Property<int>("ActorsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MoviesId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ActorsId", "MoviesId");
-
-                    b.HasIndex("MoviesId");
-
-                    b.ToTable("ActorsMovies", (string)null);
-                });
 
             modelBuilder.Entity("Cinema.Data.Models.Actor", b =>
                 {
@@ -71,6 +58,21 @@ namespace Cinema.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Actors");
+                });
+
+            modelBuilder.Entity("Cinema.Data.Models.ActorMovie", b =>
+                {
+                    b.Property<int>("ActorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ActorId", "MovieId");
+
+                    b.HasIndex("MovieId");
+
+                    b.ToTable("ActorsMovies");
                 });
 
             modelBuilder.Entity("Cinema.Data.Models.ApplicationUser", b =>
@@ -191,6 +193,21 @@ namespace Cinema.Data.Migrations
                     b.ToTable("Cinemas");
                 });
 
+            modelBuilder.Entity("Cinema.Data.Models.CinemaMovie", b =>
+                {
+                    b.Property<int>("CinemaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CinemaId", "MovieId");
+
+                    b.HasIndex("MovieId");
+
+                    b.ToTable("CinemasMovies");
+                });
+
             modelBuilder.Entity("Cinema.Data.Models.Genre", b =>
                 {
                     b.Property<int>("Id")
@@ -216,18 +233,10 @@ namespace Cinema.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("AddedById")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Director")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -258,8 +267,6 @@ namespace Cinema.Data.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AddedById");
 
                     b.HasIndex("GenreId");
 
@@ -368,21 +375,6 @@ namespace Cinema.Data.Migrations
                     b.HasIndex("CinemaId");
 
                     b.ToTable("VisitorsCinemas");
-                });
-
-            modelBuilder.Entity("CinemaMovie", b =>
-                {
-                    b.Property<int>("CinemasId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MoviesId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CinemasId", "MoviesId");
-
-                    b.HasIndex("MoviesId");
-
-                    b.ToTable("CinemasMovies", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -522,19 +514,23 @@ namespace Cinema.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ActorMovie", b =>
+            modelBuilder.Entity("Cinema.Data.Models.ActorMovie", b =>
                 {
-                    b.HasOne("Cinema.Data.Models.Actor", null)
-                        .WithMany()
-                        .HasForeignKey("ActorsId")
+                    b.HasOne("Cinema.Data.Models.Actor", "Actor")
+                        .WithMany("Movies")
+                        .HasForeignKey("ActorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Cinema.Data.Models.Movie", null)
-                        .WithMany()
-                        .HasForeignKey("MoviesId")
+                    b.HasOne("Cinema.Data.Models.Movie", "Movie")
+                        .WithMany("Actors")
+                        .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Actor");
+
+                    b.Navigation("Movie");
                 });
 
             modelBuilder.Entity("Cinema.Data.Models.Cinema", b =>
@@ -548,21 +544,32 @@ namespace Cinema.Data.Migrations
                     b.Navigation("Owner");
                 });
 
-            modelBuilder.Entity("Cinema.Data.Models.Movie", b =>
+            modelBuilder.Entity("Cinema.Data.Models.CinemaMovie", b =>
                 {
-                    b.HasOne("Cinema.Data.Models.ApplicationUser", "AddedBy")
-                        .WithMany("MoviesAdded")
-                        .HasForeignKey("AddedById")
-                        .OnDelete(DeleteBehavior.NoAction)
+                    b.HasOne("Cinema.Data.Models.Cinema", "Cinema")
+                        .WithMany("Movies")
+                        .HasForeignKey("CinemaId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Cinema.Data.Models.Movie", "Movie")
+                        .WithMany("Cinemas")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cinema");
+
+                    b.Navigation("Movie");
+                });
+
+            modelBuilder.Entity("Cinema.Data.Models.Movie", b =>
+                {
                     b.HasOne("Cinema.Data.Models.Genre", "Genre")
                         .WithMany("Movies")
                         .HasForeignKey("GenreId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("AddedBy");
 
                     b.Navigation("Genre");
                 });
@@ -640,21 +647,6 @@ namespace Cinema.Data.Migrations
                     b.Navigation("Visitor");
                 });
 
-            modelBuilder.Entity("CinemaMovie", b =>
-                {
-                    b.HasOne("Cinema.Data.Models.Cinema", null)
-                        .WithMany()
-                        .HasForeignKey("CinemasId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Cinema.Data.Models.Movie", null)
-                        .WithMany()
-                        .HasForeignKey("MoviesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -706,19 +698,24 @@ namespace Cinema.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Cinema.Data.Models.Actor", b =>
+                {
+                    b.Navigation("Movies");
+                });
+
             modelBuilder.Entity("Cinema.Data.Models.ApplicationUser", b =>
                 {
                     b.Navigation("CinemasOwned");
 
                     b.Navigation("CinemasVisited");
 
-                    b.Navigation("MoviesAdded");
-
                     b.Navigation("Tickets");
                 });
 
             modelBuilder.Entity("Cinema.Data.Models.Cinema", b =>
                 {
+                    b.Navigation("Movies");
+
                     b.Navigation("Tickets");
 
                     b.Navigation("Visitors");
@@ -731,6 +728,10 @@ namespace Cinema.Data.Migrations
 
             modelBuilder.Entity("Cinema.Data.Models.Movie", b =>
                 {
+                    b.Navigation("Actors");
+
+                    b.Navigation("Cinemas");
+
                     b.Navigation("TicketsBought");
                 });
 #pragma warning restore 612, 618

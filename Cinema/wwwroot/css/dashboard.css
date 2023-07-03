@@ -1,0 +1,130 @@
+﻿.hero-section {
+    background: #f3f6fd;
+}
+
+.main-section {
+    padding-top: 77px;
+    padding-bottom: 0;
+}
+
+nav.navbar {
+    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,.175) !important;
+    background-color: white;
+}
+
+.navbar.sticky {
+    background-color: white;
+}
+
+.admin-icons {
+    min-width: 300px;
+    min-height: 100vh;
+    background: white;
+    padding-top: 2rem;
+    /*    padding-left: 25px;
+    padding-right: 25px;*/
+}
+
+.admin-pfp-container {
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+    .admin-pfp-container img {
+        width: 100px;
+        display: inline;
+        border-radius: 50%;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .admin-pfp-container .pf-heading {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .admin-pfp-container p {
+        margin-bottom: 5px;
+    }
+
+.admin-dashboard {
+    flex-grow: 1;
+}
+
+.admin-menu-categories {
+    padding-left: 0;
+}
+
+    .admin-menu-categories .nav-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+        .admin-menu-categories .nav-item button {
+            margin-left: 40px;
+            width: 100%;
+            text-align: left;
+        }
+
+.tab-content {
+    background-color: transparent;
+}
+
+li.nav-item {
+    border-left: 5px solid transparent;
+    padding: 10px 0px 10px 16px;
+}
+
+    li.nav-item:not(:has(button.active)):hover {
+        background-color: #f5f5f5;
+    }
+
+    li.nav-item:has(button.active) {
+        border-left: 5px solid red;
+        background-color: lightgray;
+    }
+
+button.nav-link {
+    color: black;
+}
+
+div#main-dashboard {
+    margin-left: 30px;
+    margin-top: 40px;
+    padding: 30px 10px;
+}
+
+    div#main-dashboard div {
+        background-color: white;
+        border-radius: 40px;
+    }
+
+    div#main-dashboard .dashboard-pane {
+        min-width: 600px;
+        min-height: 600px;
+        padding: 30px;
+    }
+
+.admin-cinemas-approval {
+    padding: 30px;
+}
+
+#main-dashboard span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.admin-cinema-statuses-counts {
+    gap: 30px;
+}
+
+.admin-cinema-statuses h6 {
+    margin-bottom: 0;
+}
+
+.admin-cinema-statuses p {
+    font-size: 16px;
+}

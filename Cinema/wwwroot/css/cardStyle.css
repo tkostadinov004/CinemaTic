@@ -155,7 +155,7 @@
 }
 .desc-button {
     flex: 1 1 30%;
-    background-color: rgba(232, 4, 2, 0.5);
+    background-color: rgba(40, 105, 255, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -183,7 +183,7 @@
 }
 .desc-button:not(.projection-info):hover {
     transition: 0.5s;
-    background-color: rgba(130, 3, 1, 0.5);
+    background-color: rgba(15, 40, 97, 0.5);
 }
 .card-wrapper-actors {
     flex-direction: column;

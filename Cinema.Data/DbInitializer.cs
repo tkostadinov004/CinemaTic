@@ -24,21 +24,16 @@ namespace Cinema.Data
 
         public void Run(IServiceProvider serviceProvider, bool shouldDeleteDB)
         {
-            if (shouldDeleteDB == true)
+            if (shouldDeleteDB)
             {
                 _context.Database.EnsureDeleted();
-                _context.Database.EnsureCreated();
-
+                _context.Database.Migrate();
                 AddGenres();
                 AddActors();
                 AddMovies();
                 AddActorMovies();
                 AddRoles(serviceProvider);
                 AddUsers(serviceProvider);
-            }
-            else if(_context.Database.GetAppliedMigrations().Count() == 0)
-            {
-               // _context.Database.Migrate();
             }
         }
         public void AddRoles(IServiceProvider serviceProvider)
@@ -280,23 +275,23 @@ namespace Cinema.Data
         }
         public void AddActorMovies()
         {
-            string json = File.ReadAllText($"{Directory}/actormovies.json", Encoding.UTF8);
-            var actorMovies = JsonConvert.DeserializeObject<AddActorMovieDTO[]>(json);
+            //string json = File.ReadAllText($"{Directory}/actormovies.json", Encoding.UTF8);
+            //var actorMovies = JsonConvert.DeserializeObject<AddActorMovieDTO[]>(json);
 
-            foreach (var actorMovie in actorMovies)
-            {
-                var am = new ActorMovie
-                {
-                    ActorId = _context.Actors.ToList().FirstOrDefault(i => $"{i.FirstName} {i.LastName}" == actorMovie.Actor).Id,
-                    MovieId = _context.Movies.ToList().FirstOrDefault(i => i.Title == actorMovie.Movie).Id,
-                };
-                _context.ActorsMovies.Add(new ActorMovie
-                {
-                    ActorId = _context.Actors.ToList().FirstOrDefault(i => $"{i.FirstName} {i.LastName}" == actorMovie.Actor).Id,
-                    MovieId = _context.Movies.ToList().FirstOrDefault(i => i.Title == actorMovie.Movie).Id,
-                });
-            }
-            _context.SaveChanges();
+            //foreach (var actorMovie in actorMovies)
+            //{
+            //    var am = new ActorMovie
+            //    {
+            //        ActorId = _context.Actors.ToList().FirstOrDefault(i => $"{i.FirstName} {i.LastName}" == actorMovie.Actor).Id,
+            //        MovieId = _context.Movies.ToList().FirstOrDefault(i => i.Title == actorMovie.Movie).Id,
+            //    };
+            //    _context.ActorsMovies.Add(new ActorMovie
+            //    {
+            //        ActorId = _context.Actors.ToList().FirstOrDefault(i => $"{i.FirstName} {i.LastName}" == actorMovie.Actor).Id,
+            //        MovieId = _context.Movies.ToList().FirstOrDefault(i => i.Title == actorMovie.Movie).Id,
+            //    });
+            //}
+            //_context.SaveChanges();
         }
     }
 }

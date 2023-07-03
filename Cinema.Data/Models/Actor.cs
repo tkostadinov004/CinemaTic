@@ -10,7 +10,7 @@ namespace Cinema.Data.Models
     {
         public Actor()
         {
-            Movies = new List<ActorMovie>();
+            Movies = new List<Movie>();
         }
         [Key]
         public int Id { get; set; }
@@ -32,6 +32,6 @@ namespace Cinema.Data.Models
         [Display(Name = "Image")]
         public string? ImageUrl { get; set; }
         [Display(Name = "Movies")]
-        public virtual ICollection<ActorMovie> Movies { get; set; }
+        public virtual ICollection<Movie> Movies { get; set; }
     }
 }
