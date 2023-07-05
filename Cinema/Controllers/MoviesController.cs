@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using Cinema.Core.Contracts;
 using Cinema.ViewModels.Movies;
+using Cinema.ViewModels.Cinemas;
+using Cinema.Core.Services;
 
 namespace Cinema.Controllers
 {
@@ -23,7 +25,16 @@ namespace Cinema.Controllers
         {
             return View(await _moviesService.GetAllAsync());
         }
-
+        [HttpGet]
+        public async Task<IActionResult> AllMovies()
+        {
+            return View(await _moviesService.PrepareFilterViewModelAsync());
+        }
+        public async Task<IActionResult> SearchAndFilterMovies(string searchText, string filterValue)
+        {
+            var movies = await _moviesService.SearchAndFilterMoviesAsync(searchText, filterValue);
+            return PartialView("_MoviesPartial", movies);
+        }
         // GET: Movies/Details/5
         //[Authorize(Roles = "Owner")]
         public async Task<IActionResult> Details(int? id)
@@ -48,10 +59,7 @@ namespace Cinema.Controllers
         [Authorize(Roles = "Owner")]
         public async Task<IActionResult> Create()
         {
-            ViewBag.Genres = await _moviesService.GetGenresDropDownAsync();
-            ViewBag.Actors = await _moviesService.GetActorsDropDownAsync();
-
-            return View();
+            return View(await _moviesService.PrepareForAddingAsync());
         }
 
         // POST: Movies/Create
@@ -60,13 +68,13 @@ namespace Cinema.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Owner")]
-        public async Task<IActionResult> Create(CreateMovieViewModel movieVM, IEnumerable<string> acts, int genreId)
+        public async Task<IActionResult> Create(CreateMovieViewModel movieVM, IEnumerable<string> acts, string userEmail)
         {
             if (ModelState.IsValid)
             {
-                await _moviesService.CreateMovieAsync(movieVM, acts, genreId);
+                await _moviesService.CreateMovieAsync(movieVM, acts, userEmail);
             }
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("AllMovies", "Owners");
         }
 
         // GET: Movies/Edit/5
@@ -94,15 +102,14 @@ namespace Cinema.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         [Authorize(Roles = "Owner")]
-        public async Task<IActionResult> Edit(EditMovieViewModel vm, int id, int genreId, IEnumerable<string> acts)
+        public async Task<IActionResult> Edit([FromForm] MovieDetailsViewModel viewModel, int id, int genreId, IEnumerable<string> acts)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    await _moviesService.EditByIdAsync(vm, id, genreId, acts);
+                    //await _moviesService.EditByIdAsync(vm, id, genreId, acts);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -118,7 +125,7 @@ namespace Cinema.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(vm);
+            return View();
         }
 
         // GET: Movies/Delete/5

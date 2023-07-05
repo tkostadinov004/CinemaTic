@@ -24,10 +24,10 @@ namespace Cinema.Controllers
             //{
             //    return RedirectToAction("Index", "Admin");
             //}
-            //if (User.IsInRole("Owner"))
-            //{
-            //    return RedirectToAction("Index", "Movies");
-            //}
+            if (User.IsInRole("Owner"))
+            {
+                return RedirectToAction("Index", "Owners");
+            }
             //return View(_context.Movies.ToList());
             return View();
         }
