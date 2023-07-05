@@ -1,4 +1,4 @@
-﻿@model List<Cinema.ViewModels.Cinemas.CinemaListViewModel>
+﻿@model IEnumerable<Cinema.ViewModels.Cinemas.CinemaListViewModel>
 
 @{
     ViewData["Title"] = "Owner dashboard";
@@ -23,7 +23,9 @@
             </form>
         </div>
         <div class="app-content-actions">
-            <input class="search-bar" placeholder="Search..." type="text">
+            <form>
+                <input id="search-bar" class="search-bar" placeholder="Search..." type="text">
+            </form>
             <div class="app-content-actions-wrapper">
                 <div class="filter-button-wrapper">
                     <button class="action-button filter jsFilter"><span>Filter</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></svg></button>
@@ -60,26 +62,9 @@
                     </button>
                 </div>
             </div>
-            @foreach (var cinema in Model)
-            {
-                <div class="cinema-row">
-                    <button class="cell-more-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1" /><circle cx="12" cy="5" r="1" /><circle cx="12" cy="19" r="1" /></svg>
-                    </button>
-                    <div class="cinema-cell image">
-                        <a class="d-flex align-items-center cinema-link" asp-controller="Owners" asp-action="Details" asp-route-id="@cinema.Id">
-                            <img src="~/client-images/Cinema/@cinema.ImageUrl" alt="cinema-logo">
-                            <span>@cinema.Name</span>
-                        </a>
-                    </div>
-                    <div class="cinema-cell status-cell">
-                        <span class="cell-label">Status:</span>
-                        <span class="status">@cinema.Status</span>
-                    </div>
-                    <div class="cinema-cell sales"><span class="cell-label">Added on:</span>@cinema.FoundedOn</div>
-                    <div class="cinema-cell stock"><span class="cell-label">Movies:</span>@cinema.MoviesCount</div>
-                </div>
-            }
+            <div class="results-container" id="results-container">
+                
+            </div>
         </div>
     </div>
 </div>
@@ -94,5 +79,18 @@
         else if (value == 'Pending approval') {
             statuses[i].classList.add('pending-approval');
         }
+    }
+    window.onload = function () {
+        getItems('SearchCinemas', "", '@User.Identity.Name');
+    };
+    var search = document.getElementById("search-bar");
+    if (search) {
+        let timeout = null;
+        search.addEventListener("keyup", function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                getItems('SearchCinemas', search.value, '@User.Identity.Name');
+            }, 300);
+        });
     }
 </script>

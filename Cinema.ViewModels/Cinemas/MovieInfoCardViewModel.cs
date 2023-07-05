@@ -15,5 +15,6 @@ namespace Cinema.ViewModels.Cinemas
         public int RatingCount { get; set; }
         public decimal Price { get; set; }
         public string ImageUrl { get; set; }
+        public string AddedBy { get; set; }
     }
 }

@@ -69,25 +69,46 @@ var loadFile = function (event) {
         URL.revokeObjectURL(output.src);
     }
 };
-window.onunload = function () {
+
+
+
+function getItems(actionName, searchText, value) {
+    let key = "id";
+    if (actionName == 'SearchCinemas') {
+        console.log(1);
+        key = 'userEmail';
+    }
+    var data = { "searchText": searchText };
+    data[key] = value;
     $.ajax({
         type: "POST",
-        url: 'DeleteTemp',
-        data: {},
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        beforeSend: function () {
-
-        },
+        url: `/Owners/${actionName}`,
+        data: data,
         success: function (response) {
-
+            $("#results-container").html(response);
         },
-        complete: function () {
-
+        failure: function (response) {
+            alert(response.responseText);
         },
-        failure: function (jqXHR, textStatus, errorThrown) {
-            alert("HTTP Status: " + jqXHR.status + "; Error Text: " + jqXHR.responseText); // Display error message
+        error: function (response) {
+            alert(response.responseText);
         }
     });
 }
 
+function editCinema(cinemaId) {
+    $.ajax({
+        type: "GET",
+        url: "/Owners/EditCinema",
+        data: { cinemaId },
+        success: function (response) {
+            $("#review-form-container").html(response);
+        },
+        failure: function (response) {
+            alert(response.responseText);
+        },
+        error: function (response) {
+            alert(response.responseText);
+        }
+    });
+}

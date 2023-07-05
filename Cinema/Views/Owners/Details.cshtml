@@ -8,6 +8,7 @@
 }
 <link href="~/css/ownerstyle.css" rel="stylesheet" />
 <link rel="stylesheet" href="~/css/cardStyle.css" />
+<link href="~/css/ratingmodal.css" rel="stylesheet" />
 <div class="app-container">
     <partial name="_OwnerSidebarPartial" />
     <div class="app-content">
@@ -34,17 +35,12 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"></path></svg>
                     </button>
                 </div>
-                <div class="cinema-cell stock">
-                    Movies<button class="sort-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"></path></svg>
-                    </button>
-                </div>
             </div>
-            <div class="cinema-row details-card">
+            <div class="cinema-row details-card mb-3">
                 <div class="cinema-cell image details-photo-pic">
                     <a class="d-flex align-items-center cinema-link flex-column">
-                        <img src="~/client-images/Cinema/@Model.ImageUrl" alt="cinema-logo">
-                        <span>CinemaTest</span>
+                        <img src="~/client-images/Cinemas/@Model.ImageUrl" alt="cinema-logo">
+                        <span>@Model.Name</span>
                     </a>
                 </div>
                 <div class="cinema-cell status-cell">
@@ -54,15 +50,20 @@
                 <div class="cinema-cell description">
                     <span class="cell-label">Description:</span>
                     <span class="cinema-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin viverra porta aliquet. Nulla mauris purus, efficitur vitae bibendum id, pretium eu nibh. Nunc tempus dolor turpis, sed imperdiet diam ullamcorper sed. Nullam sodales ultrices aliquam. Cras dapibus dignissim enim eu tempus. Donec gravida posuere consectetur. Quisque lorem est, accumsan mollis interdum ut, dapibus eget quam. Pellentesque vel ipsum pretium orci malesuada ullamcorper. Aenean sit amet ligula euismod, consequat magna sit amet, sollicitudin ante. Vestibulum ullamcorper lobortis maximus. Pellentesque ac velit a sapien scelerisque lobortis vel lobortis dui.
+                        @Model.Description
                     </span>
                 </div>
                 <div class="cinema-cell sales"><span class="cell-label">Founded on:</span>@Model.FoundedOn</div>
-                <div class="cinema-cell stock"><span class="cell-label">Movies:</span>@Model.Movies.Count()</div>
+            </div>
+            <div class="cinema-cell stock">
+                <button id="open-popup-btn" class="action-button active crud-button">Edit</button>
+                <form>
+                    <button class="action-button active crud-button" asp-controller="Owners" asp-action="DeleteCinema" asp-route-id="@Model.Id" type="submit">Delete</button>
+                </form>
             </div>
         </div>
         <div class="app-content-actions">
-            <input class="search-bar" placeholder="Search..." type="text">
+            <input id="search-bar" class="search-bar" placeholder="Search..." type="text" onload="console.log(1);">
             <div class="app-content-actions-wrapper">
                 <div class="filter-button-wrapper">
                     <button class="action-button filter jsFilter"><span>Filter</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></svg></button>
@@ -104,42 +105,40 @@
                     </button>
                 </div>
             </div>
-            <div class="movies-container">
-                @foreach (var movie in Model.Movies)
-                {
-                    <div class="cinema-row">
-                        <button class="cell-more-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1" /><circle cx="12" cy="5" r="1" /><circle cx="12" cy="19" r="1" /></svg>
-                        </button>
-                        <div class="cinema-cell image">
-                            <a class="d-flex align-items-center cinema-link" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">
-                                <img src="~/client-images/Movies/@movie.ImageUrl" alt="cinema-logo">
-                                <span>@movie.Name</span>
-                            </a>
-                        </div>
-                        <div class="cinema-cell sales"><span class="cell-label">Genre:</span>@movie.Genre</div>
-                        <div class="cinema-cell sales"><span class="cell-label">Average rating:</span>@movie.AverageRating / 10.0</div>
-                        <div class="cinema-cell stock"><span class="cell-label">Rating count:</span>@movie.RatingCount</div>
-                        <div class="cinema-cell stock"><span class="cell-label">Price:</span>$@movie.Price</div>
-                    </div>
-                    <div class="movie-grid" hidden>
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <img src="~/client-images/Movies/@movie.ImageUrl" alt="cinema-logo">
-                                <div class="descriptions">
-                                    <div class="description-buttons">
-                                        <a class="desc-button" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">
-                                            <i class="fa-solid fa-circle-info f-size-b"></i>
-                                            Details
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                }
+            <div class="movies-container" id="results-container">
+                
             </div>
         </div>
     </div>
+    <div class="rating-container">
+        <div id="modal" role="dialog" aria-modal="true" aria-labelledby="add-review-header" class="edit-modal">
+            <button class="close-btn" aria-label="close" title="Close">x</button>
+            <div id="review-form-container">
+                
+            </div>
+        </div>
+        <div class="modal-overlay"></div>
+    </div>
 </div>
+<script>
+    window.onload = function () {
+        getItems('SearchMoviesByCinema', "", '@Model.Id');
+    };
+    var search = document.getElementById("search-bar");
+    if (search) {
+        let timeout = null;
+        search.addEventListener("keyup", function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                getItems('SearchMoviesByCinema', search.value, '@Model.Id');
+            }, 300);
+        });
+    }
+
+    var editButton = document.getElementById("open-popup-btn");
+    editButton.addEventListener("click", function() {
+        editCinema('@Model.Id');
+    });
+</script>
 <script src="~/js/ownerdashboard.js"></script>
+<script src="~/js/rating-modal.js"></script>

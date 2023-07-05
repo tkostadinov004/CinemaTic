@@ -1,8 +1,4 @@
-﻿#review-add-btn {
-    background-color: transparent;
-    border: 0;
-}
-/* ====================== Review Form ====================== */
+﻿/* ====================== Review Form ====================== */
 #modal {
     /* position: absolute;
                           left: 10vh;
@@ -81,6 +77,9 @@
     cursor: pointer;
     position: absolute;
     top: 0;
+    background: transparent;
+    border: 0;
+    color: white;
 }
 /*
                         input,
@@ -96,74 +95,13 @@
 .fieldset {
     margin-top: 20px;
 }
-
-.right {
-    align-self: flex-end;
+div#modal.edit-modal {
+    height: fit-content;
+    width: 80%;
 }
-
-#review-form-container {
+form.edit-form {
+    padding: 40px 50px;
+}
+div.form-group {
     width: 100%;
-    /* background-color: #eee; */
-    color: #333;
-    overflow-y: auto;
-}
-
-h2 {
-    margin: 36px 0 0 6px
-}
-
-#review-form {
-    display: flex;
-    flex-direction: column;
-}
-
-    #review-form label, #review-form input {
-        display: block;
-        /* width: 100%; */
-    }
-
-    #review-form label {
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
-
-    #review-form .rate label, #review-form .rate input,
-    #review-form .rate1 label, #review-form .rate1 input {
-        display: inline-block;
-    }
-
-
-#submit-review {
-    align-self: flex-end;
-}
-
-.modal-star-container * {
-    cursor: pointer;
-}
-
-.modal-star-container .star {
-    position: absolute;
-    z-index: -2;
-    visibility: hidden;
-}
-
-.modal-star-container input[type=radio]:checked + label {
-    color: black;
-}
-
-.modal-star-container .yellow {
-    color: #dee81e;
-    font-size: 2rem;
-}
-
-    .modal-star-container .yellow:hover {
-        color: #909615;
-    }
-.close-btn {
-    background-color: transparent;
-    border: 0;
-    color: #fff;
-}
-#submit-review-btn {
-    margin: 50px auto 0px auto;
 }

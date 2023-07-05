@@ -1,15 +1,7 @@
 ﻿let focusedElementBeforeModal;
 const modal = document.getElementById('modal');
 const modalOverlay = document.querySelector('.modal-overlay');
-
-window.onload = () => {
-    const addReview = document.getElementById('review-add-btn');
-    addReview.id = 'review-add-btn';
-    addReview.setAttribute('aria-label', 'add review');
-    addReview.title = 'Add Review';
-    addReview.addEventListener('click', openModal);
-    //addReview.click();
-}
+const addReview = document.getElementById('open-popup-btn');
 
 const openModal = () => {
     // Save current focus
@@ -85,7 +77,7 @@ const closeModal = () => {
     // Set focus back to element that had it before the modal was opened
     focusedElementBeforeModal.focus();
 };
-
+addReview.addEventListener('click', openModal);
 function setFocus(evt) {
     const rateRadios = document.getElementsByName('rate');
     const rateRadiosArr = Array.from(rateRadios);

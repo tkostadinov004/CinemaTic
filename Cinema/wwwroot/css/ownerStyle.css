@@ -799,3 +799,10 @@ span.actors-list {
     word-break: break-word;
     width: 400px;
 }
+button.action-button.crud-button {
+    color: white;
+    padding: 10px 30px;
+}
+    button.action-button.crud-button:hover {
+        color: #a5a5a5;
+    }

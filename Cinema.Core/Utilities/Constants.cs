@@ -20,5 +20,6 @@ namespace Cinema.Utilities
         };
 
         public static string ImagesFolder = "client-images";
+        public static string DateTimeFormat = "MM/dd/yyyy";
     }
 }
