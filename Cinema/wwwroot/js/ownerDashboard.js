@@ -60,7 +60,20 @@ document.querySelectorAll('.sidebar-list-item').forEach(i => i.addEventListener(
     document.querySelectorAll('.sidebar-list-item').forEach(j => j.classList.remove("active"));
     i.classList.add("active");
 }));
-//
+function setStatuses() {
+    var statuses = document.querySelectorAll("div.cinema-row div.status-cell span.status");
+    if (statuses.length > 0) {
+        for (var i = 0; i < statuses.length; i++) {
+            var value = statuses[i].innerHTML;
+            if (value == 'Approved') {
+                statuses[i].classList.add('approved');
+            }
+            else if (value == 'Pending approval') {
+                statuses[i].classList.add('pending-approval');
+            }
+        }
+    }
+}
 var loadFile = function (event) {
     var output = document.getElementById('tempImg');
     output.src = URL.createObjectURL(event.target.files[0]);
@@ -72,20 +85,21 @@ var loadFile = function (event) {
 
 
 
-function getItems(actionName, searchText, value) {
+function getItems(controllerName, actionName, searchText, value, filterValue) {
     let key = "id";
-    if (actionName == 'SearchCinemas') {
+    if (actionName == 'SearchAndFilterCinemas') {
         console.log(1);
         key = 'userEmail';
     }
-    var data = { "searchText": searchText };
+    var data = { "searchText": searchText, filterValue };
     data[key] = value;
     $.ajax({
         type: "POST",
-        url: `/Owners/${actionName}`,
+        url: `/${controllerName}/${actionName}`,
         data: data,
         success: function (response) {
             $("#results-container").html(response);
+            setStatuses();
         },
         failure: function (response) {
             alert(response.responseText);

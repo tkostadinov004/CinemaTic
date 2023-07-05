@@ -106,23 +106,6 @@ namespace Cinema.Core.Services
             }).ToList();
         }
 
-        public async Task<IEnumerable<MovieInfoCardViewModel>> GetAllMoviesAsync()
-        {
-            var movies = await _context.Movies.Include(i => i.Genre).Include(i => i.AddedBy).ToListAsync();
-
-            return movies.Select(i => new MovieInfoCardViewModel
-            {
-                Id = i.Id,
-                Name = i.Title,
-                ImageUrl = i.ImageUrl,
-                AverageRating = i.UserRating.Value,
-                Genre = i.Genre.Name,
-                Price = i.Price,
-                RatingCount = i.RatingCount,
-                AddedBy = $"{i.AddedBy.FirstName} {i.AddedBy.LastName}"
-            }).ToList();
-        }
-
         public async Task<CinemaDetailsViewModel> GetByIdAsync(int? id)
         {
             var cinema = await _context.Cinemas
@@ -182,12 +165,24 @@ namespace Cinema.Core.Services
             };
         }
 
-        public async Task<IEnumerable<CinemaListViewModel>> SearchCinemasAsync(string searchText, string userEmail)
+        public async Task<IEnumerable<CinemaListViewModel>> SearchAndFilterCinemasAsync(string searchText, string userEmail, string filterValue)
         {
             var cinemas = await this.GetAllByUserAsync(userEmail);
             if (string.IsNullOrEmpty(searchText) == false)
             {
                 cinemas = cinemas.Where(i => i.Name.StartsWith(searchText));
+            }
+            if(string.IsNullOrEmpty(filterValue) == false)
+            {
+                switch (filterValue)
+                {
+                    case "Approved":
+                        cinemas = cinemas.Where(i => i.Status == "Approved");
+                        break;
+                    case "Pending approval":
+                        cinemas = cinemas.Where(i => i.Status == "Pending approval");
+                        break;
+                }
             }
             return cinemas;
         }

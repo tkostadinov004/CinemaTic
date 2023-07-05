@@ -1,10 +1,157 @@
 ﻿@model Cinema.ViewModels.Movies.MovieDetailsViewModel
 
 @{
-    ViewData["Title"] = $"Details - {Model.Movie.Title}";
+    ViewData["Title"] = $"Details - {Model.Title}";
 }
 <link href="~/css/ratingModal.css" rel="stylesheet" />
-<div class="details front-panel">
+<link href="~/css/ownerstyle.css" rel="stylesheet" />
+<link href="~/css/ratingmodal.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/cardStyle.css" />
+<div class="app-container">
+    <partial name="_OwnerSidebarPartial" />
+    <div class="app-content">
+        <div class="movie-container text-white">
+            <div class="row align-items-center">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <div class="col-xs-12 movie-title">
+                        <h3>@Model.Title</h3>
+                    </div>
+                    <div class="col-md-8 col-sm-6 col-xs-12 mb-3">
+                        <h6>More information about</h6>
+                    </div>
+                    <div class="d-flex justify-content-between mb-4">
+                        <div class="d-flex flex-column">
+                            <span>Release date:</span>
+                            <span class="short-info">@Model.Date</span>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <span>Running time:</span>
+                            <span class="short-info">@Model.RunningTime minutes</span>
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                        <p class="movie-desc">@Model.Description</p>
+                    </div>
+                    <div class="row">
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>Cast: </span>
+                            <span class="actors-list">@string.Join(", ", Model.Actors)</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Director: </span>
+                            <span class="actors-list">@Model.Director</span>
+                        </div>
+                    </div>
+                    <div class="d-flex mt-4">
+                        <button id="open-popup-btn" class="action-button list active crud-button m-0">Edit</button>
+                        <form>
+                            <button class="action-button list active crud-button" asp-controller="Movies" asp-action="Delete" asp-route-id="@Model.MovieId" type="submit">Delete</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-sm-offset-0 col-xs-6 col-xs-offset-3">
+                    <img src="~/client-images/Movies/@Model.ImageUrl" />
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12 mt-5 mb-3">
+                    <h6>Add this movie to your cinemas</h6>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12 mb-3">
+                    <form asp-controller="Owners" asp-action="AddMovieToCinemas" method="post">
+                        @foreach (var cinema in Model.UserCinemas)
+                        {
+                            <input type="checkbox" id="cinemas" name="cinemas" value="@cinema.Id">
+                            <label for="cinemas">@cinema.Name</label>
+                        }
+                        <button type="submit" asp-controller="Owners" asp-action="AddMovieToCinemas" asp-route-movieId="@Model.MovieId">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rating-container">
+        <div id="modal" role="dialog" aria-modal="true" aria-labelledby="add-review-header" class="edit-modal">
+            <button class="close-btn" aria-label="close" title="Close">x</button>
+            <div id="review-form-container">
+                <form asp-controller="Movies" asp-action="Edit" method="post" enctype="multipart/form-data" class="add-form">
+                    <div role="list" asp-validation-summary="None" class="text-danger"></div>
+                    <div class="form-group">
+                        <div class="active-form">
+                            <i class="fa-solid fa-film input-icon"></i>
+                            <input asp-for="Title" class="form-control form-style" placeholder="Title" />
+                        </div>
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="active-form">
+                            <i class="fa-solid fa-pen input-icon"></i>
+                            <select asp-for="GenreId" asp-items="@Model.Genres" class="form-control form-style" placeholder="Genre" style="    background: black;
+    border: 0;
+    color: white;"></select>
+                        </div>
+                        <span asp-validation-for="GenreId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="active-form">
+                            <i class="fa-solid fa-calendar-days input-icon"></i>
+                            <input asp-for="Director" type="text" class="form-control form-style" placeholder="Director" />
+                        </div>
+                        <span asp-validation-for="Director" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="active-form">
+                            <i class="fa-solid fa-calendar-days input-icon"></i>
+                            <input asp-for="Description" type="text" class="form-control form-style" placeholder="Description" />
+                        </div>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="active-form">
+                            <i class="input-icon">R</i>
+                            <input asp-for="RunningTime" type="text" class="form-control form-style" placeholder="Running time" />
+                        </div>
+                        <span asp-validation-for="RunningTime" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <div class="active-form">
+                            <i class="input-icon">C</i>
+                            <input asp-for="TrailerUrl" type="text" class="form-control form-style" placeholder="Trailer URL" />
+                        </div>
+                        <span asp-validation-for="TrailerUrl" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 10px;">
+                        <div class="active-form">
+                            <i class="input-icon">C</i>
+                            <select asp-for="Actors" name="acts" asp-items="@Model.ActorsDropdown" class="form-control" style="    color: white;
+    background: black;
+    border: 0;"></select>
+                        </div>
+                        <span asp-validation-for="Actors" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group image-form-group">
+                        <div class="d-flex justify-content-between">
+                            <div class="active-form image-upload">
+                                <label asp-for="Image" for="image-upload" class="image-upload-box">
+                                    <i class="upload-text">Upload your movie's poster</i>
+                                </label>
+                                <input asp-for="Image" id="image-upload" class="form-control form-style upload-form" onchange="loadFile(event)" />
+                            </div>
+                            <div class="temp-img-container">
+                                <img id="tempImg" hidden />
+                            </div>
+                        </div>
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                    <button class="app-content-headerButton" asp-route-userEmail="@User.Identity.Name" asp-controller="Movies" asp-action="Edit" type="submit">Add a movie</button>
+                </form>
+            </div>
+        </div>
+        <div class="modal-overlay"></div>
+    </div>
+</div>
+<script src="~/js/ownerdashboard.js"></script>
+<script src="~/js/rating-modal.js"></script>
+@*<div class="details front-panel">
     <div>
         <div class="short-info">
             <h1 class="section-line">@Model.Movie.Title</h1>
@@ -153,4 +300,4 @@
         //    document.getElementByClassName("details-schedule-projections")[0].innerHTML = "Няма прожекции за тази дата";
         //}
     }
-</script>
+</script>*@

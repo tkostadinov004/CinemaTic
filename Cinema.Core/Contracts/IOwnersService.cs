@@ -13,11 +13,10 @@ namespace Cinema.Core.Contracts
         Task<IEnumerable<CinemaListViewModel>> GetAllByUserAsync(string userEmail);
         Task<CinemaDetailsViewModel> GetByIdAsync(int? id);
         Task<OwnerStatisticsViewModel> GetStatisticsAsync(string userEmail);
-        Task<IEnumerable<MovieInfoCardViewModel>> GetAllMoviesAsync();
         Task AddMovieToCinemas(string[] cinemas, int movieId);
         Task EditCinema(IViewModel item);
         Task DeleteByIdAsync(int? id);
-        Task<IEnumerable<CinemaListViewModel>> SearchCinemasAsync(string searchText, string userEmail);
+        Task<IEnumerable<CinemaListViewModel>> SearchAndFilterCinemasAsync(string searchText, string userEmail, string filterValue);
         Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByCinema(string searchText, string cinemaId);
         Task<EditCinemaViewModel> GetEditViewModelByIdAsync(int cinemaId);
     }

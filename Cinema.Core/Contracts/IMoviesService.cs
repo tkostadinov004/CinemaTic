@@ -21,11 +21,15 @@ namespace Cinema.Core.Contracts
         Task<MovieDetailsViewModel> GetDetailsViewModel(Movie movie, IEnumerable<UserMovie> ratings, string userEmail);
         Task<SelectList> GetActorsDropDownAsync();
         Task<SelectList> GetGenresDropDownAsync();
-        Task CreateMovieAsync(IViewModel item, IEnumerable<string> actors, int genreId);
+        Task CreateMovieAsync(IViewModel item, IEnumerable<string> actors, string userEmail);
         Task<string> UploadPhoto(IFormFile image);
         Task<EditMovieViewModel> GetEditViewModelById(int? id);
         Task EditByIdAsync(IViewModel item, int id, int genreId, IEnumerable<string> actors);
         Task SetRatingAsync(int id, decimal rating, string userEmail);
         Task<StatisticsViewModel> GetStatistics();
+        Task<CreateMovieViewModel> PrepareForAddingAsync();
+        Task<IEnumerable<MovieInfoCardViewModel>> GetAllMoviesAsync();
+        Task<IEnumerable<MovieInfoCardViewModel>> SearchAndFilterMoviesAsync(string searchText, string filterValue);
+        Task<FilterMoviesViewModel> PrepareFilterViewModelAsync();
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cinema.ViewModels.Cinemas
+namespace Cinema.ViewModels.Movies
 {
     public class MovieInfoCardViewModel
     {

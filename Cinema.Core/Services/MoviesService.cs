@@ -3,6 +3,7 @@ using Cinema.Data;
 using Cinema.Data.Models;
 using Cinema.Utilities;
 using Cinema.ViewModels;
+using Cinema.ViewModels.Cinemas;
 using Cinema.ViewModels.Contracts;
 using Cinema.ViewModels.Movies;
 using Microsoft.AspNetCore.Hosting;
@@ -31,32 +32,27 @@ namespace Cinema.Core.Services
             _webHostEnvironment = webHostEnvironment;
         }
 
-        public async Task CreateMovieAsync(IViewModel item, IEnumerable<string> actors, int genreId)
+        public async Task CreateMovieAsync(IViewModel item, IEnumerable<string> actors, string userEmail)
         {
             CreateMovieViewModel viewModel = item as CreateMovieViewModel;
             Movie movie = new Movie
             {
-                Date = viewModel.Date,
+                Date = DateTime.ParseExact("12/02/2023", "dd/MM/yyyy", null),
                 Description = viewModel.Description,
                 RunningTime = viewModel.RunningTime,
                 Title = viewModel.Title,
                 ImageUrl = await this.UploadPhoto(viewModel.Image),
-                Price = viewModel.Price,
-                TrailerUrl = viewModel.TrailerUrl
+                Price = 2,
+                TrailerUrl = viewModel.TrailerUrl,
+                UserRating = 0,
+                GenreId = viewModel.GenreId,
+                AddedBy = await _userManager.FindByEmailAsync(userEmail),
+                Director = viewModel.Director
             };
-
-            var genre = _context.Genres.Include(i => i.Movies).FirstOrDefault(i => i.Id == genreId);
-            movie.UserRating = 0;
-            movie.Genre = genre;
-            movie.Genre.Movies.Add(movie);
 
             foreach (string id in actors)
             {
-                movie.Actors.Add(new ActorMovie
-                {
-                    ActorId = int.Parse(id),
-                    MovieId = movie.Id
-                });
+                movie.Actors.Add(_context.Actors.FirstOrDefault(i => i.Id == int.Parse(id)));
             }
             _context.Movies.Add(movie);
             await _context.SaveChangesAsync();
@@ -91,13 +87,9 @@ namespace Cinema.Core.Services
             }
             foreach (string actorId in actors)
             {
-                if (!movie.Actors.Contains(await _context.ActorsMovies.FirstOrDefaultAsync(i => i.ActorId == int.Parse(actorId))))
+                if (!movie.Actors.Contains(await _context.Actors.FirstOrDefaultAsync(i => i.Id == int.Parse(actorId))))
                 {
-                    movie.Actors.Add(new ActorMovie
-                    {
-                        ActorId = int.Parse(actorId),
-                        MovieId = movie.Id
-                    });
+                    movie.Actors.Add(_context.Actors.FirstOrDefault(i => i.Id == int.Parse(actorId)));
                 }
             }
             _context.Update(movie);
@@ -118,9 +110,10 @@ namespace Cinema.Core.Services
         public async Task<IEnumerable<Movie>> GetAllAsync()
         {
             return await _context.Movies
-                .Include(i => i.Genre)
                 .Include(i => i.Actors)
-                .ThenInclude(a => a.Actor)
+                .Include(i => i.Genre)
+                .Include(i => i.Cinemas)
+                .Include(i => i.AddedBy)
                 .ToListAsync();
         }
 
@@ -128,8 +121,9 @@ namespace Cinema.Core.Services
         {
             return await _context.Movies
                 .Include(i => i.Actors)
-                .ThenInclude(i => i.Actor)
                 .Include(i => i.Genre)
+                .Include(i => i.Cinemas)
+                .Include(i => i.AddedBy)
                 .FirstOrDefaultAsync(m => m.Id == id);
         }
 
@@ -143,11 +137,27 @@ namespace Cinema.Core.Services
             var currentUser = await _userManager.FindByEmailAsync(userEmail);
             var viewModel = new MovieDetailsViewModel
             {
-                Movie = movie,
+                Date = movie.Date.ToString(Constants.DateTimeFormat),
+                Director = movie.Director,
+                Description = movie.Description,
+                Genre = movie.Genre,
+                ImageUrl = movie.ImageUrl,
+                RunningTime = movie.RunningTime,
+                Title = movie.Title,
+                TrailerUrl = movie.TrailerUrl,
                 MovieId = movie.Id,
+                Actors = movie.Actors.Select(i => $"{i.FirstName} {i.LastName}").ToList(),
                 AverageRating = ratings.ToList().Count == 0 ? 0 : ratings.Select(i => i.Rating).Average(),
                 RatingCount = ratings.Count(),
-                CurrentUserRating = ratings.FirstOrDefault(i => i.User.Email == currentUser.Email) == null ? null : ratings.FirstOrDefault(i => i.User.Email == currentUser.Email).Rating
+                CurrentUserRating = ratings.FirstOrDefault(i => i.User.Email == currentUser.Email) == null ? null : ratings.FirstOrDefault(i => i.User.Email == currentUser.Email).Rating,
+                UserCinemas = (await _context.Cinemas.Where(i => i.OwnerId == currentUser.Id).ToListAsync()).Select(i => new CinemaCheckboxViewModel
+                {
+                    Id = i.Id,
+                    Name = i.Name
+                }).ToList(),
+                ActorsDropdown = await this.GetActorsDropDownAsync(),
+                Genres = await this.GetGenresDropDownAsync(),
+                GenreId = movie.GenreId,
             };
             return viewModel;
         }
@@ -195,6 +205,15 @@ namespace Cinema.Core.Services
             return vm;
         }
 
+        public async Task<CreateMovieViewModel> PrepareForAddingAsync()
+        {
+            return new CreateMovieViewModel
+            {
+                ActorsDropdown = await this.GetActorsDropDownAsync(),
+                Genres = await this.GetGenresDropDownAsync()
+            };
+        }
+
         public async Task SetRatingAsync(int id, decimal rating, string userEmail)
         {
             var currentUser = await _userManager.FindByEmailAsync(userEmail);
@@ -226,10 +245,58 @@ namespace Cinema.Core.Services
             }
             await _context.SaveChangesAsync();
         }
+        public async Task<IEnumerable<MovieInfoCardViewModel>> GetAllMoviesAsync()
+        {
+            var movies = await _context.Movies.Include(i => i.Genre).Include(i => i.AddedBy).ToListAsync();
 
+            return movies.Select(i => new MovieInfoCardViewModel
+            {
+                Id = i.Id,
+                Name = i.Title,
+                ImageUrl = i.ImageUrl,
+                AverageRating = i.UserRating.Value,
+                Genre = i.Genre.Name,
+                Price = i.Price,
+                RatingCount = i.RatingCount,
+                AddedBy = $"{i.AddedBy.FirstName} {i.AddedBy.LastName}"
+            }).ToList();
+        }
         public async Task<string> UploadPhoto(IFormFile image)
         {
             return GlobalMethods.UploadPhoto("Movies", image, _webHostEnvironment);
+        }
+
+        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchAndFilterMoviesAsync(string searchText, string filterValue)
+        {
+            var movies = await this.GetAllAsync();
+            if (string.IsNullOrEmpty(searchText) == false)
+            {
+                movies = movies.Where(i => i.Title.StartsWith(searchText));
+            }
+            if (string.IsNullOrEmpty(filterValue) == false && filterValue != "All")
+            {
+                var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == int.Parse(filterValue));
+                movies = movies.Where(i => i.Cinemas.Contains(cinema));
+            }
+            return movies.Select(i => new MovieInfoCardViewModel
+            {
+                Id = i.Id,
+                Name = i.Title,
+                ImageUrl = i.ImageUrl,
+                AverageRating = i.UserRating.Value,
+                Genre = i.Genre.Name,
+                Price = i.Price,
+                RatingCount = i.RatingCount,
+                AddedBy = $"{i.AddedBy.FirstName} {i.AddedBy.LastName}"
+            }).ToList();
+        }
+
+        public async Task<FilterMoviesViewModel> PrepareFilterViewModelAsync()
+        {
+            return new FilterMoviesViewModel
+            {
+                 Cinemas = new SelectList(await _context.Cinemas.AsNoTracking().ToListAsync(), nameof(Data.Models.Cinema.Id), nameof(Data.Models.Cinema.Name))
+            };
         }
     }
 }

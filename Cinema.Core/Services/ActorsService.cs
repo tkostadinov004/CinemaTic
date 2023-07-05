@@ -75,14 +75,13 @@ namespace Cinema.Core.Services
 
         public async Task<IEnumerable<Actor>> GetAllAsync()
         {
-            return await _context.Actors.Include(i => i.Movies).ThenInclude(m => m.Movie).ToListAsync();
+            return await _context.Actors.Include(i => i.Movies).ToListAsync();
         }
 
         public async Task<Actor> GetByIdAsync(int? id)
         {
             var actor = await _context.Actors
-                .Include(i => i.Movies).ThenInclude(m => m.Movie)
-                .Include(i => i.Movies).ThenInclude(m => m.Actor)
+                .Include(i => i.Movies)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             return actor;
