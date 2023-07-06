@@ -99,7 +99,7 @@ namespace Cinema.Core.Services
                 Visitor = userEmail == null ? null : await _userManager.FindByEmailAsync(userEmail)
             };
             ticket.Seat = ticketSeat;
-            ticket.Price = ticket.Seat.Price + movie.Price;
+            //ticket.Price = ticket.Seat.Price + movie.Price;
 
             _context.Add(ticket);
             await _context.SaveChangesAsync();

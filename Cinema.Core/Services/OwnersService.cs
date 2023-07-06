@@ -1,4 +1,5 @@
 ﻿using Cinema.Core.Contracts;
+using Cinema.Core.Utilities;
 using Cinema.Data;
 using Cinema.Data.Models;
 using Cinema.Utilities;
@@ -42,16 +43,21 @@ namespace Cinema.Core.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task AddMovieToCinemas(string[] cinemas, int movieId)
+        public async Task AddMovieToCinemas(MovieDatesDTO data)
         {
-            var cinemaData = cinemas.Select(i =>
+            var cinemas = _context.Cinemas.Where(i => data.Cinemas.Select(d => d.CinemaId).Contains(i.Id));
+
+            var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == data.MovieId);
+            foreach (var item in cinemas)
             {
-                return _context.Cinemas.FirstOrDefault(c => c.Id == int.Parse(i));
-            }).ToList();
-            var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == movieId);
-            foreach (var item in cinemaData)
-            {
-                movie.Cinemas.Add(item);
+                var currentCinemaInfo = data.Cinemas.FirstOrDefault(i => i.CinemaId == item.Id);
+                movie.Cinemas.Add(new CinemaMovie
+                {
+                    CinemaId = item.Id,
+                    FromDate = currentCinemaInfo.FromDate,
+                    ToDate = currentCinemaInfo.ToDate,
+                    MoviePrice = currentCinemaInfo.Price
+                });
             }
             await _context.SaveChangesAsync();
         }
@@ -111,8 +117,10 @@ namespace Cinema.Core.Services
             var cinema = await _context.Cinemas
                 .Include(i => i.Owner)
                 .Include(i => i.Movies)
+                .ThenInclude(i => i.Movie)
                 .ThenInclude(i => i.Genre)
                 .Include(i => i.Movies)
+                .ThenInclude(i => i.Movie)
                 .ThenInclude(i => i.AddedBy)
                 .FirstOrDefaultAsync(i => i.Id == id);
             return new CinemaDetailsViewModel
@@ -165,6 +173,17 @@ namespace Cinema.Core.Services
             };
         }
 
+        public async Task<DeleteCinemaViewModel> PrepareDeleteViewModelAsync(int id)
+        {
+            var cinema = await this.GetByIdAsync(id);
+            return new DeleteCinemaViewModel
+            {
+                Id = cinema.Id,
+                Name = cinema.Name,
+                ImageUrl = cinema.ImageUrl
+            };
+        }
+
         public async Task<IEnumerable<CinemaListViewModel>> SearchAndFilterCinemasAsync(string searchText, string userEmail, string filterValue)
         {
             var cinemas = await this.GetAllByUserAsync(userEmail);
@@ -191,19 +210,19 @@ namespace Cinema.Core.Services
         {
             var cinema = await _context.Cinemas
                 .Include(i => i.Movies)
+                .ThenInclude(i => i.Movie)
                 .ThenInclude(i => i.Genre)
-                .Include(i => i.Movies).ThenInclude(i => i.AddedBy)
+                .Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.AddedBy)
                 .FirstOrDefaultAsync(i => i.Id == int.Parse(cinemaId));
             var movies = cinema.Movies.Select(i => new MovieInfoCardViewModel
             {
-                Id = i.Id,
-                Name = i.Title,
-                ImageUrl = i.ImageUrl,
-                AverageRating = i.UserRating.Value,
-                Genre = i.Genre.Name,
-                Price = i.Price,
-                RatingCount = i.RatingCount,
-                AddedBy = $"{i.AddedBy.FirstName} {i.AddedBy.LastName}"
+                Id = i.Movie.Id,
+                Name = i.Movie.Title,
+                ImageUrl = i.Movie.ImageUrl,
+                AverageRating = i.Movie.UserRating.Value,
+                Genre = i.Movie.Genre.Name,
+                RatingCount = i.Movie.RatingCount,
+                AddedBy = $"{i.Movie.AddedBy.FirstName} {i.Movie.AddedBy.LastName}"
             });
             if (string.IsNullOrEmpty(searchText) == false)
             {

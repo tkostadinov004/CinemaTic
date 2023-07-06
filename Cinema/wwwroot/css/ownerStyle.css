@@ -803,3 +803,15 @@ button.action-button.crud-button {
     button.action-button.crud-button:hover {
         color: #a5a5a5;
     }
+.delete-cinema-form {
+    gap: 50px;
+}
+.delete-cinema-form .delete-text {
+    gap: 20px;
+}
+    .delete-cinema-form .delete-image {
+        width: fit-content;
+    }
+    .delete-cinema-form .delete-image img {
+        width: 250px;
+    }

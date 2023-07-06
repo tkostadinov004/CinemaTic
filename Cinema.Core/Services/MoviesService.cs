@@ -37,12 +37,10 @@ namespace Cinema.Core.Services
             CreateMovieViewModel viewModel = item as CreateMovieViewModel;
             Movie movie = new Movie
             {
-                Date = DateTime.ParseExact("12/02/2023", "dd/MM/yyyy", null),
                 Description = viewModel.Description,
                 RunningTime = viewModel.RunningTime,
                 Title = viewModel.Title,
                 ImageUrl = await this.UploadPhoto(viewModel.Image),
-                Price = 2,
                 TrailerUrl = viewModel.TrailerUrl,
                 UserRating = 0,
                 GenreId = viewModel.GenreId,
@@ -70,15 +68,15 @@ namespace Cinema.Core.Services
         {
             EditMovieViewModel viewModel = item as EditMovieViewModel;
 
-            var movie = await _context.Movies.AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
+            var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == id);
 
             movie.Title = viewModel.Title;
             movie.Genre = await _context.Genres.FirstOrDefaultAsync(i => i.Id == genreId);
             movie.Description = viewModel.Description;
-            movie.RunningTime = viewModel.RunningTime;
+            movie.RunningTime = int.Parse(viewModel.RunningTime);
             movie.TrailerUrl = viewModel.TrailerUrl;
-            movie.Date = viewModel.Date;
-            movie.Price = viewModel.Price;
+           // movie.Date = viewModel.Date;
+           // movie.Price = viewModel.Price;
 
             if (viewModel.Image != null)
             {
@@ -137,7 +135,6 @@ namespace Cinema.Core.Services
             var currentUser = await _userManager.FindByEmailAsync(userEmail);
             var viewModel = new MovieDetailsViewModel
             {
-                Date = movie.Date.ToString(Constants.DateTimeFormat),
                 Director = movie.Director,
                 Description = movie.Description,
                 Genre = movie.Genre,
@@ -158,26 +155,6 @@ namespace Cinema.Core.Services
                 ActorsDropdown = await this.GetActorsDropDownAsync(),
                 Genres = await this.GetGenresDropDownAsync(),
                 GenreId = movie.GenreId,
-            };
-            return viewModel;
-        }
-
-        public async Task<EditMovieViewModel> GetEditViewModelById(int? id)
-        {
-            var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == id);
-            var viewModel = new EditMovieViewModel
-            {
-                Id = movie.Id,
-                Title = movie.Title,
-                Genre = movie.Genre,
-                GenreId = movie.GenreId,
-                Description = movie.Description,
-                RunningTime = movie.RunningTime,
-                TrailerUrl = movie.TrailerUrl,
-                Date = movie.Date,
-                Price = movie.Price,
-                Actors = movie.Actors,
-                ImageUrl = movie.ImageUrl
             };
             return viewModel;
         }
@@ -256,7 +233,6 @@ namespace Cinema.Core.Services
                 ImageUrl = i.ImageUrl,
                 AverageRating = i.UserRating.Value,
                 Genre = i.Genre.Name,
-                Price = i.Price,
                 RatingCount = i.RatingCount,
                 AddedBy = $"{i.AddedBy.FirstName} {i.AddedBy.LastName}"
             }).ToList();
@@ -276,7 +252,7 @@ namespace Cinema.Core.Services
             if (string.IsNullOrEmpty(filterValue) == false && filterValue != "All")
             {
                 var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == int.Parse(filterValue));
-                movies = movies.Where(i => i.Cinemas.Contains(cinema));
+                movies = movies.Where(i => i.Cinemas.FirstOrDefault(i => i.CinemaId == cinema.Id) != null);
             }
             return movies.Select(i => new MovieInfoCardViewModel
             {
@@ -285,7 +261,6 @@ namespace Cinema.Core.Services
                 ImageUrl = i.ImageUrl,
                 AverageRating = i.UserRating.Value,
                 Genre = i.Genre.Name,
-                Price = i.Price,
                 RatingCount = i.RatingCount,
                 AddedBy = $"{i.AddedBy.FirstName} {i.AddedBy.LastName}"
             }).ToList();
@@ -295,7 +270,26 @@ namespace Cinema.Core.Services
         {
             return new FilterMoviesViewModel
             {
-                 Cinemas = new SelectList(await _context.Cinemas.AsNoTracking().ToListAsync(), nameof(Data.Models.Cinema.Id), nameof(Data.Models.Cinema.Name))
+                Cinemas = new SelectList(await _context.Cinemas.AsNoTracking().ToListAsync(), nameof(Data.Models.Cinema.Id), nameof(Data.Models.Cinema.Name))
+            };
+        }
+
+        public async Task<EditMovieViewModel> PrepareForEditing(int? id)
+        {
+            var movie = await this.GetByIdAsync(id);
+            return new EditMovieViewModel
+            {
+                Id = movie.Id,
+                Title = movie.Title,
+                Description = movie.Description,
+                Director = movie.Description,
+                GenreId = movie.GenreId,
+                Actors = null,
+                Image = null,
+                RunningTime = movie.RunningTime.ToString(),
+                TrailerUrl = movie.TrailerUrl,
+                ActorsDropdown = await this.GetActorsDropDownAsync(),
+                Genres = await this.GetGenresDropDownAsync()
             };
         }
     }

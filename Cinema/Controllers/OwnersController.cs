@@ -1,10 +1,12 @@
 ﻿using Cinema.Core.Contracts;
+using Cinema.Core.Utilities;
 using Cinema.Data.Models;
 using Cinema.Utilities;
 using Cinema.ViewModels.Cinemas;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -47,15 +49,16 @@ namespace Cinema.Controllers
             return View(await _ownersService.GetByIdAsync(id));
         }
         [HttpPost]
-        public async Task<IActionResult> AddMovieToCinemas([FromForm] string[] cinemas, int movieId)
+        public async Task<IActionResult> AddMovieToCinemas([FromForm] string json)
         {
-            await _ownersService.AddMovieToCinemas(cinemas, movieId);
-            return RedirectToAction("Index", "Owners");
+            MovieDatesDTO data = JsonConvert.DeserializeObject<MovieDatesDTO>(json);
+            await _ownersService.AddMovieToCinemas(data);
+            return Json(Url.Action("Index", "Owners"));
         }
         [HttpGet]
-        public async Task<IActionResult> EditCinema(string cinemaId)
+        public async Task<IActionResult> EditCinema(string id)
         {
-            return PartialView("_EditCinemaPartial", await _ownersService.GetEditViewModelByIdAsync(int.Parse(cinemaId)));
+            return PartialView("_EditCinemaPartial", await _ownersService.GetEditViewModelByIdAsync(int.Parse(id)));
         }
         [HttpPost]
         public async Task<IActionResult> EditCinema([FromForm] EditCinemaViewModel viewModel, int cinemaId)
@@ -64,9 +67,15 @@ namespace Cinema.Controllers
             await _ownersService.EditCinema(viewModel);
             return RedirectToAction("UserCinemas", "Owners");
         }
-        public async Task<IActionResult> DeleteCinema(int? id)
+        [HttpGet]
+        public async Task<IActionResult> DeleteCinema(int id)
         {
-            await _ownersService.DeleteByIdAsync(id);
+            return PartialView("_DeleteCinemaPartial", await _ownersService.PrepareDeleteViewModelAsync(id));
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteCinema([FromForm] DeleteCinemaViewModel viewModel, int cinemaId)
+        {
+            await _ownersService.DeleteByIdAsync(cinemaId);
             return RedirectToAction("UserCinemas", "Owners");
         }
 

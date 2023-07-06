@@ -1,11 +1,10 @@
-﻿let focusedElementBeforeModal;
-const modal = document.getElementById('modal');
+﻿const modal = document.getElementById('modal');
 const modalOverlay = document.querySelector('.modal-overlay');
-const addReview = document.getElementById('open-popup-btn');
+const openButtons = document.querySelectorAll('.open-popup-btn');
 
 const openModal = () => {
     // Save current focus
-    focusedElementBeforeModal = document.activeElement;
+  //  focusedElementBeforeModal = document.activeElement;
 
     // Listen for and trap the keyboard
     modal.addEventListener('keydown', trapTabKey);
@@ -18,7 +17,7 @@ const openModal = () => {
 
     //// submit form
     //const form = document.getElementById('review-form');
-    //form.addEventListener('submit', submitAddReview, false);
+    //form.addEventListener('submit', submitopenButtons, false);
 
     // Find all focusable children
     var focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
@@ -32,7 +31,6 @@ const openModal = () => {
     // Show the modal and overlay
     modal.classList.add('show');
     modalOverlay.classList.add('show');
-
     function trapTabKey(e) {
         // Check for TAB key press
         if (e.keyCode === 9) {
@@ -60,7 +58,7 @@ const openModal = () => {
     }
 };
 
-const submitAddReview = (e) => {
+const submitopenButtons = (e) => {
     // console.log(e);
     console.log('Form subbmitted!');
     e.preventDefault();
@@ -75,9 +73,9 @@ const closeModal = () => {
     //const form = document.getElementById('review-form');
     //form.reset();
     // Set focus back to element that had it before the modal was opened
-    focusedElementBeforeModal.focus();
+   // focusedElementBeforeModal.focus();
 };
-addReview.addEventListener('click', openModal);
+openButtons.forEach(i => i.addEventListener('click', openModal));
 function setFocus(evt) {
     const rateRadios = document.getElementsByName('rate');
     const rateRadiosArr = Array.from(rateRadios);

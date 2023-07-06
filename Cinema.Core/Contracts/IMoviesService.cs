@@ -23,7 +23,6 @@ namespace Cinema.Core.Contracts
         Task<SelectList> GetGenresDropDownAsync();
         Task CreateMovieAsync(IViewModel item, IEnumerable<string> actors, string userEmail);
         Task<string> UploadPhoto(IFormFile image);
-        Task<EditMovieViewModel> GetEditViewModelById(int? id);
         Task EditByIdAsync(IViewModel item, int id, int genreId, IEnumerable<string> actors);
         Task SetRatingAsync(int id, decimal rating, string userEmail);
         Task<StatisticsViewModel> GetStatistics();
@@ -31,5 +30,6 @@ namespace Cinema.Core.Contracts
         Task<IEnumerable<MovieInfoCardViewModel>> GetAllMoviesAsync();
         Task<IEnumerable<MovieInfoCardViewModel>> SearchAndFilterMoviesAsync(string searchText, string filterValue);
         Task<FilterMoviesViewModel> PrepareFilterViewModelAsync();
+        Task<EditMovieViewModel> PrepareForEditing(int? id);
     }
 }

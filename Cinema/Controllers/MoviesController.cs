@@ -91,11 +91,9 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            var viewModel = await _moviesService.GetEditViewModelById(id);
-            ViewBag.Genres = await _moviesService.GetGenresDropDownAsync();
+            var viewModel = await _moviesService.PrepareForEditing(id);
 
-            ViewBag.Actors = await _moviesService.GetActorsDropDownAsync();
-            return View(viewModel);
+            return PartialView("_EditMoviePartial", viewModel);
         }
 
         // POST: Movies/Edit/5
@@ -103,13 +101,14 @@ namespace Cinema.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [Authorize(Roles = "Owner")]
-        public async Task<IActionResult> Edit([FromForm] MovieDetailsViewModel viewModel, int id, int genreId, IEnumerable<string> acts)
+        public async Task<IActionResult> Edit([FromForm] EditMovieViewModel viewModel, int id, int genreId, IEnumerable<string> acts)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    //await _moviesService.EditByIdAsync(vm, id, genreId, acts);
+                    viewModel.Id = id;
+                    await _moviesService.EditByIdAsync(viewModel, id, genreId, acts);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -123,7 +122,7 @@ namespace Cinema.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("AllMovies", "Movies");
             }
             return View();
         }

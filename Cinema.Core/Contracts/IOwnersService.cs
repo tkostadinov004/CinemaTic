@@ -1,4 +1,5 @@
 ﻿using Cinema.Core.Contracts.Common;
+using Cinema.Core.Utilities;
 using Cinema.Data.Models;
 using Cinema.ViewModels.Cinemas;
 using Cinema.ViewModels.Contracts;
@@ -13,11 +14,12 @@ namespace Cinema.Core.Contracts
         Task<IEnumerable<CinemaListViewModel>> GetAllByUserAsync(string userEmail);
         Task<CinemaDetailsViewModel> GetByIdAsync(int? id);
         Task<OwnerStatisticsViewModel> GetStatisticsAsync(string userEmail);
-        Task AddMovieToCinemas(string[] cinemas, int movieId);
+        Task AddMovieToCinemas(MovieDatesDTO data);
         Task EditCinema(IViewModel item);
         Task DeleteByIdAsync(int? id);
         Task<IEnumerable<CinemaListViewModel>> SearchAndFilterCinemasAsync(string searchText, string userEmail, string filterValue);
         Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByCinema(string searchText, string cinemaId);
         Task<EditCinemaViewModel> GetEditViewModelByIdAsync(int cinemaId);
+        Task<DeleteCinemaViewModel> PrepareDeleteViewModelAsync(int id);
     }
 }

@@ -110,11 +110,11 @@ function getItems(controllerName, actionName, searchText, value, filterValue) {
     });
 }
 
-function editCinema(cinemaId) {
+function getUDpartial(controllerName, actionName, id) {
     $.ajax({
         type: "GET",
-        url: "/Owners/EditCinema",
-        data: { cinemaId },
+        url: `/${controllerName}/${actionName}`,
+        data: { id },
         success: function (response) {
             $("#review-form-container").html(response);
         },
@@ -124,5 +124,38 @@ function editCinema(cinemaId) {
         error: function (response) {
             alert(response.responseText);
         }
+    });
+}
+
+function addMovieToCinemas(movieId) {
+    document.getElementById("submit-cinemas").addEventListener("click", function () {
+        var data = { movieId };
+        data['movieData'] = [];
+
+        var forms = document.querySelectorAll(".date-selector form");
+        for (let i = 0; i < forms.length; i++) {
+            var current = forms[i];
+            data['movieData'].push({
+                id: current.getAttribute("for-cinema"),
+                fromDate: current.querySelector('input[name="from"]').value,
+                toDate: current.querySelector('input[name="to"]').value,
+                price: current.querySelector('input[name="price"').value
+            });
+        }
+        console.log(JSON.stringify(data));
+        $.ajax({
+            type: "POST",
+            url: `/Owners/AddMovieToCinemas`,
+            data: { 'json': JSON.stringify(data) },
+            success: function (response) {
+                window.location.href = response;
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
     });
 }
