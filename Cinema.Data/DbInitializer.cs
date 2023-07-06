@@ -262,8 +262,6 @@ namespace Cinema.Data
                     Title = movie.Title,
                     GenreId = _context.Genres.FirstOrDefault(i => i.Name == movie.Genre).Id,
                     Description = movie.Description,
-                    Date = DateTime.ParseExact(movie.Date, "dd.MM.yyyy", CultureInfo.InvariantCulture),
-                    Price = decimal.Parse(movie.Price),
                     RunningTime = int.Parse(movie.RunningTime),
                     TrailerUrl = movie.TrailerUrl,
                     UserRating = 0,

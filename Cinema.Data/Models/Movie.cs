@@ -29,13 +29,6 @@ namespace Cinema.Data.Models
         public string Description { get; set; }
         public decimal? UserRating { get; set; }
         public int RatingCount { get; set; }
-        [Required(ErrorMessage = "Enter a date!")]
-        [Display(Name = "Date")]
-        public DateTime Date { get; set; }
-        [Required(ErrorMessage = "Enter a price!")]
-        [Range(1, double.MaxValue, ErrorMessage = "The price should be at least $1!")]
-        [Display(Name = "Price")]
-        public decimal Price { get; set; }
         [Required(ErrorMessage = "Enter a movie duration!")]
         [Range(1, double.MaxValue, ErrorMessage = "The movie should be at least 1 minute long!")]
         [Display(Name = "Duration")]
@@ -51,7 +44,7 @@ namespace Cinema.Data.Models
         public virtual Genre Genre { get; set; }
         [Display(Name = "Actors")]
         public virtual ICollection<Actor> Actors { get; set; }
-        public virtual ICollection<Cinema> Cinemas { get; set; } = new List<Cinema>();
+        public virtual ICollection<CinemaMovie> Cinemas { get; set; } = new List<CinemaMovie>();
         public virtual ICollection<Ticket> TicketsBought { get; set; } = new List<Ticket>();
     }
 }

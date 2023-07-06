@@ -1,4 +1,5 @@
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Data\bin\Debug\net6.0\Cinema.Data.deps.json
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Data\bin\Debug\net6.0\Cinema.Data.runtimeconfig.json
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Data\bin\Debug\net6.0\Cinema.Data.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Data\bin\Debug\net6.0\Cinema.Data.pdb
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Data\bin\Debug\net6.0\Cinema.Data.Seeder.dll
@@ -12,6 +13,5 @@ C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Data\obj\Debug\net6.0\Cinema.
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Data\obj\Debug\net6.0\Cinema.Data.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Data\obj\Debug\net6.0\refint\Cinema.Data.dll
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Data\obj\Debug\net6.0\Cinema.Data.pdb
-C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Data\obj\Debug\net6.0\ref\Cinema.Data.dll
-C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Data\bin\Debug\net6.0\Cinema.Data.runtimeconfig.json
 C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Data\obj\Debug\net6.0\Cinema.Data.genruntimeconfig.cache
+C:\Users\Lenovo User PC\source\repos\Cinema\Cinema.Data\obj\Debug\net6.0\ref\Cinema.Data.dll

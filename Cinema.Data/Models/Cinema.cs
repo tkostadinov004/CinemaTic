@@ -24,7 +24,7 @@ namespace Cinema.Data.Models
         [Required]
         public string OwnerId { get; set; }
         public virtual ApplicationUser Owner { get; set; }
-        public virtual ICollection<Movie> Movies { get; set; } = new List<Movie>();
+        public virtual ICollection<CinemaMovie> Movies { get; set; } = new List<CinemaMovie>();
         public virtual ICollection<VisitorCinema> Visitors { get; set; } = new List<VisitorCinema>();
         public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
     }
