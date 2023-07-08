@@ -1,6 +1,8 @@
-﻿using Cinema.Core.Contracts;
+﻿using AutoMapper;
+using Cinema.Core.Contracts;
 using Cinema.Core.Utilities;
 using Cinema.Data;
+using Cinema.Data.Enums;
 using Cinema.Data.Models;
 using Cinema.Utilities;
 using Cinema.ViewModels.Cinemas;
@@ -9,6 +11,7 @@ using Cinema.ViewModels.Movies;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace Cinema.Core.Services
 {
@@ -17,47 +20,46 @@ namespace Cinema.Core.Services
         private readonly CinemaDbContext _context;
         private IWebHostEnvironment _webHostEnvironment;
         private UserManager<ApplicationUser> _userManager;
+        private readonly IMapper _mapper;
 
-        public OwnersService(CinemaDbContext context, IWebHostEnvironment webHostEnvironment, UserManager<ApplicationUser> userManager)
+        public OwnersService(CinemaDbContext context, IWebHostEnvironment webHostEnvironment, UserManager<ApplicationUser> userManager, IMapper mapper)
         {
             _context = context;
             _webHostEnvironment = webHostEnvironment;
             _userManager = userManager;
+            _mapper = mapper;
         }
 
         public async Task AddAsync(IViewModel item, string userEmail)
         {
             var viewModel = item as AddCinemaViewModel;
-            string imageUrl = GlobalMethods.UploadPhoto("Cinema", viewModel.Image, _webHostEnvironment);
-            var cinema = new Data.Models.Cinema
-            {
-                Name = viewModel.Name,
-                Description = viewModel.Description,
-                SeatRows = int.Parse(viewModel.SeatRows),
-                SeatCols = int.Parse(viewModel.SeatCols),
-                FoundedOn = viewModel.FoundedOn,
-                ImageUrl = imageUrl,
-                Owner = await _userManager.FindByEmailAsync(userEmail)
-            };
+            string imageUrl = GlobalMethods.UploadPhoto("Cinemas", viewModel.Image, _webHostEnvironment);
+
+            var cinema = _mapper.Map<Data.Models.Cinema>(viewModel);
+            cinema.ImageUrl = imageUrl;
+            cinema.Owner = await _userManager.FindByEmailAsync(userEmail);
+
             _context.Cinemas.Add(cinema);
             await _context.SaveChangesAsync();
         }
-
         public async Task AddMovieToCinemas(MovieDatesDTO data)
         {
             var cinemas = _context.Cinemas.Where(i => data.Cinemas.Select(d => d.CinemaId).Contains(i.Id));
-
+            LogService.AddAction("");
             var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == data.MovieId);
             foreach (var item in cinemas)
             {
                 var currentCinemaInfo = data.Cinemas.FirstOrDefault(i => i.CinemaId == item.Id);
-                movie.Cinemas.Add(new CinemaMovie
+                if (!movie.Cinemas.Any(i => i.CinemaId == currentCinemaInfo.CinemaId))
                 {
-                    CinemaId = item.Id,
-                    FromDate = currentCinemaInfo.FromDate,
-                    ToDate = currentCinemaInfo.ToDate,
-                    MoviePrice = currentCinemaInfo.Price
-                });
+                    movie.Cinemas.Add(new CinemaMovie
+                    {
+                        CinemaId = item.Id,
+                        FromDate = currentCinemaInfo.FromDate,
+                        ToDate = currentCinemaInfo.ToDate,
+                        MoviePrice = currentCinemaInfo.Price
+                    });
+                }
             }
             await _context.SaveChangesAsync();
         }
@@ -104,8 +106,7 @@ namespace Cinema.Core.Services
             {
                 Id = i.Id,
                 Name = i.Name,
-                Status = (i.IsApproved ? "Approved" : "Pending approval"),
-                IsApproved = i.IsApproved,
+                Status = (i.ApprovalStatus == ApprovalStatus.Approved ? "Approved" : (i.ApprovalStatus == ApprovalStatus.PendingApproval ? "Pending approval" : "Denied approval")),
                 FoundedOn = i.FoundedOn.ToString(Constants.DateTimeFormat),
                 ImageUrl = i.ImageUrl,
                 MoviesCount = i.Movies.Count
@@ -132,7 +133,6 @@ namespace Cinema.Core.Services
                 ImageUrl = cinema.ImageUrl,
                 SeatRows = cinema.SeatRows,
                 SeatCols = cinema.SeatCols,
-                IsApproved = cinema.IsApproved
             };
         }
 
@@ -193,13 +193,17 @@ namespace Cinema.Core.Services
             }
             if(string.IsNullOrEmpty(filterValue) == false)
             {
-                switch (filterValue)
+                int enumValue = int.Parse(filterValue);
+                switch (enumValue)
                 {
-                    case "Approved":
+                    case (int)ApprovalStatus.Approved:
                         cinemas = cinemas.Where(i => i.Status == "Approved");
                         break;
-                    case "Pending approval":
+                    case (int)ApprovalStatus.PendingApproval:
                         cinemas = cinemas.Where(i => i.Status == "Pending approval");
+                        break;
+                    case (int)ApprovalStatus.DeniedApproval:
+                        cinemas = cinemas.Where(i => i.Status == "Denied approval");
                         break;
                 }
             }

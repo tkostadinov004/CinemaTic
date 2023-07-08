@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "tPoPQXWLAFFfEc88M/fee1KgZIv835S5ki4nvBQ2o3zlq54x4zr+khXe2GhzPTlL1IyaV2YYBsJBOmzG3pjZaw==",
+  "dgSpecHash": "fRNnIexqMY0f5UUUdrtHgJh0+gt48hNeFmBj3WGrBUsB9qzkzRQQpLKS2Ee0KtR/4UANL4IDP9o0mRtIimIQTQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema.ViewModels\\Cinema.ViewModels.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Lenovo User PC\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Lenovo User PC\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.9\\microsoft.aspnet.mvc.5.2.9.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.9\\microsoft.aspnet.razor.3.2.9.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.aspnet.webpages\\3.2.9\\microsoft.aspnet.webpages.3.2.9.nupkg.sha512",
@@ -35,7 +37,7 @@
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.aspnetcore.routing\\2.2.0\\microsoft.aspnetcore.routing.2.2.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.aspnetcore.routing.abstractions\\2.2.0\\microsoft.aspnetcore.routing.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
-    "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\2.1.0\\microsoft.dotnet.platformabstractions.2.1.0.nupkg.sha512",
