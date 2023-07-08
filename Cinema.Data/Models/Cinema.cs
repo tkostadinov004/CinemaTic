@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cinema.Data.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace Cinema.Data.Models
         public int SeatCols { get; set; }
         [Required]
         public string ImageUrl { get; set; }
-        public bool IsApproved { get; set; } = false;
+        public ApprovalStatus ApprovalStatus { get; set; } = ApprovalStatus.PendingApproval;
         [Required]
         public string OwnerId { get; set; }
         public virtual ApplicationUser Owner { get; set; }

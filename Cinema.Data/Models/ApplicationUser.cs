@@ -17,10 +17,12 @@ namespace Cinema.Data.Models
         [Display(Name = "Last name")]
         [Required, MaxLength(100), RegularExpression("^[A-Za-z]+$")]
         public string LastName { get; set ; }
+        public string ProfilePictureUrl { get; set; }
         public virtual ICollection<Cinema> CinemasOwned { get; set; } = new List<Cinema>();
         public virtual ICollection<Movie> MoviesAdded { get; set; } = new List<Movie>();
         [Display(Name = "Tickets for: ")]
         public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
         public virtual ICollection<VisitorCinema> CinemasVisited { get; set; } = new List<VisitorCinema>();
+        public virtual ICollection<UserAction> UserActions { get; set;} = new List<UserAction>();
     }
 }

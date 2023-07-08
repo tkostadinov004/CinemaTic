@@ -1,14 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "4ObHzlWntQLHG/axaLDlbkPQBVdVv3qrLxKK7Elk4/5MUnzq3Urwht3wx2YmGTPJR3qAPtSFea13PKn9KsTK4w==",
+  "dgSpecHash": "DcQjaMlQWUsEQ2oKfBAgrv3BnMhTUI8JqpuTLuNV5ElATnDKaEitV9m4L8tFZYGaprzVPJ+KpzeiQhmuARnr4A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lenovo User PC\\source\\repos\\Cinema\\Cinema.Data\\Cinema.Data.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Lenovo User PC\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Lenovo User PC\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.0\\microsoft.aspnetcore.cryptography.internal.6.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.0\\microsoft.aspnetcore.cryptography.keyderivation.6.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.0\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.0.nupkg.sha512",
-    "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\Lenovo User PC\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.0\\microsoft.entityframeworkcore.6.0.0.nupkg.sha512",
