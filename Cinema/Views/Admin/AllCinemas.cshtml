@@ -1,24 +1,12 @@
-﻿@model IEnumerable<Cinema.ViewModels.Cinemas.CinemaListViewModel>
-
-@{
-    ViewData["Title"] = "Owner dashboard";
-    var currentDate = DateTime.Now;
-    string month = currentDate.Date.ToString("MMMM");
-    int day = currentDate.Day;
-}
-<link href="~/css/manageStyle.css" rel="stylesheet" />
-<div class="app-content">
+﻿<div class="app-content">
     <div class="app-content-header" id="cinemas">
-        <h1 class="app-content-headerText">Your cinemas</h1>
+        <h1 class="app-content-headerText">All cinemas</h1>
         <button class="mode-switch" title="Switch Theme">
             <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
                 <defs></defs>
                 <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
             </svg>
         </button>
-        <form asp-controller="Owners" asp-action="AddCinema" method="get">
-            <button class="app-content-headerButton">Add a cinema</button>
-        </form>
     </div>
     <div class="app-content-actions">
         <form>
@@ -53,23 +41,38 @@
         <div class="products-header">
             <div class="cinema-cell image">
                 Cinema
-                <button class="sort-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" /></svg>
+                <button class="sort-button" id="name-sort">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="name-sort-desc">
+                    <i class="fa-solid fa-arrow-up"></i>
                 </button>
             </div>
             <div class="cinema-cell status-cell">
-                Status<button class="sort-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" /></svg>
+                Status
+                <button class="sort-button" id="status-sort">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="status-sort-desc">
+                    <i class="fa-solid fa-arrow-up"></i>
                 </button>
             </div>
             <div class="cinema-cell sales">
-                Added on<button class="sort-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" /></svg>
+                Added on
+                <button class="sort-button" id="addedon-sort">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="addedon-sort-desc">
+                    <i class="fa-solid fa-arrow-up"></i>
                 </button>
             </div>
             <div class="cinema-cell stock">
-                Movies<button class="sort-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" /></svg>
+                Added by
+                <button class="sort-button" id="addedby-sort">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="addedby-sort-desc">
+                    <i class="fa-solid fa-arrow-up"></i>
                 </button>
             </div>
         </div>
@@ -80,7 +83,7 @@
 <script src="~/js/ownerdashboard.js"></script>
 <script>
     window.onload = function () {
-        getItems('Owners', 'SearchAndFilterCinemas', "", '@User.Identity.Name');
+        getItems('Admin', 'SearchAndFilterCinemas', "", '');
     };
     var search = document.getElementById("search-bar");
     if (search) {
@@ -88,11 +91,20 @@
         search.addEventListener("keyup", function () {
             clearTimeout(timeout);
             timeout = setTimeout(function () {
-                getItems('Owners', 'SearchAndFilterCinemas', search.value, '@User.Identity.Name');
+                getItems('Admin', 'SearchAndFilterCinemas', search.value, '');
             }, 300);
         });
     }
-    document.getElementById('filter-options').addEventListener("change", function () {
-        getItems('Owners', "SearchAndFilterCinemas", (search ? search.value : null), '@User.Identity.Name', this.value);
+    var filterOptions = document.getElementById('filter-options');
+    filterOptions.addEventListener("change", function () {
+        getItems('Admin', 'SearchAndFilterCinemas', (search ? search.value : null), '', this.value);
     });
+    document.querySelectorAll(".sort-button").forEach(i => i.addEventListener('click', function () {
+        var alreadyActive = document.querySelector('.sort-button.selected');
+        if(alreadyActive) {
+            alreadyActive.classList.remove("selected");
+        }
+        i.classList.add("selected");
+        getItems('Admin', 'SearchAndFilterCinemas', (search ? search.value : null), '', filterOptions.value, i.id);
+    }));
 </script>

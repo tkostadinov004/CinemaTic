@@ -3,16 +3,10 @@
 @{
     ViewData["Title"] = "Owner dashboard";
 }
-<script>
-    var data = @Html.Raw(Json.Serialize(Model));
-    console.log(data);
-</script>
-<link href="~/css/ownerstyle.css" rel="stylesheet" />
-<div class="app-container">
-    <partial name="_OwnerSidebarPartial" />
-    <div class="app-content home-graphs">
-        <div style="width: 800px;"><canvas id="marketShare"></canvas></div>
-    </div>
+<link href="~/css/manageStyle.css" rel="stylesheet" />
+@*<partial name="_ManageSidebarPartial" />*@
+<div class="app-content home-graphs">
+    <div style="width: 800px;"><canvas id="marketShare"></canvas></div>
 </div>
 <script src="~/js/ownerdashboard.js"></script>
 <script src="~/lib/chart.js/chart.umd.js"></script>

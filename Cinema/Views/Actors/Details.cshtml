@@ -41,7 +41,7 @@
                     <div class="info-box-desc">
                         @foreach (var movie in Model.Movies)
                         {
-                        <a class="actor-name" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.MovieId"><b>@movie.Movie.Title</b></a>
+                        <a class="actor-name" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id"><b>@movie.Title</b></a>
                         }
                     </div>
                 </div>

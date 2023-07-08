@@ -1,0 +1,11 @@
+﻿@model Cinema.ViewModels.Admin.UserDetailsViewModel
+
+<div class="cinema-row details-card mb-3">
+    <div class="cinema-cell image details-photo-pic">
+        <a class="d-flex align-items-center cinema-link flex-column">
+            <img src="~/client-images/Users/@Model.ImageUrl" alt="cinema-logo">
+            <span>@Model.FullName</span>
+            <span>@Model.UserName</span>
+        </a>
+    </div>
+</div>

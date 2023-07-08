@@ -11,7 +11,7 @@
                         @if (User.IsInRole("Owner") == false)
                         {
                             <div class="desc-button projection-info">
-                                <p>Available from @movie.Date.ToString("dd.MM.yyyy") to @movie.Date.AddDays(6).ToString("dd.MM.yyyy")</p>
+                                @*<p>Available from @movie.Date.ToString("dd.MM.yyyy") to @movie.Date.AddDays(6).ToString("dd.MM.yyyy")</p>*@
                             </div>
                             <div class="desc-button">
                                 <i class="fa-solid fa-film f-size-b"></i>

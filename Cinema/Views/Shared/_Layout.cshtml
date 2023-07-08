@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>@ViewData["Title"] - CinemaTic</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,22 +15,38 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap-icons.css" rel="stylesheet" />
     <link href="~/css/layoutStyle.css" rel="stylesheet" asp-append-version="true" />
     <link rel="shortcut icon" href="~/img/favicon.ico" />
+    <link href="~/css/manageStyle.css" rel="stylesheet" />
 </head>
 <body>
     <main>
-        <div id="sticky-wrapper" class="sticky-wrapper" style="height: 77px;">
-            <nav class="navbar navbar-expand-lg">
-                <partial name="_NavbarPartial" />
-            </nav>
+        <div class="app-container">
+            @if (User.Identity.IsAuthenticated && !User.IsInRole("Visitor"))
+            {
+                <partial name="_ManageSidebarPartial" />
+            }
+            else
+            {
+                <div id="sticky-wrapper" class="sticky-wrapper" style="height: 77px;">
+                    <nav class="navbar navbar-expand-lg">
+                        <partial name="_NavbarPartial" />
+                    </nav>
+                </div>
+            }
+            @RenderBody()
         </div>
-        @RenderBody()
     </main>
-    <footer class="site-footer section-padding">
-        <partial name="_FooterPartial" />
-    </footer>
+    @if (User.Identity.IsAuthenticated == false || User.IsInRole("Visitor"))
+    {
+        <footer class="site-footer section-padding">
+            <partial name="_FooterPartial" />
+        </footer>
+    }
     @await RenderSectionAsync("Scripts", required: false)
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.esm.js"></script>
@@ -37,5 +54,6 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="~/js/custom.js"></script>
+   
 </body>
 </html>
