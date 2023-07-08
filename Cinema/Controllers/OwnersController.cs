@@ -41,7 +41,7 @@ namespace Cinema.Controllers
             {
                 await _ownersService.AddAsync(viewModel, userEmail);
             }
-            return RedirectToAction("Index", "UserCinemas");
+            return RedirectToAction("UserCinemas", "Owners");
         }
         [HttpGet]
         public async Task<IActionResult> Details(int? id)

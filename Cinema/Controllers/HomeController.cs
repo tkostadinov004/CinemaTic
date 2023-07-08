@@ -28,6 +28,10 @@ namespace Cinema.Controllers
             {
                 return RedirectToAction("Index", "Owners");
             }
+            if (User.IsInRole("Administrator"))
+            {
+                return RedirectToAction("Index", "Admin");
+            }
             //return View(_context.Movies.ToList());
             return View();
         }
