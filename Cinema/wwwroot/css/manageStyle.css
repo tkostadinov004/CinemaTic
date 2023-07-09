@@ -566,6 +566,14 @@ body {
         .status.pending-approval:before {
             background-color: #e3b13d;
         }
+    .status.denied-approval {
+        color: #e33d3d;
+        background-color: rgba(227, 61, 61, 0.2);
+    }
+
+        .status.denied-approval:before {
+            background-color: #e33d3d;
+        }
     .status.disabled {
         color: #59719d;
         background-color: rgba(89, 113, 157, 0.2);
@@ -814,4 +822,98 @@ button.action-button.crud-button {
     }
     .delete-cinema-form .delete-image img {
         width: 250px;
+    }
+div.cinemas-grid.results-container {
+    width: 100%;
+}
+div.gridView div.cinema-row.info-cinema {
+    width: 31%;
+}
+div.gridView div.cinemas-grid.results-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+div.cinema-cell.added-by a {
+    color: white;
+}
+.user-actions-dropdown {
+    background-color: var(--app-content-secondary-color);
+    position: absolute;
+   bottom: 50px;
+    border-radius: 4px;
+    padding: 8px;
+    width: 220px;
+    z-index: 2;
+    box-shadow: var(--filter-shadow);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+    .user-actions-dropdown:before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid var(--app-content-secondary-color);
+        bottom: 100%;
+        left: 50%;
+        transform: translatex(-50%);
+    }
+
+    .user-actions-dropdown.active {
+        visibility: visible;
+        opacity: 1;
+bottom: 50px;
+    }
+.user-action-button {
+    cursor: pointer;
+    appearance: none;
+    padding: 8px 24px 8px 8px;
+    background-position: right 4px center;
+    border: 1px solid var(--app-content-main-color);
+    border-radius: 4px;
+    color: var(--app-content-main-color);
+    font-size: 12px;
+    background-color: transparent;
+    margin-bottom: 16px;
+    width: 100%;
+}
+    .user-action-button:hover {
+        color: var(--action-color-hover);
+        border-color: var(--action-color-hover);
+    }
+.sort-button.selected {
+    color: var(--action-color);
+}
+img.user-profile-picture {
+    border-radius: 50%;
+}
+div.admin-actions {
+    display: flex;
+    flex-direction: column;
+}
+@media only screen and (min-width: 1800px)  {
+    div.admin-actions {
+        flex-direction: row;
+        gap: 10px;
+    }
+}
+div.admin-actions button {
+    color: white;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    width: fit-content;
+}
+div#modal.user-crud {
+    padding: 15px;
+}
+    div#modal.user-crud .delete-cinema-form {
+        padding: 60px;
+    }
+    div#review-form-container.user-crud #review-form-container div div.delete-text {
+        gap: 20px;
     }

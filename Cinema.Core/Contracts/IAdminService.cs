@@ -20,9 +20,11 @@ namespace Cinema.Core.Contracts
         Task<ApplicationUser> FindById(string id);
         Task<IEnumerable<Data.Models.Cinema>> GetAllCinemasAsync();
         Task<IEnumerable<AdminAllCinemasViewModel>> SearchAndFilterCinemasAsync(string searchText, string filterValue, string sortBy);
-        Task<UserDetailsViewModel> GetUserDetailsAsync(string userId);
+        Task<IEnumerable<UserDetailsViewModel>> SearchAndFilterUsersAsync(string searchText, string filterValue);
+        Task<UserDetailsViewModel> GetUserDetailsAsync(string id);
         Task<AdminCinemaDetailsViewModel> GetCinemaDetailsAsync(int? id);
         Task<ChangeCinemaApprovalStatusViewModel> GetCASViewModelAsync(int id);
         Task ChangeApprovalStatusAsync(int id, int approvalCode);
+        Task<AdminUserCRUDViewModel> GetAdminUserCRUDPartialAsync(string id);
     }
 }

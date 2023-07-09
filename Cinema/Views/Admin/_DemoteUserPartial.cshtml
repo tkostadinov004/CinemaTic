@@ -1,0 +1,35 @@
+﻿@model Cinema.ViewModels.Admin.AdminUserCRUDViewModel
+
+<div class="delete-cinema-form d-flex justify-content-center align-items-center">
+    <div class="delete-text d-flex flex-column">
+        <h5 style="color: white;">Are you sure you want to demote this user?</h5>
+        <div class="form-group">
+            <div class="active-form flex-column align-items-start">
+                <div class="user-container">
+                    <i class="fa-solid fa-film input-icon"></i>
+                    <span class="text-white px-2">@Model.FullName</span>
+                </div>
+                <span class="text-white px-2">(@Model.UserName)</span>
+            </div>
+        </div>
+        <button type="button" class="app-content-headerButton" onclick="demote()">Demote</button>
+    </div>
+</div>
+<script>
+    function demote() {
+        $.ajax({
+            type: "POST",
+            url: `/Admin/DemoteUser`,
+            data: { id: '@Model.Id' },
+            success: function (response) {
+                window.location.href = response.redirectToUrl;
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }
+</script>

@@ -27,14 +27,18 @@ namespace Cinema.Controllers
         {
             return View();
         }
+        public async Task<IActionResult> Users()
+        {
+            return View();
+        }
         [HttpGet]
         public async Task<IActionResult> Cinema(int? id)
         {
             return View(await _adminService.GetCinemaDetailsAsync(id));
         }
-        public async Task<IActionResult> User(string userId)
+        public async Task<IActionResult> User(string id)
         {
-            return View(await _adminService.GetUserDetailsAsync(userId));
+            return View(await _adminService.GetUserDetailsAsync(id));
         }
         [HttpGet]
         public async Task<IActionResult> ChangeApprovalStatus(int id)
@@ -51,6 +55,11 @@ namespace Cinema.Controllers
         {
             var cinemas = await _adminService.SearchAndFilterCinemasAsync(searchText, filterValue, sortBy);
             return PartialView("_CinemasPartial", cinemas);
+        }
+        public async Task<IActionResult> SearchAndFilterUsers(string searchText, string filterValue)
+        {
+            var users = await _adminService.SearchAndFilterUsersAsync(searchText, filterValue);
+            return PartialView("_UsersPartial", users);
         }
         [HttpGet]
         public async Task<IActionResult> DeleteFromOwnerRole(string ownerId)
@@ -87,15 +96,37 @@ namespace Cinema.Controllers
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]
-        public async Task<IActionResult> SetToOwner(string userId)
+        public async Task<IActionResult> PromoteToOwner(string id)
         {
-            return View(await _adminService.FindById(userId));
+            return PartialView("_PromoteToOwnerPartial", await _adminService.GetAdminUserCRUDPartialAsync(id));
         }
-        [HttpPost, ActionName("SetToOwner")]
-        public async Task<IActionResult> SetToOwnerConfirmed(string userId)
+        [HttpPost]
+        public async Task<IActionResult> PromoteToOwner([FromForm] AdminUserCRUDViewModel viewModel, string id)
         {
-            await _adminService.PromoteUser(userId);
-            return RedirectToAction(nameof(Index));
+            await _adminService.PromoteUser(id);
+            return Json(new { redirectToUrl = Url.Action("Users", "Admin") });
+        }
+        [HttpGet]
+        public async Task<IActionResult> DemoteUser(string id)
+        {
+            return PartialView("_DemoteUserPartial", await _adminService.GetAdminUserCRUDPartialAsync(id));
+        }
+        [HttpPost]
+        public async Task<IActionResult> DemoteUser([FromForm] AdminUserCRUDViewModel viewModel, string id)
+        {
+            await _adminService.DemoteUser(id);
+            return Json(new { redirectToUrl = Url.Action("Users", "Admin") });
+        }
+        [HttpGet]
+        public async Task<IActionResult> DeleteUserAccount(string id)
+        {
+            return PartialView("_DeleteUserAccountPartial", await _adminService.GetAdminUserCRUDPartialAsync(id));
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteUserAccount([FromForm] AdminUserCRUDViewModel viewModel, string id)
+        {
+            await _adminService.DeleteAccount(id);
+            return Json(new { redirectToUrl = Url.Action("Users", "Admin") });
         }
     }
 }

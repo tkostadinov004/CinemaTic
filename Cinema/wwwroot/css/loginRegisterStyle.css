@@ -56,11 +56,11 @@
     font-family: inherit;
     transition: all 0.3s;
 }
-
+/*
 .btn {
     outline: 1px solid #f48982;
 }
-
+*/
 .btn--form:hover {
     background-color: #fdf2e9;
     color: #f48982;

@@ -1,6 +1,8 @@
-﻿<div class="app-content">
+﻿<link href="~/css/ratingmodal.css" rel="stylesheet" />
+<link href="~/css/cardstyle.css" rel="stylesheet" />
+<div class="app-content">
     <div class="app-content-header" id="cinemas">
-        <h1 class="app-content-headerText">All cinemas</h1>
+        <h1 class="app-content-headerText">All users</h1>
         <button class="mode-switch" title="Switch Theme">
             <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
                 <defs></defs>
@@ -19,11 +21,10 @@
                     <div class="filter-dropdown">
                         <div class="filter-menu">
                             <select id="filter-options">
-                                <option disabled selected>-Select a status-</option>
-                                <option value="-1">All</option>
-                                <option value="@((int)ApprovalStatus.Approved)">Approved</option>
-                                <option value="@((int)ApprovalStatus.PendingApproval)">Pending approval</option>
-                                <option value="@((int)ApprovalStatus.DeniedApproval)">Denied approval</option>
+                                <option disabled selected>-Select a role-</option>
+                                <option value="">All</option>
+                                <option value="Owner">Owner</option>
+                                <option value="Visitor">Visitor</option>
                             </select>
                         </div>
                     </div>
@@ -37,53 +38,37 @@
             </button>
         </div>
     </div>
-    <div class="products-area-wrapper tableView">
+    <div class="products-area-wrapper tableView mt-5">
         <div class="products-header">
             <div class="cinema-cell image">
-                Cinema
-                <button class="sort-button" id="name-sort-desc" title="Sort descending">
-                    <i class="fa-solid fa-arrow-down"></i>
-                </button>
-                <button class="sort-button" id="name-sort" title="Sort ascending">
-                    <i class="fa-solid fa-arrow-up"></i>
-                </button>
+                User
             </div>
             <div class="cinema-cell status-cell">
-                Status
-                <button class="sort-button" id="status-sort-desc" title="Sort descending">
-                    <i class="fa-solid fa-arrow-down"></i>
-                </button>
-                <button class="sort-button" id="status-sort" title="Sort ascending">
-                    <i class="fa-solid fa-arrow-up"></i>
-                </button>
+                Email
             </div>
             <div class="cinema-cell sales">
-                Added on
-                <button class="sort-button" id="addedon-sort-desc" title="Sort descending">
-                    <i class="fa-solid fa-arrow-down"></i>
-                </button>
-                <button class="sort-button" id="addedon-sort" title="Sort ascending">
-                    <i class="fa-solid fa-arrow-up"></i>
-                </button>
+                Role
             </div>
-            <div class="cinema-cell stock">
-                Added by
-                <button class="sort-button" id="addedby-sort-desc" title="Sort descending">
-                    <i class="fa-solid fa-arrow-down"></i>
-                </button>
-                <button class="sort-button" id="addedby-sort-desc" title="Sort ascending">
-                    <i class="fa-solid fa-arrow-up"></i>
-                </button>
+            <div class="cinema-cell sales">
+                
             </div>
         </div>
         <div class="results-container cinemas-grid" id="results-container">
         </div>
     </div>
 </div>
+<div class="rating-container">
+    <div id="modal" role="dialog" aria-modal="true" aria-labelledby="add-review-header" class="edit-modal user-crud">
+        <button class="close-btn" aria-label="close" title="Close">x</button>
+        <div id="review-form-container" class="">
+        </div>
+    </div>
+    <div class="modal-overlay"></div>
+</div>
 <script src="~/js/ownerdashboard.js"></script>
 <script>
     window.onload = function () {
-        getItems('Admin', 'SearchAndFilterCinemas', "", '');
+        getItems('Admin', 'SearchAndFilterUsers', "", '');
     };
     var search = document.getElementById("search-bar");
     if (search) {
@@ -91,20 +76,12 @@
         search.addEventListener("keyup", function () {
             clearTimeout(timeout);
             timeout = setTimeout(function () {
-                getItems('Admin', 'SearchAndFilterCinemas', search.value, '');
+                getItems('Admin', 'SearchAndFilterUsers', search.value, '');
             }, 300);
         });
     }
     var filterOptions = document.getElementById('filter-options');
     filterOptions.addEventListener("change", function () {
-        getItems('Admin', 'SearchAndFilterCinemas', (search ? search.value : null), '', this.value);
+        getItems('Admin', 'SearchAndFilterUsers', (search ? search.value : null), '', this.value);
     });
-    document.querySelectorAll(".sort-button").forEach(i => i.addEventListener('click', function () {
-        var alreadyActive = document.querySelector('.sort-button.selected');
-        if(alreadyActive) {
-            alreadyActive.classList.remove("selected");
-        }
-        i.classList.add("selected");
-        getItems('Admin', 'SearchAndFilterCinemas', (search ? search.value : null), '', filterOptions.value, i.id);
-    }));
 </script>

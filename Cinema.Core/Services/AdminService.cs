@@ -14,6 +14,7 @@ using Cinema.Utilities;
 using Cinema.ViewModels.Cinemas;
 using Microsoft.AspNetCore.SignalR.Protocol;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace Cinema.Core.Services
 {
@@ -21,15 +22,17 @@ namespace Cinema.Core.Services
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly CinemaDbContext _context;
 
         public AdminService(
             UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager, CinemaDbContext context)
+            SignInManager<ApplicationUser> signInManager, CinemaDbContext context, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _context = context;
+            _roleManager = roleManager;
         }
         public async Task<IEnumerable<ApplicationUser>> GetAllAsync()
         {
@@ -80,7 +83,7 @@ namespace Cinema.Core.Services
             var cinemas = await this.GetAllCinemasAsync();
             if (string.IsNullOrEmpty(searchText) == false)
             {
-                cinemas = cinemas.Where(i => i.Name.StartsWith(searchText));
+                cinemas = cinemas.Where(i => i.Name.ToLower().StartsWith(searchText.ToLower()));
             }
             if (string.IsNullOrEmpty(filterValue) == false && Regex.IsMatch(filterValue, @"^[0-9]*$"))
             {
@@ -139,9 +142,9 @@ namespace Cinema.Core.Services
             });
         }
 
-        public async Task<UserDetailsViewModel> GetUserDetailsAsync(string userId)
+        public async Task<UserDetailsViewModel> GetUserDetailsAsync(string id)
         {
-            var user = await _userManager.FindByIdAsync(userId);
+            var user = await _userManager.FindByIdAsync(id);
 
             return new UserDetailsViewModel
             {
@@ -154,7 +157,8 @@ namespace Cinema.Core.Services
                     Id = i.Id,
                     Action = i.Message,
                     TypeCode = i.Type
-                })
+                }),
+                Roles = string.Join(", ", await _userManager.GetRolesAsync(user))
             };
         }
 
@@ -192,6 +196,47 @@ namespace Cinema.Core.Services
             cinema.ApprovalStatus = (ApprovalStatus)approvalCode;
 
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<UserDetailsViewModel>> SearchAndFilterUsersAsync(string searchText, string filterValue)
+        {
+            var users = await _context.Users.Where(i => i.UserName != "admin@admin.com").ToListAsync();
+            if (string.IsNullOrEmpty(searchText) == false)
+            {
+                users = users.Where(i => $"{i.FirstName} {i.LastName}".ToLower().StartsWith(searchText.ToLower())).ToList();
+            }
+            if (string.IsNullOrEmpty(filterValue) == false)
+            {
+                var userIdsInRole = (await _userManager.GetUsersInRoleAsync(filterValue)).Select(i => i.Id).ToList();
+                users = users.Where(i => userIdsInRole.Contains(i.Id)).ToList();
+            }
+            return users.Select(i => new UserDetailsViewModel
+            {
+                Id = i.Id,
+                UserName = i.UserName,
+                FullName = $"{i.FirstName} {i.LastName}",
+                ImageUrl = i.ProfilePictureUrl,
+                Actions = i.UserActions.Select(i => new UserActionViewModel
+                {
+                    Id = i.Id,
+                    Action = i.Message,
+                    TypeCode = i.Type
+                }),
+                Roles = string.Join(", ", _userManager.GetRolesAsync(i).Result)
+            });
+        }
+
+        public async Task<AdminUserCRUDViewModel> GetAdminUserCRUDPartialAsync(string id)
+        {
+            var user = await this.FindById(id);
+
+            return new AdminUserCRUDViewModel
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                FullName = $"{user.FirstName} {user.LastName}",
+                Roles = string.Join(", ", await _userManager.GetRolesAsync(user))
+            };
         }
     }
 }

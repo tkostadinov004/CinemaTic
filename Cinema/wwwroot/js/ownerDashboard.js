@@ -4,6 +4,18 @@ if (filter) {
         document.querySelector(".filter-menu").classList.toggle("active");
     });
 }
+//window.addEventListener('click', function (event) {
+//    const popupButton = document.querySelector('.jsFilter');
+//    const popup = document.querySelector('.filter-menu');
+//    console.log(popup);
+
+//    if (event.target == popupButton) {
+//        popup.classList.add('active');
+//    }
+//    else {
+//        popup.classList.remove('active');
+//    }
+//});
 var grid = document.querySelector(".grid");
 if (grid) {
     grid.addEventListener("click", function () {
@@ -71,6 +83,9 @@ function setStatuses() {
             else if (value == 'Pending approval') {
                 statuses[i].classList.add('pending-approval');
             }
+            else if (value == 'Denied approval') {
+                statuses[i].classList.add('denied-approval');
+            }
         }
     }
 }
@@ -85,13 +100,13 @@ var loadFile = function (event) {
 
 
 
-function getItems(controllerName, actionName, searchText, value, filterValue) {
+function getItems(controllerName, actionName, searchText, value, filterValue, sortBy) {
     let key = "id";
     if (actionName == 'SearchAndFilterCinemas') {
         console.log(1);
         key = 'userEmail';
     }
-    var data = { "searchText": searchText, filterValue };
+    var data = { "searchText": searchText, filterValue, sortBy };
     data[key] = value;
     $.ajax({
         type: "POST",
@@ -135,12 +150,14 @@ function addMovieToCinemas(movieId) {
         var forms = document.querySelectorAll(".date-selector form");
         for (let i = 0; i < forms.length; i++) {
             var current = forms[i];
-            data['movieData'].push({
-                id: current.getAttribute("for-cinema"),
-                fromDate: current.querySelector('input[name="from"]').value,
-                toDate: current.querySelector('input[name="to"]').value,
-                price: current.querySelector('input[name="price"').value
-            });
+            if (!current.parentElement.hasAttribute("hidden")) {
+                data['movieData'].push({
+                    id: current.getAttribute("for-cinema"),
+                    fromDate: current.querySelector('input[name="from"]').value,
+                    toDate: current.querySelector('input[name="to"]').value,
+                    price: current.querySelector('input[name="price"').value
+                });
+            }
         }
         console.log(JSON.stringify(data));
         $.ajax({
