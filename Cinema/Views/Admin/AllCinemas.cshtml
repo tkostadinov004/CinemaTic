@@ -86,18 +86,19 @@
         getItems('Admin', 'SearchAndFilterCinemas', "", '');
     };
     var search = document.getElementById("search-bar");
+    var filterOptions = document.getElementById('filter-options');
+    var activeSort = document.querySelector('.sort-button.selected');
     if (search) {
         let timeout = null;
         search.addEventListener("keyup", function () {
             clearTimeout(timeout);
             timeout = setTimeout(function () {
-                getItems('Admin', 'SearchAndFilterCinemas', search.value, '');
+                getItems('Admin', 'SearchAndFilterCinemas', search.value, '', (filterOptions ? filterOptions.value : null), (activeSort ? activeSort.id : null));
             }, 300);
         });
     }
-    var filterOptions = document.getElementById('filter-options');
     filterOptions.addEventListener("change", function () {
-        getItems('Admin', 'SearchAndFilterCinemas', (search ? search.value : null), '', this.value);
+        getItems('Admin', 'SearchAndFilterCinemas', (search ? search.value : null), '', (filterOptions ? filterOptions.value : null), (activeSort ? activeSort.id : null));
     });
     document.querySelectorAll(".sort-button").forEach(i => i.addEventListener('click', function () {
         var alreadyActive = document.querySelector('.sort-button.selected');
@@ -105,6 +106,6 @@
             alreadyActive.classList.remove("selected");
         }
         i.classList.add("selected");
-        getItems('Admin', 'SearchAndFilterCinemas', (search ? search.value : null), '', filterOptions.value, i.id);
+        getItems('Admin', 'SearchAndFilterCinemas', (search ? search.value : null), '', (filterOptions ? filterOptions.value : null), i.id);
     }));
 </script>

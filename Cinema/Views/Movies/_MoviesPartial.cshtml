@@ -15,7 +15,6 @@
         <div class="cinema-cell sales"><span class="cell-label">Genre:</span>@movie.Genre</div>
         <div class="cinema-cell sales"><span class="cell-label">Average rating:</span>@movie.AverageRating / 10.0</div>
         <div class="cinema-cell stock"><span class="cell-label">Rating count:</span>@movie.RatingCount</div>
-        <div class="cinema-cell stock"><span class="cell-label">Price:</span>$@movie.Price</div>
         <div class="cinema-cell stock"><span class="cell-label">Added by:</span>@movie.AddedBy</div>
     </div>
     <div class="movie-grid" hidden>
@@ -34,3 +33,29 @@
         </div>
     </div>
 }
+<script>
+    var search = document.getElementById("search-bar");
+    var filterOptions = document.getElementById('filter-options');
+    var activeSort = document.querySelector('.sort-button.selected');
+    if (search) {
+        let timeout = null;
+        search.addEventListener("keyup", function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                getItems('Movies', 'SearchAndFilterMovies', search.value, '', (filterOptions ? filterOptions.value : null), (activeSort ? activeSort.id : null));
+            }, 300);
+        });
+    }
+
+    filterOptions.addEventListener("change", function () {
+        getItems('Movies', "SearchAndFilterMovies", (search ? search.value : null), '', filterOptions.value, (activeSort ? activeSort.id : null));
+    });
+    document.querySelectorAll(".sort-button").forEach(i => i.addEventListener('click', function () {
+        var alreadyActive = document.querySelector('.sort-button.selected');
+        if (alreadyActive) {
+            alreadyActive.classList.remove("selected");
+        }
+        i.classList.add("selected");
+        getItems('Movies', 'SearchAndFilterMovies', (search ? search.value : null), '', (filterOptions ? filterOptions.value : null), i.id);
+    }));
+</script>

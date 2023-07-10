@@ -31,5 +31,6 @@ namespace Cinema.Core.Contracts
         Task<IEnumerable<MovieInfoCardViewModel>> SearchAndFilterMoviesAsync(string searchText, string filterValue);
         Task<FilterMoviesViewModel> PrepareFilterViewModelAsync();
         Task<EditMovieViewModel> PrepareForEditing(int? id);
+        Task<DeleteMovieViewModel> PrepareForDeleting(int? id);
     }
 }

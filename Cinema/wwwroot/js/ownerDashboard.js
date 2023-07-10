@@ -21,7 +21,7 @@ if (grid) {
     grid.addEventListener("click", function () {
         document.querySelectorAll(".movies-container .cinema-row").forEach(i => i.setAttribute("hidden", true));
         document.querySelectorAll(".movies-container .movie-grid").forEach(i => i.removeAttribute("hidden"));
-        document.querySelector(".list").classList.remove("active");
+        document.querySelector(".list:not(.crud-button)").classList.remove("active");
         document.querySelector(".grid").classList.add("active");
         document.querySelector(".products-area-wrapper:not(.details)").classList.add("gridView");
         document
@@ -33,12 +33,12 @@ if (grid) {
         }
     });
 }
-var list = document.querySelector(".list");
+var list = document.querySelector(".list:not(.crud-button)");
 if (list) {
     list.addEventListener("click", function () {
         document.querySelectorAll(".movies-container .cinema-row").forEach(i => i.removeAttribute("hidden"));
         document.querySelectorAll(".movies-container .movie-grid").forEach(i => i.setAttribute("hidden", true));
-        document.querySelector(".list").classList.add("active");
+        document.querySelector(".list:not(.crud-button)").classList.add("active");
         document.querySelector(".grid").classList.remove("active");
         document.querySelector(".products-area-wrapper:not(.details)").classList.remove("gridView");
         document.querySelector(".products-area-wrapper:not(.details)").classList.add("tableView");

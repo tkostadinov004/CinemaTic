@@ -15,7 +15,10 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap-icons.css" rel="stylesheet" />
     <link href="~/css/layoutStyle.css" rel="stylesheet" asp-append-version="true" />
     <link rel="shortcut icon" href="~/img/favicon.ico" />
-    <link href="~/css/manageStyle.css" rel="stylesheet" />
+    @if (User.Identity.IsAuthenticated && !User.IsInRole("Visitor"))
+    {
+        <link href="~/css/manageStyle.css" rel="stylesheet" />
+    }
 </head>
 <body>
     <main>
@@ -54,6 +57,6 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="~/js/custom.js"></script>
-   
+
 </body>
 </html>

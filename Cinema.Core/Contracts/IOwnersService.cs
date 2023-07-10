@@ -17,7 +17,7 @@ namespace Cinema.Core.Contracts
         Task AddMovieToCinemas(MovieDatesDTO data);
         Task EditCinema(IViewModel item);
         Task DeleteByIdAsync(int? id);
-        Task<IEnumerable<CinemaListViewModel>> SearchAndFilterCinemasAsync(string searchText, string userEmail, string filterValue);
+        Task<IEnumerable<CinemaListViewModel>> SearchAndFilterCinemasAsync(string searchText, string userEmail, string filterValue, string sortBy);
         Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByCinema(string searchText, string cinemaId);
         Task<EditCinemaViewModel> GetEditViewModelByIdAsync(int cinemaId);
         Task<DeleteCinemaViewModel> PrepareDeleteViewModelAsync(int id);

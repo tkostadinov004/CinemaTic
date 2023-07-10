@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using System.Text.RegularExpressions;
 
 namespace Cinema.Core.Services
 {
@@ -109,6 +110,7 @@ namespace Cinema.Core.Services
                 Status = (i.ApprovalStatus == ApprovalStatus.Approved ? "Approved" : (i.ApprovalStatus == ApprovalStatus.PendingApproval ? "Pending approval" : "Denied approval")),
                 FoundedOn = i.FoundedOn.ToString(Constants.DateTimeFormat),
                 ImageUrl = i.ImageUrl,
+                StatusCode = i.ApprovalStatus,
                 MoviesCount = i.Movies.Count
             }).ToList();
         }
@@ -133,6 +135,8 @@ namespace Cinema.Core.Services
                 ImageUrl = cinema.ImageUrl,
                 SeatRows = cinema.SeatRows,
                 SeatCols = cinema.SeatCols,
+                ApprovalStatus = cinema.ApprovalStatus,
+                Status = (cinema.ApprovalStatus == ApprovalStatus.Approved ? "Approved" : (cinema.ApprovalStatus == ApprovalStatus.PendingApproval ? "Pending approval" : "Denied approval"))
             };
         }
 
@@ -184,14 +188,14 @@ namespace Cinema.Core.Services
             };
         }
 
-        public async Task<IEnumerable<CinemaListViewModel>> SearchAndFilterCinemasAsync(string searchText, string userEmail, string filterValue)
+        public async Task<IEnumerable<CinemaListViewModel>> SearchAndFilterCinemasAsync(string searchText, string userEmail, string filterValue, string sortBy)
         {
             var cinemas = await this.GetAllByUserAsync(userEmail);
             if (string.IsNullOrEmpty(searchText) == false)
             {
-                cinemas = cinemas.Where(i => i.Name.StartsWith(searchText));
+                cinemas = cinemas.Where(i => i.Name.ToLower().StartsWith(searchText.ToLower()));
             }
-            if(string.IsNullOrEmpty(filterValue) == false)
+            if(string.IsNullOrEmpty(filterValue) == false && Regex.IsMatch(filterValue, @"^[0-9]*$"))
             {
                 int enumValue = int.Parse(filterValue);
                 switch (enumValue)
@@ -204,6 +208,43 @@ namespace Cinema.Core.Services
                         break;
                     case (int)ApprovalStatus.DeniedApproval:
                         cinemas = cinemas.Where(i => i.Status == "Denied approval");
+                        break;
+                }
+            }
+            if (string.IsNullOrEmpty(sortBy) == false)
+            {
+                var sortParameter = sortBy.Split('-')[0];
+                var sortDirection = sortBy.Split('-')[^1];
+
+                switch (sortParameter)
+                {
+                    case "name":
+                        cinemas = cinemas.OrderBy(i => i.Name);
+                        if (sortDirection == "desc")
+                        {
+                            cinemas = cinemas.OrderByDescending(i => i.Name);
+                        }
+                        break;
+                    case "status":
+                        cinemas = cinemas.OrderBy(i => i.StatusCode);
+                        if (sortDirection == "desc")
+                        {
+                            cinemas = cinemas.OrderByDescending(i => i.StatusCode);
+                        }
+                        break;
+                    case "addedon":
+                        cinemas = cinemas.OrderBy(i => i.FoundedOn);
+                        if (sortDirection == "desc")
+                        {
+                            cinemas = cinemas.OrderByDescending(i => i.FoundedOn);
+                        }
+                        break;
+                    case "count":
+                        cinemas = cinemas.OrderBy(i => i.MoviesCount);
+                        if (sortDirection == "desc")
+                        {
+                            cinemas = cinemas.OrderByDescending(i => i.MoviesCount);
+                        }
                         break;
                 }
             }

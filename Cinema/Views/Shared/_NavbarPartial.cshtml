@@ -37,17 +37,15 @@
                     </ul>
                 </li>
             </ul>
-
             @if (User.Identity.IsAuthenticated)
             {
                 <div class="d-none d-lg-block">
-                    <a>L</a>
-                </div>
-            }
-            else
-            {
-                <div class="d-none d-lg-block">
                     <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                </div>
+                <div class="d-none d-lg-block">
+                    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button type="submit" class="nx-btn">Logout</button>
+                    </form>
                 </div>
             }
         </div>
@@ -56,11 +54,6 @@
     {
         
     }
-    <div class="d-none d-lg-block">
-        <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button type="submit" class="nx-btn">Logout</button>
-        </form>
-    </div>
 </div>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/jquery/dist/jquery.js"></script>

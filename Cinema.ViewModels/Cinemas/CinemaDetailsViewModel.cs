@@ -1,4 +1,5 @@
-﻿using Cinema.ViewModels.Contracts;
+﻿using Cinema.Data.Enums;
+using Cinema.ViewModels.Contracts;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace Cinema.ViewModels.Cinemas
         public string FoundedOn { get; set; }
         public int SeatRows { get; set; }
         public int SeatCols { get; set; }
-        public bool IsApproved { get; set; }
+        public string Status { get; set; }
+        public ApprovalStatus ApprovalStatus { get; set; }
     }
 }

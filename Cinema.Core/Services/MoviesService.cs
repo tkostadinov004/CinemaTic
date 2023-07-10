@@ -1,5 +1,6 @@
 ﻿using Cinema.Core.Contracts;
 using Cinema.Data;
+using Cinema.Data.Enums;
 using Cinema.Data.Models;
 using Cinema.Utilities;
 using Cinema.ViewModels;
@@ -147,7 +148,7 @@ namespace Cinema.Core.Services
                 AverageRating = ratings.ToList().Count == 0 ? 0 : ratings.Select(i => i.Rating).Average(),
                 RatingCount = ratings.Count(),
                 CurrentUserRating = ratings.FirstOrDefault(i => i.User.Email == currentUser.Email) == null ? null : ratings.FirstOrDefault(i => i.User.Email == currentUser.Email).Rating,
-                UserCinemas = (await _context.Cinemas.Where(i => i.OwnerId == currentUser.Id).ToListAsync()).Select(i => new CinemaCheckboxViewModel
+                UserCinemas = (await _context.Cinemas.Where(i => i.OwnerId == currentUser.Id && i.ApprovalStatus == ApprovalStatus.Approved).ToListAsync()).Select(i => new CinemaCheckboxViewModel
                 {
                     Id = i.Id,
                     Name = i.Name
@@ -290,6 +291,17 @@ namespace Cinema.Core.Services
                 TrailerUrl = movie.TrailerUrl,
                 ActorsDropdown = await this.GetActorsDropDownAsync(),
                 Genres = await this.GetGenresDropDownAsync()
+            };
+        }
+
+        public async Task<DeleteMovieViewModel> PrepareForDeleting(int? id)
+        {
+            var movie = await this.GetByIdAsync(id);
+            return new DeleteMovieViewModel
+            {
+                Id = movie.Id,
+                Name = movie.Title,
+                ImageUrl = movie.ImageUrl
             };
         }
     }

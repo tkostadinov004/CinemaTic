@@ -5,7 +5,6 @@
 }
 <link href="~/css/ratingModal.css" rel="stylesheet" />
 <link href="~/css/manageStyle.css" rel="stylesheet" />
-<link href="~/css/ratingmodal.css" rel="stylesheet" />
 <link rel="stylesheet" href="~/css/cardStyle.css" />
 <div class="app-content">
     <div class="movie-container text-white">
@@ -41,10 +40,8 @@
                     </div>
                 </div>
                 <div class="d-flex mt-4">
-                    <button id="open-popup-btn" class="action-button list active crud-button m-0">Edit</button>
-                    <form>
-                        <button class="action-button list active crud-button" asp-controller="Movies" asp-action="Delete" asp-route-id="@Model.MovieId" type="submit">Delete</button>
-                    </form>
+                    <button id="edit" class="action-button active crud-button open-popup-btn">Edit</button>
+                    <button id="delete" class="action-button active crud-button open-popup-btn">Delete</button>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 col-sm-offset-0 col-xs-6 col-xs-offset-3">
@@ -52,39 +49,41 @@
             </div>
             <div class="col-md-8 col-sm-6 col-xs-12 mt-5 mb-3">
                 <h6>Add this movie to your cinemas</h6>
-                <div class="d-flex flex-column">
+                <div class="d-flex flex-column align-items-start mt-4">
                     <div class="checkbox-cinemas">
                         @foreach (var cinema in Model.UserCinemas)
                         {
-                            <div class="cinema-checkbox">
-                                <input type="checkbox" id="cinemas" name="cinemas" value="@cinema.Id">
-                                <label for="cinemas">@cinema.Name</label>
-                            </div>
-                            <div class="date-selector" hidden>
-                                <form for-cinema="@cinema.Id">
-                                    <div class="form-group">
-                                        <div class="active-form">
-                                            <i class="fa-solid fa-calendar-days input-icon"></i>
-                                            <input type="date" class="form-control form-style" name="from" placeholder="From" />
+                            <div class="movie-info-container">
+                                <div class="cinema-checkbox">
+                                    <input type="checkbox" class="cinema-checkbox" id="cinemas" name="cinemas" value="@cinema.Id">
+                                    <label for="cinemas">@cinema.Name</label>
+                                </div>
+                                <div class="date-selector" hidden>
+                                    <form for-cinema="@cinema.Id">
+                                        <div class="form-group">
+                                            <div class="active-form">
+                                                <i class="fa-solid fa-calendar-days input-icon"></i>
+                                                <input type="date" class="form-control form-style" name="from" placeholder="From" />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="active-form">
-                                            <i class="fa-solid fa-calendar-days input-icon"></i>
-                                            <input type="date" class="form-control form-style" name="to" placeholder="To" />
+                                        <div class="form-group">
+                                            <div class="active-form">
+                                                <i class="fa-solid fa-calendar-days input-icon"></i>
+                                                <input type="date" class="form-control form-style" name="to" placeholder="To" />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="active-form">
-                                            <i class="fa-solid fa-calendar-days input-icon"></i>
-                                            <input type="text" class="form-control form-style" name="price" placeholder="Price" />
+                                        <div class="form-group">
+                                            <div class="active-form">
+                                                <i class="fa-solid fa-dollar-sign input-icon"></i>
+                                                <input type="text" class="form-control form-style" name="price" placeholder="Price" />
+                                            </div>
                                         </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
                             </div>
                         }
                     </div>
-                    <button class="mt-4" type="submit" id="submit-cinemas">Submit</button>
+                    <button class="mt-4 mx-0 action-button active crud-button" type="submit" id="submit-cinemas">Submit</button>
                 </div>
             </div>
         </div>
@@ -98,12 +97,18 @@
     </div>
     <div class="modal-overlay"></div>
 </div>
-<script src="~/js/ownerdashboard.js"></script>
-<script src="~/js/rating-modal.js"></script>
 <script>
-    var editButton = document.getElementById("open-popup-btn");
+    var modalContainer = document.getElementById('review-form-container');
+    var editButton = document.getElementById("edit");
     editButton.addEventListener("click", function () {
+        modalContainer.innerHTML = "";
         getUDpartial('Movies', 'Edit', '@Model.MovieId');
+    });
+
+    var deleteButton = document.getElementById("delete");
+    deleteButton.addEventListener("click", function () {
+        modalContainer.innerHTML = "";
+        getUDpartial('Movies', 'Delete', '@Model.MovieId');
     });
 
     document.querySelectorAll('input[name="cinemas"]').forEach(i => i.addEventListener("change", function () {
@@ -114,8 +119,10 @@
             i.parentElement.nextElementSibling.setAttribute("hidden", "true");
         }
     }));
-    addMovieToCinemas('@Model.MovieId');
+        //addMovieToCinemas('@Model.MovieId');
 </script>
+<script src="~/js/ownerdashboard.js"></script>
+<script src="~/js/rating-modal.js"></script>
 @*<div class="details front-panel">
     <div>
         <div class="short-info">

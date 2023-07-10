@@ -17,6 +17,16 @@
             <span class="status">@cinema.Status</span>
         </div>
         <div class="cinema-cell sales"><span class="cell-label">Added on:</span>@cinema.FoundedOn</div>
-        <div class="cinema-cell stock"><span class="cell-label">Movies:</span>@cinema.MoviesCount</div>
+        <div class="cinema-cell stock">
+            <span class="cell-label">Movies:</span>
+            @if (cinema.StatusCode == ApprovalStatus.Approved)
+            {
+                @cinema.MoviesCount
+            }
+            else
+            {
+                <span>Not available</span>
+            }
+        </div>
     </div>
 }

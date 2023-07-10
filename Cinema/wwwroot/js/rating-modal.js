@@ -1,7 +1,6 @@
 ﻿const modal = document.getElementById('modal');
 const modalOverlay = document.querySelector('.modal-overlay');
 const openButtons = document.querySelectorAll('.open-popup-btn');
-
 const openModal = () => {
     // Save current focus
   //  focusedElementBeforeModal = document.activeElement;
