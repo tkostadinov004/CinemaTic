@@ -79,9 +79,9 @@ namespace Cinema.Controllers
             return RedirectToAction("UserCinemas", "Owners");
         }
 
-        public async Task<IActionResult> SearchAndFilterCinemas(string searchText, string userEmail, string filterValue)
+        public async Task<IActionResult> SearchAndFilterCinemas(string searchText, string userEmail, string filterValue, string sortBy)
         {
-            var cinemas = await _ownersService.SearchAndFilterCinemasAsync(searchText, userEmail, filterValue);
+            var cinemas = await _ownersService.SearchAndFilterCinemasAsync(searchText, userEmail, filterValue, sortBy);
             return PartialView("_CinemasPartial", cinemas);
         }
         public async Task<IActionResult> SearchMoviesByCinema(string searchText, string id)

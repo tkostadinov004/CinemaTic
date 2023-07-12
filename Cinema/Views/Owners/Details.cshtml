@@ -29,10 +29,19 @@
                 </span>
             </div>
             <div class="cinema-cell sales"><span class="cell-label">Founded on:</span>@Model.FoundedOn</div>
+            <div class="cinema-cell description">
+                <span class="cell-label">Rows:</span>
+                <span>@Model.SeatRows</span>
+            </div>
+            <div class="cinema-cell description">
+                <span class="cell-label">Columns:</span>
+                <span>@Model.SeatCols</span>
+            </div>
         </div>
         <div class="cinema-cell stock">
             <button id="edit" class="action-button active crud-button open-popup-btn">Edit</button>
             <button id="delete" class="action-button active crud-button open-popup-btn">Delete</button>
+            <button id="preview-sectors" class="action-button active crud-button open-popup-btn">Preview sector layout</button>
         </div>
     </div>
     @if (Model.ApprovalStatus == ApprovalStatus.Approved)
@@ -150,6 +159,12 @@
     deleteButton.addEventListener("click", function () {
         modalContainer.innerHTML = "";
         getUDpartial('Owners', 'DeleteCinema', '@Model.Id');
+    });
+
+    var previewButton = document.getElementById("preview-sectors");
+    previewButton.addEventListener("click", function () {
+        modalContainer.innerHTML = "";
+        getUDpartial('Sectors', 'GetCinemaSectors', '@Model.Id');
     });
 </script>
 <script src="~/js/ownerdashboard.js"></script>

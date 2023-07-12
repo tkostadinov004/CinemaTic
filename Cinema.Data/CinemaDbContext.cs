@@ -16,6 +16,7 @@ namespace Cinema.Data
         public DbSet<Seat> Seats { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Genre> Genres { get; set; }
+        public DbSet<Sector> Sectors { get; set; }
         public DbSet<UserMovie> UsersMovies { get; set; }
         public DbSet<VisitorCinema> VisitorsCinemas { get; set; }
         public DbSet<CinemaMovie> CinemasMovies { get; set; }

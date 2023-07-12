@@ -1,0 +1,42 @@
+﻿@using Cinema.Utilities;
+@model Cinema.ViewModels.Sectors.SectorGridViewModel
+
+<div class="d-flex flex-wrap" id="sectors-grid-container">
+    @foreach (var sector in Model.Sectors)
+    {
+        <button class="action-button active crud-button sector-button" id="@sector.Id">
+            @sector.Name
+        </button>
+    }
+</div>
+<script>
+   function showSector() {
+        let rowNumber = Number('@Constants.SectorRows');
+        let currentRows = Number('@Model.Rows');
+        let percent = 100 / Math.floor((currentRows / rowNumber) + 1);
+        console.log(`${percent}%`);
+        let container = document.getElementById('sectors-grid-container').children;
+        for (const child of container) {
+            child.style.flexBasis = `${percent}%`;
+        }
+
+        document.querySelectorAll('.sector-button').forEach(i => i.addEventListener("click", function () {
+            document.getElementById('review-form-container').innerHTML = "";
+            $.ajax({
+                type: "GET",
+                url: `/Sectors/GetSectorLayout`,
+                data: { id: i.id },
+                success: function (response) {
+                    $("#review-form-container").html(response);
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        }));
+   }
+    showSector();
+</script>

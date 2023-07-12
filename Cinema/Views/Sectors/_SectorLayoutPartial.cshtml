@@ -1,0 +1,33 @@
+﻿@using Cinema.Utilities;
+@model Cinema.ViewModels.Sectors.SectorDetailsViewModel
+
+<div class="seats-container d-flex flex-column align-items-center">
+    @for (int i = 0; i < Model.Seats.Count; i++)
+    {
+        <div class="seat-row d-flex">
+            @for (int j = 0; j < Model.Seats[i].Count; j++)
+            {
+                <button class="seat d-flex flex-column align-items-center">
+                    @if (i == 0)
+                    {
+                        @if (j == 0)
+                        {
+                            <span style="padding-left: 1rem;">@(j + Model.StartingCol)</span>
+                        }
+                        else
+                        {
+                            <span>@(j + Model.StartingCol)</span>
+                        }
+                    }
+                    <div class="seat-bottom d-flex flex-row align-items-center">
+                        @if (j == 0)
+                        {
+                            <span>@(i + Model.StartingRow)</span>
+                        }
+                        <i class="fa-solid fa-couch"></i>
+                    </div>
+                </button>
+            }
+        </div>
+    }
+</div>

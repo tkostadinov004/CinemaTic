@@ -68,7 +68,6 @@ const closeModal = () => {
     // Hide the modal and overlay
     modal.classList.remove('show');
     modalOverlay.classList.remove('show');
-
     //const form = document.getElementById('review-form');
     //form.reset();
     // Set focus back to element that had it before the modal was opened

@@ -917,3 +917,25 @@ div#modal.user-crud {
     div#review-form-container.user-crud #review-form-container div div.delete-text {
         gap: 20px;
     }
+#sectors-grid-container button.action-button {
+    color: white;
+    border-radius: 5px;
+    padding: 70px;
+    text-align: center;
+    cursor: pointer;
+    justify-content: center;
+    margin: 0;
+}
+button.seat {
+    background: none;
+    border: 0;
+    color: #19d448;
+    font-size: 2rem;
+}
+button.seat span {
+    color: white;
+    font-size: 1rem;
+}
+button.seat .seat-bottom {
+    gap: 10px;
+}

@@ -79,19 +79,19 @@ namespace Cinema.Controllers
 
         // GET: Movies/Edit/5
         [Authorize(Roles = "Owner")]
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(string? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var movie = await _moviesService.GetByIdAsync(id);
+            var movie = await _moviesService.GetByIdAsync(int.Parse(id));
             if (movie == null)
             {
                 return NotFound();
             }
-            var viewModel = await _moviesService.PrepareForEditing(id);
+            var viewModel = await _moviesService.PrepareForEditing(int.Parse(id));
 
             return PartialView("_EditMoviePartial", viewModel);
         }
@@ -129,20 +129,20 @@ namespace Cinema.Controllers
 
         // GET: Movies/Delete/5
         [Authorize(Roles = "Owner")]
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(string? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var movie = await _moviesService.GetByIdAsync(id);
+            var movie = await _moviesService.GetByIdAsync(int.Parse(id));
             if (movie == null)
             {
                 return NotFound();
             }
-
-            return View(movie);
+            var viewModel = await _moviesService.PrepareForDeleting(int.Parse(id));
+            return PartialView("_DeleteMoviePartial", viewModel);
         }
 
         // POST: Movies/Delete/5
