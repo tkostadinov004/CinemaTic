@@ -164,7 +164,21 @@
     var previewButton = document.getElementById("preview-sectors");
     previewButton.addEventListener("click", function () {
         modalContainer.innerHTML = "";
-        getUDpartial('Sectors', 'GetCinemaSectors', '@Model.Id');
+        $.ajax({
+            type: "GET",
+            url: `/Owners/GenerateCustomPagePreview`,
+            data: { userEmail: '@User.Identity.Name', cinemaId: '@Model.Id' },
+            success: function (response) {
+                //$("#review-form-container").html(response);
+                location.href = 'https://localhost:44305/Owners/GenerateCustomPagePreview?userEmail=@User.Identity.Name&cinemaId=@Model.Id'
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
     });
 </script>
 <script src="~/js/ownerdashboard.js"></script>

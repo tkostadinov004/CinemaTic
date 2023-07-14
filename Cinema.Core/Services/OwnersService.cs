@@ -284,5 +284,22 @@ namespace Cinema.Core.Services
             }
             return movies;
         }
+
+        public async Task<CinemaPagePreviewViewModel> PreparePreviewViewModelAsync(string userEmail, string cinemaId)
+        {
+            var user = await _userManager.FindByEmailAsync(userEmail);
+            var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == int.Parse(cinemaId));
+            var dates = Enumerable.Range(0, 7).Select(i => DateTime.Now.AddDays(i))
+                .ToDictionary(key => 
+                {
+                    return key.Date != DateTime.Now.Date ? key.DayOfWeek.ToString().Substring(0, 3) : "Today";
+                }, value => value.ToString(Constants.DateTimeFormat));
+            return new CinemaPagePreviewViewModel
+            {
+                CinemaLogoUrl = cinema.ImageUrl,
+                ProfilePictureUrl = user.ProfilePictureUrl,
+                Dates = dates,
+            };
+        }
     }
 }

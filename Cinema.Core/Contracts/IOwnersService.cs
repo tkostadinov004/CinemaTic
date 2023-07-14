@@ -21,5 +21,6 @@ namespace Cinema.Core.Contracts
         Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByCinema(string searchText, string cinemaId);
         Task<EditCinemaViewModel> GetEditViewModelByIdAsync(int cinemaId);
         Task<DeleteCinemaViewModel> PrepareDeleteViewModelAsync(int id);
+        Task<CinemaPagePreviewViewModel> PreparePreviewViewModelAsync(string userEmail, string cinemaId);
     }
 }

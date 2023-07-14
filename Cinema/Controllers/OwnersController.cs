@@ -89,5 +89,9 @@ namespace Cinema.Controllers
             var movies = await _ownersService.SearchMoviesByCinema(searchText, id);
             return PartialView("_CinemaMoviesPartial", movies);
         }
+        public async Task<IActionResult> GenerateCustomPagePreview(string userEmail, string cinemaId)
+        {
+            return View("_CustomPagePreviewPartial", await _ownersService.PreparePreviewViewModelAsync(userEmail, cinemaId));
+        }
     }
 }

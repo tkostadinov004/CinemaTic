@@ -22,6 +22,10 @@ namespace Cinema.Data.Models
         [Required]
         public string ImageUrl { get; set; }
         public ApprovalStatus ApprovalStatus { get; set; } = ApprovalStatus.PendingApproval;
+        public string BackgroundColor { get; set; }
+        public string HeadingColor { get; set; }
+        public string TextColor { get; set; }
+        public string ButtonBackgroundColor { get; set; }
         [Required]
         public string OwnerId { get; set; }
         public virtual ApplicationUser Owner { get; set; }

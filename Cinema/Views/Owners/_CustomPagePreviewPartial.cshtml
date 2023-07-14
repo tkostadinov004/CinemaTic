@@ -1,0 +1,212 @@
+﻿@model Cinema.ViewModels.Cinemas.CinemaPagePreviewViewModel
+<link href="~/css/cardstyle.css" rel="stylesheet" />
+
+<div class="main-cinema-container">
+    <nav>
+        <div class="col-xl-12 d-flex justify-content-between align-items-center">
+            <a id="logo-link" href="#">
+                <img id="cinema-logo" src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Mars_Sample_return_mission_logo.png" />
+            </a>
+            <div class="d-flex flex-column align-items-center">
+                <img id="profile-picture" src="~/client-images/defaults/man-avatar-profile-picture-vector-illustration_268834-538-removebg-preview.png" />
+                <a href="#" class="text-white">Your account</a>
+            </div>
+        </div>
+    </nav>
+    <div>
+        <img src="~/client-images/defaults/martin-martz-ZUj-wUCw0u4-unsplash.png" class="bg-image" />
+        <div class="main-container pt-5">
+            <div class="col-xl-12 text-white">
+                <h5 class="text-center">Top movies, recommended by our sponsors: </h5>
+            </div>
+            <div class="movie-grid d-flex justify-content-center gap-3 mt-5" style="width: 100%;">
+                <div class="card-wrapper">
+                    <div class="card">
+                        <img src="~/client-images/Movies/Batman.jpg" alt="cinema-logo">
+                        <div class="descriptions">
+                            <div class="description-buttons">
+                                <a class="desc-button">
+                                    <i class="fa-solid fa-circle-info f-size-b"></i>
+                                    Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-wrapper">
+                    <div class="card">
+                        <img src="~/client-images/Movies/Kingsman-The-Secret-Service.jpg" alt="cinema-logo">
+                        <div class="descriptions">
+                            <div class="description-buttons">
+                                <a class="desc-button">
+                                    <i class="fa-solid fa-circle-info f-size-b"></i>
+                                    Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-wrapper">
+                    <div class="card">
+                        <img src="~/client-images/Movies/Django-Unchained.jpg" alt="cinema-logo">
+                        <div class="descriptions">
+                            <div class="description-buttons">
+                                <a class="desc-button">
+                                    <i class="fa-solid fa-circle-info f-size-b"></i>
+                                    Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-12 mt-5 dates-container">
+                <div class="row d-flex justify-content-between align-items-center">
+                    <span>Book tickets</span>
+                    <div class="d-flex selection-buttons">
+                        <button class="active" id="movie-grid-button">Movie grid</button>
+                        <button class="" id="by-movie-button">By movie</button>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <button class="date active">Today</button>
+                    @foreach (var item in Model.Dates.Skip(1))
+                    {
+                        <button class="date" for-date="@item.Value">@item.Key</button>
+                    }
+                </div>
+            </div>
+            <section>
+                <div class="gradient-box" style=""></div>
+                <div class="dates-info-container">
+                    <div id="movie-grid">
+                        
+                    </div>
+                    <div id="by-movie" hidden>
+                        
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<style>
+    nav {
+        background-color: transparent;
+        color: white;
+        padding: 0px 50px;
+        position: relative;
+        z-index: 20;
+    }
+
+    a.logo-link {
+        width: fit-content;
+    }
+
+    div.container {
+        margin: 0;
+        padding: 0;
+    }
+
+    .card {
+        flex-basis: 200px;
+        flex-grow: 1;
+        height: 300px;
+    }
+
+    img#cinema-logo {
+        width: 100px;
+    }
+
+    img#profile-picture {
+        width: 70px;
+    }
+
+    div.main-cinema-container {
+        width: 100%;
+        position: relative;
+    }
+
+    img.bg-image {
+        transform: rotate(180deg);
+        position: absolute;
+        top: 0;
+    }
+
+    .main-container {
+        position: relative;
+        z-index: 20;
+    }
+
+    .dates-container {
+        width: 100%;
+        height: 200px;
+        background: white;
+        padding: 20px 80px;
+    }
+
+    div.gradient-box {
+        height: 32px;
+        box-shadow: 0 -1px #ddd;
+        background-image: linear-gradient(#f4f4f4,#fff);
+    }
+
+    div.dates-info-container {
+        background: white;
+    }
+
+    .row span {
+        font-size: 1.5rem;
+        width: fit-content;
+    }
+
+    .selection-buttons {
+        width: fit-content;
+    }
+
+        .selection-buttons button {
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            border: 2px solid lightgray;
+        }
+
+            .selection-buttons button.active {
+                border: 2px solid red;
+            }
+            button.date {
+        border: 0;
+        background: white;
+        width: fit-content;
+            }
+            button.date.active {
+            font-size: 1.5rem;
+            color: red;
+            font-weight: 400;
+            }
+</style>
+<script>
+    // window.onload = function() {
+    document.querySelector(".sidebar").setAttribute("hidden", "true");
+    //  }
+    let buttons = document.querySelectorAll(".selection-buttons button");
+    let infoContainer = document.querySelector('.dates-info-container');
+    buttons.forEach(i => i.addEventListener("click", function () {
+        buttons.forEach(k => k.classList.remove("active"));
+        i.classList.add("active");
+
+        if (i.id == 'movie-grid-button') {
+            infoContainer.querySelector('#movie-grid').removeAttribute("hidden");
+            infoContainer.querySelector('#by-movie').setAttribute("hidden", "true");
+        }
+        else if (i.id == 'by-movie-button') {
+            infoContainer.querySelector('#by-movie').removeAttribute("hidden");
+            infoContainer.querySelector('#movie-grid').setAttribute("hidden", "true");
+        }
+    }));
+    let dateButtons = document.querySelectorAll('button.date');
+    dateButtons.forEach(i => i.addEventListener("click", function () {
+        dateButtons.forEach(k => k.classList.remove("active"));
+        i.classList.add("active");
+    }));
+</script>
