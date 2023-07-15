@@ -18,7 +18,7 @@ namespace Cinema.Data.Models
         public DateTime ForDate { get; set; }
 
         public virtual Seat Seat { get; set; }
-        public virtual ApplicationUser Visitor { get; set; }
+        public virtual ApplicationUser Customer { get; set; }
         public virtual Cinema Cinema { get; set; }
         public virtual Movie Movie { get; set; }
     }

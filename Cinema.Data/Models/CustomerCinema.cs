@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Cinema.Data.Models
 {
-    public class VisitorCinema
+    public class CustomerCinema
     {
-        public string VisitorId { get; set; }
-        public ApplicationUser Visitor { get; set; }
+        public string CustomerId { get; set; }
+        public ApplicationUser Customer { get; set; }
         public int CinemaId { get; set; }
         public Cinema Cinema { get; set; }
     }

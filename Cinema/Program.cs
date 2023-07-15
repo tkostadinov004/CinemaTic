@@ -1,8 +1,10 @@
 using Cinema.Core.Contracts;
+using Cinema.Core.Profiles;
 using Cinema.Core.Services;
 using Cinema.Data;
 using Cinema.Data.Models;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -12,8 +14,6 @@ using Microsoft.Extensions.Hosting;
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<CinemaDbContext>(options =>
-    options.UseSqlServer(connectionString));
 builder.Services.AddDbContext<CinemaDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
@@ -30,12 +30,19 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequireDigit = false;
 });
 
+builder.Services.AddAutoMapper(options =>
+{
+    options.AddProfile<CinemasProfile>();
+});
+
 builder.Services.AddScoped<IActorsService, ActorsService>();
 builder.Services.AddScoped<IAdminService, AdminService>();
 builder.Services.AddScoped<IGenresService, GenresService>();
 builder.Services.AddScoped<IMoviesService, MoviesService>();
 builder.Services.AddScoped<ITicketsService, TicketsService>();
-builder.Services.AddScoped<IVisitorsService, VisitorsService>();
+builder.Services.AddScoped<ICustomersService, CustomersService>();
+builder.Services.AddScoped<IOwnersService, OwnersService>();
+builder.Services.AddScoped<ISectorsService, SectorsService>();
 
 var app = builder.Build();
 
@@ -67,5 +74,9 @@ app.MapRazorPages();
 using var scope = app.Services.CreateScope();
 var initializer = new DbInitializer(scope.ServiceProvider.GetService<CinemaDbContext>());
 initializer.Run(scope.ServiceProvider, false);
+
+LogService._context = scope.ServiceProvider.GetService<CinemaDbContext>();
+LogService._userManager = scope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
+LogService._httpContextAccessor = scope.ServiceProvider.GetService<IHttpContextAccessor>();
 
 app.Run();

@@ -147,7 +147,7 @@ namespace Cinema.Core.Services
                 Actors = movie.Actors.Select(i => $"{i.FirstName} {i.LastName}").ToList(),
                 AverageRating = ratings.ToList().Count == 0 ? 0 : ratings.Select(i => i.Rating).Average(),
                 RatingCount = ratings.Count(),
-                CurrentUserRating = ratings.FirstOrDefault(i => i.User.Email == currentUser.Email) == null ? null : ratings.FirstOrDefault(i => i.User.Email == currentUser.Email).Rating,
+                CurrentUserRating = ratings.FirstOrDefault(i => i.Customer.Email == currentUser.Email) == null ? null : ratings.FirstOrDefault(i => i.Customer.Email == currentUser.Email).Rating,
                 UserCinemas = (await _context.Cinemas.Where(i => i.OwnerId == currentUser.Id && i.ApprovalStatus == ApprovalStatus.Approved).ToListAsync()).Select(i => new CinemaCheckboxViewModel
                 {
                     Id = i.Id,
@@ -167,7 +167,7 @@ namespace Cinema.Core.Services
 
         public async Task<IEnumerable<UserMovie>> GetRatingsByMovieIdAsync(int? id)
         {
-            return await _context.UsersMovies.Include(i => i.Movie).Include(i => i.User).Where(i => i.Movie.Id == id).ToListAsync();
+            return await _context.UsersMovies.Include(i => i.Movie).Include(i => i.Customer).Where(i => i.Movie.Id == id).ToListAsync();
         }
 
         public async Task<StatisticsViewModel> GetStatistics()
@@ -196,11 +196,11 @@ namespace Cinema.Core.Services
         {
             var currentUser = await _userManager.FindByEmailAsync(userEmail);
             var movie = _context.Movies.Include(i => i.Genre).ToListAsync().Result.FirstOrDefault(i => i.Id == id);
-            var usersRatedMovie = _context.UsersMovies.Include(i => i.Movie).Include(i => i.User).ToList();
+            var usersRatedMovie = _context.UsersMovies.Include(i => i.Movie).Include(i => i.Customer).ToList();
 
             decimal currentRating = rating;
 
-            var userMovie = usersRatedMovie.FirstOrDefault(i => i.User.Email == currentUser.Email && i.Movie.Id == movie.Id);
+            var userMovie = usersRatedMovie.FirstOrDefault(i => i.Customer.Email == currentUser.Email && i.Movie.Id == movie.Id);
 
             if (userMovie == null)
             {
@@ -210,13 +210,13 @@ namespace Cinema.Core.Services
                 _context.UsersMovies.Add(new UserMovie
                 {
                     MovieId = movie.Id,
-                    UserId = currentUser.Id,
+                    CustomerId = currentUser.Id,
                     Rating = currentRating
                 });
             }
             else
             {
-                currentRating = usersRatedMovie.FirstOrDefault(i => i.User.Email == currentUser.Email && i.Movie.Id == movie.Id).Rating - rating;
+                currentRating = usersRatedMovie.FirstOrDefault(i => i.Customer.Email == currentUser.Email && i.Movie.Id == movie.Id).Rating - rating;
 
                 userMovie.Rating = rating;
                 movie.UserRating = ((movie.UserRating * movie.RatingCount) - currentRating) / movie.RatingCount;

@@ -175,13 +175,13 @@ namespace Cinema.Core.Services
             decimal totalIncome = cinemas
                 .Select(i => i.Tickets.Select(k => k.Price).Sum()).Sum();
 
-            var cinemasVisitors = cinemas.ToDictionary(cinema => cinema.Name, value => value.Visitors.Count);
+            var cinemasCustomers = cinemas.ToDictionary(cinema => cinema.Name, value => value.Customers.Count);
             var cinemasTotalRevenues = cinemas.ToDictionary(cinema => cinema.Name, value => value.Tickets.Sum(i => i.Price));
             return new OwnerStatisticsViewModel
             {
                 PersonalIncome = personalIncome,
                 TotalIncome = totalIncome,
-                CinemasVisitors = cinemasVisitors,
+                CinemasCustomers = cinemasCustomers,
                 CinemasTotalRevenues = cinemasTotalRevenues
             };
         }

@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace Cinema.Core.Services
 {
-    public class VisitorsService : IVisitorsService
+    public class CustomersService : ICustomersService
     {
         private readonly UserManager<ApplicationUser> _userManager;
 
-        public VisitorsService(UserManager<ApplicationUser> userManager)
+        public CustomersService(UserManager<ApplicationUser> userManager)
         {
             this._userManager = userManager;
         }
@@ -27,9 +27,9 @@ namespace Cinema.Core.Services
             //return users.Where(i => this.IsVisitorAsync(i).Result);
             return null;
         }
-        private async Task<bool> IsVisitorAsync(ApplicationUser user)
+        private async Task<bool> IsCustomerAsync(ApplicationUser user)
         {
-            return await _userManager.IsInRoleAsync(user, "Visitor");
+            return await _userManager.IsInRoleAsync(user, "Customer");
         }
     }
 }

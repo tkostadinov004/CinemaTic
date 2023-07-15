@@ -1,7 +1,7 @@
 ﻿@model Cinema.Data.Models.ApplicationUser
 
 @{
-    ViewData["Title"] = "Delete visitor account";
+    ViewData["Title"] = "Delete customer account";
 }
 <link href="~/css/adminStyle.css" rel="stylesheet" />
 <link href="~/css/cardStyle.css" rel="stylesheet" />
@@ -10,7 +10,7 @@
     <div class="owner-info">
         <p class="edited-object">User: <b>@string.Format($"{Model.FirstName} {Model.LastName}")</b></p>
     </div>
-    <form class="agreement-buttons" asp-controller="Admin" asp-action="DeleteVisitorAccount">
+    <form class="agreement-buttons" asp-controller="Admin" asp-action="DeleteCustomerAccount">
         <button type="submit" class="nx-btn green front-panel" asp-route-id="@Model.Id">Yes</button>
         <a class="nx-btn front-panel" asp-controller="Admin" asp-action="Index">No</a>
     </form>

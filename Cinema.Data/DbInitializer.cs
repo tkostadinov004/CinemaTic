@@ -63,12 +63,12 @@ namespace Cinema.Data
                     roleResult.Wait();
                 }
 
-                Task<bool> hasVisitorRole = roleManager.RoleExistsAsync("Visitor");
-                hasVisitorRole.Wait();
+                Task<bool> hasCustomerRole = roleManager.RoleExistsAsync("Customer");
+                hasCustomerRole.Wait();
 
-                if (!hasVisitorRole.Result)
+                if (!hasCustomerRole.Result)
                 {
-                    roleResult = roleManager.CreateAsync(new IdentityRole("Visitor"));
+                    roleResult = roleManager.CreateAsync(new IdentityRole("Customer"));
                     roleResult.Wait();
                 }
             }
@@ -106,68 +106,68 @@ namespace Cinema.Data
                     }
                 }
 
-                Task<ApplicationUser> visitorUser1 = userManager.FindByEmailAsync("visitor@visitor.com");
-                visitorUser1.Wait();
+                Task<ApplicationUser> customerUser1 = userManager.FindByEmailAsync("customer@customer.com");
+                customerUser1.Wait();
 
-                Task<IdentityResult> visitorUser1Result = null;
-                if (visitorUser1.Result == null)
+                Task<IdentityResult> customerUser1Result = null;
+                if (customerUser1.Result == null)
                 {
-                    ApplicationUser visitor = new ApplicationUser();
-                    visitor.Email = "visitor@visitor.com";
-                    visitor.UserName = "visitor@visitor.com";
-                    visitor.FirstName = "George";
-                    visitor.LastName = "Jameson";
-                    visitor.EmailConfirmed = true;
+                    ApplicationUser customer = new ApplicationUser();
+                    customer.Email = "customer@customer.com";
+                    customer.UserName = "customer@customer.com";
+                    customer.FirstName = "George";
+                    customer.LastName = "Jameson";
+                    customer.EmailConfirmed = true;
 
-                    visitorUser1Result = userManager.CreateAsync(visitor, "visitorPass123*");
-                    visitorUser1Result.Wait();
-                    if (visitorUser1Result.Result.Succeeded)
+                    customerUser1Result = userManager.CreateAsync(customer, "customerPass123*");
+                    customerUser1Result.Wait();
+                    if (customerUser1Result.Result.Succeeded)
                     {
-                        Task<IdentityResult> newUserRole = userManager.AddToRoleAsync(visitor, "Visitor");
+                        Task<IdentityResult> newUserRole = userManager.AddToRoleAsync(customer, "Customer");
                         newUserRole.Wait();
                     }
                 }
 
-                Task<ApplicationUser> visitorUser2 = userManager.FindByEmailAsync("visitor2@visitor.com");
-                visitorUser2.Wait();
+                Task<ApplicationUser> customerUser2 = userManager.FindByEmailAsync("customer2@customer.com");
+                customerUser2.Wait();
 
-                Task<IdentityResult> visitorUser2Result = null;
-                if (visitorUser2.Result == null)
+                Task<IdentityResult> customerUser2Result = null;
+                if (customerUser2.Result == null)
                 {
-                    ApplicationUser visitor = new ApplicationUser();
-                    visitor.Email = "visitor2@visitor.com";
-                    visitor.UserName = "visitor2@visitor.com";
-                    visitor.FirstName = "Ivan";
-                    visitor.LastName = "Moody";
-                    visitor.EmailConfirmed = true;
+                    ApplicationUser customer = new ApplicationUser();
+                    customer.Email = "customer2@customer.com";
+                    customer.UserName = "customer2@customer.com";
+                    customer.FirstName = "Ivan";
+                    customer.LastName = "Moody";
+                    customer.EmailConfirmed = true;
 
-                    visitorUser2Result = userManager.CreateAsync(visitor, "visitorPass123*");
-                    visitorUser2Result.Wait();
-                    if (visitorUser2Result.Result.Succeeded)
+                    customerUser2Result = userManager.CreateAsync(customer, "customerPass123*");
+                    customerUser2Result.Wait();
+                    if (customerUser2Result.Result.Succeeded)
                     {
-                        Task<IdentityResult> newUserRole = userManager.AddToRoleAsync(visitor, "Visitor");
+                        Task<IdentityResult> newUserRole = userManager.AddToRoleAsync(customer, "Customer");
                         newUserRole.Wait();
                     }
                 }
 
-                Task<ApplicationUser> visitorUser3 = userManager.FindByEmailAsync("visitor3@visitor.com");
-                visitorUser3.Wait();
+                Task<ApplicationUser> customerUser3 = userManager.FindByEmailAsync("customer3@customer.com");
+                customerUser3.Wait();
 
-                Task<IdentityResult> visitorUser3Result = null;
-                if (visitorUser3.Result == null)
+                Task<IdentityResult> customerUser3Result = null;
+                if (customerUser3.Result == null)
                 {
-                    ApplicationUser visitor = new ApplicationUser();
-                    visitor.Email = "visitor3@visitor.com";
-                    visitor.UserName = "visitor3@visitor.com";
-                    visitor.FirstName = "Jack";
-                    visitor.LastName = "Carson";
-                    visitor.EmailConfirmed = true;
+                    ApplicationUser customer = new ApplicationUser();
+                    customer.Email = "customer3@customer.com";
+                    customer.UserName = "customer3@customer.com";
+                    customer.FirstName = "Jack";
+                    customer.LastName = "Carson";
+                    customer.EmailConfirmed = true;
 
-                    visitorUser3Result = userManager.CreateAsync(visitor, "visitorPass123*");
-                    visitorUser3Result.Wait();
-                    if (visitorUser3Result.Result.Succeeded)
+                    customerUser3Result = userManager.CreateAsync(customer, "customerPass123*");
+                    customerUser3Result.Wait();
+                    if (customerUser3Result.Result.Succeeded)
                     {
-                        Task<IdentityResult> newUserRole = userManager.AddToRoleAsync(visitor, "Visitor");
+                        Task<IdentityResult> newUserRole = userManager.AddToRoleAsync(customer, "Customer");
                         newUserRole.Wait();
                     }
                 }

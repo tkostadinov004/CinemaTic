@@ -20,10 +20,6 @@ namespace Cinema.Controllers
 
         public IActionResult Index()
         {
-            //if (User.IsInRole("Administrator"))
-            //{
-            //    return RedirectToAction("Index", "Admin");
-            //}
             if (User.IsInRole("Owner"))
             {
                 return RedirectToAction("Index", "Owners");
@@ -32,7 +28,10 @@ namespace Cinema.Controllers
             {
                 return RedirectToAction("Index", "Admin");
             }
-            //return View(_context.Movies.ToList());
+            if (User.IsInRole("Customer"))
+            {
+                return RedirectToAction("Index", "Customer");
+            }
             return View();
         }
 

@@ -5,13 +5,15 @@ VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinema", "Cinema\Cinema.csproj", "{BD23EE51-A845-4F8A-BABB-C81B366A77F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Data", "Cinema.Data\Cinema.Data.csproj", "{8CA59975-8ACF-48D6-978C-A44D280BC12A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinema.Data", "Cinema.Data\Cinema.Data.csproj", "{8CA59975-8ACF-48D6-978C-A44D280BC12A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Data.Seeder", "Cinema.Data.Seeder\Cinema.Data.Seeder.csproj", "{A27E2B8F-A9A6-4A15-81E5-66AAB8937BC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinema.Data.Seeder", "Cinema.Data.Seeder\Cinema.Data.Seeder.csproj", "{A27E2B8F-A9A6-4A15-81E5-66AAB8937BC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Core", "Cinema.Core\Cinema.Core.csproj", "{DF1DA473-B719-4EB7-8189-3B5E9E5282C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinema.Core", "Cinema.Core\Cinema.Core.csproj", "{DF1DA473-B719-4EB7-8189-3B5E9E5282C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.ViewModels", "Cinema.ViewModels\Cinema.ViewModels.csproj", "{ABA712DD-CCEE-469F-AD62-836895B0DE17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinema.ViewModels", "Cinema.ViewModels\Cinema.ViewModels.csproj", "{ABA712DD-CCEE-469F-AD62-836895B0DE17}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinema.Extensions", "Cinema.Extensions\Cinema.Extensions.csproj", "{EEC87DA7-D93E-4C90-A5F3-C6C00C201DF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{ABA712DD-CCEE-469F-AD62-836895B0DE17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABA712DD-CCEE-469F-AD62-836895B0DE17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABA712DD-CCEE-469F-AD62-836895B0DE17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEC87DA7-D93E-4C90-A5F3-C6C00C201DF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEC87DA7-D93E-4C90-A5F3-C6C00C201DF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEC87DA7-D93E-4C90-A5F3-C6C00C201DF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEC87DA7-D93E-4C90-A5F3-C6C00C201DF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

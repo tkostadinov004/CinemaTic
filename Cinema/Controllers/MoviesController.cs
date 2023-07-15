@@ -156,13 +156,13 @@ namespace Cinema.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Visitor")]
+        [Authorize(Roles = "Customer")]
         public async Task<IActionResult> SetRating(int? id)
         {
             return Ok(); //todo: remove
         }
         [HttpPost]
-        [Authorize(Roles = "Visitor")]
+        [Authorize(Roles = "Customer")]
         public async Task<IActionResult> SetRating(int movieId, decimal userRating)
         {
             if (userRating == 0)

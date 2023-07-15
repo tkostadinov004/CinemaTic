@@ -11,7 +11,7 @@ namespace Cinema.ViewModels.Cinemas
     {
         public decimal PersonalIncome { get; set; }
         public decimal TotalIncome { get; set; }
-        public IDictionary<string, int> CinemasVisitors { get; set; }
+        public IDictionary<string, int> CinemasCustomers { get; set; }
         public IDictionary<string, decimal> CinemasTotalRevenues { get; set; }
     }
 }

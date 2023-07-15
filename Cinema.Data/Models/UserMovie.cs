@@ -8,8 +8,8 @@ namespace Cinema.Data.Models
 {
     public class UserMovie
     {
-        public string UserId { get; set; }
-        public virtual ApplicationUser User { get; set; }
+        public string CustomerId { get; set; }
+        public virtual ApplicationUser Customer { get; set; }
 
         public int MovieId { get; set; }
         public virtual Movie Movie { get; set; }

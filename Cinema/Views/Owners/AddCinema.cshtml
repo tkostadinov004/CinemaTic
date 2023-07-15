@@ -57,48 +57,48 @@
             <div class="form-group">
                 <div class="active-form">
                     <i class="input-icon">BG</i>
-                    <input type="color" class="form-control form-style color-picker" placeholder="Background color" value="#000000">
-                    <input type="text" class="visualizer" value="#000000" asp-for="BackgroundColor" />
+                    <input type="color" class="form-control form-style color-picker" value="#000000">
+                    <input type="text" class="visualizer" onfocusout="setDefaultColor(this, '#000000');" placeholder="Background color" asp-for="BackgroundColor" />
                 </div>
                 <span asp-validation-for="BackgroundColor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <div class="active-form">
                     <i class="input-icon">HD</i>
-                    <input type="color" class="form-control form-style color-picker" placeholder="Board color" value="#FFFFFF">
-                    <input type="text" class="visualizer" value="#FFFFFF" asp-for="BoardColor" />
+                    <input type="color" class="form-control form-style color-picker" value="#FFFFFF">
+                    <input type="text" class="visualizer" onfocusout="setDefaultColor(this, '#FFFFFF');" placeholder="Board color" asp-for="BoardColor" />
                 </div>
                 <span asp-validation-for="BoardColor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <div class="active-form">
                     <i class="input-icon">TX</i>
-                    <input type="color" class="form-control form-style color-picker" placeholder="Text color" value="#FFFFFF">
-                    <input type="text" class="visualizer" value="#FFFFFF" asp-for="TextColor" />
+                    <input type="color" class="form-control form-style color-picker" value="#FFFFFF">
+                    <input type="text" class="visualizer" onfocusout="setDefaultColor(this, '#FFFFFF');" placeholder="Text color" asp-for="TextColor" />
                 </div>
                 <span asp-validation-for="TextColor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <div class="active-form">
                     <i class="input-icon">BT</i>
-                    <input type="color" class="form-control form-style color-picker" placeholder="Button background color" value="#FFFFFF">
-                    <input type="text" class="visualizer" value="#FFFFFF" asp-for="ButtonBackgroundColor" />
+                    <input type="color" class="form-control form-style color-picker" value="#FFFFFF">
+                    <input type="text" class="visualizer" onfocusout="setDefaultColor(this, '#FFFFFF');" placeholder="Button background color" asp-for="ButtonBackgroundColor" />
                 </div>
                 <span asp-validation-for="ButtonBackgroundColor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <div class="active-form">
                     <i class="input-icon">BT</i>
-                    <input type="color" class="form-control form-style color-picker" placeholder="Button text color" value="#000000">
-                    <input type="text" class="visualizer" value="#000000" asp-for="ButtonTextColor" />
+                    <input type="color" class="form-control form-style color-picker" value="#000000">
+                    <input type="text" class="visualizer" onfocusout="setDefaultColor(this, '#000000');" placeholder="Button text color" asp-for="ButtonTextColor" />
                 </div>
                 <span asp-validation-for="ButtonTextColor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <div class="active-form">
-                    <i class="input-icon">BT</i>
-                    <input type="color" class="form-control form-style color-picker" placeholder="Accent color" value="#FF0000">
-                    <input type="text" class="visualizer" value="#FF0000" asp-for="AccentColor" />
+                    <i class="input-icon">AC</i>
+                    <input type="color" class="form-control form-style color-picker" value="#FF0000">
+                    <input type="text" class="visualizer" onfocusout="setDefaultColor(this, '#FF0000');" placeholder="Accent color" asp-for="AccentColor" />
                 </div>
                 <span asp-validation-for="AccentColor" class="text-danger"></span>
             </div>
@@ -136,20 +136,21 @@
 <script src="~/js/ownerdashboard.js"></script>
 <script src="~/js/rating-modal.js"></script>
 <script>
-    jscolor.presets.default = {
-        position: 'bottom',
-        backgroundColor: '#101827',
-        borderColor: '#101827',
-        controlBorderColor: '#101827',
-        format: 'hex',
-        previewPosition: 'right'
-    };
     document.querySelectorAll('input[type="color"]').forEach(i => i.addEventListener("input", function () {
         var visualizer = i.nextElementSibling;
         visualizer.value = i.value;
     }));
     document.querySelectorAll('input.visualizer').forEach(i => i.addEventListener("input", function () {
         var colorPicker = i.previousElementSibling;
-        colorPicker.value = i.value;
+        if (i.value) {
+            colorPicker.value = i.value;
+        }
     }));
+    function setDefaultColor(element, color) {
+        if (!element.value) {
+            element.value = color;
+            element.previousElementSibling.value = color;
+        }
+
+    }
 </script>

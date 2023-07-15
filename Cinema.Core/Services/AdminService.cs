@@ -54,7 +54,7 @@ namespace Cinema.Core.Services
             if (_userManager.IsInRoleAsync(owner, "Owner").Result)
             {
                 await _userManager.RemoveFromRoleAsync(owner, "Owner");
-                await _userManager.AddToRoleAsync(owner, "Visitor");
+                await _userManager.AddToRoleAsync(owner, "Customer");
             }
         }
 
@@ -69,7 +69,7 @@ namespace Cinema.Core.Services
 
             if (_userManager.IsInRoleAsync(user, "Owner").Result == false)
             {
-                await _userManager.RemoveFromRoleAsync(user, "Visitor");
+                await _userManager.RemoveFromRoleAsync(user, "Customer");
                 await _userManager.AddToRoleAsync(user, "Owner");
             }
         }

@@ -15,7 +15,7 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap-icons.css" rel="stylesheet" />
     <link href="~/css/layoutStyle.css" rel="stylesheet" asp-append-version="true" />
     <link rel="shortcut icon" href="~/img/favicon.ico" />
-    @if (User.Identity.IsAuthenticated && !User.IsInRole("Visitor"))
+    @if (User.Identity.IsAuthenticated && !User.IsInRole("Customer"))
     {
         <link href="~/css/manageStyle.css" rel="stylesheet" />
     }
@@ -23,7 +23,7 @@
 <body>
     <main>
         <div class="app-container">
-            @if (User.Identity.IsAuthenticated && !User.IsInRole("Visitor"))
+            @if (User.Identity.IsAuthenticated && !User.IsInRole("Customer"))
             {
                 <partial name="_ManageSidebarPartial" />
             }
@@ -38,7 +38,7 @@
             @RenderBody()
         </div>
     </main>
-    @if (User.Identity.IsAuthenticated == false || User.IsInRole("Visitor"))
+    @if (User.Identity.IsAuthenticated == false || User.IsInRole("Customer"))
     {
         <footer class="site-footer section-padding">
             <partial name="_FooterPartial" />

@@ -26,7 +26,7 @@ namespace Cinema.Controllers
             return View(tickets);
         }
         // GET: Tickets/Create
-        [Authorize(Roles = "Visitor")]
+        [Authorize(Roles = "Customer")]
         [AllowAnonymous]
         public async Task<IActionResult> Create(int movieId, string? sector, DateTime forDate)
         {
@@ -38,7 +38,7 @@ namespace Cinema.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize(Roles = "Visitor")]
+        [Authorize(Roles = "Customer")]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(string seatCoords, int movieId, DateTime forDate)

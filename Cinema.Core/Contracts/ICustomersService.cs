@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.Core.Contracts
 {
-    public interface IVisitorsService
+    public interface ICustomersService
     {
         Task<IEnumerable<ApplicationUser>> GetAllAsync();
     }

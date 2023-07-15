@@ -35,12 +35,11 @@
                         <h1 class="welcome-title">Welcome, @names!</h1>
                         @if (User.IsInRole("Owner"))
                         {
-                            <a class="" asp-controller="Visitors" asp-action="Index">Visitors</a>
                             <a class="" asp-controller="Genres" asp-action="Index">Genres</a>
                             <a class="" asp-controller="Actors" asp-action="Index">Actors</a>
                             <a class="" asp-controller="Movies" asp-action="Index">Movies</a>
                         }
-                        @if (User.IsInRole("Visitor"))
+                        @if (User.IsInRole("Customer"))
                         {
                             <a class="" asp-controller="Tickets" asp-action="Index">Your tickets</a>
                         }

@@ -79,18 +79,18 @@ namespace Cinema.Controllers
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]
-        public async Task<IActionResult> DeleteVisitorAccount(string userId)
+        public async Task<IActionResult> DeleteCustomerAccount(string userId)
         {
-            var visitor = await _adminService.FindById(userId);
-            if (visitor == null)
+            var customer = await _adminService.FindById(userId);
+            if (customer == null)
             {
                 return RedirectToAction(nameof(Index));
             }
-            return View(visitor);
+            return View(customer);
         }
-        [HttpPost, ActionName("DeleteVisitorAccount")]
+        [HttpPost, ActionName("DeleteCustomerAccount")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteVisitorAccountConfirmed(string id)
+        public async Task<IActionResult> DeleteCustomerAccountConfirmed(string id)
         {
             await _adminService.DeleteAccount(id);
             return RedirectToAction(nameof(Index));

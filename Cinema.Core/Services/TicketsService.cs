@@ -31,12 +31,12 @@ namespace Cinema.Core.Services
 
         public async Task<IEnumerable<Ticket>> GetAllAsync()
         {
-            return await _context.Tickets.Include(t => t.Visitor).Include(t => t.Movie).Include(t => t.Seat).ToListAsync();
+            return await _context.Tickets.Include(t => t.Customer).Include(t => t.Movie).Include(t => t.Seat).ToListAsync();
         }
         public async Task<IEnumerable<Ticket>> GetTicketsByUserAsync(string userEmail)
         {
             var tickets = await this.GetAllAsync();
-            return tickets.Where(i => i.Visitor.Email == userEmail);
+            return tickets.Where(i => i.Customer.Email == userEmail);
         }
 
         private Tuple<int, int> GetSeatCoordinates(string seatNumber)
@@ -96,7 +96,7 @@ namespace Cinema.Core.Services
             {
                 ForDate = forDate,
                 Movie = movie,
-                Visitor = userEmail == null ? null : await _userManager.FindByEmailAsync(userEmail)
+                Customer = userEmail == null ? null : await _userManager.FindByEmailAsync(userEmail)
             };
             ticket.Seat = ticketSeat;
             //ticket.Price = ticket.Seat.Price + movie.Price;
