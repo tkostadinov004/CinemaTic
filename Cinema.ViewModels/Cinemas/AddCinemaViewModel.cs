@@ -23,9 +23,11 @@ namespace Cinema.ViewModels.Cinemas
         [Range(typeof(int), "0", "1000", ErrorMessage = "The columns count should be between {2} and {1}")]
         public string SeatCols { get; set; }
         public string BackgroundColor { get; set; }
-        public string HeadingColor { get; set; }
+        public string BoardColor { get; set; }
         public string TextColor { get; set; }
         public string ButtonBackgroundColor { get; set; }
+        public string ButtonTextColor { get; set; }
+        public string AccentColor { get; set; }
         [Required(ErrorMessage = "Upload an image")]
         public IFormFile Image { get; set; }
     }

@@ -57,30 +57,50 @@
             <div class="form-group">
                 <div class="active-form">
                     <i class="input-icon">BG</i>
-                    <input class="form-control form-style" asp-for="BackgroundColor" placeholder="Background color" data-jscolor="{}">
+                    <input type="color" class="form-control form-style color-picker" placeholder="Background color" value="#000000">
+                    <input type="text" class="visualizer" value="#000000" asp-for="BackgroundColor" />
                 </div>
                 <span asp-validation-for="BackgroundColor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <div class="active-form">
                     <i class="input-icon">HD</i>
-                    <input class="form-control form-style" asp-for="HeadingColor" placeholder="Heading color" data-jscolor="{}">
+                    <input type="color" class="form-control form-style color-picker" placeholder="Board color" value="#FFFFFF">
+                    <input type="text" class="visualizer" value="#FFFFFF" asp-for="BoardColor" />
                 </div>
-                <span asp-validation-for="HeadingColor" class="text-danger"></span>
+                <span asp-validation-for="BoardColor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <div class="active-form">
                     <i class="input-icon">TX</i>
-                    <input class="form-control form-style" asp-for="TextColor" placeholder="Text color" data-jscolor="{}">
+                    <input type="color" class="form-control form-style color-picker" placeholder="Text color" value="#FFFFFF">
+                    <input type="text" class="visualizer" value="#FFFFFF" asp-for="TextColor" />
                 </div>
                 <span asp-validation-for="TextColor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <div class="active-form">
                     <i class="input-icon">BT</i>
-                    <input class="form-control form-style" asp-for="ButtonBackgroundColor" placeholder="Button background color" data-jscolor="{}">
+                    <input type="color" class="form-control form-style color-picker" placeholder="Button background color" value="#FFFFFF">
+                    <input type="text" class="visualizer" value="#FFFFFF" asp-for="ButtonBackgroundColor" />
                 </div>
                 <span asp-validation-for="ButtonBackgroundColor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="active-form">
+                    <i class="input-icon">BT</i>
+                    <input type="color" class="form-control form-style color-picker" placeholder="Button text color" value="#000000">
+                    <input type="text" class="visualizer" value="#000000" asp-for="ButtonTextColor" />
+                </div>
+                <span asp-validation-for="ButtonTextColor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="active-form">
+                    <i class="input-icon">BT</i>
+                    <input type="color" class="form-control form-style color-picker" placeholder="Accent color" value="#FF0000">
+                    <input type="text" class="visualizer" value="#FF0000" asp-for="AccentColor" />
+                </div>
+                <span asp-validation-for="AccentColor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <div class="active-form">
@@ -114,7 +134,6 @@
     <div class="modal-overlay"></div>
 </div>
 <script src="~/js/ownerdashboard.js"></script>
-<script src="~/lib/jscolor/jscolor.min.js"></script>
 <script src="~/js/rating-modal.js"></script>
 <script>
     jscolor.presets.default = {
@@ -125,4 +144,12 @@
         format: 'hex',
         previewPosition: 'right'
     };
+    document.querySelectorAll('input[type="color"]').forEach(i => i.addEventListener("input", function () {
+        var visualizer = i.nextElementSibling;
+        visualizer.value = i.value;
+    }));
+    document.querySelectorAll('input.visualizer').forEach(i => i.addEventListener("input", function () {
+        var colorPicker = i.previousElementSibling;
+        colorPicker.value = i.value;
+    }));
 </script>

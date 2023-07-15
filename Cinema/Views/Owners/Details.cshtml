@@ -149,28 +149,32 @@
     }));
 
     var modalContainer = document.getElementById('review-form-container');
+    var popupModal = document.getElementById("modal");
     var editButton = document.getElementById("edit");
     editButton.addEventListener("click", function () {
         modalContainer.innerHTML = "";
+        popupModal.classList.remove("preview");
         getUDpartial('Owners', 'EditCinema', '@Model.Id');
     });
 
     var deleteButton = document.getElementById("delete");
     deleteButton.addEventListener("click", function () {
         modalContainer.innerHTML = "";
+        popupModal.classList.remove("preview");
         getUDpartial('Owners', 'DeleteCinema', '@Model.Id');
     });
 
     var previewButton = document.getElementById("preview-sectors");
     previewButton.addEventListener("click", function () {
         modalContainer.innerHTML = "";
+        popupModal.classList.add("preview");
         $.ajax({
             type: "GET",
             url: `/Owners/GenerateCustomPagePreview`,
             data: { userEmail: '@User.Identity.Name', cinemaId: '@Model.Id' },
             success: function (response) {
-                //$("#review-form-container").html(response);
-                location.href = 'https://localhost:44305/Owners/GenerateCustomPagePreview?userEmail=@User.Identity.Name&cinemaId=@Model.Id'
+               // $("#review-form-container").html(response);
+               location.href = '/Owners/GenerateCustomPagePreview?userEmail=@User.Identity.Name&cinemaId=@Model.Id'
             },
             failure: function (response) {
                 alert(response.responseText);

@@ -939,3 +939,20 @@ button.seat span {
 button.seat .seat-bottom {
     gap: 10px;
 }
+input.color-picker {
+    border-radius: 0;
+    margin-left: 20px;
+    width: 15%;
+    height: 50px;
+}
+input.visualizer {
+    color: white;
+    border: 1px solid grey;
+    width: 30%;
+}
+div.active-form input[type="color"] {
+    margin: 0;
+}
+div.active-form i.input-icon {
+    min-width: 30px;
+}

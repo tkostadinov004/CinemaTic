@@ -299,6 +299,12 @@ namespace Cinema.Core.Services
                 CinemaLogoUrl = cinema.ImageUrl,
                 ProfilePictureUrl = user.ProfilePictureUrl,
                 Dates = dates,
+                AccentColor = cinema.AccentColor,
+                BackgroundColor = cinema.BackgroundColor,
+                BoardColor = cinema.BoardColor,
+                ButtonBackgroundColor = cinema.ButtonBackgroundColor,
+                ButtonTextColor = cinema.ButtonTextColor,
+                TextColor = cinema.TextColor
             };
         }
     }

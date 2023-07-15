@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -91,7 +92,7 @@ namespace Cinema.Controllers
         }
         public async Task<IActionResult> GenerateCustomPagePreview(string userEmail, string cinemaId)
         {
-            return View("_CustomPagePreviewPartial", await _ownersService.PreparePreviewViewModelAsync(userEmail, cinemaId));
+           return View("_CustomPagePreview", await _ownersService.PreparePreviewViewModelAsync(userEmail, cinemaId));
         }
     }
 }

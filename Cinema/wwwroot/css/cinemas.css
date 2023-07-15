@@ -1,0 +1,200 @@
+﻿nav {
+    background-color: transparent;
+    color: white;
+    padding: 0px 50px;
+    position: relative;
+    z-index: 20;
+}
+
+a.logo-link {
+    width: fit-content;
+}
+
+div.container {
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    flex-basis: 200px;
+    flex-grow: 1;
+    height: 300px;
+}
+
+img#cinema-logo {
+    width: 100px;
+}
+
+img#profile-picture {
+    width: 70px;
+}
+
+div.main-cinema-container {
+    width: 100%;
+    position: relative;
+}
+
+img.bg-image {
+    transform: rotate(180deg);
+    position: absolute;
+    top: 0;
+}
+
+.main-container {
+    position: relative;
+    z-index: 20;
+}
+
+.dates-container {
+    width: 100%;
+    height: 200px;
+    background: white;
+    padding: 20px 80px;
+}
+
+div.gradient-box {
+    height: 32px;
+    box-shadow: 0 -1px #ddd;
+    background-image: linear-gradient(#f4f4f4,#fff);
+}
+
+div.dates-info-container {
+    background: white;
+    padding: 0px 80px;
+}
+
+.row span {
+    font-size: 1.5rem;
+    width: fit-content;
+}
+
+.selection-buttons {
+    width: fit-content;
+}
+
+    .selection-buttons button, .button {
+        background-color: white;
+        border-radius: 5px;
+        padding: 10px;
+        border: 2px solid lightgray;
+    }
+
+        .selection-buttons button:not(.movie-item).active, .button.active {
+            border: 2px solid red;
+        }
+
+button.date {
+    border: 0;
+    background: white;
+    width: fit-content;
+}
+
+    button.date.active {
+        font-size: 1.5rem;
+        color: red;
+        font-weight: 400;
+    }
+
+.movie {
+    padding-bottom: 20px;
+    border-bottom: 2px solid lightgray;
+}
+
+    .movie:not(:first-child) {
+        padding-top: 20px;
+    }
+
+    .movie img {
+        width: 200px;
+    }
+
+button.time-button {
+    border: 0;
+    background: indianred;
+    color: white;
+    padding: 5px 25px;
+    border-radius: 5px;
+}
+
+.genre-time span + .genre-time span::before {
+    content: " | ";
+}
+
+button.date:not(.active):hover {
+    transform: scale(1.2);
+    font-weight: 500;
+}
+
+button.time-button:hover {
+    background: #ab4c4c;
+}
+
+.dropdown-input {
+    box-sizing: border-box;
+    background-position: 14px 12px;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    padding: 14px 20px 12px 45px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f6f6f6;
+    min-width: 230px;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+
+.show {
+    display: block;
+    padding: 0;
+}
+
+.dropbtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 120%;
+}
+
+#input-search {
+    border: 0;
+    width: 100%;
+    padding: 10px 20px 10px 5px;
+}
+
+.items {
+    padding: 0;
+    padding-top: 10px;
+    max-height: 30vh;
+    overflow: auto;
+}
+
+    .items button {
+        width: 100%;
+        border: 0;
+    }
+
+        .items button:hover {
+            background: lightgray;
+        }
+
+div#modal.preview {
+    width: 99%;
+    height: 99%;
+    padding: 0;
+    overflow: auto;
+}
+
+    div#modal.preview .close-btn {
+        z-index: 1000;
+    }
