@@ -117,6 +117,7 @@
         if (alreadyActive) {
             alreadyActive.classList.remove("selected");
         }
+        activeSort = i;
         i.classList.add("selected");
         getItems('Owners', 'SearchAndFilterCinemas', (search ? search.value : null), '@User.Identity.Name', filterOptions.value, i.id);
     }));

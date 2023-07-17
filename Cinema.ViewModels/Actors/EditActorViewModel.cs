@@ -5,9 +5,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Cinema.ViewModels.Actors
 {
-    public class EditActorViewModel : Actor, IViewModel
+    public class EditActorViewModel : IViewModel
     {
-        [Display(Name = "Image")]
-        public IFormFile Image { get; set; }
+        public int Id { get; set; }
+        public string FullName { get; set; }
+        public DateTime Birthdate { get; set; }
+        public string Nationality { get; set; }
+        public decimal Rating { get; set; }
+        public IFormFile? Image { get; set; }
     }
 }

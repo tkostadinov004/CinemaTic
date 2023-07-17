@@ -105,6 +105,7 @@
         if(alreadyActive) {
             alreadyActive.classList.remove("selected");
         }
+        activeSort = i;
         i.classList.add("selected");
         getItems('Admin', 'SearchAndFilterCinemas', (search ? search.value : null), '', (filterOptions ? filterOptions.value : null), i.id);
     }));

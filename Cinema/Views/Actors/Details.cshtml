@@ -1,54 +1,150 @@
-﻿@model Cinema.Data.Models.Actor
+﻿@model Cinema.ViewModels.Actors.ActorDetailsViewModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Owner dashboard";
+    var currentDate = DateTime.Now;
+    string month = currentDate.Date.ToString("MMMM");
+    int day = currentDate.Day;
 }
-<link href="~/css/ratingModal.css" rel="stylesheet" />
-<div class="details front-panel">
-    <div>
-        <div class="short-info">
-            <div class="section-line">
-                <h1 class="section-line">@string.Format($"{Model.FirstName} {Model.LastName}")</h1>
+<link href="~/css/manageStyle.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/cardStyle.css" />
+<link href="~/css/ratingmodal.css" rel="stylesheet" />
+<div class="app-content">
+    <div class="products-area-wrapper gridView m-0 justify-content-center details">
+        <div class="cinema-row details-card mb-3">
+            <div class="cinema-cell image details-photo-pic">
+                <a class="d-flex align-items-center cinema-link flex-column">
+                    <img src="~/client-images/Actors/@Model.ImageUrl" alt="cinema-logo">
+                    <span>@Model.FullName</span>
+                </a>
             </div>
-            <div class="short-info-line">
-                <div class="info-box">
-                    <p class="info-box-title">@Html.DisplayNameFor(model => model.Nationality)</p>
-                    <p class="info-box-desc">@Html.DisplayFor(model => model.Nationality)</p>
-                </div>
-                <div class="info-box">
-                    <p class="info-box-title">@Html.DisplayNameFor(model => model.Birthdate)</p>
-                    <p class="info-box-desc">@Model.Birthdate.ToString("dd.MM.yyyy")</p>
-                </div>
-                <div class="rating-container">
-                    <span>IMDB rating</span>
-                    <div class="rating-box">
-                        <i class="fa-solid fa-star ct-rating-star"></i>
-                        <div class="rating-number-box">
-                            <span>@string.Format($"{Model.Rating:f1}/10")</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="cinema-cell status-cell">
+                <span class="cell-label">Date of birth:</span>
+                <span>@Model.Birthdate</span>
+            </div>
+            <div class="cinema-cell description">
+                <span class="cell-label">Nationality:</span>
+                <span class="cinema-description">
+                    @Model.Nationality
+                </span>
+            </div>
+            <div class="cinema-cell description">
+                <span class="cell-label">Rating:</span>
+                <span>@Model.Rating</span>
+            </div>
+            <div class="cinema-cell description">
+                <span class="cell-label">Movies:</span>
+                <span>@Model.MoviesCount</span>
             </div>
         </div>
-        <hr class="section-line" />
-        <div class="details-grid actor-details">
-            <img class="cover-photo" src="~/@Cinema.Utilities.Constants.ImagesFolder/Actors/@Model.ImageUrl" />
-            <section class="details-info">
-                <div class="info-box">
-                </div>
-                <div class="info-box actors">
-                    <p class="info-box-title">@Html.DisplayNameFor(model => model.Movies)</p>
-                    <div class="info-box-desc">
-                        @foreach (var movie in Model.Movies)
-                        {
-                        <a class="actor-name" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id"><b>@movie.Title</b></a>
-                        }
-                    </div>
-                </div>
-            </section>
+        <div class="cinema-cell stock">
+            <button id="edit" class="action-button active crud-button open-popup-btn">Edit</button>
+            <button id="delete" class="action-button active crud-button open-popup-btn">Delete</button>
         </div>
-        <form class="edit-button">
-            <a asp-controller="Actors" asp-action="Edit" asp-route-id="@Model.Id" class="nx-btn primary">Edit</a>
-        </form>
+    </div>
+    <div class="app-content-actions">
+        <input id="search-bar" class="search-bar" placeholder="Search..." type="text">
+        <div class="app-content-actions-wrapper">
+            <button class="action-button list active" title="List View">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6" /><line x1="8" y1="12" x2="21" y2="12" /><line x1="8" y1="18" x2="21" y2="18" /><line x1="3" y1="6" x2="3.01" y2="6" /><line x1="3" y1="12" x2="3.01" y2="12" /><line x1="3" y1="18" x2="3.01" y2="18" /></svg>
+            </button>
+            <button class="action-button grid" title="Grid View">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /></svg>
+            </button>
+        </div>
+    </div>
+    <div class="products-area-wrapper movies-wrapper tableView">
+        <div class="products-header">
+            <div class="cinema-cell image">
+                Movie
+                <button class="sort-button" id="name-sort-desc" title="Sort descending">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="name-sort" title="Sort ascending">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+            <div class="cinema-cell status-cell">
+                Genre
+                <button class="sort-button" id="genre-sort-desc" title="Sort descending">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="genre-sort" title="Sort ascending">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+            <div class="cinema-cell sales">
+                Average user rating
+                <button class="sort-button" id="rating-sort-desc" title="Sort descending">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="rating-sort" title="Sort ascending">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+            <div class="cinema-cell stock">
+                Ratings count
+                <button class="sort-button" id="ratingcount-sort-desc" title="Sort descending">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="ratingcount-sort" title="Sort ascending">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+        </div>
+        <div class="movies-container" id="results-container">
+        </div>
     </div>
 </div>
+<div class="rating-container">
+    <div id="modal" role="dialog" aria-modal="true" aria-labelledby="add-review-header" class="edit-modal">
+        <button class="close-btn" aria-label="close" title="Close">x</button>
+        <div id="review-form-container">
+        </div>
+    </div>
+    <div class="modal-overlay"></div>
+</div>
+<script>
+    window.onload = function () {
+        getItems('Actors', 'SearchMoviesByActor', "", '@Model.Id');
+    };
+    var search = document.getElementById("search-bar");
+    var activeSort = document.querySelector('.sort-button.selected');
+    if (search) {
+        let timeout = null;
+        search.addEventListener("keyup", function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                getItems('Actors', 'SearchMoviesByActor', search.value, '@Model.Id', '', (activeSort ? activeSort.id : null));
+            }, 300);
+        });
+    }
+
+    document.querySelectorAll(".sort-button").forEach(i => i.addEventListener('click', function () {
+        var alreadyActive = document.querySelector('.sort-button.selected');
+        if (alreadyActive) {
+            alreadyActive.classList.remove("selected");
+        }
+        activeSort = i;
+        i.classList.add("selected");
+        getItems('Actors', 'SearchMoviesByActor', (search ? search.value : null), '@Model.Id', '', i.id);
+    }));
+
+    var modalContainer = document.getElementById('review-form-container');
+    var popupModal = document.getElementById("modal");
+    var editButton = document.getElementById("edit");
+    editButton.addEventListener("click", function () {
+        modalContainer.innerHTML = "";
+        popupModal.classList.remove("preview");
+        getUDpartial('Actors', 'EditActor', '@Model.Id');
+    });
+
+    var deleteButton = document.getElementById("delete");
+    deleteButton.addEventListener("click", function () {
+        modalContainer.innerHTML = "";
+        popupModal.classList.remove("preview");
+        getUDpartial('Actors', 'DeleteActor', '@Model.Id');
+    }); 
+</script>
+<script src="~/js/ownerdashboard.js"></script>
+<script src="~/js/rating-modal.js"></script>

@@ -1,8 +1,10 @@
 ﻿using Cinema.Core.Contracts;
 using Cinema.Data;
 using Cinema.Data.Models;
+using Cinema.ViewModels.Actors;
 using Cinema.ViewModels.Contracts;
 using Cinema.ViewModels.Genres;
+using Cinema.ViewModels.Movies;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -43,7 +45,7 @@ namespace Cinema.Core.Services
         {
             EditGenreViewModel viewModel = item as EditGenreViewModel;
 
-            var genre = await _context.Genres.FirstOrDefaultAsync(i => i.Id == id);
+            var genre = await _context.Genres.FirstOrDefaultAsync(i => i.Id == viewModel.Id);
             if (genre != null)
             {
                 genre.Name = viewModel.Name;
@@ -65,6 +67,122 @@ namespace Cinema.Core.Services
         public async Task<Genre> GetByIdAsync(int? id)
         {
             return await _context.Genres.Include(i => i.Movies).FirstOrDefaultAsync(i => i.Id == id);
+        }
+
+        public async Task<EditGenreViewModel> GetEditViewModelByIdAsync(int genreId)
+        {
+            var genre = await _context.Genres.FirstOrDefaultAsync(i => i.Id == genreId);
+            return new EditGenreViewModel
+            {
+                Id = genre.Id,
+                Name = genre.Name
+            };
+        }
+
+        public async Task<DeleteGenreViewModel> PrepareDeleteViewModelAsync(int id)
+        {
+            var genre = await _context.Genres.FirstOrDefaultAsync(i => i.Id == id);
+            return new DeleteGenreViewModel
+            {
+                Id = genre.Id,
+                Name = genre.Name
+            };
+        }
+
+        public async Task<GenreDetailsViewModel> PrepareDetailsViewModelAsync(int? id)
+        {
+            var genre = await _context.Genres.Include(i => i.Movies).FirstOrDefaultAsync(i => i.Id == id);
+            return new GenreDetailsViewModel
+            {
+                Id = genre.Id,
+                Name = genre.Name,
+                MoviesCount = genre.Movies.Count
+            };
+        }
+
+        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchAndSortMoviesByGenre(string searchText, string genreId, string sortBy)
+        {
+            var genre = await _context.Genres.Include(i => i.Movies)
+                .FirstOrDefaultAsync(i => i.Id == int.Parse(genreId));
+
+            var movies = genre.Movies.Select(i => new MovieInfoCardViewModel
+            {
+                Id = i.Id,
+                Name = i.Title,
+                ImageUrl = i.ImageUrl,
+                AverageRating = i.UserRating.Value,
+                RatingCount = i.RatingCount
+            });
+            if (string.IsNullOrEmpty(searchText) == false)
+            {
+                movies = movies.Where(i => i.Name.ToLower().StartsWith(searchText.ToLower()));
+            }
+            if(string.IsNullOrEmpty(sortBy) == false)
+            {
+                var sortParameter = sortBy.Split('-')[0];
+                var sortDirection = sortBy.Split('-')[^1];
+
+                switch (sortParameter)
+                {
+                    case "name":
+                        movies = movies.OrderBy(i => i.Name);
+                        if (sortDirection == "desc")
+                        {
+                            movies = movies.OrderByDescending(i => i.Name);
+                        }
+                        break;
+                    case "rating":
+                        movies = movies.OrderBy(i => i.AverageRating);
+                        if (sortDirection == "desc")
+                        {
+                            movies = movies.OrderByDescending(i => i.AverageRating);
+                        }
+                        break;
+                    case "ratingcount":
+                        movies = movies.OrderBy(i => i.RatingCount);
+                        if (sortDirection == "desc")
+                        {
+                            movies = movies.OrderByDescending(i => i.RatingCount);
+                        }
+                        break;
+                }
+            }
+            return movies;
+        }
+
+        public async Task<IEnumerable<GenreListViewModel>> SortGenresAsync(string sortBy)
+        {
+            var genres = _context.Genres.Include(i => i.Movies).AsEnumerable();
+
+            if (string.IsNullOrEmpty(sortBy) == false)
+            {
+                var sortParameter = sortBy.Split('-')[0];
+                var sortDirection = sortBy.Split('-')[^1];
+
+                switch (sortParameter)
+                {
+                    case "name":
+                        genres = genres.OrderBy(i => i.Name);
+                        if (sortDirection == "desc")
+                        {
+                            genres = genres.OrderByDescending(i => i.Name);
+                        }
+                        break;
+                    case "moviescount":
+                        genres = genres.OrderBy(i => i.Movies.Count);
+                        if (sortDirection == "desc")
+                        {
+                            genres = genres.OrderByDescending(i => i.Movies.Count);
+                        }
+                        break;
+                }
+            }
+            return genres.Select(i => new GenreListViewModel
+            {
+                Id = i.Id,
+                Name = i.Name,
+                MoviesCount = i.Movies.Count
+            });
         }
     }
 }

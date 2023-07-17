@@ -2,9 +2,6 @@
 
 @{
     ViewData["Title"] = "Owner dashboard";
-    var currentDate = DateTime.Now;
-    string month = currentDate.Date.ToString("MMMM");
-    int day = currentDate.Day;
 }
 <link href="~/css/manageStyle.css" rel="stylesheet" />
 <link rel="stylesheet" href="~/css/cardStyle.css" />
@@ -125,6 +122,7 @@
         if (alreadyActive) {
             alreadyActive.classList.remove("selected");
         }
+        activeSort = i;
         i.classList.add("selected");
         getItems('Movies', 'SearchAndFilterMovies', (search ? search.value : null), '', (filterOptions ? filterOptions.value : null), i.id);
     }));

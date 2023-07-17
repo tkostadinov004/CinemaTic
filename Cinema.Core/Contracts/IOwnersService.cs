@@ -1,6 +1,7 @@
 ﻿using Cinema.Core.Contracts.Common;
 using Cinema.Core.Utilities;
 using Cinema.Data.Models;
+using Cinema.ViewModels.Actors;
 using Cinema.ViewModels.Cinemas;
 using Cinema.ViewModels.Contracts;
 using Cinema.ViewModels.Movies;

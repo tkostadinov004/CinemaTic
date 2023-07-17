@@ -55,6 +55,7 @@
         if (alreadyActive) {
             alreadyActive.classList.remove("selected");
         }
+        activeSort = i;
         i.classList.add("selected");
         getItems('Movies', 'SearchAndFilterMovies', (search ? search.value : null), '', (filterOptions ? filterOptions.value : null), i.id);
     }));

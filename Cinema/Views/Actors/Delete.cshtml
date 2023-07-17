@@ -9,7 +9,7 @@
 <div class="moviesContainer flex-column front-panel">
     <h1 class="change-header">Are you sure you want to delete the following actor?</h1>
     <div class="owner-info">
-        <p class="edited-object">Name: @string.Format($"{Model.FirstName} {Model.LastName}")</p>
+        <p class="edited-object">Name: @string.Format($"{Model.FullName}")</p>
         <p class="edited-object">Nationality: @Model.Nationality</p>
         <p class="edited-object">Birthdate: @Model.Birthdate.ToString("dd.MM.yyyy")</p>
         <p class="edited-object">IMDB rating: @Model.Rating / 10.0</p>

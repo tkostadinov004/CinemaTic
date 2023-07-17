@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Cinema.ViewModels.Genres.GenreListViewModel>
+
+@foreach (var genre in Model)
+{
+    <div class="cinema-row">
+        <button class="cell-more-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1" /><circle cx="12" cy="5" r="1" /><circle cx="12" cy="19" r="1" /></svg>
+        </button>
+        <div class="cinema-cell image">
+            <button class="d-flex align-items-center cinema-link open-popup-btn genre-name" id="@genre.Id">
+                <span>@genre.Name</span>
+            </button>
+        </div>
+        <div class="cinema-cell sales"><span class="cell-label">Movies:</span>@genre.MoviesCount</div>
+    </div>
+}
+<script src="~/js/rating-modal.js"></script>
+<script>
+    document.querySelectorAll('.genre-name').forEach(i => i.addEventListener('click', function () {
+        getUDpartial('Genres', 'Details', i.id);
+        $.ajax({
+            type: "GET",
+            url: `/Genres/SearchAndSortMoviesByGenre`,
+            data: { id: i.id },
+            success: function (response) {
+                $("#genre-movie-results-container").html(response);
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }));
+</script>

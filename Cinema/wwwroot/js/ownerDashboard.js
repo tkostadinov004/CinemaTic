@@ -159,7 +159,6 @@ function addMovieToCinemas(movieId) {
                 });
             }
         }
-        console.log(JSON.stringify(data));
         $.ajax({
             type: "POST",
             url: `/Owners/AddMovieToCinemas`,

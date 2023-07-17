@@ -145,7 +145,8 @@
             alreadyActive.classList.remove("selected");
         }
         i.classList.add("selected");
-        getItems('Movies', 'SearchAndFilterMovies', (search ? search.value : null), '', '', i.id);
+        activeSort = i;
+        getItems('Movies', 'SearchAndFilterMovies', (search ? search.value : null), '', '', activeSort.id);
     }));
 
     var modalContainer = document.getElementById('review-form-container');

@@ -71,8 +71,3 @@ buttons.forEach(i => i.addEventListener("click", function () {
         infoContainer.querySelector('#movie-grid').setAttribute("hidden", "true");
     }
 }));
-let dateButtons = document.querySelectorAll('button.date');
-dateButtons.forEach(i => i.addEventListener("click", function () {
-    dateButtons.forEach(k => k.classList.remove("active"));
-    i.classList.add("active");
-}));
