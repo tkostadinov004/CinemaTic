@@ -240,12 +240,11 @@ namespace Cinema.Data
             {
                 _context.Actors.Add(new Actor
                 {
-                    FirstName = actor.FirstName,
-                    LastName = actor.LastName,
+                    FullName = actor.FullName,
                     Birthdate = DateTime.ParseExact(actor.Birthdate, "dd.MM.yyyy", CultureInfo.InvariantCulture),
                     Nationality = actor.Nationality,
                     Rating = decimal.Parse(actor.IMDBRating),
-                    ImageUrl = $"{actor.FirstName}-{actor.LastName}.jpg"
+                    ImageUrl = $"{actor.FullName}.jpg"
                 });
             }
             _context.SaveChanges();

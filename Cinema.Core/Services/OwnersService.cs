@@ -307,5 +307,37 @@ namespace Cinema.Core.Services
                 TextColor = cinema.TextColor
             };
         }
+
+        public async Task<CustomerCinemaPageViewModel> PrepareCinemaViewModelAsync(string userEmail, string cinemaId)
+        {
+            var user = await _userManager.FindByEmailAsync(userEmail);
+            var cinema = await _context.Cinemas.Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.Genre).FirstOrDefaultAsync(i => i.Id == int.Parse(cinemaId));
+            var dates = Enumerable.Range(0, 7).Select(i => DateTime.Now.AddDays(i))
+                .ToDictionary(key =>
+                {
+                    return key.Date != DateTime.Now.Date ? key.DayOfWeek.ToString().Substring(0, 3) : "Today";
+                }, value => value.ToString(Constants.DateTimeFormat));
+            return new CustomerCinemaPageViewModel
+            {
+                CinemaLogoUrl = cinema.ImageUrl,
+                ProfilePictureUrl = user.ProfilePictureUrl,
+                Dates = dates,
+                AccentColor = cinema.AccentColor,
+                BackgroundColor = cinema.BackgroundColor,
+                BoardColor = cinema.BoardColor,
+                ButtonBackgroundColor = cinema.ButtonBackgroundColor,
+                ButtonTextColor = cinema.ButtonTextColor,
+                TextColor = cinema.TextColor,
+                Movies = cinema.Movies.Select(i => new CinemaMovieViewModel
+                {
+                    Id = i.MovieId,
+                    Genre = i.Movie.Genre.Name,
+                    Name = i.Movie.Title,
+                    RunningTime = i.Movie.RunningTime.ToString(),
+                    ImageUrl = i.Movie.ImageUrl,
+                    Hours = { }
+                })
+            };
+        }
     }
 }

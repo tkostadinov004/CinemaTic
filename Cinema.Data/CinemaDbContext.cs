@@ -21,12 +21,14 @@ namespace Cinema.Data
         public DbSet<CustomerCinema> CustomersCinemas { get; set; }
         public DbSet<CinemaMovie> CinemasMovies { get; set; }
         public DbSet<UserAction> UserActions { get; set; }
+        public DbSet<CinemaMovieTime> CinemasMoviesTimes { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<UserMovie>().HasKey(i => new { i.CustomerId, i.MovieId });
             modelBuilder.Entity<CustomerCinema>().HasKey(i => new { i.CustomerId, i.CinemaId });
             modelBuilder.Entity<CinemaMovie>().HasKey(i => new { i.CinemaId, i.MovieId });
+            modelBuilder.Entity<CinemaMovieTime>().HasKey(i => new { i.CinemaId, i.MovieId });
 
             modelBuilder.Entity<Data.Models.Cinema>().HasOne(i => i.Owner).WithMany(o => o.CinemasOwned);
             modelBuilder.Entity<CustomerCinema>().HasOne(i => i.Cinema).WithMany(i => i.Customers).OnDelete(DeleteBehavior.NoAction);

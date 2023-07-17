@@ -27,8 +27,7 @@ namespace Cinema.Core.Services
             Actor actor = new Actor
             {
                 Birthdate = viewModel.Birthdate,
-                FirstName = viewModel.FirstName,
-                LastName = viewModel.LastName,
+                FullName = viewModel.FullName,
                 ImageUrl = photoName,
                 Nationality = viewModel.Nationality,
                 Rating = viewModel.Rating
@@ -51,8 +50,7 @@ namespace Cinema.Core.Services
 
             var actor = await _context.Actors.FirstOrDefaultAsync(i => i.Id == id);
             string photoName = GlobalMethods.UploadPhoto("Actors", viewModel.Image, _webHostEnvironment);
-            actor.FirstName = viewModel.FirstName;
-            actor.LastName = viewModel.LastName;
+            actor.FullName = viewModel.FullName;
             actor.Birthdate = viewModel.Birthdate;
             actor.Rating = viewModel.Rating;
 

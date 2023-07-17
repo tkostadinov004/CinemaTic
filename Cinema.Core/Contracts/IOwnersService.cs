@@ -22,5 +22,6 @@ namespace Cinema.Core.Contracts
         Task<EditCinemaViewModel> GetEditViewModelByIdAsync(int cinemaId);
         Task<DeleteCinemaViewModel> PrepareDeleteViewModelAsync(int id);
         Task<CinemaPagePreviewViewModel> PreparePreviewViewModelAsync(string userEmail, string cinemaId);
+        Task<CustomerCinemaPageViewModel> PrepareCinemaViewModelAsync(string userEmail, string cinemaId);
     }
 }

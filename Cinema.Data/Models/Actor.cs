@@ -14,12 +14,9 @@ namespace Cinema.Data.Models
         }
         [Key]
         public int Id { get; set; }
-        [Required(ErrorMessage = "Enter a first name!"), MaxLength(100), RegularExpression("^[A-Za-z]+$")]
-        [Display(Name ="First name")]
-        public string FirstName { get; set; }
-        [Required(ErrorMessage = "Enter a family name!"), MaxLength(100), RegularExpression("^[A-Za-z]+$")]
-        [Display(Name = "Last name")]
-        public string LastName { get; set; }
+        [Required(ErrorMessage = "Enter a full name!"), MaxLength(100)]
+        [Display(Name ="Full name")]
+        public string FullName { get; set; }
         [Required(ErrorMessage = "Enter a birthdate!")]
         [Display(Name = "Birthdate")]
         public DateTime Birthdate { get; set; }

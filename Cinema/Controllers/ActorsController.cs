@@ -19,7 +19,7 @@ namespace Cinema.Controllers
         }
 
         // GET: Actors
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> AllActors()
         {
             return View(await _actorsService.GetAllAsync());
         }
@@ -59,7 +59,7 @@ namespace Cinema.Controllers
             {
                 await _actorsService.CreateAsync(actorVM, country);
             }
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(AllActors));
         }
 
         // GET: Actors/Edit/5
@@ -78,8 +78,7 @@ namespace Cinema.Controllers
             var vm = new EditActorViewModel
             {
                 Id = actor.Id,
-                FirstName = actor.FirstName,
-                LastName = actor.LastName,
+                FullName = actor.FullName,
                 Nationality = actor.Nationality,
                 Birthdate = actor.Birthdate,
                 Rating = actor.Rating,
@@ -114,7 +113,7 @@ namespace Cinema.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(AllActors));
             }
             return View(actorVM);
         }
@@ -142,7 +141,7 @@ namespace Cinema.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _actorsService.DeleteByIdAsync(id);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(AllActors));
         }
     }
 }

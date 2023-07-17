@@ -103,7 +103,7 @@ namespace Cinema.Core.Services
         public async Task<SelectList> GetActorsDropDownAsync()
         {
             var actors = await _context.Actors.AsNoTracking().ToListAsync();
-            return new SelectList(from a in actors select new { Id = a.Id, FullName = $"{a.FirstName} {a.LastName}" }, nameof(Actor.Id), "FullName");
+            return new SelectList(from a in actors select new { Id = a.Id, FullName = $"{a.FullName}" }, nameof(Actor.Id), "FullName");
         }
 
         public async Task<IEnumerable<Movie>> GetAllAsync()
@@ -144,7 +144,7 @@ namespace Cinema.Core.Services
                 Title = movie.Title,
                 TrailerUrl = movie.TrailerUrl,
                 MovieId = movie.Id,
-                Actors = movie.Actors.Select(i => $"{i.FirstName} {i.LastName}").ToList(),
+                Actors = movie.Actors.Select(i => i.FullName).ToList(),
                 AverageRating = ratings.ToList().Count == 0 ? 0 : ratings.Select(i => i.Rating).Average(),
                 RatingCount = ratings.Count(),
                 CurrentUserRating = ratings.FirstOrDefault(i => i.Customer.Email == currentUser.Email) == null ? null : ratings.FirstOrDefault(i => i.Customer.Email == currentUser.Email).Rating,

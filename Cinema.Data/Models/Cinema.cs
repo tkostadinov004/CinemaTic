@@ -35,5 +35,6 @@ namespace Cinema.Data.Models
         public virtual ICollection<CustomerCinema> Customers { get; set; } = new List<CustomerCinema>();
         public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
         public virtual ICollection<Sector> Sectors { get; set; } = new List<Sector>();
+        public virtual IEnumerable<CinemaMovieTime> Schedule { get; set; }
     }
 }
