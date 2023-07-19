@@ -4,6 +4,7 @@ using Cinema.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cinema.Data.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230718120145_ChangedTime")]
+    partial class ChangedTime
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -225,7 +227,7 @@ namespace Cinema.Data.Migrations
                     b.Property<DateTime>("FromDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("TicketPrice")
+                    b.Property<decimal>("MoviePrice")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("ToDate")
@@ -340,6 +342,33 @@ namespace Cinema.Data.Migrations
                     b.ToTable("Movies");
                 });
 
+            modelBuilder.Entity("Cinema.Data.Models.Seat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("IsOccupied")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("SeatNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sector")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Seats");
+                });
+
             modelBuilder.Entity("Cinema.Data.Models.Sector", b =>
                 {
                     b.Property<int>("Id")
@@ -398,7 +427,7 @@ namespace Cinema.Data.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("SectorId")
+                    b.Property<int>("SeatId")
                         .HasColumnType("int");
 
                     b.Property<string>("SerialNumber")
@@ -413,7 +442,7 @@ namespace Cinema.Data.Migrations
 
                     b.HasIndex("MovieId");
 
-                    b.HasIndex("SectorId");
+                    b.HasIndex("SeatId");
 
                     b.ToTable("Tickets");
                 });
@@ -730,10 +759,10 @@ namespace Cinema.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Cinema.Data.Models.Sector", "Sector")
-                        .WithMany("Tickets")
-                        .HasForeignKey("SectorId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                    b.HasOne("Cinema.Data.Models.Seat", "Seat")
+                        .WithMany()
+                        .HasForeignKey("SeatId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Cinema");
@@ -742,7 +771,7 @@ namespace Cinema.Data.Migrations
 
                     b.Navigation("Movie");
 
-                    b.Navigation("Sector");
+                    b.Navigation("Seat");
                 });
 
             modelBuilder.Entity("Cinema.Data.Models.UserAction", b =>
@@ -862,11 +891,6 @@ namespace Cinema.Data.Migrations
                     b.Navigation("Cinemas");
 
                     b.Navigation("TicketsBought");
-                });
-
-            modelBuilder.Entity("Cinema.Data.Models.Sector", b =>
-                {
-                    b.Navigation("Tickets");
                 });
 #pragma warning restore 612, 618
         }

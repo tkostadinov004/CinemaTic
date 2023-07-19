@@ -16,5 +16,6 @@ namespace Cinema.Data.Models
         public int EndCol { get; set; }
         public int CinemaId { get; set; }
         public virtual Cinema Cinema { get; set; }
+        public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
     }
 }

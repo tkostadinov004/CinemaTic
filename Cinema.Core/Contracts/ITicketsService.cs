@@ -1,6 +1,9 @@
 ﻿using Cinema.Core.Contracts.Common;
 using Cinema.Data.Models;
+using Cinema.ViewModels.Contracts;
+using Cinema.ViewModels.Sectors;
 using Cinema.ViewModels.Tickets;
+using Microsoft.Data.SqlClient.Server;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +15,9 @@ namespace Cinema.Core.Contracts
     public interface ITicketsService
     {
         Task<IEnumerable<Ticket>> GetTicketsByUserAsync(string userEmail);
-        Task<BuyTicketViewModel> GetPurchaseViewModelAsync(int movieId, string? sector, DateTime forDate);
-        Task BuyTicket(string seatCoords, int movieId, DateTime forDate, string? userEmail);
+        Task BuyTicketAsync(int sectorId, int movieId, SectorDetailsViewModel viewModel, DateTime forDate, string userEmail);
         Task<bool> ExistsByIdAsync(int? id);
         Task<IEnumerable<Ticket>> GetAllAsync();
+        Task<BuyTicketViewModel> GetBuyTicketViewModelAsync(int cinemaId, int movieId, string time);
     }
 }

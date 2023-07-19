@@ -3,6 +3,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Cinema.Core.Contracts;
+using Cinema.ViewModels.Tickets;
+using Cinema.ViewModels.Sectors;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Cinema.Controllers
 {
@@ -30,8 +33,9 @@ namespace Cinema.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Create(int movieId, string? sector, DateTime forDate)
         {
-            var viewModel = await _ticketsService.GetPurchaseViewModelAsync(movieId, sector, forDate);
-            return View(viewModel);
+            //var viewModel = await _ticketsService.GetPurchaseViewModelAsync(movieId, sector, forDate);
+            //return View(viewModel);
+            return null;
         }
 
         // POST: Tickets/Create
@@ -43,7 +47,7 @@ namespace Cinema.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(string seatCoords, int movieId, DateTime forDate)
         {
-            await _ticketsService.BuyTicket(seatCoords, movieId, forDate, User.Identity.Name);
+            //await _ticketsService.BuyTicket(seatCoords, movieId, forDate, User.Identity.Name);
             if (User.Identity.Name == null)
             {
                 return RedirectToAction(nameof(Index), "Home");
@@ -52,6 +56,12 @@ namespace Cinema.Controllers
             ////ViewData["MovieId"] = new SelectList(_context.Movies, "Id", "Title", ticket.MovieId);
             ////ViewData["SeatId"] = new SelectList(_context.Seats, "Id", "Id", ticket.SeatId);
             //return View(ticket);
+        }
+        [HttpPost]
+        public async Task<IActionResult> BuyTicket(int sectorId, int movieId, SectorDetailsViewModel viewModel, DateTime forDate)
+        {
+            await _ticketsService.BuyTicketAsync(sectorId, movieId, viewModel, forDate, User.Identity.Name);
+            return RedirectToAction("Cinema", "Owners", new { userEmail = User.Identity.Name, cinemaId = TempData["CinemaId"] });
         }
     }
 }

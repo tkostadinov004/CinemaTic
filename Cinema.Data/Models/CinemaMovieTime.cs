@@ -12,7 +12,6 @@ namespace Cinema.Data.Models
         public Cinema Cinema { get; set; }
         public int MovieId { get; set; }
         public Movie Movie { get; set; }
-        public DateTime ForDate { get; set; }
-        public string Time { get; set; }
+        public DateTime ForDateTime { get; set; }
     }
 }

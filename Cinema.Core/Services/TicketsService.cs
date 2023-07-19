@@ -2,6 +2,7 @@
 using Cinema.Data;
 using Cinema.Data.Models;
 using Cinema.Utilities;
+using Cinema.ViewModels.Sectors;
 using Cinema.ViewModels.Tickets;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient.Server;
@@ -31,7 +32,7 @@ namespace Cinema.Core.Services
 
         public async Task<IEnumerable<Ticket>> GetAllAsync()
         {
-            return await _context.Tickets.Include(t => t.Customer).Include(t => t.Movie).Include(t => t.Seat).ToListAsync();
+            return await _context.Tickets.Include(t => t.Customer).Include(t => t.Movie).ToListAsync();
         }
         public async Task<IEnumerable<Ticket>> GetTicketsByUserAsync(string userEmail)
         {
@@ -39,125 +40,45 @@ namespace Cinema.Core.Services
             return tickets.Where(i => i.Customer.Email == userEmail);
         }
 
-        private Tuple<int, int> GetSeatCoordinates(string seatNumber)
+        public async Task BuyTicketAsync(int sectorId, int movieId, SectorDetailsViewModel viewModel, DateTime forDate, string userEmail)
         {
-            int row = int.Parse(seatNumber[1..3]);
-            int col = int.Parse(seatNumber[4..]);
-
-            return new Tuple<int, int>(row, col);
-        }
-        private bool CheckPlace(int row, int col, int movieId, DateTime forDate)
-        {
-            return _context.Tickets.Include(k => k.Movie).Include(k => k.Seat).ToList().Where(i => i.Movie.Id == movieId).Select(i => new { Coords = this.GetSeatCoordinates(i.Seat.SeatNumber), ForDate = i.ForDate }).Any(i => i.Coords.Item1 == row && i.Coords.Item2 == col && i.ForDate == forDate);
-        }
-
-        public async Task<BuyTicketViewModel> GetPurchaseViewModelAsync(int movieId, string? sector, DateTime forDate)
-        {
-            bool[,] isOccupied = new bool[Constants.HallRows, Constants.HallCols];
-            for (int i = 0; i < Constants.HallRows; i++)
+            var sector = await _context.Sectors.FirstOrDefaultAsync(i => i.Id == sectorId);
+            var cinemaMovie = await _context.CinemasMovies.FirstOrDefaultAsync(i => i.CinemaId == sector.CinemaId && i.MovieId == movieId);
+            var selectedSeats = viewModel.Seats.SelectMany(i => i).Where(i => i.IsChecked && i.IsOccupied == false);
+            foreach (var seat in selectedSeats)
             {
-                for (int j = 0; j < Constants.HallCols; j++)
+                Ticket ticket = new Ticket
                 {
-                    isOccupied[i, j] = CheckPlace(i + 1, j + 1, movieId, forDate);
-                }
+                    CinemaId = sector.CinemaId,
+                    SerialNumber = $"R{seat.Row}C{seat.Col}",
+                    ForDate = forDate,
+                    MovieId = movieId,
+                    SectorId = sectorId,
+                    CustomerId = (await _userManager.FindByEmailAsync(userEmail)).Id,
+                    Price = cinemaMovie.TicketPrice //change
+                };
+                _context.Tickets.Add(ticket);
             }
-            var viewModel = new BuyTicketViewModel
-            {
-                Movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == movieId),
-                Sector = sector,
-                Occupied = isOccupied,
-                ForDate = forDate
-            };
-            if (string.IsNullOrEmpty(sector) == false)
-            {
-                viewModel.StartingRow = Constants.SectorBorderValues[sector].Item1.Row;
-                viewModel.StartingCol = Constants.SectorBorderValues[sector].Item1.Col;
-
-                viewModel.EndingRow = Constants.SectorBorderValues[sector].Item2.Row;
-                viewModel.EndingCol = Constants.SectorBorderValues[sector].Item2.Col;
-            }
-            return viewModel;
-        }
-
-        public async Task BuyTicket(string seatCoords, int movieId, DateTime forDate, string? userEmail)
-        {
-            int[] seatCoordsInt = seatCoords.Split().Select(int.Parse).Select(i => i + 1).ToArray();
-            //$"R{seatCoordsInt[0].ToString("D2")}C{seatCoordsInt[1].ToString("D2")}"
-            string seatNumber = $"R{seatCoordsInt[0].ToString("D2")}C{seatCoordsInt[1].ToString("D2")}";
-            var ticketSeat = new Seat()
-            {
-                SeatNumber =seatNumber,
-                Sector = this.DefineSector(seatNumber),
-                Price = this.CalculatePrice(seatNumber),
-                IsOccupied = true,
-            };
-            var movie = await _context.Movies.FindAsync(movieId);
-            var ticket = new Ticket
-            {
-                ForDate = forDate,
-                Movie = movie,
-                Customer = userEmail == null ? null : await _userManager.FindByEmailAsync(userEmail)
-            };
-            ticket.Seat = ticketSeat;
-            //ticket.Price = ticket.Seat.Price + movie.Price;
-
-            _context.Add(ticket);
             await _context.SaveChangesAsync();
         }
-        private string DefineSector(string seatNumber)
+
+        public async Task<BuyTicketViewModel> GetBuyTicketViewModelAsync(int cinemaId, int movieId, string forDate)
         {
-            int row = int.Parse(seatNumber[1..3]);
-            int col = int.Parse(seatNumber[4..]);
-
-            string sector = "";
-            if (row < Constants.HallRows / 2)
+            var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == cinemaId);
+            var movie = await _context.Movies.Include(i => i.Genre).FirstOrDefaultAsync(i => i.Id == movieId);
+            return new BuyTicketViewModel
             {
-                if (col <= Constants.HallCols / 3)
-                {
-                    sector = "A";
-                }
-                else if (col > Constants.HallCols / 3 && col <= (Constants.HallCols / 3) * 2)
-                {
-                    sector = "B";
-                }
-                else
-                {
-                    sector = "C";
-                }
-            }
-            else
-            {
-                if (col <= Constants.HallCols / 3)
-                {
-                    sector = "D";
-                }
-                else if (col > Constants.HallCols / 3 && col <= (Constants.HallCols / 3) * 2)
-                {
-                    sector = "E";
-                }
-                else
-                {
-                    sector = "F";
-                }
-            }
-            return sector;
-        }
-        private decimal CalculatePrice(string seatNumber)
-        {
-            decimal middlePrice = 5;
-            decimal difference = 0.2m;
-
-            int row = int.Parse(seatNumber[1..3]);
-            int col = int.Parse(seatNumber[4..]);
-
-            int middleRow = 11;
-            int middleCol = 16;
-
-            int rowDiff = Math.Abs(row - middleRow);
-            int colDiff = Math.Abs(col - middleCol);
-
-            decimal totalPrice = middlePrice - (difference * rowDiff) - (difference * colDiff);
-            return totalPrice;
+                CinemaId = cinema.Id,
+                Description = movie.Description,
+                Director = movie.Director,
+                Genre = movie.Genre.Name,
+                ImageUrl = movie.ImageUrl,
+                MovieId = movie.Id,
+                RunningTime = movie.RunningTime,
+                Time = forDate,
+                Title = movie.Title,
+                ForDateTime = forDate
+            };
         }
     }
 }

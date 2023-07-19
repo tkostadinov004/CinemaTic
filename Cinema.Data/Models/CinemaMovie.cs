@@ -12,7 +12,7 @@ namespace Cinema.Data.Models
         public virtual Cinema Cinema { get; set; }
         public int MovieId { get; set; }
         public virtual Movie Movie { get; set; }
-        public decimal MoviePrice { get; set; }
+        public decimal TicketPrice { get; set; }
         public DateTime FromDate { get; set; }
         public DateTime ToDate { get; set; }
     }

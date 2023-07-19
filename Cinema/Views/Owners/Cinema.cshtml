@@ -1,6 +1,8 @@
 ﻿@model Cinema.ViewModels.Cinemas.CustomerCinemaPageViewModel
 <link href="~/css/cardstyle.css" rel="stylesheet" />
 <link href="~/css/cinemas.css" rel="stylesheet" />
+<link href="~/css/search-dropdown.css" rel="stylesheet" />
+<link href="~/css/ratingModal.css" rel="stylesheet" />
 <div class="main-cinema-container">
     <nav>
         <div class="col-xl-12 d-flex justify-content-between align-items-center">
@@ -80,7 +82,9 @@
                                 <div class="items d-flex flex-column">
                                     @foreach (var movie in Model.Movies)
                                     {
-                                        <button class="movie-item">@movie.Name</button>
+                                        <div>
+                                            <button class="movie-item">@movie.Name</button>
+                                        </div>
                                     }
                                 </div>
                             </div>
@@ -88,7 +92,7 @@
                     </div>
                 </div>
                 <div class="row mt-4">
-                    <button class="date active">Today</button>
+                    <button class="date active" onkey>Today</button>
                     @foreach (var item in Model.Dates.Skip(1))
                     {
                         <button class="date" for-date="@item.Value">@item.Key</button>
@@ -99,22 +103,6 @@
                 <div class="gradient-box" style=""></div>
                 <div class="dates-info-container">
                     <div id="movie-grid">
-                        @foreach (var movie in Model.Movies)
-                        {
-                            <div class="movie d-flex gap-5">
-                                <img src="~/client-images/Movies/@movie.ImageUrl" />
-                                <div class="movie-info d-flex justify-content-start align-items-start flex-column gap-2">
-                                    <h5>@movie.Name</h5>
-                                    <div class="d-flex genre-time flex-column">
-                                        <span>@movie.Genre</span>
-                                        <span>@movie.RunningTime minutes</span>
-                                    </div>
-                                    <div class="d-flex flex-wrap gap-2">
-                                        <button class="time-button">10:10 AM</button>
-                                    </div>
-                                </div>
-                            </div>
-                        }
                     </div>
                     <div id="by-movie" hidden>
                     </div>
@@ -126,28 +114,35 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/js/cinemas.js"></script>
+<script src="~/js/search-dropdown.js"></script>
 <script>
-    document.querySelector(".sidebar").setAttribute("hidden", "true");
+    function getMovies(data) {
+        $.ajax({
+            type: "GET",
+            url: `/Owners/GetMoviesByDate`,
+            data: data,
+            success: function (response) {
+                $("#movie-grid").html(response);
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        })
+    }
+
+    window.onload = function () {
+        getMovies({ cinemaId: '@Model.Id' });
+    }
+
     let dateButtons = document.querySelectorAll('button.date');
     dateButtons.forEach(i => i.addEventListener("click", function () {
         dateButtons.forEach(k => k.classList.remove("active"));
         i.classList.add("active");
 
-        //$.ajax({
-        //    type: "GET",
-        //    url: `/Owners/GetMoviesByDate`,
-        //    data: {cinemaId: '', date: ''},
-        //    success: function (response) {
-        //        $("#results-container").html(response);
-        //        setStatuses();
-        //    },
-        //    failure: function (response) {
-        //        alert(response.responseText);
-        //    },
-        //    error: function (response) {
-        //        alert(response.responseText);
-        //    }
-        //});
+        getMovies({ cinemaId: '@Model.Id', date: i.getAttribute('for-date') });
     }));
     changeColors('@Model.BackgroundColor', '@Model.BoardColor', '@Model.TextColor', '@Model.ButtonBackgroundColor', '@Model.ButtonTextColor', '@Model.AccentColor');
 </script>

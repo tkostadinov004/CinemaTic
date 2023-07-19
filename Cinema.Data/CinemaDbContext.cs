@@ -13,7 +13,6 @@ namespace Cinema.Data
         public DbSet<Data.Models.Cinema> Cinemas { get; set; }
         public DbSet<Actor> Actors { get; set; }
         public DbSet<Movie> Movies { get; set; }
-        public DbSet<Seat> Seats { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Sector> Sectors { get; set; }
@@ -38,6 +37,8 @@ namespace Cinema.Data
             modelBuilder.Entity<Movie>().HasMany(i => i.Actors).WithMany(a => a.Movies).UsingEntity(i => i.ToTable("ActorsMovies"));
 
             modelBuilder.Entity<UserAction>().HasOne(i => i.User).WithMany(a => a.UserActions);
+
+            modelBuilder.Entity<Ticket>().HasOne(i => i.Sector).WithMany(s => s.Tickets).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
