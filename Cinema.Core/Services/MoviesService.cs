@@ -4,6 +4,7 @@ using Cinema.Data.Enums;
 using Cinema.Data.Models;
 using Cinema.Utilities;
 using Cinema.ViewModels;
+using Cinema.ViewModels.Actors;
 using Cinema.ViewModels.Cinemas;
 using Cinema.ViewModels.Contracts;
 using Cinema.ViewModels.Movies;
@@ -33,9 +34,11 @@ namespace Cinema.Core.Services
             _webHostEnvironment = webHostEnvironment;
         }
 
-        public async Task CreateMovieAsync(IViewModel item, IEnumerable<string> actors, string userEmail)
+        public async Task CreateMovieAsync(IViewModel item, string userEmail)
         {
             CreateMovieViewModel viewModel = item as CreateMovieViewModel;
+
+            var actors = viewModel.ActorsDropdown.Where(i => i.IsChecked);
             Movie movie = new Movie
             {
                 Description = viewModel.Description,
@@ -46,13 +49,9 @@ namespace Cinema.Core.Services
                 UserRating = 0,
                 GenreId = viewModel.GenreId,
                 AddedBy = await _userManager.FindByEmailAsync(userEmail),
-                Director = viewModel.Director
+                Director = viewModel.Director,
+                Actors = actors.Select(i => _context.Actors.FirstOrDefault(a => a.Id == i.Id)).ToList()
             };
-
-            foreach (string id in actors)
-            {
-                movie.Actors.Add(_context.Actors.FirstOrDefault(i => i.Id == int.Parse(id)));
-            }
             _context.Movies.Add(movie);
             await _context.SaveChangesAsync();
         }
@@ -76,8 +75,8 @@ namespace Cinema.Core.Services
             movie.Description = viewModel.Description;
             movie.RunningTime = int.Parse(viewModel.RunningTime);
             movie.TrailerUrl = viewModel.TrailerUrl;
-           // movie.Date = viewModel.Date;
-           // movie.Price = viewModel.Price;
+            // movie.Date = viewModel.Date;
+            // movie.Price = viewModel.Price;
 
             if (viewModel.Image != null)
             {
@@ -187,7 +186,12 @@ namespace Cinema.Core.Services
         {
             return new CreateMovieViewModel
             {
-                ActorsDropdown = await this.GetActorsDropDownAsync(),
+                ActorsDropdown = await _context.Actors.Select(i => new ActorDropdownViewModel
+                {
+                    Id = i.Id,
+                    FullName = i.FullName,
+                    IsChecked = false
+                }).ToListAsync(),
                 Genres = await this.GetGenresDropDownAsync()
             };
         }

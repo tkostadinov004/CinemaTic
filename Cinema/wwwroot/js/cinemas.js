@@ -34,19 +34,6 @@ function changeColors(bgColor, boardColor, textColor, btnBgColor, btnTextColor, 
 document.querySelector('.dropbtn').addEventListener("click", function () {
     document.querySelector(".dropdown-input").classList.toggle("show");
 });
-document.querySelector('#input-search').addEventListener("keyup", function () {
-    var input = document.querySelector("#input-search");
-    var filter = input.value.toLowerCase();
-    var items = document.querySelector(".items").getElementsByTagName("button");
-    for (i = 0; i < items.length; i++) {
-        txtValue = items[i].textContent || items[i].innerText;
-        if (txtValue.toLowerCase().startsWith(filter)) { //txtValue.toUpperCase().indexOf(filter) > -1
-            items[i].style.display = "";
-        } else {
-            items[i].style.display = "none";
-        }
-    }
-});
 var dropdownMenu = document.querySelector('.dropdown-input');
 $(document).click(function (e) {
     e.stopPropagation();

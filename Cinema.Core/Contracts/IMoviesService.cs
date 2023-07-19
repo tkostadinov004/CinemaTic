@@ -21,7 +21,7 @@ namespace Cinema.Core.Contracts
         Task<MovieDetailsViewModel> GetDetailsViewModel(Movie movie, IEnumerable<UserMovie> ratings, string userEmail);
         Task<SelectList> GetActorsDropDownAsync();
         Task<SelectList> GetGenresDropDownAsync();
-        Task CreateMovieAsync(IViewModel item, IEnumerable<string> actors, string userEmail);
+        Task CreateMovieAsync(IViewModel item, string userEmail);
         Task<string> UploadPhoto(IFormFile image);
         Task EditByIdAsync(IViewModel item, int id, int genreId, IEnumerable<string> actors);
         Task SetRatingAsync(int id, decimal rating, string userEmail);

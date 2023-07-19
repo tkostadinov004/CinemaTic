@@ -9,6 +9,7 @@ namespace Cinema.ViewModels.Sectors
     public class SectorDetailsViewModel
     {
         public int Id { get; set; }
+        public int ForMovieId { get; set; }
         public string Name { get; set; }
         public int CinemaId { get; set; }
         public int StartingRow { get; set; }

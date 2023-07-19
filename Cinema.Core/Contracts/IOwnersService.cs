@@ -15,7 +15,7 @@ namespace Cinema.Core.Contracts
         Task<IEnumerable<CinemaListViewModel>> GetAllByUserAsync(string userEmail);
         Task<CinemaDetailsViewModel> GetByIdAsync(int? id);
         Task<OwnerStatisticsViewModel> GetStatisticsAsync(string userEmail);
-        Task AddMovieToCinemas(MovieDatesDTO data);
+        Task AddMovieToCinemas(MovieDetailsViewModel viewModel);
         Task EditCinema(IViewModel item);
         Task DeleteByIdAsync(int? id);
         Task<IEnumerable<CinemaListViewModel>> SearchAndFilterCinemasAsync(string searchText, string userEmail, string filterValue, string sortBy);
@@ -24,5 +24,6 @@ namespace Cinema.Core.Contracts
         Task<DeleteCinemaViewModel> PrepareDeleteViewModelAsync(int id);
         Task<CinemaPagePreviewViewModel> PreparePreviewViewModelAsync(string userEmail, string cinemaId);
         Task<CustomerCinemaPageViewModel> PrepareCinemaViewModelAsync(string userEmail, string cinemaId);
+        Task<IEnumerable<CinemaMovieViewModel>> GetMoviesByDateAsync(string cinemaId, string date);
     }
 }

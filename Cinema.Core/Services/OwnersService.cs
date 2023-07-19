@@ -11,6 +11,7 @@ using Cinema.ViewModels.Movies;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 using System.Security.Claims;
 using System.Text.RegularExpressions;
 
@@ -46,22 +47,24 @@ namespace Cinema.Core.Services
             _context.Cinemas.Add(cinema);
             await _context.SaveChangesAsync();
         }
-        public async Task AddMovieToCinemas(MovieDatesDTO data)
+        public async Task AddMovieToCinemas(MovieDetailsViewModel viewModel)
         {
-            var cinemas = _context.Cinemas.Where(i => data.Cinemas.Select(d => d.CinemaId).Contains(i.Id));
-            var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == data.MovieId);
-            foreach (var item in cinemas)
+            var movie = await _context.Movies.Include(i => i.Cinemas).FirstOrDefaultAsync(i => i.Id == viewModel.MovieId);
+            foreach(var cinemaViewModel in viewModel.UserCinemas)
             {
-                var currentCinemaInfo = data.Cinemas.FirstOrDefault(i => i.CinemaId == item.Id);
-                if (!movie.Cinemas.Any(i => i.CinemaId == currentCinemaInfo.CinemaId))
+                var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == cinemaViewModel.Id);
+                if (cinemaViewModel.FromDate != default && cinemaViewModel.ToDate != default && cinemaViewModel.TicketPrice > 0)
                 {
-                    movie.Cinemas.Add(new CinemaMovie
+                    if (!movie.Cinemas.Any(i => i.CinemaId == cinema.Id))
                     {
-                        CinemaId = item.Id,
-                        FromDate = currentCinemaInfo.FromDate,
-                        ToDate = currentCinemaInfo.ToDate,
-                        MoviePrice = currentCinemaInfo.Price
-                    });
+                        movie.Cinemas.Add(new CinemaMovie
+                        {
+                            CinemaId = cinema.Id,
+                            FromDate = cinemaViewModel.FromDate,
+                            ToDate = cinemaViewModel.ToDate,
+                            TicketPrice = cinemaViewModel.TicketPrice
+                        });
+                    }
                 }
             }
             await _context.SaveChangesAsync();
@@ -290,7 +293,7 @@ namespace Cinema.Core.Services
             var user = await _userManager.FindByEmailAsync(userEmail);
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == int.Parse(cinemaId));
             var dates = Enumerable.Range(0, 7).Select(i => DateTime.Now.AddDays(i))
-                .ToDictionary(key => 
+                .ToDictionary(key =>
                 {
                     return key.Date != DateTime.Now.Date ? key.DayOfWeek.ToString().Substring(0, 3) : "Today";
                 }, value => value.ToString(Constants.DateTimeFormat));
@@ -319,6 +322,7 @@ namespace Cinema.Core.Services
                 }, value => value.ToString(Constants.DateTimeFormat));
             return new CustomerCinemaPageViewModel
             {
+                Id = cinema.Id,
                 CinemaLogoUrl = cinema.ImageUrl,
                 ProfilePictureUrl = user.ProfilePictureUrl,
                 Dates = dates,
@@ -335,9 +339,38 @@ namespace Cinema.Core.Services
                     Name = i.Movie.Title,
                     RunningTime = i.Movie.RunningTime.ToString(),
                     ImageUrl = i.Movie.ImageUrl,
-                    Hours = { }
+                    Schedule = { }
                 })
             };
+        }
+
+        public async Task<IEnumerable<CinemaMovieViewModel>> GetMoviesByDateAsync(string cinemaId, string date)
+        {
+            var cinema = await _context.Cinemas.Include(i => i.Schedule).Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.Genre).FirstOrDefaultAsync(i => i.Id == int.Parse(cinemaId));
+
+            var movies = cinema.Movies;
+            DateTime? convertedDate = null;
+            if (string.IsNullOrEmpty(date) == false)
+            {
+                convertedDate = DateTime.ParseExact(date, Constants.DateTimeFormat, CultureInfo.InvariantCulture);
+                movies = movies.Where(i => i.FromDate <= convertedDate && i.ToDate >= convertedDate).ToList();
+            }
+            else
+            {
+                convertedDate = DateTime.Today;
+            }
+            return movies.Select(i => new CinemaMovieViewModel
+            {
+                Id = i.MovieId,
+                CinemaId = i.CinemaId,
+                Genre = i.Movie.Genre.Name,
+                Name = i.Movie.Title,
+                RunningTime = i.Movie.RunningTime.ToString(),
+                ImageUrl = i.Movie.ImageUrl,
+                Schedule = cinema.Schedule.Where(k => k.CinemaId == cinema.Id && k.MovieId == i.MovieId && k.ForDateTime.Date == convertedDate.Value.Date)
+                .Select(t => t.ForDateTime)
+                    .ToList(),
+            });
         }
     }
 }

@@ -1,15 +1,16 @@
-﻿const modal = document.getElementById('modal');
-const modalOverlay = document.querySelector('.modal-overlay');
-const openButtons = document.querySelectorAll('.open-popup-btn');
+﻿var modal = document.getElementById('modal');
+var modalOverlay = document.querySelector('.modal-overlay');
+var openButtons = document.querySelectorAll('.open-popup-btn');
 const openModal = () => {
     // Save current focus
   //  focusedElementBeforeModal = document.activeElement;
-
     // Listen for and trap the keyboard
     modal.addEventListener('keydown', trapTabKey);
 
     // Listen for indicators to close the modal
-    modalOverlay.addEventListener('click', closeModal);
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', closeModal);
+    }
     // Close btn
     const closeBtn = document.querySelector('.close-btn');
     closeBtn.addEventListener('click', closeModal);
@@ -29,7 +30,9 @@ const openModal = () => {
 
     // Show the modal and overlay
     modal.classList.add('show');
-    modalOverlay.classList.add('show');
+    if (modalOverlay) {
+        modalOverlay.classList.add('show');
+    }
     function trapTabKey(e) {
         // Check for TAB key press
         if (e.keyCode === 9) {

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using Cinema.Core.Contracts;
 using Cinema.ViewModels.Genres;
+using Cinema.ViewModels.Actors;
 
 namespace Cinema.Controllers
 {
@@ -18,31 +19,31 @@ namespace Cinema.Controllers
         }
 
         // GET: Genres
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> AllGenres()
         {
-            return View(await _genresService.GetAllAsync());
+            return View();
         }
 
         // GET: Genres/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var genre = await _genresService.GetByIdAsync(id);
+            var genre = await _genresService.PrepareDetailsViewModelAsync(int.Parse(id));
             if (genre == null)
             {
                 return NotFound();
             }
-            return View(genre);
+            return PartialView("_GenreDetailsPartial", genre);
         }
 
         // GET: Genres/Create
-        public IActionResult Create()
+        public IActionResult CreateGenre()
         {
-            return View();
+            return PartialView("_AddGenrePartial");
         }
 
         // POST: Genres/Create
@@ -50,12 +51,12 @@ namespace Cinema.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] CreateGenreViewModel viewModel)
+        public async Task<IActionResult> Create([FromForm] CreateGenreViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
                 await _genresService.CreateAsync(viewModel);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(AllGenres));
             }
             return View(viewModel);
         }
@@ -63,17 +64,18 @@ namespace Cinema.Controllers
         // GET: Genres/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            //if (id == null)
+            //{
+            //    return NotFound();
+            //}
 
-            var genre = await _genresService.GetByIdAsync(id);
-            if (genre == null)
-            {
-                return NotFound();
-            }
-            return View(genre);
+            //var genre = await _genresService.GetByIdAsync(id);
+            //if (genre == null)
+            //{
+            //    return NotFound();
+            //}
+            //return View(genre);
+            return null;
         }
 
         // POST: Genres/Edit/5
@@ -106,7 +108,7 @@ namespace Cinema.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(AllGenres));
             }
             return View(viewModel);
         }
@@ -133,7 +135,41 @@ namespace Cinema.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _genresService.DeleteByIdAsync(id);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(AllGenres));
+        }
+        public async Task<IActionResult> SortGenres(string sortBy)
+        {
+            var genres = await _genresService.SortGenresAsync(sortBy);
+            return PartialView("_GenresPartial", genres);
+        }
+        public async Task<IActionResult> SearchAndSortMoviesByGenre(string searchText, string id, string sortBy)
+        {
+            var movies = await _genresService.SearchAndSortMoviesByGenre(searchText, id, sortBy);
+            return PartialView("_GenreMoviesPartial", movies);
+        }
+        [HttpGet]
+        public async Task<IActionResult> EditGenre(string id)
+        {
+            return PartialView("_EditGenrePartial", await _genresService.GetEditViewModelByIdAsync(int.Parse(id)));
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditGenre([FromForm] EditGenreViewModel viewModel, int genreId, string name)
+        {
+            viewModel.Id = genreId;
+            viewModel.Name = name;
+            await _genresService.EditByIdAsync(viewModel, genreId);
+            return Json(Url.Action("AllGenres", "Genres"));
+        }
+        [HttpGet]
+        public async Task<IActionResult> DeleteGenre(int id)
+        {
+            return PartialView("_DeleteGenrePartial", await _genresService.PrepareDeleteViewModelAsync(id));
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteGenre([FromForm] DeleteGenreViewModel viewModel, int genreId)
+        {
+            await _genresService.DeleteByIdAsync(genreId);
+            return Json(Url.Action("AllGenres", "Genres"));
         }
     }
 }

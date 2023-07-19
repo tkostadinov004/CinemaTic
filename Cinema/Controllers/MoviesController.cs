@@ -68,11 +68,11 @@ namespace Cinema.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Owner")]
-        public async Task<IActionResult> Create(CreateMovieViewModel movieVM, IEnumerable<string> acts, string userEmail)
+        public async Task<IActionResult> Create(CreateMovieViewModel movieVM, string userEmail)
         {
             if (ModelState.IsValid)
             {
-                await _moviesService.CreateMovieAsync(movieVM, acts, userEmail);
+                await _moviesService.CreateMovieAsync(movieVM, userEmail);
             }
             return RedirectToAction("AllMovies", "Owners");
         }

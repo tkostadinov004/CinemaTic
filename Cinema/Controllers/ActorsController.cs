@@ -6,6 +6,7 @@ using Cinema.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Cinema.Core.Contracts;
 using Cinema.ViewModels.Actors;
+using Cinema.Core.Services;
 
 namespace Cinema.Controllers
 {
@@ -21,7 +22,7 @@ namespace Cinema.Controllers
         // GET: Actors
         public async Task<IActionResult> AllActors()
         {
-            return View(await _actorsService.GetAllAsync());
+            return View();
         }
 
         // GET: Actors/Details/5
@@ -65,27 +66,27 @@ namespace Cinema.Controllers
         // GET: Actors/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            //if (id == null)
+            //{
+            //    return NotFound();
+            //}
 
-            var actor = await _actorsService.GetByIdAsync(id);
-            if (actor == null)
-            {
-                return NotFound();
-            }
-            var vm = new EditActorViewModel
-            {
-                Id = actor.Id,
-                FullName = actor.FullName,
-                Nationality = actor.Nationality,
-                Birthdate = actor.Birthdate,
-                Rating = actor.Rating,
-                ImageUrl = actor.ImageUrl
-            };
-            ViewBag.Countries = new SelectList(GlobalMethods.GetCountries());
-            return View(vm);
+            //var actor = await _actorsService.GetByIdAsync(id);
+            //if (actor == null)
+            //{
+            //    return NotFound();
+            //}
+            //var vm = new EditActorViewModel
+            //{
+            //    Id = actor.Id,
+            //    FullName = actor.FullName,
+            //    Nationality = actor.Nationality,
+            //    Birthdate = new System.DateTime(), //actor.Birthdate
+            //    Rating = decimal.Parse(actor.Rating),
+            //    ImageUrl = actor.ImageUrl
+            //};
+            //ViewBag.Countries = new SelectList(GlobalMethods.GetCountries());
+            return View();
         }
 
         // POST: Actors/Edit/5
@@ -99,7 +100,7 @@ namespace Cinema.Controllers
             {
                 try
                 {
-                    await _actorsService.EditByIdAsync(actorVM, id, country);
+                    await _actorsService.EditActorAsync(actorVM, id, country);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -142,6 +143,39 @@ namespace Cinema.Controllers
         {
             await _actorsService.DeleteByIdAsync(id);
             return RedirectToAction(nameof(AllActors));
+        }
+        public async Task<IActionResult> SearchAndFilterActors(string searchText, string filterValue, string sortBy)
+        {
+            var actors = await _actorsService.SearchAndFilterActorsAsync(searchText, filterValue, sortBy);
+            return PartialView("_ActorsPartial", actors);
+        }
+        public async Task<IActionResult> SearchMoviesByActor(string searchText, string id)
+        {
+            var movies = await _actorsService.SearchMoviesByActor(searchText, id);
+            return PartialView("_ActorMoviesPartial", movies);
+        }
+        [HttpGet]
+        public async Task<IActionResult> EditActor(string id)
+        {
+            return PartialView("_EditActorPartial", await _actorsService.GetEditViewModelByIdAsync(int.Parse(id)));
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditActor([FromForm] EditActorViewModel viewModel, int actorId)
+        {
+            viewModel.Id = actorId;
+            await _actorsService.EditActorAsync(viewModel, actorId, "");
+            return RedirectToAction("AllActors", "Actors");
+        }
+        [HttpGet]
+        public async Task<IActionResult> DeleteActor(int id)
+        {
+            return PartialView("_DeleteActorPartial", await _actorsService.PrepareDeleteViewModelAsync(id));
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteActor([FromForm] DeleteActorViewModel viewModel, int cinemaId)
+        {
+            await _actorsService.DeleteByIdAsync(cinemaId);
+            return RedirectToAction("AllActors", "Actors");
         }
     }
 }

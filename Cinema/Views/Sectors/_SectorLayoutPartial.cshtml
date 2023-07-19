@@ -1,33 +1,100 @@
 ﻿@using Cinema.Utilities;
 @model Cinema.ViewModels.Sectors.SectorDetailsViewModel
-
-<div class="seats-container d-flex flex-column align-items-center">
-    @for (int i = 0; i < Model.Seats.Count; i++)
-    {
-        <div class="seat-row d-flex">
-            @for (int j = 0; j < Model.Seats[i].Count; j++)
-            {
-                <button class="seat d-flex flex-column align-items-center">
-                    @if (i == 0)
-                    {
-                        @if (j == 0)
-                        {
-                            <span style="padding-left: 1rem;">@(j + Model.StartingCol)</span>
-                        }
-                        else
-                        {
-                            <span>@(j + Model.StartingCol)</span>
-                        }
-                    }
-                    <div class="seat-bottom d-flex flex-row align-items-center">
-                        @if (j == 0)
-                        {
-                            <span>@(i + Model.StartingRow)</span>
-                        }
-                        <i class="fa-solid fa-couch"></i>
-                    </div>
-                </button>
-            }
-        </div>
-    }
+<div class="d-flex flex-column justify-content-center m-auto mb-4" style="width: fit-content;">
+    <h4 class="text-center">Sector @Model.Name</h4>
+    <button class="back-button">Back</button>
 </div>
+<div class="seats-container d-flex flex-column m-auto" style="width: fit-content;">
+    <form asp-controller="Tickets" asp-action="BuyTicket" method="post">
+        @for (int i = 0; i < Model.Seats.Count; i++)
+        {
+            @if (i == 0)
+            {
+                <p class="text-center">Columns</p>
+            }
+            <div class="seat-row d-flex">
+                @for (int j = 0; j < Model.Seats[i].Count; j++)
+                {
+                    <div class="seat d-flex flex-column align-items-center">
+                        @if (i == 0)
+                        {
+                            @if (j == 0)
+                            {
+                                <span style="padding-left: 1rem;">@(j + Model.StartingCol)</span>
+                            }
+                            else
+                            {
+                                <span>@(j + Model.StartingCol)</span>
+                            }
+                        }
+                        <div class="seat-bottom d-flex flex-row align-items-center">
+                            @if (j == 0)
+                            {
+                                <span>@(i + Model.StartingRow)</span>
+                            }
+                            <div class="individual-seat">
+                                @if (Model.Seats[i][j].IsOccupied)
+                                {
+                                    <input type="checkbox" asp-for="@Model.Seats[i][j].IsChecked" />
+                                    <label asp-for="@Model.Seats[i][j].IsChecked">
+                                        <i class="fa-solid fa-couch occupied"></i>
+                                    </label>
+                                }
+                                else
+                                {
+                                    <input type="checkbox" asp-for="@Model.Seats[i][j].IsChecked" />
+                                    <label asp-for="@Model.Seats[i][j].IsChecked">
+                                        <i class="fa-solid fa-couch" row="@(i+Model.StartingRow)" col="@(j + Model.StartingCol)"></i>
+                                    </label>
+
+                                    <input type="hidden" asp-for="@Model.Seats[i][j].Row" />
+                                    <input type="hidden" asp-for="@Model.Seats[i][j].Col" />
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        <p class="mt-3" id="seats-info">No seats!</p>
+        <button type="submit" asp-controller="Tickets" asp-action="BuyTicket" asp-route-sectorId="@Model.Id" asp-route-movieId="@Model.ForMovieId" asp-route-forDate="@TempData["ForDate"]">Buy ticket(s)!</button>
+    </form>
+</div>
+<script>
+    document.querySelector('.back-button').addEventListener("click", function () {
+        document.getElementById('results-container').innerHTML = "";
+        $.ajax({
+            type: "GET",
+            url: `/Sectors/GetCinemaSectors`,
+            data: { id: '@Model.CinemaId' },
+            success: function (response) {
+                $("#results-container").html(response);
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    });
+    document.querySelectorAll('.fa-couch').forEach(i => i.addEventListener("click", function () {
+        console.log(i.classlist);
+        if (i.classList.contains('occupied')) {
+            console.log(2);
+            toastr.error('The place you selected is occupied! Select another seat!');
+        }
+        else {
+            i.classList.toggle('selected');
+
+            var selectedSeats = Array.from(document.querySelectorAll('.selected'));
+            var seatsInfo = document.getElementById('seats-info');
+            if (selectedSeats.length > 0) {
+                seatsInfo.innerHTML = 'Selected seat(s): ' + selectedSeats.map(i => `R${i.getAttribute('row')}C${i.getAttribute('col')}`).join(', ')
+            }
+            else {
+                seatsInfo.innerHTML = 'No seats!';
+            }
+        }
+    }))
+</script>

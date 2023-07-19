@@ -105,3 +105,21 @@ form.edit-form {
 div.form-group {
     width: 100%;
 }
+div.cinema-page-container {
+    position: relative;
+    z-index: 2000;
+}
+    div.cinema-page-container #modal {
+        background: white;
+        padding: 100px;
+    }
+    div.cinema-page-container  #modal button.close-btn  {
+        color: black;
+    }
+    div.seat-row *:not(i) {
+        cursor: default;
+    }
+div.seat-row .fa-couch {
+    cursor: pointer;
+    font-size: 2.5rem;
+}

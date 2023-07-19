@@ -14,14 +14,14 @@ namespace Cinema.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetCinemaSectors(string id)
+        public async Task<IActionResult> GetCinemaSectors(string id, string movieId)
         {
-             return PartialView("_CinemaSectorsGridPartial", await _sectorsService.GetCinemaSectorsGridAsync(id));
+             return PartialView("_CinemaSectorsGridPartial", await _sectorsService.GetCinemaSectorsGridAsync(id, movieId));
         }
         [HttpGet]
-        public async Task<IActionResult> GetSectorLayout(string id)
+        public async Task<IActionResult> GetSectorLayout(string id, string movieId)
         {
-            return PartialView("_SectorLayoutPartial", await _sectorsService.GetSectorByIdAsync(id));
+            return PartialView("_SectorLayoutPartial", await _sectorsService.GetSectorByIdAsync(id, movieId));
         }
     }
 }

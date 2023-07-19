@@ -1,22 +1,16 @@
-﻿using Cinema.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Cinema.ViewModels.Tickets
+﻿namespace Cinema.ViewModels.Tickets
 {
     public class BuyTicketViewModel
     {
-        public Movie Movie { get; set; }
-        public string Sector { get; set; }
-        public bool[,] Occupied { get; set; }
-        public DateTime ForDate { get; set; }
-
-        public int StartingRow { get; set; }
-        public int StartingCol { get; set; }
-        public int EndingRow { get; set; }
-        public int EndingCol { get; set; }
+        public int MovieId { get; set; }
+        public string Title { get; set; }
+        public string Genre { get; set; }
+        public string ImageUrl { get; set; }
+        public string Description { get; set; }
+        public int RunningTime { get; set; }
+        public string Director { get; set; }
+        public string ForDateTime { get; set; }
+        public int CinemaId { get; set; }
+        public string Time { get; set; }
     }
 }
