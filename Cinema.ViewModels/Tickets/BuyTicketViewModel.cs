@@ -9,7 +9,8 @@
         public string Description { get; set; }
         public int RunningTime { get; set; }
         public string Director { get; set; }
-        public string ForDateTime { get; set; }
+        public DateTime ForDateTime { get; set; }
+        public string CinemaName { get; set; }
         public int CinemaId { get; set; }
         public string Time { get; set; }
     }

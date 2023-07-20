@@ -1,7 +1,7 @@
 ﻿using Cinema.Core.Contracts;
 using Cinema.Data;
 using Cinema.Data.Models;
-using Cinema.Utilities;
+using Cinema.Core.Utilities;
 using Cinema.ViewModels.Sectors;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Data.SqlClient.Server;
 
 namespace Cinema.Core.Services
 {
@@ -53,7 +54,7 @@ namespace Cinema.Core.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task<SectorGridViewModel> GetCinemaSectorsGridAsync(string cinemaId, string movieId)
+        public async Task<SectorGridViewModel> GetCinemaSectorsGridAsync(string cinemaId, string movieId, DateTime forDate)
         {
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == int.Parse(cinemaId));
             var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == int.Parse(movieId));
@@ -71,17 +72,19 @@ namespace Cinema.Core.Services
                     Name = i.SectorName,
                     CinemaId = i.CinemaId,
                     StartingRow = i.StartRow, 
-                    StartingCol = i.StartCol
-                }).ToArray()
+                    ForDateTime = forDate == default ? DateTime.Today : forDate,
+                    StartingCol = i.StartCol,
+                }).ToArray(),
+                ForDateTime = forDate == default ? DateTime.Today : forDate,
             };
         }
 
-        public async Task<List<List<SectorSeatViewModel>>> GetSeatsForSectorAsync(string sectorId)
+        public async Task<List<List<SectorSeatViewModel>>> GetSeatsForSectorAsync(string sectorId, DateTime forDateTime)
         {
             var seats = new List<List<SectorSeatViewModel>>();
             var sector = await _context.Sectors.FirstOrDefaultAsync(i => i.Id == int.Parse(sectorId));
             var ticketsForOccupiedSeats = await _context.Tickets
-                .Where(i => i.SectorId == sector.Id).ToListAsync();
+                .Where(i => i.SectorId == sector.Id && i.ForDate == forDateTime).ToListAsync();
 
             for (int i = sector.StartRow; i <= sector.EndRow; i++)
             {
@@ -101,7 +104,7 @@ namespace Cinema.Core.Services
             return seats;
         }
 
-        public async Task<SectorDetailsViewModel> GetSectorByIdAsync(string sectorId, string movieId)
+        public async Task<SectorDetailsViewModel> GetSectorByIdAsync(string sectorId, string movieId, DateTime forDateTime)
         {
             var sector = await _context.Sectors.FirstOrDefaultAsync(i => i.Id == int.Parse(sectorId));
             var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == int.Parse(movieId));
@@ -113,7 +116,8 @@ namespace Cinema.Core.Services
                 StartingRow = sector.StartRow,
                 StartingCol = sector.StartCol,
                 CinemaId = sector.CinemaId,
-                Seats = await this.GetSeatsForSectorAsync(sectorId)
+                ForDateTime = forDateTime == default ? DateTime.Today : forDateTime,
+                Seats = await this.GetSeatsForSectorAsync(sectorId, forDateTime)
             };
         }
     }

@@ -1,7 +1,7 @@
 ﻿using Cinema.Core.Contracts;
 using Cinema.Data;
 using Cinema.Data.Models;
-using Cinema.Utilities;
+using Cinema.Core.Utilities;
 using Cinema.ViewModels.Sectors;
 using Cinema.ViewModels.Tickets;
 using Microsoft.AspNetCore.Identity;
@@ -66,9 +66,11 @@ namespace Cinema.Core.Services
         {
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == cinemaId);
             var movie = await _context.Movies.Include(i => i.Genre).FirstOrDefaultAsync(i => i.Id == movieId);
+            DateTime date = DateTime.Parse(forDate);
             return new BuyTicketViewModel
             {
                 CinemaId = cinema.Id,
+                CinemaName = cinema.Name,
                 Description = movie.Description,
                 Director = movie.Director,
                 Genre = movie.Genre.Name,
@@ -77,7 +79,7 @@ namespace Cinema.Core.Services
                 RunningTime = movie.RunningTime,
                 Time = forDate,
                 Title = movie.Title,
-                ForDateTime = forDate
+                ForDateTime = date
             };
         }
     }

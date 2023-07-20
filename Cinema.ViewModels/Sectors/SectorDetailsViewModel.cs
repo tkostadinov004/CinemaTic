@@ -14,6 +14,7 @@ namespace Cinema.ViewModels.Sectors
         public int CinemaId { get; set; }
         public int StartingRow { get; set; }
         public int StartingCol { get; set; }
+        public DateTime ForDateTime { get; set; }
         public List<List<SectorSeatViewModel>> Seats { get; set; }
     }
 }

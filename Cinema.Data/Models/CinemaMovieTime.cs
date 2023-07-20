@@ -8,6 +8,7 @@ namespace Cinema.Data.Models
 {
     public class CinemaMovieTime
     {
+        public int Id { get; set; }
         public int CinemaId { get; set; }
         public Cinema Cinema { get; set; }
         public int MovieId { get; set; }

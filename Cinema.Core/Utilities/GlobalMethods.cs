@@ -9,7 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Cinema.Utilities
+namespace Cinema.Core.Utilities
 {
     public static class GlobalMethods
     {

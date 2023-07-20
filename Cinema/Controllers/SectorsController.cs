@@ -1,5 +1,6 @@
 ﻿using Cinema.Core.Contracts;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace Cinema.Controllers
@@ -16,12 +17,12 @@ namespace Cinema.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCinemaSectors(string id, string movieId)
         {
-             return PartialView("_CinemaSectorsGridPartial", await _sectorsService.GetCinemaSectorsGridAsync(id, movieId));
+             return PartialView("_CinemaSectorsGridPartial", await _sectorsService.GetCinemaSectorsGridAsync(id, movieId, (DateTime)TempData["ForDateTime"]));
         }
         [HttpGet]
-        public async Task<IActionResult> GetSectorLayout(string id, string movieId)
+        public async Task<IActionResult> GetSectorLayout(string id, string movieId, DateTime forDateTime)
         {
-            return PartialView("_SectorLayoutPartial", await _sectorsService.GetSectorByIdAsync(id, movieId));
+            return PartialView("_SectorLayoutPartial", await _sectorsService.GetSectorByIdAsync(id, movieId, forDateTime));
         }
     }
 }
