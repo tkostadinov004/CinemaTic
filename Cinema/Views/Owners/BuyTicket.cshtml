@@ -1,10 +1,11 @@
 ﻿@model Cinema.ViewModels.Tickets.BuyTicketViewModel
 @{
-    TempData["ForDate"] = Model.ForDateTime;
+    TempData["ForDateTime"] = Model.ForDateTime;
     TempData["CinemaId"] = Model.CinemaId;
 }
 <link href="~/css/cinemas.css" rel="stylesheet" />
 <link href="~/lib/toastr/toastr.css" rel="stylesheet" />
+<link href="~/css/ratingmodal.css" rel="stylesheet" />
 <div class="main-cinema-container">
     <nav>
         <div class="col-xl-12 d-flex justify-content-between align-items-center">
@@ -15,16 +16,18 @@
             </div>
         </div>
     </nav>
-    <div class="movie movie-details d-flex justify-content-center align-items-start text-white">
+    <div class="movie movie-details d-flex justify-content-center align-items-start gap-3 text-white">
         <img src="~/client-images/Movies/@Model.ImageUrl" />
-        <div class="movie-details-container d-flex flex-column text-white">
+        <div class="movie-details-container d-flex flex-column gap-3 text-white">
             <h3>@Model.Title</h3>
-            <span>@Model.ForDateTime</span>
-            <span>@Model.Description</span>
+            <span>@($"{Model.ForDateTime.DayOfWeek.ToString()} {Model.ForDateTime.Day} {Model.ForDateTime.ToString("MMMM")} at {Model.ForDateTime.ToString("hh:mm tt")}")</span>
+            <span class="description">@Model.Description</span>
+            <span>Cinema: <b>@Model.CinemaName</b></span>
         </div>
     </div>
    <div class="main-content">
         <div id="results-container" class="ticket-purchase-container">
+           
         </div>
    </div>
 </div>

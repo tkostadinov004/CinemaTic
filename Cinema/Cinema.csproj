@@ -6,11 +6,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\client-images\temp\**" />
+    <Content Remove="wwwroot\client-images\temp\**" />
+    <EmbeddedResource Remove="wwwroot\client-images\temp\**" />
+    <None Remove="wwwroot\client-images\temp\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.0">
       <TreatAsUsed>true</TreatAsUsed>
     </PackageReference>
+    <PackageReference Include="toastr" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>

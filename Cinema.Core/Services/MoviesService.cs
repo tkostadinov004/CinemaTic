@@ -2,7 +2,7 @@
 using Cinema.Data;
 using Cinema.Data.Enums;
 using Cinema.Data.Models;
-using Cinema.Utilities;
+using Cinema.Core.Utilities;
 using Cinema.ViewModels;
 using Cinema.ViewModels.Actors;
 using Cinema.ViewModels.Cinemas;
@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace Cinema.Core.Services
 {
@@ -130,9 +131,10 @@ namespace Cinema.Core.Services
             return await _userManager.GetUserAsync(controllerBase.HttpContext.User);
         }
 
-        public async Task<MovieDetailsViewModel> GetDetailsViewModel(Movie movie, IEnumerable<UserMovie> ratings, string userEmail)
+        public async Task<MovieDetailsViewModel> GetDetailsViewModel(Movie movie, IEnumerable<UserMovie> ratingsS, string userEmail)
         {
             var currentUser = await _userManager.FindByEmailAsync(userEmail);
+            var ratings = await _context.UsersMovies.Include(i => i.Customer).Where(i => i.MovieId == movie.Id).ToListAsync();
             var viewModel = new MovieDetailsViewModel
             {
                 Director = movie.Director,
@@ -141,11 +143,11 @@ namespace Cinema.Core.Services
                 ImageUrl = movie.ImageUrl,
                 RunningTime = movie.RunningTime,
                 Title = movie.Title,
-                TrailerUrl = movie.TrailerUrl,
+                TrailerId = Regex.Match(movie.TrailerUrl, Constants.TrailerUrlRegex).Groups[3].Value,
                 MovieId = movie.Id,
                 Actors = movie.Actors.Select(i => i.FullName).ToList(),
-                AverageRating = ratings.ToList().Count == 0 ? 0 : ratings.Select(i => i.Rating).Average(),
-                RatingCount = ratings.Count(),
+                AverageRating = ratings.Count == 0 ? 0 : ratings.Select(i => i.Rating).Average(),
+                RatingCount = ratings.Count,
                 CurrentUserRating = ratings.FirstOrDefault(i => i.Customer.Email == currentUser.Email) == null ? null : ratings.FirstOrDefault(i => i.Customer.Email == currentUser.Email).Rating,
                 UserCinemas = (await _context.Cinemas.Where(i => i.OwnerId == currentUser.Id && i.ApprovalStatus == ApprovalStatus.Approved).ToListAsync()).Select(i => new CinemaCheckboxViewModel
                 {

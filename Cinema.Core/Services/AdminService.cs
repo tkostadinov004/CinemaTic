@@ -10,7 +10,7 @@ using Cinema.Core.Contracts;
 using Microsoft.EntityFrameworkCore;
 using Cinema.ViewModels.Admin;
 using Cinema.Data.Enums;
-using Cinema.Utilities;
+using Cinema.Core.Utilities;
 using Cinema.ViewModels.Cinemas;
 using Microsoft.AspNetCore.SignalR.Protocol;
 using System.Text.RegularExpressions;

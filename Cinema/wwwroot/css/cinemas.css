@@ -244,3 +244,144 @@ div.individual-seat i {
 #seats-info {
     max-width: 400px;
 }
+.movie-details-container span.description {
+    display: -webkit-box;
+    max-width: 500px;
+    word-break: break-word;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+i.trailer-play-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    color: white;
+    font-size: 4rem;
+    border: 0.3rem solid grey;
+    background: grey;
+    border-radius: 50%;
+    opacity: 0.9;
+    z-index: 20;
+}
+div.movie-poster:has(i.trailer-play-button) {
+    cursor: pointer;
+}
+div.movie-poster:has(i.trailer-play-button):hover {
+    background-color: red;
+}
+div.movie-poster-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+div.movie-poster:has(i.trailer-play-button):hover div.movie-poster-overlay {
+    background: rgba(255, 255, 255, 0.3);
+    transition: 0.25s;
+}
+.container, .container-fluid {
+    max-width: 980px;
+    width: 100%;
+}
+
+.trailer-container {
+    width: 100%;
+}
+
+div.video-holder {
+    height: 50vh;
+}
+
+iframe#trailer {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    display: block;
+}
+
+div.production-info-box {
+    display: flex;
+    margin: 1rem 0;
+}
+
+    div.production-info-box span, div.movie-rating-container span {
+        font-size: 1rem;
+    }
+
+    div.production-info-box h6 {
+        min-width: 40%;
+    }
+
+i.ct-rating-star {
+    font-size: 1.5rem;
+}
+
+.modal-star-container svg {
+    pointer-events: none;
+}
+
+svg.average {
+    color: #f5c518;
+}
+
+svg.personal {
+    color: green;
+    cursor: pointer;
+}
+
+svg.rate {
+    color: grey;
+}
+
+svg.personal.not-rated {
+    color: #5799ef;
+}
+
+div.rating-box:has(svg.not-rated) {
+    cursor: pointer;
+}
+
+div#modal.movie-rating-modal {
+    border: 0;
+    padding: 0;
+    background: transparent;
+}
+
+    div#modal.movie-rating-modal #review-form-container {
+        background: black;
+        margin: 50px 0 0 0;
+    }
+
+div.rate {
+    cursor: default;
+}
+
+.modal-star-container {
+    cursor: pointer;
+}
+
+    .modal-star-container input {
+        position: absolute;
+        z-index: -2;
+        visibility: hidden;
+    }
+
+svg.rate.active {
+    color: #f5c518;
+}
+
+.rate-button {
+    background-color: #f5c518;
+    color: black;
+    font-weight: 500;
+}

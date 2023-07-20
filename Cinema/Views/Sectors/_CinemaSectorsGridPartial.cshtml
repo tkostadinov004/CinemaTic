@@ -1,5 +1,8 @@
-﻿@using Cinema.Utilities;
+﻿@using Cinema.Core.Utilities;
 @model Cinema.ViewModels.Sectors.SectorGridViewModel
+@{
+    TempData["ForDateTime"] = Model.ForDateTime;
+}
 <h4 class="text-center mb-3">Select a sector</h4>
 <div class="d-flex flex-wrap" id="sectors-grid-container">
     @foreach (var sector in Model.Sectors)
@@ -29,7 +32,7 @@
             $.ajax({
                 type: "GET",
                 url: `/Sectors/GetSectorLayout`,
-                data: { id: i.id, movieId: '@Model.ForMovieId'},
+                data: { id: i.id, movieId: '@Model.ForMovieId', forDateTime: '@Model.ForDateTime'},
                 success: function (response) {
                     $("#results-container").html(response);
                 },

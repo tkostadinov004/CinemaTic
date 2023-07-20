@@ -1,5 +1,8 @@
-﻿@using Cinema.Utilities;
+﻿@using Cinema.Core.Utilities;
 @model Cinema.ViewModels.Sectors.SectorDetailsViewModel
+@{
+    TempData["ForDateTime"] = Model.ForDateTime;
+}
 <div class="d-flex flex-column justify-content-center m-auto mb-4" style="width: fit-content;">
     <h4 class="text-center">Sector @Model.Name</h4>
     <button class="back-button">Back</button>
@@ -57,7 +60,7 @@
             </div>
         }
         <p class="mt-3" id="seats-info">No seats!</p>
-        <button type="submit" asp-controller="Tickets" asp-action="BuyTicket" asp-route-sectorId="@Model.Id" asp-route-movieId="@Model.ForMovieId" asp-route-forDate="@TempData["ForDate"]">Buy ticket(s)!</button>
+        <button type="submit" asp-controller="Tickets" asp-action="BuyTicket" asp-route-sectorId="@Model.Id" asp-route-movieId="@Model.ForMovieId" asp-route-forDate="@Model.ForDateTime">Buy ticket(s)!</button>
     </form>
 </div>
 <script>
@@ -66,7 +69,7 @@
         $.ajax({
             type: "GET",
             url: `/Sectors/GetCinemaSectors`,
-            data: { id: '@Model.CinemaId' },
+            data: { id: '@Model.CinemaId', movieId: '@Model.ForMovieId' },
             success: function (response) {
                 $("#results-container").html(response);
             },

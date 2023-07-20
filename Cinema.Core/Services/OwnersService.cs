@@ -4,7 +4,6 @@ using Cinema.Core.Utilities;
 using Cinema.Data;
 using Cinema.Data.Enums;
 using Cinema.Data.Models;
-using Cinema.Utilities;
 using Cinema.ViewModels.Cinemas;
 using Cinema.ViewModels.Contracts;
 using Cinema.ViewModels.Movies;
@@ -365,6 +364,7 @@ namespace Cinema.Core.Services
                 CinemaId = i.CinemaId,
                 Genre = i.Movie.Genre.Name,
                 Name = i.Movie.Title,
+                TrailerUrl = i.Movie.TrailerUrl,
                 RunningTime = i.Movie.RunningTime.ToString(),
                 ImageUrl = i.Movie.ImageUrl,
                 Schedule = cinema.Schedule.Where(k => k.CinemaId == cinema.Id && k.MovieId == i.MovieId && k.ForDateTime.Date == convertedDate.Value.Date)

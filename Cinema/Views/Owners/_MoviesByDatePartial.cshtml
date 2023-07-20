@@ -3,9 +3,16 @@
 @foreach (var movie in Model)
 {
     <div class="movie d-flex gap-5">
-        <img src="~/client-images/Movies/@movie.ImageUrl" />
+        <div class="movie-poster position-relative">
+            <img src="~/client-images/Movies/@movie.ImageUrl" />
+            @if (string.IsNullOrEmpty(movie.TrailerUrl) == false)
+            {
+                <i class="fa-regular fa-circle-play trailer-play-button open-popup-btn" id="@movie.TrailerUrl"></i>
+                <div class="movie-poster-overlay"></div>
+            }
+        </div>
         <div class="movie-info d-flex justify-content-start align-items-start flex-column gap-2">
-            <h5>@movie.Name</h5>
+            <h5><a asp-controller="Customer" asp-action="MovieDetails" asp-route-id="@movie.Id">@movie.Name</a></h5>
             <div class="d-flex genre-time flex-column">
                 <span>@movie.Genre</span>
                 <span>@movie.RunningTime minutes</span>
@@ -14,10 +21,29 @@
                 @foreach (var time in movie.Schedule)
                 {
                     <form>
-                        <a class="time-button open-popup-btn" asp-controller="Owners" asp-action="BuyTicket" asp-route-cinemaId="@movie.CinemaId" asp-route-movieId="@movie.Id" asp-route-forDate="@time">@time.ToString("hh:mm")</a>
+                        <a class="time-button" asp-controller="Owners" asp-action="BuyTicket" asp-route-cinemaId="@movie.CinemaId" asp-route-movieId="@movie.Id" asp-route-forDate="@time">@time.ToString("hh:mm tt")</a>
                     </form>
                 }
             </div>
         </div>
     </div>
 }
+<div class="rating-container">
+    <div style="height: 90%;
+    width: 90%;z-index: 30;" id="modal" role="dialog" aria-modal="true" aria-labelledby="add-review-header" class="edit-modal">
+        <button class="close-btn" aria-label="close" title="Close" style="z-index: 30;">x</button>
+        <div id="review-form-container" class="d-flex justify-content-center align-items-center position-relative w-100 h-100">
+            <iframe id="youtube-container" class="w-100 h-100 pt-5"  src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="modal-overlay"></div>
+</div>
+<script>
+    document.querySelectorAll('.trailer-play-button').forEach(i => i.addEventListener("click", function () {
+        document.getElementById('youtube-container').setAttribute('src', i.id);
+    }));
+    document.querySelectorAll('.close-btn').forEach(i => i.addEventListener("click", function () {
+        document.getElementById('youtube-container').setAttribute('src', ``);
+    }));
+</script>
+<script src="~/js/rating-modal.js"></script>

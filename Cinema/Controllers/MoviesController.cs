@@ -163,16 +163,16 @@ namespace Cinema.Controllers
         }
         [HttpPost]
         [Authorize(Roles = "Customer")]
-        public async Task<IActionResult> SetRating(int movieId, decimal userRating)
+        public async Task<IActionResult> SetRating(int movieId, int? rating)
         {
-            if (userRating == 0)
+            if (rating == 0 || rating == null)
             {
-                return RedirectToAction("Details", new { id = movieId });
+                return RedirectToAction("MovieDetails", "Customer", new { id = movieId });
             }
 
-            await _moviesService.SetRatingAsync(movieId, userRating, User.Identity.Name);
+            await _moviesService.SetRatingAsync(movieId, rating.Value, User.Identity.Name);
 
-            return RedirectToAction("Details", new { id = movieId });
+            return RedirectToAction("MovieDetails", "Customer", new { id = movieId });
         }
         [AllowAnonymous]
         public async Task<IActionResult> WatchTrailer(int id)

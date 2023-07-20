@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Cinema.Utilities;
+using Cinema.Core.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Cinema.Core.Contracts;
 using Cinema.ViewModels.Actors;

@@ -2,7 +2,7 @@
 using Cinema.Data;
 using Cinema.Data.Enums;
 using Cinema.Data.Models;
-using Cinema.Utilities;
+using Cinema.Core.Utilities;
 using Cinema.ViewModels.Actors;
 using Cinema.ViewModels.Cinemas;
 using Cinema.ViewModels.Contracts;

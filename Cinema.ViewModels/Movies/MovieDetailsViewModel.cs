@@ -17,7 +17,7 @@ namespace Cinema.ViewModels.Movies
         public string Director { get; set; }
         public string? Date { get; set; }
         public int RunningTime { get; set; }
-        public string TrailerUrl { get; set; }
+        public string TrailerId { get; set; }
         public Genre? Genre { get; set; }
         public decimal AverageRating { get; set; }
         public int RatingCount { get; set; }
