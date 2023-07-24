@@ -43,6 +43,7 @@ builder.Services.AddScoped<ITicketsService, TicketsService>();
 builder.Services.AddScoped<ICustomersService, CustomersService>();
 builder.Services.AddScoped<IOwnersService, OwnersService>();
 builder.Services.AddScoped<ISectorsService, SectorsService>();
+builder.Services.AddScoped<IChartsService, ChartsService>();
 
 var app = builder.Build();
 

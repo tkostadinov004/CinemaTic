@@ -5,10 +5,21 @@
 }
 <link href="~/css/manageStyle.css" rel="stylesheet" />
 @*<partial name="_ManageSidebarPartial" />*@
-<div class="app-content home-graphs">
-    <div style="width: 50%;"><canvas id="marketShare"></canvas></div>
+<div class="app-content home-graphs gap-4">
+    <div class="d-flex flex-row align-items-center">
+        <div style="width: 50%;"><canvas id="marketShare"></canvas></div>
+        <div style="width: 50%;"><canvas id="bestSellingMoviesPerCinema"></canvas></div>
+    </div>
+    <div style="width: 100%;"><canvas id="customersPerCinema"></canvas></div>
+    <div style="width: 100%;"><canvas id="totalRevenuePerCinema"></canvas></div>
 </div>
 <script src="~/js/ownerdashboard.js"></script>
 <script src="~/lib/chart.js/chart.umd.js"></script>
 <script src="~/lib/chart.js/chart.umd.min.js"></script>
 <script src="~/js/owner-charts.js"></script>
+<script>
+    getMarketShare();
+    getTotalIncomes();
+    getCustomersPerCinema();
+    getBestSellingMoviesPerCinema();
+</script>
