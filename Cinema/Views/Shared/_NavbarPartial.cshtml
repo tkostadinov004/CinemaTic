@@ -35,21 +35,10 @@
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
                                 <li><a class="dropdown-item" href="topics-listing.html">Topics Listing</a></li>
 
-                                <li><a class="dropdown-item" href="contact.html">Contact Form</a></li>
+                                <li><a class="dropdown-item">adsdad</a></li>
                             </ul>
                         </li>
                     </ul>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <div class="d-none d-lg-block">
-                            <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
-                        </div>
-                        <div class="d-none d-lg-block">
-                            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                                <button type="submit" class="nx-btn">Logout</button>
-                            </form>
-                        </div>
-                    }
                 </div>
             }
             else
@@ -60,29 +49,29 @@
                         <ul class="navbar-nav ms-lg-5 me-lg-auto">
 
                             <li class="nav-item">
-                                <a class="nav-link click-scroll">Home</a>
+                                <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Index">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Cinemas" asp-route-all="@false">Your cinemas</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Cinemas" asp-route-all="@true">All cinemas</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Tickets">Tickets</a>
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="your-cinemas" role="button" data-bs-toggle="dropdown" aria-expanded="false">Your cinemas</a>
+                                <a class="nav-link dropdown-toggle" href="#" id="your-cinemas" role="button" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
 
                                 <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="your-cinemas">
-                                    <li><a class="dropdown-item" href="topics-listing.html">Topics Listing</a></li>
+                                   @* <li><a class="dropdown-item" asp-controller="Customer" asp-action="Profile">Profile</a></li>*@
 
-                                    <li><a class="dropdown-item" href="contact.html">Contact Form</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Customer" asp-action="ChangePassword">Change password</a></li>
                                 </ul>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link click-scroll">All cinemas</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link click-scroll">Tickets</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link click-scroll">Settings</a>
                             </li>
 
                             <li class="nav-item">
@@ -105,7 +94,12 @@
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/js/click-scroll.js"></script>
 <script>
-    document.querySelectorAll('a.nav-link').forEach(i => i.addEventListener("click", function () {
-
-    }));
+    $(function () {
+        var url = window.location.href;
+        $(".nav-link").each(function () {
+            if (url == (this.href)) {
+                $(this).closest("li").children().eq(0).addClass("active");
+            }
+        });
+    });
 </script>

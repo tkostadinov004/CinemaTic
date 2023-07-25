@@ -32,9 +32,7 @@
             <div class="form-group">
                 <div class="active-form">
                     <i class="fa-solid fa-pen input-icon"></i>
-                    <select asp-for="GenreId" asp-items="@Model.Genres" class="form-control form-style" placeholder="Genre" style="    background: black;
-    border: 0;
-    color: white;"></select>
+                    <select asp-for="GenreId" asp-items="@Model.Genres" class="form-control form-style dropdown-select" placeholder="Genre"></select>
                 </div>
                 <span asp-validation-for="GenreId" class="text-danger"></span>
             </div>
@@ -76,7 +74,7 @@
                             {
                                 <div>
                                     <input type="checkbox" asp-for="@Model.ActorsDropdown[i].IsChecked" />
-                                    <label class="text-white" asp-for="@Model.ActorsDropdown[i].IsChecked">@Model.ActorsDropdown[i].FullName</label>
+                                    <label class="actor-name" asp-for="@Model.ActorsDropdown[i].IsChecked">@Model.ActorsDropdown[i].FullName</label>
 
                                     <input type="hidden" asp-for="@Model.ActorsDropdown[i].Id" />
                                     <input type="hidden" asp-for="@Model.ActorsDropdown[i].FullName" />

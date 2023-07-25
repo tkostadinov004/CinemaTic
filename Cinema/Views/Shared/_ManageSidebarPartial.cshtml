@@ -14,14 +14,14 @@
             @if (User.IsInRole("Owner"))
             {
                 <a id="home-tab" asp-controller="Owners" asp-action="Index">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#fff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>
                     <span>Home</span>
                 </a>
             }
             else if (User.IsInRole("Administrator"))
             {
                 <a id="home-tab" asp-controller="Admin" asp-action="Index">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#fff" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>
                     <span>Home</span>
                 </a>
             }
@@ -30,14 +30,14 @@
             @if (User.IsInRole("Owner"))
             {
                 <a id="cinemas-tab" asp-controller="Owners" asp-action="UserCinemas">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><line x1="3" y1="6" x2="21" y2="6" /><path d="M16 10a4 4 0 0 1-8 0" /></svg>
+                    <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#FFFFFF" version="1.1" id="Icons" viewBox="0 0 32 32" xml:space="preserve"><path d="M31.9,11.7C31.8,11.3,31.4,11,31,11H20.7l-3.7-9.4C16.8,1.2,16.4,1,16,1s-0.8,0.2-0.9,0.6L11.3,11H1c-0.4,0-0.8,0.3-0.9,0.7  c-0.1,0.4,0,0.9,0.3,1.1l8.4,6.6L5.1,29.7c-0.1,0.4,0,0.9,0.3,1.1c0.3,0.3,0.8,0.3,1.2,0l9.4-6.2l9.4,6.2c0.2,0.1,0.4,0.2,0.6,0.2  c0.2,0,0.4-0.1,0.6-0.2c0.3-0.3,0.5-0.7,0.3-1.1l-3.8-10.3l8.4-6.6C32,12.5,32.1,12.1,31.9,11.7z M16,21c-2.2,0-4-1.8-4-4s1.8-4,4-4  s4,1.8,4,4S18.2,21,16,21z" /></svg>
                     <span>Cinemas</span>
                 </a>
             }
             else if (User.IsInRole("Administrator"))
             {
                 <a id="cinemas-tab" asp-controller="Admin" asp-action="AllCinemas">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><line x1="3" y1="6" x2="21" y2="6" /><path d="M16 10a4 4 0 0 1-8 0" /></svg>
+                    <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#FFFFFF" version="1.1" id="Icons" viewBox="0 0 32 32" xml:space="preserve"><path d="M31.9,11.7C31.8,11.3,31.4,11,31,11H20.7l-3.7-9.4C16.8,1.2,16.4,1,16,1s-0.8,0.2-0.9,0.6L11.3,11H1c-0.4,0-0.8,0.3-0.9,0.7  c-0.1,0.4,0,0.9,0.3,1.1l8.4,6.6L5.1,29.7c-0.1,0.4,0,0.9,0.3,1.1c0.3,0.3,0.8,0.3,1.2,0l9.4-6.2l9.4,6.2c0.2,0.1,0.4,0.2,0.6,0.2  c0.2,0,0.4-0.1,0.6-0.2c0.3-0.3,0.5-0.7,0.3-1.1l-3.8-10.3l8.4-6.6C32,12.5,32.1,12.1,31.9,11.7z M16,21c-2.2,0-4-1.8-4-4s1.8-4,4-4  s4,1.8,4,4S18.2,21,16,21z" /></svg>
                     <span>Cinemas</span>
                 </a>
             }
@@ -46,14 +46,23 @@
             @if (User.IsInRole("Owner"))
             {
                 <a asp-controller="Movies" asp-action="AllMovies">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pie-chart"><path d="M21.21 15.89A10 10 0 1 1 8 2.83" /><path d="M22 12A10 10 0 0 0 12 2v10z" /></svg>
+                    <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" viewBox="0 -2 32 32" version="1.1">
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                            <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-206.000000, -519.000000)" fill="#FFFFFF">
+                                <path d="M225,531.012 C222.232,531.012 219.989,528.768 219.989,526 C219.989,523.232 222.232,520.989 225,520.989 C227.768,520.989 230.011,523.232 230.011,526 C230.011,528.768 227.768,531.012 225,531.012 L225,531.012 Z M212,531 C209.791,531 208,529.209 208,527 C208,524.791 209.791,523 212,523 C214.209,523 216,524.791 216,527 C216,529.209 214.209,531 212,531 L212,531 Z M236,531 L230,535 C230,533.786 229.448,532.712 228.594,531.979 C230.626,530.753 232,528.546 232,526 C232,522.134 228.866,519 225,519 C221.134,519 218,522.134 218,526 C218,527.962 218.812,529.729 220.111,531 L216.443,531 C217.4,529.937 218,528.544 218,527 C218,523.687 215.313,521 212,521 C208.687,521 206,523.687 206,527 C206,528.809 206.816,530.41 208.082,531.511 C206.847,532.191 206,533.49 206,535 L206,543 C206,545.209 207.791,547 210,547 L226,547 C228.209,547 230,545.209 230,543 L236,547 C237.104,547 238,546.104 238,545 L238,533 C238,531.896 237.104,531 236,531 L236,531 Z" id="movie-recorder" sketch:type="MSShapeGroup">
+                                </path>
+                            </g>
+                        </g>
+                    </svg>
                     <span>Movies</span>
                 </a>
             }
             else if (User.IsInRole("Administrator"))
             {
                 <a asp-controller="Admin" asp-action="Users">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pie-chart"><path d="M21.21 15.89A10 10 0 1 1 8 2.83" /><path d="M22 12A10 10 0 0 0 12 2v10z" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#fff" stroke="#fff">
+                        <path d="M4 21C4 17.4735 6.60771 14.5561 10 14.0709M19.8726 15.2038C19.8044 15.2079 19.7357 15.21 19.6667 15.21C18.6422 15.21 17.7077 14.7524 17 14C16.2923 14.7524 15.3578 15.2099 14.3333 15.2099C14.2643 15.2099 14.1956 15.2078 14.1274 15.2037C14.0442 15.5853 14 15.9855 14 16.3979C14 18.6121 15.2748 20.4725 17 21C18.7252 20.4725 20 18.6121 20 16.3979C20 15.9855 19.9558 15.5853 19.8726 15.2038ZM15 7C15 9.20914 13.2091 11 11 11C8.79086 11 7 9.20914 7 7C7 4.79086 8.79086 3 11 3C13.2091 3 15 4.79086 15 7Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
                     <span>Users</span>
                 </a>
             }
@@ -62,13 +71,13 @@
         {
             <li class="sidebar-list-item">
                 <a asp-controller="Actors" asp-action="AllActors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pie-chart"><path d="M21.21 15.89A10 10 0 1 1 8 2.83" /><path d="M22 12A10 10 0 0 0 12 2v10z" /></svg>
+                    <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#FFFFFF" version="1.1" id="Actor" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve"><path d="M155.53,54.26c0-20.16,16.34-36.5,36.5-36.5c20.16,0,36.5,16.34,36.5,36.5c0,20.16-16.34,36.5-36.5,36.5  C171.87,90.76,155.53,74.42,155.53,54.26z M46,183.083L46,183.083c-19.882,0-36-16.118-36-36V99h72v48.083  C82,166.966,65.882,183.083,46,183.083z M67,153H25c0.09,0.32,0.19,0.63,0.29,0.94C28.17,162.57,36.42,169,46,169  c9.55,0,17.77-6.38,20.68-14.97C66.79,153.69,66.9,153.35,67,153z M53.01,131h17.98c-0.06-4.91-4.06-8.88-8.99-8.88  S53.07,126.09,53.01,131z M21.01,131h17.98c-0.06-4.91-4.06-8.88-8.99-8.88S21.07,126.09,21.01,131z M276,282L276,282  c8.837,0,16-7.163,16-16V145c0-25.405-20.595-46-46-46H140c-25.405,0-46,20.595-46,46v50H24.452  c-8.615,0-16.028,6.621-16.434,15.227C7.586,219.415,14.907,227,24,227h82.25c10.908,0,19.75-8.842,19.75-19.75V157h12v125h110V157  h12v109C260,274.837,267.163,282,276,282z" /></svg>
                     <span>Actors</span>
                 </a>
             </li>
             <li class="sidebar-list-item">
                 <a asp-controller="Genres" asp-action="AllGenres">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pie-chart"><path d="M21.21 15.89A10 10 0 1 1 8 2.83" /><path d="M22 12A10 10 0 0 0 12 2v10z" /></svg>
+                    <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.186 2.09c.521.25 1.136.612 1.625 1.101.49.49.852 1.104 1.1 1.625.313.654.11 1.408-.401 1.92l-7.214 7.213c-.31.31-.688.541-1.105.675l-4.222 1.353a.75.75 0 0 1-.943-.944l1.353-4.221a2.75 2.75 0 0 1 .674-1.105l7.214-7.214c.512-.512 1.266-.714 1.92-.402zm.211 2.516a3.608 3.608 0 0 0-.828-.586l-6.994 6.994a1.002 1.002 0 0 0-.178.241L9.9 14.102l2.846-1.496c.09-.047.171-.107.242-.178l6.994-6.994a3.61 3.61 0 0 0-.586-.828zM4.999 5.5A.5.5 0 0 1 5.47 5l5.53.005a1 1 0 0 0 0-2L5.5 3A2.5 2.5 0 0 0 3 5.5v12.577c0 .76.082 1.185.319 1.627.224.419.558.754.977.978.442.236.866.318 1.627.318h12.154c.76 0 1.185-.082 1.627-.318.42-.224.754-.559.978-.978.236-.442.318-.866.318-1.627V13a1 1 0 1 0-2 0v5.077c0 .459-.021.571-.082.684a.364.364 0 0 1-.157.157c-.113.06-.225.082-.684.082H5.923c-.459 0-.57-.022-.684-.082a.363.363 0 0 1-.157-.157c-.06-.113-.082-.225-.082-.684V5.5z" fill="#FFFFFF" /></svg>
                     <span>Genres</span>
                 </a>
             </li>

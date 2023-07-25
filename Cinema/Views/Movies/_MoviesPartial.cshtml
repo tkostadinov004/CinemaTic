@@ -8,55 +8,13 @@
         </button>
         <div class="cinema-cell image">
             <a class="d-flex align-items-center cinema-link" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">
-                <img src="~/client-images/Movies/@movie.ImageUrl" alt="cinema-logo">
+                <img class="h-100" src="~/client-images/Movies/@movie.ImageUrl" alt="cinema-logo">
                 <span>@movie.Name</span>
             </a>
         </div>
         <div class="cinema-cell sales"><span class="cell-label">Genre:</span>@movie.Genre</div>
         <div class="cinema-cell sales"><span class="cell-label">Average rating:</span>@movie.AverageRating / 10.0</div>
-        <div class="cinema-cell stock"><span class="cell-label">Rating count:</span>@movie.RatingCount</div>
+        <div class="cinema-cell stock"><span class="cell-label">Ratings:</span>@movie.RatingCount</div>
         <div class="cinema-cell stock"><span class="cell-label">Added by:</span>@movie.AddedBy</div>
     </div>
-    <div class="movie-grid" hidden>
-        <div class="card-wrapper">
-            <div class="card">
-                <img src="~/client-images/Movies/@movie.ImageUrl" alt="cinema-logo">
-                <div class="descriptions">
-                    <div class="description-buttons">
-                        <a class="desc-button" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">
-                            <i class="fa-solid fa-circle-info f-size-b"></i>
-                            Details
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 }
-<script>
-    var search = document.getElementById("search-bar");
-    var filterOptions = document.getElementById('filter-options');
-    var activeSort = document.querySelector('.sort-button.selected');
-    if (search) {
-        let timeout = null;
-        search.addEventListener("keyup", function () {
-            clearTimeout(timeout);
-            timeout = setTimeout(function () {
-                getItems('Movies', 'SearchAndFilterMovies', search.value, '', (filterOptions ? filterOptions.value : null), (activeSort ? activeSort.id : null));
-            }, 300);
-        });
-    }
-
-    filterOptions.addEventListener("change", function () {
-        getItems('Movies', "SearchAndFilterMovies", (search ? search.value : null), '', filterOptions.value, (activeSort ? activeSort.id : null));
-    });
-    document.querySelectorAll(".sort-button").forEach(i => i.addEventListener('click', function () {
-        var alreadyActive = document.querySelector('.sort-button.selected');
-        if (alreadyActive) {
-            alreadyActive.classList.remove("selected");
-        }
-        activeSort = i;
-        i.classList.add("selected");
-        getItems('Movies', 'SearchAndFilterMovies', (search ? search.value : null), '', (filterOptions ? filterOptions.value : null), i.id);
-    }));
-</script>

@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Cinema.ViewModels.Admin.UserDetailsViewModel>
 
+<link href="~/css/ratingmodal.css" rel="stylesheet" />
 @foreach (var user in Model)
 {
     <div class="cinema-row info-cinema">
@@ -23,16 +24,22 @@
         <div class="cinema-cell added-by">
             <span class="cell-label">Admin actions:</span>
             <div class="admin-actions" id="@user.Id">
-                <button class="promote open-popup-btn" title="Promote to owner">
-                    <i class="fa-solid fa-user f-green-color-size-b"></i>
-                    Promote to owner
-                </button>
-                <button class="demote open-popup-btn" title="Demote">
-                    <i class="fa-solid fa-user f-green-color-size-b"></i>
-                    Demote
-                </button>
+                @if (user.Roles.Contains("Owner"))
+                {
+                    <button class="demote open-popup-btn" title="Demote">
+                        <i class="fa-solid fa-user blue"></i>
+                        Demote
+                    </button>
+                }
+                else if (user.Roles.Contains("Customer"))
+                {
+                    <button class="promote open-popup-btn" title="Promote to owner">
+                        <i class="fa-solid fa-user green"></i>
+                        Promote to owner
+                    </button>
+                }
                 <button class="delete open-popup-btn" title="Delete account">
-                    <i class="fa-solid fa-user f-green-color-size-b"></i>
+                    <i class="fa-solid fa-user text-danger"></i>
                     Delete account
                 </button>
             </div>

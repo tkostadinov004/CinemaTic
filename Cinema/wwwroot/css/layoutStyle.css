@@ -491,13 +491,13 @@ strong {
         padding-left: 0;
     }
 
-    .hero-section button[type="submit"] {
-        background-color: var(--primary-color);
-        border: 0;
-        border-radius: var(--border-radius-large) !important;
-        color: #ffffff;
-        max-width: 150px;
-    }
+.hero-section button[type="submit"] {
+    background-color: var(--primary-color);
+    border: 0;
+    border-radius: var(--border-radius-large) !important;
+    color: #ffffff;
+    max-width: 230px;
+}
 
 
 /*---------------------------------------

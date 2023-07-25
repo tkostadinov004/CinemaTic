@@ -1,3 +1,38 @@
+var viewType = 'list';
+var modeSwitch = document.querySelector('.mode-switch');
+if (modeSwitch) {
+    modeSwitch.classList.add('active');
+    modeSwitch.addEventListener('click', function () {
+        document.documentElement.classList.toggle('light');
+        if (localStorage.getItem("mode") == 'light') {
+            if (document.querySelectorAll("canvas").length > 0) {
+                Chart.defaults.color = '#fff';
+                updateCharts();
+            }
+            localStorage.removeItem("mode");
+        }
+        else {
+            if (document.querySelectorAll("canvas").length > 0) {
+                Chart.defaults.color = '#000';
+                updateCharts();
+            }
+            localStorage.setItem("mode", 'light');
+        }
+    });
+}
+if (localStorage.getItem("mode") == 'light') {
+    if (document.querySelectorAll("canvas").length > 0) {
+        Chart.defaults.color = '#000';
+    }
+    document.documentElement.classList.add('light');
+}
+else {
+    if (document.querySelectorAll("canvas").length > 0) {
+        Chart.defaults.color = '#fff';
+    }
+    document.documentElement.classList.remove('light');
+}
+
 var filter = document.querySelector(".jsFilter");
 if (filter) {
     filter.addEventListener("click", function () {
@@ -19,8 +54,8 @@ if (filter) {
 var grid = document.querySelector(".grid");
 if (grid) {
     grid.addEventListener("click", function () {
-        document.querySelectorAll(".movies-container .cinema-row").forEach(i => i.setAttribute("hidden", true));
-        document.querySelectorAll(".movies-container .movie-grid").forEach(i => i.removeAttribute("hidden"));
+        viewType = 'grid';
+
         document.querySelector(".list:not(.crud-button)").classList.remove("active");
         document.querySelector(".grid").classList.add("active");
         document.querySelector(".products-area-wrapper:not(.details)").classList.add("gridView");
@@ -36,8 +71,8 @@ if (grid) {
 var list = document.querySelector(".list:not(.crud-button)");
 if (list) {
     list.addEventListener("click", function () {
-        document.querySelectorAll(".movies-container .cinema-row").forEach(i => i.removeAttribute("hidden"));
-        document.querySelectorAll(".movies-container .movie-grid").forEach(i => i.setAttribute("hidden", true));
+        viewType = 'list';
+
         document.querySelector(".list:not(.crud-button)").classList.add("active");
         document.querySelector(".grid").classList.remove("active");
         document.querySelector(".products-area-wrapper:not(.details)").classList.remove("gridView");
@@ -46,14 +81,6 @@ if (list) {
         if (rows && rows.length > 0) {
             rows.forEach(i => i.classList.remove("flex-column"));
         }
-    });
-}
-
-var modeSwitch = document.querySelector('.mode-switch');
-if (modeSwitch) {
-    modeSwitch.addEventListener('click', function () {
-        document.documentElement.classList.toggle('light');
-        modeSwitch.classList.toggle('active');
     });
 }
 
@@ -115,6 +142,22 @@ function getItems(controllerName, actionName, searchText, value, filterValue, so
         success: function (response) {
             $("#results-container").html(response);
             setStatuses();
+            var rows = document.querySelectorAll('.image:not(.details-photo-pic) .cinema-link');
+            if (rows && rows.length > 0) {
+                if (viewType) {
+                    if (viewType == 'grid') {
+                        if (rows && rows.length > 0) {
+                            rows.forEach(i => i.classList.add("flex-column"));
+                        }
+                    }
+                    else {
+                        rows.forEach(i => i.classList.remove("flex-column"));
+                    }
+                }
+                else {
+                    rows.forEach(i => i.classList.remove("flex-column"));
+                }
+            }
         },
         failure: function (response) {
             alert(response.responseText);

@@ -8,7 +8,7 @@
         </button>
         <div class="cinema-cell image">
             <a class="d-flex align-items-center cinema-link" asp-controller="Actors" asp-action="Details" asp-route-id="@actor.Id">
-                <img src="~/client-images/Actors/@actor.ImageUrl" class="actor-image" alt="cinema-logo">
+                <img src="~/client-images/Actors/@actor.ImageUrl" class="actor-image h-100" alt="cinema-logo">
                 <span>@actor.FullName</span>
             </a>
         </div>
@@ -16,20 +16,5 @@
         <div class="cinema-cell sales"><span class="cell-label">Nationality:</span>@actor.Nationality</div>
         <div class="cinema-cell sales"><span class="cell-label">Rating:</span>@actor.Rating</div>
         <div class="cinema-cell sales"><span class="cell-label">Movies:</span>@actor.MoviesCount</div>
-    </div>
-    <div class="movie-grid" hidden>
-        <div class="card-wrapper">
-            <div class="card">
-                <img src="~/client-images/Actors/@actor.ImageUrl" alt="cinema-logo">
-                <div class="descriptions">
-                    <div class="description-buttons">
-                        <a class="desc-button" asp-controller="Actors" asp-action="Details" asp-route-id="@actor.Id">
-                            <i class="fa-solid fa-circle-info f-size-b"></i>
-                            Details
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 }

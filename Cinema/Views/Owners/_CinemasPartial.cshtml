@@ -8,7 +8,7 @@
         </button>
         <div class="cinema-cell image">
             <a class="d-flex align-items-center cinema-link" asp-controller="Owners" asp-action="Details" asp-route-id="@cinema.Id">
-                <img src="~/client-images/Cinemas/@cinema.ImageUrl" alt="cinema-logo">
+                <img class="h-100" src="~/client-images/Cinemas/@cinema.ImageUrl" alt="cinema-logo">
                 <span>@cinema.Name</span>
             </a>
         </div>

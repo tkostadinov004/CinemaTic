@@ -1,6 +1,14 @@
 ﻿@model Cinema.ViewModels.Admin.UserDetailsViewModel
 
-<div class="cinema-row details-card mb-3">
+<div class="app-content">
+    <div class="app-content-header">
+        <button class="mode-switch" title="Switch Theme">
+            <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+                <defs></defs>
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+            </svg>
+        </button>
+    </div>
     <div class="cinema-cell image details-photo-pic mt-3">
         <a class="d-flex align-items-center cinema-link flex-column">
             <img src="~/client-images/Users/@Model.ImageUrl" alt="cinema-logo" class="user-profile-picture mb-3">
@@ -13,3 +21,4 @@
         </div>
     </div>
 </div>
+<script src="~/js/ownerdashboard.js"></script>

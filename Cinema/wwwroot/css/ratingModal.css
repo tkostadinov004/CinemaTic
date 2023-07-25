@@ -1,4 +1,13 @@
-﻿/* ====================== Review Form ====================== */
+﻿:root {
+    --app-bg: #101827;
+    --app-content-main-color: #fff;
+}
+
+.light:root {
+    --app-bg: #fff;
+    --app-content-main-color: #1f1c2e;
+}
+/* ====================== Review Form ====================== */
 #modal {
     /* position: absolute;
                           left: 10vh;
@@ -26,8 +35,8 @@
     display: none;
     width: 600px;
     height: 300px;
-    padding: 0 20px 26px;
-    background-color: #1f1f1f;
+    padding: 50px 30px 30px 30px;
+    background-color: var(--app-bg);
 }
 
     #modal.show {
@@ -79,7 +88,7 @@
     top: 0;
     background: transparent;
     border: 0;
-    color: white;
+    color: var(--app-content-main-color);
 }
 /*
                         input,
@@ -113,9 +122,9 @@ div.cinema-page-container {
         background: white;
         padding: 100px;
     }
-    div.cinema-page-container  #modal button.close-btn  {
-        color: black;
-    }
+        div.cinema-page-container #modal button.close-btn {
+            color: var(--app-content-main-color);
+        }
     div.seat-row *:not(i) {
         cursor: default;
     }

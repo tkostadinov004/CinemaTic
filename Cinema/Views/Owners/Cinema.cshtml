@@ -17,6 +17,9 @@
                 <button onclick="history.back()" class="button active">
                     Go Back
                 </button>
+                <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button class="button active">Logout</button>
+                </form>
             </div>
         </div>
     </nav>
