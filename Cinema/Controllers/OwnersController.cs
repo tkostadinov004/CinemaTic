@@ -97,11 +97,11 @@ namespace Cinema.Controllers
         }
         public async Task<IActionResult> GenerateCustomPagePreview(string userEmail, string cinemaId)
         {
-           return View("_CustomPagePreview", await _ownersService.PreparePreviewViewModelAsync(userEmail, cinemaId));
-        } 
-        public async Task<IActionResult> Cinema(string userEmail, string cinemaId)
+            return View("_CustomPagePreview", await _ownersService.PreparePreviewViewModelAsync(userEmail, cinemaId));
+        }
+        public async Task<IActionResult> Cinema(string cinemaId)
         {
-           return View("Cinema", await _ownersService.PrepareCinemaViewModelAsync(userEmail, cinemaId));
+            return View("Cinema", await _ownersService.PrepareCinemaViewModelAsync(User.Identity.Name, cinemaId));
         }
         [HttpGet]
         public async Task<IActionResult> GetMoviesByDate(string cinemaId, string date)
@@ -111,6 +111,10 @@ namespace Cinema.Controllers
         public async Task<IActionResult> BuyTicket(int cinemaId, int movieId, string forDate)
         {
             return View("BuyTicket", await _ticketsService.GetBuyTicketViewModelAsync(cinemaId, movieId, forDate));
+        }
+        public async Task<IActionResult> GetCinemasContainingMovie(string movieId, string userEmail)
+        {
+            return PartialView("_CinemasMoviePartial", await _ownersService.GetCinemasContainingMovieAsync(movieId, userEmail));
         }
     }
 }

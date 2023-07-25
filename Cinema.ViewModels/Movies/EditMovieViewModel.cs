@@ -1,4 +1,5 @@
 ﻿using Cinema.Data.Models;
+using Cinema.ViewModels.Actors;
 using Cinema.ViewModels.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -18,7 +19,7 @@ namespace Cinema.ViewModels.Movies
         public List<string>? Actors { get; set; }
         [Display(Name = "Image")]
         public IFormFile Image { get; set; }
-        public IEnumerable<SelectListItem>? ActorsDropdown { get; set; }
+        public List<ActorDropdownViewModel>? ActorsDropdown { get; set; }
         public IEnumerable<SelectListItem>? Genres { get; set; }
     }
 }

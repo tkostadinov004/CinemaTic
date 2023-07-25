@@ -335,6 +335,7 @@ namespace Cinema.Core.Services
                 {
                     Id = i.MovieId,
                     Genre = i.Movie.Genre.Name,
+                    TrailerId = Regex.Match(i.Movie.TrailerUrl, Constants.TrailerUrlRegex).Groups[3].Value,
                     Name = i.Movie.Title,
                     RunningTime = i.Movie.RunningTime.ToString(),
                     ImageUrl = i.Movie.ImageUrl,
@@ -364,13 +365,28 @@ namespace Cinema.Core.Services
                 CinemaId = i.CinemaId,
                 Genre = i.Movie.Genre.Name,
                 Name = i.Movie.Title,
-                TrailerUrl = i.Movie.TrailerUrl,
+                TrailerId = Regex.Match(i.Movie.TrailerUrl, Constants.TrailerUrlRegex).Groups[3].Value,
                 RunningTime = i.Movie.RunningTime.ToString(),
                 ImageUrl = i.Movie.ImageUrl,
                 Schedule = cinema.Schedule.Where(k => k.CinemaId == cinema.Id && k.MovieId == i.MovieId && k.ForDateTime.Date == convertedDate.Value.Date)
                 .Select(t => t.ForDateTime)
                     .ToList(),
             });
+        }
+
+        public async Task<IEnumerable<CinemaListViewModel>> GetCinemasContainingMovieAsync(string movieId, string userEmail)
+        {
+            var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == int.Parse(movieId));
+            var user = await _userManager.FindByEmailAsync(userEmail);
+
+            return await _context.Cinemas.Include(i => i.Movies).Where(i => i.OwnerId == user.Id && i.Movies.Any(m => m.MovieId == movie.Id)).Select(i => new CinemaListViewModel
+            {
+                Id = i.Id,
+                Name = i.Name,
+                ImageUrl = i.ImageUrl,
+                FoundedOn = i.FoundedOn.ToString(Constants.DateTimeFormat),
+                MoviesCount = i.Movies.Count()
+            }).ToListAsync();
         }
     }
 }

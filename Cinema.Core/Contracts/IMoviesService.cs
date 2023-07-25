@@ -28,7 +28,7 @@ namespace Cinema.Core.Contracts
         Task<StatisticsViewModel> GetStatistics();
         Task<CreateMovieViewModel> PrepareForAddingAsync();
         Task<IEnumerable<MovieInfoCardViewModel>> GetAllMoviesAsync();
-        Task<IEnumerable<MovieInfoCardViewModel>> SearchAndFilterMoviesAsync(string searchText, string filterValue);
+        Task<IEnumerable<MovieInfoCardViewModel>> SearchAndFilterMoviesAsync(string searchText, string filterValue, string sortBy);
         Task<FilterMoviesViewModel> PrepareFilterViewModelAsync();
         Task<EditMovieViewModel> PrepareForEditing(int? id);
         Task<DeleteMovieViewModel> PrepareForDeleting(int? id);

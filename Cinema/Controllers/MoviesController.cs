@@ -30,9 +30,9 @@ namespace Cinema.Controllers
         {
             return View(await _moviesService.PrepareFilterViewModelAsync());
         }
-        public async Task<IActionResult> SearchAndFilterMovies(string searchText, string filterValue)
+        public async Task<IActionResult> SearchAndFilterMovies(string searchText, string filterValue, string sortBy)
         {
-            var movies = await _moviesService.SearchAndFilterMoviesAsync(searchText, filterValue);
+            var movies = await _moviesService.SearchAndFilterMoviesAsync(searchText, filterValue, sortBy);
             return PartialView("_MoviesPartial", movies);
         }
         // GET: Movies/Details/5

@@ -14,11 +14,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
 namespace Cinema.Core.Services
@@ -149,7 +144,7 @@ namespace Cinema.Core.Services
                 AverageRating = ratings.Count == 0 ? 0 : ratings.Select(i => i.Rating).Average(),
                 RatingCount = ratings.Count,
                 CurrentUserRating = ratings.FirstOrDefault(i => i.Customer.Email == currentUser.Email) == null ? null : ratings.FirstOrDefault(i => i.Customer.Email == currentUser.Email).Rating,
-                UserCinemas = (await _context.Cinemas.Where(i => i.OwnerId == currentUser.Id && i.ApprovalStatus == ApprovalStatus.Approved).ToListAsync()).Select(i => new CinemaCheckboxViewModel
+                UserCinemas = (await _context.Cinemas.Include(i => i.Movies).Where(i => i.OwnerId == currentUser.Id && i.ApprovalStatus == ApprovalStatus.Approved && !i.Movies.Any(m => m.MovieId == movie.Id)).ToListAsync()).Select(i => new CinemaCheckboxViewModel
                 {
                     Id = i.Id,
                     Name = i.Name
@@ -249,17 +244,67 @@ namespace Cinema.Core.Services
             return GlobalMethods.UploadPhoto("Movies", image, _webHostEnvironment);
         }
 
-        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchAndFilterMoviesAsync(string searchText, string filterValue)
+        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchAndFilterMoviesAsync(string searchText, string filterValue, string sortBy)
         {
-            var movies = await this.GetAllAsync();
+            var movies = await _context.Movies
+                .Include(i => i.Actors)
+                .Include(i => i.Genre)
+                .Include(i => i.Cinemas)
+                .Include(i => i.AddedBy)
+                .ToListAsync();
             if (string.IsNullOrEmpty(searchText) == false)
             {
-                movies = movies.Where(i => i.Title.StartsWith(searchText));
+                movies = movies.Where(i => i.Title.ToLower().StartsWith(searchText.ToLower())).ToList();
             }
-            if (string.IsNullOrEmpty(filterValue) == false && filterValue != "All")
+            int filter;
+            if (string.IsNullOrEmpty(filterValue) == false && int.TryParse(filterValue, System.Globalization.NumberStyles.Integer, null, out filter))
             {
-                var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == int.Parse(filterValue));
-                movies = movies.Where(i => i.Cinemas.FirstOrDefault(i => i.CinemaId == cinema.Id) != null);
+                var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == filter);
+                movies = movies.Where(i => i.Cinemas.FirstOrDefault(i => i.CinemaId == cinema.Id) != null).ToList();
+            }
+            if (string.IsNullOrEmpty(sortBy) == false)
+            {
+                var sortParameter = sortBy.Split('-')[0];
+                var sortDirection = sortBy.Split('-')[^1];
+
+                switch (sortParameter)
+                {
+                    case "name":
+                        movies = movies.OrderBy(i => i.Title).ToList();
+                        if (sortDirection == "desc")
+                        {
+                            movies = movies.OrderByDescending(i => i.Title).ToList();
+                        }
+                        break;
+                    case "genre":
+                        movies = movies.OrderBy(i => i.Genre.Name).ToList();
+                        if (sortDirection == "desc")
+                        {
+                            movies = movies.OrderByDescending(i => i.Genre.Name).ToList();
+                        }
+                        break;
+                    case "rating":
+                        movies = movies.OrderBy(i => i.UserRating).ToList();
+                        if (sortDirection == "desc")
+                        {
+                            movies = movies.OrderByDescending(i => i.UserRating).ToList();
+                        }
+                        break;
+                    case "ratingcount":
+                        movies = movies.OrderBy(i => i.RatingCount).ToList();
+                        if (sortDirection == "desc")
+                        {
+                            movies = movies.OrderByDescending(i => i.RatingCount).ToList();
+                        }
+                        break;
+                    case "addedby":
+                        movies = movies.OrderBy(i => $"{i.AddedBy.FirstName} {i.AddedBy.LastName}").ToList();
+                        if (sortDirection == "desc")
+                        {
+                            movies = movies.OrderByDescending(i => $"{i.AddedBy.FirstName} {i.AddedBy.LastName}").ToList();
+                        }
+                        break;
+                }
             }
             return movies.Select(i => new MovieInfoCardViewModel
             {
@@ -295,7 +340,12 @@ namespace Cinema.Core.Services
                 Image = null,
                 RunningTime = movie.RunningTime.ToString(),
                 TrailerUrl = movie.TrailerUrl,
-                ActorsDropdown = await this.GetActorsDropDownAsync(),
+                ActorsDropdown = await _context.Actors.Select(i => new ActorDropdownViewModel
+                {
+                    Id = i.Id,
+                    FullName = i.FullName,
+                    IsChecked = false
+                }).ToListAsync(),
                 Genres = await this.GetGenresDropDownAsync()
             };
         }
