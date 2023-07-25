@@ -12,5 +12,11 @@ namespace Cinema.Core.Contracts
     {
         Task<IEnumerable<ApplicationUser>> GetAllAsync();
         Task<CustomerHomePageViewModel> GetCinemasForUserAsync(string userEmail);
+        Task<ChangePasswordViewModel> GetChangePasswordViewModelAsync(string userEmail);
+        Task ChangePasswordAsync(ChangePasswordViewModel viewModel);
+        Task<IEnumerable<CinemasViewModel>> GetCinemasAsync(bool? all, string userEmail);
+        Task AddCinemaToFavoritesAsync(int cinemaId, string userEmail);
+        Task RemoveCinemaFromFavoritesAsync(int cinemaId, string userEmail);
+        Task<IEnumerable<CustomerTicketViewModel>> GetTicketsForCustomerAsync(string userEmail);
     }
 }

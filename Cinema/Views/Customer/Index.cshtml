@@ -5,10 +5,9 @@
 }
 <partial name="_NavbarPartial" />
 <section class="main-section hero-section d-flex justify-content-center align-items-center" id="section_1">
-
-    @foreach (var item in Model.Cinemas)
-    {
-        <div class="row justify-content-center home-sections">
+    <div class="row justify-content-center home-sections">
+        @foreach (var item in Model.Cinemas)
+        {
             <div class="cinema-section">
                 <div class="custom-block custom-block-overlay">
                     <div class="d-flex flex-column h-100">
@@ -21,7 +20,7 @@
                                 <p class="text-white">@item.Description</p>
                             </div>
                             <div class="user-buttons d-flex flex-row justify-content-around">
-                                <a class="btn custom-btn mt-2 mt-lg-3" asp-controller="Owners" asp-action="Cinema" asp-route-userEmail="@User.Identity.Name" asp-route-cinemaId="@item.CinemaId">See your cinema's page</a>
+                                <a class="btn custom-btn mt-2 mt-lg-3" asp-controller="Owners" asp-action="Cinema" asp-route-cinemaId="@item.CinemaId">See your cinema's page</a>
                             </div>
                         </div>
 
@@ -29,16 +28,17 @@
                     </div>
                 </div>
             </div>
-        </div>
-    }
+        }
+    </div>
 </section>
 <style>
     section.main-section {
         flex-wrap: wrap;
         row-gap: 20px;
     }
+
     div.cinema-section {
-        width: 100%;
+        width: 40%;
     }
 
     div.home-sections {
