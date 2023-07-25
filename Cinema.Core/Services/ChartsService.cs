@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -79,6 +80,29 @@ namespace Cinema.Core.Services
             {
                 Labels = movies.Select(i => i.Key ?? "None").ToArray(),
                 MoviesCounts = movies.Select(i => i.Count()).ToArray()
+            };
+        }
+
+        public async Task<UsersPerMonthViewModel> GetRegisteredUsersByMonthAsync()
+        {
+            var months = Enumerable.Range(1, DateTime.Now.Month);
+
+            var users = months.ToDictionary(key => key, value => _context.Users.Where(u => u.CreationDate.Month == value).Count());
+            return new UsersPerMonthViewModel
+            {
+                Labels = months.Select(month => DateTimeFormatInfo.CurrentInfo.GetMonthName(month)).ToArray(),
+                UsersCounts = users.Select(i => i.Value).ToArray()
+            };
+        }
+
+        public async Task<UsersGrowthViewModel> GetUsersGrowthAsync()
+        {
+            var months = Enumerable.Range(1, DateTime.Now.Month);
+            var users = months.ToDictionary(key => key, value => _context.Users.Where(u => u.CreationDate.Month <= value).Count());
+            return new UsersGrowthViewModel
+            {
+                Labels = months.Select(month => DateTimeFormatInfo.CurrentInfo.GetMonthName(month)).ToArray(),
+                UsersCounts = users.Select(i => i.Value).ToArray()
             };
         }
     }

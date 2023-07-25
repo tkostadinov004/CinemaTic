@@ -1,66 +1,20 @@
-﻿@model IEnumerable<Cinema.Data.Models.ApplicationUser>
-@inject Microsoft.AspNetCore.Identity.UserManager<Cinema.Data.Models.ApplicationUser> _userManager
-@{
-    ViewData["Title"] = "Admin dashboard";
-    var currentDate = DateTime.Now;
-    string month = currentDate.Date.ToString("MMMM");
-    int day = currentDate.Day;
-}
-<link href="~/css/adminStyle.css" rel="stylesheet" />
-<link href="~/css/cardStyle.css" rel="stylesheet" />
-<link href="~/css/dashboard.css" rel="stylesheet" />
-@*<div class="main-section hero-section">
-    <h1>CinemaTic owners</h1>
-    <table class="rwd-table">
-        <tbody>
-            <tr>
-                <th>Owner name</th>
-                <th>Owner email</th>
-                <th></th>
-            </tr>
-            @foreach (var owner in Model.Where(i => _userManager.IsInRoleAsync(i, "Owner").Result == true))
-            {
-                <tr class="owner">
-                    <td>@string.Format($"{owner.FirstName} {owner.LastName}")</td>
-                    <td>@owner.Email</td>
-                    <td>
-                        <a asp-controller="Admin" asp-action="DeleteFromOwnerRole" asp-route-ownerId="@owner.Id">
-                            <i class="fa-solid fa-circle-xmark f-color-size-b"></i>
-                            Remove owner credentials
-                        </a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    <h1>CinemaTic visitors</h1>
-    <table class="rwd-table">
-        <tbody>
-            <tr>
-                <th>Visitor name</th>
-                <th>Visitor email</th>
-                <th></th>
-                <th></th>
-            </tr>
-            @foreach (var visitor in Model.Where(i => _userManager.IsInRoleAsync(i, "Visitor").Result == true))
-            {
-                <tr class="owner">
-                    <td>@string.Format($"{visitor.FirstName} {visitor.LastName}")</td>
-                    <td>@visitor.Email</td>
-                    <td>
-                        <a asp-controller="Admin" asp-action="SetToOwner" asp-route-userId="@visitor.Id">
-                            <i class="fa-solid fa-user f-green-color-size-b"></i>
-                            Make this user owner
-                        </a>
-                    </td>
-                    <td>
-                        <a asp-controller="Admin" asp-action="DeleteVisitorAccount" asp-route-userId="@visitor.Id">
-                            <i class="fa-solid fa-circle-xmark f-color-size-b"></i>
-                            Remove visitor account
-                        </a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>*@
+﻿<div class="app-content">
+    <div class="app-content-header">
+        <button class="mode-switch" title="Switch Theme">
+            <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+                <defs></defs>
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+            </svg>
+        </button>
+    </div>
+    <div style="width: 100%;"><canvas id="registeredByMonth"></canvas></div>
+    <div style="width: 100%;"><canvas id="usersGrowth"></canvas></div>
+</div>
+<script src="~/lib/chart.js/chart.umd.js"></script>
+<script src="~/lib/chart.js/chart.umd.min.js"></script>
+<script src="~/js/admin-charts.js"></script>
+<script src="~/js/ownerdashboard.js"></script>
+<script>
+    getRegisteredUsersByMonth();
+    getUsersGrowth();
+</script>

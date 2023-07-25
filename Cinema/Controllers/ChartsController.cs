@@ -33,5 +33,15 @@ namespace Cinema.Controllers
         {
             return Json(await _chartsService.GetBestSellingMoviesPerCinemaAsync(User.Identity.Name));
         }
+        [HttpGet]
+        public async Task<IActionResult> GetRegisteredUsersByMonth()
+        {
+            return Json(await _chartsService.GetRegisteredUsersByMonthAsync());
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetUsersGrowth()
+        {
+            return Json(await _chartsService.GetUsersGrowthAsync());
+        }
     }
 }

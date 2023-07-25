@@ -13,5 +13,7 @@ namespace Cinema.Core.Contracts
         Task<TotalIncomesViewModel> GetTotalIncomesAsync(string userEmail);
         Task<CustomersPerCinemaViewModel> GetCustomersPerCinemaAsync(string userEmail);
         Task<BestSellingMoviesPerCinemaViewModel> GetBestSellingMoviesPerCinemaAsync(string userEmail);
+        Task<UsersPerMonthViewModel> GetRegisteredUsersByMonthAsync();
+        Task<UsersGrowthViewModel> GetUsersGrowthAsync();
     }
 }
