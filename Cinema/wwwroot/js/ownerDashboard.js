@@ -136,7 +136,7 @@ function getItems(controllerName, actionName, searchText, value, filterValue, so
     var data = { "searchText": searchText, filterValue, sortBy };
     data[key] = value;
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: `/${controllerName}/${actionName}`,
         data: data,
         success: function (response) {

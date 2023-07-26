@@ -5,6 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using Cinema.Core.Contracts;
+using Cinema.Core.Utilities;
+using Cinema.Data.Enums;
 using Cinema.Data.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -24,17 +27,20 @@ namespace Cinema.Areas.Identity.Pages.Account
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly ILogService _logService;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            ILogService logService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _logService = logService;
         }
 
         [BindProperty]
@@ -88,6 +94,7 @@ namespace Cinema.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+                    await _logService.LogActionAsync(UserActionType.AccountActions, LogMessages.UserRegisterMessage);
                     await _userManager.AddToRoleAsync(user, "Customer");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

@@ -9,6 +9,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Cinema.Data.Models;
+using Cinema.Core.Contracts;
+using Cinema.Data.Enums;
+using Cinema.Core.Utilities;
+using System.Threading;
 
 namespace Cinema.Areas.Identity.Pages.Account
 {
@@ -18,14 +22,17 @@ namespace Cinema.Areas.Identity.Pages.Account
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly ILogService _logService;
 
         public LoginModel(SignInManager<ApplicationUser> signInManager,
             ILogger<LoginModel> logger,
-            UserManager<ApplicationUser> userManager)
+            UserManager<ApplicationUser> userManager,
+            ILogService logService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _logService = logService;
         }
 
         [BindProperty]
@@ -82,7 +89,9 @@ namespace Cinema.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    await _logService.LogActionAsync(UserActionType.AccountActions, LogMessages.UserLoginMessage);
                     _logger.LogInformation("User logged in.");
+                    
                     //change logic!
                     if (_userManager.FindByEmailAsync(Input.Email).Result.Email == "admin@admin.com")
                     {

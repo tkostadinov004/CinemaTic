@@ -960,8 +960,8 @@ input.visualizer {
 div.active-form input[type="color"] {
     margin: 0;
 }
-div.active-form i.input-icon {
-    min-width: 30px;
+i.fa-solid {
+    margin-right: 15px;
 }
 button.genre-name {
     border: 0;
@@ -1030,4 +1030,9 @@ i.green {
 }
 i.blue {
     color: lightblue;
+}
+.dropdown-select, .dropdown-select:focus {
+    background-color: var(--app-bg);
+    color: var(--app-content-main-color);
+    border: 0;
 }

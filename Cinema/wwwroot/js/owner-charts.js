@@ -1,6 +1,7 @@
 ﻿const randomNum = () => Math.floor(Math.random() * (235 - 52 + 1) + 52);
 const randomRGB = () => `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`;
-Chart.defaults.color = '#fff';
+var marketShare; var totalIncomes; var customersPerCinema; var bestSellingMoviesPerCinema;
+
 function getData(data) {
     var arr = [];
     for (var key in data) {
@@ -15,7 +16,7 @@ function getMarketShare() {
         url: `/Charts/GetMarketShare`,
         data: { },
         success: function (response) {
-            const marketShare = new Chart(document.getElementById('marketShare'), {
+            marketShare = new Chart(document.getElementById('marketShare'), {
                 type: 'doughnut',
                 data: {
                     labels: ['Your income', 'Total income'],
@@ -33,10 +34,7 @@ function getMarketShare() {
                     responsive: true,
                     plugins: {
                         legend: {
-                            position: 'top',
-                            labels: {
-                                color: '#fff'
-                            }
+                            position: 'top'
                         },
                         title: {
                             display: true,
@@ -76,7 +74,7 @@ function getTotalIncomes() {
                 });
             }
             console.log(datasets);
-            const totalIncomes = new Chart(document.getElementById('totalRevenuePerCinema'), {
+            totalIncomes = new Chart(document.getElementById('totalRevenuePerCinema'), {
                 type: 'bar',
                 data: {
                     datasets: datasets
@@ -85,10 +83,7 @@ function getTotalIncomes() {
                     responsive: true,
                     plugins: {
                         legend: {
-                            position: 'top',
-                            labels: {
-                                color: '#fff'
-                            }
+                            position: 'top'
                         },
                         title: {
                             display: true,
@@ -128,7 +123,7 @@ function getCustomersPerCinema() {
                 });
             }
             console.log(datasets);
-            const customersPerCinema = new Chart(document.getElementById('customersPerCinema'), {
+            customersPerCinema = new Chart(document.getElementById('customersPerCinema'), {
                 type: 'bar',
                 data: {
                     datasets: datasets
@@ -137,14 +132,11 @@ function getCustomersPerCinema() {
                     responsive: true,
                     plugins: {
                         legend: {
-                            position: 'top',
-                            labels: {
-                                color: '#fff'
-                            }
+                            position: 'top'
                         },
                         title: {
                             display: true,
-                            text: `Total income per cinema`
+                            text: `Total customers per cinema`
                         }
                     }
                 },
@@ -168,7 +160,7 @@ function getBestSellingMoviesPerCinema() {
             for (var i = 0; i < response['labels'].length; i++) {
                 colors.push(randomRGB());
             }
-            const bestSellingMoviesPerCinema = new Chart(document.getElementById('bestSellingMoviesPerCinema'), {
+            bestSellingMoviesPerCinema = new Chart(document.getElementById('bestSellingMoviesPerCinema'), {
                 type: 'doughnut',
                 data: {
                     labels: response['labels'],
@@ -186,10 +178,7 @@ function getBestSellingMoviesPerCinema() {
                     responsive: true,
                     plugins: {
                         legend: {
-                            position: 'top',
-                            labels: {
-                                color: '#fff'
-                            }
+                            position: 'top'
                         },
                         title: {
                             display: true,
@@ -206,4 +195,10 @@ function getBestSellingMoviesPerCinema() {
             alert(response.responseText);
         }
     });
+}
+function updateCharts() {
+    marketShare.update();
+    totalIncomes.update();
+    customersPerCinema.update();
+    bestSellingMoviesPerCinema.update();
 }

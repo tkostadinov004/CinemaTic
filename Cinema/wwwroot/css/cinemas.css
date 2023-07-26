@@ -290,8 +290,8 @@ div.movie-poster:has(i.trailer-play-button):hover div.movie-poster-overlay {
     transition: 0.25s;
 }
 .container, .container-fluid {
-    max-width: 980px;
-    width: 100%;
+    max-width: 75%;
+    width: 75%;
 }
 
 .trailer-container {

@@ -39,6 +39,7 @@
                                 @if (Model.Seats[i][j].IsOccupied)
                                 {
                                     <input type="checkbox" asp-for="@Model.Seats[i][j].IsChecked" />
+                                    <input type="checkbox" asp-for="@Model.Seats[i][j].IsOccupied" />
                                     <label asp-for="@Model.Seats[i][j].IsChecked">
                                         <i class="fa-solid fa-couch occupied"></i>
                                     </label>
@@ -46,6 +47,7 @@
                                 else
                                 {
                                     <input type="checkbox" asp-for="@Model.Seats[i][j].IsChecked" />
+                                    <input type="checkbox" asp-for="@Model.Seats[i][j].IsOccupied" />
                                     <label asp-for="@Model.Seats[i][j].IsChecked">
                                         <i class="fa-solid fa-couch" row="@(i+Model.StartingRow)" col="@(j + Model.StartingCol)"></i>
                                     </label>

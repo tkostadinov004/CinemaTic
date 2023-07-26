@@ -5,14 +5,14 @@
 <link rel="stylesheet" href="~/css/cardStyle.css" />
 <div class="app-content">
     <div class="app-content-header" id="cinemas">
-        <h1 class="app-content-headerText">All movies</h1>
+        <h1 class="app-content-headerText">All actors</h1>
         <button class="mode-switch" title="Switch Theme">
             <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
                 <defs></defs>
                 <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
             </svg>
         </button>
-        <form asp-controller="Actors" asp-action="Create" method="get">
+        <form asp-controller="Actors" asp-action="AddActor" method="get">
             <button class="app-content-headerButton">Add an actor</button>
         </form>
     </div>
@@ -99,7 +99,6 @@
     window.onload = function () {
         getItems('Actors', 'SearchAndFilterActors');
     };
-    console.log(document.querySelectorAll(".sort-button"));
     var search = document.getElementById("search-bar");
     var filterOptions = document.getElementById('filter-options');
     var activeSort = document.querySelector('.sort-button.selected');
@@ -116,7 +115,6 @@
     filterOptions.addEventListener("change", function () {
         getItems('Actors', "SearchAndFilterActors", (search ? search.value : null), '', filterOptions.value, (activeSort ? activeSort.id : null));
     });
-    console.log(document.querySelectorAll(".sort-button"));
     document.querySelectorAll(".sort-button").forEach(i => i.addEventListener('click', function () {
         var alreadyActive = document.querySelector('.sort-button.selected');
         if (alreadyActive) {

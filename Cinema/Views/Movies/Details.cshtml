@@ -7,7 +7,15 @@
 <link href="~/css/manageStyle.css" rel="stylesheet" />
 <link rel="stylesheet" href="~/css/cardStyle.css" />
 <div class="app-content">
-    <div class="movie-container text-white">
+    <div class="app-content-header">
+        <button class="mode-switch" title="Switch Theme">
+            <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+                <defs></defs>
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+            </svg>
+        </button>
+    </div>
+    <div class="movie-container text-white mt-4">
         <div class="row align-items-center">
             <div class="col-md-8 col-sm-6 col-xs-12 owner-movie-details">
                 <div class="col-xs-12 movie-title">
@@ -67,7 +75,7 @@
             {
                 <form asp-controller="Owners" asp-action="AddMovieToCinemas" method="post">
                     <input type="hidden" asp-for="@Model.MovieId" />
-                    <div class="col-md-8 col-sm-6 col-xs-12 mt-5 mb-3">
+                    <div class="col-md-8 col-sm-6 col-xs-12 mt-5 mb-3 owner-movie-details">
                         <h6>Add this movie to your cinemas</h6>
                         <div class="d-flex flex-column align-items-start mt-4">
                             <div class="checkbox-cinemas">
@@ -112,14 +120,7 @@
         </div>
     </div>
 </div>
-<div class="rating-container">
-    <div id="modal" role="dialog" aria-modal="true" aria-labelledby="add-review-header" class="edit-modal">
-        <button class="close-btn" aria-label="close" title="Close">x</button>
-        <div id="review-form-container">
-        </div>
-    </div>
-    <div class="modal-overlay"></div>
-</div>
+<partial name="_PopupModalPartial" />
 <script>
     var modalContainer = document.getElementById('review-form-container');
     var editButton = document.getElementById("edit");
@@ -159,153 +160,3 @@
 </script>
 <script src="~/js/ownerdashboard.js"></script>
 <script src="~/js/rating-modal.js"></script>
-@*<div class="details front-panel">
-    <div>
-        <div class="short-info">
-            <h1 class="section-line">@Model.Movie.Title</h1>
-            <div class="short-info-line">
-                <div class="info-box">
-                    <p class="info-box-title">@Html.DisplayNameFor(model => model.Movie.RunningTime)</p>
-                    <p class="info-box-desc">@Html.DisplayFor(model => model.Movie.RunningTime) minutes</p>
-                </div>
-                <div class="rating-container">
-                    <span>CinemaTic user rating</span>
-                    <div class="rating-box">
-                        <i class="fa-solid fa-star ct-rating-star"></i>
-                        <div class="rating-number-box">
-                            <span>@string.Format($"{Model.AverageRating:f1}/10")</span>
-                            <span>@Model.RatingCount @string.Format($"{(Model.RatingCount == 1 ? "vote" : "votes")}")</span>
-                        </div>
-                    </div>
-                </div>
-                @if (User.IsInRole("Visitor"))
-                {
-                    <div class="rating-container">
-                        <div id="modal" role="dialog" aria-modal="true" aria-labelledby="add-review-header" class="">
-                            <button class="close-btn" aria-label="close" title="Close">x</button>
-                            @if (Model.CurrentUserRating == null)
-                            {
-                                <h2 id="add-review-header">Rate @Model.Movie.Title</h2>
-                            }
-                            else
-                            {
-                                <h2 id="add-review-header">Change your vote @Model.Movie.Title</h2>
-                            }
-                            <div id="review-form-container">
-                                <form id="review-form" asp-controller="Movies" asp-action="SetRating" method="post">
-                                    <div class="fieldset">
-                                        <div class="rate">
-                                            @for (int i = 0; i < 10; i++)
-                                            {
-                                                <label class="modal-star-container">
-                                                    <input type="radio" name="userRating" class="star" value="@(i + 1)" onclick="editButtons(this)" onmouseover="highlight(this)" onmouseout="highlight(this)" />
-                                                    <i class="fa-solid fa-star yellow"></i>
-                                                </label>
-                                            }
-                                        </div>
-                                        <input asp-controller="Movies" asp-action="SetRating" asp-route-movieId="@Model.Movie.Id" method="post" id="submit-review-btn" class="nx-btn primary" value="@(Model.CurrentUserRating == null ? "Потвърди" : "Промени оценката")" type="submit" />
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="modal-overlay"></div>
-
-                        <span>Your rating</span>
-                        <div class="rating-box">
-                            <button id="review-add-btn" aria-label="add review" title="Add Review">
-                                <i class="fa-solid fa-star ct-user-rating-star"></i>
-                            </button>
-                            <div class="rating-number-box">
-                                @if (Model.CurrentUserRating == null)
-                                {
-                                    <span>Rate now!</span>
-                                }
-                                else
-                                {
-                                    <span>@string.Format($"{Model.CurrentUserRating:f1}/10")</span>
-                                }
-                            </div>
-                        </div>
-                    </div>
-                }
-
-                <script src="~/js/rating-modal.js"></script>
-            </div>
-        </div>
-        <hr class="section-line" />
-        <div class="details-grid">
-            <img class="cover-photo" src="~/@Cinema.Utilities.Constants.ImagesFolder/Movies/@Model.Movie.ImageUrl" />
-            <p>@Model.Movie.Description</p>
-            <section class="details-info">
-                <div class="info-box">
-                    <p class="info-box-title">@Html.DisplayNameFor(model => model.Movie.Price)</p>
-                    <p class="info-box-desc">@Html.DisplayFor(model => model.Movie.Price)</p>
-                </div>
-                <div class="info-box">
-                    <p class="info-box-title">@Html.DisplayNameFor(model => model.Movie.Genre)</p>
-                    <p class="info-box-desc">@Html.DisplayFor(model => model.Movie.Genre.Name)</p>
-                </div>
-                <div class="info-box actors">
-                    <p class="info-box-title">@Html.DisplayNameFor(model => model.Movie.Actors)</p>
-                    <div class="info-box-desc">
-                        @foreach (var actor in Model.Movie.Actors)
-                        {
-                            <p class="actor-name">
-                                @if (User.IsInRole("Owner"))
-                                {
-                                    <a asp-controller="Actors" asp-action="Details" asp-route-id="@actor.Actor.Id"><b>@actor.Actor.FirstName @actor.Actor.LastName</b></a>
-                                }
-                                else
-                                {
-                                    @string.Format($"{@actor.Actor.FirstName} {@actor.Actor.LastName}")
-                                }
-                            </p>
-                        }
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
-    @if (User.IsInRole("Owner") == false)
-    {
-        <div class="details-schedule">
-            <div class="details-schedule-dates">
-                <button class="nx-btn primary" value="@DateTime.Today.ToString("dd.MM.yyyy")" onclick="showByDate(this)">Today</button>
-                <button class="nx-btn primary" value="@DateTime.Today.AddDays(1).ToString("dd.MM.yyyy")" onclick="showByDate(this)">Tomorrow</button>
-                @for (int i = 2; i <= 7; i++)
-                {
-                    string date = DateTime.Today.AddDays(i).ToString("dd.MM.yyyy");
-                    <button class="nx-btn primary" value="@date" onclick="showByDate(this)">@date</button>
-                }
-            </div>
-            <div class="details-schedule-projections">
-                @{
-                    var startingDate = Model.Movie.Date;
-                }
-                @for (DateTime date = startingDate; date < startingDate.AddDays(7); date = date.AddDays(1))
-                {
-                    <div class="projection hidden @date.ToString("dd.MM.yyyy")">
-                        <a class="nx-btn projection-hour" asp-controller="Tickets" asp-action="Create" asp-route-movieId="@Model.Movie.Id" asp-route-forDate="@date">Buy a ticket</a>
-                    </div>
-                }
-            </div>
-        </div>
-    }
-</div>
-<script>
-    function showByDate(button) {
-        var date = button.value;
-        var projections = document.getElementsByClassName("projection");
-        for (var i = 0; i < projections.length; i++) {
-            if (projections[i].classList.contains(date)) {
-                projections[i].classList.remove("hidden");
-            }
-            else {
-                projections[i].classList.add("hidden");
-            }
-        }
-        //if (Array(projections).filter(i => i.classList.contains("hidden") == false).length == 0) {
-        //    document.getElementByClassName("details-schedule-projections")[0].innerHTML = "Няма прожекции за тази дата";
-        //}
-    }
-</script>*@

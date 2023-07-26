@@ -2,12 +2,10 @@
 var modalOverlay = document.querySelector('.modal-overlay');
 var openButtons = document.querySelectorAll('.open-popup-btn');
 const openModal = () => {
-    console.log(2);
     // Save current focus
   //  focusedElementBeforeModal = document.activeElement;
     // Listen for and trap the keyboard
     modal.addEventListener('keydown', trapTabKey);
-
     // Listen for indicators to close the modal
     if (modalOverlay) {
         modalOverlay.addEventListener('click', closeModal);
@@ -15,24 +13,21 @@ const openModal = () => {
     // Close btn
     const closeBtn = document.querySelector('.close-btn');
     closeBtn.addEventListener('click', closeModal);
-
     //// submit form
     //const form = document.getElementById('review-form');
     //form.addEventListener('submit', submitopenButtons, false);
-
     // Find all focusable children
     var focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
     var focusableElements = modal.querySelectorAll(focusableElementsString);
     // Convert NodeList to Array
     focusableElements = Array.prototype.slice.call(focusableElements);
-
     var firstTabStop = focusableElements[0];
     var lastTabStop = focusableElements[focusableElements.length - 1];
-
     // Show the modal and overlay
     modal.classList.add('show');
     if (modalOverlay) {
         modalOverlay.classList.add('show');
+        
     }
     function trapTabKey(e) {
         // Check for TAB key press
@@ -60,7 +55,6 @@ const openModal = () => {
         }
     }
 };
-
 const submitopenButtons = (e) => {
     // console.log(e);
     console.log('Form subbmitted!');

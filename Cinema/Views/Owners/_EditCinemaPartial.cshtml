@@ -19,7 +19,7 @@
     <div class="form-group">
         <div class="active-form">
             <i class="fa-solid fa-calendar-days input-icon"></i>
-            <input asp-for="FoundedOn" type="text" class="form-control form-style" placeholder="Date of creation" onfocus="(this.type = 'date')" onblur="(this.type = 'text')" />
+            <input asp-for="FoundedOn" value="@(Model.FoundedOn.ToString("MM/dd/yyyy"))" type="text" class="form-control form-style" placeholder="Date of creation" onfocus="(this.type = 'date')" onblur="(this.type = 'text')" />
         </div>
         <span asp-validation-for="FoundedOn" class="text-danger"></span>
     </div>

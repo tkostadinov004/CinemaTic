@@ -20,17 +20,17 @@ $.each(sectionArray, function (index, value) {
     $(window).scroll(function () {
         stickyNav();
     });
-    $('.click-scroll').eq(index).click(function (e) {
-        var offsetClick = $('#' + 'section_' + value).offset().top - 75;
-        e.preventDefault();
-        $('html, body').animate({
-            'scrollTop': offsetClick
-        }, 300)
-    });
+    //$('.click-scroll').eq(index).click(function (e) {
+    //    var offsetClick = $('#' + 'section_' + value).offset().top - 75;
+    //    e.preventDefault();
+    //    $('html, body').animate({
+    //        'scrollTop': offsetClick
+    //    }, 300)
+    //});
 });
 
-$(document).ready(function () {
-    $('.navbar .navbar-nav .nav-item .nav-link:link').addClass('inactive');
-    $('.navbar .navbar-nav .nav-item .nav-link').eq(0).addClass('active');
-    $('.navbar .navbar-nav .nav-item .nav-link:link').eq(0).removeClass('inactive');
-});
+//$(document).ready(function () {
+///*    $('.navbar .navbar-nav .nav-item .nav-link:link').addClass('inactive');*/
+//    //$('.navbar .navbar-nav .nav-item .nav-link').eq(0).addClass('active');
+//    //$('.navbar .navbar-nav .nav-item .nav-link:link').eq(0).removeClass('inactive');
+//});

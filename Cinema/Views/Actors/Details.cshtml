@@ -10,7 +10,15 @@
 <link rel="stylesheet" href="~/css/cardStyle.css" />
 <link href="~/css/ratingmodal.css" rel="stylesheet" />
 <div class="app-content">
-    <div class="products-area-wrapper gridView m-0 justify-content-center details">
+    <div class="app-content-header">
+        <button class="mode-switch" title="Switch Theme">
+            <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+                <defs></defs>
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+            </svg>
+        </button>
+    </div>
+    <div class="products-area-wrapper gridView m-0 mt-4 justify-content-center details">
         <div class="cinema-row details-card mb-3">
             <div class="cinema-cell image details-photo-pic">
                 <a class="d-flex align-items-center cinema-link flex-column">
@@ -96,14 +104,7 @@
         </div>
     </div>
 </div>
-<div class="rating-container">
-    <div id="modal" role="dialog" aria-modal="true" aria-labelledby="add-review-header" class="edit-modal">
-        <button class="close-btn" aria-label="close" title="Close">x</button>
-        <div id="review-form-container">
-        </div>
-    </div>
-    <div class="modal-overlay"></div>
-</div>
+<partial name="_PopupModalPartial" />
 <script>
     window.onload = function () {
         getItems('Actors', 'SearchMoviesByActor', "", '@Model.Id');

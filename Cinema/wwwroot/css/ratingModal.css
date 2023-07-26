@@ -15,9 +15,8 @@
     /* fix exactly center: https://css-tricks.com/considerations-styling-modal/ */
     /* begin css tricks */
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(0px, 0px);
+    left: 10%;
     /* end css tricks */
     /* z-index: -10; */
     z-index: 3;

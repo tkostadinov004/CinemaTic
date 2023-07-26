@@ -35,6 +35,8 @@ builder.Services.AddAutoMapper(options =>
     options.AddProfile<CinemasProfile>();
 });
 
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
 builder.Services.AddScoped<IActorsService, ActorsService>();
 builder.Services.AddScoped<IAdminService, AdminService>();
 builder.Services.AddScoped<IGenresService, GenresService>();
@@ -44,6 +46,7 @@ builder.Services.AddScoped<ICustomersService, CustomersService>();
 builder.Services.AddScoped<IOwnersService, OwnersService>();
 builder.Services.AddScoped<ISectorsService, SectorsService>();
 builder.Services.AddScoped<IChartsService, ChartsService>();
+builder.Services.AddScoped<ILogService, LogService>();
 
 var app = builder.Build();
 
@@ -75,9 +78,5 @@ app.MapRazorPages();
 using var scope = app.Services.CreateScope();
 var initializer = new DbInitializer(scope.ServiceProvider.GetService<CinemaDbContext>());
 initializer.Run(scope.ServiceProvider, false);
-
-LogService._context = scope.ServiceProvider.GetService<CinemaDbContext>();
-LogService._userManager = scope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
-LogService._httpContextAccessor = scope.ServiceProvider.GetService<IHttpContextAccessor>();
 
 app.Run();

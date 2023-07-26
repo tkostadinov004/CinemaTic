@@ -36,7 +36,10 @@ function getRegisteredUsersByMonth() {
                     scales: {
                         y: {
                             ticks: {
-                                stepSize: 1
+                                stepSize: 1,
+                            },
+                            grid: {
+                                borderColor: '#fff'
                             }
                         }
                     }
