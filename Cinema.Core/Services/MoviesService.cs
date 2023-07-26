@@ -23,11 +23,13 @@ namespace Cinema.Core.Services
         private readonly CinemaDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        public MoviesService(CinemaDbContext context, UserManager<ApplicationUser> userManager, IWebHostEnvironment webHostEnvironment)
+        private readonly ILogService _logger;
+        public MoviesService(CinemaDbContext context, UserManager<ApplicationUser> userManager, IWebHostEnvironment webHostEnvironment, ILogService logger)
         {
             _context = context;
             _userManager = userManager;
             _webHostEnvironment = webHostEnvironment;
+            _logger = logger;
         }
 
         public async Task CreateMovieAsync(IViewModel item, string userEmail)
@@ -50,6 +52,7 @@ namespace Cinema.Core.Services
             };
             _context.Movies.Add(movie);
             await _context.SaveChangesAsync();
+            await _logger.LogActionAsync(UserActionType.Create, LogMessages.AddEntityMessage, "movie", movie.Title, $"({movie.Director} - {movie.RunningTime} minutes)");
         }
 
         public async Task DeleteByIdAsync(int? id)
@@ -58,6 +61,7 @@ namespace Cinema.Core.Services
             _context.Movies.Remove(movie);
             await GlobalMethods.DeleteImage("Movies", movie.ImageUrl, _context, _webHostEnvironment);
             await _context.SaveChangesAsync();
+            await _logger.LogActionAsync(UserActionType.Delete, LogMessages.DeleteEntityMessage, "movie", movie.Title, $"({movie.Director} - {movie.RunningTime} minutes)");
         }
 
         public async Task EditByIdAsync(IViewModel item, int id, int genreId, IEnumerable<string> actors)
@@ -88,6 +92,7 @@ namespace Cinema.Core.Services
             }
             _context.Update(movie);
             await _context.SaveChangesAsync();
+            await _logger.LogActionAsync(UserActionType.Update, LogMessages.EditEntityMessage, "movie", movie.Title, "");
         }
 
         public async Task<bool> ExistsByIdAsync(int? id)
@@ -166,19 +171,6 @@ namespace Cinema.Core.Services
             return await _context.UsersMovies.Include(i => i.Movie).Include(i => i.Customer).Where(i => i.Movie.Id == id).ToListAsync();
         }
 
-        public async Task<StatisticsViewModel> GetStatistics()
-        {
-            var movies = await _context.Movies.ToListAsync();
-            var tickets = await _context.Tickets.Include(i => i.Movie).ToListAsync();
-            StatisticsViewModel vm = new StatisticsViewModel
-            {
-                Income = tickets.Select(i => i.Price).Sum(),
-                TicketsSold = tickets.Count,
-                MostPopularMovie = movies.OrderByDescending(i => i.RatingCount).First()
-            };
-            return vm;
-        }
-
         public async Task<CreateMovieViewModel> PrepareForAddingAsync()
         {
             return new CreateMovieViewModel
@@ -193,37 +185,6 @@ namespace Cinema.Core.Services
             };
         }
 
-        public async Task SetRatingAsync(int id, decimal rating, string userEmail)
-        {
-            var currentUser = await _userManager.FindByEmailAsync(userEmail);
-            var movie = _context.Movies.Include(i => i.Genre).ToListAsync().Result.FirstOrDefault(i => i.Id == id);
-            var usersRatedMovie = _context.UsersMovies.Include(i => i.Movie).Include(i => i.Customer).ToList();
-
-            decimal currentRating = rating;
-
-            var userMovie = usersRatedMovie.FirstOrDefault(i => i.Customer.Email == currentUser.Email && i.Movie.Id == movie.Id);
-
-            if (userMovie == null)
-            {
-                movie.UserRating = ((movie.UserRating * movie.RatingCount) + currentRating) / (movie.RatingCount + 1);
-                movie.RatingCount++;
-
-                _context.UsersMovies.Add(new UserMovie
-                {
-                    MovieId = movie.Id,
-                    CustomerId = currentUser.Id,
-                    Rating = currentRating
-                });
-            }
-            else
-            {
-                currentRating = usersRatedMovie.FirstOrDefault(i => i.Customer.Email == currentUser.Email && i.Movie.Id == movie.Id).Rating - rating;
-
-                userMovie.Rating = rating;
-                movie.UserRating = ((movie.UserRating * movie.RatingCount) - currentRating) / movie.RatingCount;
-            }
-            await _context.SaveChangesAsync();
-        }
         public async Task<IEnumerable<MovieInfoCardViewModel>> GetAllMoviesAsync()
         {
             var movies = await _context.Movies.Include(i => i.Genre).Include(i => i.AddedBy).ToListAsync();
@@ -334,18 +295,18 @@ namespace Cinema.Core.Services
                 Id = movie.Id,
                 Title = movie.Title,
                 Description = movie.Description,
-                Director = movie.Description,
+                Director = movie.Director,
                 GenreId = movie.GenreId,
                 Actors = null,
                 Image = null,
                 RunningTime = movie.RunningTime.ToString(),
                 TrailerUrl = movie.TrailerUrl,
-                ActorsDropdown = await _context.Actors.Select(i => new ActorDropdownViewModel
+                ActorsDropdown = (await _context.Actors.ToListAsync()).Select(i => new ActorDropdownViewModel
                 {
                     Id = i.Id,
                     FullName = i.FullName,
-                    IsChecked = false
-                }).ToListAsync(),
+                    IsChecked = movie.Actors.Any(a => a.Id == i.Id)
+                }).ToList(),
                 Genres = await this.GetGenresDropDownAsync()
             };
         }

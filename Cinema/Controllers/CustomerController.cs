@@ -3,8 +3,10 @@ using Cinema.Core.Services;
 using Cinema.Core.Utilities;
 using Cinema.ViewModels.Customers;
 using Cinema.ViewModels.Sectors;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Data;
 using System.Threading.Tasks;
 
 namespace Cinema.Controllers
@@ -89,6 +91,19 @@ namespace Cinema.Controllers
         public async Task<IActionResult> GetMoviesByDate(string cinemaId, string date)
         {
             return PartialView("_MoviesByDatePartial", await _customersService.GetMoviesByDateAsync(cinemaId, date));
+        }
+        [HttpPost]
+        [Authorize(Roles = "Customer")]
+        public async Task<IActionResult> SetRating(int movieId, int? rating)
+        {
+            if (rating == 0 || rating == null)
+            {
+                return RedirectToAction("MovieDetails", "Customer", new { id = movieId });
+            }
+
+            await _customersService.SetRatingAsync(movieId, rating.Value, User.Identity.Name);
+
+            return RedirectToAction("MovieDetails", "Customer", new { id = movieId });
         }
     }
 }

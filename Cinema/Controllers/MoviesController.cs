@@ -148,18 +148,5 @@ namespace Cinema.Controllers
             await _moviesService.DeleteByIdAsync(id);
             return RedirectToAction(nameof(AllMovies));
         }
-        [HttpPost]
-        [Authorize(Roles = "Customer")]
-        public async Task<IActionResult> SetRating(int movieId, int? rating)
-        {
-            if (rating == 0 || rating == null)
-            {
-                return RedirectToAction("MovieDetails", "Customer", new { id = movieId });
-            }
-
-            await _moviesService.SetRatingAsync(movieId, rating.Value, User.Identity.Name);
-
-            return RedirectToAction("MovieDetails", "Customer", new { id = movieId });
-        }
     }
 }

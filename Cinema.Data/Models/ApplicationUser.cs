@@ -24,6 +24,6 @@ namespace Cinema.Data.Models
         [Display(Name = "Tickets for: ")]
         public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
         public virtual ICollection<CustomerCinema> CinemasVisited { get; set; } = new List<CustomerCinema>();
-        public virtual ICollection<UserAction> UserActions { get; set;} = new List<UserAction>();
+        public virtual ICollection<ActionLog> UserActions { get; set;} = new List<ActionLog>();
     }
 }

@@ -14,13 +14,13 @@ namespace Cinema.Core.Contracts
 {
     public interface ICustomersService
     {
-        Task<IEnumerable<ApplicationUser>> GetAllAsync();
         Task<CustomerHomePageViewModel> GetCinemasForUserAsync(string userEmail);
         Task<ChangePasswordViewModel> GetChangePasswordViewModelAsync(string userEmail);
         Task ChangePasswordAsync(ChangePasswordViewModel viewModel);
         Task<IEnumerable<CinemasViewModel>> GetCinemasAsync(bool? all, string userEmail);
         Task AddCinemaToFavoritesAsync(int cinemaId, string userEmail);
         Task RemoveCinemaFromFavoritesAsync(int cinemaId, string userEmail);
+        Task SetRatingAsync(int id, decimal rating, string userEmail);
         Task<IEnumerable<CustomerTicketViewModel>> GetTicketsForCustomerAsync(string userEmail);
         Task<CustomerCinemaPageViewModel> PrepareCinemaViewModelAsync(string userEmail, string cinemaId);
         Task<IEnumerable<CinemaMovieViewModel>> GetMoviesByDateAsync(string cinemaId, string date);

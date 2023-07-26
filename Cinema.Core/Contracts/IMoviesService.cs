@@ -24,8 +24,6 @@ namespace Cinema.Core.Contracts
         Task CreateMovieAsync(IViewModel item, string userEmail);
         Task<string> UploadPhoto(IFormFile image);
         Task EditByIdAsync(IViewModel item, int id, int genreId, IEnumerable<string> actors);
-        Task SetRatingAsync(int id, decimal rating, string userEmail);
-        Task<StatisticsViewModel> GetStatistics();
         Task<CreateMovieViewModel> PrepareForAddingAsync();
         Task<IEnumerable<MovieInfoCardViewModel>> GetAllMoviesAsync();
         Task<IEnumerable<MovieInfoCardViewModel>> SearchAndFilterMoviesAsync(string searchText, string filterValue, string sortBy);

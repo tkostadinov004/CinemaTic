@@ -10,6 +10,7 @@ using Cinema.ViewModels.Movies;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using System.Text.RegularExpressions;
+using Microsoft.Data.SqlClient.Server;
 
 namespace Cinema.Core.Services
 {
@@ -17,27 +18,29 @@ namespace Cinema.Core.Services
     {
         private readonly CinemaDbContext _context;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        public ActorsService(CinemaDbContext context, IWebHostEnvironment webHostEnvironment)
+        private readonly ILogService _logger;
+        public ActorsService(CinemaDbContext context, IWebHostEnvironment webHostEnvironment, ILogService logger)
         {
             _context = context;
             _webHostEnvironment = webHostEnvironment;
+            _logger = logger;
         }
-        public async Task CreateAsync(IViewModel? item, string country)
+        public async Task AddActorAsync(IViewModel? item)
         {
             CreateActorViewModel? viewModel = item as CreateActorViewModel;
 
-            viewModel.Nationality = country;
             string photoName = GlobalMethods.UploadPhoto("Actors", viewModel.Image, _webHostEnvironment);
             Actor actor = new Actor
             {
-                Birthdate = viewModel.Birthdate,
+                Birthdate = viewModel.Birthdate.Value,
                 FullName = viewModel.FullName,
                 ImageUrl = photoName,
                 Nationality = viewModel.Nationality,
-                Rating = viewModel.Rating
+                Rating = decimal.Parse(viewModel.Rating)
             };
             _context.Add(actor);
             await _context.SaveChangesAsync();
+            await _logger.LogActionAsync(UserActionType.Create, LogMessages.AddEntityMessage, "actor", viewModel.FullName, $"({viewModel.Nationality})");
         }
 
         public async Task DeleteByIdAsync(int? id)
@@ -46,38 +49,32 @@ namespace Cinema.Core.Services
             _context.Actors.Remove(actor);
             await GlobalMethods.DeleteImage("Actors", actor.ImageUrl, _context, _webHostEnvironment);
             await _context.SaveChangesAsync();
+            await _logger.LogActionAsync(UserActionType.Delete, LogMessages.DeleteEntityMessage, "actor", actor.FullName, $"({actor.Nationality})");
         }
 
-        public async Task EditActorAsync(IViewModel item, int id, string? country)
+        public async Task EditActorAsync(IViewModel item)
         {
             EditActorViewModel? viewModel = item as EditActorViewModel;
 
-            var actor = await _context.Actors.FirstOrDefaultAsync(i => i.Id == id);
+            var actor = await _context.Actors.FirstOrDefaultAsync(i => i.Id == viewModel.Id);
             string photoName = GlobalMethods.UploadPhoto("Actors", viewModel.Image, _webHostEnvironment);
             actor.FullName = viewModel.FullName;
             actor.Birthdate = viewModel.Birthdate;
             actor.Rating = viewModel.Rating;
+            actor.Nationality = viewModel.Nationality;
 
-            if (country != null)
-            {
-                actor.Nationality = country;
-            }
             if (viewModel.Image != null)
             {
                 actor.ImageUrl = photoName;
             }
             _context.Update(actor);
             await _context.SaveChangesAsync();
+            await _logger.LogActionAsync(UserActionType.Update, LogMessages.EditEntityMessage, "actor", actor.FullName, $"({actor.Nationality})");
         }
 
         public async Task<bool> ExistsByIdAsync(int? id)
         {
             return await _context.Actors.AnyAsync(e => e.Id == id);
-        }
-
-        public async Task<IEnumerable<Actor>> GetAllAsync()
-        {
-            return await _context.Actors.Include(i => i.Movies).ToListAsync();
         }
 
         public async Task<ActorDetailsViewModel> GetByIdAsync(int? id)
@@ -107,7 +104,8 @@ namespace Cinema.Core.Services
                 FullName = actor.FullName,
                 Birthdate = actor.Birthdate,
                 Nationality = actor.Nationality,
-                Rating = actor.Rating
+                Rating = actor.Rating,
+                Countries = GlobalMethods.GetCountries()
             };
         }
 
@@ -119,6 +117,15 @@ namespace Cinema.Core.Services
                 Id = actor.Id,
                 FullName = actor.FullName,
                 ImageUrl = actor.ImageUrl
+            };
+        }
+
+        public async Task<CreateActorViewModel> PrepareForAddingAsync()
+        {
+            return new CreateActorViewModel
+            {
+                Countries = GlobalMethods.GetCountries(),
+                Birthdate = null
             };
         }
 

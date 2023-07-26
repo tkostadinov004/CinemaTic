@@ -11,29 +11,43 @@ using Cinema.Data.Enums;
 using System.Runtime.CompilerServices;
 using System.Reflection;
 using System.Diagnostics;
+using Cinema.Core.Contracts;
+using System.Security.Principal;
 
 namespace Cinema.Core.Services
 {
-    public static class LogService
+    public class LogService : ILogService
     {
-        public static IHttpContextAccessor _httpContextAccessor;
-        public static UserManager<ApplicationUser> _userManager;
-        public static CinemaDbContext _context;
-        public static async Task<ApplicationUser> GetUser()
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly CinemaDbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public LogService(UserManager<ApplicationUser> userManager, CinemaDbContext context, IHttpContextAccessor httpContextAccessor)
         {
-            var userEmail = _httpContextAccessor.HttpContext.User.Identity.Name;
-            return await _userManager.FindByEmailAsync(userEmail);
+            _userManager = userManager;
+            _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
-        public static void AddAction(object data)
+
+        public async Task LogActionAsync(UserActionType type, string message, params object[] attributes)
         {
-            //_context.UserActions.Add(new UserAction
-            //{
-            //    Id = Guid.NewGuid(),
-            //    Type = type,
-            //    UserId = GetUser().Result.Id,
-            //    Message = message
-            //});
-            _context.SaveChanges();
+            var user = await this.GetUser();
+            if (user != null)
+            {
+                _context.ActionLogs.Add(new ActionLog
+                {
+                    Id = Guid.NewGuid(),
+                    Type = type,
+                    UserId = user.Id,
+                    Date = DateTime.Now,
+                    Message = $"{string.Format(message, attributes.Select(i => i.ToString()).ToArray()).Trim()}"
+                });
+                await _context.SaveChangesAsync();
+            }
+            //({DateTime.Now.ToString("MM/dd/yyyy hh:mm:tt")}) 
+        }
+        private async Task<ApplicationUser> GetUser()
+        {
+            return await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name ?? "");
         }
     }
 }

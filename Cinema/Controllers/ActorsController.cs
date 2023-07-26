@@ -19,13 +19,11 @@ namespace Cinema.Controllers
             _actorsService = actorsService;
         }
 
-        // GET: Actors
         public async Task<IActionResult> AllActors()
         {
             return View();
         }
 
-        // GET: Actors/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,10 +41,9 @@ namespace Cinema.Controllers
         }
 
         // GET: Actors/Create
-        public IActionResult Create()
+        public async Task<IActionResult> AddActor()
         {
-            ViewBag.Countries = new SelectList(GlobalMethods.GetCountries());
-            return View();
+            return View(await _actorsService.PrepareForAddingAsync());
         }
 
         // POST: Actors/Create
@@ -54,11 +51,11 @@ namespace Cinema.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(CreateActorViewModel actorVM, string country)
+        public async Task<IActionResult> AddActor(CreateActorViewModel actorVM)
         { 
             if (ModelState.IsValid)
             {
-                await _actorsService.CreateAsync(actorVM, country);
+                await _actorsService.AddActorAsync(actorVM);
             }
             return RedirectToAction(nameof(AllActors));
         }
@@ -85,10 +82,9 @@ namespace Cinema.Controllers
             return PartialView("_EditActorPartial", await _actorsService.GetEditViewModelByIdAsync(int.Parse(id)));
         }
         [HttpPost]
-        public async Task<IActionResult> EditActor([FromForm] EditActorViewModel viewModel, int actorId)
+        public async Task<IActionResult> EditActor([FromForm] EditActorViewModel viewModel)
         {
-            viewModel.Id = actorId;
-            await _actorsService.EditActorAsync(viewModel, actorId, "");
+            await _actorsService.EditActorAsync(viewModel);
             return RedirectToAction("AllActors", "Actors");
         }
         [HttpGet]

@@ -1,6 +1,7 @@
 ﻿using Cinema.Core.Contracts;
 using Cinema.Core.Utilities;
 using Cinema.Data;
+using Cinema.Data.Enums;
 using Cinema.Data.Models;
 using Cinema.ViewModels.Cinemas;
 using Cinema.ViewModels.Contracts;
@@ -14,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -25,23 +27,15 @@ namespace Cinema.Core.Services
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly CinemaDbContext _context;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly ILogService _logger;
 
-        public CustomersService(UserManager<ApplicationUser> userManager, CinemaDbContext context, SignInManager<ApplicationUser> signInManager)
+        public CustomersService(UserManager<ApplicationUser> userManager, CinemaDbContext context, SignInManager<ApplicationUser> signInManager, ILogService logger)
         {
             _userManager = userManager;
             _context = context;
             _signInManager = signInManager;
+            _logger = logger;
         }
-        public async Task<IEnumerable<ApplicationUser>> GetAllAsync()
-        {
-            //var users = await _userManager.Users
-            //    .Include(i => i.Tickets).ThenInclude(i => i.Seat)
-            //    .Include(i => i.Tickets).ThenInclude(ticket => ticket.Movie)
-            //    .ToListAsync();
-            //return users.Where(i => this.IsVisitorAsync(i).Result);
-            return null;
-        }
-
         public async Task<CustomerHomePageViewModel> GetCinemasForUserAsync(string userEmail)
         {
             var user = await _context.Users.Include(i => i.CinemasVisited).ThenInclude(i => i.Cinema).FirstOrDefaultAsync(i => i.Email == userEmail);
@@ -69,16 +63,12 @@ namespace Cinema.Core.Services
             };
         }
 
-        private async Task<bool> IsCustomerAsync(ApplicationUser user)
-        {
-            return await _userManager.IsInRoleAsync(user, "Customer");
-        }
-
         public async Task ChangePasswordAsync(ChangePasswordViewModel viewModel)
         {
             var user = await _userManager.FindByIdAsync(viewModel.Id);
             await _userManager.ChangePasswordAsync(user, viewModel.OldPassword, viewModel.NewPassword);
             await _signInManager.RefreshSignInAsync(user);
+            await _logger.LogActionAsync(UserActionType.AccountActions, LogMessages.ChangePasswordMessage);
         }
 
         public async Task<IEnumerable<CinemasViewModel>> GetCinemasAsync(bool? all, string userEmail)
@@ -112,6 +102,7 @@ namespace Cinema.Core.Services
                 CustomerId = user.Id
             });
             await _context.SaveChangesAsync();
+            await _logger.LogActionAsync(UserActionType.Create, LogMessages.AddCinemaToFavoritesMessage, cinema.Name);
         }
 
         public async Task RemoveCinemaFromFavoritesAsync(int cinemaId, string userEmail)
@@ -122,6 +113,7 @@ namespace Cinema.Core.Services
             var customerCinema = await _context.CustomersCinemas.FirstOrDefaultAsync(i => i.CinemaId == cinema.Id && i.CustomerId == user.Id);
             _context.CustomersCinemas.Remove(customerCinema);
             await _context.SaveChangesAsync();
+            await _logger.LogActionAsync(UserActionType.Delete, LogMessages.RemoveCinemaToFavoritesMessage, cinema.Name);
         }
 
         public async Task<IEnumerable<CustomerTicketViewModel>> GetTicketsForCustomerAsync(string userEmail)
@@ -182,13 +174,14 @@ namespace Cinema.Core.Services
             DateTime? convertedDate = null;
             if (string.IsNullOrEmpty(date) == false)
             {
-                convertedDate = DateTime.ParseExact(date, Constants.DateTimeFormat, CultureInfo.InvariantCulture);
-                movies = movies.Where(i => i.FromDate <= convertedDate && i.ToDate >= convertedDate).ToList();
+                convertedDate = DateTime.ParseExact(date, Constants.DateTimeFormat, CultureInfo.InvariantCulture); 
             }
             else
             {
                 convertedDate = DateTime.Today;
             }
+            movies = movies.Where(i => i.FromDate <= convertedDate && i.ToDate >= convertedDate).ToList();
+
             return movies.Select(i => new CinemaMovieViewModel
             {
                 Id = i.MovieId,
@@ -226,7 +219,7 @@ namespace Cinema.Core.Services
         public async Task BuyTicketAsync(int sectorId, int movieId, SectorDetailsViewModel viewModel, DateTime forDate, string userEmail)
         {
             var sector = await _context.Sectors.FirstOrDefaultAsync(i => i.Id == sectorId);
-            var cinemaMovie = await _context.CinemasMovies.FirstOrDefaultAsync(i => i.CinemaId == sector.CinemaId && i.MovieId == movieId);
+            var cinemaMovie = await _context.CinemasMovies.Include(i => i.Cinema).Include(i => i.Movie).FirstOrDefaultAsync(i => i.CinemaId == sector.CinemaId && i.MovieId == movieId);
             var selectedSeats = viewModel.Seats.SelectMany(i => i).Where(i => i.IsChecked && i.IsOccupied == false);
             foreach (var seat in selectedSeats)
             {
@@ -241,8 +234,45 @@ namespace Cinema.Core.Services
                     Price = cinemaMovie.TicketPrice
                 };
                 _context.Tickets.Add(ticket);
+                await _logger.LogActionAsync(UserActionType.Create, LogMessages.PurchaseTicketMessage, $"R{seat.Row}C{seat.Col}", cinemaMovie.Movie.Title, cinemaMovie.Cinema.Name, forDate.Date.ToString(Constants.DateTimeFormat));
             }
             await _context.SaveChangesAsync();
+        }
+        public async Task SetRatingAsync(int id, decimal rating, string userEmail)
+        {
+            var currentUser = await _userManager.FindByEmailAsync(userEmail);
+            var movie = _context.Movies.Include(i => i.Genre).ToListAsync().Result.FirstOrDefault(i => i.Id == id);
+            var usersRatedMovie = _context.UsersMovies.Include(i => i.Movie).Include(i => i.Customer).ToList();
+
+            decimal currentRating = rating;
+
+            var userMovie = usersRatedMovie.FirstOrDefault(i => i.Customer.Email == currentUser.Email && i.Movie.Id == movie.Id);
+
+            string outputMessage = "";
+            if (userMovie == null)
+            {
+                movie.UserRating = ((movie.UserRating * movie.RatingCount) + currentRating) / (movie.RatingCount + 1);
+                movie.RatingCount++;
+
+                _context.UsersMovies.Add(new UserMovie
+                {
+                    MovieId = movie.Id,
+                    CustomerId = currentUser.Id,
+                    Rating = currentRating
+                });
+                await _context.SaveChangesAsync();
+                await _logger.LogActionAsync(UserActionType.Create, LogMessages.RateMovieMessage, movie.Title, $"{currentRating:f1}");
+            }
+            else
+            {
+                currentRating = usersRatedMovie.FirstOrDefault(i => i.Customer.Email == currentUser.Email && i.Movie.Id == movie.Id).Rating - rating;
+
+                decimal oldRating = userMovie.Rating;
+                userMovie.Rating = rating;
+                movie.UserRating = ((movie.UserRating * movie.RatingCount) - currentRating) / movie.RatingCount;
+                await _context.SaveChangesAsync();
+                await _logger.LogActionAsync(UserActionType.Update, LogMessages.ChangeRatingMovieMessage, movie.Title, $"{oldRating:f1}", $"{rating:f1}");
+            }
         }
     }
 }

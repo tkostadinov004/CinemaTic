@@ -17,11 +17,12 @@ namespace Cinema.Core.Contracts
         Task<ActorDetailsViewModel> GetByIdAsync(int? id);
         Task<bool> ExistsByIdAsync(int? id);
         Task DeleteByIdAsync(int? id);
-        Task CreateAsync(IViewModel item, string country);
-        Task EditActorAsync(IViewModel item, int id, string country);
+        Task AddActorAsync(IViewModel item);
+        Task EditActorAsync(IViewModel item);
         Task<IEnumerable<ActorListViewModel>> SearchAndFilterActorsAsync(string searchText, string filterValue, string sortBy);
         Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByActor(string searchText, string actorId);
         Task<EditActorViewModel> GetEditViewModelByIdAsync(int cinemaId);
         Task<DeleteActorViewModel> PrepareDeleteViewModelAsync(int id);
+        Task<CreateActorViewModel> PrepareForAddingAsync();
     }
 }

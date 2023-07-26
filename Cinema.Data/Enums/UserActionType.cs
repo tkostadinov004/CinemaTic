@@ -12,5 +12,6 @@ namespace Cinema.Data.Enums
         Read = 2,
         Update = 3,
         Delete = 4,
+        AccountActions = 5
     }
 }

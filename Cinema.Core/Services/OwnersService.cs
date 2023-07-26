@@ -23,14 +23,16 @@ namespace Cinema.Core.Services
         private UserManager<ApplicationUser> _userManager;
         private readonly IMapper _mapper;
         private readonly ISectorsService _sectorsService;
+        private readonly ILogService _logger;
 
-        public OwnersService(CinemaDbContext context, IWebHostEnvironment webHostEnvironment, UserManager<ApplicationUser> userManager, IMapper mapper, ISectorsService sectorsService)
+        public OwnersService(CinemaDbContext context, IWebHostEnvironment webHostEnvironment, UserManager<ApplicationUser> userManager, IMapper mapper, ISectorsService sectorsService, ILogService logger)
         {
             _context = context;
             _webHostEnvironment = webHostEnvironment;
             _userManager = userManager;
             _mapper = mapper;
             _sectorsService = sectorsService;
+            _logger = logger;
         }
 
         public async Task AddAsync(IViewModel item, string userEmail)
@@ -45,6 +47,7 @@ namespace Cinema.Core.Services
 
             _context.Cinemas.Add(cinema);
             await _context.SaveChangesAsync();
+            await _logger.LogActionAsync(UserActionType.Create, LogMessages.AddEntityMessage, "cinema", viewModel.Name, $"({viewModel.SeatRows} rows and {viewModel.SeatCols} columns)");
         }
         public async Task AddMovieToCinemas(MovieDetailsViewModel viewModel)
         {
@@ -65,6 +68,7 @@ namespace Cinema.Core.Services
                         });
                     }
                 }
+                await _logger.LogActionAsync(UserActionType.Create, LogMessages.AddMovieToCinemaMessage, movie.Title, cinema.Name);
             }
             await _context.SaveChangesAsync();
         }
@@ -75,6 +79,7 @@ namespace Cinema.Core.Services
             _context.Cinemas.Remove(cinema);
             await GlobalMethods.DeleteImage("Cinemas", cinema.ImageUrl, _context, _webHostEnvironment);
             await _context.SaveChangesAsync();
+            await _logger.LogActionAsync(UserActionType.Delete, LogMessages.DeleteEntityMessage, "cinema", cinema.Name, $"({cinema.SeatRows} rows and {cinema.SeatCols} columns)");
         }
 
         public async Task EditCinema(IViewModel item)
@@ -102,6 +107,7 @@ namespace Cinema.Core.Services
 
             _context.Cinemas.Update(cinema);
             await _context.SaveChangesAsync();
+            await _logger.LogActionAsync(UserActionType.Update, LogMessages.EditEntityMessage, "cinema", cinema.Name, "");
         }
 
         public Task<bool> ExistsByIdAsync(int? id)

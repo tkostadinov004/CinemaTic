@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -45,16 +46,21 @@ namespace Cinema.Core.Utilities
             }
             return false;
         }
-        public static IEnumerable<string> GetCountries()
+        public static IEnumerable<SelectListItem> GetCountries()
         {
+            var countries = new List<string>();
             CultureInfo[] cultures = CultureInfo.GetCultures(CultureTypes.SpecificCultures);
+            
+            foreach (CultureInfo culture in cultures) 
+            {
+                RegionInfo region = new RegionInfo(culture.LCID);
+                if(!countries.Contains(region.EnglishName))
+                {
+                    countries.Add(region.EnglishName);
+                }
+            }
 
-            var countries = cultures.Select(cult => (new RegionInfo(cult.LCID)).TwoLetterISORegionName).Distinct();
-
-            var userCountries = countries.Select(i => IsoNames.CountryNames.GetName(CultureInfo.GetCultureInfo("en"), i)).Where(i => i != null).OrderBy(i => i).ToList();
-
-            userCountries.Insert(0, null);
-            return userCountries;
+            return countries.OrderBy(i => i).Select(i => new SelectListItem(i, i));
         }
     }
 }

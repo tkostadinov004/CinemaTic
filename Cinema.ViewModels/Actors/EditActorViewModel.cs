@@ -1,6 +1,7 @@
 ﻿using Cinema.Data.Models;
 using Cinema.ViewModels.Contracts;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
 namespace Cinema.ViewModels.Actors
@@ -13,5 +14,7 @@ namespace Cinema.ViewModels.Actors
         public string Nationality { get; set; }
         public decimal Rating { get; set; }
         public IFormFile? Image { get; set; }
+
+        public IEnumerable<SelectListItem>? Countries { get; set; }
     }
 }

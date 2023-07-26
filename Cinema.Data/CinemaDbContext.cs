@@ -19,7 +19,7 @@ namespace Cinema.Data
         public DbSet<UserMovie> UsersMovies { get; set; }
         public DbSet<CustomerCinema> CustomersCinemas { get; set; }
         public DbSet<CinemaMovie> CinemasMovies { get; set; }
-        public DbSet<UserAction> UserActions { get; set; }
+        public DbSet<ActionLog> ActionLogs { get; set; }
         public DbSet<CinemaMovieTime> CinemasMoviesTimes { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,7 +35,7 @@ namespace Cinema.Data
 
             modelBuilder.Entity<Movie>().HasMany(i => i.Actors).WithMany(a => a.Movies).UsingEntity(i => i.ToTable("ActorsMovies"));
 
-            modelBuilder.Entity<UserAction>().HasOne(i => i.User).WithMany(a => a.UserActions);
+            modelBuilder.Entity<ActionLog>().HasOne(i => i.User).WithMany(a => a.UserActions);
 
             modelBuilder.Entity<Ticket>().HasOne(i => i.Sector).WithMany(s => s.Tickets).OnDelete(DeleteBehavior.NoAction);
         }

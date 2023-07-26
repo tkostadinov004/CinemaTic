@@ -34,16 +34,47 @@ namespace Cinema.Controllers
         [HttpGet]
         public async Task<IActionResult> Cinema(int? id)
         {
-            return View(await _adminService.GetCinemaDetailsAsync(id));
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var cinema = await _adminService.GetCinemaDetailsAsync(id);
+            if (cinema == null)
+            {
+                return NotFound();
+            }
+
+            return View(cinema);
         }
         public async Task<IActionResult> User(string id)
         {
-            return View(await _adminService.GetUserDetailsAsync(id));
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var user = await _adminService.GetUserDetailsAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
         }
         [HttpGet]
         public async Task<IActionResult> ChangeApprovalStatus(int id)
         {
-            return PartialView("_ChangeApprovalStatusPartial", await _adminService.GetCASViewModelAsync(id));
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var cinemaViewModel = await _adminService.GetCASViewModelAsync(id);
+            if (cinemaViewModel == null)
+            {
+                return NotFound();
+            }
+            return PartialView("_ChangeApprovalStatusPartial", cinemaViewModel);
         }
         [HttpPost]
         public async Task<IActionResult> ChangeApprovalStatus(string id, string approvalCode)
@@ -51,7 +82,7 @@ namespace Cinema.Controllers
             await _adminService.ChangeApprovalStatusAsync(int.Parse(id), int.Parse(approvalCode));
             return Json(new { redirectToUrl = Url.Action("AllCinemas", "Admin") });
         }
-        public async Task<IActionResult> SearchAndFilterCinemas(string searchText,  string filterValue, string sortBy)
+        public async Task<IActionResult> SearchAndFilterCinemas(string searchText, string filterValue, string sortBy)
         {
             var cinemas = await _adminService.SearchAndFilterCinemasAsync(searchText, filterValue, sortBy);
             return PartialView("_CinemasPartial", cinemas);
@@ -63,7 +94,16 @@ namespace Cinema.Controllers
         }
         public async Task<IActionResult> PromoteToOwner(string id)
         {
-            return PartialView("_PromoteToOwnerPartial", await _adminService.GetAdminUserCRUDPartialAsync(id));
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var userViewModel = await _adminService.GetAdminUserCRUDPartialAsync(id);
+            if (userViewModel == null)
+            {
+                return NotFound();
+            }
+            return PartialView("_PromoteToOwnerPartial", userViewModel);
         }
         [HttpPost]
         public async Task<IActionResult> PromoteToOwner([FromForm] AdminUserCRUDViewModel viewModel, string id)
@@ -74,7 +114,16 @@ namespace Cinema.Controllers
         [HttpGet]
         public async Task<IActionResult> DemoteUser(string id)
         {
-            return PartialView("_DemoteUserPartial", await _adminService.GetAdminUserCRUDPartialAsync(id));
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var userViewModel = await _adminService.GetAdminUserCRUDPartialAsync(id);
+            if (userViewModel == null)
+            {
+                return NotFound();
+            }
+            return PartialView("_DemoteUserPartial", userViewModel);
         }
         [HttpPost]
         public async Task<IActionResult> DemoteUser([FromForm] AdminUserCRUDViewModel viewModel, string id)
@@ -85,7 +134,16 @@ namespace Cinema.Controllers
         [HttpGet]
         public async Task<IActionResult> DeleteUserAccount(string id)
         {
-            return PartialView("_DeleteUserAccountPartial", await _adminService.GetAdminUserCRUDPartialAsync(id));
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var userViewModel = await _adminService.GetAdminUserCRUDPartialAsync(id);
+            if (userViewModel == null)
+            {
+                return NotFound();
+            }
+            return PartialView("_DeleteUserAccountPartial", userViewModel);
         }
         [HttpPost]
         public async Task<IActionResult> DeleteUserAccount([FromForm] AdminUserCRUDViewModel viewModel, string id)

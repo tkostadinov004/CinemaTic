@@ -60,15 +60,15 @@ namespace Cinema.Controllers
             }
             return View(viewModel);
         }
-        public async Task<IActionResult> SortGenres(string sortBy)
-        {
-            var genres = await _genresService.SortGenresAsync(sortBy);
-            return PartialView("_GenresPartial", genres);
-        }
         public async Task<IActionResult> SearchAndSortMoviesByGenre(string searchText, string id, string sortBy)
         {
             var movies = await _genresService.SearchAndSortMoviesByGenre(searchText, id, sortBy);
             return PartialView("_GenreMoviesPartial", movies);
+        }
+        public async Task<IActionResult> SortGenres(string sortBy)
+        {
+            var genres = await _genresService.SortGenresAsync(sortBy);
+            return PartialView("_GenresPartial", genres);
         }
         [HttpGet]
         public async Task<IActionResult> EditGenre(string id)

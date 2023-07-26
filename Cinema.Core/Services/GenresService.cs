@@ -1,5 +1,7 @@
 ﻿using Cinema.Core.Contracts;
+using Cinema.Core.Utilities;
 using Cinema.Data;
+using Cinema.Data.Enums;
 using Cinema.Data.Models;
 using Cinema.ViewModels.Actors;
 using Cinema.ViewModels.Contracts;
@@ -17,9 +19,11 @@ namespace Cinema.Core.Services
     public class GenresService : IGenresService
     {
         private readonly CinemaDbContext _context;
-        public GenresService(CinemaDbContext context)
+        private readonly ILogService _logger;
+        public GenresService(CinemaDbContext context, ILogService logger)
         {
             _context = context;
+            _logger = logger;
         }
         public async Task CreateAsync(IViewModel item)
         {
@@ -31,6 +35,7 @@ namespace Cinema.Core.Services
             };
             _context.Add(genre);
             await _context.SaveChangesAsync();
+            await _logger.LogActionAsync(UserActionType.Create, LogMessages.AddEntityMessage, "genre", genre.Name, "");
         }
 
         public async Task DeleteByIdAsync(int? id)
@@ -39,6 +44,7 @@ namespace Cinema.Core.Services
 
             _context.Genres.Remove(genre);
             await _context.SaveChangesAsync();
+            await _logger.LogActionAsync(UserActionType.Delete, LogMessages.DeleteEntityMessage, "genre", genre.Name, "");
         }
 
         public async Task EditByIdAsync(IViewModel item, int id)
@@ -51,6 +57,7 @@ namespace Cinema.Core.Services
                 genre.Name = viewModel.Name;
                 _context.Update(genre);
                 await _context.SaveChangesAsync();
+                await _logger.LogActionAsync(UserActionType.Update, LogMessages.EditEntityMessage, "genre", genre.Name, "");
             }
         }
 
@@ -117,7 +124,7 @@ namespace Cinema.Core.Services
             {
                 movies = movies.Where(i => i.Name.ToLower().StartsWith(searchText.ToLower()));
             }
-            if(string.IsNullOrEmpty(sortBy) == false)
+            if (string.IsNullOrEmpty(sortBy) == false)
             {
                 var sortParameter = sortBy.Split('-')[0];
                 var sortDirection = sortBy.Split('-')[^1];
@@ -149,7 +156,6 @@ namespace Cinema.Core.Services
             }
             return movies;
         }
-
         public async Task<IEnumerable<GenreListViewModel>> SortGenresAsync(string sortBy)
         {
             var genres = _context.Genres.Include(i => i.Movies).AsEnumerable();
