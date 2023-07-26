@@ -15,9 +15,7 @@ namespace Cinema.Core.Contracts
     public interface ITicketsService
     {
         Task<IEnumerable<Ticket>> GetTicketsByUserAsync(string userEmail);
-        Task BuyTicketAsync(int sectorId, int movieId, SectorDetailsViewModel viewModel, DateTime forDate, string userEmail);
         Task<bool> ExistsByIdAsync(int? id);
         Task<IEnumerable<Ticket>> GetAllAsync();
-        Task<BuyTicketViewModel> GetBuyTicketViewModelAsync(int cinemaId, int movieId, string time);
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Cinema.Core.Contracts;
+using Cinema.Core.DTOs.Charts;
 using Cinema.Data;
 using Cinema.Data.Models;
-using Cinema.ViewModels.Charts;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -24,7 +24,7 @@ namespace Cinema.Core.Services
             _userManager = userManager;
         }
 
-        public async Task<CinemaShareViewModel> GetMarketShareByUserAsync(string userEmail)
+        public async Task<CinemaShareDTO> GetMarketShareByUserAsync(string userEmail)
         {
             var tickets = await _context.Tickets.Include(i => i.Cinema).Select(i => new
             {
@@ -33,14 +33,14 @@ namespace Cinema.Core.Services
             }).ToListAsync();
             var user = await _userManager.FindByEmailAsync(userEmail);
             var userCinemas = await _context.Cinemas.Where(i => i.OwnerId == user.Id).ToListAsync();
-            return new CinemaShareViewModel
+            return new CinemaShareDTO
             {
                 PersonalIncome = tickets.Where(i => userCinemas.Any(c => c.Id == i.CinemaId)).Select(i => i.Price).Sum(),
                 TotalIncome = tickets.Sum(i => i.Price)
             };
         }
 
-        public async Task<TotalIncomesViewModel> GetTotalIncomesAsync(string userEmail)
+        public async Task<TotalIncomesDTO> GetTotalIncomesAsync(string userEmail)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
             var cinemasIncomes = (await _context.Tickets.Include(i => i.Cinema).Include(i => i.Cinema).Where(i => i.Cinema.OwnerId == user.Id).Select(i => new
@@ -49,14 +49,14 @@ namespace Cinema.Core.Services
                 Price = i.Price,
                 Name = i.Cinema.Name
             }).ToListAsync()).GroupBy(i => i.Name).ToDictionary(key => key.Key, value => value.Select(i => i.Price).Sum());
-            return new TotalIncomesViewModel
+            return new TotalIncomesDTO
             {
                 Labels = cinemasIncomes.Keys.ToArray(),
                 Incomes = cinemasIncomes.Values.ToArray()
             };
         }
 
-        public async Task<CustomersPerCinemaViewModel> GetCustomersPerCinemaAsync(string userEmail)
+        public async Task<CustomersPerCinemaDTO> GetCustomersPerCinemaAsync(string userEmail)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
             var cinemasCustomers = (await _context.Cinemas.Include(i => i.Customers).Where(i => i.OwnerId == user.Id).Select(i => new
@@ -64,42 +64,42 @@ namespace Cinema.Core.Services
                 Name = i.Name,
                 CustomersCount = i.Customers.Count
             }).ToListAsync());
-            return new CustomersPerCinemaViewModel
+            return new CustomersPerCinemaDTO
             {
                 Labels = cinemasCustomers.Select(i => i.Name).ToArray(),
                 CustomersCounts = cinemasCustomers.Select(i => i.CustomersCount).ToArray()
             };
         }
 
-        public async Task<BestSellingMoviesPerCinemaViewModel> GetBestSellingMoviesPerCinemaAsync(string userEmail)
+        public async Task<BestSellingMoviesPerCinemaDTO> GetBestSellingMoviesPerCinemaAsync(string userEmail)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
 
             var movies = _context.Cinemas.Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.TicketsBought).Where(i => i.OwnerId == user.Id).Select(i => i.Movies.OrderByDescending(m => m.Movie.TicketsBought.Sum(t => t.Price)).FirstOrDefault().Movie.Title).GroupBy(i => i);
-            return new BestSellingMoviesPerCinemaViewModel
+            return new BestSellingMoviesPerCinemaDTO
             {
                 Labels = movies.Select(i => i.Key ?? "None").ToArray(),
                 MoviesCounts = movies.Select(i => i.Count()).ToArray()
             };
         }
 
-        public async Task<UsersPerMonthViewModel> GetRegisteredUsersByMonthAsync()
+        public async Task<UsersPerMonthDTO> GetRegisteredUsersByMonthAsync()
         {
             var months = Enumerable.Range(1, DateTime.Now.Month);
 
             var users = months.ToDictionary(key => key, value => _context.Users.Where(u => u.CreationDate.Month == value).Count());
-            return new UsersPerMonthViewModel
+            return new UsersPerMonthDTO
             {
                 Labels = months.Select(month => DateTimeFormatInfo.CurrentInfo.GetMonthName(month)).ToArray(),
                 UsersCounts = users.Select(i => i.Value).ToArray()
             };
         }
 
-        public async Task<UsersGrowthViewModel> GetUsersGrowthAsync()
+        public async Task<UsersGrowthDTO> GetUsersGrowthAsync()
         {
             var months = Enumerable.Range(1, DateTime.Now.Month);
             var users = months.ToDictionary(key => key, value => _context.Users.Where(u => u.CreationDate.Month <= value).Count());
-            return new UsersGrowthViewModel
+            return new UsersGrowthDTO
             {
                 Labels = months.Select(month => DateTimeFormatInfo.CurrentInfo.GetMonthName(month)).ToArray(),
                 UsersCounts = users.Select(i => i.Value).ToArray()

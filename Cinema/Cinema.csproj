@@ -16,12 +16,14 @@
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0">
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.20" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.20">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.0">
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.15">
       <TreatAsUsed>true</TreatAsUsed>
     </PackageReference>
     <PackageReference Include="toastr" Version="2.1.1" />

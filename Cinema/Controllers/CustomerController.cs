@@ -1,9 +1,10 @@
 ﻿using Cinema.Core.Contracts;
+using Cinema.Core.Services;
 using Cinema.Core.Utilities;
-using Cinema.Data.Models;
 using Cinema.ViewModels.Customers;
+using Cinema.ViewModels.Sectors;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+using System;
 using System.Threading.Tasks;
 
 namespace Cinema.Controllers
@@ -70,6 +71,24 @@ namespace Cinema.Controllers
             var tickets = await _customersService.GetTicketsForCustomerAsync(User.Identity.Name);
             return View("Tickets", await PaginatedList<CustomerTicketViewModel>.CreateAsync(tickets, pageNumber ?? 1, 5));
         }
-
+        public async Task<IActionResult> Cinema(string cinemaId)
+        {
+            return View("Cinema", await _customersService.PrepareCinemaViewModelAsync(User.Identity.Name, cinemaId));
+        }
+        public async Task<IActionResult> BuyTicket(int cinemaId, int movieId, string forDate)
+        {
+            return View("BuyTicket", await _customersService.GetBuyTicketViewModelAsync(cinemaId, movieId, forDate));
+        }
+        [HttpPost]
+        public async Task<IActionResult> BuyTicket(int sectorId, int movieId, SectorDetailsViewModel viewModel, DateTime forDate)
+        {
+            await _customersService.BuyTicketAsync(sectorId, movieId, viewModel, forDate, User.Identity.Name);
+            return RedirectToAction("Cinema", "Customer", new { userEmail = User.Identity.Name, cinemaId = TempData["CinemaId"] });
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetMoviesByDate(string cinemaId, string date)
+        {
+            return PartialView("_MoviesByDatePartial", await _customersService.GetMoviesByDateAsync(cinemaId, date));
+        }
     }
 }

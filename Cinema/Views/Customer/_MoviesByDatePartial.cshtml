@@ -21,7 +21,7 @@
                 @foreach (var time in movie.Schedule)
                 {
                     <form>
-                        <a class="time-button" asp-controller="Owners" asp-action="BuyTicket" asp-route-cinemaId="@movie.CinemaId" asp-route-movieId="@movie.Id" asp-route-forDate="@time">@time.ToString("hh:mm tt")</a>
+                        <a class="time-button" asp-controller="Customer" asp-action="BuyTicket" asp-route-cinemaId="@movie.CinemaId" asp-route-movieId="@movie.Id" asp-route-forDate="@time">@time.ToString("hh:mm tt")</a>
                     </form>
                 }
             </div>

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cinema.ViewModels.Charts
+namespace Cinema.Core.DTOs.Charts
 {
-    public class CinemaShareViewModel
+    public class CinemaShareDTO
     {
         public decimal PersonalIncome { get; set; }
         public decimal TotalIncome { get; set; }

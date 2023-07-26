@@ -122,7 +122,7 @@
     function getMovies(data) {
         $.ajax({
             type: "GET",
-            url: `/Owners/GetMoviesByDate`,
+            url: `/Customer/GetMoviesByDate`,
             data: data,
             success: function (response) {
                 $("#movie-grid").html(response);

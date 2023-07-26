@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cinema.ViewModels.Charts
+namespace Cinema.Core.DTOs.Charts
 {
-    public class CustomersPerCinemaViewModel
+    public class BestSellingMoviesPerCinemaDTO
     {
         public string[] Labels { get; set; }
-        public int[] CustomersCounts { get; set; }
+        public int[] MoviesCounts { get; set; }
     }
 }

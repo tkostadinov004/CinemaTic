@@ -19,12 +19,6 @@ namespace Cinema.Controllers
             _moviesService = moviesService;
         }
 
-        // GET: Movies
-        [Authorize(Roles = "Owner")]
-        public async Task<IActionResult> Index()
-        {
-            return View(await _moviesService.GetAllAsync());
-        }
         [HttpGet]
         public async Task<IActionResult> AllMovies()
         {
@@ -152,14 +146,7 @@ namespace Cinema.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _moviesService.DeleteByIdAsync(id);
-            return RedirectToAction(nameof(Index));
-        }
-
-        [HttpGet]
-        [Authorize(Roles = "Customer")]
-        public async Task<IActionResult> SetRating(int? id)
-        {
-            return Ok(); //todo: remove
+            return RedirectToAction(nameof(AllMovies));
         }
         [HttpPost]
         [Authorize(Roles = "Customer")]
@@ -173,18 +160,6 @@ namespace Cinema.Controllers
             await _moviesService.SetRatingAsync(movieId, rating.Value, User.Identity.Name);
 
             return RedirectToAction("MovieDetails", "Customer", new { id = movieId });
-        }
-        [AllowAnonymous]
-        public async Task<IActionResult> WatchTrailer(int id)
-        {
-            return View(await _moviesService.GetByIdAsync(id));
-        }
-        [Authorize(Roles = "Owner")]
-        public async Task<IActionResult> Statistics()
-        {
-            var viewModel = await _moviesService.GetStatistics();
-
-            return View(viewModel);
         }
     }
 }

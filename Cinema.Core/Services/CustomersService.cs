@@ -2,14 +2,20 @@
 using Cinema.Core.Utilities;
 using Cinema.Data;
 using Cinema.Data.Models;
+using Cinema.ViewModels.Cinemas;
 using Cinema.ViewModels.Contracts;
 using Cinema.ViewModels.Customers;
+using Cinema.ViewModels.Movies;
+using Cinema.ViewModels.Sectors;
+using Cinema.ViewModels.Tickets;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Cinema.Core.Services
@@ -134,6 +140,109 @@ namespace Cinema.Core.Services
                 Date = i.ForDate.ToString(Constants.DateTimeFormat),
                 Price = i.Price.ToString()
             });
+        }
+        public async Task<CustomerCinemaPageViewModel> PrepareCinemaViewModelAsync(string userEmail, string cinemaId)
+        {
+            var user = await _userManager.FindByEmailAsync(userEmail);
+            var cinema = await _context.Cinemas.Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.Genre).FirstOrDefaultAsync(i => i.Id == int.Parse(cinemaId));
+            var dates = Enumerable.Range(0, 7).Select(i => DateTime.Now.AddDays(i))
+                .ToDictionary(key =>
+                {
+                    return key.Date != DateTime.Now.Date ? key.DayOfWeek.ToString().Substring(0, 3) : "Today";
+                }, value => value.ToString(Constants.DateTimeFormat));
+            return new CustomerCinemaPageViewModel
+            {
+                Id = cinema.Id,
+                CinemaLogoUrl = cinema.ImageUrl,
+                ProfilePictureUrl = user.ProfilePictureUrl,
+                Dates = dates,
+                AccentColor = cinema.AccentColor,
+                BackgroundColor = cinema.BackgroundColor,
+                BoardColor = cinema.BoardColor,
+                ButtonBackgroundColor = cinema.ButtonBackgroundColor,
+                ButtonTextColor = cinema.ButtonTextColor,
+                TextColor = cinema.TextColor,
+                Movies = cinema.Movies.Select(i => new CinemaMovieViewModel
+                {
+                    Id = i.MovieId,
+                    Genre = i.Movie.Genre.Name,
+                    TrailerId = Regex.Match(i.Movie.TrailerUrl, Constants.TrailerUrlRegex).Groups[3].Value,
+                    Name = i.Movie.Title,
+                    RunningTime = i.Movie.RunningTime.ToString(),
+                    ImageUrl = i.Movie.ImageUrl,
+                    Schedule = { }
+                })
+            };
+        }
+        public async Task<IEnumerable<CinemaMovieViewModel>> GetMoviesByDateAsync(string cinemaId, string date)
+        {
+            var cinema = await _context.Cinemas.Include(i => i.Schedule).Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.Genre).FirstOrDefaultAsync(i => i.Id == int.Parse(cinemaId));
+
+            var movies = cinema.Movies;
+            DateTime? convertedDate = null;
+            if (string.IsNullOrEmpty(date) == false)
+            {
+                convertedDate = DateTime.ParseExact(date, Constants.DateTimeFormat, CultureInfo.InvariantCulture);
+                movies = movies.Where(i => i.FromDate <= convertedDate && i.ToDate >= convertedDate).ToList();
+            }
+            else
+            {
+                convertedDate = DateTime.Today;
+            }
+            return movies.Select(i => new CinemaMovieViewModel
+            {
+                Id = i.MovieId,
+                CinemaId = i.CinemaId,
+                Genre = i.Movie.Genre.Name,
+                Name = i.Movie.Title,
+                TrailerId = Regex.Match(i.Movie.TrailerUrl, Constants.TrailerUrlRegex).Groups[3].Value,
+                RunningTime = i.Movie.RunningTime.ToString(),
+                ImageUrl = i.Movie.ImageUrl,
+                Schedule = cinema.Schedule.Where(k => k.CinemaId == cinema.Id && k.MovieId == i.MovieId && k.ForDateTime.Date == convertedDate.Value.Date)
+                .Select(t => t.ForDateTime)
+                    .ToList(),
+            });
+        }
+        public async Task<BuyTicketViewModel> GetBuyTicketViewModelAsync(int cinemaId, int movieId, string forDate)
+        {
+            var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == cinemaId);
+            var movie = await _context.Movies.Include(i => i.Genre).FirstOrDefaultAsync(i => i.Id == movieId);
+            DateTime date = DateTime.Parse(forDate);
+            return new BuyTicketViewModel
+            {
+                CinemaId = cinema.Id,
+                CinemaName = cinema.Name,
+                Description = movie.Description,
+                Director = movie.Director,
+                Genre = movie.Genre.Name,
+                ImageUrl = movie.ImageUrl,
+                MovieId = movie.Id,
+                RunningTime = movie.RunningTime,
+                Time = forDate,
+                Title = movie.Title,
+                ForDateTime = date
+            };
+        }
+        public async Task BuyTicketAsync(int sectorId, int movieId, SectorDetailsViewModel viewModel, DateTime forDate, string userEmail)
+        {
+            var sector = await _context.Sectors.FirstOrDefaultAsync(i => i.Id == sectorId);
+            var cinemaMovie = await _context.CinemasMovies.FirstOrDefaultAsync(i => i.CinemaId == sector.CinemaId && i.MovieId == movieId);
+            var selectedSeats = viewModel.Seats.SelectMany(i => i).Where(i => i.IsChecked && i.IsOccupied == false);
+            foreach (var seat in selectedSeats)
+            {
+                Ticket ticket = new Ticket
+                {
+                    CinemaId = sector.CinemaId,
+                    SerialNumber = $"R{seat.Row}C{seat.Col}",
+                    ForDate = forDate,
+                    MovieId = movieId,
+                    SectorId = sectorId,
+                    CustomerId = (await _userManager.FindByEmailAsync(userEmail)).Id,
+                    Price = cinemaMovie.TicketPrice
+                };
+                _context.Tickets.Add(ticket);
+            }
+            await _context.SaveChangesAsync();
         }
     }
 }

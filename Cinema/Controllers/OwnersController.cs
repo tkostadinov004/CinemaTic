@@ -1,16 +1,8 @@
 ﻿using Cinema.Core.Contracts;
-using Cinema.Core.Utilities;
-using Cinema.Data.Models;
-using Cinema.Core.Utilities;
 using Cinema.ViewModels.Actors;
 using Cinema.ViewModels.Cinemas;
 using Cinema.ViewModels.Movies;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Cinema.Controllers
@@ -30,7 +22,7 @@ namespace Cinema.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _ownersService.GetStatisticsAsync(User.Identity.Name));
+            return View();
         }
         public async Task<IActionResult> UserCinemas()
         {
@@ -98,19 +90,6 @@ namespace Cinema.Controllers
         public async Task<IActionResult> GenerateCustomPagePreview(string userEmail, string cinemaId)
         {
             return View("_CustomPagePreview", await _ownersService.PreparePreviewViewModelAsync(userEmail, cinemaId));
-        }
-        public async Task<IActionResult> Cinema(string cinemaId)
-        {
-            return View("Cinema", await _ownersService.PrepareCinemaViewModelAsync(User.Identity.Name, cinemaId));
-        }
-        [HttpGet]
-        public async Task<IActionResult> GetMoviesByDate(string cinemaId, string date)
-        {
-            return PartialView("_MoviesByDatePartial", await _ownersService.GetMoviesByDateAsync(cinemaId, date));
-        }
-        public async Task<IActionResult> BuyTicket(int cinemaId, int movieId, string forDate)
-        {
-            return View("BuyTicket", await _ticketsService.GetBuyTicketViewModelAsync(cinemaId, movieId, forDate));
         }
         public async Task<IActionResult> GetCinemasContainingMovie(string movieId, string userEmail)
         {

@@ -21,7 +21,7 @@ namespace Cinema.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _adminService.GetAllAsync());
+            return View();
         }
         public async Task<IActionResult> AllCinemas()
         {
@@ -61,41 +61,6 @@ namespace Cinema.Controllers
             var users = await _adminService.SearchAndFilterUsersAsync(searchText, filterValue);
             return PartialView("_UsersPartial", users);
         }
-        [HttpGet]
-        public async Task<IActionResult> DeleteFromOwnerRole(string ownerId)
-        {
-            var owner = await _adminService.FindById(ownerId);
-            if (owner == null)
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            return View(owner);
-        }
-        [HttpPost, ActionName("DeleteFromOwnerRole")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
-        {
-            await _adminService.DemoteUser(id);
-            return RedirectToAction(nameof(Index));
-        }
-        [HttpGet]
-        public async Task<IActionResult> DeleteCustomerAccount(string userId)
-        {
-            var customer = await _adminService.FindById(userId);
-            if (customer == null)
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            return View(customer);
-        }
-        [HttpPost, ActionName("DeleteCustomerAccount")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteCustomerAccountConfirmed(string id)
-        {
-            await _adminService.DeleteAccount(id);
-            return RedirectToAction(nameof(Index));
-        }
-        [HttpGet]
         public async Task<IActionResult> PromoteToOwner(string id)
         {
             return PartialView("_PromoteToOwnerPartial", await _adminService.GetAdminUserCRUDPartialAsync(id));
