@@ -1,0 +1,51 @@
+﻿@model System.Net.HttpStatusCode
+@if((int)Model == 404) 
+{
+    @if (User.Identity.IsAuthenticated == false || User.IsInRole("Customer"))
+    {
+        <partial name="_NavbarPartial" />
+        <section class="main-section hero-section d-flex justify-content-center align-items-center" id="section_1">
+            <div class="container">
+                <div class="row">
+                    <div class="error-404 d-flex flex-column align-items-center">
+                        <div class="d-flex align-items-center gap-5">
+                            <div class="d-flex flex-column align-items-center text-white">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                <h1 class="display-1 mb-3">Oops!</h1>
+                                <h6 class="mb-5 text-center">We can't seem to find the page you requested!</h6>
+                            </div>
+                            <img style="width: 40vw;" src="~/img/Confused business character making important decision.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+    else if (User.IsInRole("Owner") || User.IsInRole("Administrator"))
+    {
+        <link href="~/css/managestyle.css" rel="stylesheet" />
+        <div class="app-content home-graphs gap-4">
+            <div class="app-content-header" id="cinemas">
+                <button class="mode-switch" title="Switch Theme">
+                    <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+                        <defs></defs>
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="d-flex justify-content-center align-items-center w-100 h-75">
+                <div class="error-404 d-flex flex-column align-items-center">
+                    <div class="d-flex align-items-center gap-5">
+                        <div class="d-flex flex-column align-items-center">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <h1 class="display-1 mb-3">Oops!</h1>
+                            <h6 class="mb-5 text-center">We can't seem to find the page you requested!</h6>
+                        </div>
+                        <img style="width: 40vw;" src="~/img/Confused business character making important decision.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="~/js/ownerdashboard.js"></script>
+    }
+}

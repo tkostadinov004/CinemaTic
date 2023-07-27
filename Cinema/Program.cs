@@ -50,6 +50,7 @@ builder.Services.AddScoped<ILogService, LogService>();
 
 var app = builder.Build();
 
+app.UseStatusCodePagesWithReExecute("/statuscode/{0}");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

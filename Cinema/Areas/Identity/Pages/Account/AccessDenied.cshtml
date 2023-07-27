@@ -3,10 +3,41 @@
 @{
     ViewData["Title"] = "Access denied!";
 }
-<partial name="_NavbarPartial" />
-<div class="ad-info">
-    <img src="~/assets/bg.jpg" alt="Background" class="bg" />
-    <section class="front-panel">
-       <h1>Access denied!</h1>
+@if (User.Identity.IsAuthenticated == false || User.IsInRole("Customer"))
+{
+    <partial name="_NavbarPartial" />
+    <section class="main-section hero-section d-flex justify-content-center align-items-center" id="section_1">
+        <div class="container">
+            <div class="row">
+                <div class="access-denied text-white d-flex flex-column align-items-center">
+                    <h1 class="display-1">Access denied!</h1>
+                    <h6 class="display-6">You don't have access to this page!</h6>
+                    <a class="access-denied-back mt-3" onclick="history.back()">Go back</a>
+                </div>
+            </div>
+        </div>
     </section>
-</div>
+}
+else if(User.IsInRole("Owner") || User.IsInRole("Administrator"))
+{
+    <link href="~/css/managestyle.css" rel="stylesheet" />
+    <div class="app-content home-graphs gap-4">
+        <div class="app-content-header" id="cinemas">
+            <h1 class="app-content-headerText">Owner dashboard</h1>
+            <button class="mode-switch" title="Switch Theme">
+                <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+                    <defs></defs>
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="d-flex justify-content-center align-items-center w-100 h-75">
+            <div class="access-denied d-flex flex-column align-items-center">
+                <h1>Access denied!</h1>
+                <h6>You don't have access to this page!</h6>
+                <a class="access-denied-back mt-3" onclick="history.back()">Go back</a>
+           </div>
+        </div>
+    </div>
+    <script src="~/js/ownerdashboard.js"></script>
+}
