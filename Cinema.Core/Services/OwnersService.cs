@@ -265,6 +265,10 @@ namespace Cinema.Core.Services
                         break;
                 }
             }
+            else
+            {
+                cinemas = cinemas.OrderBy(i => i.Status);
+            }
             return cinemas;
         }
 

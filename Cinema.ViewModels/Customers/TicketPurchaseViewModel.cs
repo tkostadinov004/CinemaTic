@@ -10,6 +10,5 @@ namespace Cinema.ViewModels.Customers
     public class TicketPurchaseViewModel
     {
         public SectorGridViewModel Sectors { get; set; }
-
     }
 }

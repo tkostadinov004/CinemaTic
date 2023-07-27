@@ -297,7 +297,6 @@ namespace Cinema.Core.Services
                 Description = movie.Description,
                 Director = movie.Director,
                 GenreId = movie.GenreId,
-                Actors = null,
                 Image = null,
                 RunningTime = movie.RunningTime.ToString(),
                 TrailerUrl = movie.TrailerUrl,

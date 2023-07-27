@@ -46,9 +46,6 @@ namespace Cinema.Controllers
             return View(await _actorsService.PrepareForAddingAsync());
         }
 
-        // POST: Actors/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddActor(CreateActorViewModel actorVM)
@@ -57,14 +54,8 @@ namespace Cinema.Controllers
             {
                 await _actorsService.AddActorAsync(actorVM);
             }
-            return RedirectToAction(nameof(AllActors));
-        }
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            await _actorsService.DeleteByIdAsync(id);
-            return RedirectToAction(nameof(AllActors));
+            actorVM.Countries = (await _actorsService.PrepareForAddingAsync()).Countries;
+            return View(nameof(AddActor), actorVM);
         }
         public async Task<IActionResult> SearchAndFilterActors(string searchText, string filterValue, string sortBy)
         {
@@ -93,9 +84,14 @@ namespace Cinema.Controllers
             return PartialView("_DeleteActorPartial", await _actorsService.PrepareDeleteViewModelAsync(id));
         }
         [HttpPost]
-        public async Task<IActionResult> DeleteActor([FromForm] DeleteActorViewModel viewModel, int cinemaId)
+        public async Task<IActionResult> DeleteActor([FromForm] DeleteActorViewModel viewModel)
         {
-            await _actorsService.DeleteByIdAsync(cinemaId);
+            if(viewModel.Id == null)
+            {
+                return NotFound();
+            }
+
+            await _actorsService.DeleteByIdAsync(viewModel.Id);
             return RedirectToAction("AllActors", "Actors");
         }
     }

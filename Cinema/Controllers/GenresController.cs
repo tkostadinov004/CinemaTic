@@ -58,7 +58,7 @@ namespace Cinema.Controllers
                 await _genresService.CreateAsync(viewModel);
                 return RedirectToAction(nameof(AllGenres));
             }
-            return View(viewModel);
+            return PartialView("_AddGenrePartial", viewModel);
         }
         public async Task<IActionResult> SearchAndSortMoviesByGenre(string searchText, string id, string sortBy)
         {
