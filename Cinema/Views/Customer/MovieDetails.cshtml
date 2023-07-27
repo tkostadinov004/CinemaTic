@@ -1,24 +1,11 @@
 ﻿@model Cinema.ViewModels.Movies.MovieDetailsViewModel
+@{
+    ViewData["Title"] = $"Movie - {Model.Title}";
+}
 
 <link href="~/css/cinemas.css" rel="stylesheet" />
 <link href="~/css/ratingmodal.css" rel="stylesheet" />
 <div class="main-cinema-container text-white">
-    @* <nav>
-    <div class="col-xl-12 d-flex justify-content-between align-items-center">
-    <a id="logo-link" href="#">
-    <img id="cinema-logo" src="~/client-images/Cinemas/@Model.CinemaLogoUrl" />
-    </a>
-    <div class="d-flex align-items-center gap-5">
-    <div class="d-flex flex-column align-items-center">
-    <img id="profile-picture" src="~/client-images/defaults/man-avatar-profile-picture-vector-illustration_268834-538-removebg-preview.png" />
-    <a href="#" class="text-white">Your account</a>
-    </div>
-    <button onclick="history.back()" class="button active">
-    Go Back
-    </button>
-    </div>
-    </div>
-    </nav>*@
     <div class="mt-3">
         <section id="trailer" class="dark noBg summary">
             <div class="container-fluid">

@@ -4,13 +4,9 @@ using Cinema.Data.Enums;
 using Cinema.Data.Models;
 using Cinema.Core.Utilities;
 using Cinema.ViewModels.Actors;
-using Cinema.ViewModels.Cinemas;
-using Cinema.ViewModels.Contracts;
 using Cinema.ViewModels.Movies;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using System.Text.RegularExpressions;
-using Microsoft.Data.SqlClient.Server;
 
 namespace Cinema.Core.Services
 {
@@ -25,10 +21,8 @@ namespace Cinema.Core.Services
             _webHostEnvironment = webHostEnvironment;
             _logger = logger;
         }
-        public async Task AddActorAsync(IViewModel? item)
+        public async Task AddActorAsync(CreateActorViewModel? viewModel)
         {
-            CreateActorViewModel? viewModel = item as CreateActorViewModel;
-
             string photoName = GlobalMethods.UploadPhoto("Actors", viewModel.Image, _webHostEnvironment);
             Actor actor = new Actor
             {
@@ -52,10 +46,8 @@ namespace Cinema.Core.Services
             await _logger.LogActionAsync(UserActionType.Delete, LogMessages.DeleteEntityMessage, "actor", actor.FullName, $"({actor.Nationality})");
         }
 
-        public async Task EditActorAsync(IViewModel item)
+        public async Task EditActorAsync(EditActorViewModel viewModel)
         {
-            EditActorViewModel? viewModel = item as EditActorViewModel;
-
             var actor = await _context.Actors.FirstOrDefaultAsync(i => i.Id == viewModel.Id);
             string photoName = GlobalMethods.UploadPhoto("Actors", viewModel.Image, _webHostEnvironment);
             actor.FullName = viewModel.FullName;
@@ -111,7 +103,7 @@ namespace Cinema.Core.Services
 
         public async Task<DeleteActorViewModel> PrepareDeleteViewModelAsync(int id)
         {
-            var actor = await this.GetByIdAsync(id);
+            var actor = await _context.Actors.FirstOrDefaultAsync(i => i.Id == id);
             return new DeleteActorViewModel
             {
                 Id = actor.Id,
@@ -131,7 +123,7 @@ namespace Cinema.Core.Services
 
         public async Task<IEnumerable<ActorListViewModel>> SearchAndFilterActorsAsync(string searchText, string filterValue, string sortBy)
         {
-            var actors = _context.Actors.Include(i => i.Movies).AsEnumerable();
+            var actors = _context.Actors.Include(i => i.Movies).AsQueryable();
             if (string.IsNullOrEmpty(searchText) == false)
             {
                 actors = actors.Where(i => i.FullName.ToLower().StartsWith(searchText.ToLower()));
@@ -197,10 +189,10 @@ namespace Cinema.Core.Services
             });
         }
 
-        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByActor(string searchText, string actorId)
+        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByActor(string searchText, int actorId)
         {
             var actor = await _context.Actors.Include(i => i.Movies).ThenInclude(i => i.Genre)
-                .FirstOrDefaultAsync(i => i.Id == int.Parse(actorId));
+                .FirstOrDefaultAsync(i => i.Id == actorId);
 
             var movies = actor.Movies.Select(i => new MovieInfoCardViewModel
             {

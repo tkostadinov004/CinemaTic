@@ -1,6 +1,5 @@
 ﻿using Cinema.Core.Contracts.Common;
 using Cinema.Data.Models;
-using Cinema.ViewModels.Contracts;
 using Cinema.ViewModels.Sectors;
 using Cinema.ViewModels.Tickets;
 using Microsoft.Data.SqlClient.Server;

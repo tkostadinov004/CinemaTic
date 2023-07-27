@@ -1,16 +1,9 @@
 ﻿using Cinema.Core.Contracts.Common;
 using Cinema.Data.Models;
-using Cinema.ViewModels;
-using Cinema.ViewModels.Contracts;
 using Cinema.ViewModels.Movies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cinema.Core.Contracts
 {
@@ -21,9 +14,9 @@ namespace Cinema.Core.Contracts
         Task<MovieDetailsViewModel> GetDetailsViewModel(Movie movie, IEnumerable<UserMovie> ratings, string userEmail);
         Task<SelectList> GetActorsDropDownAsync();
         Task<SelectList> GetGenresDropDownAsync();
-        Task CreateMovieAsync(IViewModel item, string userEmail);
+        Task CreateMovieAsync(CreateMovieViewModel item, string userEmail);
         Task<string> UploadPhoto(IFormFile image);
-        Task EditByIdAsync(IViewModel item, int id, int genreId, IEnumerable<string> actors);
+        Task EditByIdAsync(EditMovieViewModel item);
         Task<CreateMovieViewModel> PrepareForAddingAsync();
         Task<IEnumerable<MovieInfoCardViewModel>> GetAllMoviesAsync();
         Task<IEnumerable<MovieInfoCardViewModel>> SearchAndFilterMoviesAsync(string searchText, string filterValue, string sortBy);

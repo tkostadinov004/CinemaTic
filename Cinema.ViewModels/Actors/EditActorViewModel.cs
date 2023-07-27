@@ -1,6 +1,5 @@
 ﻿using Cinema.Data.Models;
 using Cinema.Extensions;
-using Cinema.ViewModels.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Cinema.ViewModels.Actors
 {
     using static ValidationConstants;
-    public class EditActorViewModel : IViewModel
+    public class EditActorViewModel
     {
         public int Id { get; set; }
         [Display(Name = "Full name")]

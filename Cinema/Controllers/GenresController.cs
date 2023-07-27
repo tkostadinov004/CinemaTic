@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Cinema.Core.Contracts;
 using Cinema.ViewModels.Genres;
 using Cinema.ViewModels.Actors;
+using Cinema.Extensions.ModelBinders;
 
 namespace Cinema.Controllers
 {
@@ -25,14 +26,17 @@ namespace Cinema.Controllers
         }
 
         // GET: Genres/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details([ModelBinder(typeof(IdModelBinder))] int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-
-            var genre = await _genresService.PrepareDetailsViewModelAsync(int.Parse(id));
+            if (!await _genresService.ExistsByIdAsync(id))
+            {
+                return NotFound();
+            }
+            var genre = await _genresService.PrepareDetailsViewModelAsync(id);
             if (genre == null)
             {
                 return NotFound();
@@ -60,8 +64,12 @@ namespace Cinema.Controllers
             }
             return PartialView("_AddGenrePartial", viewModel);
         }
-        public async Task<IActionResult> SearchAndSortMoviesByGenre(string searchText, string id, string sortBy)
+        public async Task<IActionResult> SearchAndSortMoviesByGenre(string searchText, string sortBy, [ModelBinder(typeof(IdModelBinder))] int id)
         {
+            if (!await _genresService.ExistsByIdAsync(id))
+            {
+                return NotFound();
+            }
             var movies = await _genresService.SearchAndSortMoviesByGenre(searchText, id, sortBy);
             return PartialView("_GenreMoviesPartial", movies);
         }
@@ -71,26 +79,49 @@ namespace Cinema.Controllers
             return PartialView("_GenresPartial", genres);
         }
         [HttpGet]
-        public async Task<IActionResult> EditGenre(string id)
+        public async Task<IActionResult> EditGenre([ModelBinder(typeof(IdModelBinder))] int id)
         {
-            return PartialView("_EditGenrePartial", await _genresService.GetEditViewModelByIdAsync(int.Parse(id)));
+            if (!await _genresService.ExistsByIdAsync(id))
+            {
+                return NotFound();
+            }
+            return PartialView("_EditGenrePartial", await _genresService.GetEditViewModelByIdAsync(id));
         }
         [HttpPost]
-        public async Task<IActionResult> EditGenre([FromForm] EditGenreViewModel viewModel, int genreId, string name)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditGenre([FromForm] EditGenreViewModel viewModel)
         {
-            viewModel.Id = genreId;
-            viewModel.Name = name;
-            await _genresService.EditByIdAsync(viewModel, genreId);
+            if (ModelState.IsValid)
+            {
+                await _genresService.EditByIdAsync(viewModel);
+            }
             return Json(Url.Action("AllGenres", "Genres"));
         }
         [HttpGet]
-        public async Task<IActionResult> DeleteGenre(int id)
+        public async Task<IActionResult> DeleteGenre(int? id)
         {
-            return PartialView("_DeleteGenrePartial", await _genresService.PrepareDeleteViewModelAsync(id));
+            if (id == null)
+            {
+                return NotFound();
+            }
+            if (!await _genresService.ExistsByIdAsync(id))
+            {
+                return NotFound();
+            }
+            return PartialView("_DeleteGenrePartial", await _genresService.PrepareDeleteViewModelAsync(id.Value));
         }
         [HttpPost]
-        public async Task<IActionResult> DeleteGenre([FromForm] DeleteGenreViewModel viewModel, int genreId)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteGenre([FromForm] DeleteGenreViewModel viewModel, int? genreId)
         {
+            if (genreId == null)
+            {
+                return NotFound();
+            }
+            if (!await _genresService.ExistsByIdAsync(genreId))
+            {
+                return NotFound();
+            }
             await _genresService.DeleteByIdAsync(genreId);
             return Json(Url.Action("AllGenres", "Genres"));
         }

@@ -5,13 +5,10 @@ using Cinema.Data;
 using Cinema.Data.Enums;
 using Cinema.Data.Models;
 using Cinema.ViewModels.Cinemas;
-using Cinema.ViewModels.Contracts;
 using Cinema.ViewModels.Movies;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.Globalization;
-using System.Security.Claims;
 using System.Text.RegularExpressions;
 
 namespace Cinema.Core.Services
@@ -35,9 +32,8 @@ namespace Cinema.Core.Services
             _logger = logger;
         }
 
-        public async Task AddAsync(IViewModel item, string userEmail)
+        public async Task AddAsync(AddCinemaViewModel viewModel, string userEmail)
         {
-            var viewModel = item as AddCinemaViewModel;
             string imageUrl = GlobalMethods.UploadPhoto("Cinemas", viewModel.Image, _webHostEnvironment);
 
             var cinema = _mapper.Map<Data.Models.Cinema>(viewModel);
@@ -82,9 +78,8 @@ namespace Cinema.Core.Services
             await _logger.LogActionAsync(UserActionType.Delete, LogMessages.DeleteEntityMessage, "cinema", cinema.Name, $"({cinema.SeatRows} rows and {cinema.SeatCols} columns)");
         }
 
-        public async Task EditCinema(IViewModel item)
+        public async Task EditCinema(EditCinemaViewModel viewModel)
         {
-            var viewModel = item as EditCinemaViewModel;
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == viewModel.Id);
 
             if (viewModel.SeatRows != cinema.SeatRows || viewModel.SeatCols != cinema.SeatCols)
@@ -110,9 +105,9 @@ namespace Cinema.Core.Services
             await _logger.LogActionAsync(UserActionType.Update, LogMessages.EditEntityMessage, "cinema", cinema.Name, "");
         }
 
-        public Task<bool> ExistsByIdAsync(int? id)
+        public async Task<bool> ExistsByIdAsync(int? id)
         {
-            throw new NotImplementedException();
+            return await _context.Cinemas.AnyAsync(i => i.Id == id);
         }
 
         public async Task<IEnumerable<CinemaListViewModel>> GetAllByUserAsync(string userEmail)
@@ -272,14 +267,14 @@ namespace Cinema.Core.Services
             return cinemas;
         }
 
-        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByCinema(string searchText, string cinemaId)
+        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByCinema(string searchText, int cinemaId)
         {
             var cinema = await _context.Cinemas
                 .Include(i => i.Movies)
                 .ThenInclude(i => i.Movie)
                 .ThenInclude(i => i.Genre)
                 .Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.AddedBy)
-                .FirstOrDefaultAsync(i => i.Id == int.Parse(cinemaId));
+                .FirstOrDefaultAsync(i => i.Id == cinemaId);
             var movies = cinema.Movies.Select(i => new MovieInfoCardViewModel
             {
                 Id = i.Movie.Id,
@@ -297,10 +292,10 @@ namespace Cinema.Core.Services
             return movies;
         }
 
-        public async Task<CinemaPagePreviewViewModel> PreparePreviewViewModelAsync(string userEmail, string cinemaId)
+        public async Task<CinemaPagePreviewViewModel> PreparePreviewViewModelAsync(string userEmail, int cinemaId)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
-            var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == int.Parse(cinemaId));
+            var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == cinemaId);
             var dates = Enumerable.Range(0, 7).Select(i => DateTime.Now.AddDays(i))
                 .ToDictionary(key =>
                 {
@@ -320,9 +315,9 @@ namespace Cinema.Core.Services
             };
         }
 
-        public async Task<IEnumerable<CinemaListViewModel>> GetCinemasContainingMovieAsync(string movieId, string userEmail)
+        public async Task<IEnumerable<CinemaListViewModel>> GetCinemasContainingMovieAsync(int movieId, string userEmail)
         {
-            var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == int.Parse(movieId));
+            var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == movieId);
             var user = await _userManager.FindByEmailAsync(userEmail);
 
             return await _context.Cinemas.Include(i => i.Movies).Where(i => i.OwnerId == user.Id && i.Movies.Any(m => m.MovieId == movie.Id)).Select(i => new CinemaListViewModel

@@ -1,13 +1,6 @@
-﻿using Cinema.Data.Models;
-using Cinema.Data;
-using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Cinema.Data.Enums;
+using Cinema.Data.Models;
 using Cinema.ViewModels.Admin;
-using Cinema.ViewModels.Cinemas;
 
 namespace Cinema.Core.Contracts
 {
@@ -17,6 +10,8 @@ namespace Cinema.Core.Contracts
         Task DemoteUser(string id);
         Task DeleteAccount(string id);
         Task PromoteUser(string id);
+        Task<bool> UserExistsAsync(string id);
+        Task<bool> CinemaExistsAsync(int id);
         Task<ApplicationUser> FindById(string id);
         Task<IEnumerable<Data.Models.Cinema>> GetAllCinemasAsync();
         Task<IEnumerable<AdminAllCinemasViewModel>> SearchAndFilterCinemasAsync(string searchText, string filterValue, string sortBy);
@@ -24,7 +19,7 @@ namespace Cinema.Core.Contracts
         Task<UserDetailsViewModel> GetUserDetailsAsync(string id);
         Task<AdminCinemaDetailsViewModel> GetCinemaDetailsAsync(int? id);
         Task<ChangeCinemaApprovalStatusViewModel> GetCASViewModelAsync(int id);
-        Task ChangeApprovalStatusAsync(int id, int approvalCode);
+        Task ChangeApprovalStatusAsync(int id, ApprovalStatus approvalCode);
         Task<AdminUserCRUDViewModel> GetAdminUserCRUDPartialAsync(string id);
     }
 }

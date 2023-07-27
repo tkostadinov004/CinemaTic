@@ -1,12 +1,4 @@
-﻿using Cinema.ViewModels;
-using Cinema.ViewModels.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Cinema.Core.Contracts.Common
+﻿namespace Cinema.Core.Contracts.Common
 {
     public interface ICinemaService<T> where T : class
     {

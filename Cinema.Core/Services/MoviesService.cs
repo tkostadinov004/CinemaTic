@@ -6,7 +6,6 @@ using Cinema.Core.Utilities;
 using Cinema.ViewModels;
 using Cinema.ViewModels.Actors;
 using Cinema.ViewModels.Cinemas;
-using Cinema.ViewModels.Contracts;
 using Cinema.ViewModels.Movies;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -32,10 +31,8 @@ namespace Cinema.Core.Services
             _logger = logger;
         }
 
-        public async Task CreateMovieAsync(IViewModel item, string userEmail)
+        public async Task CreateMovieAsync(CreateMovieViewModel viewModel, string userEmail)
         {
-            CreateMovieViewModel viewModel = item as CreateMovieViewModel;
-
             var actors = viewModel.ActorsDropdown.Where(i => i.IsChecked);
             Movie movie = new Movie
             {
@@ -64,30 +61,38 @@ namespace Cinema.Core.Services
             await _logger.LogActionAsync(UserActionType.Delete, LogMessages.DeleteEntityMessage, "movie", movie.Title, $"({movie.Director} - {movie.RunningTime} minutes)");
         }
 
-        public async Task EditByIdAsync(IViewModel item, int id, int genreId, IEnumerable<string> actors)
+        public async Task EditByIdAsync(EditMovieViewModel viewModel)
         {
-            EditMovieViewModel viewModel = item as EditMovieViewModel;
-
-            var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == id);
+            var movie = await _context.Movies.Include(i => i.Actors).FirstOrDefaultAsync(i => i.Id == viewModel.Id);
 
             movie.Title = viewModel.Title;
-            movie.Genre = await _context.Genres.FirstOrDefaultAsync(i => i.Id == genreId);
+            movie.Genre = await _context.Genres.FirstOrDefaultAsync(i => i.Id == viewModel.GenreId);
             movie.Description = viewModel.Description;
             movie.RunningTime = int.Parse(viewModel.RunningTime);
             movie.TrailerUrl = viewModel.TrailerUrl;
-            // movie.Date = viewModel.Date;
-            // movie.Price = viewModel.Price;
 
             if (viewModel.Image != null)
             {
                 string photoName = await this.UploadPhoto(viewModel.Image);
                 movie.ImageUrl = photoName;
             }
-            foreach (string actorId in actors)
+            var movieActors = movie.Actors;
+            foreach (var actorViewModel in viewModel.ActorsDropdown)
             {
-                if (!movie.Actors.Contains(await _context.Actors.FirstOrDefaultAsync(i => i.Id == int.Parse(actorId))))
+                var actor = await _context.Actors.FirstOrDefaultAsync(i => i.Id == actorViewModel.Id);
+                if (movieActors.Any(i => i.Id == actor.Id))
                 {
-                    movie.Actors.Add(_context.Actors.FirstOrDefault(i => i.Id == int.Parse(actorId)));
+                    if (actorViewModel.IsChecked == false)
+                    {
+                        movieActors.Remove(actor);
+                    }
+                }
+                else
+                {
+                    if (actorViewModel.IsChecked == true)
+                    {
+                        movieActors.Add(actor);
+                    }
                 }
             }
             _context.Update(movie);

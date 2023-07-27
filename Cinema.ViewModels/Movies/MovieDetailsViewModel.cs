@@ -1,6 +1,5 @@
 ﻿using Cinema.Data.Models;
 using Cinema.ViewModels.Cinemas;
-using Cinema.ViewModels.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Cinema.ViewModels.Movies
 {
     [NotMapped]
-    public class MovieDetailsViewModel : IViewModel
+    public class MovieDetailsViewModel
     {
         public int MovieId { get; set; }
         public string Title { get; set; }

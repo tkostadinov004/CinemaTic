@@ -1,5 +1,4 @@
 ﻿using Cinema.Data.Enums;
-using Cinema.ViewModels.Contracts;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -10,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.ViewModels.Cinemas
 {
-    public class CinemaDetailsViewModel : IViewModel
+    public class CinemaDetailsViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

@@ -1,5 +1,4 @@
 ﻿using Cinema.Data.Enums;
-using Cinema.ViewModels.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.ViewModels.Cinemas
 {
-    public class CinemaListViewModel : IViewModel
+    public class CinemaListViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

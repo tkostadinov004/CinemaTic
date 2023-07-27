@@ -1,6 +1,5 @@
 ﻿using Cinema.Data.Models;
 using Cinema.Extensions;
-using Cinema.ViewModels.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -12,7 +11,7 @@ using System.Threading.Tasks;
 namespace Cinema.ViewModels.Actors
 {
     using static ValidationConstants;
-    public class CreateActorViewModel : IViewModel
+    public class CreateActorViewModel
     {
         [Display(Name = "Full name")]
         [Required(ErrorMessage = "Enter a full name")]

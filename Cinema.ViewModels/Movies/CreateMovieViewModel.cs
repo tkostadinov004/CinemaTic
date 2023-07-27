@@ -1,6 +1,5 @@
 ﻿using Cinema.Data.Models;
 using Cinema.ViewModels.Actors;
-using Cinema.ViewModels.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Cinema.ViewModels.Movies
 {
     using static ValidationConstants;
-    public class CreateMovieViewModel : IViewModel
+    public class CreateMovieViewModel
     {
         [Required(ErrorMessage = "Enter a title!")]
         [Display(Name = "Movie title")]

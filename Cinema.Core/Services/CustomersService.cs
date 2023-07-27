@@ -4,21 +4,14 @@ using Cinema.Data;
 using Cinema.Data.Enums;
 using Cinema.Data.Models;
 using Cinema.ViewModels.Cinemas;
-using Cinema.ViewModels.Contracts;
 using Cinema.ViewModels.Customers;
 using Cinema.ViewModels.Movies;
 using Cinema.ViewModels.Sectors;
 using Cinema.ViewModels.Tickets;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Numerics;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Cinema.Core.Services
 {
@@ -133,10 +126,10 @@ namespace Cinema.Core.Services
                 Price = i.Price.ToString()
             });
         }
-        public async Task<CustomerCinemaPageViewModel> PrepareCinemaViewModelAsync(string userEmail, string cinemaId)
+        public async Task<CustomerCinemaPageViewModel> PrepareCinemaViewModelAsync(string userEmail, int cinemaId)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
-            var cinema = await _context.Cinemas.Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.Genre).FirstOrDefaultAsync(i => i.Id == int.Parse(cinemaId));
+            var cinema = await _context.Cinemas.Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.Genre).FirstOrDefaultAsync(i => i.Id == cinemaId);
             var dates = Enumerable.Range(0, 7).Select(i => DateTime.Now.AddDays(i))
                 .ToDictionary(key =>
                 {
@@ -145,6 +138,7 @@ namespace Cinema.Core.Services
             return new CustomerCinemaPageViewModel
             {
                 Id = cinema.Id,
+                Name = cinema.Name,
                 CinemaLogoUrl = cinema.ImageUrl,
                 ProfilePictureUrl = user.ProfilePictureUrl,
                 Dates = dates,
@@ -166,15 +160,15 @@ namespace Cinema.Core.Services
                 })
             };
         }
-        public async Task<IEnumerable<CinemaMovieViewModel>> GetMoviesByDateAsync(string cinemaId, string date)
+        public async Task<IEnumerable<CinemaMovieViewModel>> GetMoviesByDateAsync(int cinemaId, string date)
         {
-            var cinema = await _context.Cinemas.Include(i => i.Schedule).Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.Genre).FirstOrDefaultAsync(i => i.Id == int.Parse(cinemaId));
+            var cinema = await _context.Cinemas.Include(i => i.Schedule).Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.Genre).FirstOrDefaultAsync(i => i.Id == cinemaId);
 
             var movies = cinema.Movies;
             DateTime? convertedDate = null;
             if (string.IsNullOrEmpty(date) == false)
             {
-                convertedDate = DateTime.ParseExact(date, Constants.DateTimeFormat, CultureInfo.InvariantCulture); 
+                convertedDate = DateTime.ParseExact(date, Constants.DateTimeFormat, CultureInfo.InvariantCulture);
             }
             else
             {

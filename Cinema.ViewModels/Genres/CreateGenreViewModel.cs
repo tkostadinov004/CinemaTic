@@ -1,5 +1,4 @@
-﻿using Cinema.ViewModels.Contracts;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,7 +8,7 @@ using System.Threading.Tasks;
 namespace Cinema.ViewModels.Genres
 {
     using static ValidationConstants;
-    public class CreateGenreViewModel : IViewModel
+    public class CreateGenreViewModel
     {
         [Display(Name = "Genre name")]
         [Required(ErrorMessage = "Enter a genre name")]

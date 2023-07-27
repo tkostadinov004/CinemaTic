@@ -1,10 +1,15 @@
 ﻿@model Cinema.ViewModels.Cinemas.CustomerCinemaPageViewModel
+@{
+    ViewData["Title"] = Model.Name;
+}
+
 <link href="~/css/cardstyle.css" rel="stylesheet" />
 <link href="~/css/cinemas.css" rel="stylesheet" />
 <link href="~/css/search-dropdown.css" rel="stylesheet" />
 <link href="~/css/ratingModal.css" rel="stylesheet" />
+<partial name="_NavbarPartial"/>
 <div class="main-cinema-container">
-    <nav>
+   @* <nav>
         <div class="col-xl-12 d-flex justify-content-between align-items-center">
             <a id="logo-link" href="#">
                 <img id="cinema-logo" src="~/client-images/Cinemas/@Model.CinemaLogoUrl" />
@@ -22,10 +27,10 @@
                 </form>
             </div>
         </div>
-    </nav>
+    </nav>*@
     <div class="main">
         <img src="~/client-images/defaults/martin-martz-ZUj-wUCw0u4-unsplash.png" class="bg-image" />
-        <div class="main-container pt-5">
+        <div class="main-container pt-5" style="padding-top: 15vh !important;">
             <div class="col-xl-12 text-white">
                 <h5 class="text-center">Top movies, recommended by our sponsors: </h5>
             </div>

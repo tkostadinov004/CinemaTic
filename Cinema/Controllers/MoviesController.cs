@@ -7,9 +7,11 @@ using Cinema.Core.Contracts;
 using Cinema.ViewModels.Movies;
 using Cinema.ViewModels.Cinemas;
 using Cinema.Core.Services;
+using Cinema.Extensions.ModelBinders;
 
 namespace Cinema.Controllers
 {
+    [Authorize(Roles = "Owner")]
     public class MoviesController : Controller
     {
         private readonly IMoviesService _moviesService;
@@ -30,7 +32,6 @@ namespace Cinema.Controllers
             return PartialView("_MoviesPartial", movies);
         }
         // GET: Movies/Details/5
-        //[Authorize(Roles = "Owner")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -38,6 +39,10 @@ namespace Cinema.Controllers
                 return NotFound();
             }
 
+            if (!await _moviesService.ExistsByIdAsync(id))
+            {
+                return NotFound();
+            }
             var movie = await _moviesService.GetByIdAsync(id);
             if (movie == null)
             {
@@ -50,7 +55,6 @@ namespace Cinema.Controllers
         }
 
         // GET: Movies/Create
-        [Authorize(Roles = "Owner")]
         public async Task<IActionResult> Create()
         {
             return View(await _moviesService.PrepareForAddingAsync());
@@ -61,31 +65,27 @@ namespace Cinema.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Owner")]
-        public async Task<IActionResult> Create(CreateMovieViewModel movieVM, string userEmail)
+        public async Task<IActionResult> Create(CreateMovieViewModel movieVM)
         {
             if (ModelState.IsValid)
             {
-                await _moviesService.CreateMovieAsync(movieVM, userEmail);
+                await _moviesService.CreateMovieAsync(movieVM, User.Identity.Name);
             }
             return RedirectToAction("AllMovies", "Owners");
         }
 
         // GET: Movies/Edit/5
-        [Authorize(Roles = "Owner")]
-        public async Task<IActionResult> Edit(string? id)
+        public async Task<IActionResult> Edit([ModelBinder(typeof(IdModelBinder))] int id)
         {
-            if (id == null)
+            if (!await _moviesService.ExistsByIdAsync(id))
             {
                 return NotFound();
             }
-
-            var movie = await _moviesService.GetByIdAsync(int.Parse(id));
-            if (movie == null)
+            var viewModel = await _moviesService.PrepareForEditing(id);
+            if(viewModel == null)
             {
                 return NotFound();
             }
-            var viewModel = await _moviesService.PrepareForEditing(int.Parse(id));
 
             return PartialView("_EditMoviePartial", viewModel);
         }
@@ -94,19 +94,18 @@ namespace Cinema.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize(Roles = "Owner")]
-        public async Task<IActionResult> Edit([FromForm] EditMovieViewModel viewModel, int id, int genreId, IEnumerable<string> acts)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit([FromForm] EditMovieViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    viewModel.Id = id;
-                    await _moviesService.EditByIdAsync(viewModel, id, genreId, acts);
+                    await _moviesService.EditByIdAsync(viewModel);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    bool movieExists = await _moviesService.ExistsByIdAsync(id); //or vm.Id
+                    bool movieExists = await _moviesService.ExistsByIdAsync(viewModel.Id);
                     if (!movieExists)
                     {
                         return NotFound();
@@ -123,28 +122,26 @@ namespace Cinema.Controllers
 
         // GET: Movies/Delete/5
         [Authorize(Roles = "Owner")]
-        public async Task<IActionResult> Delete(string? id)
+        public async Task<IActionResult> Delete([ModelBinder(typeof(IdModelBinder))] int id)
         {
-            if (id == null)
+            if (!await _moviesService.ExistsByIdAsync(id))
             {
                 return NotFound();
             }
 
-            var movie = await _moviesService.GetByIdAsync(int.Parse(id));
-            if (movie == null)
-            {
-                return NotFound();
-            }
-            var viewModel = await _moviesService.PrepareForDeleting(int.Parse(id));
+            var viewModel = await _moviesService.PrepareForDeleting(id);
             return PartialView("_DeleteMoviePartial", viewModel);
         }
 
         // POST: Movies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Owner")]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int? id)
         {
+            if (!await _moviesService.ExistsByIdAsync(id))
+            {
+                return NotFound();
+            }
             await _moviesService.DeleteByIdAsync(id);
             return RedirectToAction(nameof(AllMovies));
         }

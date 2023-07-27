@@ -1,5 +1,7 @@
 ﻿using Cinema.Core.Contracts;
 using Cinema.Core.Services;
+using Cinema.Data.Enums;
+using Cinema.Extensions.ModelBinders;
 using Cinema.ViewModels.Admin;
 using Cinema.ViewModels.Cinemas;
 using Microsoft.AspNetCore.Authorization;
@@ -63,9 +65,9 @@ namespace Cinema.Controllers
             return View(user);
         }
         [HttpGet]
-        public async Task<IActionResult> ChangeApprovalStatus(int id)
+        public async Task<IActionResult> ChangeApprovalStatus([ModelBinder(typeof(IdModelBinder))] int id)
         {
-            if (id == null)
+            if (!await _adminService.CinemaExistsAsync(id)) 
             {
                 return NotFound();
             }
@@ -77,9 +79,14 @@ namespace Cinema.Controllers
             return PartialView("_ChangeApprovalStatusPartial", cinemaViewModel);
         }
         [HttpPost]
-        public async Task<IActionResult> ChangeApprovalStatus(string id, string approvalCode)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangeApprovalStatus([ModelBinder(typeof(IdModelBinder))] int id, [ModelBinder(typeof(ApprovalCodeBinder))] ApprovalStatus approvalCode)
         {
-            await _adminService.ChangeApprovalStatusAsync(int.Parse(id), int.Parse(approvalCode));
+            if (!await _adminService.CinemaExistsAsync(id))
+            {
+                return NotFound();
+            }
+            await _adminService.ChangeApprovalStatusAsync(id, approvalCode);
             return Json(new { redirectToUrl = Url.Action("AllCinemas", "Admin") });
         }
         public async Task<IActionResult> SearchAndFilterCinemas(string searchText, string filterValue, string sortBy)
@@ -98,6 +105,10 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
+            if (!await _adminService.UserExistsAsync(id))
+            {
+                return NotFound();
+            }
             var userViewModel = await _adminService.GetAdminUserCRUDPartialAsync(id);
             if (userViewModel == null)
             {
@@ -106,8 +117,13 @@ namespace Cinema.Controllers
             return PartialView("_PromoteToOwnerPartial", userViewModel);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> PromoteToOwner([FromForm] AdminUserCRUDViewModel viewModel, string id)
         {
+            if (!await _adminService.UserExistsAsync(id))
+            {
+                return NotFound();
+            }
             await _adminService.PromoteUser(id);
             return Json(new { redirectToUrl = Url.Action("Users", "Admin") });
         }
@@ -115,6 +131,10 @@ namespace Cinema.Controllers
         public async Task<IActionResult> DemoteUser(string id)
         {
             if (id == null)
+            {
+                return NotFound();
+            }
+            if (!await _adminService.UserExistsAsync(id))
             {
                 return NotFound();
             }
@@ -126,8 +146,13 @@ namespace Cinema.Controllers
             return PartialView("_DemoteUserPartial", userViewModel);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DemoteUser([FromForm] AdminUserCRUDViewModel viewModel, string id)
         {
+            if (!await _adminService.UserExistsAsync(id))
+            {
+                return NotFound();
+            }
             await _adminService.DemoteUser(id);
             return Json(new { redirectToUrl = Url.Action("Users", "Admin") });
         }
@@ -135,6 +160,10 @@ namespace Cinema.Controllers
         public async Task<IActionResult> DeleteUserAccount(string id)
         {
             if (id == null)
+            {
+                return NotFound();
+            }
+            if (!await _adminService.UserExistsAsync(id))
             {
                 return NotFound();
             }
@@ -146,8 +175,13 @@ namespace Cinema.Controllers
             return PartialView("_DeleteUserAccountPartial", userViewModel);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteUserAccount([FromForm] AdminUserCRUDViewModel viewModel, string id)
         {
+            if (!await _adminService.UserExistsAsync(id))
+            {
+                return NotFound();
+            }
             await _adminService.DeleteAccount(id);
             return Json(new { redirectToUrl = Url.Action("Users", "Admin") });
         }

@@ -22,8 +22,8 @@ namespace Cinema.Core.Contracts
         Task RemoveCinemaFromFavoritesAsync(int cinemaId, string userEmail);
         Task SetRatingAsync(int id, decimal rating, string userEmail);
         Task<IEnumerable<CustomerTicketViewModel>> GetTicketsForCustomerAsync(string userEmail);
-        Task<CustomerCinemaPageViewModel> PrepareCinemaViewModelAsync(string userEmail, string cinemaId);
-        Task<IEnumerable<CinemaMovieViewModel>> GetMoviesByDateAsync(string cinemaId, string date);
+        Task<CustomerCinemaPageViewModel> PrepareCinemaViewModelAsync(string userEmail, int cinemaId);
+        Task<IEnumerable<CinemaMovieViewModel>> GetMoviesByDateAsync(int cinemaId, string date);
         Task<BuyTicketViewModel> GetBuyTicketViewModelAsync(int cinemaId, int movieId, string time);
         Task BuyTicketAsync(int sectorId, int movieId, SectorDetailsViewModel viewModel, DateTime forDate, string userEmail);
     }

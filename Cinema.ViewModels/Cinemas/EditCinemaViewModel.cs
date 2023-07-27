@@ -1,5 +1,4 @@
 ﻿using Cinema.Extensions;
-using Cinema.ViewModels.Contracts;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -11,7 +10,7 @@ using System.Threading.Tasks;
 namespace Cinema.ViewModels.Cinemas
 {
     using static ValidationConstants;
-    public class EditCinemaViewModel : IViewModel
+    public class EditCinemaViewModel
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "Enter a name")]

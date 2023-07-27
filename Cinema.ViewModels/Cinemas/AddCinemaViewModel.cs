@@ -1,12 +1,11 @@
 ﻿using Cinema.Extensions;
-using Cinema.ViewModels.Contracts;
 using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 
 namespace Cinema.ViewModels.Cinemas
 {
     using static ValidationConstants;
-    public class AddCinemaViewModel : IViewModel
+    public class AddCinemaViewModel
     {
         [Required(ErrorMessage ="Enter a name")]
         [StringLength(CinemaNameMaxLength, MinimumLength = CinemaNameMinLength, ErrorMessage = "Name should be between {2} and {1} characters")]

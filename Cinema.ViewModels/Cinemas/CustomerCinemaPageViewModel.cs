@@ -10,6 +10,7 @@ namespace Cinema.ViewModels.Cinemas
     public class CustomerCinemaPageViewModel
     {
         public int Id { get; set; }
+        public string Name { get; set; }
         public string CinemaLogoUrl { get; set; }
         public string ProfilePictureUrl { get; set; }
         public Dictionary<string, string> Dates { get; set; }

@@ -1,10 +1,12 @@
 ﻿using Cinema.Core.Contracts;
 using Cinema.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace Cinema.Controllers
 {
+    [Authorize(Roles = "Administrator, Owner")]
     public class ChartsController : Controller
     {
         private readonly IChartsService _chartsService;

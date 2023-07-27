@@ -3,16 +3,10 @@ using Cinema.Core.Utilities;
 using Cinema.Data;
 using Cinema.Data.Enums;
 using Cinema.Data.Models;
-using Cinema.ViewModels.Actors;
-using Cinema.ViewModels.Contracts;
+using Cinema.Extensions.ModelBinders;
 using Cinema.ViewModels.Genres;
 using Cinema.ViewModels.Movies;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cinema.Core.Services
 {
@@ -25,10 +19,8 @@ namespace Cinema.Core.Services
             _context = context;
             _logger = logger;
         }
-        public async Task CreateAsync(IViewModel item)
+        public async Task CreateAsync(CreateGenreViewModel viewModel)
         {
-            CreateGenreViewModel viewModel = item as CreateGenreViewModel;
-
             Genre genre = new Genre
             {
                 Name = viewModel.Name
@@ -47,10 +39,8 @@ namespace Cinema.Core.Services
             await _logger.LogActionAsync(UserActionType.Delete, LogMessages.DeleteEntityMessage, "genre", genre.Name, "");
         }
 
-        public async Task EditByIdAsync(IViewModel item, int id)
+        public async Task EditByIdAsync(EditGenreViewModel viewModel)
         {
-            EditGenreViewModel viewModel = item as EditGenreViewModel;
-
             var genre = await _context.Genres.FirstOrDefaultAsync(i => i.Id == viewModel.Id);
             if (genre != null)
             {
@@ -107,10 +97,10 @@ namespace Cinema.Core.Services
             };
         }
 
-        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchAndSortMoviesByGenre(string searchText, string genreId, string sortBy)
+        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchAndSortMoviesByGenre(string searchText, int genreId, string sortBy)
         {
             var genre = await _context.Genres.Include(i => i.Movies)
-                .FirstOrDefaultAsync(i => i.Id == int.Parse(genreId));
+                .FirstOrDefaultAsync(i => i.Id == genreId);
 
             var movies = genre.Movies.Select(i => new MovieInfoCardViewModel
             {

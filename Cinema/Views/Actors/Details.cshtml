@@ -1,10 +1,7 @@
 ﻿@model Cinema.ViewModels.Actors.ActorDetailsViewModel
 
 @{
-    ViewData["Title"] = "Owner dashboard";
-    var currentDate = DateTime.Now;
-    string month = currentDate.Date.ToString("MMMM");
-    int day = currentDate.Day;
+    ViewData["Title"] = $"Actor - {Model.FullName}";
 }
 <link href="~/css/manageStyle.css" rel="stylesheet" />
 <link rel="stylesheet" href="~/css/cardStyle.css" />

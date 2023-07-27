@@ -1,20 +1,12 @@
 ﻿using Cinema.Data.Models;
 using Cinema.Data;
 using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Cinema.Core.Contracts;
 using Microsoft.EntityFrameworkCore;
 using Cinema.ViewModels.Admin;
 using Cinema.Data.Enums;
 using Cinema.Core.Utilities;
-using Cinema.ViewModels.Cinemas;
-using Microsoft.AspNetCore.SignalR.Protocol;
 using System.Text.RegularExpressions;
-using System.Globalization;
 
 namespace Cinema.Core.Services
 {
@@ -190,10 +182,10 @@ namespace Cinema.Core.Services
             };
         }
 
-        public async Task ChangeApprovalStatusAsync(int id, int approvalCode)
+        public async Task ChangeApprovalStatusAsync(int id, ApprovalStatus approvalCode)
         {
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == id);
-            cinema.ApprovalStatus = (ApprovalStatus)approvalCode;
+            cinema.ApprovalStatus = approvalCode;
 
             await _context.SaveChangesAsync();
         }
@@ -237,6 +229,15 @@ namespace Cinema.Core.Services
                 FullName = $"{user.FirstName} {user.LastName}",
                 Roles = string.Join(", ", await _userManager.GetRolesAsync(user))
             };
+        }
+
+        public async Task<bool> UserExistsAsync(string id)
+        {
+            return await _context.Users.AnyAsync(i => i.Id == id);
+        }
+        public async Task<bool> CinemaExistsAsync(int id)
+        {
+            return await _context.Cinemas.AnyAsync(i => i.Id == id);
         }
     }
 }
