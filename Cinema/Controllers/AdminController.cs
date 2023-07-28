@@ -87,7 +87,7 @@ namespace Cinema.Controllers
                 return NotFound();
             }
             await _adminService.ChangeApprovalStatusAsync(id, approvalCode);
-            return Json(new { redirectToUrl = Url.Action("AllCinemas", "Admin") });
+            return RedirectToAction("AllCinemas", "Admin");
         }
         public async Task<IActionResult> SearchAndFilterCinemas(string searchText, string filterValue, string sortBy)
         {
@@ -125,7 +125,7 @@ namespace Cinema.Controllers
                 return NotFound();
             }
             await _adminService.PromoteUser(id);
-            return Json(new { redirectToUrl = Url.Action("Users", "Admin") });
+            return RedirectToAction("Users", "Admin");
         }
         [HttpGet]
         public async Task<IActionResult> DemoteUser(string id)
@@ -154,7 +154,7 @@ namespace Cinema.Controllers
                 return NotFound();
             }
             await _adminService.DemoteUser(id);
-            return Json(new { redirectToUrl = Url.Action("Users", "Admin") });
+            return RedirectToAction("Users", "Admin");
         }
         [HttpGet]
         public async Task<IActionResult> DeleteUserAccount(string id)
@@ -183,7 +183,7 @@ namespace Cinema.Controllers
                 return NotFound();
             }
             await _adminService.DeleteAccount(id);
-            return Json(new { redirectToUrl = Url.Action("Users", "Admin") });
+            return RedirectToAction("Users", "Admin");
         }
     }
 }

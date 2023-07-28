@@ -20,7 +20,7 @@ namespace Cinema.Core.Contracts
         Task EditCinema(EditCinemaViewModel item);
         Task DeleteByIdAsync(int? id);
         Task<bool> ExistsByIdAsync(int? id);
-        Task<IEnumerable<CinemaListViewModel>> SearchAndFilterCinemasAsync(string searchText, string userEmail, string filterValue, string sortBy);
+        Task<IEnumerable<CinemaListViewModel>> SearchAndFilterCinemasAsync(string searchText, string filterValue, string sortBy, string userEmail);
         Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByCinema(string searchText, int cinemaId);
         Task<EditCinemaViewModel> GetEditViewModelByIdAsync(int cinemaId);
         Task<DeleteCinemaViewModel> PrepareDeleteViewModelAsync(int id);

@@ -3,9 +3,10 @@ using System.Net;
 
 namespace Cinema.Controllers
 {
-    public class HttpStatusController : Controller
+    public class ErrorController : Controller
     {
-        [HttpGet("statuscode/{code}")]
+        [HttpGet("statuscode={code}")]
+        [Route("Error/statuscode={code}")]
         public IActionResult Index(HttpStatusCode code)
         {
             return View(code);

@@ -50,6 +50,17 @@ namespace Cinema.Controllers
         {
             return View("ChangePassword", await _customersService.GetChangePasswordViewModelAsync(User.Identity.Name));
         }
+        [HttpGet]
+        public async Task<IActionResult> ChangeProfilePicture()
+        {
+            return View("ChangeProfilePicture", await _customersService.GetChangeProfilePictureViewModelAsync(User.Identity.Name));
+        }
+        [HttpPost]
+        public async Task<IActionResult> ChangeProfilePicture(ChangeProfilePictureViewModel viewModel)
+        {
+            await _customersService.GetChangeProfilePictureViewModelAsync(viewModel);
+            return RedirectToAction(nameof(Index));
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangePassword(ChangePasswordViewModel viewModel)
@@ -106,19 +117,19 @@ namespace Cinema.Controllers
         }
         public async Task<IActionResult> Cinema([ModelBinder(typeof(IdModelBinder))] int cinemaId)
         {
-            if (await _ownersService.ExistsByIdAsync(cinemaId))
+            if (!await _ownersService.ExistsByIdAsync(cinemaId))
             {
                 return NotFound();
             }
             return View("Cinema", await _customersService.PrepareCinemaViewModelAsync(User.Identity.Name, cinemaId));
         }
-        public async Task<IActionResult> BuyTicket(int cinemaId, int movieId, string forDate)
+        public async Task<IActionResult> BuyTicket(int cinemaId, int movieId, [ModelBinder(typeof(DateModelBinder))] DateTime forDate)
         {
-            if (await _ownersService.ExistsByIdAsync(cinemaId))
+            if (!await _ownersService.ExistsByIdAsync(cinemaId))
             {
                 return NotFound();
             }
-            if (await _moviesService.ExistsByIdAsync(movieId))
+            if (!await _moviesService.ExistsByIdAsync(movieId))
             {
                 return NotFound();
             }
@@ -128,11 +139,11 @@ namespace Cinema.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> BuyTicket(int sectorId, int movieId, SectorDetailsViewModel viewModel, DateTime forDate)
         {
-            if (await _sectorsService.ExistsByIdAsync(sectorId))
+            if (!await _sectorsService.ExistsByIdAsync(sectorId))
             {
                 return NotFound();
             }
-            if (await _moviesService.ExistsByIdAsync(movieId))
+            if (!await _moviesService.ExistsByIdAsync(movieId))
             {
                 return NotFound();
             }
@@ -145,7 +156,7 @@ namespace Cinema.Controllers
         [HttpGet]
         public async Task<IActionResult> GetMoviesByDate([ModelBinder(typeof(IdModelBinder))] int cinemaId, string date)
         {
-            if (await _ownersService.ExistsByIdAsync(cinemaId))
+            if (!await _ownersService.ExistsByIdAsync(cinemaId))
             {
                 return NotFound();
             }
@@ -159,7 +170,7 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            if (await _moviesService.ExistsByIdAsync(movieId))
+            if (!await _moviesService.ExistsByIdAsync(movieId))
             {
                 return NotFound();
             }

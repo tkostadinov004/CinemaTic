@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 
 namespace Cinema.Controllers
 {
-    [Authorize(Roles = "Owner")]
     public class OwnersController : Controller
     {
         private readonly IOwnersService _ownersService;
@@ -21,20 +20,23 @@ namespace Cinema.Controllers
             _ownersService = ownersService;
             _moviesService = moviesService;
         }
-
+        [Authorize(Roles = "Owner")]
         public async Task<IActionResult> Index()
         {
             return View();
         }
+        [Authorize(Roles = "Owner")]
         public async Task<IActionResult> UserCinemas()
         {
             return View();
         }
+        [Authorize(Roles = "Owner")]
         [HttpGet]
         public IActionResult AddCinema()
         {
             return View();
         }
+        [Authorize(Roles = "Owner")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddCinema(AddCinemaViewModel viewModel)
@@ -45,6 +47,7 @@ namespace Cinema.Controllers
             }
             return RedirectToAction("UserCinemas", "Owners");
         }
+        [Authorize(Roles = "Owner")]
         [HttpGet]
         public async Task<IActionResult> Details(int? id)
         {
@@ -59,6 +62,7 @@ namespace Cinema.Controllers
             }
             return View(await _ownersService.GetByIdAsync(id));
         }
+        [Authorize(Roles = "Owner")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddMovieToCinemas(MovieDetailsViewModel viewModel)
@@ -70,6 +74,7 @@ namespace Cinema.Controllers
             await _ownersService.AddMovieToCinemas(viewModel);
             return RedirectToAction("AllMovies", "Movies");
         }
+        [Authorize(Roles = "Owner")]
         [HttpGet]
         public async Task<IActionResult> EditCinema([ModelBinder(typeof(IdModelBinder))] int id)
         {
@@ -79,6 +84,7 @@ namespace Cinema.Controllers
             }
             return PartialView("_EditCinemaPartial", await _ownersService.GetEditViewModelByIdAsync(id));
         }
+        [Authorize(Roles = "Owner")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditCinema([FromForm] EditCinemaViewModel viewModel)
@@ -89,6 +95,7 @@ namespace Cinema.Controllers
             }
             return RedirectToAction("UserCinemas", "Owners");
         }
+        [Authorize(Roles = "Owner")]
         [HttpGet]
         public async Task<IActionResult> DeleteCinema(int? id)
         {
@@ -103,6 +110,7 @@ namespace Cinema.Controllers
             }
             return PartialView("_DeleteCinemaPartial", await _ownersService.PrepareDeleteViewModelAsync(id.Value));
         }
+        [Authorize(Roles = "Owner")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteCinema([FromForm] DeleteActorViewModel viewModel, int? cinemaId)
@@ -114,12 +122,13 @@ namespace Cinema.Controllers
             await _ownersService.DeleteByIdAsync(cinemaId);
             return RedirectToAction("UserCinemas", "Owners");
         }
-
+        [Authorize(Roles = "Owner")]
         public async Task<IActionResult> SearchAndFilterCinemas(string searchText, string filterValue, string sortBy)
         {
-            var cinemas = await _ownersService.SearchAndFilterCinemasAsync(searchText, User.Identity.Name, filterValue, sortBy);
+            var cinemas = await _ownersService.SearchAndFilterCinemasAsync(searchText, filterValue, sortBy, User.Identity.Name);
             return PartialView("_CinemasPartial", cinemas);
         }
+        [Authorize(Roles = "Administrator, Owner")]
         public async Task<IActionResult> SearchMoviesByCinema(string searchText, [ModelBinder(typeof(IdModelBinder))] int id)
         {
             if (!await _ownersService.ExistsByIdAsync(id))
@@ -129,6 +138,7 @@ namespace Cinema.Controllers
             var movies = await _ownersService.SearchMoviesByCinema(searchText, id);
             return PartialView("_CinemaMoviesPartial", movies);
         }
+        [Authorize(Roles = "Owner")]
         public async Task<IActionResult> GenerateCustomPagePreview([ModelBinder(typeof(IdModelBinder))] int cinemaId)
         {
             if (!await _ownersService.ExistsByIdAsync(cinemaId))
@@ -137,6 +147,7 @@ namespace Cinema.Controllers
             }
             return View("_CustomPagePreview", await _ownersService.PreparePreviewViewModelAsync(User.Identity.Name, cinemaId));
         }
+        [Authorize(Roles = "Owner")]
         public async Task<IActionResult> GetCinemasContainingMovie([ModelBinder(typeof(IdModelBinder))] int movieId)
         {
             if (!await _moviesService.ExistsByIdAsync(movieId))

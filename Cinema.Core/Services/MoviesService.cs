@@ -23,12 +23,14 @@ namespace Cinema.Core.Services
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly ILogService _logger;
-        public MoviesService(CinemaDbContext context, UserManager<ApplicationUser> userManager, IWebHostEnvironment webHostEnvironment, ILogService logger)
+        private readonly IImageService _imageService;
+        public MoviesService(CinemaDbContext context, UserManager<ApplicationUser> userManager, IWebHostEnvironment webHostEnvironment, ILogService logger, IImageService imageService)
         {
             _context = context;
             _userManager = userManager;
             _webHostEnvironment = webHostEnvironment;
             _logger = logger;
+            _imageService = imageService;
         }
 
         public async Task CreateMovieAsync(CreateMovieViewModel viewModel, string userEmail)
@@ -56,7 +58,7 @@ namespace Cinema.Core.Services
         {
             var movie = await _context.Movies.FindAsync(id);
             _context.Movies.Remove(movie);
-            await GlobalMethods.DeleteImage("Movies", movie.ImageUrl, _context, _webHostEnvironment);
+            await _imageService.DeleteImageAsync("Movies", movie.ImageUrl);
             await _context.SaveChangesAsync();
             await _logger.LogActionAsync(UserActionType.Delete, LogMessages.DeleteEntityMessage, "movie", movie.Title, $"({movie.Director} - {movie.RunningTime} minutes)");
         }
@@ -207,7 +209,7 @@ namespace Cinema.Core.Services
         }
         public async Task<string> UploadPhoto(IFormFile image)
         {
-            return GlobalMethods.UploadPhoto("Movies", image, _webHostEnvironment);
+            return await _imageService.UploadPhotoAsync("Movies", image);
         }
 
         public async Task<IEnumerable<MovieInfoCardViewModel>> SearchAndFilterMoviesAsync(string searchText, string filterValue, string sortBy)

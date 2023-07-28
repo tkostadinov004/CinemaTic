@@ -32,6 +32,11 @@ namespace Cinema.Controllers
                 TempData.Remove("UserLoggedIn");
                 await _logService.LogActionAsync(UserActionType.AccountActions, LogMessages.UserLoginMessage);
             }
+            if (TempData.ContainsKey("UserRegistered"))
+            {
+                TempData.Remove("UserRegistered");
+                await _logService.LogActionAsync(UserActionType.AccountActions, LogMessages.UserRegisterMessage);
+            }
 
             if (User.IsInRole("Owner"))
             {

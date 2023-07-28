@@ -21,8 +21,9 @@ namespace Cinema.Core.Services
         private readonly IMapper _mapper;
         private readonly ISectorsService _sectorsService;
         private readonly ILogService _logger;
+        private readonly IImageService _imageService;
 
-        public OwnersService(CinemaDbContext context, IWebHostEnvironment webHostEnvironment, UserManager<ApplicationUser> userManager, IMapper mapper, ISectorsService sectorsService, ILogService logger)
+        public OwnersService(CinemaDbContext context, IWebHostEnvironment webHostEnvironment, UserManager<ApplicationUser> userManager, IMapper mapper, ISectorsService sectorsService, ILogService logger, IImageService imageService)
         {
             _context = context;
             _webHostEnvironment = webHostEnvironment;
@@ -30,11 +31,12 @@ namespace Cinema.Core.Services
             _mapper = mapper;
             _sectorsService = sectorsService;
             _logger = logger;
+            _imageService = imageService;
         }
 
         public async Task AddAsync(AddCinemaViewModel viewModel, string userEmail)
         {
-            string imageUrl = GlobalMethods.UploadPhoto("Cinemas", viewModel.Image, _webHostEnvironment);
+            string imageUrl = await _imageService.UploadPhotoAsync("Cinemas", viewModel.Image);
 
             var cinema = _mapper.Map<Data.Models.Cinema>(viewModel);
             cinema.ImageUrl = imageUrl;
@@ -73,7 +75,7 @@ namespace Cinema.Core.Services
         {
             var cinema = await _context.Cinemas.FindAsync(id);
             _context.Cinemas.Remove(cinema);
-            await GlobalMethods.DeleteImage("Cinemas", cinema.ImageUrl, _context, _webHostEnvironment);
+            await _imageService.DeleteImageAsync("Cinemas", cinema.ImageUrl);
             await _context.SaveChangesAsync();
             await _logger.LogActionAsync(UserActionType.Delete, LogMessages.DeleteEntityMessage, "cinema", cinema.Name, $"({cinema.SeatRows} rows and {cinema.SeatCols} columns)");
         }
@@ -96,8 +98,8 @@ namespace Cinema.Core.Services
 
             if (viewModel.Image != null)
             {
-                await GlobalMethods.DeleteImage("Cinemas", cinema.ImageUrl, _context, _webHostEnvironment);
-                cinema.ImageUrl = GlobalMethods.UploadPhoto("Cinemas", viewModel.Image, _webHostEnvironment);
+                await _imageService.DeleteImageAsync("Cinemas", cinema.ImageUrl);
+                cinema.ImageUrl = await _imageService.UploadPhotoAsync("Cinemas", viewModel.Image);
             }
 
             _context.Cinemas.Update(cinema);
@@ -200,7 +202,7 @@ namespace Cinema.Core.Services
             };
         }
 
-        public async Task<IEnumerable<CinemaListViewModel>> SearchAndFilterCinemasAsync(string searchText, string userEmail, string filterValue, string sortBy)
+        public async Task<IEnumerable<CinemaListViewModel>> SearchAndFilterCinemasAsync(string searchText, string filterValue, string sortBy, string userEmail)
         {
             var cinemas = await this.GetAllByUserAsync(userEmail);
             if (string.IsNullOrEmpty(searchText) == false)
