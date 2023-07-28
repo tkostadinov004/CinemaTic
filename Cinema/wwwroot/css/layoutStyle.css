@@ -255,6 +255,8 @@ strong {
     top: 0;
     right: 0;
     left: 0;
+    z-index: 1000;
+    ma
 }
 
 .navbar {
@@ -1153,4 +1155,23 @@ span.sub-title {
 
 div.features-container div.row {
     justify-content: center;
+}
+.access-denied-back {
+    border: 0;
+    background: indianred;
+    color: white;
+    padding: 5px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.error-404 i {
+    font-size: 10rem;
+    color: red;
+}
+.circle-image {
+    width: 5vw;
+    height: 5vw;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 50%;
 }

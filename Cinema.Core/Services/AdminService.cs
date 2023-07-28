@@ -16,15 +16,17 @@ namespace Cinema.Core.Services
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly CinemaDbContext _context;
+        private readonly IImageService _imageService;
 
         public AdminService(
             UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager, CinemaDbContext context, RoleManager<IdentityRole> roleManager)
+            SignInManager<ApplicationUser> signInManager, CinemaDbContext context, RoleManager<IdentityRole> roleManager, IImageService imageService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _context = context;
             _roleManager = roleManager;
+            _imageService = imageService;
         }
         public async Task<IEnumerable<ApplicationUser>> GetAllAsync()
         {
@@ -136,7 +138,7 @@ namespace Cinema.Core.Services
 
         public async Task<UserDetailsViewModel> GetUserDetailsAsync(string id)
         {
-            var user = await _userManager.FindByIdAsync(id);
+            var user = await _context.Users.Include(i => i.UserActions).FirstOrDefaultAsync(i => i.Id == id);
 
             return new UserDetailsViewModel
             {
@@ -147,8 +149,17 @@ namespace Cinema.Core.Services
                 Actions = user.UserActions.Select(i => new UserActionViewModel
                 {
                     Id = i.Id,
-                    Action = i.Message,
-                    TypeCode = i.Type
+                    Action = $"({i.Date.ToString("MM/dd/yyyy")}) {i.Message}",
+                    Type = i.Type switch
+                    {
+                        UserActionType.Create => "create",
+                        UserActionType.Read => "read",
+                        UserActionType.Update => "update",
+                        UserActionType.Delete => "delete",
+                        UserActionType.AccountActions => "account-actions",
+                        _ => ""
+                    },
+                    Date = i.Date.ToString("MM/dd/yyyy")
                 }),
                 Roles = string.Join(", ", await _userManager.GetRolesAsync(user))
             };
@@ -202,6 +213,11 @@ namespace Cinema.Core.Services
                 var userIdsInRole = (await _userManager.GetUsersInRoleAsync(filterValue)).Select(i => i.Id).ToList();
                 users = users.Where(i => userIdsInRole.Contains(i.Id)).ToList();
             }
+
+            foreach (var item in users)
+            {
+                await _imageService.ReplaceWithDefaultIfNotPresentAsync(item.Email, "Users", item.ProfilePictureUrl);
+            }
             return users.Select(i => new UserDetailsViewModel
             {
                 Id = i.Id,
@@ -212,7 +228,7 @@ namespace Cinema.Core.Services
                 {
                     Id = i.Id,
                     Action = i.Message,
-                    TypeCode = i.Type
+                    Type = i.Type.ToString()
                 }),
                 Roles = string.Join(", ", _userManager.GetRolesAsync(i).Result)
             });

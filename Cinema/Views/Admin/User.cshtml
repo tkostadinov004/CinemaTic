@@ -20,7 +20,15 @@
             <span>@Model.Roles</span>
         </a>
         <div class="my-5 actions-container">
-            <h5 class="text-center text-white">Actions</h5>
+            <h5 class="text-center mb-4">Actions</h5>
+            <div class="actions d-flex flex-column gap-3">
+                @foreach (var item in Model.Actions)
+                {
+                    <div class="action @item.Type">
+                        <span>@item.Action</span>
+                    </div>
+                }
+            </div>
         </div>
     </div>
 </div>

@@ -122,7 +122,6 @@ function getCustomersPerCinema() {
                     data: { 'Customers count': response['customersCounts'][i] }
                 });
             }
-            console.log(datasets);
             customersPerCinema = new Chart(document.getElementById('customersPerCinema'), {
                 type: 'bar',
                 data: {
@@ -137,6 +136,13 @@ function getCustomersPerCinema() {
                         title: {
                             display: true,
                             text: `Total customers per cinema`
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: {
+                                
+                            }
                         }
                     }
                 },
@@ -195,6 +201,20 @@ function getBestSellingMoviesPerCinema() {
             alert(response.responseText);
         }
     });
+}
+function lighten() {
+    customersPerCinema.options.scales.x.ticks.color = '#000';
+    customersPerCinema.options.scales.y.ticks.color = '#000';
+
+    totalIncomes.options.scales.x.ticks.color = '#000';
+    totalIncomes.options.scales.y.ticks.color = '#000';
+}
+function darken() {
+    customersPerCinema.options.scales.x.ticks.color = '#fff';
+    customersPerCinema.options.scales.y.ticks.color = '#fff';
+
+    totalIncomes.options.scales.x.ticks.color = '#fff';
+    totalIncomes.options.scales.y.ticks.color = '#fff';
 }
 function updateCharts() {
     marketShare.update();

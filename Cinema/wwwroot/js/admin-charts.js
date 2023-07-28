@@ -1,7 +1,6 @@
 ﻿const randomNum = () => Math.floor(Math.random() * (235 - 52 + 1) + 52);
 const randomRGB = () => `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`;
 var usersPerMonth; var usersGrowth;
-
 function getRegisteredUsersByMonth() {
     $.ajax({
         type: "GET",
@@ -106,4 +105,18 @@ function getUsersGrowth() {
 function updateCharts() {
     usersPerMonth.update();
     usersGrowth.update();
+}
+function lighten() {
+    usersPerMonth.options.scales.x.ticks.color = '#000';
+    usersPerMonth.options.scales.y.ticks.color = '#000';
+
+    usersGrowth.options.scales.x.ticks.color = '#000';
+    usersGrowth.options.scales.y.ticks.color = '#000';
+}
+function darken() {
+    usersPerMonth.options.scales.x.ticks.color = '#fff';
+    usersPerMonth.options.scales.y.ticks.color = '#fff';
+
+    usersGrowth.options.scales.x.ticks.color = '#fff';
+    usersGrowth.options.scales.y.ticks.color = '#fff';
 }

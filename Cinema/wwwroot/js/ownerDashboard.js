@@ -7,6 +7,9 @@ if (modeSwitch) {
         if (localStorage.getItem("mode") == 'light') {
             if (document.querySelectorAll("canvas").length > 0) {
                 Chart.defaults.color = '#fff';
+                Chart.defaults.borderColor = 'rgba(229,229,229, 0.7)';
+                darken();
+
                 updateCharts();
             }
             localStorage.removeItem("mode");
@@ -14,6 +17,8 @@ if (modeSwitch) {
         else {
             if (document.querySelectorAll("canvas").length > 0) {
                 Chart.defaults.color = '#000';
+                Chart.defaults.borderColor = 'rgba(229,229,229, 0.7)';
+                lighten();
                 updateCharts();
             }
             localStorage.setItem("mode", 'light');
@@ -23,12 +28,14 @@ if (modeSwitch) {
 if (localStorage.getItem("mode") == 'light') {
     if (document.querySelectorAll("canvas").length > 0) {
         Chart.defaults.color = '#000';
+        Chart.defaults.borderColor = 'rgba(229,229,229, 0.5)';
     }
     document.documentElement.classList.add('light');
 }
 else {
     if (document.querySelectorAll("canvas").length > 0) {
         Chart.defaults.color = '#fff';
+        Chart.defaults.borderColor = 'rgba(229,229,229, 0.5)';
     }
     document.documentElement.classList.remove('light');
 }
@@ -160,10 +167,10 @@ function getItems(controllerName, actionName, searchText, value, filterValue, so
             }
         },
         failure: function (response) {
-            alert(response.responseText);
+            window.location = '/Error/statuscode=403';
         },
         error: function (response) {
-            alert(response.responseText);
+            window.location = '/Error/statuscode=403';
         }
     });
 }
@@ -177,10 +184,10 @@ function getUDpartial(controllerName, actionName, id) {
             $("#review-form-container").html(response);
         },
         failure: function (response) {
-            alert(response.responseText);
+            window.location = '/Error/statuscode=403';
         },
         error: function (response) {
-            alert(response.responseText);
+            window.location = '/Error/statuscode=403';
         }
     });
 }
