@@ -16,6 +16,8 @@ namespace Cinema.Core.Contracts
     {
         Task<CustomerHomePageViewModel> GetCinemasForUserAsync(string userEmail);
         Task<ChangePasswordViewModel> GetChangePasswordViewModelAsync(string userEmail);
+        Task<ChangeProfilePictureViewModel> GetChangeProfilePictureViewModelAsync(string userEmail);
+        Task GetChangeProfilePictureViewModelAsync(ChangeProfilePictureViewModel viewModel);
         Task ChangePasswordAsync(ChangePasswordViewModel viewModel);
         Task<IEnumerable<CinemasViewModel>> GetCinemasAsync(bool? all, string userEmail);
         Task AddCinemaToFavoritesAsync(int cinemaId, string userEmail);
@@ -24,7 +26,7 @@ namespace Cinema.Core.Contracts
         Task<IEnumerable<CustomerTicketViewModel>> GetTicketsForCustomerAsync(string userEmail);
         Task<CustomerCinemaPageViewModel> PrepareCinemaViewModelAsync(string userEmail, int cinemaId);
         Task<IEnumerable<CinemaMovieViewModel>> GetMoviesByDateAsync(int cinemaId, string date);
-        Task<BuyTicketViewModel> GetBuyTicketViewModelAsync(int cinemaId, int movieId, string time);
+        Task<BuyTicketViewModel> GetBuyTicketViewModelAsync(int cinemaId, int movieId, DateTime time);
         Task BuyTicketAsync(int sectorId, int movieId, SectorDetailsViewModel viewModel, DateTime forDate, string userEmail);
     }
 }

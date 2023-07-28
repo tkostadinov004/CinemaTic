@@ -21,13 +21,15 @@ namespace Cinema.Core.Services
         private readonly CinemaDbContext _context;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogService _logger;
+        private readonly IImageService _imageService;
 
-        public CustomersService(UserManager<ApplicationUser> userManager, CinemaDbContext context, SignInManager<ApplicationUser> signInManager, ILogService logger)
+        public CustomersService(UserManager<ApplicationUser> userManager, CinemaDbContext context, SignInManager<ApplicationUser> signInManager, ILogService logger, IImageService imageService)
         {
             _userManager = userManager;
             _context = context;
             _signInManager = signInManager;
             _logger = logger;
+            _imageService = imageService;
         }
         public async Task<CustomerHomePageViewModel> GetCinemasForUserAsync(string userEmail)
         {
@@ -42,7 +44,8 @@ namespace Cinema.Core.Services
                     Description = i.Cinema.Description,
                     FavoriteSince = "",
                     ImageUrl = i.Cinema.ImageUrl
-                })
+                }),
+                FullName = $"{user.FirstName} {user.LastName}"
             };
         }
 
@@ -190,11 +193,10 @@ namespace Cinema.Core.Services
                     .ToList(),
             });
         }
-        public async Task<BuyTicketViewModel> GetBuyTicketViewModelAsync(int cinemaId, int movieId, string forDate)
+        public async Task<BuyTicketViewModel> GetBuyTicketViewModelAsync(int cinemaId, int movieId, DateTime forDate)
         {
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == cinemaId);
             var movie = await _context.Movies.Include(i => i.Genre).FirstOrDefaultAsync(i => i.Id == movieId);
-            DateTime date = DateTime.Parse(forDate);
             return new BuyTicketViewModel
             {
                 CinemaId = cinema.Id,
@@ -205,9 +207,8 @@ namespace Cinema.Core.Services
                 ImageUrl = movie.ImageUrl,
                 MovieId = movie.Id,
                 RunningTime = movie.RunningTime,
-                Time = forDate,
                 Title = movie.Title,
-                ForDateTime = date
+                ForDateTime = forDate
             };
         }
         public async Task BuyTicketAsync(int sectorId, int movieId, SectorDetailsViewModel viewModel, DateTime forDate, string userEmail)
@@ -267,6 +268,25 @@ namespace Cinema.Core.Services
                 await _context.SaveChangesAsync();
                 await _logger.LogActionAsync(UserActionType.Update, LogMessages.ChangeRatingMovieMessage, movie.Title, $"{oldRating:f1}", $"{rating:f1}");
             }
+        }
+
+        public async Task<ChangeProfilePictureViewModel> GetChangeProfilePictureViewModelAsync(string userEmail)
+        {
+            var user = await _userManager.FindByEmailAsync(userEmail);
+            return new ChangeProfilePictureViewModel
+            {
+                Id = user.Id
+            };
+        }
+
+        public async Task GetChangeProfilePictureViewModelAsync(ChangeProfilePictureViewModel viewModel)
+        {
+            var user = await _userManager.FindByIdAsync(viewModel.Id);
+
+            await _imageService.DeleteImageAsync("Users", user.ProfilePictureUrl);
+            user.ProfilePictureUrl = await _imageService.UploadPhotoAsync("Users", viewModel.Image);
+
+            await _context.SaveChangesAsync();
         }
     }
 }

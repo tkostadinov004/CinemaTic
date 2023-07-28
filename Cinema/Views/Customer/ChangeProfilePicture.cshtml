@@ -1,0 +1,43 @@
+﻿@model Cinema.ViewModels.Customers.ChangeProfilePictureViewModel
+
+<link href="~/css/loginRegisterStyle.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/layoutStyle.css" />
+
+<partial name="_NavbarPartial" />
+<section class="main-section hero-section">
+    <div class="container login-container w-75">
+        <h2 class="login-title">Register</h2>
+        <form class="login-form" asp-controller="Customer" asp-action="ChangeProfilePicture" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <div role="list" asp-validation-summary="None" class="text-danger"></div>
+            <div class="d-flex justify-content-between">
+                <div class="d-flex flex-column align-items-center w-50 gap-2">
+                    <div class="w-100 mx-auto">
+                        <div class="active-form">
+                            <label asp-for="@Model.Image"></label>
+                            <input id="profile-picture-input" asp-for="@Model.Image" class="form-control" onchange="loadFile(event)" />
+                        </div>
+                        <span asp-validation-for="@Model.Image" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="temp-img-container d-flex justify-content-center w-75">
+                    <img id="tempImg" hidden style="width: 30vh;" />
+                </div>
+            </div>
+            <button type="submit" class="btn btn--form">Change profile picture</button>
+        </form>
+    </div>
+</section>
+<script>
+    var loadFile = function (event) {
+        var output = document.getElementById('tempImg');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.removeAttribute("hidden");
+        output.onload = function () {
+            URL.revokeObjectURL(output.src);
+        }
+    };
+</script>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

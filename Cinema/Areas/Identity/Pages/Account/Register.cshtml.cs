@@ -11,6 +11,7 @@ using Cinema.Data.Enums;
 using Cinema.Data.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -28,19 +29,22 @@ namespace Cinema.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly ILogService _logService;
+        private readonly IImageService _imageService;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
-            ILogService logService)
+            ILogService logService,
+            IImageService imageService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
             _logService = logService;
+            _imageService = imageService;
         }
 
         [BindProperty]
@@ -66,16 +70,22 @@ namespace Cinema.Areas.Identity.Pages.Account
             [DataType(DataType.Password)]
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The two passwords don't match!")]
+            [Required(ErrorMessage = "Enter a password!")]
             public string ConfirmPassword { get; set; }
 
             [DataType(DataType.Text)]
             [StringLength(100, ErrorMessage = "The first name should be at least {2} characters long and no more than {1} characters long!", MinimumLength = 5)]
+            [Required(ErrorMessage = "Enter a first name")]
             [Display(Name = "First name")]
             public string FirstName { get; set; }
             [DataType(DataType.Text)]
+            [Required(ErrorMessage = "Enter a last name")]
             [StringLength(100, ErrorMessage = "The last name should be at least {2} characters long and no more than {1} characters long!", MinimumLength = 5)]
             [Display(Name = "Last name")]
             public string LastName { get; set; }
+            [Display(Name = "Profile picture")]
+            [Required(ErrorMessage = "Upload a profile picture")]
+            public IFormFile Image { get; set; }
         }
         public async Task OnGetAsync(string returnUrl = null)
         {
@@ -89,12 +99,20 @@ namespace Cinema.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName, CreationDate = DateTime.Now, ProfilePictureUrl = "s" };
+                var user = new ApplicationUser
+                {
+                    UserName = Input.Email,
+                    Email = Input.Email,
+                    FirstName = Input.FirstName,
+                    LastName = Input.LastName,
+                    CreationDate = DateTime.Now,
+                    ProfilePictureUrl = await _imageService.UploadPhotoAsync("Users", Input.Image)
+                };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-                    await _logService.LogActionAsync(UserActionType.AccountActions, LogMessages.UserRegisterMessage);
+                   
                     await _userManager.AddToRoleAsync(user, "Customer");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -114,8 +132,11 @@ namespace Cinema.Areas.Identity.Pages.Account
                     //}
                     //else
                     //{
-                        await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+
+                    TempData["UserRegistered"] = true;
+                    TempData["NewUser"] = true;
+                    return LocalRedirect(returnUrl);
                     //}
                 }
                 foreach (var error in result.Errors)

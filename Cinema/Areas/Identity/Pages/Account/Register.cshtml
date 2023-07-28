@@ -8,51 +8,77 @@
 <link rel="stylesheet" href="~/css/layoutStyle.css" />
 <partial name="_NavbarPartial" />
 <section class="main-section hero-section">
-    <div class="container login-container">
-        <h2 class="login-title">Log in</h2>
-
-        <form class="login-form" method="post">
-            <div role="list" asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <div class="active-form">
-                    <label asp-for="Input.Email"></label>
-                    <input asp-for="Input.Email" class="form-control" />
+    <div class="container login-container w-75">
+        <h2 class="login-title">Register</h2>
+        <form class="login-form" method="post" enctype="multipart/form-data">
+            <div role="list" asp-validation-summary="None" class="text-danger"></div>
+            <div class="d-flex justify-content-between">
+                <div class="w-50">
+                    <div class="form-group">
+                        <div class="active-form">
+                            <label asp-for="Input.Email"></label>
+                            <input asp-for="Input.Email" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="active-form">
+                            <label asp-for="Input.FirstName"></label>
+                            <input asp-for="Input.FirstName" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="active-form">
+                            <label asp-for="Input.LastName"></label>
+                            <input asp-for="Input.LastName" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="active-form">
+                            <label asp-for="Input.Password"></label>
+                            <input asp-for="Input.Password" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="active-form">
+                            <label asp-for="Input.ConfirmPassword"></label>
+                            <input asp-for="Input.ConfirmPassword" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
                 </div>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <div class="active-form">
-                    <label asp-for="Input.FirstName"></label>
-                    <input asp-for="Input.FirstName" class="form-control" />
+                <div class="d-flex flex-column align-items-center w-50 gap-2">
+                   <div class="w-75 mx-auto">
+                        <div class="active-form">
+                            <label asp-for="Input.Image"></label>
+                            <input id="profile-picture-input" asp-for="Input.Image" class="form-control" onchange="loadFile(event)" />
+                        </div>
+                        <span asp-validation-for="Input.Image" class="text-danger"></span>
+                   </div>
+                    <div class="temp-img-container d-flex justify-content-center w-75">
+                        <img id="tempImg" hidden style="width: 30vh;"/>
+                    </div>
                 </div>
-                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <div class="active-form">
-                    <label asp-for="Input.LastName"></label>
-                    <input asp-for="Input.LastName" class="form-control" />
-                </div>
-                <span asp-validation-for="Input.LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <div class="active-form">
-                    <label asp-for="Input.Password"></label>
-                    <input asp-for="Input.Password" class="form-control" />
-                </div>
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <div class="active-form">
-                    <label asp-for="Input.ConfirmPassword"></label>
-                    <input asp-for="Input.ConfirmPassword" class="form-control" />
-                </div>
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                
             </div>
             <button type="submit" class="btn btn--form">Register</button>
         </form>
     </div>
 </section>
-
+<script>
+    var loadFile = function (event) {
+        console.log(2);
+        var output = document.getElementById('tempImg');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.removeAttribute("hidden");
+        output.onload = function () {
+            URL.revokeObjectURL(output.src);
+        }
+    };
+</script>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
