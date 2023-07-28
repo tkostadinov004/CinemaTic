@@ -12,6 +12,5 @@
         public DateTime ForDateTime { get; set; }
         public string CinemaName { get; set; }
         public int CinemaId { get; set; }
-        public string Time { get; set; }
     }
 }

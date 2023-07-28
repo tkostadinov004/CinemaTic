@@ -92,7 +92,7 @@
 <script src="~/js/ownerdashboard.js"></script>
 <script>
     window.onload = function () {
-        getItems('Owners', 'SearchAndFilterCinemas', "", '@User.Identity.Name');
+        getItems('Owners', 'SearchAndFilterCinemas', "");
     };
     var search = document.getElementById("search-bar");
     var filterOptions = document.getElementById('filter-options');
@@ -102,12 +102,12 @@
         search.addEventListener("keyup", function () {
             clearTimeout(timeout);
             timeout = setTimeout(function () {
-                getItems('Owners', 'SearchAndFilterCinemas', search.value, '@User.Identity.Name', (filterOptions ? filterOptions.value : null), (activeSort ? activeSort.id : null));
+                getItems('Owners', 'SearchAndFilterCinemas', search.value, '', (filterOptions ? filterOptions.value : null), (activeSort ? activeSort.id : null));
             }, 300);
         });
     }
     filterOptions.addEventListener("change", function () {
-        getItems('Owners', "SearchAndFilterCinemas", (search ? search.value : null), '@User.Identity.Name', filterOptions.value);
+        getItems('Owners', "SearchAndFilterCinemas", (search ? search.value : null), '', filterOptions.value);
     });
     document.querySelectorAll(".sort-button").forEach(i => i.addEventListener('click', function () {
         var alreadyActive = document.querySelector('.sort-button.selected');
@@ -116,6 +116,6 @@
         }
         activeSort = i;
         i.classList.add("selected");
-        getItems('Owners', 'SearchAndFilterCinemas', (search ? search.value : null), '@User.Identity.Name', filterOptions.value, i.id);
+        getItems('Owners', 'SearchAndFilterCinemas', (search ? search.value : null), '', filterOptions.value, i.id);
     }));
 </script>

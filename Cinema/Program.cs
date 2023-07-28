@@ -28,6 +28,7 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredLength = 8;
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireDigit = false;
+    options.SignIn.RequireConfirmedEmail = false;
 });
 
 builder.Services.AddAutoMapper(options =>
@@ -47,10 +48,13 @@ builder.Services.AddScoped<IOwnersService, OwnersService>();
 builder.Services.AddScoped<ISectorsService, SectorsService>();
 builder.Services.AddScoped<IChartsService, ChartsService>();
 builder.Services.AddScoped<ILogService, LogService>();
+builder.Services.AddScoped<IImageService, ImageService>();
+builder.Services.AddScoped<IUsersService, UsersService>();
 
 var app = builder.Build();
 
-app.UseStatusCodePagesWithReExecute("/statuscode/{0}");
+
+app.UseStatusCodePagesWithReExecute("/statuscode={0}");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -75,7 +79,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
-
 using var scope = app.Services.CreateScope();
 var initializer = new DbInitializer(scope.ServiceProvider.GetService<CinemaDbContext>());
 initializer.Run(scope.ServiceProvider, false);

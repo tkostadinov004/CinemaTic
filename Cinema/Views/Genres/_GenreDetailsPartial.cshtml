@@ -68,10 +68,10 @@
                         $("#genre-movie-results-container").html(response);
                     },
                     failure: function (response) {
-                        alert(response.responseText);
+                        window.location = '/Error/statuscode=403';
                     },
                     error: function (response) {
-                        alert(response.responseText);
+                        window.location = '/Error/statuscode=403';
                     }
                 });
             }, 300);
@@ -92,10 +92,10 @@
                 $("#genre-movie-results-container").html(response);
             },
             failure: function (response) {
-                alert(response.responseText);
+                window.location = '/Error/statuscode=403';
             },
             error: function (response) {
-                alert(response.responseText);
+                window.location = '/Error/statuscode=403';
             }
         });
     }));
@@ -111,10 +111,10 @@
                 window.location.href = response;
             },
             failure: function (response) {
-                alert(response.responseText);
+                window.location = '/Error/statuscode=403';
             },
             error: function (response) {
-                alert(response.responseText);
+                window.location = '/Error/statuscode=403';
             }
         });
     });
@@ -133,54 +133,11 @@
                 window.location.href = response;
             },
             failure: function (response) {
-                alert(response.responseText);
+                window.location = '/Error/statuscode=403';
             },
             error: function (response) {
-                alert(response.responseText);
+                window.location = '/Error/statuscode=403';
             }
         });
     });
 </script>
-@*<script>
-    window.onload = function () {
-        getItems('Genres', 'SearchMoviesByActor', "", '@Model.Id');
-    };
-    var search = document.getElementById("search-bar");
-    var activeSort = document.querySelector('.sort-button.selected');
-    if (search) {
-        let timeout = null;
-        search.addEventListener("keyup", function () {
-            clearTimeout(timeout);
-            timeout = setTimeout(function () {
-                getItems('Actors', 'SearchMoviesByActor', search.value, '@Model.Id', '', (activeSort ? activeSort.id : null));
-            }, 300);
-        });
-    }
-
-    document.querySelectorAll(".sort-button").forEach(i => i.addEventListener('click', function () {
-        var alreadyActive = document.querySelector('.sort-button.selected');
-        if (alreadyActive) {
-            alreadyActive.classList.remove("selected");
-        }
-        i.classList.add("selected");
-        getItems('Actors', 'SearchMoviesByActor', (search ? search.value : null), '@Model.Id', '', i.id);
-    }));
-
-    var modalContainer = document.getElementById('review-form-container');
-    var popupModal = document.getElementById("modal");
-    var editButton = document.getElementById("edit");
-    editButton.addEventListener("click", function () {
-        modalContainer.innerHTML = "";
-        popupModal.classList.remove("preview");
-        getUDpartial('Actors', 'EditActor', '@Model.Id');
-    });
-
-    var deleteButton = document.getElementById("delete");
-    deleteButton.addEventListener("click", function () {
-        modalContainer.innerHTML = "";
-        popupModal.classList.remove("preview");
-        getUDpartial('Actors', 'DeleteActor', '@Model.Id');
-    });
-</script>
-<script src="~/js/ownerdashboard.js"></script>
-<script src="~/js/rating-modal.js"></script>*@

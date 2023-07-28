@@ -83,19 +83,27 @@
             </li>
         }
     </ul>
-    @{
-        var user = await _userManager.FindByEmailAsync(User.Identity.Name);
-        var viewModel = new SidebarUserViewModel
-            {
-                Name = $"{user.FirstName} {user.LastName}",
-                ImageUrl = user.ProfilePictureUrl
-            };
-        await Html.RenderPartialAsync("_ProfileInfoPartial", viewModel);
-    }
+    <div id="sidebar-container" style="position: fixed;
+    bottom: 0;">
+    </div>
 </div>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
+    $.ajax({
+        type: "GET",
+        url: `/Layout/GetSidebar`,
+        data: {},
+        success: function (response) {
+            $("#sidebar-container").html(response);
+        },
+        failure: function (response) {
+            alert(response.responseText);
+        },
+        error: function (response) {
+            alert(response.responseText);
+        }
+    });
     $(function () {
         // this will get the full URL at the address bar
         var url = window.location.href;

@@ -7,16 +7,8 @@
 <link href="~/css/cinemas.css" rel="stylesheet" />
 <link href="~/lib/toastr/toastr.css" rel="stylesheet" />
 <link href="~/css/ratingmodal.css" rel="stylesheet" />
+<partial name="_CinemaNavbarPartial" />
 <div class="main-cinema-container">
-    <nav>
-        <div class="col-xl-12 d-flex justify-content-between align-items-center">
-            <a id="logo-link" href="#">
-            </a>
-            <div class="">
-                asdasd
-            </div>
-        </div>
-    </nav>
     <div class="movie movie-details d-flex justify-content-center align-items-start gap-3 text-white">
         <img src="~/client-images/Movies/@Model.ImageUrl" />
         <div class="movie-details-container d-flex flex-column gap-3 text-white">
@@ -47,10 +39,10 @@
                 $("#results-container").html(response);
             },
             failure: function (response) {
-                alert(response.responseText);
+                window.location = '/Error/statuscode=403';
             },
             error: function (response) {
-                alert(response.responseText);
+                window.location = '/Error/statuscode=403';
             }
         });
     }

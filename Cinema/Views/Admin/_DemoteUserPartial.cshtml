@@ -3,33 +3,18 @@
 <div class="delete-cinema-form d-flex justify-content-center align-items-center">
     <div class="delete-text d-flex flex-column">
         <h5>Are you sure you want to demote this user?</h5>
-        <div class="form-group">
-            <div class="active-form flex-column align-items-start">
-                <div class="user-container">
-                    <i class="fa-solid fa-film input-icon"></i>
-                    <span class="px-2">@Model.FullName</span>
+        <form asp-controller="Admin" asp-action="DemoteUser" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <div class="active-form flex-column align-items-start">
+                    <div class="user-container">
+                        <i class="fa-solid fa-film input-icon"></i>
+                        <span class="px-2">@Model.FullName</span>
+                    </div>
+                    <span class="px-2">(@Model.UserName)</span>
                 </div>
-                <span class="px-2">(@Model.UserName)</span>
             </div>
-        </div>
-        <button type="button" class="app-content-headerButton bg-danger" onclick="demote()">Demote</button>
+            <button type="submit" class="app-content-headerButton bg-danger" asp-controller="Admin" asp-action="DemoteUser">Demote</button>
+        </form>
     </div>
 </div>
-<script>
-    function demote() {
-        $.ajax({
-            type: "POST",
-            url: `/Admin/DemoteUser`,
-            data: { id: '@Model.Id' },
-            success: function (response) {
-                window.location.href = response.redirectToUrl;
-            },
-            failure: function (response) {
-                alert(response.responseText);
-            },
-            error: function (response) {
-                alert(response.responseText);
-            }
-        });
-    }
-</script>

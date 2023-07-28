@@ -15,15 +15,17 @@ namespace Cinema.Core.Services
         private readonly CinemaDbContext _context;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly ILogService _logger;
-        public ActorsService(CinemaDbContext context, IWebHostEnvironment webHostEnvironment, ILogService logger)
+        private readonly IImageService _imageService;
+        public ActorsService(CinemaDbContext context, IWebHostEnvironment webHostEnvironment, ILogService logger, IImageService imageService)
         {
             _context = context;
             _webHostEnvironment = webHostEnvironment;
             _logger = logger;
+            _imageService = imageService;
         }
         public async Task AddActorAsync(CreateActorViewModel? viewModel)
         {
-            string photoName = GlobalMethods.UploadPhoto("Actors", viewModel.Image, _webHostEnvironment);
+            string photoName = await _imageService.UploadPhotoAsync("Actors", viewModel.Image);
             Actor actor = new Actor
             {
                 Birthdate = viewModel.Birthdate.Value,
@@ -41,7 +43,7 @@ namespace Cinema.Core.Services
         {
             var actor = await _context.Actors.FindAsync(id);
             _context.Actors.Remove(actor);
-            await GlobalMethods.DeleteImage("Actors", actor.ImageUrl, _context, _webHostEnvironment);
+            await _imageService.DeleteImageAsync("Actors", actor.ImageUrl);
             await _context.SaveChangesAsync();
             await _logger.LogActionAsync(UserActionType.Delete, LogMessages.DeleteEntityMessage, "actor", actor.FullName, $"({actor.Nationality})");
         }
@@ -49,7 +51,7 @@ namespace Cinema.Core.Services
         public async Task EditActorAsync(EditActorViewModel viewModel)
         {
             var actor = await _context.Actors.FirstOrDefaultAsync(i => i.Id == viewModel.Id);
-            string photoName = GlobalMethods.UploadPhoto("Actors", viewModel.Image, _webHostEnvironment);
+            string photoName = await _imageService.UploadPhotoAsync("Actors", viewModel.Image);
             actor.FullName = viewModel.FullName;
             actor.Birthdate = viewModel.Birthdate;
             actor.Rating = viewModel.Rating;

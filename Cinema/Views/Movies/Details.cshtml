@@ -146,15 +146,15 @@
     $.ajax({
         type: "GET",
         url: `/Owners/GetCinemasContainingMovie`,
-        data: { movieId: '@Model.MovieId', userEmail: '@User.Identity.Name' },
+        data: { movieId: '@Model.MovieId' },
         success: function (response) {
             $("#results-container").html(response);
         },
         failure: function (response) {
-            alert(response.responseText);
+            window.location = '/Error/statuscode=403';
         },
         error: function (response) {
-            alert(response.responseText);
+            window.location = '/Error/statuscode=403';
         }
     });
 </script>

@@ -1,4 +1,6 @@
-﻿<div id="sticky-wrapper" class="sticky-wrapper" style="height: 10vh;">
+﻿@inject Microsoft.AspNetCore.Identity.UserManager<Cinema.Data.Models.ApplicationUser> _userManager
+
+<div id="sticky-wrapper" class="sticky-wrapper" style="height: 10vh;">
     <nav class="navbar navbar-expand-lg justify-content-center">
         <div class="container">
             <a class="navbar-brand text-white" asp-controller="Home" asp-action="Index">
@@ -39,6 +41,14 @@
                             </ul>
                         </li>
                     </ul>
+                    <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                        </li>
+                    </ul>
                 </div>
             }
             else
@@ -68,8 +78,7 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="your-cinemas" role="button" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
 
                                 <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="your-cinemas">
-                                   @* <li><a class="dropdown-item" asp-controller="Customer" asp-action="Profile">Profile</a></li>*@
-
+                                    <li><a class="dropdown-item" asp-controller="Customer" asp-action="ChangeProfilePicture">Change profile picture</a></li>
                                     <li><a class="dropdown-item" asp-controller="Customer" asp-action="ChangePassword">Change password</a></li>
                                 </ul>
                             </li>
@@ -81,8 +90,11 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="d-flex flex-column align-items-center">
-                        <img id="profile-picture" style="width: 100px;" src="~/client-images/defaults/man-avatar-profile-picture-vector-illustration_268834-538-removebg-preview.png" />
+                    <div class="d-flex flex-column align-items-center position-absolute" style="right: 2vw;">
+                        @{
+                            var user = await _userManager.FindByEmailAsync(User.Identity.Name);
+                        }
+                        <img id="profile-picture" src="~/client-images/Users/@user.ProfilePictureUrl" class="circle-image"/>
                         @* <a class="text-white" href="#">Your account</a>*@
                     </div>
                 }

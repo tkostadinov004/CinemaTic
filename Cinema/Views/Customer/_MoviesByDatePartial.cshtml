@@ -3,7 +3,7 @@
 @foreach (var movie in Model)
 {
     <div class="movie d-flex gap-5">
-        <div class="movie-poster position-relative">
+        <div class="movie-poster open-popup-btn position-relative" id="@movie.TrailerId">
             <img src="~/client-images/Movies/@movie.ImageUrl" />
             @if (string.IsNullOrEmpty(movie.TrailerId) == false)
             {
@@ -28,18 +28,8 @@
         </div>
     </div>
 }
-<div class="rating-container">
-    <div style="height: 90%;
-    width: 90%;z-index: 30;" id="modal" role="dialog" aria-modal="true" aria-labelledby="add-review-header" class="edit-modal">
-        <button class="close-btn" aria-label="close" title="Close" style="z-index: 30;">x</button>
-        <div id="review-form-container" class="d-flex justify-content-center align-items-center position-relative w-100 h-100">
-            <iframe id="youtube-container" class="w-100 h-100 pt-5" src="" title="YouTube video player" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-    </div>
-    <div class="modal-overlay"></div>
-</div>
 <script>
-    document.querySelectorAll('.trailer-play-button').forEach(i => i.addEventListener("click", function () {
+    document.querySelectorAll('.movie-poster, .trailer-play-button').forEach(i => i.addEventListener("click", function () {
         document.getElementById('youtube-container').setAttribute('src', `https://www.youtube-nocookie.com/embed/${i.id}?hd=1&amp;wmode=opaque&amp;controls=1&amp;showinfo=0&amp;autoplay=1&amp;autoplay=1`);
     }));
     document.querySelectorAll('.close-btn, .modal-overlay').forEach(i => i.addEventListener("click", function () {

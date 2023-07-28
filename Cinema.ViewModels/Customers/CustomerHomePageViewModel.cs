@@ -9,5 +9,6 @@ namespace Cinema.ViewModels.Customers
     public class CustomerHomePageViewModel
     {
         public IEnumerable<CustomerCinemaViewModel> Cinemas { get; set; }
+        public string FullName { get; set; }
     }
 }

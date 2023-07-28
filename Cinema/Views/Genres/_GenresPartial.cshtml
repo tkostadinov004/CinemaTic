@@ -26,10 +26,10 @@
                 $("#genre-movie-results-container").html(response);
             },
             failure: function (response) {
-                alert(response.responseText);
+                window.location = '/Error/statuscode=403';
             },
             error: function (response) {
-                alert(response.responseText);
+                window.location = '/Error/statuscode=403';
             }
         });
     }));

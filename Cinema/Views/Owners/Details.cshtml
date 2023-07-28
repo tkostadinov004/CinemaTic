@@ -170,16 +170,16 @@
         $.ajax({
             type: "GET",
             url: `/Owners/GenerateCustomPagePreview`,
-            data: { userEmail: '@User.Identity.Name', cinemaId: '@Model.Id' },
+            data: { cinemaId: '@Model.Id' },
             success: function (response) {
                // $("#review-form-container").html(response);
-               location.href = '/Owners/GenerateCustomPagePreview?userEmail=@User.Identity.Name&cinemaId=@Model.Id'
+               location.href = '/Owners/GenerateCustomPagePreview?cinemaId=@Model.Id'
             },
             failure: function (response) {
-                alert(response.responseText);
+                window.location = '/Error/statuscode=403';
             },
             error: function (response) {
-                alert(response.responseText);
+                window.location = '/Error/statuscode=403';
             }
         });
     });
