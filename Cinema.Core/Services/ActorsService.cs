@@ -133,7 +133,7 @@ namespace Cinema.Core.Services
             if (string.IsNullOrEmpty(filterValue) == false && filterValue != "-Select a cinema-")
             {
                 var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == int.Parse(filterValue));
-                actors = actors.Where(i => i.Movies.Contains(movie));
+                actors = actors.Where(i => i.Movies.Any(m => m.MovieId == movie.Id));
             }
             if (string.IsNullOrEmpty(sortBy) == false)
             {
@@ -193,17 +193,17 @@ namespace Cinema.Core.Services
 
         public async Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByActor(string searchText, int actorId)
         {
-            var actor = await _context.Actors.Include(i => i.Movies).ThenInclude(i => i.Genre)
+            var actor = await _context.Actors.Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.Genre)
                 .FirstOrDefaultAsync(i => i.Id == actorId);
 
             var movies = actor.Movies.Select(i => new MovieInfoCardViewModel
             {
-                Id = i.Id,
-                Name = i.Title,
-                ImageUrl = i.ImageUrl,
-                AverageRating = i.UserRating.Value,
-                Genre = i.Genre.Name,
-                RatingCount = i.RatingCount
+                Id = i.Movie.Id,
+                Name = i.Movie.Title,
+                ImageUrl = i.Movie.ImageUrl,
+                AverageRating = i.Movie.UserRating.Value,
+                Genre = i.Movie.Genre.Name,
+                RatingCount = i.Movie.RatingCount
             });
             if (string.IsNullOrEmpty(searchText) == false)
             {

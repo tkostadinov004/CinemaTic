@@ -12,7 +12,12 @@ namespace Cinema.Data.Models
         {
             Movies = new List<Movie>();
         }
-
+        public Genre(int id, string name)
+        {
+            Id = id;
+            Name = name;
+            Movies = new List<Movie>();
+        }
         [Key]
         public int Id { get; set; }
 

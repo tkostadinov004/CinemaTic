@@ -10,6 +10,28 @@ namespace Cinema.Data.Models
 {
     public class Cinema
     {
+        public Cinema()
+        {
+
+        }
+        public Cinema(int id, string accentColor, ApprovalStatus approvalStatus, string backgroundColor, string boardColor, string buttonBackgroundColor, string buttonTextColor, string description, DateTime foundedOn, string imageUrl, string name, string ownerId, int seatCols, int seatRows, string textColor)
+        {
+            Id = id;
+            AccentColor = accentColor;
+            ApprovalStatus = approvalStatus;
+            BackgroundColor = backgroundColor;
+            BoardColor = boardColor;
+            ButtonBackgroundColor = buttonBackgroundColor;
+            ButtonTextColor = buttonTextColor;
+            Description = description;
+            FoundedOn = foundedOn;
+            ImageUrl = imageUrl;
+            Name = name;
+            OwnerId = ownerId;
+            SeatCols = seatCols;
+            SeatRows = seatRows;
+            TextColor = textColor;
+        }
         [Key]
         public int Id { get; set; }
         [Required]

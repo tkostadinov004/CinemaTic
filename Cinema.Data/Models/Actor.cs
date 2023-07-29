@@ -10,8 +10,19 @@ namespace Cinema.Data.Models
     {
         public Actor()
         {
-            Movies = new List<Movie>();
+            Movies = new List<ActorMovie>();
         }
+        public Actor(int id, DateTime birthdate, string fullName, string? imageUrl, string nationality, decimal rating)
+        {
+            Id = id;
+            Birthdate = birthdate;
+            FullName = fullName;
+            ImageUrl = imageUrl;
+            Nationality = nationality;
+            Rating = rating;
+            Movies = new List<ActorMovie>();
+        }
+
         [Key]
         public int Id { get; set; }
         [Required(ErrorMessage = "Enter a full name!"), MaxLength(100)]
@@ -29,6 +40,6 @@ namespace Cinema.Data.Models
         [Display(Name = "Image")]
         public string? ImageUrl { get; set; }
         [Display(Name = "Movies")]
-        public virtual ICollection<Movie> Movies { get; set; }
+        public virtual ICollection<ActorMovie> Movies { get; set; }
     }
 }

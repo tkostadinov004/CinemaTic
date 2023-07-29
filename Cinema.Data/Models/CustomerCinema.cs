@@ -8,6 +8,15 @@ namespace Cinema.Data.Models
 {
     public class CustomerCinema
     {
+        public CustomerCinema()
+        {
+            
+        }
+        public CustomerCinema(int cinemaId, string customerId)
+        {
+            CinemaId = cinemaId;
+            CustomerId = customerId;
+        }
         public string CustomerId { get; set; }
         public ApplicationUser Customer { get; set; }
         public int CinemaId { get; set; }

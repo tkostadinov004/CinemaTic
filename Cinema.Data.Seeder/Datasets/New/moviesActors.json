@@ -1,0 +1,4090 @@
+[
+  {
+    "Title": "The Shawshank Redemption",
+    "Year": "1994",
+    "Rated": "R",
+    "Released": "14 Oct 1994",
+    "Runtime": "142 min",
+    "Genre": "Drama",
+    "Director": "Frank Darabont",
+    "Writer": "Stephen King, Frank Darabont",
+    "Actors": "Tim Robbins, Morgan Freeman, Bob Gunton",
+    "Plot": "Chronicles the experiences of a formerly successful banker as a prisoner in the gloomy jailhouse of Shawshank after being found guilty of a crime he did not commit. The film portrays the man's unique way of dealing with his new, torturous life; along the way he befriends a number of fellow prisoners, most notably a wise long-term inmate named Red.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Nominated for 7 Oscars. 21 wins & 42 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "9.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "91%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "82/100"
+      }
+    ],
+    "Metascore": "82",
+    "imdbRating": "9.3",
+    "imdbVotes": "2,773,480",
+    "imdbID": "tt0111161",
+    "Type": "movie",
+    "DVD": "21 Dec 1999",
+    "BoxOffice": "$28,767,189",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=NmzuHjWmXOc&t=5s"
+  },
+  {
+    "Title": "The Godfather",
+    "Year": "1972",
+    "Rated": "R",
+    "Released": "24 Mar 1972",
+    "Runtime": "175 min",
+    "Genre": "Crime, Drama",
+    "Director": "Francis Ford Coppola",
+    "Writer": "Mario Puzo, Francis Ford Coppola",
+    "Actors": "Marlon Brando, Al Pacino, James Caan",
+    "Plot": "The Godfather \"Don\" Vito Corleone is the head of the Corleone mafia family in New York. He is at the event of his daughter's wedding. Michael, Vito's youngest son and a decorated WW II Marine is also present at the wedding. Michael seems to be uninterested in being a part of the family business. Vito is a powerful man, and is kind to all those who give him respect but is ruthless against those who do not. But when a powerful and treacherous rival wants to sell drugs and needs the Don's influence for the same, Vito refuses to do it. What follows is a clash between Vito's fading old values and the new ways which may cause Michael to do the thing he was most reluctant in doing and wage a mob war against all the other mafia families which could tear the Corleone family apart.",
+    "Language": "English, Italian, Latin",
+    "Country": "United States",
+    "Awards": "Won 3 Oscars. 30 wins & 30 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "9.2/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "97%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "100/100"
+      }
+    ],
+    "Metascore": "100",
+    "imdbRating": "9.2",
+    "imdbVotes": "1,920,817",
+    "imdbID": "tt0068646",
+    "Type": "movie",
+    "DVD": "11 May 2004",
+    "BoxOffice": "$136,381,073",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=sY1S34973zA&t=33s"
+  },
+  {
+    "Title": "The Godfather Part II",
+    "Year": "1974",
+    "Rated": "R",
+    "Released": "18 Dec 1974",
+    "Runtime": "202 min",
+    "Genre": "Crime, Drama",
+    "Director": "Francis Ford Coppola",
+    "Writer": "Francis Ford Coppola, Mario Puzo",
+    "Actors": "Al Pacino, Robert De Niro, Robert Duvall",
+    "Plot": "The continuing saga of the Corleone crime family tells the story of a young Vito Corleone growing up in Sicily and in 1910s New York; and follows Michael Corleone in the 1950s as he attempts to expand the family business into Las Vegas, Hollywood and Cuba.",
+    "Language": "English, Italian, Spanish, Latin, Sicilian",
+    "Country": "United States",
+    "Awards": "Won 6 Oscars. 17 wins & 21 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "9.0/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "96%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "90/100"
+      }
+    ],
+    "Metascore": "90",
+    "imdbRating": "9.0",
+    "imdbVotes": "1,307,220",
+    "imdbID": "tt0071562",
+    "Type": "movie",
+    "DVD": "24 May 2005",
+    "BoxOffice": "$47,834,595",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=9O1Iy9od7-A"
+  },
+  {
+    "Title": "Pulp Fiction",
+    "Year": "1994",
+    "Rated": "R",
+    "Released": "14 Oct 1994",
+    "Runtime": "154 min",
+    "Genre": "Crime, Drama",
+    "Director": "Quentin Tarantino",
+    "Writer": "Quentin Tarantino, Roger Avary",
+    "Actors": "John Travolta, Uma Thurman, Samuel L. Jackson",
+    "Plot": "Jules Winnfield (Samuel L. Jackson) and Vincent Vega (John Travolta) are two hit men who are out to retrieve a suitcase stolen from their employer, mob boss Marsellus Wallace (Ving Rhames). Wallace has also asked Vincent to take his wife Mia (Uma Thurman) out a few days later when Wallace himself will be out of town. Butch Coolidge (Bruce Willis) is an aging boxer who is paid by Wallace to lose his fight. The lives of these seemingly unrelated people are woven together comprising of a series of funny, bizarre and uncalled-for incidents.",
+    "Language": "English, Spanish, French",
+    "Country": "United States",
+    "Awards": "Won 1 Oscar. 69 wins & 72 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.9/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "92%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "95/100"
+      }
+    ],
+    "Metascore": "95",
+    "imdbRating": "8.9",
+    "imdbVotes": "2,119,201",
+    "imdbID": "tt0110912",
+    "Type": "movie",
+    "DVD": "20 Aug 2002",
+    "BoxOffice": "$107,928,762",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=s7EdQ4FqbhY"
+  },
+  {
+    "Title": "The Good, the Bad and the Ugly",
+    "Year": "1966",
+    "Rated": "Approved",
+    "Released": "29 Dec 1967",
+    "Runtime": "178 min",
+    "Genre": "Adventure, Western",
+    "Director": "Sergio Leone",
+    "Writer": "Luciano Vincenzoni, Sergio Leone, Agenore Incrocci",
+    "Actors": "Clint Eastwood, Eli Wallach, Lee Van Cleef",
+    "Plot": "Blondie, The Good (Clint Eastwood), is a professional gunslinger who is out trying to earn a few dollars. Angel Eyes, The Bad (Lee Van Cleef), is a hitman who always commits to a task and sees it through--as long as he's paid to do so. And Tuco, The Ugly (Eli Wallach), is a wanted outlaw trying to take care of his own hide. Tuco and Blondie share a partnership making money off of Tuco's bounty, but when Blondie unties the partnership, Tuco tries to hunt down Blondie. When Blondie and Tuco come across a horse carriage loaded with dead bodies, they soon learn from the only survivor, Bill Carson (Antonio Casale), that he and a few other men have buried a stash of gold in a cemetery. Unfortunately, Carson dies and Tuco only finds out the name of the cemetery, while Blondie finds out the name on the grave. Now the two must keep each other alive in order to find the gold. Angel Eyes (who had been looking for Bill Carson) discovers that Tuco and Blondie met with Carson and knows they know where the gold is; now he needs them to lead him to it. Now The Good, the Bad, and the Ugly must all battle it out to get their hands on $200,000.00 worth of gold.",
+    "Language": "Italian, English",
+    "Country": "Italy, Spain, West Germany",
+    "Awards": "2 wins & 5 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNjJlYmNkZGItM2NhYy00MjlmLTk5NmQtNjg1NmM2ODU4OTMwXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.8/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "97%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "90/100"
+      }
+    ],
+    "Metascore": "90",
+    "imdbRating": "8.8",
+    "imdbVotes": "780,518",
+    "imdbID": "tt0060196",
+    "Type": "movie",
+    "DVD": "07 Nov 2006",
+    "BoxOffice": "$25,100,000",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=WCN5JJY_wiA"
+  },
+  {
+    "Title": "The Dark Knight",
+    "Year": "2008",
+    "Rated": "PG-13",
+    "Released": "18 Jul 2008",
+    "Runtime": "152 min",
+    "Genre": "Action, Crime, Drama",
+    "Director": "Christopher Nolan",
+    "Writer": "Jonathan Nolan, Christopher Nolan, David S. Goyer",
+    "Actors": "Christian Bale, Heath Ledger, Aaron Eckhart",
+    "Plot": "Set within a year after the events of Batman Begins (2005), Batman, Lieutenant James Gordon, and new District Attorney Harvey Dent successfully begin to round up the criminals that plague Gotham City, until a mysterious and sadistic criminal mastermind known only as \"The Joker\" appears in Gotham, creating a new wave of chaos. Batman's struggle against The Joker becomes deeply personal, forcing him to \"confront everything he believes\" and improve his technology to stop him. A love triangle develops between Bruce Wayne, Dent, and Rachel Dawes.",
+    "Language": "English, Mandarin",
+    "Country": "United States, United Kingdom",
+    "Awards": "Won 2 Oscars. 162 wins & 164 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "9.0/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "94%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "84/100"
+      }
+    ],
+    "Metascore": "84",
+    "imdbRating": "9.0",
+    "imdbVotes": "2,733,700",
+    "imdbID": "tt0468569",
+    "Type": "movie",
+    "DVD": "09 Dec 2008",
+    "BoxOffice": "$534,987,076",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=EXeTwQWrcwY"
+  },
+  {
+    "Title": "12 Angry Men",
+    "Year": "1957",
+    "Rated": "Approved",
+    "Released": "10 Apr 1957",
+    "Runtime": "96 min",
+    "Genre": "Crime, Drama",
+    "Director": "Sidney Lumet",
+    "Writer": "Reginald Rose",
+    "Actors": "Henry Fonda, Lee J. Cobb, Martin Balsam",
+    "Plot": "The defense and the prosecution have rested, and the jury is filing into the jury room to decide if a young man is guilty or innocent of murdering his father. What begins as an open-and-shut case of murder soon becomes a detective story that presents a succession of clues creating doubt, and a mini-drama of each of the jurors' prejudices and preconceptions about the trial, the accused, AND each other. Based on the play, all of the action takes place on the stage of the jury room.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Nominated for 3 Oscars. 16 wins & 12 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "9.0/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "100%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "97/100"
+      }
+    ],
+    "Metascore": "97",
+    "imdbRating": "9.0",
+    "imdbVotes": "822,198",
+    "imdbID": "tt0050083",
+    "Type": "movie",
+    "DVD": "04 Mar 2008",
+    "BoxOffice": "N/A",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=TEN-2uTi2c0"
+  },
+  {
+    "Title": "Schindler's List",
+    "Year": "1993",
+    "Rated": "R",
+    "Released": "04 Feb 1994",
+    "Runtime": "195 min",
+    "Genre": "Biography, Drama, History",
+    "Director": "Steven Spielberg",
+    "Writer": "Thomas Keneally, Steven Zaillian",
+    "Actors": "Liam Neeson, Ralph Fiennes, Ben Kingsley",
+    "Plot": "Oskar Schindler is a vain and greedy German businessman who becomes an unlikely humanitarian amid the barbaric German Nazi reign when he feels compelled to turn his factory into a refuge for Jews. Based on the true story of Oskar Schindler who managed to save about 1100 Jews from being gassed at the Auschwitz concentration camp, it is a testament to the good in all of us.",
+    "Language": "English, Hebrew, German, Polish, Latin",
+    "Country": "United States",
+    "Awards": "Won 7 Oscars. 91 wins & 49 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "9.0/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "98%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "95/100"
+      }
+    ],
+    "Metascore": "95",
+    "imdbRating": "9.0",
+    "imdbVotes": "1,390,913",
+    "imdbID": "tt0108052",
+    "Type": "movie",
+    "DVD": "12 Feb 2008",
+    "BoxOffice": "$96,898,818",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=gG22XNhtnoY"
+  },
+  {
+    "Title": "The Lord of the Rings: The Return of the King",
+    "Year": "2003",
+    "Rated": "PG-13",
+    "Released": "17 Dec 2003",
+    "Runtime": "201 min",
+    "Genre": "Action, Adventure, Drama",
+    "Director": "Peter Jackson",
+    "Writer": "J.R.R. Tolkien, Fran Walsh, Philippa Boyens",
+    "Actors": "Elijah Wood, Viggo Mortensen, Ian McKellen",
+    "Plot": "The final confrontation between the forces of good and evil fighting for control of the future of Middle-earth. Frodo and Sam reach Mordor in their quest to destroy the One Ring, while Aragorn leads the forces of good against Sauron's evil army at the stone city of Minas Tirith.",
+    "Language": "English, Quenya, Old English, Sindarin",
+    "Country": "New Zealand, United States",
+    "Awards": "Won 11 Oscars. 213 wins & 124 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "9.0/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "93%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "94/100"
+      }
+    ],
+    "Metascore": "94",
+    "imdbRating": "9.0",
+    "imdbVotes": "1,895,028",
+    "imdbID": "tt0167260",
+    "Type": "movie",
+    "DVD": "25 May 2004",
+    "BoxOffice": "$379,427,292",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=r5X-hFf6Bwo"
+  },
+  {
+    "Title": "Fight Club",
+    "Year": "1999",
+    "Rated": "R",
+    "Released": "15 Oct 1999",
+    "Runtime": "139 min",
+    "Genre": "Drama",
+    "Director": "David Fincher",
+    "Writer": "Chuck Palahniuk, Jim Uhls",
+    "Actors": "Brad Pitt, Edward Norton, Meat Loaf",
+    "Plot": "A nameless first person narrator (Edward Norton) attends support groups in attempt to subdue his emotional state and relieve his insomniac state. When he meets Marla (Helena Bonham Carter), another fake attendee of support groups, his life seems to become a little more bearable. However when he associates himself with Tyler (Brad Pitt) he is dragged into an underground fight club and soap making scheme. Together the two men spiral out of control and engage in competitive rivalry for love and power.",
+    "Language": "English",
+    "Country": "Germany, United States",
+    "Awards": "Nominated for 1 Oscar. 12 wins & 38 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMmEzNTkxYjQtZTc0MC00YTVjLTg5ZTEtZWMwOWVlYzY0NWIwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.8/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "79%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "67/100"
+      }
+    ],
+    "Metascore": "67",
+    "imdbRating": "8.8",
+    "imdbVotes": "2,208,722",
+    "imdbID": "tt0137523",
+    "Type": "movie",
+    "DVD": "14 Oct 2003",
+    "BoxOffice": "$37,030,102",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=qtRKdVHc-cE"
+  },
+  {
+    "Title": "Star Wars: Episode V - The Empire Strikes Back",
+    "Year": "1980",
+    "Rated": "PG",
+    "Released": "18 Jun 1980",
+    "Runtime": "124 min",
+    "Genre": "Action, Adventure, Fantasy",
+    "Director": "Irvin Kershner",
+    "Writer": "Leigh Brackett, Lawrence Kasdan, George Lucas",
+    "Actors": "Mark Hamill, Harrison Ford, Carrie Fisher",
+    "Plot": "Luke Skywalker, Han Solo, Princess Leia and Chewbacca face attack by the Imperial forces and its AT-AT walkers on the ice planet Hoth. While Han and Leia escape in the Millennium Falcon, Luke travels to Dagobah in search of Yoda. Only with the Jedi Master's help will Luke survive when the Dark Side of the Force beckons him into the ultimate duel with Darth Vader.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Won 1 Oscar. 26 wins & 20 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.7/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "94%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "82/100"
+      }
+    ],
+    "Metascore": "82",
+    "imdbRating": "8.7",
+    "imdbVotes": "1,326,943",
+    "imdbID": "tt0080684",
+    "Type": "movie",
+    "DVD": "21 Sep 2004",
+    "BoxOffice": "$292,753,960",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=JNwNXF9Y6kY"
+  },
+  {
+    "Title": "The Lord of the Rings: The Fellowship of the Ring",
+    "Year": "2001",
+    "Rated": "PG-13",
+    "Released": "19 Dec 2001",
+    "Runtime": "178 min",
+    "Genre": "Action, Adventure, Drama",
+    "Director": "Peter Jackson",
+    "Writer": "J.R.R. Tolkien, Fran Walsh, Philippa Boyens",
+    "Actors": "Elijah Wood, Ian McKellen, Orlando Bloom",
+    "Plot": "An ancient Ring thought lost for centuries has been found, and through a strange twist of fate has been given to a small Hobbit named Frodo. When Gandalf discovers the Ring is in fact the One Ring of the Dark Lord Sauron, Frodo must make an epic quest to the Cracks of Doom in order to destroy it. However, he does not go alone. He is joined by Gandalf, Legolas the elf, Gimli the Dwarf, Aragorn, Boromir, and his three Hobbit friends Merry, Pippin, and Samwise. Through mountains, snow, darkness, forests, rivers and plains, facing evil and danger at every corner the Fellowship of the Ring must go. Their quest to destroy the One Ring is the only hope for the end of the Dark Lords reign.",
+    "Language": "English, Sindarin",
+    "Country": "New Zealand, United States",
+    "Awards": "Won 4 Oscars. 123 wins & 127 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.8/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "91%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "92/100"
+      }
+    ],
+    "Metascore": "92",
+    "imdbRating": "8.8",
+    "imdbVotes": "1,923,743",
+    "imdbID": "tt0120737",
+    "Type": "movie",
+    "DVD": "06 Aug 2002",
+    "BoxOffice": "$316,115,420",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=V75dMMIW2B4"
+  },
+  {
+    "Title": "One Flew Over the Cuckoo's Nest",
+    "Year": "1975",
+    "Rated": "R",
+    "Released": "19 Nov 1975",
+    "Runtime": "133 min",
+    "Genre": "Drama",
+    "Director": "Milos Forman",
+    "Writer": "Lawrence Hauben, Bo Goldman, Ken Kesey",
+    "Actors": "Jack Nicholson, Louise Fletcher, Michael Berryman",
+    "Plot": "McMurphy has a criminal past and has once again gotten himself into trouble and is sentenced by the court. To escape labor duties in prison, McMurphy pleads insanity and is sent to a ward for the mentally unstable. Once here, McMurphy both endures and stands witness to the abuse and degradation of the oppressive Nurse Ratched, who gains superiority and power through the flaws of the other inmates. McMurphy and the other inmates band together to make a rebellious stance against the atrocious Nurse.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Won 5 Oscars. 38 wins & 15 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZjA0OWVhOTAtYWQxNi00YzNhLWI4ZjYtNjFjZTEyYjJlNDVlL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.7/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "93%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "84/100"
+      }
+    ],
+    "Metascore": "84",
+    "imdbRating": "8.7",
+    "imdbVotes": "1,036,048",
+    "imdbID": "tt0073486",
+    "Type": "movie",
+    "DVD": "16 Dec 1997",
+    "BoxOffice": "$108,981,275",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=OXrcDonY-B8"
+  },
+  {
+    "Title": "Inception",
+    "Year": "2010",
+    "Rated": "PG-13",
+    "Released": "16 Jul 2010",
+    "Runtime": "148 min",
+    "Genre": "Action, Adventure, Sci-Fi",
+    "Director": "Christopher Nolan",
+    "Writer": "Christopher Nolan",
+    "Actors": "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page",
+    "Plot": "Dom Cobb is a skilled thief, the absolute best in the dangerous art of extraction, stealing valuable secrets from deep within the subconscious during the dream state, when the mind is at its most vulnerable. Cobb's rare ability has made him a coveted player in this treacherous new world of corporate espionage, but it has also made him an international fugitive and cost him everything he has ever loved. Now Cobb is being offered a chance at redemption. One last job could give him his life back but only if he can accomplish the impossible, inception. Instead of the perfect heist, Cobb and his team of specialists have to pull off the reverse: their task is not to steal an idea, but to plant one. If they succeed, it could be the perfect crime. But no amount of careful planning or expertise can prepare the team for the dangerous enemy that seems to predict their every move. An enemy that only Cobb could have seen coming.",
+    "Language": "English, Japanese, French",
+    "Country": "United States, United Kingdom",
+    "Awards": "Won 4 Oscars. 159 wins & 220 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.8/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "87%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "74/100"
+      }
+    ],
+    "Metascore": "74",
+    "imdbRating": "8.8",
+    "imdbVotes": "2,425,956",
+    "imdbID": "tt1375666",
+    "Type": "movie",
+    "DVD": "07 Dec 2010",
+    "BoxOffice": "$292,587,330",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=YoHD9XEInc0"
+  },
+  {
+    "Title": "Goodfellas",
+    "Year": "1990",
+    "Rated": "R",
+    "Released": "21 Sep 1990",
+    "Runtime": "145 min",
+    "Genre": "Biography, Crime, Drama",
+    "Director": "Martin Scorsese",
+    "Writer": "Nicholas Pileggi, Martin Scorsese",
+    "Actors": "Robert De Niro, Ray Liotta, Joe Pesci",
+    "Plot": "Henry Hill might be a small time gangster, who may have taken part in a robbery with Jimmy Conway and Tommy De Vito, two other gangsters who might have set their sights a bit higher. His two partners could kill off everyone else involved in the robbery, and slowly start to think about climbing up through the hierarchy of the Mob. Henry, however, might be badly affected by his partners' success, but will he consider stooping low enough to bring about the downfall of Jimmy and Tommy?",
+    "Language": "English, Italian",
+    "Country": "United States",
+    "Awards": "Won 1 Oscar. 44 wins & 38 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.7/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "96%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "92/100"
+      }
+    ],
+    "Metascore": "92",
+    "imdbRating": "8.7",
+    "imdbVotes": "1,198,435",
+    "imdbID": "tt0099685",
+    "Type": "movie",
+    "DVD": "22 Aug 1997",
+    "BoxOffice": "$46,909,721",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=2ilzidi_J8Q"
+  },
+  {
+    "Title": "Star Wars: Episode IV - A New Hope",
+    "Year": "1977",
+    "Rated": "PG",
+    "Released": "25 May 1977",
+    "Runtime": "121 min",
+    "Genre": "Action, Adventure, Fantasy",
+    "Director": "George Lucas",
+    "Writer": "George Lucas",
+    "Actors": "Mark Hamill, Harrison Ford, Carrie Fisher",
+    "Plot": "The Imperial Forces, under orders from cruel Darth Vader, hold Princess Leia hostage in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker and Han Solo, captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 and C-3PO to rescue the beautiful princess, help the Rebel Alliance and restore freedom and justice to the Galaxy.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Won 6 Oscars. 65 wins & 31 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BOTA5NjhiOTAtZWM0ZC00MWNhLThiMzEtZDFkOTk2OTU1ZDJkXkEyXkFqcGdeQXVyMTA4NDI1NTQx._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.6/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "93%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "90/100"
+      }
+    ],
+    "Metascore": "90",
+    "imdbRating": "8.6",
+    "imdbVotes": "1,398,922",
+    "imdbID": "tt0076759",
+    "Type": "movie",
+    "DVD": "06 Dec 2005",
+    "BoxOffice": "$460,998,507",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=vZ734NWnAHA"
+  },
+  {
+    "Title": "Seven Samurai",
+    "Year": "1954",
+    "Rated": "Not Rated",
+    "Released": "19 Nov 1956",
+    "Runtime": "207 min",
+    "Genre": "Action, Drama",
+    "Director": "Akira Kurosawa",
+    "Writer": "Akira Kurosawa, Shinobu Hashimoto, Hideo Oguni",
+    "Actors": "Toshirô Mifune, Takashi Shimura, Keiko Tsushima",
+    "Plot": "A veteran samurai, who has fallen on hard times, answers a village's request for protection from bandits. He gathers 6 other samurai to help him, and they teach the townspeople how to defend themselves, and they supply the samurai with three small meals a day. The film culminates in a giant battle when 40 bandits attack the village.",
+    "Language": "Japanese",
+    "Country": "Japan",
+    "Awards": "Nominated for 2 Oscars. 5 wins & 9 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNWQ3OTM4ZGItMWEwZi00MjI5LWI3YzgtNTYwNWRkNmIzMGI5XkEyXkFqcGdeQXVyNDY2MTk1ODk@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.6/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "100%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "98/100"
+      }
+    ],
+    "Metascore": "98",
+    "imdbRating": "8.6",
+    "imdbVotes": "354,235",
+    "imdbID": "tt0047478",
+    "Type": "movie",
+    "DVD": "05 Sep 2006",
+    "BoxOffice": "$318,649",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=wJ1TOratCTo"
+  },
+  {
+    "Title": "Forrest Gump",
+    "Year": "1994",
+    "Rated": "PG-13",
+    "Released": "06 Jul 1994",
+    "Runtime": "142 min",
+    "Genre": "Drama, Romance",
+    "Director": "Robert Zemeckis",
+    "Writer": "Winston Groom, Eric Roth",
+    "Actors": "Tom Hanks, Robin Wright, Gary Sinise",
+    "Plot": "Forrest Gump is a simple man with a low I.Q. but good intentions. He is running through childhood with his best and only friend Jenny. His 'mama' teaches him the ways of life and leaves him to choose his destiny. Forrest joins the army for service in Vietnam, finding new friends called Dan and Bubba, he wins medals, creates a famous shrimp fishing fleet, inspires people to jog, starts a ping-pong craze, creates the smiley, writes bumper stickers and songs, donates to people and meets the president several times. However, this is all irrelevant to Forrest who can only think of his childhood sweetheart Jenny Curran, who has messed up her life. Although in the end all he wants to prove is that anyone can love anyone.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Won 6 Oscars. 50 wins & 74 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.8/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "71%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "82/100"
+      }
+    ],
+    "Metascore": "82",
+    "imdbRating": "8.8",
+    "imdbVotes": "2,148,029",
+    "imdbID": "tt0109830",
+    "Type": "movie",
+    "DVD": "28 Aug 2001",
+    "BoxOffice": "$330,455,270",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=bLvqoHBptjg"
+  },
+  {
+    "Title": "The Matrix",
+    "Year": "1999",
+    "Rated": "R",
+    "Released": "31 Mar 1999",
+    "Runtime": "136 min",
+    "Genre": "Action, Sci-Fi",
+    "Director": "Lana Wachowski, Lilly Wachowski",
+    "Writer": "Lilly Wachowski, Lana Wachowski",
+    "Actors": "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss",
+    "Plot": "Thomas A. Anderson is a man living two lives. By day he is an average computer programmer and by night a hacker known as Neo. Neo has always questioned his reality, but the truth is far beyond his imagination. Neo finds himself targeted by the police when he is contacted by Morpheus, a legendary computer hacker branded a terrorist by the government. As a rebel against the machines, Neo must confront the agents: super-powerful computer programs devoted to stopping Neo and the entire human rebellion.",
+    "Language": "English",
+    "Country": "United States, Australia",
+    "Awards": "Won 4 Oscars. 42 wins & 52 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.7/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "88%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "73/100"
+      }
+    ],
+    "Metascore": "73",
+    "imdbRating": "8.7",
+    "imdbVotes": "1,974,027",
+    "imdbID": "tt0133093",
+    "Type": "movie",
+    "DVD": "15 May 2007",
+    "BoxOffice": "$172,076,928",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=vKQi3bBA1y8"
+  },
+  {
+    "Title": "The Lord of the Rings: The Two Towers",
+    "Year": "2002",
+    "Rated": "PG-13",
+    "Released": "18 Dec 2002",
+    "Runtime": "179 min",
+    "Genre": "Action, Adventure, Drama",
+    "Director": "Peter Jackson",
+    "Writer": "J.R.R. Tolkien, Fran Walsh, Philippa Boyens",
+    "Actors": "Elijah Wood, Ian McKellen, Viggo Mortensen",
+    "Plot": "The continuing quest of Frodo and the Fellowship to destroy the One Ring. Frodo and Sam discover they are being followed by the mysterious Gollum. Aragorn, the Elf archer Legolas, and Gimli the Dwarf encounter the besieged Rohan kingdom, whose once great King Theoden has fallen under Saruman's deadly spell.",
+    "Language": "English, Sindarin, Old English",
+    "Country": "New Zealand, United States",
+    "Awards": "Won 2 Oscars. 130 wins & 138 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZGMxZTdjZmYtMmE2Ni00ZTdkLWI5NTgtNjlmMjBiNzU2MmI5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.8/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "95%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "87/100"
+      }
+    ],
+    "Metascore": "87",
+    "imdbRating": "8.8",
+    "imdbVotes": "1,710,849",
+    "imdbID": "tt0167261",
+    "Type": "movie",
+    "DVD": "26 Aug 2003",
+    "BoxOffice": "$342,952,511",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=LbfMDwc4azU"
+  },
+  {
+    "Title": "City of God",
+    "Year": "2002",
+    "Rated": "R",
+    "Released": "13 Feb 2004",
+    "Runtime": "130 min",
+    "Genre": "Crime, Drama",
+    "Director": "Fernando Meirelles, Kátia Lund",
+    "Writer": "Paulo Lins, Bráulio Mantovani",
+    "Actors": "Alexandre Rodrigues, Leandro Firmino, Matheus Nachtergaele",
+    "Plot": "Brazil, 1960s, City of God. The Tender Trio robs motels and gas trucks. Younger kids watch and learn well...too well. 1970s: Li'l Zé has prospered very well and owns the city. He causes violence and fear as he wipes out rival gangs without mercy. His best friend Bené is the only one to keep him on the good side of sanity. Rocket has watched these two gain power for years, and he wants no part of it. he keeps getting swept up in the madness. All he wants to do is take pictures. 1980s: Things are out of control between the last two remaining gangs...will it ever end? Welcome to the City of God.",
+    "Language": "Portuguese",
+    "Country": "Brazil, France, Germany",
+    "Awards": "Nominated for 4 Oscars. 74 wins & 50 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BOTMwYjc5ZmItYTFjZC00ZGQ3LTlkNTMtMjZiNTZlMWQzNzI5XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.6/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "91%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "79/100"
+      }
+    ],
+    "Metascore": "79",
+    "imdbRating": "8.6",
+    "imdbVotes": "774,077",
+    "imdbID": "tt0317248",
+    "Type": "movie",
+    "DVD": "08 Jun 2004",
+    "BoxOffice": "$7,564,459",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=dcUOO4Itgmw"
+  },
+  {
+    "Title": "Se7en",
+    "Year": "1995",
+    "Rated": "R",
+    "Released": "22 Sep 1995",
+    "Runtime": "127 min",
+    "Genre": "Crime, Drama, Mystery",
+    "Director": "David Fincher",
+    "Writer": "Andrew Kevin Walker",
+    "Actors": "Morgan Freeman, Brad Pitt, Kevin Spacey",
+    "Plot": "A film about two homicide detectives' (Morgan Freeman and Brad Pitt) desperate hunt for a serial killer who justifies his crimes as absolution for the world's ignorance of the Seven Deadly Sins. The movie takes us from the tortured remains of one victim to the next as the sociopathic \"John Doe\" (Kevin Spacey) sermonizes to Detectives Somerset and Mills -- one sin at a time. The sin of Gluttony comes first and the murderer's terrible capacity is graphically demonstrated in the dark and subdued tones characteristic of film noir. The seasoned and cultured but jaded Somerset researches the Seven Deadly Sins in an effort to understand the killer's modus operandi while the bright but green and impulsive Detective Mills (Pitt) scoffs at his efforts to get inside the mind of a killer...",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Nominated for 1 Oscar. 29 wins & 43 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BOTUwODM5MTctZjczMi00OTk4LTg3NWUtNmVhMTAzNTNjYjcyXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.6/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "82%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "65/100"
+      }
+    ],
+    "Metascore": "65",
+    "imdbRating": "8.6",
+    "imdbVotes": "1,704,879",
+    "imdbID": "tt0114369",
+    "Type": "movie",
+    "DVD": "19 Dec 2000",
+    "BoxOffice": "$100,125,643",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=znmZoVkCjpI"
+  },
+  {
+    "Title": "The Silence of the Lambs",
+    "Year": "1991",
+    "Rated": "R",
+    "Released": "14 Feb 1991",
+    "Runtime": "118 min",
+    "Genre": "Crime, Drama, Thriller",
+    "Director": "Jonathan Demme",
+    "Writer": "Thomas Harris, Ted Tally",
+    "Actors": "Jodie Foster, Anthony Hopkins, Lawrence A. Bonney",
+    "Plot": "F.B.I. trainee Clarice Starling (Jodie Foster) works hard to advance her career, while trying to hide or put behind her West Virginia roots, of which if some knew, would automatically classify her as being backward or white trash. After graduation, she aspires to work in the agency's Behavioral Science Unit under the leadership of Jack Crawford (Scott Glenn). While she is still a trainee, Crawford asks her to question Dr. Hannibal Lecter (Sir Anthony Hopkins), a psychiatrist imprisoned, thus far, for eight years in maximum security isolation for being a serial killer who cannibalized his victims. Clarice is able to figure out the assignment is to pick Lecter's brains to help them solve another serial murder case, that of someone coined by the media as \"Buffalo Bill\" (Ted Levine), who has so far killed five victims, all located in the eastern U.S., all young women, who are slightly overweight (especially around the hips), all who were drowned in natural bodies of water, and all who were stripped of large swaths of skin. She also figures that Crawford chose her, as a woman, to be able to trigger some emotional response from Lecter. After speaking to Lecter for the first time, she realizes that everything with him will be a psychological game, with her often having to read between the very cryptic lines he provides. She has to decide how much she will play along, as his request in return for talking to him is to expose herself emotionally to him. The case takes a more dire turn when a sixth victim is discovered, this one from who they are able to retrieve a key piece of evidence, if Lecter is being forthright as to its meaning. A potential seventh victim is high profile Catherine Martin (Brooke Smith), the daughter of Senator Ruth Martin (Diane Baker), which places greater scrutiny on the case as they search for a hopefully still alive Catherine. Who may factor into what happens is Dr. Frederick Chilton (Anthony Heald), the warden at the prison, an opportunist who sees the higher profile with Catherine, meaning a higher profile for himself if he can insert himself successfully into the proceedings.",
+    "Language": "English, Latin",
+    "Country": "United States",
+    "Awards": "Won 5 Oscars. 70 wins & 50 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.6/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "95%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "86/100"
+      }
+    ],
+    "Metascore": "86",
+    "imdbRating": "8.6",
+    "imdbVotes": "1,474,623",
+    "imdbID": "tt0102926",
+    "Type": "movie",
+    "DVD": "21 Aug 2001",
+    "BoxOffice": "$130,742,922",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=W6Mm8Sbe__o"
+  },
+  {
+    "Title": "Once Upon a Time in the West",
+    "Year": "1968",
+    "Rated": "PG-13",
+    "Released": "04 Jul 1969",
+    "Runtime": "165 min",
+    "Genre": "Western",
+    "Director": "Sergio Leone",
+    "Writer": "Sergio Donati, Sergio Leone, Dario Argento",
+    "Actors": "Henry Fonda, Charles Bronson, Claudia Cardinale",
+    "Plot": "Jill McBain travels to the wild frontier, Utah, where she and her new husband planned to settle down, but upon arrival, she finds him and his children dead. There's a lot of land, and potential, but there are also those who want to take it--at any cost. Even if it means killing a man and his kids.",
+    "Language": "Italian, English, Spanish",
+    "Country": "Italy, United States",
+    "Awards": "6 wins & 5 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BODQ3NDExOGYtMzI3Mi00NWRlLTkwNjAtNjc4MDgzZGJiZTA1XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "96%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "82/100"
+      }
+    ],
+    "Metascore": "82",
+    "imdbRating": "8.5",
+    "imdbVotes": "338,446",
+    "imdbID": "tt0064116",
+    "Type": "movie",
+    "DVD": "06 Jun 2014",
+    "BoxOffice": "$5,321,508",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=c8CJ6L0I6W8"
+  },
+  {
+    "Title": "Casablanca",
+    "Year": "1942",
+    "Rated": "PG",
+    "Released": "23 Jan 1943",
+    "Runtime": "102 min",
+    "Genre": "Drama, Romance, War",
+    "Director": "Michael Curtiz",
+    "Writer": "Julius J. Epstein, Philip G. Epstein, Howard Koch",
+    "Actors": "Humphrey Bogart, Ingrid Bergman, Paul Henreid",
+    "Plot": "The story of Rick Blaine, a cynical world-weary ex-patriate who runs a nightclub in Casablanca, Morocco during the early stages of WWII. Despite the pressure he constantly receives from the local authorities, Rick's cafe has become a kind of haven for refugees seeking to obtain illicit letters that will help them escape to America. But when Ilsa, a former lover of Rick's, and her husband, show up to his cafe one day, Rick faces a tough challenge which will bring up unforeseen complications, heartbreak and ultimately an excruciating decision to make.",
+    "Language": "English, French, German, Italian",
+    "Country": "United States",
+    "Awards": "Won 3 Oscars. 13 wins & 9 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BY2IzZGY2YmEtYzljNS00NTM5LTgwMzUtMzM1NjQ4NGI0OTk0XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "99%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "100/100"
+      }
+    ],
+    "Metascore": "100",
+    "imdbRating": "8.5",
+    "imdbVotes": "587,983",
+    "imdbID": "tt0034583",
+    "Type": "movie",
+    "DVD": "17 Nov 1998",
+    "BoxOffice": "$4,219,709",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=MF7JH_54d8c"
+  },
+  {
+    "Title": "The Usual Suspects",
+    "Year": "1995",
+    "Rated": "R",
+    "Released": "16 Aug 1995",
+    "Runtime": "106 min",
+    "Genre": "Crime, Drama, Mystery",
+    "Director": "Bryan Singer",
+    "Writer": "Christopher McQuarrie",
+    "Actors": "Kevin Spacey, Gabriel Byrne, Chazz Palminteri",
+    "Plot": "Following a truck hijack in New York, five criminals are arrested and brought together for questioning. As none of them are guilty, they plan a revenge operation against the police. The operation goes well, but then the influence of a legendary mastermind criminal called Keyser Söze is felt. It becomes clear that each one of them has wronged Söze at some point and must pay back now. The payback job leaves 27 men dead in a boat explosion, but the real question arises now: Who actually is Keyser Söze?",
+    "Language": "English, Hungarian, Spanish, French",
+    "Country": "United States, Germany",
+    "Awards": "Won 2 Oscars. 37 wins & 17 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BYTViNjMyNmUtNDFkNC00ZDRlLThmMDUtZDU2YWE4NGI2ZjVmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "88%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "77/100"
+      }
+    ],
+    "Metascore": "77",
+    "imdbRating": "8.5",
+    "imdbVotes": "1,108,526",
+    "imdbID": "tt0114814",
+    "Type": "movie",
+    "DVD": "02 Sep 2003",
+    "BoxOffice": "$23,341,568",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=Q0eCiCinc4E"
+  },
+  {
+    "Title": "Indiana Jones and the Raiders of the Lost Ark",
+    "Year": "1981",
+    "Rated": "PG",
+    "Released": "12 Jun 1981",
+    "Runtime": "115 min",
+    "Genre": "Action, Adventure",
+    "Director": "Steven Spielberg",
+    "Writer": "Lawrence Kasdan, George Lucas, Philip Kaufman",
+    "Actors": "Harrison Ford, Karen Allen, Paul Freeman",
+    "Plot": "The year is 1936. An archeology professor named Indiana Jones is venturing in the jungles of South America searching for a golden statue. Unfortunately, he sets off a deadly trap but miraculously escapes. Then, Jones hears from a museum curator named Marcus Brody about a biblical artifact called The Ark of the Covenant, which can hold the key to human existence. Jones has to venture to vast places such as Nepal and Egypt to find this artifact. However, he will have to fight his enemy Rene Belloq and a band of Nazis in order to reach it.",
+    "Language": "English, German, Hebrew, Spanish, Arabic, Nepali",
+    "Country": "United States",
+    "Awards": "Won 4 Oscars. 38 wins & 24 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNTU2ODkyY2MtMjU1NC00NjE1LWEzYjgtMWQ3MzRhMTE0NDc0XkEyXkFqcGdeQXVyMjM4MzQ4OTQ@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.4/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "93%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "85/100"
+      }
+    ],
+    "Metascore": "85",
+    "imdbRating": "8.4",
+    "imdbVotes": "997,325",
+    "imdbID": "tt0082971",
+    "Type": "movie",
+    "DVD": "13 May 2008",
+    "BoxOffice": "$248,159,971",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=0xQSIdSRlAk"
+  },
+  {
+    "Title": "Rear Window",
+    "Year": "1954",
+    "Rated": "PG",
+    "Released": "01 Sep 1954",
+    "Runtime": "112 min",
+    "Genre": "Mystery, Thriller",
+    "Director": "Alfred Hitchcock",
+    "Writer": "John Michael Hayes, Cornell Woolrich",
+    "Actors": "James Stewart, Grace Kelly, Wendell Corey",
+    "Plot": "Professional photographer L.B. \"Jeff\" Jefferies breaks his leg while getting an action shot at an auto race. Confined to his New York apartment, he spends his time looking out of the rear window observing the neighbors. He begins to suspect that a man across the courtyard may have murdered his wife. Jeff enlists the help of his high society fashion-consultant girlfriend Lisa Fremont and his visiting nurse Stella to investigate.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Nominated for 4 Oscars. 6 wins & 13 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNGUxYWM3M2MtMGM3Mi00ZmRiLWE0NGQtZjE5ODI2OTJhNTU0XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "98%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "100/100"
+      }
+    ],
+    "Metascore": "100",
+    "imdbRating": "8.5",
+    "imdbVotes": "505,346",
+    "imdbID": "tt0047396",
+    "Type": "movie",
+    "DVD": "07 Sep 2004",
+    "BoxOffice": "$36,764,313",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=m01YktiEZCw"
+  },
+  {
+    "Title": "It's a Wonderful Life",
+    "Year": "1946",
+    "Rated": "PG",
+    "Released": "07 Jan 1947",
+    "Runtime": "130 min",
+    "Genre": "Drama, Family, Fantasy",
+    "Director": "Frank Capra",
+    "Writer": "Frances Goodrich, Albert Hackett, Frank Capra",
+    "Actors": "James Stewart, Donna Reed, Lionel Barrymore",
+    "Plot": "George Bailey has spent his entire life giving of himself to the people of Bedford Falls. He has always longed to travel but never had the opportunity in order to prevent rich skinflint Mr. Potter from taking over the entire town. All that prevents him from doing so is George's modest building and loan company, which was founded by his generous father. But on Christmas Eve, George's Uncle Billy loses the business's $8,000 while intending to deposit it in the bank. Potter finds the misplaced money and hides it from Billy. When the bank examiner discovers the shortage later that night, George realizes that he will be held responsible and sent to jail and the company will collapse, finally allowing Potter to take over the town. Thinking of his wife, their young children, and others he loves will be better off with him dead, he contemplates suicide. But the prayers of his loved ones result in a gentle angel named Clarence coming to earth to help George, with the promise of earning his wings. He shows George what things would have been like if he had never been born.",
+    "Language": "English, French",
+    "Country": "United States",
+    "Awards": "Nominated for 5 Oscars. 7 wins & 6 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZjc4NDZhZWMtNGEzYS00ZWU2LThlM2ItNTA0YzQ0OTExMTE2XkEyXkFqcGdeQXVyNjUwMzI2NzU@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.6/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "94%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "89/100"
+      }
+    ],
+    "Metascore": "89",
+    "imdbRating": "8.6",
+    "imdbVotes": "474,201",
+    "imdbID": "tt0038650",
+    "Type": "movie",
+    "DVD": "13 Jul 2004",
+    "BoxOffice": "$1,483,643",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=iLR3gZrU2Xo"
+  },
+  {
+    "Title": "Psycho",
+    "Year": "1960",
+    "Rated": "R",
+    "Released": "08 Sep 1960",
+    "Runtime": "109 min",
+    "Genre": "Horror, Mystery, Thriller",
+    "Director": "Alfred Hitchcock",
+    "Writer": "Joseph Stefano, Robert Bloch",
+    "Actors": "Anthony Perkins, Janet Leigh, Vera Miles",
+    "Plot": "Phoenix office worker Marion Crane is fed up with the way life has treated her. She has to meet her lover Sam in lunch breaks, and they cannot get married because Sam has to give most of his money away in alimony. One Friday, Marion is trusted to bank forty thousand dollars by her employer. Seeing the opportunity to take the money and start a new life, Marion leaves town and heads towards Sam's California store. Tired after the long drive and caught in a storm, she gets off the main highway and pulls into the Bates Motel. The motel is managed by a quiet young man called Norman who seems to be dominated by his mother.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Nominated for 4 Oscars. 7 wins & 14 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNTQwNDM1YzItNDAxZC00NWY2LTk0M2UtNDIwNWI5OGUyNWUxXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "96%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "97/100"
+      }
+    ],
+    "Metascore": "97",
+    "imdbRating": "8.5",
+    "imdbVotes": "690,896",
+    "imdbID": "tt0054215",
+    "Type": "movie",
+    "DVD": "12 Feb 2014",
+    "BoxOffice": "$32,000,000",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=Wz719b9QUqY"
+  },
+  {
+    "Title": "Léon: The Professional",
+    "Year": "1994",
+    "Rated": "R",
+    "Released": "18 Nov 1994",
+    "Runtime": "110 min",
+    "Genre": "Action, Crime, Drama",
+    "Director": "Luc Besson",
+    "Writer": "Luc Besson",
+    "Actors": "Jean Reno, Gary Oldman, Natalie Portman",
+    "Plot": "After her father, step-mother, step-sister and little brother are killed by her father's employers, the 12-year-old daughter of an abject drug dealer manages to take refuge in the apartment of a professional hitman who at her request teaches her the methods of his job so she can take her revenge on the corrupt DEA agent who ruined her life by killing her beloved brother.",
+    "Language": "English, Italian, French",
+    "Country": "France, United States",
+    "Awards": "5 wins & 16 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BOTgyMWQ0ZWUtN2Q2MS00NmY0LWI3OWMtNjFkMzZlNDZjNTk0XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "74%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "64/100"
+      }
+    ],
+    "Metascore": "64",
+    "imdbRating": "8.5",
+    "imdbVotes": "1,195,163",
+    "imdbID": "tt0110413",
+    "Type": "movie",
+    "DVD": "24 Feb 1998",
+    "BoxOffice": "$19,501,238",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=aNQqoExfQsg"
+  },
+  {
+    "Title": "Sunset Blvd.",
+    "Year": "1950",
+    "Rated": "Passed",
+    "Released": "04 Aug 1950",
+    "Runtime": "110 min",
+    "Genre": "Drama, Film-Noir",
+    "Director": "Billy Wilder",
+    "Writer": "Charles Brackett, Billy Wilder, D.M. Marshman Jr.",
+    "Actors": "William Holden, Gloria Swanson, Erich von Stroheim",
+    "Plot": "In Hollywood of the 50's, the obscure screenplay writer Joe Gillis is not able to sell his work to the studios, is full of debts and is thinking in returning to his hometown to work in an office. While trying to escape from his creditors, he has a flat tire and parks his car in a decadent mansion in Sunset Boulevard. He meets the owner and former silent-movie star Norma Desmond, who lives alone with her butler and driver Max Von Mayerling. Norma is demented and believes she will return to the cinema industry, and is protected and isolated from the world by Max, who was her director and husband in the past and still loves her. Norma proposes Joe to move to the mansion and help her in writing a screenplay for her comeback to the cinema, and the small-time writer becomes her lover and gigolo. When Joe falls in love for the young aspirant writer Betty Schaefer, Norma becomes jealous and completely insane and her madness leads to a tragic end.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Won 3 Oscars. 19 wins & 20 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTU0NTkyNzYwMF5BMl5BanBnXkFtZTgwMDU0NDk5MTI@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.4/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "98%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "94/100"
+      }
+    ],
+    "Metascore": "94",
+    "imdbRating": "8.4",
+    "imdbVotes": "228,451",
+    "imdbID": "tt0043014",
+    "Type": "movie",
+    "DVD": "11 Nov 2008",
+    "BoxOffice": "$299,645",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=_dY0SVxnHjQ"
+  },
+  {
+    "Title": "American History X",
+    "Year": "1998",
+    "Rated": "R",
+    "Released": "20 Nov 1998",
+    "Runtime": "119 min",
+    "Genre": "Crime, Drama",
+    "Director": "Tony Kaye",
+    "Writer": "David McKenna",
+    "Actors": "Edward Norton, Edward Furlong, Beverly D'Angelo",
+    "Plot": "Derek Vineyard is paroled after serving 3 years in prison for brutally killing two black men who tried to break into/steal his truck. Through his brother's, Danny Vineyard, narration, we learn that before going to prison, Derek was a skinhead and the leader of a violent white supremacist gang that committed acts of racial crime throughout L.A. and his actions greatly influenced Danny. Reformed and fresh out of prison, Derek severs contact with the gang and becomes determined to keep Danny from going down the same violent path as he did.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Nominated for 1 Oscar. 4 wins & 15 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZTJhN2FkYWEtMGI0My00YWM4LWI2MjAtM2UwNjY4MTI2ZTQyXkEyXkFqcGdeQXVyNjc3MjQzNTI@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "84%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "62/100"
+      }
+    ],
+    "Metascore": "62",
+    "imdbRating": "8.5",
+    "imdbVotes": "1,146,426",
+    "imdbID": "tt0120586",
+    "Type": "movie",
+    "DVD": "05 Apr 2005",
+    "BoxOffice": "$6,719,864",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=XfQYHqsiN5g"
+  },
+  {
+    "Title": "Apocalypse Now",
+    "Year": "1979",
+    "Rated": "R",
+    "Released": "15 Aug 1979",
+    "Runtime": "147 min",
+    "Genre": "Drama, Mystery, War",
+    "Director": "Francis Ford Coppola",
+    "Writer": "John Milius, Francis Ford Coppola, Michael Herr",
+    "Actors": "Martin Sheen, Marlon Brando, Robert Duvall",
+    "Plot": "It is the height of the war in Vietnam, and U.S. Army Captain Willard is sent by Colonel Lucas and a General to carry out a mission that, officially, 'does not exist - nor will it ever exist'. The mission: To seek out a mysterious Green Beret Colonel, Walter Kurtz, whose army has crossed the border into Cambodia and is conducting hit-and-run missions against the Viet Cong and NVA. The army believes Kurtz has gone completely insane and Willard's job is to eliminate him. Willard, sent up the Nung River on a U.S. Navy patrol boat, discovers that his target is one of the most decorated officers in the U.S. Army. His crew meets up with surfer-type Lt-Colonel Kilgore, head of a U.S Army helicopter cavalry group which eliminates a Viet Cong outpost to provide an entry point into the Nung River. After some hair-raising encounters, in which some of his crew are killed, Willard, Lance and Chef reach Colonel Kurtz's outpost, beyond the Do Lung Bridge. Now, after becoming prisoners of Kurtz, will Willard &amp; the others be able to fulfill their mission?",
+    "Language": "English, French, Vietnamese",
+    "Country": "United States",
+    "Awards": "Won 2 Oscars. 21 wins & 33 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BYmQyNTA1ZGItNjZjMi00NzFlLWEzMWEtNWMwN2Q2MjJhYzEyXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.4/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "98%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "94/100"
+      }
+    ],
+    "Metascore": "94",
+    "imdbRating": "8.4",
+    "imdbVotes": "684,979",
+    "imdbID": "tt0078788",
+    "Type": "movie",
+    "DVD": "18 May 2010",
+    "BoxOffice": "$96,042,913",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=9l-ViOOFH-s"
+  },
+  {
+    "Title": "Terminator 2: Judgment Day",
+    "Year": "1991",
+    "Rated": "R",
+    "Released": "03 Jul 1991",
+    "Runtime": "137 min",
+    "Genre": "Action, Sci-Fi",
+    "Director": "James Cameron",
+    "Writer": "James Cameron, William Wisher",
+    "Actors": "Arnold Schwarzenegger, Linda Hamilton, Edward Furlong",
+    "Plot": "Over 10 years have passed since the first machine called The Terminator tried to kill Sarah Connor and her unborn son, John. The man who will become the future leader of the human resistance against the Machines is now a healthy young boy. However, another Terminator, called the T-1000, is sent back through time by the supercomputer Skynet. This new Terminator is more advanced and more powerful than its predecessor and its mission is to kill John Connor when he's still a child. However, Sarah and John do not have to face the threat of the T-1000 alone. Another Terminator (identical to the same model that tried and failed to kill Sarah Connor in 1984) is also sent back through time to protect them. Now, the battle for tomorrow has begun.",
+    "Language": "English, Spanish",
+    "Country": "United States",
+    "Awards": "Won 4 Oscars. 37 wins & 33 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMGU2NzRmZjUtOGUxYS00ZjdjLWEwZWItY2NlM2JhNjkxNTFmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.6/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "91%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "75/100"
+      }
+    ],
+    "Metascore": "75",
+    "imdbRating": "8.6",
+    "imdbVotes": "1,128,396",
+    "imdbID": "tt0103064",
+    "Type": "movie",
+    "DVD": "13 Feb 2007",
+    "BoxOffice": "$205,881,154",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=CRRlbK5w8AE"
+  },
+  {
+    "Title": "Saving Private Ryan",
+    "Year": "1998",
+    "Rated": "R",
+    "Released": "24 Jul 1998",
+    "Runtime": "169 min",
+    "Genre": "Drama, War",
+    "Director": "Steven Spielberg",
+    "Writer": "Robert Rodat",
+    "Actors": "Tom Hanks, Matt Damon, Tom Sizemore",
+    "Plot": "Opening with the Allied invasion of Normandy on 6 June 1944, members of the 2nd Ranger Battalion under Cpt. Miller fight ashore to secure a beachhead. Amidst the fighting, two brothers are killed in action. Earlier in New Guinea, a third brother is KIA. Their mother, Mrs. Ryan, is to receive all three of the grave telegrams on the same day. The United States Army Chief of Staff, George C. Marshall, is given an opportunity to alleviate some of her grief when he learns of a fourth brother, Private James Ryan, and decides to send out 8 men (Cpt. Miller and select members from 2nd Rangers) to find him and bring him back home to his mother...",
+    "Language": "English, French, German, Czech",
+    "Country": "United States",
+    "Awards": "Won 5 Oscars. 79 wins & 75 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZjhkMDM4MWItZTVjOC00ZDRhLThmYTAtM2I5NzBmNmNlMzI1XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.6/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "94%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "91/100"
+      }
+    ],
+    "Metascore": "91",
+    "imdbRating": "8.6",
+    "imdbVotes": "1,429,850",
+    "imdbID": "tt0120815",
+    "Type": "movie",
+    "DVD": "25 May 2004",
+    "BoxOffice": "$217,049,603",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=9CiW_DgxCnQ"
+  },
+  {
+    "Title": "Memento",
+    "Year": "2000",
+    "Rated": "R",
+    "Released": "25 May 2001",
+    "Runtime": "113 min",
+    "Genre": "Mystery, Thriller",
+    "Director": "Christopher Nolan",
+    "Writer": "Christopher Nolan, Jonathan Nolan",
+    "Actors": "Guy Pearce, Carrie-Anne Moss, Joe Pantoliano",
+    "Plot": "Memento chronicles two separate stories of Leonard, an ex-insurance investigator who can no longer build new memories, as he attempts to find the murderer of his wife, which is the last thing he remembers. One story line moves forward in time while the other tells the story backwards revealing more each time.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Nominated for 2 Oscars. 57 wins & 59 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZTcyNjk1MjgtOWI3Mi00YzQwLWI5MTktMzY4ZmI2NDAyNzYzXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.4/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "93%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "83/100"
+      }
+    ],
+    "Metascore": "83",
+    "imdbRating": "8.4",
+    "imdbVotes": "1,268,710",
+    "imdbID": "tt0209144",
+    "Type": "movie",
+    "DVD": "04 Sep 2001",
+    "BoxOffice": "$25,544,867",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=4CV41hoyS8A"
+  },
+  {
+    "Title": "City Lights",
+    "Year": "1931",
+    "Rated": "G",
+    "Released": "07 Mar 1931",
+    "Runtime": "87 min",
+    "Genre": "Comedy, Drama, Romance",
+    "Director": "Charles Chaplin",
+    "Writer": "Charles Chaplin, Harry Carr, Harry Crocker",
+    "Actors": "Charles Chaplin, Virginia Cherrill, Florence Lee",
+    "Plot": "A tramp falls in love with a beautiful blind girl. Her family is in financial trouble. The tramp's on-and-off friendship with a wealthy man allows him to be the girl's benefactor and suitor.",
+    "Language": "None, English",
+    "Country": "United States",
+    "Awards": "4 wins",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BY2I4MmM1N2EtM2YzOS00OWUzLTkzYzctNDc5NDg2N2IyODJmXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "95%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "99/100"
+      }
+    ],
+    "Metascore": "99",
+    "imdbRating": "8.5",
+    "imdbVotes": "189,102",
+    "imdbID": "tt0021749",
+    "Type": "movie",
+    "DVD": "14 Jul 2015",
+    "BoxOffice": "$19,181",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=7vl7F8S4cpQ"
+  },
+  {
+    "Title": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
+    "Year": "1964",
+    "Rated": "PG",
+    "Released": "29 Jan 1964",
+    "Runtime": "95 min",
+    "Genre": "Comedy, War",
+    "Director": "Stanley Kubrick",
+    "Writer": "Stanley Kubrick, Terry Southern, Peter George",
+    "Actors": "Peter Sellers, George C. Scott, Sterling Hayden",
+    "Plot": "Paranoid Brigadier General Jack D. Ripper of Burpelson Air Force Base, believing that fluoridation of the American water supply is a Soviet plot to poison the U.S. populace, is able to deploy through a back door mechanism a nuclear attack on the Soviet Union without the knowledge of his superiors, including the Chair of the Joint Chiefs of Staff, General Buck Turgidson, and President Merkin Muffley. Only Ripper knows the code to recall the B-52 bombers and he has shut down communication in and out of Burpelson as a measure to protect this attack. Ripper's executive officer, RAF Group Captain Lionel Mandrake (on exchange from Britain), who is being held at Burpelson by Ripper, believes he knows the recall codes if he can only get a message to the outside world. Meanwhile at the Pentagon War Room, key persons including Muffley, Turgidson and nuclear scientist and adviser, a former Nazi named Dr. Strangelove, are discussing measures to stop the attack or mitigate its blow-up into an all out nuclear war with the Soviets. Against Turgidson's wishes, Muffley brings Soviet Ambassador Alexi de Sadesky into the War Room, and get his boss, Soviet Premier Dimitri Kisov, on the hot line to inform him of what's going on. The Americans in the War Room are dismayed to learn that the Soviets have an as yet unannounced Doomsday Device to detonate if any of their key targets are hit. As Ripper, Mandrake and those in the War Room try and work the situation to their end goal, Major T.J. \"King\" Kong, one of the B-52 bomber pilots, is working on his own agenda of deploying his bomb where ever he can on enemy soil if he can't make it to his intended target.",
+    "Language": "English, Russian",
+    "Country": "United Kingdom, United States",
+    "Awards": "Nominated for 4 Oscars. 14 wins & 11 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMWMxYjZkOWUtM2FjMi00MmI1LThkNzQtNTM5Y2E2ZGQ2NGFhXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.4/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "98%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "97/100"
+      }
+    ],
+    "Metascore": "97",
+    "imdbRating": "8.4",
+    "imdbVotes": "501,965",
+    "imdbID": "tt0057012",
+    "Type": "movie",
+    "DVD": "21 Oct 2003",
+    "BoxOffice": "$9,440,272",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=jPU1AYTxwg4"
+  },
+  {
+    "Title": "Alien",
+    "Year": "1979",
+    "Rated": "R",
+    "Released": "22 Jun 1979",
+    "Runtime": "117 min",
+    "Genre": "Horror, Sci-Fi",
+    "Director": "Ridley Scott",
+    "Writer": "Dan O'Bannon, Ronald Shusett",
+    "Actors": "Sigourney Weaver, Tom Skerritt, John Hurt",
+    "Plot": "In the distant future, the crew of the commercial spaceship Nostromo are on their way home when they pick up a distress call from a distant moon. The crew are under obligation to investigate and the spaceship descends on the moon afterwards. After a rough landing, three crew members leave the spaceship to explore the area on the moon. At the same time as they discover a hive colony of some unknown creature, the ship's computer deciphers the message to be a warning, not a distress call. When one of the eggs is disturbed, the crew realizes that they are not alone on the spaceship and they must deal with the consequences.",
+    "Language": "English",
+    "Country": "United Kingdom, United States",
+    "Awards": "Won 1 Oscar. 18 wins & 22 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BOGQzZTBjMjQtOTVmMS00NGE5LWEyYmMtOGQ1ZGZjNmRkYjFhXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "98%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "89/100"
+      }
+    ],
+    "Metascore": "89",
+    "imdbRating": "8.5",
+    "imdbVotes": "907,995",
+    "imdbID": "tt0078748",
+    "Type": "movie",
+    "DVD": "01 Jun 1999",
+    "BoxOffice": "$81,900,459",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=jQ5lPt9edzQ"
+  },
+  {
+    "Title": "Modern Times",
+    "Year": "1936",
+    "Rated": "G",
+    "Released": "25 Feb 1936",
+    "Runtime": "87 min",
+    "Genre": "Comedy, Drama, Romance",
+    "Director": "Charles Chaplin",
+    "Writer": "Charles Chaplin",
+    "Actors": "Charles Chaplin, Paulette Goddard, Henry Bergman",
+    "Plot": "Chaplin's last 'silent' film, filled with sound effects, was made when everyone else was making talkies. Charlie turns against modern society, the machine age, (The use of sound in films ?) and progress. Firstly we see him frantically trying to keep up with a production line, tightening bolts. He is selected for an experiment with an automatic feeding machine, but various mishaps leads his boss to believe he has gone mad, and Charlie is sent to a mental hospital - When he gets out, he is mistaken for a communist while waving a red flag, sent to jail, foils a jailbreak, and is let out again. We follow Charlie through many more escapades before the film is out.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "4 wins & 1 nomination",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BYjJiZjMzYzktNjU0NS00OTkxLWEwYzItYzdhYWJjN2QzMTRlL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "98%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "96/100"
+      }
+    ],
+    "Metascore": "96",
+    "imdbRating": "8.5",
+    "imdbVotes": "249,578",
+    "imdbID": "tt0027977",
+    "Type": "movie",
+    "DVD": "22 May 2017",
+    "BoxOffice": "$163,577",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=NNznUyDmSFc"
+  },
+  {
+    "Title": "Spirited Away",
+    "Year": "2001",
+    "Rated": "PG",
+    "Released": "28 Mar 2003",
+    "Runtime": "125 min",
+    "Genre": "Animation, Adventure, Family",
+    "Director": "Hayao Miyazaki",
+    "Writer": "Hayao Miyazaki",
+    "Actors": "Daveigh Chase, Suzanne Pleshette, Miyu Irino",
+    "Plot": "Chihiro and her parents are moving to a small Japanese town in the countryside, much to Chihiro's dismay. On the way to their new home, Chihiro's father makes a wrong turn and drives down a lonely one-lane road which dead-ends in front of a tunnel. Her parents decide to stop the car and explore the area. They go through the tunnel and find an abandoned amusement park on the other side, with its own little town. When her parents see a restaurant with great-smelling food but no staff, they decide to eat and pay later. However, Chihiro refuses to eat and decides to explore the theme park a bit more. She meets a boy named Haku who tells her that Chihiro and her parents are in danger, and they must leave immediately. She runs to the restaurant and finds that her parents have turned into pigs. In addition, the theme park turns out to be a town inhabited by demons, spirits, and evil gods. At the center of the town is a bathhouse where these creatures go to relax. The owner of the bathhouse is the evil witch Yubaba, who is intent on keeping all trespassers as captive workers, including Chihiro. Chihiro must rely on Haku to save her parents in hopes of returning to their world.",
+    "Language": "Japanese",
+    "Country": "Japan",
+    "Awards": "Won 1 Oscar. 58 wins & 31 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMjlmZmI5MDctNDE2YS00YWE0LWE5ZWItZDBhYWQ0NTcxNWRhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.6/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "96%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "96/100"
+      }
+    ],
+    "Metascore": "96",
+    "imdbRating": "8.6",
+    "imdbVotes": "795,692",
+    "imdbID": "tt0245429",
+    "Type": "movie",
+    "DVD": "15 Apr 2003",
+    "BoxOffice": "$15,205,725",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=ByXuk9QqQkk"
+  },
+  {
+    "Title": "North by Northwest",
+    "Year": "1959",
+    "Rated": "Approved",
+    "Released": "18 Dec 1959",
+    "Runtime": "136 min",
+    "Genre": "Action, Adventure, Mystery",
+    "Director": "Alfred Hitchcock",
+    "Writer": "Ernest Lehman",
+    "Actors": "Cary Grant, Eva Marie Saint, James Mason",
+    "Plot": "Madison Avenue advertising man Roger Thornhill finds himself thrust into the world of spies when he is mistaken for a man by the name of George Kaplan. Foreign spy Philip Vandamm and his henchman Leonard try to eliminate him but when Thornhill tries to make sense of the case, he is framed for murder. Now on the run from the police, he manages to board the 20th Century Limited bound for Chicago where he meets a beautiful blond, Eve Kendall, who helps him to evade the authorities. His world is turned upside down yet again when he learns that Eve isn't the innocent bystander he thought she was. Not all is as it seems however, leading to a dramatic rescue and escape at the top of Mt. Rushmore.",
+    "Language": "English, French",
+    "Country": "United States",
+    "Awards": "Nominated for 3 Oscars. 9 wins & 7 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZDA3NDExMTUtMDlhOC00MmQ5LWExZGUtYmI1NGVlZWI4OWNiXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "97%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "98/100"
+      }
+    ],
+    "Metascore": "98",
+    "imdbRating": "8.3",
+    "imdbVotes": "335,948",
+    "imdbID": "tt0053125",
+    "Type": "movie",
+    "DVD": "17 Nov 2009",
+    "BoxOffice": "$66,728",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=ek7T9Gyl_J4"
+  },
+  {
+    "Title": "Back to the Future",
+    "Year": "1985",
+    "Rated": "PG",
+    "Released": "03 Jul 1985",
+    "Runtime": "116 min",
+    "Genre": "Adventure, Comedy, Sci-Fi",
+    "Director": "Robert Zemeckis",
+    "Writer": "Robert Zemeckis, Bob Gale",
+    "Actors": "Michael J. Fox, Christopher Lloyd, Lea Thompson",
+    "Plot": "Marty McFly, a typical American teenager of the Eighties, is accidentally sent back to 1955 in a plutonium-powered DeLorean \"time machine\" invented by a slightly mad scientist. During his often hysterical, always amazing trip back in time, Marty must make certain his teenage parents-to-be meet and fall in love - so he can get back to the future.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Won 1 Oscar. 23 wins & 25 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "93%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "87/100"
+      }
+    ],
+    "Metascore": "87",
+    "imdbRating": "8.5",
+    "imdbVotes": "1,246,028",
+    "imdbID": "tt0088763",
+    "Type": "movie",
+    "DVD": "17 Aug 2010",
+    "BoxOffice": "$212,836,762",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=qvsgGtivCgs"
+  },
+  {
+    "Title": "Life Is Beautiful",
+    "Year": "1997",
+    "Rated": "PG-13",
+    "Released": "20 Dec 1997",
+    "Runtime": "116 min",
+    "Genre": "Comedy, Drama, Romance",
+    "Director": "Roberto Benigni",
+    "Writer": "Vincenzo Cerami, Roberto Benigni",
+    "Actors": "Roberto Benigni, Nicoletta Braschi, Giorgio Cantarini",
+    "Plot": "In 1930s Italy, a carefree Jewish waiter named Guido starts a fairy tale life by courting and marrying a lovely woman from a nearby city. Guido and his wife have a son and live happily together until the occupation of Italy by German forces. In an attempt to hold his family together and help his son survive the horrors of a Jewish Concentration Camp, Guido imagines that the Holocaust is a game and that the grand prize for winning is a tank.",
+    "Language": "Italian, German, English",
+    "Country": "Italy",
+    "Awards": "Won 3 Oscars. 72 wins & 52 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BYmJmM2Q4NmMtYThmNC00ZjRlLWEyZmItZTIwOTBlZDQ3NTQ1XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.6/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "80%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "59/100"
+      }
+    ],
+    "Metascore": "59",
+    "imdbRating": "8.6",
+    "imdbVotes": "716,570",
+    "imdbID": "tt0118799",
+    "Type": "movie",
+    "DVD": "09 Nov 1999",
+    "BoxOffice": "$57,563,264",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=8CTjcVr9Iao"
+  },
+  {
+    "Title": "The Shining",
+    "Year": "1980",
+    "Rated": "R",
+    "Released": "13 Jun 1980",
+    "Runtime": "146 min",
+    "Genre": "Drama, Horror",
+    "Director": "Stanley Kubrick",
+    "Writer": "Stephen King, Stanley Kubrick, Diane Johnson",
+    "Actors": "Jack Nicholson, Shelley Duvall, Danny Lloyd",
+    "Plot": "Haunted by a persistent writer's block, the aspiring author and recovering alcoholic, Jack Torrance, drags his wife, Wendy, and his gifted son, Danny, up snow-capped Colorado's secluded Overlook Hotel after taking up a job as an off-season caretaker. As the cavernous hotel shuts down for the season, the manager gives Jack a grand tour, and the facility's chef, the ageing Mr Hallorann, has a fascinating chat with Danny about a rare psychic gift called \"The Shining\", making sure to warn him about the hotel's abandoned rooms, and, in particular, the off-limits Room 237. However, instead of overcoming the dismal creative rut, little by little, Jack starts losing his mind, trapped in an unforgiving environment of seemingly endless snowstorms, and a gargantuan silent prison riddled with strange occurrences and eerie visions. Now, the incessant voices inside Jack's head demand sacrifice. Is Jack capable of murder?",
+    "Language": "English",
+    "Country": "United Kingdom, United States",
+    "Awards": "5 wins & 8 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZWFlYmY2MGEtZjVkYS00YzU4LTg0YjQtYzY1ZGE3NTA5NGQxXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.4/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "82%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "66/100"
+      }
+    ],
+    "Metascore": "66",
+    "imdbRating": "8.4",
+    "imdbVotes": "1,059,208",
+    "imdbID": "tt0081505",
+    "Type": "movie",
+    "DVD": "23 Oct 2007",
+    "BoxOffice": "$45,634,352",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=S014oGZiSdI"
+  },
+  {
+    "Title": "The Pianist",
+    "Year": "2002",
+    "Rated": "R",
+    "Released": "28 Mar 2003",
+    "Runtime": "150 min",
+    "Genre": "Biography, Drama, Music",
+    "Director": "Roman Polanski",
+    "Writer": "Ronald Harwood, Wladyslaw Szpilman",
+    "Actors": "Adrien Brody, Thomas Kretschmann, Frank Finlay",
+    "Plot": "In this adaptation of the autobiography \"The Pianist: The Extraordinary True Story of One Man's Survival in Warsaw, 1939-1945,\" Wladyslaw Szpilman, a Polish Jewish radio station pianist, sees Warsaw change gradually as World War II begins. Szpilman is forced into the Warsaw Ghetto, but is later separated from his family during Operation Reinhard. From this time until the concentration camp prisoners are released, Szpilman hides in various locations among the ruins of Warsaw.",
+    "Language": "English, German, Russian",
+    "Country": "France, Poland, Germany, United Kingdom, United States",
+    "Awards": "Won 3 Oscars. 57 wins & 74 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BOWRiZDIxZjktMTA1NC00MDQ2LWEzMjUtMTliZmY3NjQ3ODJiXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "95%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "85/100"
+      }
+    ],
+    "Metascore": "85",
+    "imdbRating": "8.5",
+    "imdbVotes": "866,159",
+    "imdbID": "tt0253474",
+    "Type": "movie",
+    "DVD": "27 May 2003",
+    "BoxOffice": "$32,572,577",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=BFwGqLa_oAo"
+  },
+  {
+    "Title": "Citizen Kane",
+    "Year": "1941",
+    "Rated": "PG",
+    "Released": "05 Sep 1941",
+    "Runtime": "119 min",
+    "Genre": "Drama, Mystery",
+    "Director": "Orson Welles",
+    "Writer": "Herman J. Mankiewicz, Orson Welles, John Houseman",
+    "Actors": "Orson Welles, Joseph Cotten, Dorothy Comingore",
+    "Plot": "A group of reporters are trying to decipher the last word ever spoken by Charles Foster Kane, the millionaire newspaper tycoon: \"Rosebud\". The film begins with a news reel detailing Kane's life for the masses, and then from there, we are shown flashbacks from Kane's life. As the reporters investigate further, the viewers see a display of a fascinating man's rise to fame, and how he eventually fell off the top of the world.",
+    "Language": "English, Italian",
+    "Country": "United States",
+    "Awards": "Won 1 Oscar. 11 wins & 13 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BYjBiOTYxZWItMzdiZi00NjlkLWIzZTYtYmFhZjhiMTljOTdkXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "99%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "100/100"
+      }
+    ],
+    "Metascore": "100",
+    "imdbRating": "8.3",
+    "imdbVotes": "452,281",
+    "imdbID": "tt0033467",
+    "Type": "movie",
+    "DVD": "23 Feb 2010",
+    "BoxOffice": "$1,627,530",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=8dxh3lwdOFw"
+  },
+  {
+    "Title": "The Departed",
+    "Year": "2006",
+    "Rated": "R",
+    "Released": "06 Oct 2006",
+    "Runtime": "151 min",
+    "Genre": "Crime, Drama, Thriller",
+    "Director": "Martin Scorsese",
+    "Writer": "William Monahan, Alan Mak, Felix Chong",
+    "Actors": "Leonardo DiCaprio, Matt Damon, Jack Nicholson",
+    "Plot": "In this crime-action tour de force, the South Boston state police force is waging war on Irish-American organized crime. Young undercover cop Billy Costigan is assigned to infiltrate the mob syndicate run by gangland chief Frank Costello. While Billy quickly gains Costello's confidence, Colin Sullivan, a hardened young criminal who has infiltrated the state police as an informer for the syndicate is rising to a position of power in the Special Investigation Unit. Each man becomes deeply consumed by their double lives, gathering information about the plans and counter-plans of the operations they have penetrated. But when it becomes clear to both the mob and the police that there is a mole in their midst, Billy and Colin are suddenly in danger of being caught and exposed to the enemy - and each must race to uncover the identity of the other man in time to save themselves. But is either willing to turn on their friends and comrades they've made during their long stints undercover?",
+    "Language": "English, Cantonese",
+    "Country": "United States, Hong Kong",
+    "Awards": "Won 4 Oscars. 98 wins & 141 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTI1MTY2OTIxNV5BMl5BanBnXkFtZTYwNjQ4NjY3._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "91%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "85/100"
+      }
+    ],
+    "Metascore": "85",
+    "imdbRating": "8.5",
+    "imdbVotes": "1,362,125",
+    "imdbID": "tt0407887",
+    "Type": "movie",
+    "DVD": "13 Feb 2007",
+    "BoxOffice": "$132,399,394",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=iojhqm0JTW4"
+  },
+  {
+    "Title": "M",
+    "Year": "1931",
+    "Rated": "Passed",
+    "Released": "31 Aug 1931",
+    "Runtime": "99 min",
+    "Genre": "Crime, Mystery, Thriller",
+    "Director": "Fritz Lang",
+    "Writer": "Thea von Harbou, Fritz Lang, Egon Jacobsohn",
+    "Actors": "Peter Lorre, Ellen Widmann, Inge Landgut",
+    "Plot": "There have been a rash of child abductions and murders in Berlin. The murderer lures the children into his confidence by candy and other such child friendly items. Everyone is on edge because the murderer has not been caught. The most substantial pieces of evidence the police have are hand written letters by the murderer which he sent to the newspaper for publication. Unknown even to himself, a blind beggar, who sold the murderer a balloon for one of the child victims, may have key information as to the murderer's identity. The murder squad's work is made even more difficult with the large number of tips they receive from the paranoid public, who are quick to accuse anyone of suspicious activity solely for their own piece of mind that someone - anyone - is apprehended for the heinous crimes. Conversely, many want to take the case into their own hands, including the town's leading criminals since the increased police presence has placed a strain on their ability to conduct criminal activity. Although they both have the same end goal of capturing the murderer, the police and the criminals seem to be working at cross purposes, which may provide an edge to the murderer in getting away.",
+    "Language": "German",
+    "Country": "Germany",
+    "Awards": "2 wins",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BODA4ODk3OTEzMF5BMl5BanBnXkFtZTgwMTQ2ODMwMzE@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "100%"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "8.3",
+    "imdbVotes": "162,677",
+    "imdbID": "tt0022100",
+    "Type": "movie",
+    "DVD": "14 Dec 2004",
+    "BoxOffice": "$35,566",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=nsVproWjN6c"
+  },
+  {
+    "Title": "Paths of Glory",
+    "Year": "1957",
+    "Rated": "Approved",
+    "Released": "25 Dec 1957",
+    "Runtime": "88 min",
+    "Genre": "Drama, War",
+    "Director": "Stanley Kubrick",
+    "Writer": "Stanley Kubrick, Calder Willingham, Jim Thompson",
+    "Actors": "Kirk Douglas, Ralph Meeker, Adolphe Menjou",
+    "Plot": "The futility and irony of the war in the trenches in WWI is shown as a unit commander in the French army must deal with the mutiny of his men and a glory-seeking general after part of his force falls back under fire in an impossible attack.",
+    "Language": "English, German, Latin",
+    "Country": "United States",
+    "Awards": "Nominated for 1 BAFTA Award5 wins & 3 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BOTI5Nzc0OTMtYzBkMS00NjkxLThmM2UtNjM2ODgxN2M5NjNkXkEyXkFqcGdeQXVyNjQ2MjQ5NzM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.4/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "96%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "90/100"
+      }
+    ],
+    "Metascore": "90",
+    "imdbRating": "8.4",
+    "imdbVotes": "204,110",
+    "imdbID": "tt0050825",
+    "Type": "movie",
+    "DVD": "01 May 2001",
+    "BoxOffice": "N/A",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=AV9XLjDbt5A"
+  },
+  {
+    "Title": "Vertigo",
+    "Year": "1958",
+    "Rated": "PG",
+    "Released": "09 May 1963",
+    "Runtime": "128 min",
+    "Genre": "Mystery, Romance, Thriller",
+    "Director": "Alfred Hitchcock",
+    "Writer": "Alec Coppel, Samuel A. Taylor, Pierre Boileau",
+    "Actors": "James Stewart, Kim Novak, Barbara Bel Geddes",
+    "Plot": "Following his early retirement as a detective from the San Francisco Police Department, John Ferguson - Scottie to his friends - becomes obsessed with two women in succession, those obsessions which trouble his long time friend and former fiancée, Midge Wood, a designer of women's undergarments. The first is wealthy and elegant platinum blonde Madeleine Elster, the wife of his college acquaintance Gavin Elster, who hires John to follow her in Gavin's belief that she may be a danger to herself in thinking that she has recently been possessed by the spirit of Carlotta Valdes, Madeleine's great-grandmother who she knows nothing about, but who Gavin knows committed suicide in being mentally unbalanced when she was twenty-six, Madeleine's current age. The second is Judy Barton, who John spots on the street one day. Judy is a working class girl, but what makes John obsessed with her is that, despite her working class style and her brunette hair, she is the spitting image of Madeleine, into who he tries to transform Judy. The initial question that John has is if there is some connection between Madeleine and Judy. What happens between John and individually with Madeleine and Judy is affected by the reason John took that early retirement: a recent workplace incident that showed that he is acrophobic which leads to a severe case of vertigo whenever he looks down from tall heights.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Nominated for 2 Oscars. 9 wins & 7 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BYTE4ODEwZDUtNDFjOC00NjAxLWEzYTQtYTI1NGVmZmFlNjdiL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "92%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "100/100"
+      }
+    ],
+    "Metascore": "100",
+    "imdbRating": "8.3",
+    "imdbVotes": "413,616",
+    "imdbID": "tt0052357",
+    "Type": "movie",
+    "DVD": "02 Aug 2015",
+    "BoxOffice": "$7,705,225",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=Z5jvQwwHQNY"
+  },
+  {
+    "Title": "Django Unchained",
+    "Year": "2012",
+    "Rated": "R",
+    "Released": "25 Dec 2012",
+    "Runtime": "165 min",
+    "Genre": "Drama, Western",
+    "Director": "Quentin Tarantino",
+    "Writer": "Quentin Tarantino",
+    "Actors": "Jamie Foxx, Christoph Waltz, Leonardo DiCaprio",
+    "Plot": "In 1858, a bounty-hunter named King Schultz seeks out a slave named Django and buys him because he needs him to find some men he is looking for. After finding them, Django wants to find his wife, Broomhilda, who along with him were sold separately by his former owner for trying to escape. Schultz offers to help him if he chooses to stay with him and be his partner. Eventually they learn that she was sold to a plantation in Mississippi. Knowing they can't just go in and say they want her, they come up with a plan so that the owner will welcome them into his home and they can find a way.",
+    "Language": "English, German, French, Italian",
+    "Country": "United States",
+    "Awards": "Won 2 Oscars. 58 wins & 158 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.4/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "87%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "81/100"
+      }
+    ],
+    "Metascore": "81",
+    "imdbRating": "8.4",
+    "imdbVotes": "1,608,686",
+    "imdbID": "tt1853728",
+    "Type": "movie",
+    "DVD": "16 Apr 2013",
+    "BoxOffice": "$162,805,434",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=0fUCuvNlOCg"
+  },
+  {
+    "Title": "Double Indemnity",
+    "Year": "1944",
+    "Rated": "Passed",
+    "Released": "06 Jul 1944",
+    "Runtime": "107 min",
+    "Genre": "Crime, Drama, Film-Noir",
+    "Director": "Billy Wilder",
+    "Writer": "Billy Wilder, Raymond Chandler, James M. Cain",
+    "Actors": "Fred MacMurray, Barbara Stanwyck, Edward G. Robinson",
+    "Plot": "In 1938, Walter Neff, an experienced salesman of the Pacific All Risk Insurance Co., meets the seductive wife of one of his clients, Phyllis Dietrichson, and they have an affair. Phyllis proposes to kill her husband to receive the proceeds of an accident insurance policy and Walter devises a scheme to receive twice the amount based on a double indemnity clause. When Mr. Dietrichson is found dead on a train track, the police accept the determination of accidental death. However, the insurance analyst and Walter's best friend Barton Keyes does not buy the story and suspects that Phyllis has murdered her husband with the help of another man.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Nominated for 7 Oscars. 2 wins & 9 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BOTdlNjgyZGUtOTczYi00MDdhLTljZmMtYTEwZmRiOWFkYjRhXkEyXkFqcGdeQXVyNDY2MTk1ODk@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "97%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "95/100"
+      }
+    ],
+    "Metascore": "95",
+    "imdbRating": "8.3",
+    "imdbVotes": "161,384",
+    "imdbID": "tt0036775",
+    "Type": "movie",
+    "DVD": "01 Oct 2014",
+    "BoxOffice": "N/A",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=yKrrAa2o9Eg"
+  },
+  {
+    "Title": "The Dark Knight Rises",
+    "Year": "2012",
+    "Rated": "PG-13",
+    "Released": "20 Jul 2012",
+    "Runtime": "164 min",
+    "Genre": "Action, Drama, Thriller",
+    "Director": "Christopher Nolan",
+    "Writer": "Jonathan Nolan, Christopher Nolan, David S. Goyer",
+    "Actors": "Christian Bale, Tom Hardy, Anne Hathaway",
+    "Plot": "Despite his tarnished reputation after the events of The Dark Knight (2008), in which he took the rap for Dent's crimes, Batman feels compelled to intervene to assist the city and its Police force, which is struggling to cope with Bane's plans to destroy the city.",
+    "Language": "English, Arabic",
+    "Country": "United States, United Kingdom",
+    "Awards": "Nominated for 1 BAFTA Award42 wins & 103 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTk4ODQzNDY3Ml5BMl5BanBnXkFtZTcwODA0NTM4Nw@@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.4/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "87%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "78/100"
+      }
+    ],
+    "Metascore": "78",
+    "imdbRating": "8.4",
+    "imdbVotes": "1,758,228",
+    "imdbID": "tt1345836",
+    "Type": "movie",
+    "DVD": "04 Dec 2012",
+    "BoxOffice": "$448,149,584",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=GokKUqLcvD8"
+  },
+  {
+    "Title": "Aliens",
+    "Year": "1986",
+    "Rated": "R",
+    "Released": "18 Jul 1986",
+    "Runtime": "137 min",
+    "Genre": "Action, Adventure, Sci-Fi",
+    "Director": "James Cameron",
+    "Writer": "James Cameron, David Giler, Walter Hill",
+    "Actors": "Sigourney Weaver, Michael Biehn, Carrie Henn",
+    "Plot": "57 years after Ellen Ripley had a close encounter with the reptilian alien creature from the first movie, she is called back, this time, to help a group of highly trained colonial marines fight off against the sinister extraterrestrials. But this time, the aliens have taken over a space colony on the moon LV-426. When the colonial marines are called upon to search the deserted space colony, they later find out that they are up against more than what they bargained for. Using specially modified machine guns and enough firepower, it's either fight or die as the space marines battle against the aliens. As the Marines do their best to defend themselves, Ripley must attempt to protect a young girl who is the sole survivor of the nearly wiped out space colony.",
+    "Language": "English, Spanish",
+    "Country": "United Kingdom, United States",
+    "Awards": "Won 2 Oscars. 20 wins & 23 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZTM1Nzk5ZTItN2ZkNi00MDRjLWIwYWUtOWY4ZjZmZjkyM2I0XkEyXkFqcGdeQXVyNTU1NTcwOTk@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.4/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "98%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "84/100"
+      }
+    ],
+    "Metascore": "84",
+    "imdbRating": "8.4",
+    "imdbVotes": "735,496",
+    "imdbID": "tt0090605",
+    "Type": "movie",
+    "DVD": "01 Jun 1999",
+    "BoxOffice": "$85,160,248",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=oSeQQlaCZgU"
+  },
+  {
+    "Title": "Taxi Driver",
+    "Year": "1976",
+    "Rated": "R",
+    "Released": "09 Feb 1976",
+    "Runtime": "114 min",
+    "Genre": "Crime, Drama",
+    "Director": "Martin Scorsese",
+    "Writer": "Paul Schrader",
+    "Actors": "Robert De Niro, Jodie Foster, Cybill Shepherd",
+    "Plot": "Travis Bickle is an ex-Marine and Vietnam War veteran living in New York City. As he suffers from insomnia, he spends his time working as a taxi driver at night, watching porn movies at seedy cinemas during the day, or thinking about how the world, New York in particular, has deteriorated into a cesspool. He's a loner who has strong opinions about what is right and wrong with mankind. For him, the one bright spot in New York humanity is Betsy, a worker on the presidential nomination campaign of Senator Charles Palantine. He becomes obsessed with her. After an incident with her, he believes he has to do whatever he needs to make the world a better place in his opinion. One of his priorities is to be the savior for Iris, a twelve-year-old runaway and prostitute who he believes wants out of the profession and under the thumb of her pimp and lover Matthew.",
+    "Language": "English, Spanish",
+    "Country": "United States",
+    "Awards": "Nominated for 4 Oscars. 22 wins & 21 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BM2M1MmVhNDgtNmI0YS00ZDNmLTkyNjctNTJiYTQ2N2NmYzc2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.2/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "96%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "94/100"
+      }
+    ],
+    "Metascore": "94",
+    "imdbRating": "8.2",
+    "imdbVotes": "869,400",
+    "imdbID": "tt0075314",
+    "Type": "movie",
+    "DVD": "14 Aug 2007",
+    "BoxOffice": "$28,262,574",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=T5IligQP7Fo"
+  },
+  {
+    "Title": "American Beauty",
+    "Year": "1999",
+    "Rated": "R",
+    "Released": "01 Oct 1999",
+    "Runtime": "122 min",
+    "Genre": "Drama",
+    "Director": "Sam Mendes",
+    "Writer": "Alan Ball",
+    "Actors": "Kevin Spacey, Annette Bening, Thora Birch",
+    "Plot": "After his death sometime in his 43rd year, suburbanite Lester Burnham tells of the last few weeks of his life, during which he had no idea of his imminent passing. He is a husband to real estate agent Carolyn Burnham and father to high school student Jane Burnham. Although Lester and Carolyn once loved each other, they now merely tolerate each other. Typical wallflower Jane also hates both her parents; the three suffer individually in silence in their home life. Jane tries to steer clear of both her parents. Carolyn, relatively new to the real estate business, wants to create the persona of success to further her career, aspiring to the professional life of Buddy Kane, the king of the real estate business in their neighborhood. Lester merely walks mindlessly through life, including at his job in advertising. His company is downsizing, and he, like all the other employees, has to justify his position to the newly hired efficiency expert to keep his job. Things change for Lester when he falls in love at first sight with Jane's more experienced classmate, Angela Hayes. Both Janie and Angela can see Lester's sexual infatuation with Angela, who courts such attention from any man as a sign that she is model material, she having once appeared in Seventeen and is a career to which she aspires. Lester's infatuation with Angela gives him a reenergized view on life, where he openly doesn't care anymore what anyone thinks about what he does, anyone except Angela. This infatuation coincides with the Fittses moving in next door: homophobic disciplinarian US Marine Colonel Frank Fitts who rules the house with a military fist (that fist being both figurative and literal), his semi-comatose wife Barbara Fitts, and their bright and quietly subversive 18-year-old son Ricky Fitts, who openly abides by his father's rules while behind the scenes lives by his own quite different perspective. Much like Lester's infatuation, Ricky immediately becomes infatuated with Jane; he considers girls like Angela as ordinary. The entry of Angela and the Fittses into the Burnhams' lives ultimately leads to each of the players confronting what is truly in his or her heart.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Won 5 Oscars. 112 wins & 102 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNTBmZWJkNjctNDhiNC00MGE2LWEwOTctZTk5OGVhMWMyNmVhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "87%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "84/100"
+      }
+    ],
+    "Metascore": "84",
+    "imdbRating": "8.3",
+    "imdbVotes": "1,176,987",
+    "imdbID": "tt0169547",
+    "Type": "movie",
+    "DVD": "02 Jan 2002",
+    "BoxOffice": "$130,096,601",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=Ly7rq5EsTC8"
+  },
+  {
+    "Title": "The Green Mile",
+    "Year": "1999",
+    "Rated": "R",
+    "Released": "10 Dec 1999",
+    "Runtime": "189 min",
+    "Genre": "Crime, Drama, Fantasy",
+    "Director": "Frank Darabont",
+    "Writer": "Stephen King, Frank Darabont",
+    "Actors": "Tom Hanks, Michael Clarke Duncan, David Morse",
+    "Plot": "Death Row guards at a penitentiary, in the 1930's, have a moral dilemma with their job when they discover one of their prisoners, a convicted murderer, has a special gift.",
+    "Language": "English, French",
+    "Country": "United States",
+    "Awards": "Nominated for 4 Oscars. 15 wins & 37 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.6/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "79%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "61/100"
+      }
+    ],
+    "Metascore": "61",
+    "imdbRating": "8.6",
+    "imdbVotes": "1,342,717",
+    "imdbID": "tt0120689",
+    "Type": "movie",
+    "DVD": "13 Jun 2000",
+    "BoxOffice": "$136,801,374",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=Ki4haFrqSrw"
+  },
+  {
+    "Title": "Gladiator",
+    "Year": "2000",
+    "Rated": "R",
+    "Released": "05 May 2000",
+    "Runtime": "155 min",
+    "Genre": "Action, Adventure, Drama",
+    "Director": "Ridley Scott",
+    "Writer": "David Franzoni, John Logan, William Nicholson",
+    "Actors": "Russell Crowe, Joaquin Phoenix, Connie Nielsen",
+    "Plot": "Maximus is a powerful Roman general, loved by the people and the aging Emperor, Marcus Aurelius. Before his death, the Emperor chooses Maximus to be his heir over his own son, Commodus, and a power struggle leaves Maximus and his family condemned to death. The powerful general is unable to save his family, and his loss of will allows him to get captured and put into the Gladiator games until he dies. The only desire that fuels him now is the chance to rise to the top so that he will be able to look into the eyes of the man who will feel his revenge.",
+    "Language": "English",
+    "Country": "United States, United Kingdom, Malta, Morocco",
+    "Awards": "Won 5 Oscars. 60 wins & 104 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "80%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "67/100"
+      }
+    ],
+    "Metascore": "67",
+    "imdbRating": "8.5",
+    "imdbVotes": "1,542,955",
+    "imdbID": "tt0172495",
+    "Type": "movie",
+    "DVD": "26 Sep 2000",
+    "BoxOffice": "$187,705,427",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=P5ieIbInFpg"
+  },
+  {
+    "Title": "The Intouchables",
+    "Year": "2011",
+    "Rated": "R",
+    "Released": "02 Nov 2011",
+    "Runtime": "112 min",
+    "Genre": "Biography, Comedy, Drama",
+    "Director": "Olivier Nakache, Éric Toledano",
+    "Writer": "Olivier Nakache, Éric Toledano, Philippe Pozzo di Borgo",
+    "Actors": "François Cluzet, Omar Sy, Anne Le Ny",
+    "Plot": "In Paris, the aristocratic and intellectual Philippe is a quadriplegic millionaire who is interviewing candidates for the position of his carer, with his red-haired secretary Magalie. Out of the blue, Driss cuts the line of candidates and brings a document from the Social Security and asks Phillipe to sign it to prove that he is seeking a job position so he can receive his unemployment benefit. Philippe challenges Driss, offering him a trial period of one month to gain experience helping him. Then Driss can decide whether he would like to stay with him or not. Driss accepts the challenge and moves to the mansion, changing the boring life of Phillipe and his employees.",
+    "Language": "French, English",
+    "Country": "France",
+    "Awards": "Nominated for 1 BAFTA Award38 wins & 40 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTYxNDA3MDQwNl5BMl5BanBnXkFtZTcwNTU4Mzc1Nw@@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "76%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "57/100"
+      }
+    ],
+    "Metascore": "57",
+    "imdbRating": "8.5",
+    "imdbVotes": "885,993",
+    "imdbID": "tt1675434",
+    "Type": "movie",
+    "DVD": "05 Mar 2013",
+    "BoxOffice": "$10,198,820",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=oK5hMNxqsFA"
+  },
+  {
+    "Title": "WALL·E",
+    "Year": "2008",
+    "Rated": "G",
+    "Released": "27 Jun 2008",
+    "Runtime": "98 min",
+    "Genre": "Animation, Adventure, Family",
+    "Director": "Andrew Stanton",
+    "Writer": "Andrew Stanton, Pete Docter, Jim Reardon",
+    "Actors": "Ben Burtt, Elissa Knight, Jeff Garlin",
+    "Plot": "In a distant, but not so unrealistic, future where mankind has abandoned earth because it has become covered with trash from products sold by the powerful multi-national Buy N Large corporation, WALL-E, a garbage collecting robot has been left to clean up the mess. Mesmerized with trinkets of Earth's history and show tunes, WALL-E is alone on Earth except for a sprightly pet cockroach. One day, EVE, a sleek (and dangerous) reconnaissance robot, is sent to Earth to find proof that life is once again sustainable. WALL-E falls in love with EVE. WALL-E rescues EVE from a dust storm and shows her a living plant he found amongst the rubble. Consistent with her \"directive\", EVE takes the plant and automatically enters a deactivated state except for a blinking green beacon. WALL-E, doesn't understand what has happened to his new friend, but, true to his love, he protects her from wind, rain, and lightning, even as she is unresponsive. One day a massive ship comes to reclaim EVE, but WALL-E, out of love or loneliness, hitches a ride on the outside of the ship to rescue EVE. The ship arrives back at a large space cruise ship, which is carrying all of the humans who evacuated Earth 700 years earlier. The people of Earth ride around this space resort on hovering chairs which give them a constant feed of TV and video chatting. They drink all of their meals through a straw out of laziness and/or bone loss, and are all so fat that they can barely move. When the auto-pilot computer, acting on hastily-given instructions sent many centuries before, tries to prevent the people of Earth from returning by stealing the plant, WALL-E, EVE, the portly captain, and a band of broken robots stage a mutiny.",
+    "Language": "English",
+    "Country": "United States, Japan",
+    "Awards": "Won 1 Oscar. 96 wins & 95 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMjExMTg5OTU0NF5BMl5BanBnXkFtZTcwMjMxMzMzMw@@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.4/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "95%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "95/100"
+      }
+    ],
+    "Metascore": "95",
+    "imdbRating": "8.4",
+    "imdbVotes": "1,149,686",
+    "imdbID": "tt0910970",
+    "Type": "movie",
+    "DVD": "18 Nov 2008",
+    "BoxOffice": "$223,808,164",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=CZ1CATNbXg0"
+  },
+  {
+    "Title": "The Lives of Others",
+    "Year": "2006",
+    "Rated": "R",
+    "Released": "30 Mar 2007",
+    "Runtime": "137 min",
+    "Genre": "Drama, Mystery, Thriller",
+    "Director": "Florian Henckel von Donnersmarck",
+    "Writer": "Florian Henckel von Donnersmarck",
+    "Actors": "Ulrich Mühe, Martina Gedeck, Sebastian Koch",
+    "Plot": "Gerd Wiesler is an officer with the Stasi, the East German secret police. The film begins in 1984 when Wiesler attends a play written by Georg Dreyman, who is considered by many to be the ultimate example of the loyal citizen. Wiesler has a gut feeling that Dreyman can't be as ideal as he seems, and believes surveillance is called for. The Minister of Culture agrees but only later does Wiesler learn that the Minister sees Dreyman as a rival and lusts after his partner Christa-Maria. The more time he spends listening in on them, the more he comes to care about them. The once rigid Stasi officer begins to intervene in their lives, in a positive way, protecting them whenever possible. Eventually, Wiesler's activities catch up to him and while there is no proof of wrongdoing, he finds himself in menial jobs - until the unbelievable happens.",
+    "Language": "German",
+    "Country": "Germany, France",
+    "Awards": "Won 1 Oscar. 80 wins & 38 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNmQyNmJjM2ItNTQzYi00ZjMxLWFjMDYtZjUyN2YwZDk5YWQ2XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.4/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "92%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "89/100"
+      }
+    ],
+    "Metascore": "89",
+    "imdbRating": "8.4",
+    "imdbVotes": "398,453",
+    "imdbID": "tt0405094",
+    "Type": "movie",
+    "DVD": "20 Oct 2007",
+    "BoxOffice": "$11,286,112",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=n3_iLOp6IhM"
+  },
+  {
+    "Title": "Toy Story 3",
+    "Year": "2010",
+    "Rated": "G",
+    "Released": "18 Jun 2010",
+    "Runtime": "103 min",
+    "Genre": "Animation, Adventure, Comedy",
+    "Director": "Lee Unkrich",
+    "Writer": "John Lasseter, Andrew Stanton, Lee Unkrich",
+    "Actors": "Tom Hanks, Tim Allen, Joan Cusack",
+    "Plot": "Woody, Buzz and the whole gang are back. As their owner Andy prepares to depart for college, his loyal toys find themselves in daycare where untamed tots with their sticky little fingers do not play nice. So, it's all for one and one for all as they join Barbie's counterpart Ken, a thespian hedgehog named Mr. Pricklepants and a pink, strawberry-scented teddy bear called Lots-o'-Huggin' Bear to plan their great escape.",
+    "Language": "English, Spanish",
+    "Country": "United States, Japan",
+    "Awards": "Won 2 Oscars. 62 wins & 96 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTgxOTY4Mjc0MF5BMl5BanBnXkFtZTcwNTA4MDQyMw@@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "98%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "92/100"
+      }
+    ],
+    "Metascore": "92",
+    "imdbRating": "8.3",
+    "imdbVotes": "859,125",
+    "imdbID": "tt0435761",
+    "Type": "movie",
+    "DVD": "02 Nov 2010",
+    "BoxOffice": "$415,004,880",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=2BlMNH1QTeE"
+  },
+  {
+    "Title": "The Great Dictator",
+    "Year": "1940",
+    "Rated": "G",
+    "Released": "07 Mar 1941",
+    "Runtime": "125 min",
+    "Genre": "Comedy, Drama, War",
+    "Director": "Charles Chaplin",
+    "Writer": "Charles Chaplin",
+    "Actors": "Charles Chaplin, Paulette Goddard, Jack Oakie",
+    "Plot": "20 years after the end of WWI, in which the nation of Tomainia was on the losing side, Adenoid Hynkel has risen to power as the ruthless dictator of the country. He believes in a pure Aryan state and the decimation of the Jews. This situation is unknown to a simple Jewish Tomainian barber who has been hospitalized since a WWI battle. Upon his release the barber, who had been suffering from memory loss about the war, is shown the new persecuted life of the Jews by many living in the Jewish ghetto, including a washerwoman named Hannah with whom he begins a relationship. The barber is ultimately spared such persecution by Commander Schultz, whom he saved in that WWI battle. The lives of all Jews in Tomainia are eventually spared with a policy shift by Hynkel himself, who is doing so for ulterior motives. But those motives include a desire for world domination, starting with the invasion of neighboring Osterlich, which may be threatened by Benzino Napaloni, the dictator of neighboring Bacteria. Ultimately Schultz, who has turned traitor against Hynkel's regime, and the barber may be able to join forces to take control of the situation, using Schultz's inside knowledge of the regime's workings and the barber's uncanny resemblance to one of those in power.",
+    "Language": "English, Esperanto, Latin",
+    "Country": "United States",
+    "Awards": "Nominated for 5 Oscars. 7 wins & 6 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMmExYWJjNTktNGUyZS00ODhmLTkxYzAtNWIzOGEyMGNiMmUwXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.4/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "92%"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "8.4",
+    "imdbVotes": "229,587",
+    "imdbID": "tt0032553",
+    "Type": "movie",
+    "DVD": "22 May 2017",
+    "BoxOffice": "N/A",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=k8bVG8XC-4I"
+  },
+  {
+    "Title": "The Prestige",
+    "Year": "2006",
+    "Rated": "PG-13",
+    "Released": "20 Oct 2006",
+    "Runtime": "130 min",
+    "Genre": "Drama, Mystery, Sci-Fi",
+    "Director": "Christopher Nolan",
+    "Writer": "Jonathan Nolan, Christopher Nolan, Christopher Priest",
+    "Actors": "Christian Bale, Hugh Jackman, Scarlett Johansson",
+    "Plot": "In the end of the nineteenth century, in London, Robert Angier, his beloved wife Julia McCullough, and Alfred Borden are friends and assistants of a magician. When Julia accidentally dies during a performance, Robert blames Alfred for her death, and they become enemies. Both become famous and rival magicians, sabotaging the performance of the other on the stage. When Alfred performs a successful trick, Robert becomes obsessed trying to disclose the secret of his competitor with tragic consequences.",
+    "Language": "English",
+    "Country": "United Kingdom, United States",
+    "Awards": "Nominated for 2 Oscars. 6 wins & 45 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "76%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "66/100"
+      }
+    ],
+    "Metascore": "66",
+    "imdbRating": "8.5",
+    "imdbVotes": "1,379,344",
+    "imdbID": "tt0482571",
+    "Type": "movie",
+    "DVD": "13 Feb 2007",
+    "BoxOffice": "$53,089,891",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=ELq7V8vkekI"
+  },
+  {
+    "Title": "A Clockwork Orange",
+    "Year": "1971",
+    "Rated": "X",
+    "Released": "02 Feb 1972",
+    "Runtime": "136 min",
+    "Genre": "Crime, Sci-Fi",
+    "Director": "Stanley Kubrick",
+    "Writer": "Stanley Kubrick, Anthony Burgess",
+    "Actors": "Malcolm McDowell, Patrick Magee, Michael Bates",
+    "Plot": "Protagonist Alex DeLarge is an \"ultraviolent\" youth in futuristic Britain. As with all luck, his eventually runs out and he's arrested and convicted of murder. While in prison, Alex learns of an experimental program in which convicts are programmed to detest violence. If he goes through the program, his sentence will be reduced and he will be back on the streets sooner than expected. But Alex's ordeals are far from over once he hits the streets of Britain..",
+    "Language": "English",
+    "Country": "United Kingdom, United States",
+    "Awards": "Nominated for 4 Oscars. 12 wins & 25 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTY3MjM1Mzc4N15BMl5BanBnXkFtZTgwODM0NzAxMDE@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "88%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "77/100"
+      }
+    ],
+    "Metascore": "77",
+    "imdbRating": "8.3",
+    "imdbVotes": "851,003",
+    "imdbID": "tt0066921",
+    "Type": "movie",
+    "DVD": "23 Oct 2007",
+    "BoxOffice": "$26,617,553",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=T54uZPI4Z8A"
+  },
+  {
+    "Title": "Lawrence of Arabia",
+    "Year": "1962",
+    "Rated": "Approved",
+    "Released": "11 Dec 1962",
+    "Runtime": "218 min",
+    "Genre": "Adventure, Biography, Drama",
+    "Director": "David Lean",
+    "Writer": "Robert Bolt, Michael Wilson",
+    "Actors": "Peter O'Toole, Alec Guinness, Anthony Quinn",
+    "Plot": "Due to his knowledge of the native Bedouin tribes, British Lieutenant T.E. Lawrence is sent to Arabia to find Prince Faisal and serve as a liaison between the Arabs and the British in their fight against the Turks. With the aid of native Sherif Ali, Lawrence rebels against the orders of his superior officer and strikes out on a daring camel journey across the harsh desert to attack a well-guarded Turkish port.",
+    "Language": "English, Arabic, Turkish",
+    "Country": "United Kingdom",
+    "Awards": "Won 7 Oscars. 31 wins & 14 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BYWY5ZjhjNGYtZmI2Ny00ODM0LWFkNzgtZmI1YzA2N2MxMzA0XkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "94%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "100/100"
+      }
+    ],
+    "Metascore": "100",
+    "imdbRating": "8.3",
+    "imdbVotes": "303,509",
+    "imdbID": "tt0056172",
+    "Type": "movie",
+    "DVD": "02 Apr 2013",
+    "BoxOffice": "$45,306,425",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=vOlRhGEhG7k"
+  },
+  {
+    "Title": "Amélie",
+    "Year": "2001",
+    "Rated": "R",
+    "Released": "08 Feb 2002",
+    "Runtime": "122 min",
+    "Genre": "Comedy, Romance",
+    "Director": "Jean-Pierre Jeunet",
+    "Writer": "Guillaume Laurant, Jean-Pierre Jeunet",
+    "Actors": "Audrey Tautou, Mathieu Kassovitz, Rufus",
+    "Plot": "Amélie is a story about a girl named Amélie whose childhood was suppressed by her Father's mistaken concerns of a heart defect. With these concerns Amélie gets hardly any real-life contact with other people. This leads Amélie to resort to her own fantastical world and dreams of love and beauty. She later on becomes a young woman and moves to the central part of Paris as a waitress. After finding a lost treasure belonging to the former occupant of her apartment, she decides to return it to him. After seeing his reaction and his new found perspective - she decides to devote her life to the people around her. Such as, her father who is obsessed with his garden-gnome, a failed writer, a hypochondriac, a man who stalks his ex girlfriends, the \"ghost,\" a suppressed young soul, the love of her life and a man whose bones are as brittle as glass. But after consuming herself with these escapades - she finds out that she is disregarding her own life and damaging her quest for love. Amélie then discovers she must become more aggressive and take a hold of her life and capture the beauty of love she has always dreamed of.",
+    "Language": "French, Russian, English",
+    "Country": "France, Germany",
+    "Awards": "Nominated for 5 Oscars. 59 wins & 74 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNDg4NjM1YjMtYmNhZC00MjM0LWFiZmYtNGY1YjA3MzZmODc5XkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "89%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "69/100"
+      }
+    ],
+    "Metascore": "69",
+    "imdbRating": "8.3",
+    "imdbVotes": "772,016",
+    "imdbID": "tt0211915",
+    "Type": "movie",
+    "DVD": "16 Jul 2002",
+    "BoxOffice": "$33,225,499",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=HUECWi5pX7o"
+  },
+  {
+    "Title": "To Kill a Mockingbird",
+    "Year": "1962",
+    "Rated": "Approved",
+    "Released": "16 Mar 1963",
+    "Runtime": "129 min",
+    "Genre": "Crime, Drama",
+    "Director": "Robert Mulligan",
+    "Writer": "Harper Lee, Horton Foote",
+    "Actors": "Gregory Peck, John Megna, Frank Overton",
+    "Plot": "Small-town Alabama, 1932. Atticus Finch (played by Gregory Peck) is a lawyer and a widower. He has two young children, Jem and Scout. Atticus Finch is currently defending Tom Robinson, a black man accused of raping a white woman. Meanwhile, Jem and Scout are intrigued by their neighbours, the Radleys, and the mysterious, seldom-seen Boo Radley in particular.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Won 3 Oscars. 14 wins & 16 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNmVmYzcwNzMtMWM1NS00MWIyLThlMDEtYzUwZDgzODE1NmE2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "93%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "88/100"
+      }
+    ],
+    "Metascore": "88",
+    "imdbRating": "8.3",
+    "imdbVotes": "324,290",
+    "imdbID": "tt0056592",
+    "Type": "movie",
+    "DVD": "21 Aug 2014",
+    "BoxOffice": "$592,237",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=KR7loA_oziY"
+  },
+  {
+    "Title": "Reservoir Dogs",
+    "Year": "1992",
+    "Rated": "R",
+    "Released": "02 Sep 1992",
+    "Runtime": "99 min",
+    "Genre": "Crime, Thriller",
+    "Director": "Quentin Tarantino",
+    "Writer": "Quentin Tarantino, Roger Avary",
+    "Actors": "Harvey Keitel, Tim Roth, Michael Madsen",
+    "Plot": "Six thugs, who are strangers to each other, are hired by a crime boss, Joe Cabot, to carry out a diamond robbery. Right at the outset, they are given false names with the intention that they won't get too close and will concentrate on the job instead. They are completely sure that the robbery is going to be a success. But, when the police show up right at the time and the site of the robbery, panic spreads amongst the group members, and two of them are killed in the subsequent shootout, along with a few policemen and civilians. When the remaining people assemble at the premeditated rendezvous point (a warehouse), they begin to suspect that one of them is an undercover cop.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "12 wins & 23 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZmExNmEwYWItYmQzOS00YjA5LTk2MjktZjEyZDE1Y2QxNjA1XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "90%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "81/100"
+      }
+    ],
+    "Metascore": "81",
+    "imdbRating": "8.3",
+    "imdbVotes": "1,047,311",
+    "imdbID": "tt0105236",
+    "Type": "movie",
+    "DVD": "18 Mar 2003",
+    "BoxOffice": "$2,832,029",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=vayksn4Y93A"
+  },
+  {
+    "Title": "Das Boot",
+    "Year": "1981",
+    "Rated": "R",
+    "Released": "10 Feb 1982",
+    "Runtime": "149 min",
+    "Genre": "Drama, War",
+    "Director": "Wolfgang Petersen",
+    "Writer": "Wolfgang Petersen, Lothar G. Buchheim",
+    "Actors": "Jürgen Prochnow, Herbert Grönemeyer, Klaus Wennemann",
+    "Plot": "It is 1942 and the German submarine fleet is heavily engaged in the so-called \"Battle of the Atlantic\" to harass and destroy British shipping. With better escorts of the destroyer class, however, German U-boats have begun to take heavy losses. \"Das Boot\" is the story of the crew of one such U-Boat, with the film examining how these submariners maintained their professionalism as soldiers and attempted to accomplish impossible missions, all the while attempting to understand and obey the ideology of the government under which they served.",
+    "Language": "German",
+    "Country": "West Germany, Italy, France, United Kingdom",
+    "Awards": "Nominated for 6 Oscars. 13 wins & 11 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNDBjMWUxNTUtNjZiNi00YzJhLTgzNzUtMTRiY2FkZmMzYTNjXkEyXkFqcGdeQXVyMTUzMDUzNTI3._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.4/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "98%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "86/100"
+      }
+    ],
+    "Metascore": "86",
+    "imdbRating": "8.4",
+    "imdbVotes": "256,318",
+    "imdbID": "tt0082096",
+    "Type": "movie",
+    "DVD": "01 May 2012",
+    "BoxOffice": "$11,487,676",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=7pzKyeIex2Y"
+  },
+  {
+    "Title": "The Lion King",
+    "Year": "1994",
+    "Rated": "G",
+    "Released": "24 Jun 1994",
+    "Runtime": "88 min",
+    "Genre": "Animation, Adventure, Drama",
+    "Director": "Roger Allers, Rob Minkoff",
+    "Writer": "Irene Mecchi, Jonathan Roberts, Linda Woolverton",
+    "Actors": "Matthew Broderick, Jeremy Irons, James Earl Jones",
+    "Plot": "A young lion prince is cast out of his pride by his cruel uncle, who claims he killed his father. While the uncle rules with an iron paw, the prince grows up beyond the Savannah, living by a philosophy: No worries for the rest of your days. But when his past comes to haunt him, the young prince must decide his fate: Will he remain an outcast or face his demons and become what he needs to be?",
+    "Language": "English, Swahili, Xhosa, Zulu",
+    "Country": "United States",
+    "Awards": "Won 2 Oscars. 43 wins & 35 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "93%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "88/100"
+      }
+    ],
+    "Metascore": "88",
+    "imdbRating": "8.5",
+    "imdbVotes": "1,095,923",
+    "imdbID": "tt0110357",
+    "Type": "movie",
+    "DVD": "04 Oct 2011",
+    "BoxOffice": "$422,783,777",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=eHcZlPpNt0Q"
+  },
+  {
+    "Title": "Cinema Paradiso",
+    "Year": "1988",
+    "Rated": "PG",
+    "Released": "23 Feb 1990",
+    "Runtime": "155 min",
+    "Genre": "Drama, Romance",
+    "Director": "Giuseppe Tornatore",
+    "Writer": "Giuseppe Tornatore, Vanna Paoli",
+    "Actors": "Philippe Noiret, Enzo Cannavale, Antonella Attili",
+    "Plot": "A boy who grew up in a native Sicilian Village returns home as a famous director after receiving news about the death of an old friend. Told in a flashback, Salvatore reminiscences about his childhood and his relationship with Alfredo, a projectionist at Cinema Paradiso. Under the fatherly influence of Alfredo, Salvatore fell in love with film making, with the duo spending many hours discussing about films and Alfredo painstakingly teaching Salvatore the skills that became a stepping stone for the young boy into the world of film making. The film brings the audience through the changes in cinema and the dying trade of traditional film making, editing and screening. It also explores a young boy's dream of leaving his little town to foray into the world outside.",
+    "Language": "Italian",
+    "Country": "Italy, France",
+    "Awards": "Won 1 Oscar. 25 wins & 32 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BM2FhYjEyYmYtMDI1Yy00YTdlLWI2NWQtYmEzNzAxOGY1NjY2XkEyXkFqcGdeQXVyNTA3NTIyNDg@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "90%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "80/100"
+      }
+    ],
+    "Metascore": "80",
+    "imdbRating": "8.5",
+    "imdbVotes": "269,653",
+    "imdbID": "tt0095765",
+    "Type": "movie",
+    "DVD": "01 Oct 2016",
+    "BoxOffice": "$12,397,210",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=JMyVSD6OvO8"
+  },
+  {
+    "Title": "Star Wars: Episode VI - Return of the Jedi",
+    "Year": "1983",
+    "Rated": "PG",
+    "Released": "25 May 1983",
+    "Runtime": "131 min",
+    "Genre": "Action, Adventure, Fantasy",
+    "Director": "Richard Marquand",
+    "Writer": "Lawrence Kasdan, George Lucas",
+    "Actors": "Mark Hamill, Harrison Ford, Carrie Fisher",
+    "Plot": "Luke Skywalker battles Jabba the Hutt and Darth Vader to save his comrades in the Rebel Alliance and triumph over the Galactic Empire. Han Solo and Princess Leia reaffirm their love, and team with Chewbacca, Lando Calrissian, the Ewoks, and droids C-3PO and R2-D2 to aid in the disruption of the Dark Side, and the defeat of the evil emperor.",
+    "Language": "English, Kikuyu, Tagalog, Kalmyk-Oirat, Quechua, Polish",
+    "Country": "United States",
+    "Awards": "Nominated for 4 Oscars. 23 wins & 20 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BOWZlMjFiYzgtMTUzNC00Y2IzLTk1NTMtZmNhMTczNTk0ODk1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "83%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "58/100"
+      }
+    ],
+    "Metascore": "58",
+    "imdbRating": "8.3",
+    "imdbVotes": "1,082,442",
+    "imdbID": "tt0086190",
+    "Type": "movie",
+    "DVD": "21 Sep 2004",
+    "BoxOffice": "$316,566,101",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=p4vIFhk621Q"
+  },
+  {
+    "Title": "The Treasure of the Sierra Madre",
+    "Year": "1948",
+    "Rated": "Passed",
+    "Released": "24 Jan 1948",
+    "Runtime": "126 min",
+    "Genre": "Adventure, Drama, Western",
+    "Director": "John Huston",
+    "Writer": "John Huston, B. Traven",
+    "Actors": "Humphrey Bogart, Walter Huston, Tim Holt",
+    "Plot": "Fred C. Dobbs and Bob Curtin, both down on their luck in Tampico, Mexico in 1925, meet up with a grizzled prospector named Howard and decide to join with him in search of gold in the wilds of central Mexico. Through enormous difficulties, they eventually succeed in finding gold, but bandits, the elements, and most especially greed threaten to turn their success into disaster.",
+    "Language": "English, Spanish",
+    "Country": "United States",
+    "Awards": "Won 3 Oscars. 15 wins & 5 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BOTJlZWMxYzEtMjlkMS00ODE0LThlM2ItMDI3NGQ2YjhmMzkxXkEyXkFqcGdeQXVyMDI2NDg0NQ@@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.2/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "100%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "98/100"
+      }
+    ],
+    "Metascore": "98",
+    "imdbRating": "8.2",
+    "imdbVotes": "128,333",
+    "imdbID": "tt0040897",
+    "Type": "movie",
+    "DVD": "30 Sep 2003",
+    "BoxOffice": "$5,014,000",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=XZ8Q9mOYJgE"
+  },
+  {
+    "Title": "The Third Man",
+    "Year": "1949",
+    "Rated": "Approved",
+    "Released": "03 Sep 1949",
+    "Runtime": "93 min",
+    "Genre": "Film-Noir, Mystery, Thriller",
+    "Director": "Carol Reed",
+    "Writer": "Graham Greene, Orson Welles, Alexander Korda",
+    "Actors": "Orson Welles, Joseph Cotten, Alida Valli",
+    "Plot": "An out of work pulp fiction novelist, Holly Martins, arrives in a post war Vienna divided into sectors by the victorious allies, and where a shortage of supplies has led to a flourishing black market. He arrives at the invitation of an ex-school friend, Harry Lime, who has offered him a job, only to discover that Lime has recently died in a peculiar traffic accident. From talking to Lime's friends and associates Martins soon notices that some of the stories are inconsistent, and determines to discover what really happened to Harry Lime.",
+    "Language": "English, German, Russian, French",
+    "Country": "United Kingdom",
+    "Awards": "Won 1 Oscar. 5 wins & 4 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BYjE2OTdhMWUtOGJlMy00ZDViLWIzZjgtYjZkZGZmMDZjYmEyXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.1/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "99%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "97/100"
+      }
+    ],
+    "Metascore": "97",
+    "imdbRating": "8.1",
+    "imdbVotes": "176,064",
+    "imdbID": "tt0041959",
+    "Type": "movie",
+    "DVD": "01 Sep 2009",
+    "BoxOffice": "$1,067,364",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=r9yyDEDGlr0"
+  },
+  {
+    "Title": "Once Upon a Time in America",
+    "Year": "1984",
+    "Rated": "R",
+    "Released": "01 Jun 1984",
+    "Runtime": "229 min",
+    "Genre": "Crime, Drama",
+    "Director": "Sergio Leone",
+    "Writer": "Harry Grey, Leonardo Benvenuti, Piero De Bernardi",
+    "Actors": "Robert De Niro, James Woods, Elizabeth McGovern",
+    "Plot": "With the vivid memory of his long-gone childhood friends Max, Patsy, and Cockeye etched in his mind, his ferociously loyal partners-in-crime during their rise to prominence in New York's Prohibition-era Lower East Side, the defeated, penniless, and guilt-ridden former gangster David \"Noodles\" Aaronson returns to Manhattan. Not knowing what to expect on his mission to shed light on his opaque past, grizzled Noodles reunites with his only living friend Fat Moe after 35 haunted years of self-exile. However, the relentless, piercing sound of culpability stands in the way of finding closure, as the inscrutable content of a well-worn leather suitcase further complicates matters. And now, against the backdrop of a torn conscience, the sad, bittersweet recollections of more than 50 years of love, death, and everything in-between become inextricably intertwined, leading to even more puzzling questions. But what are a man's options when he is left with nothing?",
+    "Language": "English, Italian, French, Yiddish, Hebrew",
+    "Country": "Italy, United States",
+    "Awards": "Won 2 BAFTA 11 wins & 11 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMGFkNWI4MTMtNGQ0OC00MWVmLTk3MTktOGYxN2Y2YWVkZWE2XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "87%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "75/100"
+      }
+    ],
+    "Metascore": "75",
+    "imdbRating": "8.3",
+    "imdbVotes": "362,075",
+    "imdbID": "tt0087843",
+    "Type": "movie",
+    "DVD": "12 Dec 2015",
+    "BoxOffice": "$5,321,508",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=LcpCRyNo8T8"
+  },
+  {
+    "Title": "Requiem for a Dream",
+    "Year": "2000",
+    "Rated": "Unrated",
+    "Released": "15 Dec 2000",
+    "Runtime": "102 min",
+    "Genre": "Drama",
+    "Director": "Darren Aronofsky",
+    "Writer": "Hubert Selby Jr., Darren Aronofsky",
+    "Actors": "Ellen Burstyn, Jared Leto, Jennifer Connelly",
+    "Plot": "Sara Goldfarb (Ellen Burstyn) is a retired widow, living in a small apartment. She spends most of her time watching TV, especially a particular self-help show. She has delusions of rising above her current dull existence by being a guest on that show. Her son, Harry (Jared Leto) is a junkie but along with his friend Tyrone (Marlon Wayans) has visions of making it big by becoming a drug dealer. Harry's girlfriend Marion (Jennifer Connelly) could be fashion designer or artist but is swept along in Harry's drug-centric world. Meanwhile Sara has developed an addiction of her own. She desperately wants to lose weight and so goes on a crash course involving popping pills, pills which turn out to be very addictive and harmful to her mental state.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Nominated for 1 Oscar. 37 wins & 69 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BOTdiNzJlOWUtNWMwNS00NmFlLWI0YTEtZmI3YjIzZWUyY2Y3XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "78%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "71/100"
+      }
+    ],
+    "Metascore": "71",
+    "imdbRating": "8.3",
+    "imdbVotes": "865,043",
+    "imdbID": "tt0180093",
+    "Type": "movie",
+    "DVD": "22 May 2001",
+    "BoxOffice": "$3,635,482",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=QBwzN4v1vA0"
+  },
+  {
+    "Title": "Eternal Sunshine of the Spotless Mind",
+    "Year": "2004",
+    "Rated": "R",
+    "Released": "19 Mar 2004",
+    "Runtime": "108 min",
+    "Genre": "Drama, Romance, Sci-Fi",
+    "Director": "Michel Gondry",
+    "Writer": "Charlie Kaufman, Michel Gondry, Pierre Bismuth",
+    "Actors": "Jim Carrey, Kate Winslet, Tom Wilkinson",
+    "Plot": "Much to his surprise, timid Joel Barish is shocked to discover that the love of his life, sparky Clementine, has had him erased from her memory. To pay her back in the same coin, poor Joel summons up the courage to undergo a painless but intricate medical procedure to do the same, utterly unaware that darkness is an essential part of the light. Now, as hurt and angry Joel's ugly recollections of Clementine gradually fade away, giving way to a soulless black void, suddenly, he begins having second thoughts, toying with the idea of stopping the irreversible process. In the end, is ignorance really bliss?",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Won 1 Oscar. 73 wins & 111 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTY4NzcwODg3Nl5BMl5BanBnXkFtZTcwNTEwOTMyMw@@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "92%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "89/100"
+      }
+    ],
+    "Metascore": "89",
+    "imdbRating": "8.3",
+    "imdbVotes": "1,038,835",
+    "imdbID": "tt0338013",
+    "Type": "movie",
+    "DVD": "28 Sep 2004",
+    "BoxOffice": "$34,400,301",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=07-QBnEkgXU"
+  },
+  {
+    "Title": "Full Metal Jacket",
+    "Year": "1987",
+    "Rated": "R",
+    "Released": "10 Jul 1987",
+    "Runtime": "116 min",
+    "Genre": "Drama, War",
+    "Director": "Stanley Kubrick",
+    "Writer": "Stanley Kubrick, Michael Herr, Gustav Hasford",
+    "Actors": "Matthew Modine, R. Lee Ermey, Vincent D'Onofrio",
+    "Plot": "A two-segment look at the effect of the military mindset and war itself on Vietnam era Marines. The first half follows a group of recruits in boot camp under the command of the punishing Gunnery Sergeant Hartman. The second half shows one of those recruits, Joker, covering the war as a correspondent for Stars and Stripes, focusing on the Tet offensive.",
+    "Language": "English, Vietnamese",
+    "Country": "United Kingdom, United States",
+    "Awards": "Nominated for 1 Oscar. 8 wins & 14 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNzkxODk0NjEtYjc4Mi00ZDI0LTgyYjEtYzc1NDkxY2YzYTgyXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "91%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "78/100"
+      }
+    ],
+    "Metascore": "78",
+    "imdbRating": "8.3",
+    "imdbVotes": "762,151",
+    "imdbID": "tt0093058",
+    "Type": "movie",
+    "DVD": "12 Jun 2001",
+    "BoxOffice": "$46,357,676",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=n2i917l5RFc"
+  },
+  {
+    "Title": "Oldboy",
+    "Year": "2003",
+    "Rated": "R",
+    "Released": "21 Nov 2003",
+    "Runtime": "120 min",
+    "Genre": "Action, Drama, Mystery",
+    "Director": "Park Chan-wook",
+    "Writer": "Garon Tsuchiya, Nobuaki Minegishi, Park Chan-wook",
+    "Actors": "Choi Min-sik, Yoo Ji-tae, Kang Hye-jeong",
+    "Plot": "Abducted on a rainy night in 1988, the obnoxious drunk, Oh Dae-Su, much to his surprise, wakes up locked in a windowless and dilapidated hotel room, for an unknown reason. There, his invisible and pitiless captors will feed him, clothe him, and sedate him to avert a desperate suicide--and as his only companion and a window to the world is the TV in his stark cell--the only thing that helps Oh Dae-Su keep going is his daily journal. Then, unexpectedly, after fifteen long years in captivity, the perplexed prisoner is deliberately released, encouraged to track down his tormentor to finally get his retribution. However, who would hate Oh Dae-Su so much he would deny him of a quick and clean death?",
+    "Language": "Korean",
+    "Country": "South Korea",
+    "Awards": "40 wins & 27 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTI3NTQyMzU5M15BMl5BanBnXkFtZTcwMTM2MjgyMQ@@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.4/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "82%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "77/100"
+      }
+    ],
+    "Metascore": "77",
+    "imdbRating": "8.4",
+    "imdbVotes": "599,515",
+    "imdbID": "tt0364569",
+    "Type": "movie",
+    "DVD": "07 Aug 2008",
+    "BoxOffice": "$707,481",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=hBNBpNcuQHI"
+  },
+  {
+    "Title": "Braveheart",
+    "Year": "1995",
+    "Rated": "R",
+    "Released": "24 May 1995",
+    "Runtime": "178 min",
+    "Genre": "Biography, Drama, History",
+    "Director": "Mel Gibson",
+    "Writer": "Randall Wallace",
+    "Actors": "Mel Gibson, Sophie Marceau, Patrick McGoohan",
+    "Plot": "William Wallace is a Scottish rebel who leads an uprising against the cruel English ruler Edward the Longshanks, who wishes to inherit the crown of Scotland for himself. When he was a young boy, William Wallace's father and brother, along with many others, lost their lives trying to free Scotland. Once he loses another of his loved ones, William Wallace begins his long quest to make Scotland free once and for all, along with the assistance of Robert the Bruce.",
+    "Language": "English, French, Latin, Gaelic, Italian",
+    "Country": "United States",
+    "Awards": "Won 5 Oscars. 33 wins & 34 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMzkzMmU0YTYtOWM3My00YzBmLWI0YzctOGYyNTkwMWE5MTJkXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "76%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "68/100"
+      }
+    ],
+    "Metascore": "68",
+    "imdbRating": "8.3",
+    "imdbVotes": "1,058,938",
+    "imdbID": "tt0112573",
+    "Type": "movie",
+    "DVD": "19 Sep 2006",
+    "BoxOffice": "$75,609,945",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=1NJO0jxBtMo"
+  },
+  {
+    "Title": "L.A. Confidential",
+    "Year": "1997",
+    "Rated": "R",
+    "Released": "19 Sep 1997",
+    "Runtime": "138 min",
+    "Genre": "Crime, Drama, Mystery",
+    "Director": "Curtis Hanson",
+    "Writer": "James Ellroy, Brian Helgeland, Curtis Hanson",
+    "Actors": "Kevin Spacey, Russell Crowe, Guy Pearce",
+    "Plot": "1950's Los Angeles is the seedy backdrop for this intricate noir-ish tale of police corruption and Hollywood sleaze. Three very different cops are all after the truth, each in their own style: Ed Exley, the golden boy of the police force, willing to do almost anything to get ahead, except sell out; Bud White, ready to break the rules to seek justice, but barely able to keep his raging violence under control; and Jack Vincennes, always looking for celebrity and a quick buck until his conscience drives him to join Exley and White down the one-way path to find the truth behind the dark world of L.A. crime.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Won 2 Oscars. 91 wins & 86 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMDQ2YzEyZGItYWRhOS00MjBmLTkzMDUtMTdjYzkyMmQxZTJlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.2/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "99%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "91/100"
+      }
+    ],
+    "Metascore": "91",
+    "imdbRating": "8.2",
+    "imdbVotes": "596,411",
+    "imdbID": "tt0119488",
+    "Type": "movie",
+    "DVD": "12 Dec 2015",
+    "BoxOffice": "$64,616,940",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=6sOXrY5yV4g"
+  },
+  {
+    "Title": "Bicycle Thieves",
+    "Year": "1948",
+    "Rated": "Not Rated",
+    "Released": "13 Dec 1949",
+    "Runtime": "89 min",
+    "Genre": "Drama",
+    "Director": "Vittorio De Sica",
+    "Writer": "Cesare Zavattini, Luigi Bartolini, Oreste Biancoli",
+    "Actors": "Lamberto Maggiorani, Enzo Staiola, Lianella Carell",
+    "Plot": "Antonio Ricci, an unemployed man in the depressed post-WWII economy of Italy, finally gets a job hanging up posters, but he needs a bicycle. But when his bicycle is stolen,, he and son walk the streets of Rome looking for it. Antonio finally manages to locate the thief, but with no proof he must abandon his cause. But he and his son know perfectly well that without a bike, Antonio won't be able to keep his job.",
+    "Language": "Italian, English, German",
+    "Country": "Italy",
+    "Awards": "Nominated for 1 Oscar. 18 wins & 1 nomination total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNmI1ODdjODctMDlmMC00ZWViLWI5MzYtYzRhNDdjYmM3MzFjXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "99%"
+      }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "8.3",
+    "imdbVotes": "168,486",
+    "imdbID": "tt0040522",
+    "Type": "movie",
+    "DVD": "29 Mar 2016",
+    "BoxOffice": "$371,111",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=H2P4xo9kmPM"
+  },
+  {
+    "Title": "Chinatown",
+    "Year": "1974",
+    "Rated": "R",
+    "Released": "20 Jun 1974",
+    "Runtime": "130 min",
+    "Genre": "Drama, Mystery, Thriller",
+    "Director": "Roman Polanski",
+    "Writer": "Robert Towne, Roman Polanski",
+    "Actors": "Jack Nicholson, Faye Dunaway, John Huston",
+    "Plot": "In 1937 Los Angeles, private investigator Jake 'J.J.' Gittes specializes in cheating-spouse cases. His current target is Hollis Mulwray, high-profile chief engineer for the Los Angeles Department of Water and Power, whose wife suspects him of infidelity. In following Mulwray, Gittes witnesses some usual business dealings, such as a public meeting for construction of a new dam to create additional water supply for Los Angeles, as fresh water is vital to the growing community during the chronic drought; Mulwray opposes the dam. Eventually Gittes sees Mulwray meeting with an unknown young woman who isn't his wife. Once news of the supposed tryst between Mulwray and this woman hits the media, additional information comes to light that makes Gittes believe that Mulwray is being framed for something and that he himself is being set up. In his investigation of the issue behind Mulwray's framing and his own setup, Gittes is assisted by Mulwray's wife Evelyn, but he thinks she isn't being forthright with him. The further he gets into the investigation, the more secrets he uncovers about the Mulwrays' professional and personal dealings, including Mulwray's former business-partnership with Evelyn's father, Noah Cross. The identity of the unknown woman may be the key to uncovering the whole story.",
+    "Language": "English, Cantonese, Spanish",
+    "Country": "United States",
+    "Awards": "Won 1 Oscar. 21 wins & 24 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMjJkMDZhYzItZTFhMi00ZGI4LThlNTAtZDNlYmEwNjFkNDYzXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.2/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "99%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "92/100"
+      }
+    ],
+    "Metascore": "92",
+    "imdbRating": "8.2",
+    "imdbVotes": "336,150",
+    "imdbID": "tt0071315",
+    "Type": "movie",
+    "DVD": "01 Aug 2013",
+    "BoxOffice": "$29,200,000",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=T37QkBc4IGY"
+  },
+  {
+    "Title": "Singin' in the Rain",
+    "Year": "1952",
+    "Rated": "G",
+    "Released": "10 Apr 1952",
+    "Runtime": "103 min",
+    "Genre": "Comedy, Musical, Romance",
+    "Director": "Stanley Donen, Gene Kelly",
+    "Writer": "Betty Comden, Adolph Green",
+    "Actors": "Gene Kelly, Donald O'Connor, Debbie Reynolds",
+    "Plot": "1927 Hollywood. Monumental Pictures' biggest stars, glamorous on-screen couple Lina Lamont and Don Lockwood, are also an off-screen couple if the trade papers and gossip columns are to be believed. Both perpetuate the public perception if only to please their adoring fans and bring people into the movie theaters. In reality, Don barely tolerates her, while Lina, despite thinking Don beneath her, simplemindedly believes what she sees on screen in order to bolster her own stardom and sense of self-importance. R.F. Simpson, Monumental's head, dismisses what he thinks is a flash in the pan: talking pictures. It isn't until The Jazz Singer (1927) becomes a bona fide hit which results in all the movie theaters installing sound equipment that R.F. knows Monumental, most specifically in the form of Don and Lina, have to jump on the talking picture bandwagon, despite no one at the studio knowing anything about the technology. Musician Cosmo Brown, Don's best friend, gets hired as Monumental's ideas man and musical director. And by this time, Don has secretly started dating Kathy Selden, a chorus girl who is trying to make it big in pictures herself. Don and Kathy's relationship is despite their less than friendly initial meeting. Cosmo and Kathy help Don, who had worked his way up through the movie ranks to stardom, try make the leap to talking picture stardom, with Kathy following along the way. However, they have to overcome the technological issues. But the bigger problem is Lina, who will do anything to ensure she also makes the successful leap into talking pictures, despite her own inabilities and at anyone and everyone else's expense if they get in her way, especially Kathy as Don's off screen girlfriend and possibly his new talking picture leading lady.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Nominated for 2 Oscars. 8 wins & 9 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZDRjNGViMjQtOThlMi00MTA3LThkYzQtNzJkYjBkMGE0YzE1XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "100%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "99/100"
+      }
+    ],
+    "Metascore": "99",
+    "imdbRating": "8.3",
+    "imdbVotes": "249,971",
+    "imdbID": "tt0045152",
+    "Type": "movie",
+    "DVD": "24 Sep 2002",
+    "BoxOffice": "$1,884,537",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=5_EVHeNEIJY"
+  },
+  {
+    "Title": "Princess Mononoke",
+    "Year": "1997",
+    "Rated": "PG-13",
+    "Released": "19 Dec 1997",
+    "Runtime": "134 min",
+    "Genre": "Animation, Action, Adventure",
+    "Director": "Hayao Miyazaki",
+    "Writer": "Hayao Miyazaki, Neil Gaiman",
+    "Actors": "Yôji Matsuda, Yuriko Ishida, Yûko Tanaka",
+    "Plot": "While protecting his village from rampaging boar-god/demon, a confident young warrior, Ashitaka, is stricken by a deadly curse. To save his life, he must journey to the forests of the west. Once there, he's embroiled in a fierce campaign that humans were waging on the forest. The ambitious Lady Eboshi and her loyal clan use their guns against the gods of the forest and a brave young woman, Princess Mononoke, who was raised by a wolf-god. Ashitaka sees the good in both sides and tries to stem the flood of blood. This is met by animosity by both sides as they each see him as supporting the enemy.",
+    "Language": "Japanese",
+    "Country": "Japan",
+    "Awards": "14 wins & 6 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNTZkYmI0MmEtNGFlZC00OWZjLWFjMmItMjk1OWZkOWJiZGVjXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "93%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "76/100"
+      }
+    ],
+    "Metascore": "76",
+    "imdbRating": "8.3",
+    "imdbVotes": "408,945",
+    "imdbID": "tt0119698",
+    "Type": "movie",
+    "DVD": "20 Jul 2000",
+    "BoxOffice": "$4,845,631",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=4OiMOHRDs14"
+  },
+  {
+    "Title": "Monty Python and the Holy Grail",
+    "Year": "1975",
+    "Rated": "PG",
+    "Released": "25 May 1975",
+    "Runtime": "91 min",
+    "Genre": "Adventure, Comedy, Fantasy",
+    "Director": "Terry Gilliam, Terry Jones",
+    "Writer": "Graham Chapman, John Cleese, Eric Idle",
+    "Actors": "Graham Chapman, John Cleese, Eric Idle",
+    "Plot": "History is turned on its comic head when, in tenth-century England, King Arthur travels the countryside to find knights who will join him at the Round Table in Camelot. Gathering up the men is a tale in itself but after a bit of a party at Camelot, many decide to leave only to be stopped by God, who sends them on a quest: to find the Holy Grail. After a series of individual adventures, the knights are reunited but must face a wizard named Tim the Enchanter, killer rabbits and lessons in the use of holy hand grenades. Their quest comes to an end however when the Police intervene - just what you would expect in a Monty Python movie.",
+    "Language": "English, French, Latin, Swedish",
+    "Country": "United Kingdom",
+    "Awards": "2 wins & 2 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BN2IyNTE4YzUtZWU0Mi00MGIwLTgyMmQtMzQ4YzQxYWNlYWE2XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.2/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "96%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "91/100"
+      }
+    ],
+    "Metascore": "91",
+    "imdbRating": "8.2",
+    "imdbVotes": "553,855",
+    "imdbID": "tt0071853",
+    "Type": "movie",
+    "DVD": "08 Jun 2004",
+    "BoxOffice": "$1,827,696",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=urRkGvhXc8w"
+  },
+  {
+    "Title": "Metropolis",
+    "Year": "1927",
+    "Rated": "Not Rated",
+    "Released": "13 Mar 1927",
+    "Runtime": "153 min",
+    "Genre": "Drama, Sci-Fi",
+    "Director": "Fritz Lang",
+    "Writer": "Thea von Harbou, Fritz Lang",
+    "Actors": "Brigitte Helm, Alfred Abel, Gustav Fröhlich",
+    "Plot": "Sometime in the future, the city of Metropolis is home to a Utopian society where its wealthy residents live a carefree life. One of those is Freder Fredersen. One day, he spots a beautiful woman with a group of children, she and the children quickly disappear. Trying to follow her, he is horrified to find an underground world of workers who apparently run the machinery that keeps the Utopian world above ground functioning. One of the few people above ground who knows about the world below is Freder's father, John Fredersen, who is the founder and master of Metropolis. Freder learns that the woman is called Maria, who espouses the need to join the \"hands\" - the workers - to the \"head\" - those in power above - by a mediator who will act as the \"heart\". Freder wants to help the plight of the workers in their struggle for a better life. But when John learns of what Maria is advocating and that Freder has joined their cause, with the assistance of an old colleague. an inventor called Rotwang, who turns out to be But their nemesis goes to works towards quashing a proposed uprising, with Maria at the centre of their plan. John, unaware that Rotwang has his own agenda., makes plans that include shutting down the machines, with the prospect of unleashing total anarchy both above and below ground.",
+    "Language": "German, English",
+    "Country": "Germany",
+    "Awards": "6 wins & 6 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTg5YWIyMWUtZDY5My00Zjc1LTljOTctYmI0MWRmY2M2NmRkXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "97%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "98/100"
+      }
+    ],
+    "Metascore": "98",
+    "imdbRating": "8.3",
+    "imdbVotes": "179,571",
+    "imdbID": "tt0017136",
+    "Type": "movie",
+    "DVD": "21 Dec 2016",
+    "BoxOffice": "$1,236,166",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=gdtZv3XROnc"
+  },
+  {
+    "Title": "Rashomon",
+    "Year": "1950",
+    "Rated": "Not Rated",
+    "Released": "26 Dec 1951",
+    "Runtime": "88 min",
+    "Genre": "Crime, Drama, Mystery",
+    "Director": "Akira Kurosawa",
+    "Writer": "Ryûnosuke Akutagawa, Akira Kurosawa, Shinobu Hashimoto",
+    "Actors": "Toshirô Mifune, Machiko Kyô, Masayuki Mori",
+    "Plot": "A priest, a woodcutter and another man are taking refuge from a rainstorm in the shell of a former gatehouse called Rashômon. The priest and the woodcutter are recounting the story of a murdered samurai whose body the woodcutter discovered three days earlier in a forest grove. Both were summoned to testify at the murder trial, the priest who ran into the samurai and his wife traveling through the forest just before the murder occurred. Three other people who testified at the trial are supposedly the only direct witnesses: a notorious bandit named Tajômaru, who allegedly murdered the samurai and raped his wife; the white veil cloaked wife of the samurai; and the samurai himself who testifies through the use of a medium. The three tell a similarly structured story - that Tajômaru kidnapped and bound the samurai so that he could rape the wife - but which ultimately contradict each other, the motivations and the actual killing being what differ. The woodcutter reveals at Rashômon that he knows more than he let on at the trial, thus bringing into question his own actions. But another discovery at Rashômon and the resulting actions from the discovery bring back into focus the woodcutter's own humanity or lack thereof.",
+    "Language": "Japanese",
+    "Country": "Japan",
+    "Awards": "Nominated for 1 Oscar. 9 wins & 5 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTk1MDU5MjQ5NF5BMl5BanBnXkFtZTgwMDM2OTE4MzE@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.2/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "98%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "98/100"
+      }
+    ],
+    "Metascore": "98",
+    "imdbRating": "8.2",
+    "imdbVotes": "173,866",
+    "imdbID": "tt0042876",
+    "Type": "movie",
+    "DVD": "23 Mar 2017",
+    "BoxOffice": "$46,808",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=Zqoyl2p8_lw"
+  },
+  {
+    "Title": "Some Like It Hot",
+    "Year": "1959",
+    "Rated": "Passed",
+    "Released": "19 Mar 1959",
+    "Runtime": "121 min",
+    "Genre": "Comedy, Music, Romance",
+    "Director": "Billy Wilder",
+    "Writer": "Billy Wilder, I.A.L. Diamond, Robert Thoeren",
+    "Actors": "Marilyn Monroe, Tony Curtis, Jack Lemmon",
+    "Plot": "After two Chicago musicians, Joe and Jerry, witness the the St. Valentine's Day massacre, they want to get out of town and get away from the gangster responsible, Spats Colombo. They're desperate to get a gig out of town but the only job they know of is in an all-girl band heading to Florida. They show up at the train station as Josephine and Daphne, the replacement saxophone and bass players. They certainly enjoy being around the girls, especially Sugar Kane Kowalczyk who sings and plays the ukulele. Joe in particular sets out to woo her while Jerry/Daphne is wooed by a millionaire, Osgood Fielding III. Mayhem ensues as the two men try to keep their true identities hidden and Spats Colombo and his crew show up for a meeting with several other crime lords.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Won 1 Oscar. 11 wins & 13 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNzAyOGIxYjAtMGY2NC00ZTgyLWIwMWEtYzY0OWQ4NDFjOTc5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.2/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "94%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "98/100"
+      }
+    ],
+    "Metascore": "98",
+    "imdbRating": "8.2",
+    "imdbVotes": "274,278",
+    "imdbID": "tt0053291",
+    "Type": "movie",
+    "DVD": "26 Sep 2016",
+    "BoxOffice": "N/A",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=rI_lUHOCcbc"
+  },
+  {
+    "Title": "Amadeus",
+    "Year": "1984",
+    "Rated": "PG",
+    "Released": "19 Sep 1984",
+    "Runtime": "160 min",
+    "Genre": "Biography, Drama, Music",
+    "Director": "Milos Forman",
+    "Writer": "Peter Shaffer, Zdenek Mahler",
+    "Actors": "F. Murray Abraham, Tom Hulce, Elizabeth Berridge",
+    "Plot": "Antonio Salieri believes that Wolfgang Amadeus Mozart's music is divine and miraculous. He wishes he was himself as good a musician as Mozart so that he can praise the Lord through composing. He began his career as a devout man who believes his success and talent as a composer are God's rewards for his piety. He's also content as the respected, financially well-off, court composer of Austrian Emperor Joseph II. But he's shocked to learn that Mozart is such a vulgar creature, and can't understand why God favored Mozart to be his instrument. Salieri's envy has made him an enemy of God whose greatness was evident in Mozart. He is ready to take revenge against God and Mozart for his own musical mediocrity.",
+    "Language": "English, Italian, Latin, German, French",
+    "Country": "United States, France",
+    "Awards": "Won 8 Oscars. 43 wins & 14 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNWJlNzUzNGMtYTAwMS00ZjI2LWFmNWQtODcxNWUxODA5YmU1XkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.4/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "89%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "88/100"
+      }
+    ],
+    "Metascore": "88",
+    "imdbRating": "8.4",
+    "imdbVotes": "411,739",
+    "imdbID": "tt0086879",
+    "Type": "movie",
+    "DVD": "18 May 2016",
+    "BoxOffice": "$51,973,029",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=r7kWQj9FCGY"
+  },
+  {
+    "Title": "2001: A Space Odyssey",
+    "Year": "1968",
+    "Rated": "G",
+    "Released": "24 Jun 1970",
+    "Runtime": "149 min",
+    "Genre": "Adventure, Sci-Fi",
+    "Director": "Stanley Kubrick",
+    "Writer": "Stanley Kubrick, Arthur C. Clarke",
+    "Actors": "Keir Dullea, Gary Lockwood, William Sylvester",
+    "Plot": "\"2001\" is a story of evolution. Sometime in the distant past, someone or something nudged evolution by placing a monolith on Earth (presumably elsewhere throughout the universe as well). Evolution then enabled humankind to reach the moon's surface, where yet another monolith is found, one that signals the monolith placers that humankind has evolved that far. Now a race begins between computers (HAL) and human (Bowman) to reach the monolith placers. The winner will achieve the next step in evolution, whatever that may be.",
+    "Language": "English, Russian, French",
+    "Country": "United Kingdom, United States",
+    "Awards": "Won 1 Oscar. 17 wins & 13 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMmNlYzRiNDctZWNhMi00MzI4LThkZTctMTUzMmZkMmFmNThmXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "92%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "84/100"
+      }
+    ],
+    "Metascore": "84",
+    "imdbRating": "8.3",
+    "imdbVotes": "688,684",
+    "imdbID": "tt0062622",
+    "Type": "movie",
+    "DVD": "23 Oct 2007",
+    "BoxOffice": "$60,481,243",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=oR_e9y-bka0"
+  },
+  {
+    "Title": "All About Eve",
+    "Year": "1950",
+    "Rated": "Passed",
+    "Released": "27 Oct 1950",
+    "Runtime": "138 min",
+    "Genre": "Drama",
+    "Director": "Joseph L. Mankiewicz",
+    "Writer": "Joseph L. Mankiewicz, Mary Orr",
+    "Actors": "Bette Davis, Anne Baxter, George Sanders",
+    "Plot": "Eve Harrington (Anne Baxter) is waiting backstage to meet her idol, talented but aging Broadway star Margo Channing (Bette Davis). It seems innocent enough as Eve explains that she has seen Margo in EVERY performance of her current play. Margo and her friends take Eve under their wing but only theatre critic Addison DeWitt (George Sanders) sees through Eve's evil plan, which is to take Margo's parts and her fiancé, Bill Simpson (Gary Merrill) too.",
+    "Language": "English, French",
+    "Country": "United States",
+    "Awards": "Won 6 Oscars. 27 wins & 20 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BYmE1M2Y3NTYtYTI0Mi00N2JlLTkzMzItOTY1MTlhNWNkMDgzXkEyXkFqcGdeQXVyMTUzMDUzNTI3._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.2/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "99%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "98/100"
+      }
+    ],
+    "Metascore": "98",
+    "imdbRating": "8.2",
+    "imdbVotes": "134,793",
+    "imdbID": "tt0042192",
+    "Type": "movie",
+    "DVD": "01 Mar 2013",
+    "BoxOffice": "$63,463",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=uRjKPLH2OaQ"
+  },
+  {
+    "Title": "Witness for the Prosecution",
+    "Year": "1957",
+    "Rated": "Approved",
+    "Released": "06 Feb 1958",
+    "Runtime": "116 min",
+    "Genre": "Crime, Drama, Mystery",
+    "Director": "Billy Wilder",
+    "Writer": "Agatha Christie, Billy Wilder, Harry Kurnitz",
+    "Actors": "Tyrone Power, Marlene Dietrich, Charles Laughton",
+    "Plot": "Ailing barrister Sir Wilfrid Robarts is thrust back into the courtroom in what becomes one of the most unusual and eventful murder case of the lawyer's career when he finds himself defending Leonard Vole, a man being tried for the murder of a wealthy woman. With Robarts choosing to represent him, the two find themselves up against Leonard's cold-hearted wife, Christine - who, in a surprising turn of events, chooses to appear in court against her husband.",
+    "Language": "English, German",
+    "Country": "United States",
+    "Awards": "Nominated for 6 Oscars. 3 wins & 15 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNDQwODU5OWYtNDcyNi00MDQ1LThiOGMtZDkwNWJiM2Y3MDg0XkEyXkFqcGdeQXVyMDI2NDg0NQ@@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.4/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "100%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "76/100"
+      }
+    ],
+    "Metascore": "76",
+    "imdbRating": "8.4",
+    "imdbVotes": "130,684",
+    "imdbID": "tt0051201",
+    "Type": "movie",
+    "DVD": "22 Apr 2008",
+    "BoxOffice": "N/A",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=GMlJfiA2u7Y"
+  },
+  {
+    "Title": "The Sting",
+    "Year": "1973",
+    "Rated": "PG",
+    "Released": "25 Dec 1973",
+    "Runtime": "129 min",
+    "Genre": "Comedy, Crime, Drama",
+    "Director": "George Roy Hill",
+    "Writer": "David S. Ward",
+    "Actors": "Paul Newman, Robert Redford, Robert Shaw",
+    "Plot": "Johnny Hooker, a small time grifter, unknowingly steals from Doyle Lonnegan, a big time crime boss, when he pulls a standard street con. Lonnegan demands satisfaction for the insult. After his partner, Luther, is killed, Hooker flees, and seeks the help of Henry Gondorff, one of Luther's contacts, who is a master of the long con. Hooker wants to use Gondorff's expertise to take Lonnegan for an enormous sum of money to even the score, since he admits he \"doesn't know enough about killing to kill him.\" They devise a complicated scheme and amass a talented group of other con artists who want their share of the reparations. The stakes are high in this game, and our heroes must not only deal with Lonnegan's murderous tendencies, but also other side players who want a piece of the action. To win, Hooker and Gondorff will need all their skills...and a fair amount of confidence.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Won 7 Oscars. 18 wins & 6 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNGU3NjQ4YTMtZGJjOS00YTQ3LThmNmItMTI5MDE2ODI3NzY3XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "93%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "83/100"
+      }
+    ],
+    "Metascore": "83",
+    "imdbRating": "8.3",
+    "imdbVotes": "271,257",
+    "imdbID": "tt0070735",
+    "Type": "movie",
+    "DVD": "08 May 2015",
+    "BoxOffice": "$156,000,000",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=_nAIb_J9T5M"
+  },
+  {
+    "Title": "The Apartment",
+    "Year": "1960",
+    "Rated": "Approved",
+    "Released": "29 Jun 1960",
+    "Runtime": "125 min",
+    "Genre": "Comedy, Drama, Romance",
+    "Director": "Billy Wilder",
+    "Writer": "Billy Wilder, I.A.L. Diamond",
+    "Actors": "Jack Lemmon, Shirley MacLaine, Fred MacMurray",
+    "Plot": "As of November 1, 1959, mild mannered C.C. Baxter has been working at Consolidated Life, an insurance company, for close to four years, and is one of close to thirty-two thousand employees located in their Manhattan head office. To distinguish himself from all the other lowly cogs in the company in the hopes of moving up the corporate ladder, he often works late, but only because he can't get into his apartment, located off of Central Park West, since he has provided it to a handful of company executives - Mssrs. Dobisch, Kirkeby, Vanderhoff and Eichelberger - on a rotating basis for their extramarital liaisons in return for a good word to the personnel director, Jeff D. Sheldrake. When Baxter is called into Sheldrake's office for the first time, he learns that it isn't just to be promoted as he expects, but also to add married Sheldrake to the list to who he will lend his apartment. Dobisch, Kirkeby, Vanderhoff and Eichelberger are now feeling neglected as Baxter no longer needs their assistance in moving up.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "Won 5 Oscars. 24 wins & 8 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNzkwODFjNzItMmMwNi00MTU5LWE2MzktM2M4ZDczZGM1MmViXkEyXkFqcGdeQXVyNDY2MTk1ODk@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.3/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "93%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "94/100"
+      }
+    ],
+    "Metascore": "94",
+    "imdbRating": "8.3",
+    "imdbVotes": "187,534",
+    "imdbID": "tt0053604",
+    "Type": "movie",
+    "DVD": "29 Mar 2016",
+    "BoxOffice": "$18,600,000",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=OcslkrBMLGc"
+  },
+  {
+    "Title": "Grave of the Fireflies",
+    "Year": "1988",
+    "Rated": "Not Rated",
+    "Released": "26 Jul 1989",
+    "Runtime": "89 min",
+    "Genre": "Animation, Drama, War",
+    "Director": "Isao Takahata",
+    "Writer": "Akiyuki Nosaka, Isao Takahata",
+    "Actors": "Tsutomu Tatsumi, Ayano Shiraishi, Akemi Yamaguchi",
+    "Plot": "The story of Seita and Setsuko, two young Japanese siblings, living in the declining days of World War II. When an American firebombing separates the two children from their parents, the two siblings must rely completely on one another while they struggle to fight for their survival.",
+    "Language": "Japanese",
+    "Country": "Japan",
+    "Awards": "3 wins",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZmY2NjUzNDQtNTgxNC00M2Q4LTljOWQtMjNjNDBjNWUxNmJlXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "100%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "94/100"
+      }
+    ],
+    "Metascore": "94",
+    "imdbRating": "8.5",
+    "imdbVotes": "288,963",
+    "imdbID": "tt0095327",
+    "Type": "movie",
+    "DVD": "11 Mar 2017",
+    "BoxOffice": "$516,962",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=4vPeTSRd580"
+  },
+  {
+    "Title": "Indiana Jones and the Last Crusade",
+    "Year": "1989",
+    "Rated": "PG-13",
+    "Released": "24 May 1989",
+    "Runtime": "127 min",
+    "Genre": "Action, Adventure",
+    "Director": "Steven Spielberg",
+    "Writer": "Jeffrey Boam, George Lucas, Menno Meyjes",
+    "Actors": "Harrison Ford, Sean Connery, Alison Doody",
+    "Plot": "An art collector appeals to Indiana Jones to embark on a search for the Holy Grail. He learns that another archaeologist has disappeared while searching for the precious goblet, and the missing man is his own father, Dr. Henry Jones. The artifact is much harder to find than they expected, and its powers are too much for those impure of heart.",
+    "Language": "English, German, Greek, Arabic",
+    "Country": "United States",
+    "Awards": "Won 1 Oscar. 9 wins & 22 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BY2Q0ODg4ZmItNDZiYi00ZWY5LTg2NzctNmYwZjA5OThmNzE1XkEyXkFqcGdeQXVyMjM4MzQ4OTQ@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.2/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "84%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "65/100"
+      }
+    ],
+    "Metascore": "65",
+    "imdbRating": "8.2",
+    "imdbVotes": "779,030",
+    "imdbID": "tt0097576",
+    "Type": "movie",
+    "DVD": "13 May 2008",
+    "BoxOffice": "$197,171,806",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "Trailer": "https://www.youtube.com/watch?v=DKg36LBVgfg"
+  }
+]

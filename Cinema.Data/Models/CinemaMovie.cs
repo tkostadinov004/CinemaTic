@@ -8,6 +8,18 @@ namespace Cinema.Data.Models
 {
     public class CinemaMovie
     {
+        public CinemaMovie()
+        {
+            
+        }
+        public CinemaMovie(int cinemaId, int movieId, DateTime fromDate, decimal ticketPrice, DateTime toDate)
+        {
+            CinemaId = cinemaId;
+            MovieId = movieId;
+            FromDate = fromDate;
+            TicketPrice = ticketPrice;
+            ToDate = toDate;
+        }
         public int CinemaId { get; set; }
         public virtual Cinema Cinema { get; set; }
         public int MovieId { get; set; }

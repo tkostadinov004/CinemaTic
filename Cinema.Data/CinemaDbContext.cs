@@ -1,6 +1,8 @@
-﻿using Cinema.Data.Models;
+﻿using Cinema.Data.Configurations;
+using Cinema.Data.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace Cinema.Data
 {
@@ -20,6 +22,7 @@ namespace Cinema.Data
         public DbSet<CustomerCinema> CustomersCinemas { get; set; }
         public DbSet<CinemaMovie> CinemasMovies { get; set; }
         public DbSet<ActionLog> ActionLogs { get; set; }
+        public DbSet<ActorMovie> ActorsMovies { get; set; }
         public DbSet<CinemaMovieTime> CinemasMoviesTimes { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,17 +30,18 @@ namespace Cinema.Data
             modelBuilder.Entity<UserMovie>().HasKey(i => new { i.CustomerId, i.MovieId });
             modelBuilder.Entity<CustomerCinema>().HasKey(i => new { i.CustomerId, i.CinemaId });
             modelBuilder.Entity<CinemaMovie>().HasKey(i => new { i.CinemaId, i.MovieId });
+            modelBuilder.Entity<ActorMovie>().HasKey(i => new { i.ActorId, i.MovieId });
 
             modelBuilder.Entity<Data.Models.Cinema>().HasOne(i => i.Owner).WithMany(o => o.CinemasOwned);
             modelBuilder.Entity<CustomerCinema>().HasOne(i => i.Cinema).WithMany(i => i.Customers).OnDelete(DeleteBehavior.NoAction);
             modelBuilder.Entity<Ticket>().HasOne(i => i.Cinema).WithMany(i => i.Tickets).OnDelete(DeleteBehavior.NoAction);
             modelBuilder.Entity<Movie>().HasOne(i => i.AddedBy).WithMany(a => a.MoviesAdded).OnDelete(DeleteBehavior.NoAction);
 
-            modelBuilder.Entity<Movie>().HasMany(i => i.Actors).WithMany(a => a.Movies).UsingEntity(i => i.ToTable("ActorsMovies"));
-
             modelBuilder.Entity<ActionLog>().HasOne(i => i.User).WithMany(a => a.UserActions);
 
             modelBuilder.Entity<Ticket>().HasOne(i => i.Sector).WithMany(s => s.Tickets).OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }

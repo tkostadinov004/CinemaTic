@@ -8,6 +8,20 @@ namespace Cinema.Data.Models
 {
     public class Sector
     {
+        public Sector()
+        {
+            
+        }
+        public Sector(int id, int cinemaId, int endCol, int endRow, string sectorName, int startCol, int startRow)
+        {
+            Id = id;
+            CinemaId = cinemaId;
+            EndCol = endCol;
+            EndRow = endRow;
+            SectorName = sectorName;
+            StartCol = startCol;
+            StartRow = startRow;
+        }
         public int Id { get; set; }
         public string SectorName { get; set; }
         public int StartRow { get; set; }

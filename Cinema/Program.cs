@@ -80,7 +80,7 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 using var scope = app.Services.CreateScope();
-var initializer = new DbInitializer(scope.ServiceProvider.GetService<CinemaDbContext>());
-initializer.Run(scope.ServiceProvider, false);
+var initializer = new DbInitializer(scope.ServiceProvider.GetService<CinemaDbContext>(), scope.ServiceProvider.GetService<UserManager<ApplicationUser>>());
+initializer.Run(scope.ServiceProvider, true);
 
 app.Run();

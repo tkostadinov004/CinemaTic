@@ -47,7 +47,7 @@ namespace Cinema.Core.Services
                 GenreId = viewModel.GenreId,
                 AddedBy = await _userManager.FindByEmailAsync(userEmail),
                 Director = viewModel.Director,
-                Actors = actors.Select(i => _context.Actors.FirstOrDefault(a => a.Id == i.Id)).ToList()
+                Actors = actors.Select(i => _context.ActorsMovies.Include(i => i.Actor).Include(i => i.Movie).FirstOrDefault(a => a.ActorId == i.Id)).ToList()
             };
             _context.Movies.Add(movie);
             await _context.SaveChangesAsync();
@@ -81,8 +81,8 @@ namespace Cinema.Core.Services
             var movieActors = movie.Actors;
             foreach (var actorViewModel in viewModel.ActorsDropdown)
             {
-                var actor = await _context.Actors.FirstOrDefaultAsync(i => i.Id == actorViewModel.Id);
-                if (movieActors.Any(i => i.Id == actor.Id))
+                var actor = await _context.ActorsMovies.Include(i => i.Actor).Include(i => i.Movie).FirstOrDefaultAsync(i => i.ActorId == actorViewModel.Id);
+                if (movieActors.Any(i => i.ActorId == actor.ActorId))
                 {
                     if (actorViewModel.IsChecked == false)
                     {
@@ -127,6 +127,7 @@ namespace Cinema.Core.Services
         {
             return await _context.Movies
                 .Include(i => i.Actors)
+                .ThenInclude(i => i.Actor)
                 .Include(i => i.Genre)
                 .Include(i => i.Cinemas)
                 .Include(i => i.AddedBy)
@@ -152,7 +153,7 @@ namespace Cinema.Core.Services
                 Title = movie.Title,
                 TrailerId = Regex.Match(movie.TrailerUrl, Constants.TrailerUrlRegex).Groups[3].Value,
                 MovieId = movie.Id,
-                Actors = movie.Actors.Select(i => i.FullName).ToList(),
+                Actors = movie.Actors.Select(i => i.Actor.FullName).ToList(),
                 AverageRating = ratings.Count == 0 ? 0 : ratings.Select(i => i.Rating).Average(),
                 RatingCount = ratings.Count,
                 CurrentUserRating = ratings.FirstOrDefault(i => i.Customer.Email == currentUser.Email) == null ? null : ratings.FirstOrDefault(i => i.Customer.Email == currentUser.Email).Rating,
@@ -219,6 +220,7 @@ namespace Cinema.Core.Services
                 .Include(i => i.Genre)
                 .Include(i => i.Cinemas)
                 .Include(i => i.AddedBy)
+                //.Include(i => )
                 .ToListAsync();
             if (string.IsNullOrEmpty(searchText) == false)
             {
@@ -311,7 +313,7 @@ namespace Cinema.Core.Services
                 {
                     Id = i.Id,
                     FullName = i.FullName,
-                    IsChecked = movie.Actors.Any(a => a.Id == i.Id)
+                    IsChecked = movie.Actors.Any(a => a.ActorId == i.Id)
                 }).ToList(),
                 Genres = await this.GetGenresDropDownAsync()
             };

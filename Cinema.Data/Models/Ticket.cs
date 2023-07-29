@@ -8,6 +8,21 @@ namespace Cinema.Data.Models
 {
     public class Ticket
     {
+        public Ticket()
+        {
+            
+        }
+        public Ticket(int id, int cinemaId, string customerId, DateTime forDate, int movieId, decimal price, int sectorId, string serialNumber)
+        {
+            Id = id;
+            CinemaId = cinemaId;
+            CustomerId = customerId;
+            ForDate = forDate;
+            MovieId = movieId;
+            Price = price;
+            SectorId = sectorId;
+            SerialNumber = serialNumber;
+        }
         [Key]
         public int Id { get; set; }
         public string SerialNumber { get; set; }

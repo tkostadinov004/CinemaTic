@@ -14,7 +14,22 @@ namespace Cinema.Data.Models
 
         public Movie()
         {
-            Actors = new List<Actor>();
+            Actors = new List<ActorMovie>();
+        }
+        public Movie(int id, string addedById, string description, string director, int genreId, string imageUrl, int ratingCount, int runningTime, string title, string trailerUrl, decimal userRating)
+        {
+            Id = id;
+            AddedById = addedById;
+            Description = description;
+            Director = director;
+            GenreId = genreId;
+            ImageUrl = imageUrl;
+            RatingCount = ratingCount;
+            RunningTime = runningTime;
+            Title = title;
+            TrailerUrl = trailerUrl;
+            UserRating = userRating;
+            Actors = new List<ActorMovie>();
         }
         [Required(ErrorMessage ="Enter a title!")]
         [Display(Name = "Movie title")]
@@ -43,7 +58,7 @@ namespace Cinema.Data.Models
         [Display(Name = "Genre")]
         public virtual Genre Genre { get; set; }
         [Display(Name = "Actors")]
-        public virtual ICollection<Actor> Actors { get; set; }
+        public virtual ICollection<ActorMovie> Actors { get; set; }
         public virtual ICollection<CinemaMovie> Cinemas { get; set; } = new List<CinemaMovie>();
         public virtual ICollection<Ticket> TicketsBought { get; set; } = new List<Ticket>();
     }
