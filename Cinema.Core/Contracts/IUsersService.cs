@@ -10,7 +10,7 @@ namespace Cinema.Core.Contracts
 {
     public interface IUsersService
     {
-        Task<ApplicationUser> GetByEmailAsync(string userEmail);
-        Task<SidebarUserViewModel> GetSidebarViewModelAsync(string userEmail);
+        Task<ApplicationUser> GetUserByEmailAsync(string userEmail);
+        Task<SidebarUserViewModel> GetSidebarViewModelByEmailAsync(string userEmail);
     }
 }

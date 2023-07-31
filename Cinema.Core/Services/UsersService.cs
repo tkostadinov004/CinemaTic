@@ -20,19 +20,23 @@ namespace Cinema.Core.Services
             _userManager = userManager;
         }
 
-        public async Task<ApplicationUser> GetByEmailAsync(string userEmail)
+        public async Task<ApplicationUser> GetUserByEmailAsync(string userEmail)
         {
             return await _userManager.FindByEmailAsync(userEmail);
         }
 
-        public async Task<SidebarUserViewModel> GetSidebarViewModelAsync(string userEmail)
+        public async Task<SidebarUserViewModel> GetSidebarViewModelByEmailAsync(string userEmail)
         {
-            var user = await this.GetByEmailAsync(userEmail);
-            return new SidebarUserViewModel
+            var user = await this.GetUserByEmailAsync(userEmail);
+            if(user != null)
             {
-                Name = $"{user.FirstName} {user.LastName}",
-                ImageUrl = user.ProfilePictureUrl
-            };
+                return new SidebarUserViewModel
+                {
+                    Name = $"{user.FirstName} {user.LastName}",
+                    ImageUrl = user.ProfilePictureUrl
+                };
+            }
+            return null;
         }
     }
 }

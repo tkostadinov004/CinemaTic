@@ -43,7 +43,6 @@ namespace Cinema.Core.Services
                 });
                 await _context.SaveChangesAsync();
             }
-            //({DateTime.Now.ToString("MM/dd/yyyy hh:mm:tt")}) 
         }
         private async Task<ApplicationUser> GetUser()
         {

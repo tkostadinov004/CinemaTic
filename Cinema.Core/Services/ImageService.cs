@@ -42,7 +42,10 @@ namespace Cinema.Core.Services
 
                 formFile.CopyTo(fileStream);
             }
-
+            else
+            {
+                throw new ArgumentNullException("There is no uploaded photo");
+            }
             return uniqueFileName;
         }
         public async Task<bool> DeleteImageAsync(string imageType, string imageUrl)
@@ -62,7 +65,7 @@ namespace Cinema.Core.Services
 
             return File.Exists(profilePhotoFileName);
         }
-        public async Task ReplaceWithDefaultIfNotPresentAsync(string userEmail, string imageType, string imageUrl)
+        public async Task<bool> ReplaceWithDefaultIfNotPresentAsync(string userEmail, string imageType, string imageUrl)
         {
             bool exists = await this.ImageExistsAsync(imageType, imageUrl);
             if (!exists)
@@ -79,12 +82,9 @@ namespace Cinema.Core.Services
                 var user = await _userManager.FindByEmailAsync(userEmail);
                 user.ProfilePictureUrl = photoUrl;
                 await _context.SaveChangesAsync();
+                return true;
             }
-        }
-
-        public async Task<string> GetRootPathAsync(string imageType)
-        {
-            return Path.Combine(_webHostEnvironment.WebRootPath, Constants.ImagesFolder, imageType);
+            return false;
         }
     }
 }

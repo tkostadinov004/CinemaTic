@@ -67,7 +67,7 @@ namespace Cinema.Core.Services
             await _logger.LogActionAsync(UserActionType.AccountActions, LogMessages.ChangePasswordMessage);
         }
 
-        public async Task<IEnumerable<CinemasViewModel>> GetCinemasAsync(bool? all, string userEmail)
+        public async Task<IEnumerable<CinemasViewModel>> GetCinemasByUserAsync(bool? all, string userEmail)
         {
             var cinemas = await _context.Cinemas.Include(i => i.Owner).Include(i => i.Customers).ToListAsync();
             var user = await _userManager.FindByEmailAsync(userEmail);
@@ -87,7 +87,7 @@ namespace Cinema.Core.Services
             });
         }
 
-        public async Task AddCinemaToFavoritesAsync(int cinemaId, string userEmail)
+        public async Task AddCinemaToFavoritesAsync(int? cinemaId, string userEmail)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == cinemaId);
@@ -101,7 +101,7 @@ namespace Cinema.Core.Services
             await _logger.LogActionAsync(UserActionType.Create, LogMessages.AddCinemaToFavoritesMessage, cinema.Name);
         }
 
-        public async Task RemoveCinemaFromFavoritesAsync(int cinemaId, string userEmail)
+        public async Task RemoveCinemaFromFavoritesAsync(int? cinemaId, string userEmail)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == cinemaId);
@@ -129,7 +129,7 @@ namespace Cinema.Core.Services
                 Price = i.Price.ToString()
             });
         }
-        public async Task<CustomerCinemaPageViewModel> PrepareCinemaViewModelAsync(string userEmail, int cinemaId)
+        public async Task<CustomerCinemaPageViewModel> PrepareCinemaViewModelAsync(string userEmail, int? cinemaId)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
             var cinema = await _context.Cinemas.Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.Genre).FirstOrDefaultAsync(i => i.Id == cinemaId);
@@ -163,21 +163,11 @@ namespace Cinema.Core.Services
                 })
             };
         }
-        public async Task<IEnumerable<CinemaMovieViewModel>> GetMoviesByDateAsync(int cinemaId, string date)
+        public async Task<IEnumerable<CinemaMovieViewModel>> GetMoviesByDateAsync(int? cinemaId, DateTime date)
         {
             var cinema = await _context.Cinemas.Include(i => i.Schedule).Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.Genre).FirstOrDefaultAsync(i => i.Id == cinemaId);
 
-            var movies = cinema.Movies;
-            DateTime? convertedDate = null;
-            if (string.IsNullOrEmpty(date) == false)
-            {
-                convertedDate = DateTime.ParseExact(date, Constants.DateTimeFormat, CultureInfo.InvariantCulture);
-            }
-            else
-            {
-                convertedDate = DateTime.Today;
-            }
-            movies = movies.Where(i => i.FromDate <= convertedDate && i.ToDate >= convertedDate).ToList();
+            var movies = cinema.Movies.Where(i => i.FromDate <= date && i.ToDate >= date).ToList();
 
             return movies.Select(i => new CinemaMovieViewModel
             {
@@ -188,12 +178,12 @@ namespace Cinema.Core.Services
                 TrailerId = Regex.Match(i.Movie.TrailerUrl, Constants.TrailerUrlRegex).Groups[3].Value,
                 RunningTime = i.Movie.RunningTime.ToString(),
                 ImageUrl = i.Movie.ImageUrl,
-                Schedule = cinema.Schedule.Where(k => k.CinemaId == cinema.Id && k.MovieId == i.MovieId && k.ForDateTime.Date == convertedDate.Value.Date)
+                Schedule = cinema.Schedule.Where(k => k.CinemaId == cinema.Id && k.MovieId == i.MovieId && k.ForDateTime.Date == date.Date)
                 .Select(t => t.ForDateTime)
                     .ToList(),
             });
         }
-        public async Task<BuyTicketViewModel> GetBuyTicketViewModelAsync(int cinemaId, int movieId, DateTime forDate)
+        public async Task<BuyTicketViewModel> GetBuyTicketViewModelAsync(int? cinemaId, int? movieId, DateTime forDate)
         {
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == cinemaId);
             var movie = await _context.Movies.Include(i => i.Genre).FirstOrDefaultAsync(i => i.Id == movieId);
@@ -211,7 +201,7 @@ namespace Cinema.Core.Services
                 ForDateTime = forDate
             };
         }
-        public async Task BuyTicketAsync(int sectorId, int movieId, SectorDetailsViewModel viewModel, DateTime forDate, string userEmail)
+        public async Task BuyTicketAsync(int? sectorId, int? movieId, SectorDetailsViewModel viewModel, DateTime forDate, string userEmail)
         {
             var sector = await _context.Sectors.FirstOrDefaultAsync(i => i.Id == sectorId);
             var cinemaMovie = await _context.CinemasMovies.Include(i => i.Cinema).Include(i => i.Movie).FirstOrDefaultAsync(i => i.CinemaId == sector.CinemaId && i.MovieId == movieId);
@@ -223,8 +213,8 @@ namespace Cinema.Core.Services
                     CinemaId = sector.CinemaId,
                     SerialNumber = $"R{seat.Row}C{seat.Col}",
                     ForDate = forDate,
-                    MovieId = movieId,
-                    SectorId = sectorId,
+                    MovieId = movieId.Value,
+                    SectorId = sectorId.Value,
                     CustomerId = (await _userManager.FindByEmailAsync(userEmail)).Id,
                     Price = cinemaMovie.TicketPrice
                 };
@@ -233,7 +223,7 @@ namespace Cinema.Core.Services
             }
             await _context.SaveChangesAsync();
         }
-        public async Task SetRatingAsync(int id, decimal rating, string userEmail)
+        public async Task SetRatingToMovieAsync(int? id, decimal rating, string userEmail)
         {
             var currentUser = await _userManager.FindByEmailAsync(userEmail);
             var movie = _context.Movies.Include(i => i.Genre).ToListAsync().Result.FirstOrDefault(i => i.Id == id);
@@ -279,7 +269,7 @@ namespace Cinema.Core.Services
             };
         }
 
-        public async Task GetChangeProfilePictureViewModelAsync(ChangeProfilePictureViewModel viewModel)
+        public async Task ChangeProfilePictureViewModelAsync(ChangeProfilePictureViewModel viewModel)
         {
             var user = await _userManager.FindByIdAsync(viewModel.Id);
 

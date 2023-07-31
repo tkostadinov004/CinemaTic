@@ -17,16 +17,16 @@ namespace Cinema.Core.Contracts
         Task<CustomerHomePageViewModel> GetCinemasForUserAsync(string userEmail);
         Task<ChangePasswordViewModel> GetChangePasswordViewModelAsync(string userEmail);
         Task<ChangeProfilePictureViewModel> GetChangeProfilePictureViewModelAsync(string userEmail);
-        Task GetChangeProfilePictureViewModelAsync(ChangeProfilePictureViewModel viewModel);
+        Task ChangeProfilePictureViewModelAsync(ChangeProfilePictureViewModel viewModel);
         Task ChangePasswordAsync(ChangePasswordViewModel viewModel);
-        Task<IEnumerable<CinemasViewModel>> GetCinemasAsync(bool? all, string userEmail);
-        Task AddCinemaToFavoritesAsync(int cinemaId, string userEmail);
-        Task RemoveCinemaFromFavoritesAsync(int cinemaId, string userEmail);
-        Task SetRatingAsync(int id, decimal rating, string userEmail);
+        Task<IEnumerable<CinemasViewModel>> GetCinemasByUserAsync(bool? all, string userEmail);
+        Task AddCinemaToFavoritesAsync(int? cinemaId, string userEmail);
+        Task RemoveCinemaFromFavoritesAsync(int? cinemaId, string userEmail);
+        Task SetRatingToMovieAsync(int? id, decimal rating, string userEmail);
         Task<IEnumerable<CustomerTicketViewModel>> GetTicketsForCustomerAsync(string userEmail);
-        Task<CustomerCinemaPageViewModel> PrepareCinemaViewModelAsync(string userEmail, int cinemaId);
-        Task<IEnumerable<CinemaMovieViewModel>> GetMoviesByDateAsync(int cinemaId, string date);
-        Task<BuyTicketViewModel> GetBuyTicketViewModelAsync(int cinemaId, int movieId, DateTime time);
-        Task BuyTicketAsync(int sectorId, int movieId, SectorDetailsViewModel viewModel, DateTime forDate, string userEmail);
+        Task<CustomerCinemaPageViewModel> PrepareCinemaViewModelAsync(string userEmail, int? cinemaId);
+        Task<IEnumerable<CinemaMovieViewModel>> GetMoviesByDateAsync(int? cinemaId, DateTime date);
+        Task<BuyTicketViewModel> GetBuyTicketViewModelAsync(int? cinemaId, int? movieId, DateTime time);
+        Task BuyTicketAsync(int? sectorId, int? movieId, SectorDetailsViewModel viewModel, DateTime forDate, string userEmail);
     }
 }

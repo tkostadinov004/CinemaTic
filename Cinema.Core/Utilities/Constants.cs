@@ -24,7 +24,7 @@ namespace Cinema.Core.Utilities
         public const string DateTimeFormat = "MM/dd/yyyy";
 
         public const int SectorRows = 10;
-        public const int SectorCols = 10;
+        public const int SectorCols = 15;
         public const string TrailerUrlRegex = "(.*?)(^|\\/|v=)([a-zA-Z0-9_-]{11})(.*)?";
     }
 }

@@ -66,53 +66,58 @@ namespace Cinema.Core.Services
             return await _context.Genres.Include(i => i.Movies).FirstOrDefaultAsync(i => i.Id == id);
         }
 
-        public async Task<EditGenreViewModel> GetEditViewModelByIdAsync(int genreId)
+        public async Task<EditGenreViewModel> GetEditViewModelByIdAsync(int? genreId)
         {
             var genre = await _context.Genres.FirstOrDefaultAsync(i => i.Id == genreId);
-            return new EditGenreViewModel
+            if (genre != null)
             {
-                Id = genre.Id,
-                Name = genre.Name
-            };
+                return new EditGenreViewModel
+                {
+                    Id = genre.Id,
+                    Name = genre.Name
+                };
+            }
+            return null;
         }
 
-        public async Task<DeleteGenreViewModel> PrepareDeleteViewModelAsync(int id)
+        public async Task<DeleteGenreViewModel> GetDeleteViewModelByIdAsync(int? id)
         {
             var genre = await _context.Genres.FirstOrDefaultAsync(i => i.Id == id);
-            return new DeleteGenreViewModel
+            if (genre != null)
             {
-                Id = genre.Id,
-                Name = genre.Name
-            };
+                return new DeleteGenreViewModel
+                {
+                    Id = genre.Id,
+                    Name = genre.Name
+                };
+            }
+            return null;
         }
 
-        public async Task<GenreDetailsViewModel> PrepareDetailsViewModelAsync(int? id)
+        public async Task<GenreDetailsViewModel> GetDetailsViewModelByIdAsync(int? id)
         {
             var genre = await _context.Genres.Include(i => i.Movies).FirstOrDefaultAsync(i => i.Id == id);
-            return new GenreDetailsViewModel
+            if (genre != null)
             {
-                Id = genre.Id,
-                Name = genre.Name,
-                MoviesCount = genre.Movies.Count
-            };
+                return new GenreDetailsViewModel
+                {
+                    Id = genre.Id,
+                    Name = genre.Name,
+                    MoviesCount = genre.Movies.Count
+                };
+            }
+            return null;
         }
 
-        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchAndSortMoviesByGenre(string searchText, int genreId, string sortBy)
+        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchAndSortMoviesByGenre(int? genreId, string searchText, string sortBy, int? pageNumber)
         {
             var genre = await _context.Genres.Include(i => i.Movies)
                 .FirstOrDefaultAsync(i => i.Id == genreId);
 
-            var movies = genre.Movies.Select(i => new MovieInfoCardViewModel
-            {
-                Id = i.Id,
-                Name = i.Title,
-                ImageUrl = i.ImageUrl,
-                AverageRating = i.UserRating.Value,
-                RatingCount = i.RatingCount
-            });
+            var movies = genre.Movies.AsQueryable();
             if (string.IsNullOrEmpty(searchText) == false)
             {
-                movies = movies.Where(i => i.Name.ToLower().StartsWith(searchText.ToLower()));
+                movies = movies.Where(i => i.Title.ToLower().StartsWith(searchText.ToLower()));
             }
             if (string.IsNullOrEmpty(sortBy) == false)
             {
@@ -122,17 +127,17 @@ namespace Cinema.Core.Services
                 switch (sortParameter)
                 {
                     case "name":
-                        movies = movies.OrderBy(i => i.Name);
+                        movies = movies.OrderBy(i => i.Title);
                         if (sortDirection == "desc")
                         {
-                            movies = movies.OrderByDescending(i => i.Name);
+                            movies = movies.OrderByDescending(i => i.Title);
                         }
                         break;
                     case "rating":
-                        movies = movies.OrderBy(i => i.AverageRating);
+                        movies = movies.OrderBy(i => i.UserRating);
                         if (sortDirection == "desc")
                         {
-                            movies = movies.OrderByDescending(i => i.AverageRating);
+                            movies = movies.OrderByDescending(i => i.UserRating);
                         }
                         break;
                     case "ratingcount":
@@ -144,7 +149,14 @@ namespace Cinema.Core.Services
                         break;
                 }
             }
-            return movies;
+            return await PaginatedList<MovieInfoCardViewModel>.CreateAsync(movies.Select(i => new MovieInfoCardViewModel
+            {
+                Id = i.Id,
+                Name = i.Title,
+                ImageUrl = i.ImageUrl,
+                AverageRating = i.UserRating.Value,
+                RatingCount = i.RatingCount
+            }), pageNumber ?? 1, 5);
         }
         public async Task<IEnumerable<GenreListViewModel>> SortGenresAsync(string sortBy)
         {

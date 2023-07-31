@@ -12,7 +12,7 @@ namespace Cinema.Core.Profiles
     {
         public CinemasProfile()
         {
-            CreateMap<AddCinemaViewModel, Data.Models.Cinema>();
+            CreateMap<CreateCinemaViewModel, Data.Models.Cinema>();
             CreateMap<Data.Models.Cinema, CinemaListViewModel>()
                 .ForMember
                 (

@@ -16,17 +16,15 @@ namespace Cinema.Core.Services
     public class OwnersService : IOwnersService
     {
         private readonly CinemaDbContext _context;
-        private IWebHostEnvironment _webHostEnvironment;
         private UserManager<ApplicationUser> _userManager;
         private readonly IMapper _mapper;
         private readonly ISectorsService _sectorsService;
         private readonly ILogService _logger;
         private readonly IImageService _imageService;
 
-        public OwnersService(CinemaDbContext context, IWebHostEnvironment webHostEnvironment, UserManager<ApplicationUser> userManager, IMapper mapper, ISectorsService sectorsService, ILogService logger, IImageService imageService)
+        public OwnersService(CinemaDbContext context, UserManager<ApplicationUser> userManager, IMapper mapper, ISectorsService sectorsService, ILogService logger, IImageService imageService)
         {
             _context = context;
-            _webHostEnvironment = webHostEnvironment;
             _userManager = userManager;
             _mapper = mapper;
             _sectorsService = sectorsService;
@@ -34,41 +32,31 @@ namespace Cinema.Core.Services
             _imageService = imageService;
         }
 
-        public async Task AddAsync(AddCinemaViewModel viewModel, string userEmail)
+        public async Task CreateCinemaAsync(CreateCinemaViewModel viewModel, string userEmail)
         {
             string imageUrl = await _imageService.UploadPhotoAsync("Cinemas", viewModel.Image);
 
-            var cinema = _mapper.Map<Data.Models.Cinema>(viewModel);
-            cinema.ImageUrl = imageUrl;
-            cinema.Owner = await _userManager.FindByEmailAsync(userEmail);
+            var cinema = new Data.Models.Cinema
+            {
+                AccentColor = viewModel.AccentColor,
+                BackgroundColor = viewModel.BackgroundColor,
+                BoardColor = viewModel.BoardColor,
+                ButtonBackgroundColor = viewModel.ButtonBackgroundColor,
+                ButtonTextColor = viewModel.ButtonTextColor,
+                Description = viewModel.Description,
+                FoundedOn = viewModel.FoundedOn,
+                ImageUrl = imageUrl ?? "default.jpg",
+                Owner = await _userManager.FindByEmailAsync(userEmail),
+                Name = viewModel.Name,
+                SeatCols = int.Parse(viewModel.SeatCols),
+                SeatRows = int.Parse(viewModel.SeatRows),
+                TextColor = viewModel.TextColor
+            };
             cinema.Sectors = await _sectorsService.DefineSectorsAsync(cinema.SeatRows, cinema.SeatCols);
 
             _context.Cinemas.Add(cinema);
             await _context.SaveChangesAsync();
             await _logger.LogActionAsync(UserActionType.Create, LogMessages.AddEntityMessage, "cinema", viewModel.Name, $"({viewModel.SeatRows} rows and {viewModel.SeatCols} columns)");
-        }
-        public async Task AddMovieToCinemas(MovieDetailsViewModel viewModel)
-        {
-            var movie = await _context.Movies.Include(i => i.Cinemas).FirstOrDefaultAsync(i => i.Id == viewModel.MovieId);
-            foreach(var cinemaViewModel in viewModel.UserCinemas)
-            {
-                var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == cinemaViewModel.Id);
-                if (cinemaViewModel.FromDate != default && cinemaViewModel.ToDate != default && cinemaViewModel.TicketPrice > 0)
-                {
-                    if (!movie.Cinemas.Any(i => i.CinemaId == cinema.Id))
-                    {
-                        movie.Cinemas.Add(new CinemaMovie
-                        {
-                            CinemaId = cinema.Id,
-                            FromDate = cinemaViewModel.FromDate,
-                            ToDate = cinemaViewModel.ToDate,
-                            TicketPrice = cinemaViewModel.TicketPrice
-                        });
-                    }
-                }
-                await _logger.LogActionAsync(UserActionType.Create, LogMessages.AddMovieToCinemaMessage, movie.Title, cinema.Name);
-            }
-            await _context.SaveChangesAsync();
         }
 
         public async Task DeleteByIdAsync(int? id)
@@ -80,7 +68,7 @@ namespace Cinema.Core.Services
             await _logger.LogActionAsync(UserActionType.Delete, LogMessages.DeleteEntityMessage, "cinema", cinema.Name, $"({cinema.SeatRows} rows and {cinema.SeatCols} columns)");
         }
 
-        public async Task EditCinema(EditCinemaViewModel viewModel)
+        public async Task EditCinemaAsync(EditCinemaViewModel viewModel)
         {
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == viewModel.Id);
 
@@ -95,6 +83,12 @@ namespace Cinema.Core.Services
             cinema.FoundedOn = viewModel.FoundedOn;
             cinema.SeatRows = viewModel.SeatRows;
             cinema.SeatCols = viewModel.SeatCols;
+            cinema.TextColor = viewModel.TextColor;
+            cinema.AccentColor = viewModel.AccentColor;
+            cinema.ButtonTextColor = viewModel.ButtonTextColor;
+            cinema.ButtonBackgroundColor = viewModel.ButtonBackgroundColor;
+            cinema.BackgroundColor = viewModel.BackgroundColor;
+            cinema.BoardColor = viewModel.BoardColor;
 
             if (viewModel.Image != null)
             {
@@ -140,66 +134,56 @@ namespace Cinema.Core.Services
                 .ThenInclude(i => i.Movie)
                 .ThenInclude(i => i.AddedBy)
                 .FirstOrDefaultAsync(i => i.Id == id);
-            return new CinemaDetailsViewModel
+            if (cinema != null)
             {
-                Id = cinema.Id,
-                Name = cinema.Name,
-                Description = cinema.Description,
-                FoundedOn = cinema.FoundedOn.ToString(Constants.DateTimeFormat),
-                ImageUrl = cinema.ImageUrl,
-                SeatRows = cinema.SeatRows,
-                SeatCols = cinema.SeatCols,
-                ApprovalStatus = cinema.ApprovalStatus,
-                Status = (cinema.ApprovalStatus == ApprovalStatus.Approved ? "Approved" : (cinema.ApprovalStatus == ApprovalStatus.PendingApproval ? "Pending approval" : "Denied approval"))
-            };
+                return new CinemaDetailsViewModel
+                {
+                    Id = cinema.Id,
+                    Name = cinema.Name,
+                    Description = cinema.Description,
+                    FoundedOn = cinema.FoundedOn.ToString(Constants.DateTimeFormat),
+                    ImageUrl = cinema.ImageUrl,
+                    SeatRows = cinema.SeatRows,
+                    SeatCols = cinema.SeatCols,
+                    ApprovalStatus = cinema.ApprovalStatus,
+                    Status = (cinema.ApprovalStatus == ApprovalStatus.Approved ? "Approved" : (cinema.ApprovalStatus == ApprovalStatus.PendingApproval ? "Pending approval" : "Denied approval"))
+                };
+            }
+            return null;
         }
 
-        public async Task<EditCinemaViewModel> GetEditViewModelByIdAsync(int cinemaId)
+        public async Task<EditCinemaViewModel> GetEditViewModelByIdAsync(int? cinemaId)
         {
-            var cinema = (await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == cinemaId));
-            return new EditCinemaViewModel
+            var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == cinemaId);
+            if (cinema != null)
             {
-                Id = cinema.Id,
-                SeatCols = cinema.SeatCols,
-                SeatRows = cinema.SeatRows,
-                Description = cinema.Description,
-                FoundedOn = cinema.FoundedOn,
-                Image = null,
-                Name = cinema.Name
-            };
+                return new EditCinemaViewModel
+                {
+                    Id = cinema.Id,
+                    SeatCols = cinema.SeatCols,
+                    SeatRows = cinema.SeatRows,
+                    Description = cinema.Description,
+                    FoundedOn = cinema.FoundedOn,
+                    Image = null,
+                    Name = cinema.Name
+                };
+            }
+            return null;
         }
 
-        public async Task<OwnerStatisticsViewModel> GetStatisticsAsync(string userEmail)
+        public async Task<DeleteCinemaViewModel> PrepareDeleteViewModelAsync(int? id)
         {
-            var cinemas = await _context.Cinemas.ToListAsync();
-            var tickets = await _context.Tickets.ToListAsync();
-            var currentUser = await _userManager.FindByEmailAsync(userEmail);
-
-            decimal personalIncome = cinemas.Where(i => i.OwnerId == currentUser.Id)
-                .Select(i => i.Tickets.Select(k => k.Price).Sum()).Sum();
-            decimal totalIncome = cinemas
-                .Select(i => i.Tickets.Select(k => k.Price).Sum()).Sum();
-
-            var cinemasCustomers = cinemas.ToDictionary(cinema => cinema.Name, value => value.Customers.Count);
-            var cinemasTotalRevenues = cinemas.ToDictionary(cinema => cinema.Name, value => value.Tickets.Sum(i => i.Price));
-            return new OwnerStatisticsViewModel
+            var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == id);
+            if (cinema != null)
             {
-                PersonalIncome = personalIncome,
-                TotalIncome = totalIncome,
-                CinemasCustomers = cinemasCustomers,
-                CinemasTotalRevenues = cinemasTotalRevenues
-            };
-        }
-
-        public async Task<DeleteCinemaViewModel> PrepareDeleteViewModelAsync(int id)
-        {
-            var cinema = await this.GetByIdAsync(id);
-            return new DeleteCinemaViewModel
-            {
-                Id = cinema.Id,
-                Name = cinema.Name,
-                ImageUrl = cinema.ImageUrl
-            };
+                return new DeleteCinemaViewModel
+                {
+                    Id = cinema.Id,
+                    Name = cinema.Name,
+                    ImageUrl = cinema.ImageUrl
+                };
+            }
+            return null;
         }
 
         public async Task<IEnumerable<CinemaListViewModel>> SearchAndFilterCinemasAsync(string searchText, string filterValue, string sortBy, string userEmail)
@@ -269,7 +253,7 @@ namespace Cinema.Core.Services
             return cinemas;
         }
 
-        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByCinema(string searchText, int cinemaId)
+        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByCinemaAsync(string searchText, int? cinemaId)
         {
             var cinema = await _context.Cinemas
                 .Include(i => i.Movies)
@@ -294,7 +278,7 @@ namespace Cinema.Core.Services
             return movies;
         }
 
-        public async Task<CinemaPagePreviewViewModel> PreparePreviewViewModelAsync(string userEmail, int cinemaId)
+        public async Task<CinemaPagePreviewViewModel> GetPreviewViewModelAsync(string userEmail, int? cinemaId)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == cinemaId);
@@ -303,21 +287,25 @@ namespace Cinema.Core.Services
                 {
                     return key.Date != DateTime.Now.Date ? key.DayOfWeek.ToString().Substring(0, 3) : "Today";
                 }, value => value.ToString(Constants.DateTimeFormat));
-            return new CinemaPagePreviewViewModel
+            if (user != null && cinema != null)
             {
-                CinemaLogoUrl = cinema.ImageUrl,
-                ProfilePictureUrl = user.ProfilePictureUrl,
-                Dates = dates,
-                AccentColor = cinema.AccentColor,
-                BackgroundColor = cinema.BackgroundColor,
-                BoardColor = cinema.BoardColor,
-                ButtonBackgroundColor = cinema.ButtonBackgroundColor,
-                ButtonTextColor = cinema.ButtonTextColor,
-                TextColor = cinema.TextColor
-            };
+                return new CinemaPagePreviewViewModel
+                {
+                    CinemaLogoUrl = cinema.ImageUrl,
+                    ProfilePictureUrl = user.ProfilePictureUrl,
+                    Dates = dates,
+                    AccentColor = cinema.AccentColor,
+                    BackgroundColor = cinema.BackgroundColor,
+                    BoardColor = cinema.BoardColor,
+                    ButtonBackgroundColor = cinema.ButtonBackgroundColor,
+                    ButtonTextColor = cinema.ButtonTextColor,
+                    TextColor = cinema.TextColor
+                };
+            }
+            return null;
         }
 
-        public async Task<IEnumerable<CinemaListViewModel>> GetCinemasContainingMovieAsync(int movieId, string userEmail)
+        public async Task<IEnumerable<CinemaListViewModel>> GetCinemasContainingMovieAsync(int? movieId, string userEmail)
         {
             var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == movieId);
             var user = await _userManager.FindByEmailAsync(userEmail);

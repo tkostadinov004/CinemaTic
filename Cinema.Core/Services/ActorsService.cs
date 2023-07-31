@@ -13,69 +13,86 @@ namespace Cinema.Core.Services
     public class ActorsService : IActorsService
     {
         private readonly CinemaDbContext _context;
-        private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly ILogService _logger;
         private readonly IImageService _imageService;
-        public ActorsService(CinemaDbContext context, IWebHostEnvironment webHostEnvironment, ILogService logger, IImageService imageService)
+        public ActorsService(CinemaDbContext context, ILogService logger, IImageService imageService)
         {
             _context = context;
-            _webHostEnvironment = webHostEnvironment;
             _logger = logger;
             _imageService = imageService;
         }
-        public async Task AddActorAsync(CreateActorViewModel? viewModel)
+        public async Task CreateActorAsync(CreateActorViewModel? viewModel)
         {
-            string photoName = await _imageService.UploadPhotoAsync("Actors", viewModel.Image);
-            Actor actor = new Actor
+            if (viewModel != null)
             {
-                Birthdate = viewModel.Birthdate.Value,
-                FullName = viewModel.FullName,
-                ImageUrl = photoName,
-                Nationality = viewModel.Nationality,
-                Rating = decimal.Parse(viewModel.Rating)
-            };
-            _context.Add(actor);
-            await _context.SaveChangesAsync();
-            await _logger.LogActionAsync(UserActionType.Create, LogMessages.AddEntityMessage, "actor", viewModel.FullName, $"({viewModel.Nationality})");
+                string photoName = await _imageService.UploadPhotoAsync("Actors", viewModel.Image);
+                decimal rating = decimal.Parse(viewModel.Rating);
+                Actor actor = new Actor
+                {
+                    Birthdate = viewModel.Birthdate.Value,
+                    FullName = viewModel.FullName,
+                    ImageUrl = photoName,
+                    Nationality = viewModel.Nationality,
+                    Rating = rating
+                };
+                _context.Add(actor);
+                await _context.SaveChangesAsync();
+                await _logger.LogActionAsync(UserActionType.Create, LogMessages.AddEntityMessage, "actor", viewModel.FullName, $"({viewModel.Nationality})");
+            }
         }
 
         public async Task DeleteByIdAsync(int? id)
         {
             var actor = await _context.Actors.FindAsync(id);
-            _context.Actors.Remove(actor);
-            await _imageService.DeleteImageAsync("Actors", actor.ImageUrl);
-            await _context.SaveChangesAsync();
-            await _logger.LogActionAsync(UserActionType.Delete, LogMessages.DeleteEntityMessage, "actor", actor.FullName, $"({actor.Nationality})");
+            if (actor != null)
+            {
+                _context.Actors.Remove(actor);
+                await _imageService.DeleteImageAsync("Actors", actor.ImageUrl);
+                await _context.SaveChangesAsync();
+                await _logger.LogActionAsync(UserActionType.Delete, LogMessages.DeleteEntityMessage, "actor", actor.FullName, $"({actor.Nationality})");
+            }
         }
 
         public async Task EditActorAsync(EditActorViewModel viewModel)
         {
             var actor = await _context.Actors.FirstOrDefaultAsync(i => i.Id == viewModel.Id);
-            string photoName = await _imageService.UploadPhotoAsync("Actors", viewModel.Image);
-            actor.FullName = viewModel.FullName;
-            actor.Birthdate = viewModel.Birthdate;
-            actor.Rating = viewModel.Rating;
-            actor.Nationality = viewModel.Nationality;
-
-            if (viewModel.Image != null)
+            if (actor != null)
             {
-                actor.ImageUrl = photoName;
+                actor.FullName = viewModel.FullName;
+                actor.Birthdate = viewModel.Birthdate;
+                actor.Rating = viewModel.Rating;
+                actor.Nationality = viewModel.Nationality;
+
+                if (viewModel.Image != null)
+                {
+                    string photoName = await _imageService.UploadPhotoAsync("Actors", viewModel.Image);
+                    actor.ImageUrl = photoName;
+                }
+                _context.Update(actor);
+                await _context.SaveChangesAsync();
+                await _logger.LogActionAsync(UserActionType.Update, LogMessages.EditEntityMessage, "actor", actor.FullName, $"({actor.Nationality})");
             }
-            _context.Update(actor);
-            await _context.SaveChangesAsync();
-            await _logger.LogActionAsync(UserActionType.Update, LogMessages.EditEntityMessage, "actor", actor.FullName, $"({actor.Nationality})");
         }
 
         public async Task<bool> ExistsByIdAsync(int? id)
         {
-            return await _context.Actors.AnyAsync(e => e.Id == id);
+            return await _context.Actors.AnyAsync(i => i.Id == id);
         }
-
-        public async Task<ActorDetailsViewModel> GetByIdAsync(int? id)
+        public async Task<Actor> GetByIdAsync(int? id)
+        {
+            return await _context.Actors
+                .Include(i => i.Movies)
+                .FirstOrDefaultAsync(i => i.Id == id);
+        }
+        public async Task<ActorDetailsViewModel> GetDetailsViewModelByIdAsync(int? id)
         {
             var actor = await _context.Actors
                 .Include(i => i.Movies)
                 .FirstOrDefaultAsync(m => m.Id == id);
+            if (actor == null)
+            {
+                return null;
+            }
 
             return new ActorDetailsViewModel
             {
@@ -89,9 +106,13 @@ namespace Cinema.Core.Services
             };
         }
 
-        public async Task<EditActorViewModel> GetEditViewModelByIdAsync(int actorId)
+        public async Task<EditActorViewModel> GetEditViewModelByIdAsync(int? actorId)
         {
             var actor = await _context.Actors.FirstOrDefaultAsync(i => i.Id == actorId);
+            if (actor == null)
+            {
+                return null;
+            }
             return new EditActorViewModel
             {
                 Id = actor.Id,
@@ -103,9 +124,13 @@ namespace Cinema.Core.Services
             };
         }
 
-        public async Task<DeleteActorViewModel> PrepareDeleteViewModelAsync(int id)
+        public async Task<DeleteActorViewModel> GetDeleteViewModelByIdAsync(int? id)
         {
             var actor = await _context.Actors.FirstOrDefaultAsync(i => i.Id == id);
+            if (actor == null)
+            {
+                return null;
+            }
             return new DeleteActorViewModel
             {
                 Id = actor.Id,
@@ -114,7 +139,7 @@ namespace Cinema.Core.Services
             };
         }
 
-        public async Task<CreateActorViewModel> PrepareForAddingAsync()
+        public async Task<CreateActorViewModel> GetCreateViewModelAsync()
         {
             return new CreateActorViewModel
             {
@@ -123,7 +148,7 @@ namespace Cinema.Core.Services
             };
         }
 
-        public async Task<IEnumerable<ActorListViewModel>> SearchAndFilterActorsAsync(string searchText, string filterValue, string sortBy)
+        public async Task<PaginatedList<ActorListViewModel>> SearchAndFilterActorsAsync(string searchText, string filterValue, string sortBy, int? pageNumber)
         {
             var actors = _context.Actors.Include(i => i.Movies).AsQueryable();
             if (string.IsNullOrEmpty(searchText) == false)
@@ -179,7 +204,7 @@ namespace Cinema.Core.Services
                         break;
                 }
             }
-            return actors.Select(i => new ActorListViewModel
+            return await PaginatedList<ActorListViewModel>.CreateAsync(actors.Select(i => new ActorListViewModel
             {
                 Id = i.Id,
                 Birthdate = i.Birthdate.ToString(Constants.DateTimeFormat),
@@ -188,10 +213,10 @@ namespace Cinema.Core.Services
                 MoviesCount = i.Movies.Count.ToString(),
                 Nationality = i.Nationality,
                 Rating = i.Rating.ToString()
-            });
+            }), pageNumber ?? 1, 5);
         }
 
-        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByActor(string searchText, int actorId)
+        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByActorAsync(string searchText, int? actorId)
         {
             var actor = await _context.Actors.Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.Genre)
                 .FirstOrDefaultAsync(i => i.Id == actorId);
@@ -207,7 +232,7 @@ namespace Cinema.Core.Services
             });
             if (string.IsNullOrEmpty(searchText) == false)
             {
-                movies = movies.Where(i => i.Name.StartsWith(searchText));
+                movies = movies.Where(i => i.Name.ToLower().StartsWith(searchText.ToLower()));
             }
             return movies;
         }

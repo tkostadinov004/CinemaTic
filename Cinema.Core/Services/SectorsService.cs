@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient.Server;
+using Cinema.Data.Configurations;
 
 namespace Cinema.Core.Services
 {
@@ -48,7 +49,7 @@ namespace Cinema.Core.Services
             return sectors;
         }
 
-        public async Task DeleteSectorsAsync(int cinemaId)
+        public async Task DeleteSectorsAsync(int? cinemaId)
         {
             _context.Sectors.RemoveRange(await _context.Sectors.Where(i => i.CinemaId == cinemaId).ToListAsync());
             await _context.SaveChangesAsync();
@@ -59,32 +60,38 @@ namespace Cinema.Core.Services
             return await _context.Sectors.AnyAsync(i => i.Id == id);
         }
 
-        public async Task<SectorGridViewModel> GetCinemaSectorsGridAsync(int cinemaId, int movieId, DateTime forDate)
+        public async Task<SectorGridViewModel> GetCinemaSectorsGridAsync(int? cinemaId, int? movieId, DateTime forDate)
         {
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == cinemaId);
             var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == movieId);
-
-            var sectors = await _context.Sectors.Where(i => i.CinemaId == cinema.Id).ToListAsync();
-            return new SectorGridViewModel
+            if (cinema != null && movie != null)
             {
-                CinemaId = cinema.Id,
-                ForMovieId = movie.Id,
-                Rows = cinema.SeatRows,
-                Cols = cinema.SeatCols,
-                Sectors = sectors.Select(i => new SectorDetailsViewModel
+                var sectors = await _context.Sectors.Where(i => i.CinemaId == cinema.Id).ToListAsync();
+                return new SectorGridViewModel
                 {
-                    Id = i.Id,
-                    Name = i.SectorName,
-                    CinemaId = i.CinemaId,
-                    StartingRow = i.StartRow,
+                    CinemaId = cinema.Id,
+                    ForMovieId = movie.Id,
+                    Rows = cinema.SeatRows,
+                    Cols = cinema.SeatCols,
+                    Sectors = sectors.Select(i => new SectorDetailsViewModel
+                    {
+                        Id = i.Id,
+                        Name = i.SectorName,
+                        CinemaId = i.CinemaId,
+                        StartingRow = i.StartRow,
+                        ForDateTime = forDate == default ? DateTime.Today : forDate,
+                        StartingCol = i.StartCol,
+                    }).ToArray(),
                     ForDateTime = forDate == default ? DateTime.Today : forDate,
-                    StartingCol = i.StartCol,
-                }).ToArray(),
-                ForDateTime = forDate == default ? DateTime.Today : forDate,
-            };
+                };
+            }
+            else
+            {
+                return null;
+            }
         }
 
-        public async Task<List<List<SectorSeatViewModel>>> GetSeatsForSectorAsync(int sectorId, DateTime forDateTime)
+        public async Task<List<List<SectorSeatViewModel>>> GetSeatsForSectorAsync(int? sectorId, DateTime forDateTime)
         {
             var seats = new List<List<SectorSeatViewModel>>();
             var sector = await _context.Sectors.FirstOrDefaultAsync(i => i.Id == sectorId);
@@ -109,21 +116,25 @@ namespace Cinema.Core.Services
             return seats;
         }
 
-        public async Task<SectorDetailsViewModel> GetSectorByIdAsync(int sectorId, int movieId, DateTime forDateTime)
+        public async Task<SectorDetailsViewModel> GetSectorByIdAsync(int? sectorId, int? movieId, DateTime forDateTime)
         {
             var sector = await _context.Sectors.FirstOrDefaultAsync(i => i.Id == sectorId);
             var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == movieId);
-            return new SectorDetailsViewModel
+            if(sector != null && movie != null)
             {
-                Id = sector.Id,
-                ForMovieId = movie.Id,
-                Name = sector.SectorName,
-                StartingRow = sector.StartRow,
-                StartingCol = sector.StartCol,
-                CinemaId = sector.CinemaId,
-                ForDateTime = forDateTime == default ? DateTime.Today : forDateTime,
-                Seats = await this.GetSeatsForSectorAsync(sectorId, forDateTime)
-            };
+                return new SectorDetailsViewModel
+                {
+                    Id = sector.Id,
+                    ForMovieId = movie.Id,
+                    Name = sector.SectorName,
+                    StartingRow = sector.StartRow,
+                    StartingCol = sector.StartCol,
+                    CinemaId = sector.CinemaId,
+                    ForDateTime = forDateTime == default ? DateTime.Today : forDateTime,
+                    Seats = await this.GetSeatsForSectorAsync(sectorId, forDateTime)
+                };
+            }
+            return null;
         }
     }
 }

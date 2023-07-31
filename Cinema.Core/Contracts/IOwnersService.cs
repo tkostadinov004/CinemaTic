@@ -1,5 +1,4 @@
-﻿using Cinema.Core.Contracts.Common;
-using Cinema.Core.Utilities;
+﻿using Cinema.Core.Utilities;
 using Cinema.Data.Enums;
 using Cinema.Data.Models;
 using Cinema.ViewModels.Actors;
@@ -12,19 +11,17 @@ namespace Cinema.Core.Contracts
 {
     public interface IOwnersService
     {
-        Task AddAsync(AddCinemaViewModel item, string userEmail);
+        Task CreateCinemaAsync(CreateCinemaViewModel item, string userEmail);
         Task<IEnumerable<CinemaListViewModel>> GetAllByUserAsync(string userEmail);
         Task<CinemaDetailsViewModel> GetByIdAsync(int? id);
-        Task<OwnerStatisticsViewModel> GetStatisticsAsync(string userEmail);
-        Task AddMovieToCinemas(MovieDetailsViewModel viewModel);
-        Task EditCinema(EditCinemaViewModel item);
+        Task EditCinemaAsync(EditCinemaViewModel item);
         Task DeleteByIdAsync(int? id);
         Task<bool> ExistsByIdAsync(int? id);
         Task<IEnumerable<CinemaListViewModel>> SearchAndFilterCinemasAsync(string searchText, string filterValue, string sortBy, string userEmail);
-        Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByCinema(string searchText, int cinemaId);
-        Task<EditCinemaViewModel> GetEditViewModelByIdAsync(int cinemaId);
-        Task<DeleteCinemaViewModel> PrepareDeleteViewModelAsync(int id);
-        Task<CinemaPagePreviewViewModel> PreparePreviewViewModelAsync(string userEmail, int cinemaId);
-        Task<IEnumerable<CinemaListViewModel>> GetCinemasContainingMovieAsync(int movieId, string userEmail);
+        Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByCinemaAsync(string searchText, int? cinemaId);
+        Task<EditCinemaViewModel> GetEditViewModelByIdAsync(int? cinemaId);
+        Task<DeleteCinemaViewModel> PrepareDeleteViewModelAsync(int? id);
+        Task<CinemaPagePreviewViewModel> GetPreviewViewModelAsync(string userEmail, int? cinemaId);
+        Task<IEnumerable<CinemaListViewModel>> GetCinemasContainingMovieAsync(int? movieId, string userEmail);
     }
 }

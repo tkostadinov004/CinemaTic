@@ -1,4 +1,4 @@
-﻿using Cinema.Core.Contracts.Common;
+﻿using Cinema.Core.Utilities;
 using Cinema.Data.Models;
 using Cinema.ViewModels.Movies;
 using Microsoft.AspNetCore.Http;
@@ -7,21 +7,22 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Cinema.Core.Contracts
 {
-    public interface IMoviesService : ICinemaService<Movie>
+    public interface IMoviesService
     {
-        Task<ApplicationUser> GetCurrentUserAsync(ControllerBase controllerBase);
-        Task<IEnumerable<UserMovie>> GetRatingsByMovieIdAsync(int? id);
-        Task<MovieDetailsViewModel> GetDetailsViewModel(Movie movie, IEnumerable<UserMovie> ratings, string userEmail);
-        Task<SelectList> GetActorsDropDownAsync();
-        Task<SelectList> GetGenresDropDownAsync();
+        Task<Movie> GetByIdAsync(int? id);
+        Task DeleteByIdAsync(int? id);
+        Task<bool> ExistsByIdAsync(int? id);
+        Task<MovieDetailsViewModel> GetDetailsViewModelAsync(int? id, string userEmail);
+        Task<SelectList> GetActorsDropdownAsync();
+        Task<SelectList> GetGenresDropdownAsync();
         Task CreateMovieAsync(CreateMovieViewModel item, string userEmail);
-        Task<string> UploadPhoto(IFormFile image);
-        Task EditByIdAsync(EditMovieViewModel item);
-        Task<CreateMovieViewModel> PrepareForAddingAsync();
-        Task<IEnumerable<MovieInfoCardViewModel>> GetAllMoviesAsync();
-        Task<IEnumerable<MovieInfoCardViewModel>> SearchAndFilterMoviesAsync(string searchText, string filterValue, string sortBy);
-        Task<FilterMoviesViewModel> PrepareFilterViewModelAsync();
-        Task<EditMovieViewModel> PrepareForEditing(int? id);
-        Task<DeleteMovieViewModel> PrepareForDeleting(int? id);
+        Task AddMovieToCinemasAsync(MovieDetailsViewModel viewModel);
+        Task<string> UploadPhotoAsync(IFormFile image);
+        Task EditMovieAsync(EditMovieViewModel item);
+        Task<CreateMovieViewModel> GetCreateViewModelAsync();
+        Task<FilterMoviesViewModel> GetFilterViewModelAsync();
+        Task<EditMovieViewModel> GetEditViewModelAsync(int? id);
+        Task<DeleteMovieViewModel> GetDeleteViewModelAsync(int? id);
+        Task<PaginatedList<MovieInfoCardViewModel>> SearchAndFilterMoviesAsync(string searchText, string filterValue, string sortBy, int? pageNumber);
     }
 }

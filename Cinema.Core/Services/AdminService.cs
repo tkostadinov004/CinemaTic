@@ -12,52 +12,51 @@ namespace Cinema.Core.Services
 {
     public class AdminService : IAdminService
     {
-        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly CinemaDbContext _context;
         private readonly IImageService _imageService;
 
         public AdminService(
-            UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager, CinemaDbContext context, RoleManager<IdentityRole> roleManager, IImageService imageService)
+            UserManager<ApplicationUser> userManager, CinemaDbContext context, IImageService imageService)
         {
             _userManager = userManager;
-            _signInManager = signInManager;
             _context = context;
-            _roleManager = roleManager;
             _imageService = imageService;
         }
-        public async Task<IEnumerable<ApplicationUser>> GetAllAsync()
+        public async Task<IEnumerable<ApplicationUser>> GetAllUsersAsync()
         {
             return await _context.Users.ToListAsync();
         }
 
-        public async Task DeleteAccount(string id)
+        public async Task<bool> DeleteAccountAsync(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
             if (user != null)
             {
                 await _userManager.DeleteAsync(user);
+                return true;
             }
+            return false;
         }
 
-        public async Task DemoteUser(string id)
+        public async Task<bool> DemoteUserAsync(string id)
         {
             var owner = await _userManager.FindByIdAsync(id);
-            if (_userManager.IsInRoleAsync(owner, "Owner").Result)
+            if (owner != null && await _userManager.IsInRoleAsync(owner, "Owner"))
             {
                 await _userManager.RemoveFromRoleAsync(owner, "Owner");
                 await _userManager.AddToRoleAsync(owner, "Customer");
+                return true;
             }
+            return false;
         }
 
-        public async Task<ApplicationUser> FindById(string id)
+        public async Task<ApplicationUser> GetUserByIdAsync(string id)
         {
             return await _userManager.FindByIdAsync(id);
         }
 
-        public async Task PromoteUser(string id)
+        public async Task<bool> PromoteUserAsync(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
 
@@ -65,7 +64,9 @@ namespace Cinema.Core.Services
             {
                 await _userManager.RemoveFromRoleAsync(user, "Customer");
                 await _userManager.AddToRoleAsync(user, "Owner");
+                return true;
             }
+            return false;
         }
 
         public async Task<IEnumerable<Cinema.Data.Models.Cinema>> GetAllCinemasAsync()
@@ -136,7 +137,7 @@ namespace Cinema.Core.Services
             });
         }
 
-        public async Task<UserDetailsViewModel> GetUserDetailsAsync(string id)
+        public async Task<UserDetailsViewModel> GetUserDetailsViewModelByIdAsync(string id)
         {
             var user = await _context.Users.Include(i => i.UserActions).FirstOrDefaultAsync(i => i.Id == id);
 
@@ -165,7 +166,7 @@ namespace Cinema.Core.Services
             };
         }
 
-        public async Task<AdminCinemaDetailsViewModel> GetCinemaDetailsAsync(int? id)
+        public async Task<AdminCinemaDetailsViewModel> GetCinemaDetailsViewModelByIdAsync(int? id)
         {
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == id);
 
@@ -181,7 +182,7 @@ namespace Cinema.Core.Services
 
         }
 
-        public async Task<ChangeCinemaApprovalStatusViewModel> GetCASViewModelAsync(int id)
+        public async Task<ChangeCinemaApprovalStatusViewModel> GetChangeApprovalStatusViewModelByIdAsync(int? id)
         {
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == id);
             return new ChangeCinemaApprovalStatusViewModel
@@ -193,7 +194,7 @@ namespace Cinema.Core.Services
             };
         }
 
-        public async Task ChangeApprovalStatusAsync(int id, ApprovalStatus approvalCode)
+        public async Task ChangeApprovalByIdStatusAsync(int? id, ApprovalStatus approvalCode)
         {
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == id);
             cinema.ApprovalStatus = approvalCode;
@@ -236,7 +237,7 @@ namespace Cinema.Core.Services
 
         public async Task<AdminUserCRUDViewModel> GetAdminUserCRUDPartialAsync(string id)
         {
-            var user = await this.FindById(id);
+            var user = await this.GetUserByIdAsync(id);
 
             return new AdminUserCRUDViewModel
             {
@@ -251,7 +252,7 @@ namespace Cinema.Core.Services
         {
             return await _context.Users.AnyAsync(i => i.Id == id);
         }
-        public async Task<bool> CinemaExistsAsync(int id)
+        public async Task<bool> CinemaExistsAsync(int? id)
         {
             return await _context.Cinemas.AnyAsync(i => i.Id == id);
         }
