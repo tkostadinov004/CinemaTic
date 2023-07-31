@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace Cinema.Core.UnitTests
 {
@@ -45,7 +46,10 @@ namespace Cinema.Core.UnitTests
             _userManagerMock
                 .Setup(userManager => userManager.AddToRoleAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()));
 
-            _usersService = new UsersService(_userManagerMock.Object);
+            var signInManagerMock = new Mock<SignInManager<ApplicationUser>>(_userManagerMock.Object,
+   Mock.Of<IHttpContextAccessor>(),
+    Mock.Of<IUserClaimsPrincipalFactory<ApplicationUser>>(), null, null, null, null);
+            _usersService = new UsersService(_context, _userManagerMock.Object, signInManagerMock.Object, new Mock<ILogService>().Object, new Mock<IImageService>().Object);
             _context.Users.Add(new ApplicationUser("156fc675-02de-4250-9edb-869c85e13e61", 0, "8f06bfbc-e1e3-4f95-9bc1-30add0031c34", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7086), "owner1@owner.com", true, "James", "Johnson", false, null, "OWNER1@OWNER.COM", "OWNER1@OWNER.COM", null, null, false, "profilePicURL", "1969a695-01c0-49be-8d42-482cb1c327bc", false, "owner1@owner.com"));
             _context.SaveChanges();
         }

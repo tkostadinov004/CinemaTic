@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Cinema.ViewModels.Actors.ActorListViewModel>
+﻿@model PaginatedList<Cinema.ViewModels.Actors.ActorListViewModel>
 
 @foreach (var actor in Model)
 {
@@ -18,3 +18,30 @@
         <div class="cinema-cell sales"><span class="cell-label">Movies:</span>@actor.MoviesCount</div>
     </div>
 }
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<ul class="pagination gap-1">
+    <li class="page-item">
+        <a class="action-button active previous @prevDisabled">
+            Previous
+        </a>
+    </li>
+    <li class="page-item">
+        <a class="action-button active next @nextDisabled">
+            Next
+        </a>
+    </li>
+</ul>
+<script>
+    document.querySelectorAll('.page-item a').forEach(i => i.addEventListener("click", function () {
+        if (i.classList.contains("previous")) {
+            page = page - 1;
+        }
+        else if (i.classList.contains("next")) {
+            page = page + 1;
+        }
+        getItems('Actors', 'SearchAndFilterActors', search.value, '', (filterOptions ? filterOptions.value : null), (activeSort ? activeSort.id : null), page);
+    }));
+</script>

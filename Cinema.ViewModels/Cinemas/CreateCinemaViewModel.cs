@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Cinema.ViewModels.Cinemas
 {
     using static ValidationConstants;
-    public class AddCinemaViewModel
+    public class CreateCinemaViewModel
     {
         [Required(ErrorMessage ="Enter a name")]
         [StringLength(CinemaNameMaxLength, MinimumLength = CinemaNameMinLength, ErrorMessage = "Name should be between {2} and {1} characters")]

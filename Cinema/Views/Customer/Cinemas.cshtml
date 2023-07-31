@@ -48,14 +48,16 @@
                                 <tr class="alert bg-white" role="alert">
                                     <td>
                                     </td>
-                                    <td class="d-flex align-items-center gap-3">
-                                        <div class="img">
-                                            <img src="~/client-images/Cinemas/@cinema.ImageUrl" />
-                                        </div>
-                                        <div class="pl-3 email">
-                                            <span>@cinema.Name</span>
-                                            <span>Founded: @cinema.FoundedOn</span>
-                                        </div>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="img">
+                                                <img src="~/client-images/Cinemas/@cinema.ImageUrl" />
+                                            </div>
+                                            <div class="pl-3 email">
+                                                <a asp-controller="Customer" asp-action="Cinema" asp-route-cinemaId=@cinema.Id>@cinema.Name</a>
+                                                <span>Founded: @cinema.FoundedOn</span>
+                                            </div>
+                                       </div>
                                     </td>
                                     <td>@cinema.Owner</td>
                                     <td class="status">

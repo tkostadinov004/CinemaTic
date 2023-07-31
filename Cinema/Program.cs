@@ -13,7 +13,7 @@ using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var connectionString = builder.Configuration["CinemaTic:ConnectionString"];
 builder.Services.AddDbContext<CinemaDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
@@ -42,7 +42,6 @@ builder.Services.AddScoped<IActorsService, ActorsService>();
 builder.Services.AddScoped<IAdminService, AdminService>();
 builder.Services.AddScoped<IGenresService, GenresService>();
 builder.Services.AddScoped<IMoviesService, MoviesService>();
-builder.Services.AddScoped<ITicketsService, TicketsService>();
 builder.Services.AddScoped<ICustomersService, CustomersService>();
 builder.Services.AddScoped<IOwnersService, OwnersService>();
 builder.Services.AddScoped<ISectorsService, SectorsService>();

@@ -11,21 +11,21 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-lg-5 me-lg-auto">
 
-                        <li class="nav-item">
+                        <li class="nav-item text-white">
                             <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Index">Home</a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item text-white">
                             <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Cinemas" asp-route-all="@false">Your cinemas</a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item text-white">
                             <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Tickets">Tickets</a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item text-white">
                             <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                                <button class="nav-link click-scroll">Logout</button>
+                                <button class="nav-link click-scroll text-white">Logout</button>
                             </form>
                         </li>
                     </ul>

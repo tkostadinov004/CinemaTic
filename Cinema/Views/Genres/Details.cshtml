@@ -1,0 +1,128 @@
+﻿@model Cinema.ViewModels.Genres.GenreDetailsViewModel
+
+<link href="~/css/manageStyle.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/cardStyle.css" />
+<link href="~/css/ratingmodal.css" rel="stylesheet" />
+<div class="app-content">
+    <div class="app-content-header">
+        <button class="mode-switch" title="Switch Theme">
+            <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+                <defs></defs>
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+            </svg>
+        </button>
+    </div>
+    <div class="products-area-wrapper gridView m-0 mt-4 justify-content-center details">
+        <div class="cinema-row details-card mb-3">
+            <div class="cinema-cell image details-photo-pic">
+                <a class="d-flex align-items-center cinema-link flex-column">
+                    <span>@Model.Name</span>
+                </a>
+            </div>
+            <div class="cinema-cell description">
+                <span class="cell-label">Movies:</span>
+                <span>@Model.MoviesCount</span>
+            </div>
+        </div>
+        <div class="cinema-cell stock">
+            <button id="edit" class="action-button active crud-button open-popup-btn">Edit</button>
+            <button id="delete" class="action-button active crud-button open-popup-btn">Delete</button>
+        </div>
+    </div>
+    <div class="app-content-actions mt-1">
+        <input id="search-bar" class="search-bar" placeholder="Search..." type="text">
+    </div>
+    <div class="products-area-wrapper movies-wrapper tableView">
+        <div class="products-header">
+            <div class="cinema-cell image">
+                Movie
+                <button class="sort-button" id="name-sort-desc" title="Sort descending">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="name-sort" title="Sort ascending">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+            <div class="cinema-cell sales">
+                Average user rating
+                <button class="sort-button" id="rating-sort-desc" title="Sort descending">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="rating-sort" title="Sort ascending">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+            <div class="cinema-cell stock">
+                Ratings count
+                <button class="sort-button" id="ratingcount-sort-desc" title="Sort descending">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="ratingcount-sort" title="Sort ascending">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+        </div>
+        <div class="movies-container" id="results-container">
+        </div>
+    </div>
+</div>
+<partial name="_PopupModalPartial" />
+<script src="~/js/ownerdashboard.js"></script>
+<script src="~/js/rating-modal.js"></script>
+<script>
+    var page = 1;
+    const genreId = '@Model.Id';
+    window.onload = function () {
+        getItems('Genres', 'SearchAndSortMoviesByGenre', "", genreId, '', '', page);
+    };
+    var search = document.getElementById("search-bar");
+    var filterOptions = document.getElementById('filter-options');
+    var activeSort = document.querySelector('.sort-button.selected');
+    if (search) {
+        let timeout = null;
+        search.addEventListener("keyup", function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                getItems('Genres', 'SearchAndSortMoviesByGenre', search.value, genreId, (filterOptions ? filterOptions.value : null), (activeSort ? activeSort.id : null));
+            }, 300);
+        });
+    }
+    document.querySelectorAll(".sort-button").forEach(i => i.addEventListener('click', function () {
+        var alreadyActive = document.querySelector('.sort-button.selected');
+        if (alreadyActive) {
+            alreadyActive.classList.remove("selected");
+        }
+        activeSort = i;
+        i.classList.add("selected");
+        $.ajax({
+            type: "GET",
+            url: `/Genres/SearchAndSortMoviesByGenre`,
+            data: { id: @Model.Id, value: genreId, searchText: search.value, sortBy: (activeSort ? activeSort.id : '') },
+            success: function (response) {
+                $("#results-container").html(response);
+            },
+            failure: function (response) {
+                window.location = '/Error/statuscode=403';
+            },
+            error: function (response) {
+                window.location = '/Error/statuscode=403';
+            }
+        });
+    }));
+
+    var modalContainer = document.getElementById('review-form-container');
+    var popupModal = document.getElementById("modal");
+    var editButton = document.getElementById("edit");
+    editButton.addEventListener("click", function () {
+        modalContainer.innerHTML = "";
+        popupModal.classList.remove("preview");
+        getUDpartial('Genres', 'EditGenre', '@Model.Id');
+    });
+
+    var deleteButton = document.getElementById("delete");
+    deleteButton.addEventListener("click", function () {
+        modalContainer.innerHTML = "";
+        popupModal.classList.remove("preview");
+        getUDpartial('Genres', 'DeleteGenre', '@Model.Id');
+    });
+</script>

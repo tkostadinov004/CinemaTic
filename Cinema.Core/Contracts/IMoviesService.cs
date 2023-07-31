@@ -9,6 +9,7 @@ namespace Cinema.Core.Contracts
 {
     public interface IMoviesService
     {
+        Task<IEnumerable<Movie>> GetAllAsync();
         Task<Movie> GetByIdAsync(int? id);
         Task DeleteByIdAsync(int? id);
         Task<bool> ExistsByIdAsync(int? id);

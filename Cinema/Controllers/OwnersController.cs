@@ -39,11 +39,11 @@ namespace Cinema.Controllers
         [Authorize(Roles = "Owner")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddCinema(AddCinemaViewModel viewModel)
+        public async Task<IActionResult> AddCinema(CreateCinemaViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                await _ownersService.AddAsync(viewModel, User.Identity.Name);
+                await _ownersService.CreateCinemaAsync(viewModel, User.Identity.Name);
             }
             return RedirectToAction("UserCinemas", "Owners");
         }
@@ -63,18 +63,6 @@ namespace Cinema.Controllers
             return View(await _ownersService.GetByIdAsync(id));
         }
         [Authorize(Roles = "Owner")]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddMovieToCinemas(MovieDetailsViewModel viewModel)
-        {
-            if (!await _ownersService.ExistsByIdAsync(viewModel.MovieId))
-            {
-                return NotFound();
-            }
-            await _ownersService.AddMovieToCinemas(viewModel);
-            return RedirectToAction("AllMovies", "Movies");
-        }
-        [Authorize(Roles = "Owner")]
         [HttpGet]
         public async Task<IActionResult> EditCinema([ModelBinder(typeof(IdModelBinder))] int id)
         {
@@ -91,7 +79,7 @@ namespace Cinema.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _ownersService.EditCinema(viewModel);
+                await _ownersService.EditCinemaAsync(viewModel);
             }
             return RedirectToAction("UserCinemas", "Owners");
         }
@@ -135,7 +123,7 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            var movies = await _ownersService.SearchMoviesByCinema(searchText, id);
+            var movies = await _ownersService.SearchMoviesByCinemaAsync(searchText, id);
             return PartialView("_CinemaMoviesPartial", movies);
         }
         [Authorize(Roles = "Owner")]
@@ -145,7 +133,7 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            return View("_CustomPagePreview", await _ownersService.PreparePreviewViewModelAsync(User.Identity.Name, cinemaId));
+            return View("_CustomPagePreview", await _ownersService.GetPreviewViewModelAsync(User.Identity.Name, cinemaId));
         }
         [Authorize(Roles = "Owner")]
         public async Task<IActionResult> GetCinemasContainingMovie([ModelBinder(typeof(IdModelBinder))] int movieId)

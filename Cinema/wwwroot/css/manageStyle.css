@@ -151,7 +151,7 @@ body {
 .account-info {
     display: flex;
     align-items: center;
-    padding: 16px;
+    padding: 16px 0px 16px 8px;
     margin-top: auto;
 }
 
@@ -749,10 +749,10 @@ i.upload-text {
     width: 100%;
 }
 input:-webkit-autofill {
-    -webkit-text-fill-color: white !important;
-    -webkit-box-shadow: 0 0 0 30px black inset !important;
+    -webkit-text-fill-color: var(--app-content-main-color) !important;
+    -webkit-box-shadow: 0 0 0 30px var(--app-bg) inset !important;
 }
-.form-group {
+div.form-group {
     width: 40%;
 }
 div.form-group.image-form-group {
@@ -878,7 +878,7 @@ bottom: 50px;
 .user-action-button {
     cursor: pointer;
     appearance: none;
-    padding: 8px 24px 8px 8px;
+    padding: 8px;
     background-position: right 4px center;
     border: 1px solid var(--app-content-main-color);
     border-radius: 4px;
@@ -887,6 +887,7 @@ bottom: 50px;
     background-color: transparent;
     margin-bottom: 16px;
     width: 100%;
+    text-align: center;
 }
     .user-action-button:hover {
         color: var(--action-color-hover);
@@ -949,19 +950,25 @@ button.seat .seat-bottom {
 input.color-picker {
     border-radius: 0;
     margin-left: 20px;
-    width: 15%;
+    flex-basis: 40%;
     height: 50px;
 }
 input.visualizer {
     color: white;
     border: 1px solid grey;
-    width: 30%;
+    flex-grow: 1;
 }
+    input.visualizer:focus {
+        border-color: #86b7fe;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25);
+        border-radius: var(--bs-border-radius);
+    }
 div.active-form input[type="color"] {
     margin: 0;
 }
-.active-form i.fa-solid {
-    margin-right: 15px;
+i.input-icon {
+    flex-basis: 7%;
 }
 button.genre-name {
     border: 0;
@@ -1072,4 +1079,25 @@ div.access-denied {
 }
 .actions-container {
     color: var(--app-content-main-color);
+
+}
+ul.pagination li.page-item a {
+    color: var(--app-content-main-color);
+    padding: 15px 30px;
+    user-select: none;
+}
+ul.pagination li.page-item a.disabled {
+    color: gray;
+    cursor: default;
+    pointer-events: none;
+}
+    ul.pagination li.page-item a:not(.disabled):hover {
+        opacity: 0.7;
+        transition: 0.5s;
+    }
+.date-selector .form-group {
+    width: 100%;
+}
+ul.pagination {
+    flex-basis: 100%;
 }

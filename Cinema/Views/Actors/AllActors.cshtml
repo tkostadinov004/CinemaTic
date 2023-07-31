@@ -96,8 +96,9 @@
 </div>
 <script src="~/js/ownerdashboard.js"></script>
 <script>
+    var page = 1;
     window.onload = function () {
-        getItems('Actors', 'SearchAndFilterActors');
+        getItems('Actors', 'SearchAndFilterActors', '', '', '', '', page);
     };
     var search = document.getElementById("search-bar");
     var filterOptions = document.getElementById('filter-options');

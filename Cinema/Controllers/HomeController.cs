@@ -1,28 +1,24 @@
 ﻿using Cinema.Core.Contracts;
-using Cinema.Core.Services;
 using Cinema.Core.Utilities;
-using Cinema.Data;
 using Cinema.Data.Enums;
 using Cinema.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Cinema.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly CinemaDbContext _context;
         private readonly ILogService _logService;
+        private readonly IUsersService _usersService;
+        private readonly IImageService _imageService;
 
-        public HomeController(ILogger<HomeController> logger, CinemaDbContext context, ILogService logService)
+        public HomeController(ILogService logService, IUsersService usersService, IImageService imageService)
         {
-            _logger = logger;
-            _context = context;
             _logService = logService;
+            _usersService = usersService;
+            _imageService = imageService;
         }
 
         public async Task<IActionResult> Index()
@@ -36,6 +32,12 @@ namespace Cinema.Controllers
             {
                 TempData.Remove("UserRegistered");
                 await _logService.LogActionAsync(UserActionType.AccountActions, LogMessages.UserRegisterMessage);
+            }
+
+           if(User.Identity.IsAuthenticated)
+            {
+                var user = await _usersService.GetUserByEmailAsync(User.Identity.Name);
+                await _imageService.ReplaceWithDefaultIfNotPresentAsync(user.Email, "Users", user.ProfilePictureUrl);
             }
 
             if (User.IsInRole("Owner"))

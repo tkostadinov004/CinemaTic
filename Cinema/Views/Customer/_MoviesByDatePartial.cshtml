@@ -29,6 +29,11 @@
     </div>
 }
 <script>
+    openButtons = document.querySelectorAll('.open-popup-btn');
+    modal = document.getElementById('modal');
+    modalOverlay = document.querySelector('.modal-overlay');
+    openButtons.forEach(i => i.addEventListener('click', openModal));
+
     document.querySelectorAll('.movie-poster, .trailer-play-button').forEach(i => i.addEventListener("click", function () {
         document.getElementById('youtube-container').setAttribute('src', `https://www.youtube-nocookie.com/embed/${i.id}?hd=1&amp;wmode=opaque&amp;controls=1&amp;showinfo=0&amp;autoplay=1&amp;autoplay=1`);
     }));
@@ -36,4 +41,3 @@
         document.getElementById('youtube-container').setAttribute('src', ``);
     }));
 </script>
-<script src="~/js/rating-modal.js"></script>

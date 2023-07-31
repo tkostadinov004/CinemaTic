@@ -41,7 +41,7 @@ namespace Cinema.Controllers
                 return NotFound();
             }
 
-            var cinema = await _adminService.GetCinemaDetailsAsync(id);
+            var cinema = await _adminService.GetCinemaDetailsViewModelByIdAsync(id);
             if (cinema == null)
             {
                 return NotFound();
@@ -56,7 +56,7 @@ namespace Cinema.Controllers
                 return NotFound();
             }
 
-            var user = await _adminService.GetUserDetailsAsync(id);
+            var user = await _adminService.GetUserDetailsViewModelByIdAsync(id);
             if (user == null)
             {
                 return NotFound();
@@ -71,7 +71,7 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            var cinemaViewModel = await _adminService.GetCASViewModelAsync(id);
+            var cinemaViewModel = await _adminService.GetChangeApprovalStatusViewModelByIdAsync(id);
             if (cinemaViewModel == null)
             {
                 return NotFound();
@@ -86,7 +86,7 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            await _adminService.ChangeApprovalStatusAsync(id, approvalCode);
+            await _adminService.ChangeApprovalByIdStatusAsync(id, approvalCode);
             return RedirectToAction("AllCinemas", "Admin");
         }
         public async Task<IActionResult> SearchAndFilterCinemas(string searchText, string filterValue, string sortBy)
@@ -124,7 +124,7 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            await _adminService.PromoteUser(id);
+            await _adminService.PromoteUserAsync(id);
             return RedirectToAction("Users", "Admin");
         }
         [HttpGet]
@@ -153,7 +153,7 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            await _adminService.DemoteUser(id);
+            await _adminService.DemoteUserAsync(id);
             return RedirectToAction("Users", "Admin");
         }
         [HttpGet]
@@ -182,7 +182,7 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            await _adminService.DeleteAccount(id);
+            await _adminService.DeleteAccountAsync(id);
             return RedirectToAction("Users", "Admin");
         }
     }

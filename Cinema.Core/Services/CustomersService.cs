@@ -8,6 +8,7 @@ using Cinema.ViewModels.Customers;
 using Cinema.ViewModels.Movies;
 using Cinema.ViewModels.Sectors;
 using Cinema.ViewModels.Tickets;
+using Cinema.ViewModels.Users;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
@@ -19,17 +20,13 @@ namespace Cinema.Core.Services
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly CinemaDbContext _context;
-        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogService _logger;
-        private readonly IImageService _imageService;
 
-        public CustomersService(UserManager<ApplicationUser> userManager, CinemaDbContext context, SignInManager<ApplicationUser> signInManager, ILogService logger, IImageService imageService)
+        public CustomersService(UserManager<ApplicationUser> userManager, CinemaDbContext context, ILogService logger)
         {
             _userManager = userManager;
             _context = context;
-            _signInManager = signInManager;
             _logger = logger;
-            _imageService = imageService;
         }
         public async Task<CustomerHomePageViewModel> GetCinemasForUserAsync(string userEmail)
         {
@@ -47,24 +44,6 @@ namespace Cinema.Core.Services
                 }),
                 FullName = $"{user.FirstName} {user.LastName}"
             };
-        }
-
-        public async Task<ChangePasswordViewModel> GetChangePasswordViewModelAsync(string userEmail)
-        {
-            var user = await _userManager.FindByEmailAsync(userEmail);
-            return new ChangePasswordViewModel
-            {
-                Id = user.Id,
-                Email = user.Email
-            };
-        }
-
-        public async Task ChangePasswordAsync(ChangePasswordViewModel viewModel)
-        {
-            var user = await _userManager.FindByIdAsync(viewModel.Id);
-            await _userManager.ChangePasswordAsync(user, viewModel.OldPassword, viewModel.NewPassword);
-            await _signInManager.RefreshSignInAsync(user);
-            await _logger.LogActionAsync(UserActionType.AccountActions, LogMessages.ChangePasswordMessage);
         }
 
         public async Task<IEnumerable<CinemasViewModel>> GetCinemasByUserAsync(bool? all, string userEmail)
@@ -258,25 +237,6 @@ namespace Cinema.Core.Services
                 await _context.SaveChangesAsync();
                 await _logger.LogActionAsync(UserActionType.Update, LogMessages.ChangeRatingMovieMessage, movie.Title, $"{oldRating:f1}", $"{rating:f1}");
             }
-        }
-
-        public async Task<ChangeProfilePictureViewModel> GetChangeProfilePictureViewModelAsync(string userEmail)
-        {
-            var user = await _userManager.FindByEmailAsync(userEmail);
-            return new ChangeProfilePictureViewModel
-            {
-                Id = user.Id
-            };
-        }
-
-        public async Task ChangeProfilePictureViewModelAsync(ChangeProfilePictureViewModel viewModel)
-        {
-            var user = await _userManager.FindByIdAsync(viewModel.Id);
-
-            await _imageService.DeleteImageAsync("Users", user.ProfilePictureUrl);
-            user.ProfilePictureUrl = await _imageService.UploadPhotoAsync("Users", viewModel.Image);
-
-            await _context.SaveChangesAsync();
         }
     }
 }

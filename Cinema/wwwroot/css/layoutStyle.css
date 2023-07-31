@@ -1175,3 +1175,11 @@ div.features-container div.row {
     overflow: hidden;
     border-radius: 50%;
 }
+p.cinema-description {
+    display: -webkit-box;
+    max-width: 500px;
+    word-break: break-word;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

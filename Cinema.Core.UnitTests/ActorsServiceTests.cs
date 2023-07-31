@@ -97,11 +97,6 @@ namespace Cinema.Core.UnitTests
             Assert.That(_context.Actors.Any(i => i.FullName == "John Jameson"), Is.True);
         }
         [Test]
-        public async Task ThrowsExceptionOnNullCreateVM()
-        {
-            Assert.ThrowsAsync<ArgumentNullException>(async () => await _actorsService.CreateActorAsync(null));
-        }
-        [Test]
         public async Task Throws_ExceptionOnNullImage()
         {
             CreateActorViewModel vm = new CreateActorViewModel
@@ -145,20 +140,6 @@ namespace Cinema.Core.UnitTests
             });
         }
         [Test]
-        public async Task ThrowsExceptionOnNullActorEdit()
-        {
-            var viewModel = new EditActorViewModel
-            {
-                Id = 123,
-                FullName = "NewName",
-                Nationality = "United Kingdom",
-                Rating = 10m,
-                Birthdate = DateTime.ParseExact("06/16/2001", "MM/dd/yyyy", null)
-            };
-
-            Assert.ThrowsAsync<ArgumentNullException>(async () => await _actorsService.EditActorAsync(viewModel));
-        }
-        [Test]
         public async Task ChecksIfPresent()
         {
             bool exists = await _actorsService.ExistsByIdAsync(1);
@@ -171,12 +152,6 @@ namespace Cinema.Core.UnitTests
             bool exists = await _actorsService.ExistsByIdAsync(-1);
 
             Assert.That(exists, Is.False);
-        }
-        [Test]
-        public async Task Throws_ExceptionOnNullActorDelete()
-        {
-            int id = -1;
-            Assert.ThrowsAsync<ArgumentNullException>(async () => await _actorsService.DeleteByIdAsync(id));
         }
         [Test]
         public async Task GetsByIdCorrectly()

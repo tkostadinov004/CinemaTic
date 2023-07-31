@@ -26,8 +26,8 @@
                 </div>
                 <div class="d-flex justify-content-between mb-4">
                     <div class="d-flex flex-column">
-                        <span>Release date:</span>
-                        <span class="short-info">@Model.Date</span>
+                        <span>Average user rating:</span>
+                        <span class="short-info">@(string.Format($"{Model.AverageRating:f1} / 10.0 ({Model.RatingCount} votes)"))</span>
                     </div>
                     <div class="d-flex flex-column">
                         <span>Running time:</span>
@@ -73,7 +73,7 @@
             </div>
             @if (Model.UserCinemas.Count > 0)
             {
-                <form asp-controller="Owners" asp-action="AddMovieToCinemas" method="post">
+                <form asp-controller="Movies" asp-action="AddMovieToCinemas" method="post">
                     <input type="hidden" asp-for="@Model.MovieId" />
                     <div class="col-md-8 col-sm-6 col-xs-12 mt-5 mb-3 owner-movie-details">
                         <h6>Add this movie to your cinemas</h6>

@@ -36,12 +36,12 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            var genre = await _genresService.PrepareDetailsViewModelAsync(id);
+            var genre = await _genresService.GetDetailsViewModelByIdAsync(id);
             if (genre == null)
             {
                 return NotFound();
             }
-            return PartialView("_GenreDetailsPartial", genre);
+            return View("Details", genre);
         }
 
         // GET: Genres/Create
@@ -64,13 +64,13 @@ namespace Cinema.Controllers
             }
             return PartialView("_AddGenrePartial", viewModel);
         }
-        public async Task<IActionResult> SearchAndSortMoviesByGenre(string searchText, string sortBy, [ModelBinder(typeof(IdModelBinder))] int id)
+        public async Task<IActionResult> SearchAndSortMoviesByGenre(string searchText, string sortBy, [ModelBinder(typeof(IdModelBinder))] int id, [ModelBinder(typeof(IdModelBinder))] int? pageNumber)
         {
             if (!await _genresService.ExistsByIdAsync(id))
             {
                 return NotFound();
             }
-            var movies = await _genresService.SearchAndSortMoviesByGenre(searchText, id, sortBy);
+            var movies = await _genresService.SearchAndSortMoviesByGenre(id, searchText, sortBy, pageNumber ?? 1);
             return PartialView("_GenreMoviesPartial", movies);
         }
         public async Task<IActionResult> SortGenres(string sortBy)
@@ -108,7 +108,7 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            return PartialView("_DeleteGenrePartial", await _genresService.PrepareDeleteViewModelAsync(id.Value));
+            return PartialView("_DeleteGenrePartial", await _genresService.GetDeleteViewModelByIdAsync(id.Value));
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

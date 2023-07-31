@@ -22,7 +22,7 @@ function getMarketShare() {
                     labels: ['Your income', 'Total income'],
                     datasets: [{
                         label: 'Income (in dollars)',
-                        backgroundColor: ['rgb(0, 220, 220)', 'rgb(220, 0, 220)'],
+                        backgroundColor: ['#edd145', '#6ca893'],
                         borderColor: 'rgba(220, 220, 220, 1)',
                         pointBackgroundColor: 'rgba(220, 220, 220, 1)',
                         pointBorderColor: '#fff',
@@ -171,7 +171,7 @@ function getBestSellingMoviesPerCinema() {
                 data: {
                     labels: response['labels'],
                     datasets: [{
-                        label: 'Income (in dollars)',
+                        label: 'Cinemas',
                         backgroundColor: colors,
                         borderColor: 'rgba(220, 220, 220, 1)',
                         pointBackgroundColor: 'rgba(220, 220, 220, 1)',

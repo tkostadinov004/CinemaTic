@@ -43,39 +43,12 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            return View("MovieDetails", await _moviesService.GetDetailsViewModel(await _moviesService.GetByIdAsync(id), null, User.Identity.Name));
-        }
-        [HttpGet]
-        public async Task<IActionResult> ChangePassword()
-        {
-            return View("ChangePassword", await _customersService.GetChangePasswordViewModelAsync(User.Identity.Name));
-        }
-        [HttpGet]
-        public async Task<IActionResult> ChangeProfilePicture()
-        {
-            return View("ChangeProfilePicture", await _customersService.GetChangeProfilePictureViewModelAsync(User.Identity.Name));
-        }
-        [HttpPost]
-        public async Task<IActionResult> ChangeProfilePicture(ChangeProfilePictureViewModel viewModel)
-        {
-            await _customersService.GetChangeProfilePictureViewModelAsync(viewModel);
-            return RedirectToAction(nameof(Index));
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel viewModel)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View("ChangePassword", await _customersService.GetChangePasswordViewModelAsync(User.Identity.Name));
-            }
-            await _customersService.ChangePasswordAsync(viewModel);
-            return RedirectToAction(nameof(Index));
+            return View("MovieDetails", await _moviesService.GetDetailsViewModelAsync(id, User.Identity.Name));
         }
         public async Task<IActionResult> Cinemas(bool? all, int? pageNumber)
         {
             TempData["All"] = all;
-            var cinemas = await _customersService.GetCinemasAsync(all, User.Identity.Name);
+            var cinemas = await _customersService.GetCinemasByUserAsync(all, User.Identity.Name);
             return View("Cinemas", await PaginatedList<CinemasViewModel>.CreateAsync(cinemas, pageNumber ?? 1, 5));
         }
         [HttpPost]
@@ -147,14 +120,11 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            if (ModelState.IsValid)
-            {
-                await _customersService.BuyTicketAsync(sectorId, movieId, viewModel, forDate, User.Identity.Name);
-            }
+            await _customersService.BuyTicketAsync(sectorId, movieId, viewModel, forDate, User.Identity.Name);
             return RedirectToAction("Cinema", "Customer", new { userEmail = User.Identity.Name, cinemaId = TempData["CinemaId"] });
         }
         [HttpGet]
-        public async Task<IActionResult> GetMoviesByDate([ModelBinder(typeof(IdModelBinder))] int cinemaId, string date)
+        public async Task<IActionResult> GetMoviesByDate([ModelBinder(typeof(IdModelBinder))] int cinemaId, [ModelBinder(typeof(DateModelBinder))] DateTime date)
         {
             if (!await _ownersService.ExistsByIdAsync(cinemaId))
             {
@@ -179,7 +149,7 @@ namespace Cinema.Controllers
                 return RedirectToAction("MovieDetails", "Customer", new { id = movieId });
             }
 
-            await _customersService.SetRatingAsync(movieId.Value, rating.Value, User.Identity.Name);
+            await _customersService.SetRatingToMovieAsync(movieId.Value, rating.Value, User.Identity.Name);
 
             return RedirectToAction("MovieDetails", "Customer", new { id = movieId });
         }

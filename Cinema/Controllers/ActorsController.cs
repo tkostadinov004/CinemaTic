@@ -36,7 +36,7 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            var actor = await _actorsService.GetByIdAsync(id);
+            var actor = await _actorsService.GetDetailsViewModelByIdAsync(id);
             if (actor == null)
             {
                 return NotFound();
@@ -48,7 +48,7 @@ namespace Cinema.Controllers
         // GET: Actors/Create
         public async Task<IActionResult> AddActor()
         {
-            return View(await _actorsService.PrepareForAddingAsync());
+            return View(await _actorsService.GetCreateViewModelAsync());
         }
 
         [HttpPost]
@@ -57,14 +57,14 @@ namespace Cinema.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _actorsService.AddActorAsync(actorVM);
+                await _actorsService.CreateActorAsync(actorVM);
             }
-            actorVM.Countries = (await _actorsService.PrepareForAddingAsync()).Countries;
+            actorVM.Countries = (await _actorsService.GetCreateViewModelAsync()).Countries;
             return View(nameof(AddActor), actorVM);
         }
-        public async Task<IActionResult> SearchAndFilterActors(string searchText, string filterValue, string sortBy)
+        public async Task<IActionResult> SearchAndFilterActors(string searchText, string filterValue, string sortBy, [ModelBinder(typeof(IdModelBinder))] int? pageNumber)
         {
-            var actors = await _actorsService.SearchAndFilterActorsAsync(searchText, filterValue, sortBy);
+            var actors = await _actorsService.SearchAndFilterActorsAsync(searchText, filterValue, sortBy, pageNumber ?? 1);
             return PartialView("_ActorsPartial", actors);
         }
         public async Task<IActionResult> SearchMoviesByActor(string searchText, [ModelBinder(typeof(IdModelBinder))] int id)
@@ -73,7 +73,7 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            var movies = await _actorsService.SearchMoviesByActor(searchText, id);
+            var movies = await _actorsService.SearchMoviesByActorAsync(searchText, id);
             return PartialView("_ActorMoviesPartial", movies);
         }
         [HttpGet]
@@ -106,7 +106,7 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            return PartialView("_DeleteActorPartial", await _actorsService.PrepareDeleteViewModelAsync(id));
+            return PartialView("_DeleteActorPartial", await _actorsService.GetDeleteViewModelByIdAsync(id));
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -120,7 +120,7 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            var actor = await _actorsService.GetByIdAsync(id);
+            var actor = await _actorsService.GetDetailsViewModelByIdAsync(id);
             if (actor == null)
             {
                 return NotFound();

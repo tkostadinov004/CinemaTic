@@ -6,6 +6,7 @@ namespace Cinema.Core.Contracts
 {
     public interface IGenresService
     {
+        Task<IEnumerable<Genre>> GetAllAsync();
         Task<Genre> GetByIdAsync(int? id);
         Task DeleteByIdAsync(int? id);
         Task<bool> ExistsByIdAsync(int? id);

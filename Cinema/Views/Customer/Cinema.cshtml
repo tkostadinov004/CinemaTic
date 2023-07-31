@@ -13,12 +13,12 @@
         <img src="~/client-images/defaults/martin-martz-ZUj-wUCw0u4-unsplash.png" class="bg-image" />
         <div class="main-container pt-5" style="padding-top: 15vh !important; height: 100vh;">
             <div class="col-xl-12 text-white">
-                <h5 class="text-center">Top movies, recommended by our sponsors: </h5>
+                <h5 class="text-center text-white">Top movies, recommended by our sponsors: </h5>
             </div>
             <div class="movie-grid d-flex justify-content-center gap-3 mt-5" style="width: 100%;">
                 <div class="card-wrapper">
                     <div class="card">
-                        <img src="~/client-images/Movies/Batman.jpg" alt="cinema-logo">
+                        <img src="~/client-images/Movies/12 Angry Men.jpg" alt="cinema-logo">
                         <div class="descriptions">
                             <div class="description-buttons">
                                 <a class="desc-button">
@@ -31,7 +31,7 @@
                 </div>
                 <div class="card-wrapper">
                     <div class="card">
-                        <img src="~/client-images/Movies/Kingsman-The-Secret-Service.jpg" alt="cinema-logo">
+                        <img src="~/client-images/Movies/2001ASpaceOdyssey.jpg" alt="cinema-logo">
                         <div class="descriptions">
                             <div class="description-buttons">
                                 <a class="desc-button">
@@ -44,7 +44,7 @@
                 </div>
                 <div class="card-wrapper">
                     <div class="card">
-                        <img src="~/client-images/Movies/Django-Unchained.jpg" alt="cinema-logo">
+                        <img src="~/client-images/Movies/A Clockwork Orange.jpg" alt="cinema-logo">
                         <div class="descriptions">
                             <div class="description-buttons">
                                 <a class="desc-button">
@@ -59,7 +59,7 @@
             <div class="w-100">
                 <div class="col-xl-12 mt-5 dates-container">
                     <div class="row d-flex justify-content-between align-items-center">
-                        <span>Book tickets</span>
+                        <span class="text-black">Book tickets</span>
                         <div class="d-flex selection-buttons">
                             <button class="active" id="movie-grid-button">Movie grid</button>
                             <div class="dropdown">
@@ -147,3 +147,4 @@
     }));
     changeColors('@Model.BackgroundColor', '@Model.BoardColor', '@Model.TextColor', '@Model.ButtonBackgroundColor', '@Model.ButtonTextColor', '@Model.AccentColor');
 </script>
+<script src="~/js/rating-modal.js"></script>

@@ -10,6 +10,10 @@ namespace Cinema.Core.Contracts
 {
     public interface IUsersService
     {
+        Task<ChangePasswordViewModel> GetChangePasswordViewModelAsync(string userEmail);
+        Task ChangePasswordAsync(ChangePasswordViewModel viewModel);
+        Task<ChangeProfilePictureViewModel> GetChangeProfilePictureViewModelAsync(string userEmail);
+        Task ChangeProfilePictureViewModelAsync(ChangeProfilePictureViewModel viewModel);
         Task<ApplicationUser> GetUserByEmailAsync(string userEmail);
         Task<SidebarUserViewModel> GetSidebarViewModelByEmailAsync(string userEmail);
     }

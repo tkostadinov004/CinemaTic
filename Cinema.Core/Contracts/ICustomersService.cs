@@ -4,6 +4,7 @@ using Cinema.ViewModels.Customers;
 using Cinema.ViewModels.Movies;
 using Cinema.ViewModels.Sectors;
 using Cinema.ViewModels.Tickets;
+using Cinema.ViewModels.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +16,6 @@ namespace Cinema.Core.Contracts
     public interface ICustomersService
     {
         Task<CustomerHomePageViewModel> GetCinemasForUserAsync(string userEmail);
-        Task<ChangePasswordViewModel> GetChangePasswordViewModelAsync(string userEmail);
-        Task<ChangeProfilePictureViewModel> GetChangeProfilePictureViewModelAsync(string userEmail);
-        Task ChangeProfilePictureViewModelAsync(ChangeProfilePictureViewModel viewModel);
-        Task ChangePasswordAsync(ChangePasswordViewModel viewModel);
         Task<IEnumerable<CinemasViewModel>> GetCinemasByUserAsync(bool? all, string userEmail);
         Task AddCinemaToFavoritesAsync(int? cinemaId, string userEmail);
         Task RemoveCinemaFromFavoritesAsync(int? cinemaId, string userEmail);

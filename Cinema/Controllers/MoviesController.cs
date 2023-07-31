@@ -8,6 +8,7 @@ using Cinema.ViewModels.Movies;
 using Cinema.ViewModels.Cinemas;
 using Cinema.Core.Services;
 using Cinema.Extensions.ModelBinders;
+using Cinema.Core.Utilities;
 
 namespace Cinema.Controllers
 {
@@ -24,11 +25,11 @@ namespace Cinema.Controllers
         [HttpGet]
         public async Task<IActionResult> AllMovies()
         {
-            return View(await _moviesService.PrepareFilterViewModelAsync());
+            return View(await _moviesService.GetFilterViewModelAsync());
         }
-        public async Task<IActionResult> SearchAndFilterMovies(string searchText, string filterValue, string sortBy)
+        public async Task<IActionResult> SearchAndFilterMovies(string searchText, string filterValue, string sortBy, [ModelBinder(typeof(IdModelBinder))] int? pageNumber)
         {
-            var movies = await _moviesService.SearchAndFilterMoviesAsync(searchText, filterValue, sortBy);
+            var movies = await _moviesService.SearchAndFilterMoviesAsync(searchText, filterValue, sortBy, pageNumber ?? 1);
             return PartialView("_MoviesPartial", movies);
         }
         // GET: Movies/Details/5
@@ -48,16 +49,18 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-
-            var ratings = await _moviesService.GetRatingsByMovieIdAsync(id);
-            var viewModel = await _moviesService.GetDetailsViewModel(movie, ratings, User.Identity.Name);
+            var viewModel = await _moviesService.GetDetailsViewModelAsync(id, User.Identity.Name);
+            if(viewModel == null)
+            {
+                return NotFound();
+            }
             return View(viewModel);
         }
 
         // GET: Movies/Create
         public async Task<IActionResult> Create()
         {
-            return View(await _moviesService.PrepareForAddingAsync());
+            return View(await _moviesService.GetCreateViewModelAsync());
         }
 
         // POST: Movies/Create
@@ -81,7 +84,7 @@ namespace Cinema.Controllers
             {
                 return NotFound();
             }
-            var viewModel = await _moviesService.PrepareForEditing(id);
+            var viewModel = await _moviesService.GetEditViewModelAsync(id);
             if(viewModel == null)
             {
                 return NotFound();
@@ -101,7 +104,7 @@ namespace Cinema.Controllers
             {
                 try
                 {
-                    await _moviesService.EditByIdAsync(viewModel);
+                    await _moviesService.EditMovieAsync(viewModel);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -129,7 +132,7 @@ namespace Cinema.Controllers
                 return NotFound();
             }
 
-            var viewModel = await _moviesService.PrepareForDeleting(id);
+            var viewModel = await _moviesService.GetDeleteViewModelAsync(id);
             return PartialView("_DeleteMoviePartial", viewModel);
         }
 
@@ -144,6 +147,18 @@ namespace Cinema.Controllers
             }
             await _moviesService.DeleteByIdAsync(id);
             return RedirectToAction(nameof(AllMovies));
+        }
+        [Authorize(Roles = "Owner")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddMovieToCinemas(MovieDetailsViewModel viewModel)
+        {
+            if (!await _moviesService.ExistsByIdAsync(viewModel.MovieId))
+            {
+                return NotFound();
+            }
+            await _moviesService.AddMovieToCinemasAsync(viewModel);
+            return RedirectToAction("AllMovies", "Movies");
         }
     }
 }

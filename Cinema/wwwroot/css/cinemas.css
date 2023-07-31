@@ -107,7 +107,7 @@ button.date {
 
     button.date.active {
         font-size: 1.5rem;
-        color: red;
+        color: red !important;
         font-weight: 400;
     }
 

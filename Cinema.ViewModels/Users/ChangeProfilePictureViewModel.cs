@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cinema.ViewModels.Customers
+namespace Cinema.ViewModels.Users
 {
     public class ChangeProfilePictureViewModel
     {

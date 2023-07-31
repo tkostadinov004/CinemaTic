@@ -25,17 +25,17 @@ namespace Cinema.Controllers
         [HttpGet]
         public async Task<IActionResult> GetSidebar()
         {
-            var user = await _usersService.GetByEmailAsync(User.Identity.Name);
+            var user = await _usersService.GetUserByEmailAsync(User.Identity.Name);
             await _imageService.ReplaceWithDefaultIfNotPresentAsync(User.Identity.Name, "Users", user.ProfilePictureUrl);
 
-            return PartialView("_ProfileInfoPartial", await _usersService.GetSidebarViewModelAsync(User.Identity.Name));
+            return PartialView("_ProfileInfoPartial", await _usersService.GetSidebarViewModelByEmailAsync(User.Identity.Name));
         }
         [HttpGet]
         public async Task<IActionResult> GetProfilePictureUrl()
         {
             if (User.Identity.IsAuthenticated)
             {
-                var user = await _usersService.GetByEmailAsync(User.Identity.Name);
+                var user = await _usersService.GetUserByEmailAsync(User.Identity.Name);
                 await _imageService.ReplaceWithDefaultIfNotPresentAsync(User.Identity.Name, "Users", user.ProfilePictureUrl);
 
                 return PhysicalFile(Path.Combine(Constants.ImagesFolder, "Users", user.ProfilePictureUrl), "image/png");

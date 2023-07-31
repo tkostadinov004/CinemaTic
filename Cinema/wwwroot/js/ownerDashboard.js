@@ -46,18 +46,7 @@ if (filter) {
         document.querySelector(".filter-menu").classList.toggle("active");
     });
 }
-//window.addEventListener('click', function (event) {
-//    const popupButton = document.querySelector('.jsFilter');
-//    const popup = document.querySelector('.filter-menu');
-//    console.log(popup);
 
-//    if (event.target == popupButton) {
-//        popup.classList.add('active');
-//    }
-//    else {
-//        popup.classList.remove('active');
-//    }
-//});
 var grid = document.querySelector(".grid");
 if (grid) {
     grid.addEventListener("click", function () {
@@ -75,6 +64,7 @@ if (grid) {
         }
     });
 }
+
 var list = document.querySelector(".list:not(.crud-button)");
 if (list) {
     list.addEventListener("click", function () {
@@ -134,13 +124,13 @@ var loadFile = function (event) {
 
 
 
-function getItems(controllerName, actionName, searchText, value, filterValue, sortBy) {
+function getItems(controllerName, actionName, searchText, value, filterValue, sortBy, pageNumber) {
     let key = "id";
     if (actionName == 'SearchAndFilterCinemas') {
         console.log(1);
         key = 'userEmail';
     }
-    var data = { "searchText": searchText, filterValue, sortBy };
+    var data = { "searchText": searchText, filterValue, sortBy, pageNumber };
     data[key] = value;
     $.ajax({
         type: "GET",

@@ -1,8 +1,7 @@
 ﻿/*Colors */
 function changeColors(bgColor, boardColor, textColor, btnBgColor, btnTextColor, accentColor) {
-    console.log(bgColor);
     if (bgColor) {
-        $('.main').css('backgroundColor', bgColor);
+        $('.main:not(#modal)').css('backgroundColor', bgColor);
     }
     if (boardColor) {
         $('.dates-container, .dates-info-container, .movies-list').each(function () {
@@ -10,17 +9,17 @@ function changeColors(bgColor, boardColor, textColor, btnBgColor, btnTextColor, 
         });
     }
     if (textColor) {
-        $('*').each(function () {
+        $('*:not(#modal *):not(nav *):not(.nav-item form *)').each(function () {
             $(this).css('color', textColor);
         });
     }
     if (btnBgColor) {
-        $('button:not(.time-button)').each(function () {
+        $('button:not(.time-button):not(.nav-link):not(.close-btn)').each(function () {
             $(this).css('backgroundColor', btnBgColor);
         });
     }
     if (btnTextColor) {
-        $('button:not(.time-button)').each(function () {
+        $('button:not(.time-button):not(.close-btn)').each(function () {
             $(this).css('color', btnTextColor);
         });
     }

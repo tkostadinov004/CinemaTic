@@ -36,7 +36,7 @@ namespace Cinema.Controllers
         [HttpGet]
         public async Task<IActionResult> GetSectorLayout([ModelBinder(typeof(IdModelBinder))] int id, [ModelBinder(typeof(IdModelBinder))] int movieId, DateTime forDateTime)
         {
-            if (!await _ownersService.ExistsByIdAsync(id))
+            if (!await _sectorsService.ExistsByIdAsync(id))
             {
                 return NotFound();
             }
