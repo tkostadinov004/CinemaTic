@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cinema.Data.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20230729154226_Seed")]
+    [Migration("20230731145431_Seed")]
     partial class Seed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -2559,7 +2559,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OWNER1@OWNER.COM",
                             NormalizedUserName = "OWNER1@OWNER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHvEx4ZXYMYB21Rv4hRKQMWSgNdi+l0bypPdpSjq957MLt/pXhh1D5RM498L/NLsIg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEK9DK7a1IxWvqXwijfWNacNN9Dkp5oJy36wu13jIfEG5E4IO91ltMPLVWMx9dCYOIA==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "1969a695-01c0-49be-8d42-482cb1c327bc",
@@ -2579,7 +2579,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER2@CUSTOMER.COM",
                             NormalizedUserName = "CUSTOMER2@CUSTOMER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIYeeIInKmL51PUbgU9ebQ/xNmr0trm5R6elLzZK7OmxxeE9OKaQqwm9+pwk/48YXg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEORNYzNRyCYLRVbhtM7Mn8skYYUVEpUZFvOsISwuklxIaMd95NkcYtBG7yiV5HI6iQ==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "23628fe3-34d3-436b-b12b-7386bda03b50",
@@ -2599,7 +2599,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER6@CUSTOMER.COM",
                             NormalizedUserName = "CUSTOMER6@CUSTOMER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDZOPqyE1bs4Fpa/V1q/zQ9q9uo4W4aic10gzc7DN3zPHAEJS/3ZnFm2E2agaYNDgg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEA0vmMl5juIzEpSNcZPfpbcXjOCrzIxLfEuCBFilOgwrIOuwnbHyVsYfqymKbhgsag==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "d3103320-f4b9-4654-ba99-654bc1cdf6c4",
@@ -2619,7 +2619,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OWNER2@OWNER.COM",
                             NormalizedUserName = "OWNER2@OWNER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEC/NWocyuoXmy0qa2Bd3QaVG3URsssLfsHNp0PyWDIYpJJqrYYkfmsT9/MBvIgvYAw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHvayNpraD7DmlwMTRpAIhYJqgqhnyVmDvGawVhvuZYmVxXvgUzceTPd+WaErJklXQ==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "0dcc8f9a-b2bd-40a5-8f68-ad4c06ccd772",
@@ -2639,7 +2639,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OWNER3@OWNER.COM",
                             NormalizedUserName = "OWNER3@OWNER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIjYVTwSBgTGUrxWOiHi4WexGSU2LjF55n1HKNlp6k5fLNXDNZ3a6QtoBW2+PgLfwg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEABUBblVa1MDKN9AU0txrZXHzpawhzy0MzR1sQp13z30Ur7rCDuHk6cTKRp0C2s6/w==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "ea79ff42-c2cd-49bd-8d71-1cc1c1f27dab",
@@ -2659,7 +2659,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER1@CUSTOMER.COM",
                             NormalizedUserName = "CUSTOMER1@CUSTOMER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMxkbwtB/DVLTPs/CrfeV3woUhKEpssC08FCDeihrzRLGFgFlP/Hpevw2fEy7fA26Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKPDEeApJ3yNvdtryRqWhri/LVJllAyGvlXTeqQHBRHg8C5O/HTpSnvZGwOgDOsyqA==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "41af5f84-823a-4d6e-8dc3-6917d36c1983",
@@ -2679,7 +2679,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER8@CUSTOMER.COM",
                             NormalizedUserName = "CUSTOMER8@CUSTOMER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJ4Comxrc+51PB/Er3LRa71K8gOAvv8e+aVD+MdQKsV4YgJGunMTo1H9oNmX1sywgQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBIXKrBwSWM5pQ60EPm4DaUpFWMfyZPgq1Rf/HBi2w2jDP3McJIkuQ88VSXZDpTf+Q==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "11d3f4f3-b612-4683-90db-2a0c77867a06",
@@ -2699,7 +2699,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER3@CUSTOMER.COM",
                             NormalizedUserName = "CUSTOMER3@CUSTOMER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIfnWyOl5WVHlRObIbNre45c3ProkdLd8/BnH0cGfi40TvvJPgg3tl6ZeNQB1OSGCg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOtl2HZBTiaPbXeJEhGbQPkJ0/TSgU8JqwxVqELeDnV3TxHUoTsUZLx7p6Fb9MaBtQ==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "18e0ad1c-2ce4-494c-8a08-4eb3e491aae1",
@@ -2719,7 +2719,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OWNER6@OWNER.COM",
                             NormalizedUserName = "OWNER6@OWNER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJ1DrY6gKAdoWVMjItkKcKelXfHnWJf9hfjVrf8cu/9xumMGqlFQk+UBl99j557OXg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENORYL85DBnpz2OTDA/jqn1/sqKvfn9ypRUrpw8C5h1z8WhECXcfKvYfPnocY7cx0g==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "35a42130-bf0d-4f5a-85a4-032f27fb34fe",
@@ -2739,7 +2739,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OWNER8@OWNER.COM",
                             NormalizedUserName = "OWNER8@OWNER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENCad2TW3IIhyvP3NFNxuyTK2RvWoM/qkh2/qNc5yWMVeSK5Ffl4jqTmCq/wXx8pTQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPAg0W2xIHfKE0Qo9ekipH4Ws4boG8J3WafIihgeIw3bkVt8HuiXn1ziYG7N2SiOsQ==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "5caf143b-da62-492e-9c4c-3a631cdd77b9",
@@ -2759,7 +2759,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OWNER9@OWNER.COM",
                             NormalizedUserName = "OWNER9@OWNER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENbRkTUI2YPlrXWpJ3DLk7ysiqUrowC+GnuuD7Z7FNbeOLb31+baoTYZRs7wUbPHUA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECVovqGuA1YQfaRvscY2NNIkcWwMpjpBXR0M8DX8WUxBI+csFc27FLYYtiZEoYLrfQ==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "cf814eb1-d2f0-47ac-8dbd-54482814dc77",
@@ -2779,7 +2779,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OWNER7@OWNER.COM",
                             NormalizedUserName = "OWNER7@OWNER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENnvPTKAaxaZIUD3T7zTrCVPLFxFXpgbDpzXkcN5Si3hd5zNnhB91ei+QxVHWD9wvA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBVv8Uq/aPgSdpU2RqHFEpK4qjEIuqdxGJH74XDaZLJNlMmjs6nvMgWm5hOYmjmyzw==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "2f09438a-adca-4bed-8a26-4ac7ae834dd3",
@@ -2799,7 +2799,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OWNER10@OWNER.COM",
                             NormalizedUserName = "OWNER10@OWNER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEN2cfwYmM/WAhUtB3tSd2FocJKl6mGMVP2qSbwG5Z+on9ZoBSyeG9HtD0eW+eD8pkQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGWUPhlBTkUPIHt+6T0Gr5BWNKWisEa5YoXyy3lNKEUdkg5LgbTBoLvnDukVNk9AAg==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "69434a7f-f6f5-4f2f-9aec-4594d2e1bd27",
@@ -2819,7 +2819,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER10@CUSTOMER.COM",
                             NormalizedUserName = "CUSTOMER10@CUSTOMER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDr9E5/iWkPtLz4+EmAsz0gXh/wN/UiRS1CJOhs9UbS7CA4by01uV6ec9CWbcZIVeQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKVcchmWhHnjalMY5hraREK3IBwyNUlTPgJtImH1Xep8pN+5GBKrX9M+vPehNZBtsw==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "84717c40-eafd-40e7-b0a1-96e7e0937a09",
@@ -2839,7 +2839,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OWNER4@OWNER.COM",
                             NormalizedUserName = "OWNER4@OWNER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECDO71oyFvuFq4DA0ZTXSSZO3lvVG+CWe2ZMfrzn/uhaI+0BhqyAvKAJYnGep1+l+Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIU8yzY8qyVdf4in9DudUM7iY05JOmjhrqNJaZTHIOkQ0gYQKHoTWY13kTGMG0cNCg==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "d795d540-219a-4312-bbae-4d3b0558c2d5",
@@ -2859,7 +2859,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER4@CUSTOMER.COM",
                             NormalizedUserName = "CUSTOMER4@CUSTOMER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGbtokmiF2zWsRKeTkH6+Xf+bT2twCRdzKyRONfBWnrV1/suxqVx+veGT4k/hjGD1Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEt9bp+SvbENnxoXtYu72VAdxwMKe5g/YAF/QVJgJ9NuMwu4noRxkgl1NyozVkwOvg==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "eede314b-fa5b-4b39-927c-59c9959e9990",
@@ -2879,7 +2879,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER5@CUSTOMER.COM",
                             NormalizedUserName = "CUSTOMER5@CUSTOMER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJL84jmeFrVw38Wj8sUNuXhblaCmlsPsyBv/PPCG5SRB/QHSN0GHt/Nk7dXUK31S4g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPTIsNjNI4VW6S0pzH9kB5VfZHk74SQc3cCgqON1IwRjxBAP2+fzO/oEeoFQ5AGANw==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "0f9d29a6-6105-4649-a166-0762aee21984",
@@ -2899,7 +2899,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER9@CUSTOMER.COM",
                             NormalizedUserName = "CUSTOMER9@CUSTOMER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEL0A7ajhHyUECNDLkFGi9PznW6asdT7QhLpu+RAH3BxG3NADV0CzOh2VICtaPcyo/g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIVtjbANdiz7i8QcOVjuzKAK+9HGsky+s4UtyNTDiyewjBW/S9CIvbwqrU2/uaYdcQ==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "7ca95f02-1224-4ae7-a823-0e9243192c8b",
@@ -2919,7 +2919,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OWNER5@OWNER.COM",
                             NormalizedUserName = "OWNER5@OWNER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECwUFRjrTRAuohLp0ed3nT//JjxjnphSP3DzO3JlfmygGYgf6S2vNlc9nHVCYEVXYw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENkfljFnlRsfqt+a9BiR7t/NUuFuatOskbTpHVmrsbm5soJCmLrkaq2O7sOlYdIVqw==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "4b0d4e53-c70f-4118-8c78-b63d6adb1548",
@@ -2939,7 +2939,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER7@CUSTOMER.COM",
                             NormalizedUserName = "CUSTOMER7@CUSTOMER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFyTbKi+We8Adr5sAQHi+qB1xCEgNIRr5wJHPN9M6Xiozn/3oYWqU8RgCaL0crNgtQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECY+X3TYP+EMktbvCs6tSNS/EVWZw61ITebbgHYUV+W5HD+oXhkXpfty4fLr2LkBvQ==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "d6172bcd-0893-437a-b705-43122add4781",
@@ -2959,7 +2959,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEI9VxUBxB1VCl+5KeoWPPIb5zfPARPAFSqdbhsfOANlIa9GI4EuGQpaOvG+QIIfUUw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBV2gxBxN+2LPP5ANXjkeemF30oRfgXO4wGpm0FJGctaak2mpi7trvDcNdv6A4BgiQ==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "d6172bcd-0893-437a-b705-43122add4781",
@@ -3066,7 +3066,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1999, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "CineplexDelights.jpg",
                             Name = "Cineplex Delights",
-                            OwnerId = "8980e4ca-2628-490d-840a-9c9414ab9f33",
+                            OwnerId = "ea811464-0c63-4c45-ac26-d4eb5bff334f",
                             SeatCols = 40,
                             SeatRows = 40,
                             TextColor = "#000000"
@@ -3084,7 +3084,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1977, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "GoldenScreenTheatres.jpg",
                             Name = "Golden Screen Theatres",
-                            OwnerId = "a9b6dc74-38a5-4794-a703-59204f461adb",
+                            OwnerId = "2055e8c8-5a8e-49c3-9f0a-a987700af2ee",
                             SeatCols = 45,
                             SeatRows = 60,
                             TextColor = "#000000"
@@ -3102,7 +3102,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2005, 10, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "RetroRewindCinema.jpg",
                             Name = "Retro Rewind Cinema",
-                            OwnerId = "60223fcf-5fa4-434f-a4ba-9389a4f571a0",
+                            OwnerId = "a9b6dc74-38a5-4794-a703-59204f461adb",
                             SeatCols = 60,
                             SeatRows = 30,
                             TextColor = "#000000"
@@ -3120,7 +3120,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2010, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "CinematicAdventures.jpg",
                             Name = "Cinematic Adventures",
-                            OwnerId = "a9b6dc74-38a5-4794-a703-59204f461adb",
+                            OwnerId = "610ab053-2c5a-451b-9634-03b59ea4a473",
                             SeatCols = 35,
                             SeatRows = 45,
                             TextColor = "#000000"
@@ -3138,7 +3138,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1990, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "CityLightsCinemas.jpg",
                             Name = "City Lights Cinemas",
-                            OwnerId = "2055e8c8-5a8e-49c3-9f0a-a987700af2ee",
+                            OwnerId = "ea811464-0c63-4c45-ac26-d4eb5bff334f",
                             SeatCols = 30,
                             SeatRows = 50,
                             TextColor = "#000000"
@@ -3156,7 +3156,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1982, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "SilverScreenShowcase.jpg",
                             Name = "Silver Screen Showcase",
-                            OwnerId = "2055e8c8-5a8e-49c3-9f0a-a987700af2ee",
+                            OwnerId = "a9b6dc74-38a5-4794-a703-59204f461adb",
                             SeatCols = 25,
                             SeatRows = 55,
                             TextColor = "#000000"
@@ -3174,7 +3174,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2003, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "FestivalFlicks.jpg",
                             Name = "Festival Flicks",
-                            OwnerId = "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c",
+                            OwnerId = "610ab053-2c5a-451b-9634-03b59ea4a473",
                             SeatCols = 40,
                             SeatRows = 40,
                             TextColor = "#000000"
@@ -3192,7 +3192,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1995, 11, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "GlamourGalaxyTheatres.jpg",
                             Name = "Glamour Galaxy Theatres",
-                            OwnerId = "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c",
+                            OwnerId = "610ab053-2c5a-451b-9634-03b59ea4a473",
                             SeatCols = 20,
                             SeatRows = 60,
                             TextColor = "#000000"
@@ -3210,7 +3210,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1970, 8, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "MajesticMovieHouse.jpg",
                             Name = "Majestic Movie House",
-                            OwnerId = "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c",
+                            OwnerId = "ea811464-0c63-4c45-ac26-d4eb5bff334f",
                             SeatCols = 50,
                             SeatRows = 35,
                             TextColor = "#000000"
@@ -3228,7 +3228,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2008, 5, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "DreamlandCinemas.jpg",
                             Name = "Dreamland Cinemas",
-                            OwnerId = "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c",
+                            OwnerId = "60223fcf-5fa4-434f-a4ba-9389a4f571a0",
                             SeatCols = 60,
                             SeatRows = 30,
                             TextColor = "#000000"
@@ -3246,7 +3246,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1988, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "CinemaParadiso.jpg",
                             Name = "Cinema Paradiso",
-                            OwnerId = "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c",
+                            OwnerId = "ea811464-0c63-4c45-ac26-d4eb5bff334f",
                             SeatCols = 45,
                             SeatRows = 40,
                             TextColor = "#000000"
@@ -3264,7 +3264,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2002, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "EpicAdventureTheatres.jpg",
                             Name = "Epic Adventure Theatres",
-                            OwnerId = "8980e4ca-2628-490d-840a-9c9414ab9f33",
+                            OwnerId = "60223fcf-5fa4-434f-a4ba-9389a4f571a0",
                             SeatCols = 25,
                             SeatRows = 60,
                             TextColor = "#000000"
@@ -3282,7 +3282,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1993, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "SunsetScreenings.jpg",
                             Name = "Sunset Screenings",
-                            OwnerId = "156fc675-02de-4250-9edb-869c85e13e61",
+                            OwnerId = "a9b6dc74-38a5-4794-a703-59204f461adb",
                             SeatCols = 30,
                             SeatRows = 55,
                             TextColor = "#000000"
@@ -3300,7 +3300,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1965, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "ClassicCinephile.jpg",
                             Name = "Classic Cinephile",
-                            OwnerId = "ea811464-0c63-4c45-ac26-d4eb5bff334f",
+                            OwnerId = "5556c45e-395d-402b-b765-750666b092fc",
                             SeatCols = 30,
                             SeatRows = 50,
                             TextColor = "#000000"
@@ -3318,7 +3318,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2011, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "MoonlightMovies.jpg",
                             Name = "Moonlight Movies",
-                            OwnerId = "ea811464-0c63-4c45-ac26-d4eb5bff334f",
+                            OwnerId = "2055e8c8-5a8e-49c3-9f0a-a987700af2ee",
                             SeatCols = 35,
                             SeatRows = 45,
                             TextColor = "#000000"
@@ -3336,7 +3336,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1998, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "VistaVisionTheatres.jpg",
                             Name = "Vista Vision Theatres",
-                            OwnerId = "218dcf68-aa10-4c63-994f-50853fb19296",
+                            OwnerId = "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c",
                             SeatCols = 40,
                             SeatRows = 40,
                             TextColor = "#000000"
@@ -3354,7 +3354,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1974, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "LuminousLumiereCinema.jpg",
                             Name = "Luminous Lumiere Cinema",
-                            OwnerId = "2055e8c8-5a8e-49c3-9f0a-a987700af2ee",
+                            OwnerId = "218dcf68-aa10-4c63-994f-50853fb19296",
                             SeatCols = 50,
                             SeatRows = 30,
                             TextColor = "#000000"
@@ -3372,7 +3372,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1983, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "MagicLanternTheatres.jpg",
                             Name = "Magic Lantern Theatres",
-                            OwnerId = "8980e4ca-2628-490d-840a-9c9414ab9f33",
+                            OwnerId = "a9b6dc74-38a5-4794-a703-59204f461adb",
                             SeatCols = 35,
                             SeatRows = 50,
                             TextColor = "#000000"
@@ -3390,7 +3390,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2007, 11, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "DreamscapeTheatres.jpg",
                             Name = "Dreamscape Theatres",
-                            OwnerId = "2055e8c8-5a8e-49c3-9f0a-a987700af2ee",
+                            OwnerId = "a9b6dc74-38a5-4794-a703-59204f461adb",
                             SeatCols = 50,
                             SeatRows = 35,
                             TextColor = "#000000"
@@ -3408,7 +3408,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1991, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "CinemaRoyale.jpg",
                             Name = "Cinema Royale",
-                            OwnerId = "2055e8c8-5a8e-49c3-9f0a-a987700af2ee",
+                            OwnerId = "5556c45e-395d-402b-b765-750666b092fc",
                             SeatCols = 25,
                             SeatRows = 60,
                             TextColor = "#000000"
@@ -3426,7 +3426,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2009, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "MagicalMovieGarden.jpg",
                             Name = "Magical Movie Garden",
-                            OwnerId = "2055e8c8-5a8e-49c3-9f0a-a987700af2ee",
+                            OwnerId = "218dcf68-aa10-4c63-994f-50853fb19296",
                             SeatCols = 35,
                             SeatRows = 50,
                             TextColor = "#000000"
@@ -3444,7 +3444,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1996, 2, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "StarstruckTheatres.jpg",
                             Name = "Starstruck Theatres",
-                            OwnerId = "ea811464-0c63-4c45-ac26-d4eb5bff334f",
+                            OwnerId = "218dcf68-aa10-4c63-994f-50853fb19296",
                             SeatCols = 40,
                             SeatRows = 40,
                             TextColor = "#000000"
@@ -3462,7 +3462,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2013, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "CosmicCinema.jpg",
                             Name = "Cosmic Cinema",
-                            OwnerId = "ea811464-0c63-4c45-ac26-d4eb5bff334f",
+                            OwnerId = "156fc675-02de-4250-9edb-869c85e13e61",
                             SeatCols = 35,
                             SeatRows = 45,
                             TextColor = "#000000"
@@ -3480,7 +3480,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1989, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "RusticReelTheatres.jpg",
                             Name = "Rustic Reel Theatres",
-                            OwnerId = "ea811464-0c63-4c45-ac26-d4eb5bff334f",
+                            OwnerId = "156fc675-02de-4250-9edb-869c85e13e61",
                             SeatCols = 60,
                             SeatRows = 30,
                             TextColor = "#000000"
@@ -3498,7 +3498,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2004, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "FantasiaFlicks.jpg",
                             Name = "Fantasia Flicks",
-                            OwnerId = "a9b6dc74-38a5-4794-a703-59204f461adb",
+                            OwnerId = "5556c45e-395d-402b-b765-750666b092fc",
                             SeatCols = 30,
                             SeatRows = 55,
                             TextColor = "#000000"
@@ -3516,7 +3516,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1997, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "RenaissanceCinemas.jpg",
                             Name = "Renaissance Cinemas",
-                            OwnerId = "5556c45e-395d-402b-b765-750666b092fc",
+                            OwnerId = "218dcf68-aa10-4c63-994f-50853fb19296",
                             SeatCols = 30,
                             SeatRows = 50,
                             TextColor = "#000000"
@@ -3534,7 +3534,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2010, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "CinemaParadigm.jpg",
                             Name = "Cinema Paradigm",
-                            OwnerId = "156fc675-02de-4250-9edb-869c85e13e61",
+                            OwnerId = "2055e8c8-5a8e-49c3-9f0a-a987700af2ee",
                             SeatCols = 20,
                             SeatRows = 60,
                             TextColor = "#000000"
@@ -3552,7 +3552,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1994, 8, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "EnchantedScreenings.jpg",
                             Name = "Enchanted Screenings",
-                            OwnerId = "5556c45e-395d-402b-b765-750666b092fc",
+                            OwnerId = "ea811464-0c63-4c45-ac26-d4eb5bff334f",
                             SeatCols = 45,
                             SeatRows = 40,
                             TextColor = "#000000"
@@ -3570,7 +3570,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2001, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "AdventureplexCinemas.jpg",
                             Name = "Adventureplex Cinemas",
-                            OwnerId = "ea811464-0c63-4c45-ac26-d4eb5bff334f",
+                            OwnerId = "a9b6dc74-38a5-4794-a703-59204f461adb",
                             SeatCols = 35,
                             SeatRows = 45,
                             TextColor = "#000000"
@@ -3588,7 +3588,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2012, 5, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "VividVisionsCinema.jpg",
                             Name = "Vivid Visions Cinema",
-                            OwnerId = "5556c45e-395d-402b-b765-750666b092fc",
+                            OwnerId = "2055e8c8-5a8e-49c3-9f0a-a987700af2ee",
                             SeatCols = 30,
                             SeatRows = 55,
                             TextColor = "#000000"
@@ -3606,7 +3606,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2008, 2, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "WonderscopeTheatres.jpg",
                             Name = "Wonderscope Theatres",
-                            OwnerId = "2055e8c8-5a8e-49c3-9f0a-a987700af2ee",
+                            OwnerId = "8980e4ca-2628-490d-840a-9c9414ab9f33",
                             SeatCols = 60,
                             SeatRows = 30,
                             TextColor = "#000000"
@@ -3624,7 +3624,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1993, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "CinemagicEmporium.jpg",
                             Name = "Cinemagic Emporium",
-                            OwnerId = "610ab053-2c5a-451b-9634-03b59ea4a473",
+                            OwnerId = "ea811464-0c63-4c45-ac26-d4eb5bff334f",
                             SeatCols = 40,
                             SeatRows = 40,
                             TextColor = "#000000"
@@ -3660,7 +3660,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1981, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "SunriseCinematech.jpg",
                             Name = "Sunrise Cinematech",
-                            OwnerId = "156fc675-02de-4250-9edb-869c85e13e61",
+                            OwnerId = "60223fcf-5fa4-434f-a4ba-9389a4f571a0",
                             SeatCols = 25,
                             SeatRows = 55,
                             TextColor = "#000000"
@@ -3678,7 +3678,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2005, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "CineVerseTheatres.jpg",
                             Name = "CineVerse Theatres",
-                            OwnerId = "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c",
+                            OwnerId = "2055e8c8-5a8e-49c3-9f0a-a987700af2ee",
                             SeatCols = 40,
                             SeatRows = 40,
                             TextColor = "#000000"
@@ -3696,7 +3696,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2003, 7, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "GalacticCinemaworks.jpg",
                             Name = "Galactic Cinemaworks",
-                            OwnerId = "156fc675-02de-4250-9edb-869c85e13e61",
+                            OwnerId = "2055e8c8-5a8e-49c3-9f0a-a987700af2ee",
                             SeatCols = 35,
                             SeatRows = 50,
                             TextColor = "#000000"
@@ -3714,7 +3714,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1990, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "MajesticMagicTheatres.jpg",
                             Name = "Majestic Magic Theatres",
-                            OwnerId = "218dcf68-aa10-4c63-994f-50853fb19296",
+                            OwnerId = "2055e8c8-5a8e-49c3-9f0a-a987700af2ee",
                             SeatCols = 50,
                             SeatRows = 35,
                             TextColor = "#000000"
@@ -3732,7 +3732,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1978, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "GoldenAgeCinemas.jpg",
                             Name = "Golden Age Cinemas",
-                            OwnerId = "610ab053-2c5a-451b-9634-03b59ea4a473",
+                            OwnerId = "a9b6dc74-38a5-4794-a703-59204f461adb",
                             SeatCols = 30,
                             SeatRows = 55,
                             TextColor = "#000000"
@@ -3750,7 +3750,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2015, 9, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "CineArtSanctuary.jpg",
                             Name = "CineArt Sanctuary",
-                            OwnerId = "156fc675-02de-4250-9edb-869c85e13e61",
+                            OwnerId = "218dcf68-aa10-4c63-994f-50853fb19296",
                             SeatCols = 60,
                             SeatRows = 30,
                             TextColor = "#000000"
@@ -3768,7 +3768,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2000, 11, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "StellarCinemas.jpg",
                             Name = "Stellar Cinemas",
-                            OwnerId = "5556c45e-395d-402b-b765-750666b092fc",
+                            OwnerId = "218dcf68-aa10-4c63-994f-50853fb19296",
                             SeatCols = 25,
                             SeatRows = 60,
                             TextColor = "#000000"
@@ -3786,7 +3786,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2010, 4, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "WanderlustTheatres.jpg",
                             Name = "Wanderlust Theatres",
-                            OwnerId = "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c",
+                            OwnerId = "60223fcf-5fa4-434f-a4ba-9389a4f571a0",
                             SeatCols = 35,
                             SeatRows = 45,
                             TextColor = "#000000"
@@ -3804,7 +3804,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1986, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "GrandeurCinematech.jpg",
                             Name = "Grandeur Cinematech",
-                            OwnerId = "156fc675-02de-4250-9edb-869c85e13e61",
+                            OwnerId = "ea811464-0c63-4c45-ac26-d4eb5bff334f",
                             SeatCols = 30,
                             SeatRows = 50,
                             TextColor = "#000000"
@@ -3822,7 +3822,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1992, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "ArtisticAuraCinemas.jpg",
                             Name = "Artistic Aura Cinemas",
-                            OwnerId = "610ab053-2c5a-451b-9634-03b59ea4a473",
+                            OwnerId = "ea811464-0c63-4c45-ac26-d4eb5bff334f",
                             SeatCols = 25,
                             SeatRows = 55,
                             TextColor = "#000000"
@@ -3840,7 +3840,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2006, 12, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "ArcadeCinemas.jpg",
                             Name = "Arcade Cinemas",
-                            OwnerId = "a9b6dc74-38a5-4794-a703-59204f461adb",
+                            OwnerId = "610ab053-2c5a-451b-9634-03b59ea4a473",
                             SeatCols = 50,
                             SeatRows = 35,
                             TextColor = "#000000"
@@ -3858,7 +3858,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2005, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "CineVerseTheatres.jpg",
                             Name = "CineVerse Theatres",
-                            OwnerId = "a9b6dc74-38a5-4794-a703-59204f461adb",
+                            OwnerId = "218dcf68-aa10-4c63-994f-50853fb19296",
                             SeatCols = 40,
                             SeatRows = 40,
                             TextColor = "#000000"
@@ -3876,7 +3876,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2003, 7, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "GalacticCinemaworks.jpg",
                             Name = "Galactic Cinemaworks",
-                            OwnerId = "2055e8c8-5a8e-49c3-9f0a-a987700af2ee",
+                            OwnerId = "218dcf68-aa10-4c63-994f-50853fb19296",
                             SeatCols = 35,
                             SeatRows = 50,
                             TextColor = "#000000"
@@ -3894,7 +3894,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(1990, 1, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "MajesticMagicTheatres.jpg",
                             Name = "Majestic Magic Theatres",
-                            OwnerId = "156fc675-02de-4250-9edb-869c85e13e61",
+                            OwnerId = "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c",
                             SeatCols = 50,
                             SeatRows = 35,
                             TextColor = "#000000"
@@ -3930,7 +3930,7 @@ namespace Cinema.Data.Migrations
                             FoundedOn = new DateTime(2015, 9, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "CineArtSanctuary.jpg",
                             Name = "CineArt Sanctuary",
-                            OwnerId = "5556c45e-395d-402b-b765-750666b092fc",
+                            OwnerId = "610ab053-2c5a-451b-9634-03b59ea4a473",
                             SeatCols = 60,
                             SeatRows = 30,
                             TextColor = "#000000"
@@ -27846,1102 +27846,2202 @@ namespace Cinema.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CinemaId = 30,
-                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
-                            ForDate = new DateTime(2023, 8, 19, 17, 45, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 71,
-                            Price = 20m,
-                            SectorId = 190,
-                            SerialNumber = "R51C24"
+                            CinemaId = 6,
+                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
+                            ForDate = new DateTime(2023, 8, 8, 15, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 60,
+                            Price = 23m,
+                            SectorId = 376,
+                            SerialNumber = "R29C2"
                         },
                         new
                         {
                             Id = 2,
-                            CinemaId = 11,
-                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
-                            ForDate = new DateTime(2023, 8, 15, 9, 15, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 22,
-                            Price = 15m,
-                            SectorId = 167,
-                            SerialNumber = "R32C32"
+                            CinemaId = 47,
+                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
+                            ForDate = new DateTime(2023, 8, 4, 23, 40, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 70,
+                            Price = 9m,
+                            SectorId = 503,
+                            SerialNumber = "R9C47"
                         },
                         new
                         {
                             Id = 3,
-                            CinemaId = 24,
-                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
-                            ForDate = new DateTime(2023, 8, 24, 23, 0, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 76,
-                            Price = 7m,
-                            SectorId = 263,
-                            SerialNumber = "R10C16"
+                            CinemaId = 20,
+                            CustomerId = "bfa19e5f-4529-4276-bde8-8e6d3de2c423",
+                            ForDate = new DateTime(2023, 7, 31, 18, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 70,
+                            Price = 21m,
+                            SectorId = 528,
+                            SerialNumber = "R18C29"
                         },
                         new
                         {
                             Id = 4,
-                            CinemaId = 46,
-                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
-                            ForDate = new DateTime(2023, 8, 16, 12, 30, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 15,
-                            Price = 12m,
-                            SectorId = 437,
-                            SerialNumber = "R31C31"
+                            CinemaId = 41,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 17, 20, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 39,
+                            Price = 22m,
+                            SectorId = 508,
+                            SerialNumber = "R28C9"
                         },
                         new
                         {
                             Id = 5,
-                            CinemaId = 42,
-                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
-                            ForDate = new DateTime(2023, 8, 17, 10, 40, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 55,
-                            Price = 10m,
-                            SectorId = 79,
-                            SerialNumber = "R54C16"
+                            CinemaId = 46,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 7, 30, 21, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 69,
+                            Price = 8m,
+                            SectorId = 585,
+                            SerialNumber = "R23C35"
                         },
                         new
                         {
                             Id = 6,
-                            CinemaId = 24,
-                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
-                            ForDate = new DateTime(2023, 8, 21, 19, 45, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 76,
+                            CinemaId = 45,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 3, 19, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 96,
                             Price = 7m,
-                            SectorId = 143,
-                            SerialNumber = "R6C30"
+                            SectorId = 255,
+                            SerialNumber = "R34C23"
                         },
                         new
                         {
                             Id = 7,
-                            CinemaId = 3,
-                            CustomerId = "e7d88cb7-a424-4795-8965-17273642b773",
-                            ForDate = new DateTime(2023, 8, 9, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 30,
-                            Price = 5m,
-                            SectorId = 306,
-                            SerialNumber = "R20C13"
+                            CinemaId = 34,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 7, 31, 14, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 57,
+                            Price = 8m,
+                            SectorId = 143,
+                            SerialNumber = "R6C18"
                         },
                         new
                         {
                             Id = 8,
-                            CinemaId = 42,
-                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
-                            ForDate = new DateTime(2023, 8, 17, 14, 20, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 55,
-                            Price = 10m,
-                            SectorId = 62,
-                            SerialNumber = "R49C17"
+                            CinemaId = 44,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 5, 19, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 92,
+                            Price = 24m,
+                            SectorId = 454,
+                            SerialNumber = "R38C15"
                         },
                         new
                         {
                             Id = 9,
-                            CinemaId = 37,
+                            CinemaId = 36,
                             CustomerId = "bfa19e5f-4529-4276-bde8-8e6d3de2c423",
-                            ForDate = new DateTime(2023, 8, 28, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 68,
-                            Price = 7m,
-                            SectorId = 37,
-                            SerialNumber = "R25C47"
+                            ForDate = new DateTime(2023, 8, 4, 9, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 8,
+                            Price = 10m,
+                            SectorId = 282,
+                            SerialNumber = "R47C15"
                         },
                         new
                         {
                             Id = 10,
-                            CinemaId = 13,
-                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
-                            ForDate = new DateTime(2023, 8, 3, 14, 15, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 12,
-                            Price = 8m,
-                            SectorId = 396,
-                            SerialNumber = "R11C35"
+                            CinemaId = 23,
+                            CustomerId = "e7d88cb7-a424-4795-8965-17273642b773",
+                            ForDate = new DateTime(2023, 8, 8, 9, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 48,
+                            Price = 25m,
+                            SectorId = 96,
+                            SerialNumber = "R28C15"
                         },
                         new
                         {
                             Id = 11,
-                            CinemaId = 45,
-                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
-                            ForDate = new DateTime(2023, 8, 25, 23, 10, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 81,
-                            Price = 20m,
-                            SectorId = 189,
-                            SerialNumber = "R53C9"
+                            CinemaId = 16,
+                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
+                            ForDate = new DateTime(2023, 8, 9, 8, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 51,
+                            Price = 6m,
+                            SectorId = 134,
+                            SerialNumber = "R18C5"
                         },
                         new
                         {
                             Id = 12,
-                            CinemaId = 22,
-                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
-                            ForDate = new DateTime(2023, 8, 7, 10, 40, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 48,
-                            Price = 20m,
-                            SectorId = 201,
-                            SerialNumber = "R46C23"
+                            CinemaId = 10,
+                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
+                            ForDate = new DateTime(2023, 8, 15, 20, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 32,
+                            Price = 22m,
+                            SectorId = 447,
+                            SerialNumber = "R4C33"
                         },
                         new
                         {
                             Id = 13,
-                            CinemaId = 25,
+                            CinemaId = 13,
                             CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
-                            ForDate = new DateTime(2023, 8, 18, 10, 15, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 92,
-                            Price = 21m,
-                            SectorId = 131,
-                            SerialNumber = "R47C6"
+                            ForDate = new DateTime(2023, 8, 12, 10, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 10,
+                            Price = 6m,
+                            SectorId = 340,
+                            SerialNumber = "R26C8"
                         },
                         new
                         {
                             Id = 14,
-                            CinemaId = 46,
-                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
-                            ForDate = new DateTime(2023, 8, 16, 12, 30, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 15,
-                            Price = 12m,
-                            SectorId = 10,
-                            SerialNumber = "R2C20"
+                            CinemaId = 34,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 14, 18, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 89,
+                            Price = 17m,
+                            SectorId = 443,
+                            SerialNumber = "R53C15"
                         },
                         new
                         {
                             Id = 15,
-                            CinemaId = 26,
-                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
-                            ForDate = new DateTime(2023, 8, 13, 22, 30, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 58,
-                            Price = 13m,
-                            SectorId = 264,
-                            SerialNumber = "R14C33"
+                            CinemaId = 25,
+                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
+                            ForDate = new DateTime(2023, 8, 17, 18, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 24,
+                            Price = 9m,
+                            SectorId = 81,
+                            SerialNumber = "R13C23"
                         },
                         new
                         {
                             Id = 16,
-                            CinemaId = 42,
-                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
-                            ForDate = new DateTime(2023, 8, 3, 18, 45, 0, 0, DateTimeKind.Unspecified),
+                            CinemaId = 23,
+                            CustomerId = "e7d88cb7-a424-4795-8965-17273642b773",
+                            ForDate = new DateTime(2023, 8, 17, 19, 10, 0, 0, DateTimeKind.Unspecified),
                             MovieId = 21,
-                            Price = 15m,
-                            SectorId = 296,
-                            SerialNumber = "R11C13"
+                            Price = 14m,
+                            SectorId = 567,
+                            SerialNumber = "R11C33"
                         },
                         new
                         {
                             Id = 17,
-                            CinemaId = 12,
+                            CinemaId = 46,
                             CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
-                            ForDate = new DateTime(2023, 8, 28, 20, 20, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 44,
-                            Price = 13m,
-                            SectorId = 274,
-                            SerialNumber = "R29C25"
+                            ForDate = new DateTime(2023, 7, 31, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 81,
+                            Price = 24m,
+                            SectorId = 260,
+                            SerialNumber = "R17C13"
                         },
                         new
                         {
                             Id = 18,
-                            CinemaId = 24,
-                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
-                            ForDate = new DateTime(2023, 8, 14, 22, 40, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 88,
-                            Price = 5m,
-                            SectorId = 319,
-                            SerialNumber = "R40C23"
+                            CinemaId = 25,
+                            CustomerId = "e7d88cb7-a424-4795-8965-17273642b773",
+                            ForDate = new DateTime(2023, 8, 17, 15, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 24,
+                            Price = 9m,
+                            SectorId = 551,
+                            SerialNumber = "R17C10"
                         },
                         new
                         {
                             Id = 19,
-                            CinemaId = 47,
-                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
-                            ForDate = new DateTime(2023, 8, 21, 23, 50, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 41,
-                            Price = 12m,
-                            SectorId = 178,
-                            SerialNumber = "R17C47"
+                            CinemaId = 49,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 67,
+                            Price = 23m,
+                            SectorId = 137,
+                            SerialNumber = "R18C57"
                         },
                         new
                         {
                             Id = 20,
-                            CinemaId = 48,
-                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
-                            ForDate = new DateTime(2023, 8, 21, 11, 10, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 51,
-                            Price = 11m,
-                            SectorId = 146,
-                            SerialNumber = "R21C27"
+                            CinemaId = 42,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 14, 15, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 18,
+                            Price = 14m,
+                            SectorId = 378,
+                            SerialNumber = "R23C32"
                         },
                         new
                         {
                             Id = 21,
-                            CinemaId = 46,
-                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
-                            ForDate = new DateTime(2023, 8, 16, 12, 30, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 15,
-                            Price = 12m,
-                            SectorId = 205,
-                            SerialNumber = "R3C40"
+                            CinemaId = 45,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 2, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 96,
+                            Price = 7m,
+                            SectorId = 197,
+                            SerialNumber = "R32C6"
                         },
                         new
                         {
                             Id = 22,
-                            CinemaId = 36,
-                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
-                            ForDate = new DateTime(2023, 8, 18, 14, 0, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 2,
-                            Price = 18m,
-                            SectorId = 428,
-                            SerialNumber = "R14C16"
+                            CinemaId = 26,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 7, 31, 12, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 82,
+                            Price = 24m,
+                            SectorId = 304,
+                            SerialNumber = "R27C24"
                         },
                         new
                         {
                             Id = 23,
-                            CinemaId = 4,
-                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
-                            ForDate = new DateTime(2023, 7, 31, 15, 10, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 67,
-                            Price = 10m,
-                            SectorId = 122,
-                            SerialNumber = "R37C30"
+                            CinemaId = 29,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 16, 21, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 36,
+                            Price = 5m,
+                            SectorId = 253,
+                            SerialNumber = "R29C50"
                         },
                         new
                         {
                             Id = 24,
-                            CinemaId = 37,
-                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
-                            ForDate = new DateTime(2023, 8, 25, 12, 50, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 64,
-                            Price = 13m,
-                            SectorId = 222,
-                            SerialNumber = "R8C22"
+                            CinemaId = 1,
+                            CustomerId = "e7d88cb7-a424-4795-8965-17273642b773",
+                            ForDate = new DateTime(2023, 8, 13, 11, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 8,
+                            Price = 6m,
+                            SectorId = 479,
+                            SerialNumber = "R15C49"
                         },
                         new
                         {
                             Id = 25,
-                            CinemaId = 38,
-                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
-                            ForDate = new DateTime(2023, 8, 12, 10, 40, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 7,
-                            Price = 9m,
-                            SectorId = 349,
-                            SerialNumber = "R40C5"
+                            CinemaId = 41,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 17, 8, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 86,
+                            Price = 25m,
+                            SectorId = 495,
+                            SerialNumber = "R37C29"
                         },
                         new
                         {
                             Id = 26,
-                            CinemaId = 38,
-                            CustomerId = "bfa19e5f-4529-4276-bde8-8e6d3de2c423",
-                            ForDate = new DateTime(2023, 8, 17, 15, 10, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 36,
-                            Price = 21m,
-                            SectorId = 445,
-                            SerialNumber = "R54C4"
-                        },
-                        new
-                        {
-                            Id = 27,
-                            CinemaId = 6,
-                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
-                            ForDate = new DateTime(2023, 8, 20, 15, 10, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 96,
-                            Price = 25m,
-                            SectorId = 356,
-                            SerialNumber = "R15C58"
-                        },
-                        new
-                        {
-                            Id = 28,
-                            CinemaId = 38,
-                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
-                            ForDate = new DateTime(2023, 8, 12, 10, 40, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 7,
-                            Price = 9m,
-                            SectorId = 122,
-                            SerialNumber = "R43C24"
-                        },
-                        new
-                        {
-                            Id = 29,
-                            CinemaId = 49,
-                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
-                            ForDate = new DateTime(2023, 8, 11, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 48,
-                            Price = 10m,
-                            SectorId = 352,
-                            SerialNumber = "R50C20"
-                        },
-                        new
-                        {
-                            Id = 30,
-                            CinemaId = 38,
+                            CinemaId = 9,
                             CustomerId = "e7d88cb7-a424-4795-8965-17273642b773",
-                            ForDate = new DateTime(2023, 8, 11, 8, 40, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 93,
-                            Price = 22m,
-                            SectorId = 149,
-                            SerialNumber = "R35C22"
-                        },
-                        new
-                        {
-                            Id = 31,
-                            CinemaId = 37,
-                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
-                            ForDate = new DateTime(2023, 8, 28, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 68,
-                            Price = 7m,
-                            SectorId = 327,
-                            SerialNumber = "R44C13"
-                        },
-                        new
-                        {
-                            Id = 32,
-                            CinemaId = 37,
-                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
-                            ForDate = new DateTime(2023, 8, 25, 20, 45, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 64,
-                            Price = 13m,
-                            SectorId = 269,
-                            SerialNumber = "R37C27"
-                        },
-                        new
-                        {
-                            Id = 33,
-                            CinemaId = 39,
-                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
-                            ForDate = new DateTime(2023, 8, 19, 20, 30, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 90,
-                            Price = 17m,
-                            SectorId = 216,
-                            SerialNumber = "R28C16"
-                        },
-                        new
-                        {
-                            Id = 34,
-                            CinemaId = 32,
-                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
-                            ForDate = new DateTime(2023, 8, 10, 22, 50, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 62,
-                            Price = 11m,
-                            SectorId = 124,
-                            SerialNumber = "R52C16"
-                        },
-                        new
-                        {
-                            Id = 35,
-                            CinemaId = 31,
-                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
-                            ForDate = new DateTime(2023, 8, 3, 10, 50, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 6,
-                            Price = 13m,
-                            SectorId = 308,
-                            SerialNumber = "R35C4"
-                        },
-                        new
-                        {
-                            Id = 36,
-                            CinemaId = 32,
-                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
-                            ForDate = new DateTime(2023, 8, 10, 22, 50, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 62,
-                            Price = 11m,
-                            SectorId = 400,
-                            SerialNumber = "R28C36"
-                        },
-                        new
-                        {
-                            Id = 37,
-                            CinemaId = 37,
-                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
-                            ForDate = new DateTime(2023, 8, 28, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 68,
-                            Price = 7m,
-                            SectorId = 155,
+                            ForDate = new DateTime(2023, 8, 11, 12, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 63,
+                            Price = 14m,
+                            SectorId = 592,
                             SerialNumber = "R19C12"
                         },
                         new
                         {
-                            Id = 38,
-                            CinemaId = 25,
-                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
-                            ForDate = new DateTime(2023, 8, 18, 10, 15, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 92,
-                            Price = 21m,
-                            SectorId = 204,
-                            SerialNumber = "R9C29"
-                        },
-                        new
-                        {
-                            Id = 39,
-                            CinemaId = 39,
-                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
-                            ForDate = new DateTime(2023, 7, 29, 19, 15, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 96,
-                            Price = 20m,
-                            SectorId = 298,
-                            SerialNumber = "R22C13"
-                        },
-                        new
-                        {
-                            Id = 40,
-                            CinemaId = 32,
-                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
-                            ForDate = new DateTime(2023, 8, 11, 18, 45, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 12,
-                            Price = 12m,
-                            SectorId = 23,
-                            SerialNumber = "R21C32"
-                        },
-                        new
-                        {
-                            Id = 41,
+                            Id = 27,
                             CinemaId = 43,
-                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
-                            ForDate = new DateTime(2023, 8, 13, 20, 45, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 86,
-                            Price = 21m,
-                            SectorId = 227,
-                            SerialNumber = "R27C39"
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 14, 21, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 17,
+                            Price = 18m,
+                            SectorId = 204,
+                            SerialNumber = "R9C30"
                         },
                         new
                         {
-                            Id = 42,
-                            CinemaId = 9,
+                            Id = 28,
+                            CinemaId = 50,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 4, 18, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 99,
+                            Price = 18m,
+                            SectorId = 144,
+                            SerialNumber = "R1C34"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            CinemaId = 23,
+                            CustomerId = "e7d88cb7-a424-4795-8965-17273642b773",
+                            ForDate = new DateTime(2023, 8, 11, 12, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 48,
+                            Price = 25m,
+                            SectorId = 359,
+                            SerialNumber = "R4C26"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            CinemaId = 34,
                             CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
-                            ForDate = new DateTime(2023, 8, 18, 19, 30, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 50,
+                            ForDate = new DateTime(2023, 8, 2, 13, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 68,
+                            Price = 16m,
+                            SectorId = 515,
+                            SerialNumber = "R15C23"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            CinemaId = 17,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 5, 13, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 95,
+                            Price = 9m,
+                            SectorId = 496,
+                            SerialNumber = "R46C2"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            CinemaId = 6,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 10, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 69,
+                            Price = 8m,
+                            SectorId = 343,
+                            SerialNumber = "R31C16"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            CinemaId = 45,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 3, 23, 40, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 79,
                             Price = 7m,
-                            SectorId = 218,
-                            SerialNumber = "R35C7"
+                            SectorId = 609,
+                            SerialNumber = "R19C30"
                         },
                         new
                         {
-                            Id = 43,
-                            CinemaId = 25,
-                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
-                            ForDate = new DateTime(2023, 8, 18, 10, 15, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 92,
-                            Price = 21m,
-                            SectorId = 273,
-                            SerialNumber = "R30C7"
+                            Id = 34,
+                            CinemaId = 7,
+                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
+                            ForDate = new DateTime(2023, 8, 12, 20, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 13,
+                            Price = 19m,
+                            SectorId = 532,
+                            SerialNumber = "R29C33"
                         },
                         new
                         {
-                            Id = 44,
-                            CinemaId = 12,
-                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
-                            ForDate = new DateTime(2023, 8, 27, 21, 45, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 44,
-                            Price = 13m,
-                            SectorId = 192,
-                            SerialNumber = "R10C23"
-                        },
-                        new
-                        {
-                            Id = 45,
-                            CinemaId = 20,
+                            Id = 35,
+                            CinemaId = 49,
                             CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
-                            ForDate = new DateTime(2023, 8, 8, 17, 45, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 82,
-                            Price = 23m,
-                            SectorId = 385,
+                            ForDate = new DateTime(2023, 8, 2, 22, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 83,
+                            Price = 22m,
+                            SectorId = 613,
+                            SerialNumber = "R23C18"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            CinemaId = 20,
+                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
+                            ForDate = new DateTime(2023, 8, 3, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 49,
+                            Price = 18m,
+                            SectorId = 36,
                             SerialNumber = "R48C27"
                         },
                         new
                         {
-                            Id = 46,
+                            Id = 37,
                             CinemaId = 31,
-                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
-                            ForDate = new DateTime(2023, 8, 18, 20, 20, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 53,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 11, 17, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 52,
+                            Price = 17m,
+                            SectorId = 32,
+                            SerialNumber = "R36C2"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            CinemaId = 45,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 7, 16, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 29,
+                            Price = 16m,
+                            SectorId = 279,
+                            SerialNumber = "R33C4"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            CinemaId = 46,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 2, 15, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 33,
+                            Price = 6m,
+                            SectorId = 461,
+                            SerialNumber = "R20C21"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            CinemaId = 37,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 14, 14, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 3,
+                            Price = 12m,
+                            SectorId = 239,
+                            SerialNumber = "R44C5"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            CinemaId = 45,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 7, 31, 13, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 93,
+                            Price = 21m,
+                            SectorId = 383,
+                            SerialNumber = "R41C27"
+                        },
+                        new
+                        {
+                            Id = 42,
+                            CinemaId = 2,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 11, 18, 40, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 19,
+                            Price = 16m,
+                            SectorId = 144,
+                            SerialNumber = "R8C41"
+                        },
+                        new
+                        {
+                            Id = 43,
+                            CinemaId = 20,
+                            CustomerId = "bfa19e5f-4529-4276-bde8-8e6d3de2c423",
+                            ForDate = new DateTime(2023, 8, 2, 20, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 49,
+                            Price = 18m,
+                            SectorId = 137,
+                            SerialNumber = "R18C58"
+                        },
+                        new
+                        {
+                            Id = 44,
+                            CinemaId = 4,
+                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
+                            ForDate = new DateTime(2023, 8, 12, 21, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 64,
                             Price = 8m,
-                            SectorId = 27,
-                            SerialNumber = "R59C9"
+                            SectorId = 632,
+                            SerialNumber = "R3C11"
+                        },
+                        new
+                        {
+                            Id = 45,
+                            CinemaId = 10,
+                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
+                            ForDate = new DateTime(2023, 8, 7, 19, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 55,
+                            Price = 6m,
+                            SectorId = 575,
+                            SerialNumber = "R31C33"
+                        },
+                        new
+                        {
+                            Id = 46,
+                            CinemaId = 8,
+                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
+                            ForDate = new DateTime(2023, 8, 9, 16, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 94,
+                            Price = 15m,
+                            SectorId = 464,
+                            SerialNumber = "R27C16"
                         },
                         new
                         {
                             Id = 47,
-                            CinemaId = 32,
-                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
-                            ForDate = new DateTime(2023, 8, 11, 18, 45, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 12,
+                            CinemaId = 11,
+                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
+                            ForDate = new DateTime(2023, 8, 14, 8, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 24,
                             Price = 12m,
-                            SectorId = 236,
-                            SerialNumber = "R46C17"
+                            SectorId = 433,
+                            SerialNumber = "R6C7"
                         },
                         new
                         {
                             Id = 48,
-                            CinemaId = 3,
-                            CustomerId = "e7d88cb7-a424-4795-8965-17273642b773",
-                            ForDate = new DateTime(2023, 8, 11, 18, 20, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 30,
-                            Price = 5m,
-                            SectorId = 356,
-                            SerialNumber = "R13C60"
+                            CinemaId = 7,
+                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
+                            ForDate = new DateTime(2023, 8, 13, 18, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 19,
+                            Price = 12m,
+                            SectorId = 621,
+                            SerialNumber = "R7C23"
                         },
                         new
                         {
                             Id = 49,
-                            CinemaId = 36,
-                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
-                            ForDate = new DateTime(2023, 8, 24, 22, 10, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 52,
-                            Price = 11m,
-                            SectorId = 119,
-                            SerialNumber = "R17C11"
+                            CinemaId = 42,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 12, 9, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 73,
+                            Price = 8m,
+                            SectorId = 411,
+                            SerialNumber = "R4C31"
                         },
                         new
                         {
                             Id = 50,
-                            CinemaId = 42,
-                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
-                            ForDate = new DateTime(2023, 8, 3, 18, 45, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 21,
-                            Price = 15m,
-                            SectorId = 439,
-                            SerialNumber = "R15C11"
+                            CinemaId = 1,
+                            CustomerId = "e7d88cb7-a424-4795-8965-17273642b773",
+                            ForDate = new DateTime(2023, 8, 14, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 82,
+                            Price = 22m,
+                            SectorId = 33,
+                            SerialNumber = "R32C18"
                         },
                         new
                         {
                             Id = 51,
                             CinemaId = 41,
-                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
-                            ForDate = new DateTime(2023, 8, 24, 15, 50, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 85,
-                            Price = 25m,
-                            SectorId = 229,
-                            SerialNumber = "R15C7"
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 17, 20, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 39,
+                            Price = 22m,
+                            SectorId = 594,
+                            SerialNumber = "R11C31"
                         },
                         new
                         {
                             Id = 52,
-                            CinemaId = 35,
-                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
-                            ForDate = new DateTime(2023, 8, 18, 23, 50, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 63,
-                            Price = 6m,
-                            SectorId = 348,
-                            SerialNumber = "R26C21"
+                            CinemaId = 1,
+                            CustomerId = "e7d88cb7-a424-4795-8965-17273642b773",
+                            ForDate = new DateTime(2023, 8, 16, 13, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 82,
+                            Price = 22m,
+                            SectorId = 159,
+                            SerialNumber = "R22C24"
                         },
                         new
                         {
                             Id = 53,
-                            CinemaId = 31,
-                            CustomerId = "bfa19e5f-4529-4276-bde8-8e6d3de2c423",
-                            ForDate = new DateTime(2023, 8, 3, 10, 50, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 6,
-                            Price = 13m,
-                            SectorId = 347,
-                            SerialNumber = "R26C1"
+                            CinemaId = 49,
+                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
+                            ForDate = new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 67,
+                            Price = 23m,
+                            SectorId = 37,
+                            SerialNumber = "R41C39"
                         },
                         new
                         {
                             Id = 54,
-                            CinemaId = 37,
-                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
-                            ForDate = new DateTime(2023, 8, 27, 18, 30, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 7,
-                            Price = 24m,
-                            SectorId = 215,
-                            SerialNumber = "R22C13"
+                            CinemaId = 16,
+                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
+                            ForDate = new DateTime(2023, 8, 9, 9, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 69,
+                            Price = 14m,
+                            SectorId = 553,
+                            SerialNumber = "R25C12"
                         },
                         new
                         {
                             Id = 55,
                             CinemaId = 26,
                             CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
-                            ForDate = new DateTime(2023, 8, 13, 22, 30, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 58,
-                            Price = 13m,
-                            SectorId = 103,
-                            SerialNumber = "R28C15"
+                            ForDate = new DateTime(2023, 8, 10, 8, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 54,
+                            Price = 22m,
+                            SectorId = 149,
+                            SerialNumber = "R29C17"
                         },
                         new
                         {
                             Id = 56,
-                            CinemaId = 11,
-                            CustomerId = "e7d88cb7-a424-4795-8965-17273642b773",
-                            ForDate = new DateTime(2023, 8, 15, 16, 0, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 41,
-                            Price = 6m,
-                            SectorId = 232,
-                            SerialNumber = "R18C20"
+                            CinemaId = 22,
+                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
+                            ForDate = new DateTime(2023, 8, 2, 8, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 61,
+                            Price = 11m,
+                            SectorId = 131,
+                            SerialNumber = "R8C27"
                         },
                         new
                         {
                             Id = 57,
-                            CinemaId = 15,
-                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
-                            ForDate = new DateTime(2023, 8, 26, 10, 10, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 72,
-                            Price = 16m,
-                            SectorId = 55,
-                            SerialNumber = "R14C5"
+                            CinemaId = 3,
+                            CustomerId = "bfa19e5f-4529-4276-bde8-8e6d3de2c423",
+                            ForDate = new DateTime(2023, 8, 5, 17, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 68,
+                            Price = 7m,
+                            SectorId = 1,
+                            SerialNumber = "R3C2"
                         },
                         new
                         {
                             Id = 58,
-                            CinemaId = 45,
+                            CinemaId = 8,
                             CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
-                            ForDate = new DateTime(2023, 8, 25, 23, 10, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 81,
+                            ForDate = new DateTime(2023, 8, 16, 10, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 91,
                             Price = 20m,
-                            SectorId = 378,
-                            SerialNumber = "R12C14"
+                            SectorId = 296,
+                            SerialNumber = "R36C31"
                         },
                         new
                         {
                             Id = 59,
-                            CinemaId = 47,
-                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
-                            ForDate = new DateTime(2023, 8, 21, 8, 30, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 41,
-                            Price = 12m,
-                            SectorId = 334,
-                            SerialNumber = "R6C18"
+                            CinemaId = 2,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 10, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 44,
+                            Price = 10m,
+                            SectorId = 419,
+                            SerialNumber = "R34C27"
                         },
                         new
                         {
                             Id = 60,
-                            CinemaId = 36,
-                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
-                            ForDate = new DateTime(2023, 8, 18, 14, 0, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 2,
-                            Price = 18m,
-                            SectorId = 325,
-                            SerialNumber = "R23C19"
+                            CinemaId = 45,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 6, 8, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 32,
+                            Price = 14m,
+                            SectorId = 425,
+                            SerialNumber = "R29C5"
                         },
                         new
                         {
                             Id = 61,
-                            CinemaId = 22,
+                            CinemaId = 36,
                             CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
-                            ForDate = new DateTime(2023, 8, 27, 21, 30, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 29,
-                            Price = 21m,
-                            SectorId = 344,
-                            SerialNumber = "R35C47"
+                            ForDate = new DateTime(2023, 7, 30, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 1,
+                            Price = 20m,
+                            SectorId = 573,
+                            SerialNumber = "R33C7"
                         },
                         new
                         {
                             Id = 62,
-                            CinemaId = 48,
-                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
-                            ForDate = new DateTime(2023, 8, 21, 11, 10, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 51,
-                            Price = 11m,
-                            SectorId = 399,
-                            SerialNumber = "R28C20"
+                            CinemaId = 22,
+                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
+                            ForDate = new DateTime(2023, 8, 8, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 75,
+                            Price = 24m,
+                            SectorId = 301,
+                            SerialNumber = "R18C29"
                         },
                         new
                         {
                             Id = 63,
-                            CinemaId = 11,
-                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
-                            ForDate = new DateTime(2023, 8, 27, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 38,
-                            Price = 16m,
-                            SectorId = 353,
-                            SerialNumber = "R11C13"
+                            CinemaId = 46,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 7, 30, 9, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 69,
+                            Price = 8m,
+                            SectorId = 211,
+                            SerialNumber = "R23C31"
                         },
                         new
                         {
                             Id = 64,
-                            CinemaId = 46,
-                            CustomerId = "bfa19e5f-4529-4276-bde8-8e6d3de2c423",
-                            ForDate = new DateTime(2023, 8, 16, 12, 30, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 15,
-                            Price = 12m,
-                            SectorId = 135,
-                            SerialNumber = "R5C33"
+                            CinemaId = 10,
+                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
+                            ForDate = new DateTime(2023, 8, 6, 8, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 55,
+                            Price = 6m,
+                            SectorId = 27,
+                            SerialNumber = "R17C18"
                         },
                         new
                         {
                             Id = 65,
-                            CinemaId = 49,
-                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
-                            ForDate = new DateTime(2023, 8, 7, 20, 20, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 53,
-                            Price = 12m,
-                            SectorId = 34,
-                            SerialNumber = "R18C1"
+                            CinemaId = 37,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 5, 12, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 37,
+                            Price = 20m,
+                            SectorId = 445,
+                            SerialNumber = "R2C14"
                         },
                         new
                         {
                             Id = 66,
-                            CinemaId = 22,
-                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
-                            ForDate = new DateTime(2023, 8, 7, 10, 40, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 48,
-                            Price = 20m,
-                            SectorId = 161,
-                            SerialNumber = "R2C35"
+                            CinemaId = 45,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 7, 20, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 32,
+                            Price = 14m,
+                            SectorId = 120,
+                            SerialNumber = "R16C35"
                         },
                         new
                         {
                             Id = 67,
-                            CinemaId = 30,
-                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
-                            ForDate = new DateTime(2023, 8, 23, 15, 15, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 26,
-                            Price = 19m,
-                            SectorId = 201,
-                            SerialNumber = "R47C29"
+                            CinemaId = 12,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 16, 12, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 77,
+                            Price = 11m,
+                            SectorId = 584,
+                            SerialNumber = "R29C29"
                         },
                         new
                         {
                             Id = 68,
-                            CinemaId = 42,
-                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
-                            ForDate = new DateTime(2023, 8, 17, 14, 20, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 55,
-                            Price = 10m,
-                            SectorId = 12,
-                            SerialNumber = "R20C11"
+                            CinemaId = 17,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 5, 21, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 35,
+                            Price = 22m,
+                            SectorId = 630,
+                            SerialNumber = "R52C13"
                         },
                         new
                         {
                             Id = 69,
-                            CinemaId = 9,
+                            CinemaId = 22,
                             CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
-                            ForDate = new DateTime(2023, 8, 28, 17, 50, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 86,
-                            Price = 14m,
-                            SectorId = 234,
-                            SerialNumber = "R32C26"
+                            ForDate = new DateTime(2023, 8, 16, 8, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 50,
+                            Price = 9m,
+                            SectorId = 522,
+                            SerialNumber = "R54C6"
                         },
                         new
                         {
                             Id = 70,
-                            CinemaId = 38,
-                            CustomerId = "bfa19e5f-4529-4276-bde8-8e6d3de2c423",
-                            ForDate = new DateTime(2023, 8, 2, 13, 15, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 67,
-                            Price = 12m,
-                            SectorId = 348,
-                            SerialNumber = "R27C29"
+                            CinemaId = 26,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 8, 12, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 54,
+                            Price = 22m,
+                            SectorId = 614,
+                            SerialNumber = "R25C37"
                         },
                         new
                         {
                             Id = 71,
-                            CinemaId = 49,
-                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
-                            ForDate = new DateTime(2023, 8, 1, 18, 50, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 43,
-                            Price = 21m,
-                            SectorId = 64,
-                            SerialNumber = "R10C30"
+                            CinemaId = 45,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 3, 23, 40, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 79,
+                            Price = 7m,
+                            SectorId = 536,
+                            SerialNumber = "R43C2"
                         },
                         new
                         {
                             Id = 72,
-                            CinemaId = 36,
-                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
-                            ForDate = new DateTime(2023, 8, 18, 14, 0, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 2,
-                            Price = 18m,
-                            SectorId = 439,
-                            SerialNumber = "R12C14"
+                            CinemaId = 34,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 1, 15, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 57,
+                            Price = 8m,
+                            SectorId = 236,
+                            SerialNumber = "R35C11"
                         },
                         new
                         {
                             Id = 73,
-                            CinemaId = 34,
-                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
-                            ForDate = new DateTime(2023, 8, 15, 22, 10, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 24,
-                            Price = 21m,
-                            SectorId = 174,
-                            SerialNumber = "R13C47"
+                            CinemaId = 13,
+                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
+                            ForDate = new DateTime(2023, 8, 15, 20, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 10,
+                            Price = 6m,
+                            SectorId = 382,
+                            SerialNumber = "R45C7"
                         },
                         new
                         {
                             Id = 74,
-                            CinemaId = 32,
-                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
-                            ForDate = new DateTime(2023, 8, 10, 22, 50, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 62,
-                            Price = 11m,
-                            SectorId = 52,
-                            SerialNumber = "R35C25"
+                            CinemaId = 17,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 3, 14, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 22,
+                            Price = 16m,
+                            SectorId = 238,
+                            SerialNumber = "R40C32"
                         },
                         new
                         {
                             Id = 75,
-                            CinemaId = 48,
-                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
-                            ForDate = new DateTime(2023, 8, 21, 11, 10, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 51,
-                            Price = 11m,
-                            SectorId = 343,
-                            SerialNumber = "R31C32"
+                            CinemaId = 37,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 5, 20, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 98,
+                            Price = 8m,
+                            SectorId = 532,
+                            SerialNumber = "R24C34"
                         },
                         new
                         {
                             Id = 76,
-                            CinemaId = 5,
-                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
-                            ForDate = new DateTime(2023, 8, 6, 21, 0, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 67,
-                            Price = 25m,
-                            SectorId = 24,
-                            SerialNumber = "R34C2"
+                            CinemaId = 45,
+                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
+                            ForDate = new DateTime(2023, 8, 8, 15, 40, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 96,
+                            Price = 7m,
+                            SectorId = 355,
+                            SerialNumber = "R50C17"
                         },
                         new
                         {
                             Id = 77,
-                            CinemaId = 41,
-                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
-                            ForDate = new DateTime(2023, 8, 25, 17, 40, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 85,
-                            Price = 25m,
-                            SectorId = 368,
-                            SerialNumber = "R56C22"
+                            CinemaId = 10,
+                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
+                            ForDate = new DateTime(2023, 8, 1, 11, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 28,
+                            Price = 19m,
+                            SectorId = 178,
+                            SerialNumber = "R9C7"
                         },
                         new
                         {
                             Id = 78,
-                            CinemaId = 3,
-                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
-                            ForDate = new DateTime(2023, 8, 14, 21, 20, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 52,
-                            Price = 20m,
-                            SectorId = 394,
-                            SerialNumber = "R14C8"
+                            CinemaId = 5,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 16, 12, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 66,
+                            Price = 24m,
+                            SectorId = 439,
+                            SerialNumber = "R34C5"
                         },
                         new
                         {
                             Id = 79,
-                            CinemaId = 40,
-                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
-                            ForDate = new DateTime(2023, 8, 18, 18, 45, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 22,
-                            Price = 20m,
-                            SectorId = 383,
-                            SerialNumber = "R36C29"
+                            CinemaId = 46,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 7, 30, 16, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 69,
+                            Price = 8m,
+                            SectorId = 361,
+                            SerialNumber = "R14C7"
                         },
                         new
                         {
                             Id = 80,
-                            CinemaId = 35,
-                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
-                            ForDate = new DateTime(2023, 8, 11, 19, 15, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 42,
-                            Price = 8m,
-                            SectorId = 230,
-                            SerialNumber = "R15C28"
+                            CinemaId = 10,
+                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
+                            ForDate = new DateTime(2023, 8, 7, 19, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 55,
+                            Price = 6m,
+                            SectorId = 619,
+                            SerialNumber = "R35C47"
                         },
                         new
                         {
                             Id = 81,
-                            CinemaId = 3,
-                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
-                            ForDate = new DateTime(2023, 8, 5, 10, 30, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 30,
-                            Price = 5m,
-                            SectorId = 295,
-                            SerialNumber = "R31C33"
+                            CinemaId = 20,
+                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
+                            ForDate = new DateTime(2023, 8, 2, 17, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 29,
+                            Price = 8m,
+                            SectorId = 254,
+                            SerialNumber = "R35C14"
                         },
                         new
                         {
                             Id = 82,
-                            CinemaId = 49,
-                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
-                            ForDate = new DateTime(2023, 8, 9, 10, 15, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 48,
-                            Price = 10m,
-                            SectorId = 233,
-                            SerialNumber = "R32C14"
+                            CinemaId = 45,
+                            CustomerId = "bfa19e5f-4529-4276-bde8-8e6d3de2c423",
+                            ForDate = new DateTime(2023, 8, 11, 13, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 79,
+                            Price = 7m,
+                            SectorId = 360,
+                            SerialNumber = "R5C39"
                         },
                         new
                         {
                             Id = 83,
-                            CinemaId = 24,
-                            CustomerId = "e7d88cb7-a424-4795-8965-17273642b773",
-                            ForDate = new DateTime(2023, 8, 18, 18, 40, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 88,
-                            Price = 5m,
-                            SectorId = 323,
-                            SerialNumber = "R15C32"
+                            CinemaId = 7,
+                            CustomerId = "bfa19e5f-4529-4276-bde8-8e6d3de2c423",
+                            ForDate = new DateTime(2023, 8, 6, 9, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 30,
+                            Price = 10m,
+                            SectorId = 183,
+                            SerialNumber = "R21C24"
                         },
                         new
                         {
                             Id = 84,
-                            CinemaId = 37,
-                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
-                            ForDate = new DateTime(2023, 8, 27, 18, 30, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 7,
-                            Price = 24m,
-                            SectorId = 113,
-                            SerialNumber = "R36C6"
+                            CinemaId = 45,
+                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
+                            ForDate = new DateTime(2023, 7, 31, 22, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 62,
+                            Price = 9m,
+                            SectorId = 512,
+                            SerialNumber = "R7C3"
                         },
                         new
                         {
                             Id = 85,
-                            CinemaId = 49,
-                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
-                            ForDate = new DateTime(2023, 8, 8, 16, 40, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 53,
-                            Price = 12m,
-                            SectorId = 376,
-                            SerialNumber = "R34C29"
+                            CinemaId = 37,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 7, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 79,
+                            Price = 17m,
+                            SectorId = 275,
+                            SerialNumber = "R18C31"
                         },
                         new
                         {
                             Id = 86,
-                            CinemaId = 20,
-                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
-                            ForDate = new DateTime(2023, 8, 9, 21, 40, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 9,
-                            Price = 17m,
-                            SectorId = 230,
-                            SerialNumber = "R4C28"
+                            CinemaId = 45,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 16, 13, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 36,
+                            Price = 13m,
+                            SectorId = 164,
+                            SerialNumber = "R59C6"
                         },
                         new
                         {
                             Id = 87,
-                            CinemaId = 9,
-                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
-                            ForDate = new DateTime(2023, 8, 28, 13, 40, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 86,
-                            Price = 14m,
-                            SectorId = 169,
-                            SerialNumber = "R46C27"
+                            CinemaId = 45,
+                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
+                            ForDate = new DateTime(2023, 8, 6, 9, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 79,
+                            Price = 7m,
+                            SectorId = 49,
+                            SerialNumber = "R22C5"
                         },
                         new
                         {
                             Id = 88,
-                            CinemaId = 46,
-                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
-                            ForDate = new DateTime(2023, 8, 17, 15, 50, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 86,
-                            Price = 24m,
-                            SectorId = 393,
-                            SerialNumber = "R53C19"
+                            CinemaId = 6,
+                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
+                            ForDate = new DateTime(2023, 8, 13, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 28,
+                            Price = 8m,
+                            SectorId = 571,
+                            SerialNumber = "R30C34"
                         },
                         new
                         {
                             Id = 89,
-                            CinemaId = 47,
-                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
-                            ForDate = new DateTime(2023, 8, 13, 21, 50, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 49,
-                            Price = 16m,
-                            SectorId = 185,
-                            SerialNumber = "R26C9"
+                            CinemaId = 11,
+                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
+                            ForDate = new DateTime(2023, 8, 15, 15, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 24,
+                            Price = 12m,
+                            SectorId = 197,
+                            SerialNumber = "R35C8"
                         },
                         new
                         {
                             Id = 90,
-                            CinemaId = 40,
-                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
-                            ForDate = new DateTime(2023, 8, 18, 18, 45, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 22,
-                            Price = 20m,
-                            SectorId = 299,
-                            SerialNumber = "R25C18"
+                            CinemaId = 16,
+                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
+                            ForDate = new DateTime(2023, 8, 11, 12, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 2,
+                            Price = 15m,
+                            SectorId = 325,
+                            SerialNumber = "R5C24"
                         },
                         new
                         {
                             Id = 91,
-                            CinemaId = 45,
-                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
-                            ForDate = new DateTime(2023, 8, 25, 23, 10, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 81,
-                            Price = 20m,
-                            SectorId = 138,
-                            SerialNumber = "R25C35"
+                            CinemaId = 1,
+                            CustomerId = "e7d88cb7-a424-4795-8965-17273642b773",
+                            ForDate = new DateTime(2023, 8, 14, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 82,
+                            Price = 22m,
+                            SectorId = 498,
+                            SerialNumber = "R55C5"
                         },
                         new
                         {
                             Id = 92,
-                            CinemaId = 49,
-                            CustomerId = "e7d88cb7-a424-4795-8965-17273642b773",
-                            ForDate = new DateTime(2023, 8, 11, 10, 20, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 48,
-                            Price = 10m,
-                            SectorId = 404,
-                            SerialNumber = "R35C42"
+                            CinemaId = 2,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 14, 8, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 5,
+                            Price = 22m,
+                            SectorId = 269,
+                            SerialNumber = "R58C22"
                         },
                         new
                         {
                             Id = 93,
-                            CinemaId = 15,
-                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
-                            ForDate = new DateTime(2023, 8, 26, 10, 10, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 72,
-                            Price = 16m,
-                            SectorId = 99,
-                            SerialNumber = "R26C47"
+                            CinemaId = 45,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 1, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 93,
+                            Price = 21m,
+                            SectorId = 85,
+                            SerialNumber = "R39C18"
                         },
                         new
                         {
                             Id = 94,
-                            CinemaId = 31,
-                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
-                            ForDate = new DateTime(2023, 8, 27, 16, 30, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 49,
-                            Price = 11m,
-                            SectorId = 267,
-                            SerialNumber = "R17C32"
+                            CinemaId = 10,
+                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
+                            ForDate = new DateTime(2023, 8, 6, 19, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 55,
+                            Price = 6m,
+                            SectorId = 326,
+                            SerialNumber = "R19C9"
                         },
                         new
                         {
                             Id = 95,
-                            CinemaId = 11,
-                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
-                            ForDate = new DateTime(2023, 8, 18, 11, 30, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 38,
-                            Price = 16m,
-                            SectorId = 368,
-                            SerialNumber = "R56C24"
+                            CinemaId = 14,
+                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
+                            ForDate = new DateTime(2023, 8, 7, 11, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 7,
+                            Price = 24m,
+                            SectorId = 642,
+                            SerialNumber = "R21C43"
                         },
                         new
                         {
                             Id = 96,
-                            CinemaId = 35,
-                            CustomerId = "e7d88cb7-a424-4795-8965-17273642b773",
-                            ForDate = new DateTime(2023, 8, 18, 23, 50, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 63,
-                            Price = 6m,
-                            SectorId = 148,
-                            SerialNumber = "R34C15"
+                            CinemaId = 6,
+                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
+                            ForDate = new DateTime(2023, 8, 11, 11, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 69,
+                            Price = 8m,
+                            SectorId = 594,
+                            SerialNumber = "R18C34"
                         },
                         new
                         {
                             Id = 97,
-                            CinemaId = 41,
-                            CustomerId = "bfa19e5f-4529-4276-bde8-8e6d3de2c423",
-                            ForDate = new DateTime(2023, 8, 1, 11, 20, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 81,
-                            Price = 18m,
-                            SectorId = 192,
-                            SerialNumber = "R5C23"
+                            CinemaId = 49,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 67,
+                            Price = 23m,
+                            SectorId = 437,
+                            SerialNumber = "R26C10"
                         },
                         new
                         {
                             Id = 98,
-                            CinemaId = 13,
-                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
-                            ForDate = new DateTime(2023, 8, 20, 12, 30, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 57,
-                            Price = 5m,
-                            SectorId = 272,
-                            SerialNumber = "R6C17"
+                            CinemaId = 10,
+                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
+                            ForDate = new DateTime(2023, 8, 16, 22, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 100,
+                            Price = 11m,
+                            SectorId = 493,
+                            SerialNumber = "R26C30"
                         },
                         new
                         {
                             Id = 99,
-                            CinemaId = 37,
-                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
-                            ForDate = new DateTime(2023, 8, 27, 18, 30, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 7,
+                            CinemaId = 24,
+                            CustomerId = "bfa19e5f-4529-4276-bde8-8e6d3de2c423",
+                            ForDate = new DateTime(2023, 8, 14, 15, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 73,
                             Price = 24m,
-                            SectorId = 294,
-                            SerialNumber = "R34C26"
+                            SectorId = 453,
+                            SerialNumber = "R23C37"
                         },
                         new
                         {
                             Id = 100,
                             CinemaId = 49,
+                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
+                            ForDate = new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 67,
+                            Price = 23m,
+                            SectorId = 164,
+                            SerialNumber = "R51C4"
+                        },
+                        new
+                        {
+                            Id = 101,
+                            CinemaId = 10,
+                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
+                            ForDate = new DateTime(2023, 8, 4, 11, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 67,
+                            Price = 7m,
+                            SectorId = 592,
+                            SerialNumber = "R14C5"
+                        },
+                        new
+                        {
+                            Id = 102,
+                            CinemaId = 4,
+                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
+                            ForDate = new DateTime(2023, 8, 12, 18, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 48,
+                            Price = 5m,
+                            SectorId = 443,
+                            SerialNumber = "R51C11"
+                        },
+                        new
+                        {
+                            Id = 103,
+                            CinemaId = 14,
+                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
+                            ForDate = new DateTime(2023, 8, 13, 20, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 7,
+                            Price = 24m,
+                            SectorId = 551,
+                            SerialNumber = "R14C14"
+                        },
+                        new
+                        {
+                            Id = 104,
+                            CinemaId = 17,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 11, 8, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 7,
+                            Price = 5m,
+                            SectorId = 70,
+                            SerialNumber = "R18C12"
+                        },
+                        new
+                        {
+                            Id = 105,
+                            CinemaId = 16,
+                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
+                            ForDate = new DateTime(2023, 8, 6, 20, 40, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 91,
+                            Price = 15m,
+                            SectorId = 465,
+                            SerialNumber = "R26C35"
+                        },
+                        new
+                        {
+                            Id = 106,
+                            CinemaId = 12,
+                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
+                            ForDate = new DateTime(2023, 8, 11, 19, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 13,
+                            Price = 16m,
+                            SectorId = 604,
+                            SerialNumber = "R8C2"
+                        },
+                        new
+                        {
+                            Id = 107,
+                            CinemaId = 36,
                             CustomerId = "bfa19e5f-4529-4276-bde8-8e6d3de2c423",
-                            ForDate = new DateTime(2023, 8, 1, 18, 50, 0, 0, DateTimeKind.Unspecified),
-                            MovieId = 43,
+                            ForDate = new DateTime(2023, 8, 4, 9, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 8,
+                            Price = 10m,
+                            SectorId = 146,
+                            SerialNumber = "R19C24"
+                        },
+                        new
+                        {
+                            Id = 108,
+                            CinemaId = 47,
+                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
+                            ForDate = new DateTime(2023, 8, 16, 9, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 29,
                             Price = 21m,
-                            SectorId = 239,
-                            SerialNumber = "R20C3"
+                            SectorId = 490,
+                            SerialNumber = "R12C4"
+                        },
+                        new
+                        {
+                            Id = 109,
+                            CinemaId = 49,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 3, 13, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 19,
+                            Price = 8m,
+                            SectorId = 309,
+                            SerialNumber = "R43C11"
+                        },
+                        new
+                        {
+                            Id = 110,
+                            CinemaId = 50,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 14, 12, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 20,
+                            Price = 22m,
+                            SectorId = 507,
+                            SerialNumber = "R19C55"
+                        },
+                        new
+                        {
+                            Id = 111,
+                            CinemaId = 42,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 16, 8, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 88,
+                            Price = 17m,
+                            SectorId = 53,
+                            SerialNumber = "R7C11"
+                        },
+                        new
+                        {
+                            Id = 112,
+                            CinemaId = 46,
+                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
+                            ForDate = new DateTime(2023, 8, 2, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 57,
+                            Price = 25m,
+                            SectorId = 50,
+                            SerialNumber = "R28C25"
+                        },
+                        new
+                        {
+                            Id = 113,
+                            CinemaId = 1,
+                            CustomerId = "e7d88cb7-a424-4795-8965-17273642b773",
+                            ForDate = new DateTime(2023, 8, 16, 23, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 82,
+                            Price = 22m,
+                            SectorId = 328,
+                            SerialNumber = "R30C5"
+                        },
+                        new
+                        {
+                            Id = 114,
+                            CinemaId = 15,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 15, 21, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 81,
+                            Price = 11m,
+                            SectorId = 464,
+                            SerialNumber = "R21C21"
+                        },
+                        new
+                        {
+                            Id = 115,
+                            CinemaId = 28,
+                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
+                            ForDate = new DateTime(2023, 8, 12, 11, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 98,
+                            Price = 5m,
+                            SectorId = 428,
+                            SerialNumber = "R40C19"
+                        },
+                        new
+                        {
+                            Id = 116,
+                            CinemaId = 10,
+                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
+                            ForDate = new DateTime(2023, 8, 16, 9, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 82,
+                            Price = 20m,
+                            SectorId = 270,
+                            SerialNumber = "R8C14"
+                        },
+                        new
+                        {
+                            Id = 117,
+                            CinemaId = 7,
+                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
+                            ForDate = new DateTime(2023, 8, 14, 22, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 19,
+                            Price = 12m,
+                            SectorId = 583,
+                            SerialNumber = "R29C7"
+                        },
+                        new
+                        {
+                            Id = 118,
+                            CinemaId = 49,
+                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
+                            ForDate = new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 67,
+                            Price = 23m,
+                            SectorId = 314,
+                            SerialNumber = "R10C39"
+                        },
+                        new
+                        {
+                            Id = 119,
+                            CinemaId = 10,
+                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
+                            ForDate = new DateTime(2023, 8, 7, 19, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 55,
+                            Price = 6m,
+                            SectorId = 305,
+                            SerialNumber = "R26C34"
+                        },
+                        new
+                        {
+                            Id = 120,
+                            CinemaId = 34,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 15, 18, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 87,
+                            Price = 10m,
+                            SectorId = 345,
+                            SerialNumber = "R42C22"
+                        },
+                        new
+                        {
+                            Id = 121,
+                            CinemaId = 8,
+                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
+                            ForDate = new DateTime(2023, 8, 9, 16, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 94,
+                            Price = 15m,
+                            SectorId = 633,
+                            SerialNumber = "R7C20"
+                        },
+                        new
+                        {
+                            Id = 122,
+                            CinemaId = 5,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 10, 20, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 44,
+                            Price = 5m,
+                            SectorId = 87,
+                            SerialNumber = "R50C19"
+                        },
+                        new
+                        {
+                            Id = 123,
+                            CinemaId = 49,
+                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
+                            ForDate = new DateTime(2023, 8, 2, 11, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 83,
+                            Price = 22m,
+                            SectorId = 306,
+                            SerialNumber = "R38C6"
+                        },
+                        new
+                        {
+                            Id = 124,
+                            CinemaId = 34,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 13, 11, 40, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 89,
+                            Price = 17m,
+                            SectorId = 163,
+                            SerialNumber = "R49C16"
+                        },
+                        new
+                        {
+                            Id = 125,
+                            CinemaId = 16,
+                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
+                            ForDate = new DateTime(2023, 8, 14, 11, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 13,
+                            Price = 10m,
+                            SectorId = 3,
+                            SerialNumber = "R11C12"
+                        },
+                        new
+                        {
+                            Id = 126,
+                            CinemaId = 37,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 5, 12, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 37,
+                            Price = 20m,
+                            SectorId = 593,
+                            SerialNumber = "R14C20"
+                        },
+                        new
+                        {
+                            Id = 127,
+                            CinemaId = 45,
+                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
+                            ForDate = new DateTime(2023, 8, 3, 18, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 93,
+                            Price = 21m,
+                            SectorId = 549,
+                            SerialNumber = "R3C15"
+                        },
+                        new
+                        {
+                            Id = 128,
+                            CinemaId = 12,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 11, 19, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 13,
+                            Price = 16m,
+                            SectorId = 101,
+                            SerialNumber = "R37C31"
+                        },
+                        new
+                        {
+                            Id = 129,
+                            CinemaId = 1,
+                            CustomerId = "bfa19e5f-4529-4276-bde8-8e6d3de2c423",
+                            ForDate = new DateTime(2023, 8, 13, 11, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 8,
+                            Price = 6m,
+                            SectorId = 559,
+                            SerialNumber = "R54C6"
+                        },
+                        new
+                        {
+                            Id = 130,
+                            CinemaId = 45,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 6, 8, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 32,
+                            Price = 14m,
+                            SectorId = 38,
+                            SerialNumber = "R59C12"
+                        },
+                        new
+                        {
+                            Id = 131,
+                            CinemaId = 10,
+                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
+                            ForDate = new DateTime(2023, 8, 10, 22, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 92,
+                            Price = 6m,
+                            SectorId = 346,
+                            SerialNumber = "R3C15"
+                        },
+                        new
+                        {
+                            Id = 132,
+                            CinemaId = 46,
+                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
+                            ForDate = new DateTime(2023, 8, 12, 12, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 4,
+                            Price = 13m,
+                            SectorId = 319,
+                            SerialNumber = "R11C46"
+                        },
+                        new
+                        {
+                            Id = 133,
+                            CinemaId = 14,
+                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
+                            ForDate = new DateTime(2023, 8, 16, 15, 40, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 24,
+                            Price = 8m,
+                            SectorId = 34,
+                            SerialNumber = "R36C38"
+                        },
+                        new
+                        {
+                            Id = 134,
+                            CinemaId = 49,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 4, 17, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 83,
+                            Price = 22m,
+                            SectorId = 293,
+                            SerialNumber = "R30C35"
+                        },
+                        new
+                        {
+                            Id = 135,
+                            CinemaId = 22,
+                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
+                            ForDate = new DateTime(2023, 8, 3, 10, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 75,
+                            Price = 24m,
+                            SectorId = 619,
+                            SerialNumber = "R33C49"
+                        },
+                        new
+                        {
+                            Id = 136,
+                            CinemaId = 10,
+                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
+                            ForDate = new DateTime(2023, 8, 6, 15, 40, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 85,
+                            Price = 14m,
+                            SectorId = 118,
+                            SerialNumber = "R14C4"
+                        },
+                        new
+                        {
+                            Id = 137,
+                            CinemaId = 38,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 17, 16, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 29,
+                            Price = 12m,
+                            SectorId = 142,
+                            SerialNumber = "R7C8"
+                        },
+                        new
+                        {
+                            Id = 138,
+                            CinemaId = 19,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 14, 16, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 99,
+                            Price = 18m,
+                            SectorId = 592,
+                            SerialNumber = "R13C10"
+                        },
+                        new
+                        {
+                            Id = 139,
+                            CinemaId = 49,
+                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
+                            ForDate = new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 67,
+                            Price = 23m,
+                            SectorId = 215,
+                            SerialNumber = "R2C1"
+                        },
+                        new
+                        {
+                            Id = 140,
+                            CinemaId = 6,
+                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
+                            ForDate = new DateTime(2023, 8, 13, 18, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 53,
+                            Price = 11m,
+                            SectorId = 285,
+                            SerialNumber = "R5C11"
+                        },
+                        new
+                        {
+                            Id = 141,
+                            CinemaId = 22,
+                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
+                            ForDate = new DateTime(2023, 8, 1, 20, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 66,
+                            Price = 19m,
+                            SectorId = 43,
+                            SerialNumber = "R6C34"
+                        },
+                        new
+                        {
+                            Id = 142,
+                            CinemaId = 49,
+                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
+                            ForDate = new DateTime(2023, 7, 31, 18, 40, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 83,
+                            Price = 22m,
+                            SectorId = 363,
+                            SerialNumber = "R16C43"
+                        },
+                        new
+                        {
+                            Id = 143,
+                            CinemaId = 38,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 7, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 59,
+                            Price = 22m,
+                            SectorId = 236,
+                            SerialNumber = "R37C8"
+                        },
+                        new
+                        {
+                            Id = 144,
+                            CinemaId = 45,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 7, 31, 19, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 62,
+                            Price = 9m,
+                            SectorId = 138,
+                            SerialNumber = "R27C12"
+                        },
+                        new
+                        {
+                            Id = 145,
+                            CinemaId = 2,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 12, 22, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 19,
+                            Price = 16m,
+                            SectorId = 478,
+                            SerialNumber = "R18C44"
+                        },
+                        new
+                        {
+                            Id = 146,
+                            CinemaId = 19,
+                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
+                            ForDate = new DateTime(2023, 8, 8, 8, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 99,
+                            Price = 18m,
+                            SectorId = 333,
+                            SerialNumber = "R48C18"
+                        },
+                        new
+                        {
+                            Id = 147,
+                            CinemaId = 12,
+                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
+                            ForDate = new DateTime(2023, 8, 10, 11, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 37,
+                            Price = 11m,
+                            SectorId = 152,
+                            SerialNumber = "R32C25"
+                        },
+                        new
+                        {
+                            Id = 148,
+                            CinemaId = 26,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 10, 12, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 99,
+                            Price = 6m,
+                            SectorId = 237,
+                            SerialNumber = "R39C22"
+                        },
+                        new
+                        {
+                            Id = 149,
+                            CinemaId = 16,
+                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
+                            ForDate = new DateTime(2023, 8, 9, 9, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 69,
+                            Price = 14m,
+                            SectorId = 98,
+                            SerialNumber = "R29C36"
+                        },
+                        new
+                        {
+                            Id = 150,
+                            CinemaId = 36,
+                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
+                            ForDate = new DateTime(2023, 8, 4, 9, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 8,
+                            Price = 10m,
+                            SectorId = 619,
+                            SerialNumber = "R33C47"
+                        },
+                        new
+                        {
+                            Id = 151,
+                            CinemaId = 37,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 15, 11, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 3,
+                            Price = 12m,
+                            SectorId = 34,
+                            SerialNumber = "R35C44"
+                        },
+                        new
+                        {
+                            Id = 152,
+                            CinemaId = 38,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 11, 14, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 57,
+                            Price = 7m,
+                            SectorId = 158,
+                            SerialNumber = "R26C1"
+                        },
+                        new
+                        {
+                            Id = 153,
+                            CinemaId = 2,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 12, 13, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 77,
+                            Price = 21m,
+                            SectorId = 482,
+                            SerialNumber = "R30C34"
+                        },
+                        new
+                        {
+                            Id = 154,
+                            CinemaId = 45,
+                            CustomerId = "bfa19e5f-4529-4276-bde8-8e6d3de2c423",
+                            ForDate = new DateTime(2023, 8, 8, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 24,
+                            Price = 5m,
+                            SectorId = 121,
+                            SerialNumber = "R14C49"
+                        },
+                        new
+                        {
+                            Id = 155,
+                            CinemaId = 44,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 15, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 13,
+                            Price = 24m,
+                            SectorId = 386,
+                            SerialNumber = "R8C21"
+                        },
+                        new
+                        {
+                            Id = 156,
+                            CinemaId = 22,
+                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
+                            ForDate = new DateTime(2023, 7, 31, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 23,
+                            Price = 17m,
+                            SectorId = 385,
+                            SerialNumber = "R5C8"
+                        },
+                        new
+                        {
+                            Id = 157,
+                            CinemaId = 17,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 3, 13, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 22,
+                            Price = 16m,
+                            SectorId = 73,
+                            SerialNumber = "R30C17"
+                        },
+                        new
+                        {
+                            Id = 158,
+                            CinemaId = 1,
+                            CustomerId = "bfa19e5f-4529-4276-bde8-8e6d3de2c423",
+                            ForDate = new DateTime(2023, 8, 15, 14, 40, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 80,
+                            Price = 13m,
+                            SectorId = 551,
+                            SerialNumber = "R15C3"
+                        },
+                        new
+                        {
+                            Id = 159,
+                            CinemaId = 17,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 5, 9, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 25,
+                            Price = 10m,
+                            SectorId = 77,
+                            SerialNumber = "R49C18"
+                        },
+                        new
+                        {
+                            Id = 160,
+                            CinemaId = 24,
+                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
+                            ForDate = new DateTime(2023, 8, 4, 23, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 74,
+                            Price = 23m,
+                            SectorId = 613,
+                            SerialNumber = "R22C25"
+                        },
+                        new
+                        {
+                            Id = 161,
+                            CinemaId = 49,
+                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
+                            ForDate = new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 67,
+                            Price = 23m,
+                            SectorId = 400,
+                            SerialNumber = "R8C47"
+                        },
+                        new
+                        {
+                            Id = 162,
+                            CinemaId = 23,
+                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
+                            ForDate = new DateTime(2023, 7, 30, 20, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 31,
+                            Price = 10m,
+                            SectorId = 68,
+                            SerialNumber = "R3C12"
+                        },
+                        new
+                        {
+                            Id = 163,
+                            CinemaId = 5,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 9, 15, 40, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 21,
+                            Price = 19m,
+                            SectorId = 171,
+                            SerialNumber = "R30C26"
+                        },
+                        new
+                        {
+                            Id = 164,
+                            CinemaId = 20,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 5, 16, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 49,
+                            Price = 18m,
+                            SectorId = 391,
+                            SerialNumber = "R34C4"
+                        },
+                        new
+                        {
+                            Id = 165,
+                            CinemaId = 7,
+                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
+                            ForDate = new DateTime(2023, 7, 30, 12, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 94,
+                            Price = 22m,
+                            SectorId = 339,
+                            SerialNumber = "R19C17"
+                        },
+                        new
+                        {
+                            Id = 166,
+                            CinemaId = 42,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 9, 22, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 73,
+                            Price = 8m,
+                            SectorId = 302,
+                            SerialNumber = "R20C34"
+                        },
+                        new
+                        {
+                            Id = 167,
+                            CinemaId = 46,
+                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
+                            ForDate = new DateTime(2023, 8, 4, 18, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 2,
+                            Price = 22m,
+                            SectorId = 226,
+                            SerialNumber = "R23C47"
+                        },
+                        new
+                        {
+                            Id = 168,
+                            CinemaId = 30,
+                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
+                            ForDate = new DateTime(2023, 8, 15, 12, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 89,
+                            Price = 18m,
+                            SectorId = 529,
+                            SerialNumber = "R13C35"
+                        },
+                        new
+                        {
+                            Id = 169,
+                            CinemaId = 49,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 2, 12, 40, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 19,
+                            Price = 8m,
+                            SectorId = 211,
+                            SerialNumber = "R24C36"
+                        },
+                        new
+                        {
+                            Id = 170,
+                            CinemaId = 46,
+                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
+                            ForDate = new DateTime(2023, 7, 30, 21, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 69,
+                            Price = 8m,
+                            SectorId = 618,
+                            SerialNumber = "R35C42"
+                        },
+                        new
+                        {
+                            Id = 171,
+                            CinemaId = 4,
+                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
+                            ForDate = new DateTime(2023, 8, 11, 15, 40, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 64,
+                            Price = 8m,
+                            SectorId = 435,
+                            SerialNumber = "R18C6"
+                        },
+                        new
+                        {
+                            Id = 172,
+                            CinemaId = 9,
+                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
+                            ForDate = new DateTime(2023, 8, 9, 12, 40, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 48,
+                            Price = 25m,
+                            SectorId = 345,
+                            SerialNumber = "R44C28"
+                        },
+                        new
+                        {
+                            Id = 173,
+                            CinemaId = 15,
+                            CustomerId = "bfa19e5f-4529-4276-bde8-8e6d3de2c423",
+                            ForDate = new DateTime(2023, 8, 10, 10, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 81,
+                            Price = 11m,
+                            SectorId = 381,
+                            SerialNumber = "R31C32"
+                        },
+                        new
+                        {
+                            Id = 174,
+                            CinemaId = 17,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 11, 8, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 7,
+                            Price = 5m,
+                            SectorId = 74,
+                            SerialNumber = "R34C15"
+                        },
+                        new
+                        {
+                            Id = 175,
+                            CinemaId = 39,
+                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
+                            ForDate = new DateTime(2023, 7, 31, 9, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 3,
+                            Price = 17m,
+                            SectorId = 35,
+                            SerialNumber = "R46C12"
+                        },
+                        new
+                        {
+                            Id = 176,
+                            CinemaId = 12,
+                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
+                            ForDate = new DateTime(2023, 8, 6, 10, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 37,
+                            Price = 11m,
+                            SectorId = 289,
+                            SerialNumber = "R15C27"
+                        },
+                        new
+                        {
+                            Id = 177,
+                            CinemaId = 24,
+                            CustomerId = "bfa19e5f-4529-4276-bde8-8e6d3de2c423",
+                            ForDate = new DateTime(2023, 8, 17, 14, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 24,
+                            Price = 19m,
+                            SectorId = 619,
+                            SerialNumber = "R34C49"
+                        },
+                        new
+                        {
+                            Id = 178,
+                            CinemaId = 30,
+                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
+                            ForDate = new DateTime(2023, 8, 16, 14, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 89,
+                            Price = 18m,
+                            SectorId = 513,
+                            SerialNumber = "R7C21"
+                        },
+                        new
+                        {
+                            Id = 179,
+                            CinemaId = 20,
+                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
+                            ForDate = new DateTime(2023, 8, 8, 11, 40, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 70,
+                            Price = 21m,
+                            SectorId = 297,
+                            SerialNumber = "R7C2"
+                        },
+                        new
+                        {
+                            Id = 180,
+                            CinemaId = 46,
+                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
+                            ForDate = new DateTime(2023, 8, 4, 23, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 2,
+                            Price = 22m,
+                            SectorId = 399,
+                            SerialNumber = "R7C35"
+                        },
+                        new
+                        {
+                            Id = 181,
+                            CinemaId = 49,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 3, 13, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 19,
+                            Price = 8m,
+                            SectorId = 274,
+                            SerialNumber = "R18C16"
+                        },
+                        new
+                        {
+                            Id = 182,
+                            CinemaId = 46,
+                            CustomerId = "96256cfb-df20-4a1f-8898-f06f634a17d7",
+                            ForDate = new DateTime(2023, 8, 12, 9, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 2,
+                            Price = 22m,
+                            SectorId = 351,
+                            SerialNumber = "R26C19"
+                        },
+                        new
+                        {
+                            Id = 183,
+                            CinemaId = 45,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 16, 15, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 33,
+                            Price = 18m,
+                            SectorId = 237,
+                            SerialNumber = "R31C20"
+                        },
+                        new
+                        {
+                            Id = 184,
+                            CinemaId = 10,
+                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
+                            ForDate = new DateTime(2023, 8, 15, 20, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 32,
+                            Price = 22m,
+                            SectorId = 341,
+                            SerialNumber = "R24C26"
+                        },
+                        new
+                        {
+                            Id = 185,
+                            CinemaId = 45,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 7, 20, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 32,
+                            Price = 14m,
+                            SectorId = 516,
+                            SerialNumber = "R24C10"
+                        },
+                        new
+                        {
+                            Id = 186,
+                            CinemaId = 42,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 15, 9, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 3,
+                            Price = 22m,
+                            SectorId = 98,
+                            SerialNumber = "R29C34"
+                        },
+                        new
+                        {
+                            Id = 187,
+                            CinemaId = 4,
+                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
+                            ForDate = new DateTime(2023, 8, 8, 15, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 48,
+                            Price = 5m,
+                            SectorId = 385,
+                            SerialNumber = "R1C7"
+                        },
+                        new
+                        {
+                            Id = 188,
+                            CinemaId = 49,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 2, 22, 45, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 83,
+                            Price = 22m,
+                            SectorId = 375,
+                            SerialNumber = "R12C35"
+                        },
+                        new
+                        {
+                            Id = 189,
+                            CinemaId = 37,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 8, 12, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 98,
+                            Price = 8m,
+                            SectorId = 219,
+                            SerialNumber = "R16C6"
+                        },
+                        new
+                        {
+                            Id = 190,
+                            CinemaId = 5,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 14, 14, 10, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 28,
+                            Price = 22m,
+                            SectorId = 437,
+                            SerialNumber = "R28C12"
+                        },
+                        new
+                        {
+                            Id = 191,
+                            CinemaId = 6,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 6, 19, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 60,
+                            Price = 23m,
+                            SectorId = 97,
+                            SerialNumber = "R29C26"
+                        },
+                        new
+                        {
+                            Id = 192,
+                            CinemaId = 45,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 1, 15, 40, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 93,
+                            Price = 21m,
+                            SectorId = 483,
+                            SerialNumber = "R22C46"
+                        },
+                        new
+                        {
+                            Id = 193,
+                            CinemaId = 45,
+                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
+                            ForDate = new DateTime(2023, 8, 13, 9, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 36,
+                            Price = 13m,
+                            SectorId = 599,
+                            SerialNumber = "R37C25"
+                        },
+                        new
+                        {
+                            Id = 194,
+                            CinemaId = 2,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 9, 11, 30, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 75,
+                            Price = 23m,
+                            SectorId = 564,
+                            SerialNumber = "R2C49"
+                        },
+                        new
+                        {
+                            Id = 195,
+                            CinemaId = 46,
+                            CustomerId = "1c850a33-6e0a-4c03-bb2d-c5a388042364",
+                            ForDate = new DateTime(2023, 7, 31, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 81,
+                            Price = 24m,
+                            SectorId = 393,
+                            SerialNumber = "R49C12"
+                        },
+                        new
+                        {
+                            Id = 196,
+                            CinemaId = 49,
+                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
+                            ForDate = new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 67,
+                            Price = 23m,
+                            SectorId = 420,
+                            SerialNumber = "R34C37"
+                        },
+                        new
+                        {
+                            Id = 197,
+                            CinemaId = 5,
+                            CustomerId = "c21bf410-3e22-4720-b01a-f2d91191a222",
+                            ForDate = new DateTime(2023, 8, 7, 9, 20, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 5,
+                            Price = 20m,
+                            SectorId = 548,
+                            SerialNumber = "R46C20"
+                        },
+                        new
+                        {
+                            Id = 198,
+                            CinemaId = 17,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 7, 30, 23, 40, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 91,
+                            Price = 24m,
+                            SectorId = 178,
+                            SerialNumber = "R4C11"
+                        },
+                        new
+                        {
+                            Id = 199,
+                            CinemaId = 43,
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            ForDate = new DateTime(2023, 8, 17, 19, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 17,
+                            Price = 18m,
+                            SectorId = 496,
+                            SerialNumber = "R48C14"
+                        },
+                        new
+                        {
+                            Id = 200,
+                            CinemaId = 44,
+                            CustomerId = "f338b628-feaf-4a03-95ad-defb7aec5c83",
+                            ForDate = new DateTime(2023, 8, 5, 19, 50, 0, 0, DateTimeKind.Unspecified),
+                            MovieId = 92,
+                            Price = 24m,
+                            SectorId = 521,
+                            SerialNumber = "R43C17"
                         });
                 });
 
@@ -28965,15 +30065,27 @@ namespace Cinema.Data.Migrations
                     b.HasData(
                         new
                         {
-                            CustomerId = "2f09c66b-0830-4fcc-8a0f-f29b0990c669",
-                            MovieId = 100,
-                            Rating = 4m
+                            CustomerId = "4634669c-c5ad-41e6-8b41-f1524c9654ad",
+                            MovieId = 76,
+                            Rating = 10m
+                        },
+                        new
+                        {
+                            CustomerId = "2a8f5f5c-e539-4868-837b-9a19852a904e",
+                            MovieId = 43,
+                            Rating = 2m
                         },
                         new
                         {
                             CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
-                            MovieId = 44,
-                            Rating = 7m
+                            MovieId = 86,
+                            Rating = 2m
+                        },
+                        new
+                        {
+                            CustomerId = "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c",
+                            MovieId = 100,
+                            Rating = 10m
                         });
                 });
 

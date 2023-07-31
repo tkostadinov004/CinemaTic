@@ -232,14 +232,14 @@ namespace Cinema.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreationDate", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfilePictureUrl", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "156fc675-02de-4250-9edb-869c85e13e61", 0, "8f06bfbc-e1e3-4f95-9bc1-30add0031c34", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7086), "owner1@owner.com", true, "James", "Johnson", false, null, "OWNER1@OWNER.COM", "OWNER1@OWNER.COM", "AQAAAAEAACcQAAAAEHvEx4ZXYMYB21Rv4hRKQMWSgNdi+l0bypPdpSjq957MLt/pXhh1D5RM498L/NLsIg==", null, false, "profilePicURL", "1969a695-01c0-49be-8d42-482cb1c327bc", false, "owner1@owner.com" },
-                    { "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", 0, "1c85f3a1-2adc-4bc0-8e52-72f91f9c11e6", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7401), "customer2@customer.com", true, "Owais", "Flynn", false, null, "CUSTOMER2@CUSTOMER.COM", "CUSTOMER2@CUSTOMER.COM", "AQAAAAEAACcQAAAAEIYeeIInKmL51PUbgU9ebQ/xNmr0trm5R6elLzZK7OmxxeE9OKaQqwm9+pwk/48YXg==", null, false, "profilePicURL", "23628fe3-34d3-436b-b12b-7386bda03b50", false, "customer2@customer.com" },
-                    { "1c850a33-6e0a-4c03-bb2d-c5a388042364", 0, "7ee1ee23-0839-40da-908d-b87ef4d668df", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7518), "customer6@customer.com", true, "Peggy", "Pope", false, null, "CUSTOMER6@CUSTOMER.COM", "CUSTOMER6@CUSTOMER.COM", "AQAAAAEAACcQAAAAEDZOPqyE1bs4Fpa/V1q/zQ9q9uo4W4aic10gzc7DN3zPHAEJS/3ZnFm2E2agaYNDgg==", null, false, "profilePicURL", "d3103320-f4b9-4654-ba99-654bc1cdf6c4", false, "customer6@customer.com" },
-                    { "2055e8c8-5a8e-49c3-9f0a-a987700af2ee", 0, "a294bebb-1a63-4316-8f84-629edf1d64e0", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7180), "owner2@owner.com", true, "Mary", "Lou", false, null, "OWNER2@OWNER.COM", "OWNER2@OWNER.COM", "AQAAAAEAACcQAAAAEC/NWocyuoXmy0qa2Bd3QaVG3URsssLfsHNp0PyWDIYpJJqrYYkfmsT9/MBvIgvYAw==", null, false, "profilePicURL", "0dcc8f9a-b2bd-40a5-8f68-ad4c06ccd772", false, "owner2@owner.com" },
-                    { "218dcf68-aa10-4c63-994f-50853fb19296", 0, "76e4b52a-578d-47d2-8a5f-c0f9fc0b5c3e", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7212), "owner3@owner.com", true, "Margarita", "Costner", false, null, "OWNER3@OWNER.COM", "OWNER3@OWNER.COM", "AQAAAAEAACcQAAAAEIjYVTwSBgTGUrxWOiHi4WexGSU2LjF55n1HKNlp6k5fLNXDNZ3a6QtoBW2+PgLfwg==", null, false, "profilePicURL", "ea79ff42-c2cd-49bd-8d71-1cc1c1f27dab", false, "owner3@owner.com" },
-                    { "2a8f5f5c-e539-4868-837b-9a19852a904e", 0, "5012f086-228e-4796-9b77-9f767892e80c", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7385), "customer1@customer.com", true, "Barney", "Hobbs", false, null, "CUSTOMER1@CUSTOMER.COM", "CUSTOMER1@CUSTOMER.COM", "AQAAAAEAACcQAAAAEMxkbwtB/DVLTPs/CrfeV3woUhKEpssC08FCDeihrzRLGFgFlP/Hpevw2fEy7fA26Q==", null, false, "profilePicURL", "41af5f84-823a-4d6e-8dc3-6917d36c1983", false, "customer1@customer.com" },
-                    { "2f09c66b-0830-4fcc-8a0f-f29b0990c669", 0, "159b0533-e321-4cca-a2de-243612f00487", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7553), "customer8@customer.com", true, "Frazer", "Hensley", false, null, "CUSTOMER8@CUSTOMER.COM", "CUSTOMER8@CUSTOMER.COM", "AQAAAAEAACcQAAAAEJ4Comxrc+51PB/Er3LRa71K8gOAvv8e+aVD+MdQKsV4YgJGunMTo1H9oNmX1sywgQ==", null, false, "profilePicURL", "11d3f4f3-b612-4683-90db-2a0c77867a06", false, "customer8@customer.com" },
-                    { "4634669c-c5ad-41e6-8b41-f1524c9654ad", 0, "2485e1c3-2020-40bc-b989-f73593f7ed05", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7419), "customer3@customer.com", true, "Kiran", "Delacruz", false, null, "CUSTOMER3@CUSTOMER.COM", "CUSTOMER3@CUSTOMER.COM", "AQAAAAEAACcQAAAAEIfnWyOl5WVHlRObIbNre45c3ProkdLd8/BnH0cGfi40TvvJPgg3tl6ZeNQB1OSGCg==", null, false, "profilePicURL", "18e0ad1c-2ce4-494c-8a08-4eb3e491aae1", false, "customer3@customer.com" }
+                    { "156fc675-02de-4250-9edb-869c85e13e61", 0, "8f06bfbc-e1e3-4f95-9bc1-30add0031c34", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7086), "owner1@owner.com", true, "James", "Johnson", false, null, "OWNER1@OWNER.COM", "OWNER1@OWNER.COM", "AQAAAAEAACcQAAAAEK9DK7a1IxWvqXwijfWNacNN9Dkp5oJy36wu13jIfEG5E4IO91ltMPLVWMx9dCYOIA==", null, false, "profilePicURL", "1969a695-01c0-49be-8d42-482cb1c327bc", false, "owner1@owner.com" },
+                    { "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", 0, "1c85f3a1-2adc-4bc0-8e52-72f91f9c11e6", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7401), "customer2@customer.com", true, "Owais", "Flynn", false, null, "CUSTOMER2@CUSTOMER.COM", "CUSTOMER2@CUSTOMER.COM", "AQAAAAEAACcQAAAAEORNYzNRyCYLRVbhtM7Mn8skYYUVEpUZFvOsISwuklxIaMd95NkcYtBG7yiV5HI6iQ==", null, false, "profilePicURL", "23628fe3-34d3-436b-b12b-7386bda03b50", false, "customer2@customer.com" },
+                    { "1c850a33-6e0a-4c03-bb2d-c5a388042364", 0, "7ee1ee23-0839-40da-908d-b87ef4d668df", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7518), "customer6@customer.com", true, "Peggy", "Pope", false, null, "CUSTOMER6@CUSTOMER.COM", "CUSTOMER6@CUSTOMER.COM", "AQAAAAEAACcQAAAAEA0vmMl5juIzEpSNcZPfpbcXjOCrzIxLfEuCBFilOgwrIOuwnbHyVsYfqymKbhgsag==", null, false, "profilePicURL", "d3103320-f4b9-4654-ba99-654bc1cdf6c4", false, "customer6@customer.com" },
+                    { "2055e8c8-5a8e-49c3-9f0a-a987700af2ee", 0, "a294bebb-1a63-4316-8f84-629edf1d64e0", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7180), "owner2@owner.com", true, "Mary", "Lou", false, null, "OWNER2@OWNER.COM", "OWNER2@OWNER.COM", "AQAAAAEAACcQAAAAEHvayNpraD7DmlwMTRpAIhYJqgqhnyVmDvGawVhvuZYmVxXvgUzceTPd+WaErJklXQ==", null, false, "profilePicURL", "0dcc8f9a-b2bd-40a5-8f68-ad4c06ccd772", false, "owner2@owner.com" },
+                    { "218dcf68-aa10-4c63-994f-50853fb19296", 0, "76e4b52a-578d-47d2-8a5f-c0f9fc0b5c3e", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7212), "owner3@owner.com", true, "Margarita", "Costner", false, null, "OWNER3@OWNER.COM", "OWNER3@OWNER.COM", "AQAAAAEAACcQAAAAEABUBblVa1MDKN9AU0txrZXHzpawhzy0MzR1sQp13z30Ur7rCDuHk6cTKRp0C2s6/w==", null, false, "profilePicURL", "ea79ff42-c2cd-49bd-8d71-1cc1c1f27dab", false, "owner3@owner.com" },
+                    { "2a8f5f5c-e539-4868-837b-9a19852a904e", 0, "5012f086-228e-4796-9b77-9f767892e80c", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7385), "customer1@customer.com", true, "Barney", "Hobbs", false, null, "CUSTOMER1@CUSTOMER.COM", "CUSTOMER1@CUSTOMER.COM", "AQAAAAEAACcQAAAAEKPDEeApJ3yNvdtryRqWhri/LVJllAyGvlXTeqQHBRHg8C5O/HTpSnvZGwOgDOsyqA==", null, false, "profilePicURL", "41af5f84-823a-4d6e-8dc3-6917d36c1983", false, "customer1@customer.com" },
+                    { "2f09c66b-0830-4fcc-8a0f-f29b0990c669", 0, "159b0533-e321-4cca-a2de-243612f00487", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7553), "customer8@customer.com", true, "Frazer", "Hensley", false, null, "CUSTOMER8@CUSTOMER.COM", "CUSTOMER8@CUSTOMER.COM", "AQAAAAEAACcQAAAAEBIXKrBwSWM5pQ60EPm4DaUpFWMfyZPgq1Rf/HBi2w2jDP3McJIkuQ88VSXZDpTf+Q==", null, false, "profilePicURL", "11d3f4f3-b612-4683-90db-2a0c77867a06", false, "customer8@customer.com" },
+                    { "4634669c-c5ad-41e6-8b41-f1524c9654ad", 0, "2485e1c3-2020-40bc-b989-f73593f7ed05", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7419), "customer3@customer.com", true, "Kiran", "Delacruz", false, null, "CUSTOMER3@CUSTOMER.COM", "CUSTOMER3@CUSTOMER.COM", "AQAAAAEAACcQAAAAEOtl2HZBTiaPbXeJEhGbQPkJ0/TSgU8JqwxVqELeDnV3TxHUoTsUZLx7p6Fb9MaBtQ==", null, false, "profilePicURL", "18e0ad1c-2ce4-494c-8a08-4eb3e491aae1", false, "customer3@customer.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -247,19 +247,19 @@ namespace Cinema.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreationDate", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfilePictureUrl", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "5556c45e-395d-402b-b765-750666b092fc", 0, "b65be569-e85a-4a74-a7bc-425b7635069f", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7264), "owner6@owner.com", true, "Javier", "Gonzalez", false, null, "OWNER6@OWNER.COM", "OWNER6@OWNER.COM", "AQAAAAEAACcQAAAAEJ1DrY6gKAdoWVMjItkKcKelXfHnWJf9hfjVrf8cu/9xumMGqlFQk+UBl99j557OXg==", null, false, "profilePicURL", "35a42130-bf0d-4f5a-85a4-032f27fb34fe", false, "owner6@owner.com" },
-                    { "60223fcf-5fa4-434f-a4ba-9389a4f571a0", 0, "4f65a024-e0d8-424b-95be-4c4966e0ed73", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7299), "owner8@owner.com", true, "John", "Chang", false, null, "OWNER8@OWNER.COM", "OWNER8@OWNER.COM", "AQAAAAEAACcQAAAAENCad2TW3IIhyvP3NFNxuyTK2RvWoM/qkh2/qNc5yWMVeSK5Ffl4jqTmCq/wXx8pTQ==", null, false, "profilePicURL", "5caf143b-da62-492e-9c4c-3a631cdd77b9", false, "owner8@owner.com" },
-                    { "610ab053-2c5a-451b-9634-03b59ea4a473", 0, "169c576b-71f5-4ef3-8fcb-3479eca00a65", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7347), "owner9@owner.com", true, "Lily", "May", false, null, "OWNER9@OWNER.COM", "OWNER9@OWNER.COM", "AQAAAAEAACcQAAAAENbRkTUI2YPlrXWpJ3DLk7ysiqUrowC+GnuuD7Z7FNbeOLb31+baoTYZRs7wUbPHUA==", null, false, "profilePicURL", "cf814eb1-d2f0-47ac-8dbd-54482814dc77", false, "owner9@owner.com" },
-                    { "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c", 0, "b26c078d-4fca-474d-9a24-a10a61a69c88", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7283), "owner7@owner.com", true, "Marco", "Cruz", false, null, "OWNER7@OWNER.COM", "OWNER7@OWNER.COM", "AQAAAAEAACcQAAAAENnvPTKAaxaZIUD3T7zTrCVPLFxFXpgbDpzXkcN5Si3hd5zNnhB91ei+QxVHWD9wvA==", null, false, "profilePicURL", "2f09438a-adca-4bed-8a26-4ac7ae834dd3", false, "owner7@owner.com" },
-                    { "8980e4ca-2628-490d-840a-9c9414ab9f33", 0, "d135f42d-5dae-407f-a9d4-c4ec642f61cc", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7364), "owner10@owner.com", true, "Jack", "Marston", false, null, "OWNER10@OWNER.COM", "OWNER10@OWNER.COM", "AQAAAAEAACcQAAAAEN2cfwYmM/WAhUtB3tSd2FocJKl6mGMVP2qSbwG5Z+on9ZoBSyeG9HtD0eW+eD8pkQ==", null, false, "profilePicURL", "69434a7f-f6f5-4f2f-9aec-4594d2e1bd27", false, "owner10@owner.com" },
-                    { "96256cfb-df20-4a1f-8898-f06f634a17d7", 0, "4effdcbd-6484-43ad-bab0-83c882123a07", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7587), "customer10@customer.com", true, "Bryony", "Becker", false, null, "CUSTOMER10@CUSTOMER.COM", "CUSTOMER10@CUSTOMER.COM", "AQAAAAEAACcQAAAAEDr9E5/iWkPtLz4+EmAsz0gXh/wN/UiRS1CJOhs9UbS7CA4by01uV6ec9CWbcZIVeQ==", null, false, "profilePicURL", "84717c40-eafd-40e7-b0a1-96e7e0937a09", false, "customer10@customer.com" },
-                    { "a9b6dc74-38a5-4794-a703-59204f461adb", 0, "a0a0780d-c13c-4218-8b33-03da54eec896", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7228), "owner4@owner.com", true, "Gabriel", "Peric", false, null, "OWNER4@OWNER.COM", "OWNER4@OWNER.COM", "AQAAAAEAACcQAAAAECDO71oyFvuFq4DA0ZTXSSZO3lvVG+CWe2ZMfrzn/uhaI+0BhqyAvKAJYnGep1+l+Q==", null, false, "profilePicURL", "d795d540-219a-4312-bbae-4d3b0558c2d5", false, "owner4@owner.com" },
-                    { "bfa19e5f-4529-4276-bde8-8e6d3de2c423", 0, "13ea44e7-8dae-4bb7-976e-64a952c9004c", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7435), "customer4@customer.com", true, "Ava-Rose", "Chapman", false, null, "CUSTOMER4@CUSTOMER.COM", "CUSTOMER4@CUSTOMER.COM", "AQAAAAEAACcQAAAAEGbtokmiF2zWsRKeTkH6+Xf+bT2twCRdzKyRONfBWnrV1/suxqVx+veGT4k/hjGD1Q==", null, false, "profilePicURL", "eede314b-fa5b-4b39-927c-59c9959e9990", false, "customer4@customer.com" },
-                    { "c0102fde-8991-4e2a-bfca-cdda51f13a66", 0, "3a2fa07d-ff91-407f-a2d7-fa01172115d2", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7537), "admin@admin.com", true, "Admin", "Admin", false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEI9VxUBxB1VCl+5KeoWPPIb5zfPARPAFSqdbhsfOANlIa9GI4EuGQpaOvG+QIIfUUw==", null, false, "profilePicURL", "d6172bcd-0893-437a-b705-43122add4781", false, "admin@admin.com" },
-                    { "c21bf410-3e22-4720-b01a-f2d91191a222", 0, "87fe1bfb-3589-4d5e-a44e-c8adcb6d5214", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7453), "customer5@customer.com", true, "Sienna", "Barnett", false, null, "CUSTOMER5@CUSTOMER.COM", "CUSTOMER5@CUSTOMER.COM", "AQAAAAEAACcQAAAAEJL84jmeFrVw38Wj8sUNuXhblaCmlsPsyBv/PPCG5SRB/QHSN0GHt/Nk7dXUK31S4g==", null, false, "profilePicURL", "0f9d29a6-6105-4649-a166-0762aee21984", false, "customer5@customer.com" },
-                    { "e7d88cb7-a424-4795-8965-17273642b773", 0, "8e7b2c00-3070-485c-8e23-06551a9cff1f", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7571), "customer9@customer.com", true, "Sadia", "Francis", false, null, "CUSTOMER9@CUSTOMER.COM", "CUSTOMER9@CUSTOMER.COM", "AQAAAAEAACcQAAAAEL0A7ajhHyUECNDLkFGi9PznW6asdT7QhLpu+RAH3BxG3NADV0CzOh2VICtaPcyo/g==", null, false, "profilePicURL", "7ca95f02-1224-4ae7-a823-0e9243192c8b", false, "customer9@customer.com" },
-                    { "ea811464-0c63-4c45-ac26-d4eb5bff334f", 0, "9bfe5e83-4173-4624-ba5d-f7cd07563c4f", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7246), "owner5@owner.com", true, "Percy", "Jackson", false, null, "OWNER5@OWNER.COM", "OWNER5@OWNER.COM", "AQAAAAEAACcQAAAAECwUFRjrTRAuohLp0ed3nT//JjxjnphSP3DzO3JlfmygGYgf6S2vNlc9nHVCYEVXYw==", null, false, "profilePicURL", "4b0d4e53-c70f-4118-8c78-b63d6adb1548", false, "owner5@owner.com" },
-                    { "f338b628-feaf-4a03-95ad-defb7aec5c83", 0, "096f10f9-3070-45c1-824d-1e96bc810fdc", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7537), "customer7@customer.com", true, "Madiha", "Brock", false, null, "CUSTOMER7@CUSTOMER.COM", "CUSTOMER7@CUSTOMER.COM", "AQAAAAEAACcQAAAAEFyTbKi+We8Adr5sAQHi+qB1xCEgNIRr5wJHPN9M6Xiozn/3oYWqU8RgCaL0crNgtQ==", null, false, "profilePicURL", "d6172bcd-0893-437a-b705-43122add4781", false, "customer7@customer.com" }
+                    { "5556c45e-395d-402b-b765-750666b092fc", 0, "b65be569-e85a-4a74-a7bc-425b7635069f", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7264), "owner6@owner.com", true, "Javier", "Gonzalez", false, null, "OWNER6@OWNER.COM", "OWNER6@OWNER.COM", "AQAAAAEAACcQAAAAENORYL85DBnpz2OTDA/jqn1/sqKvfn9ypRUrpw8C5h1z8WhECXcfKvYfPnocY7cx0g==", null, false, "profilePicURL", "35a42130-bf0d-4f5a-85a4-032f27fb34fe", false, "owner6@owner.com" },
+                    { "60223fcf-5fa4-434f-a4ba-9389a4f571a0", 0, "4f65a024-e0d8-424b-95be-4c4966e0ed73", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7299), "owner8@owner.com", true, "John", "Chang", false, null, "OWNER8@OWNER.COM", "OWNER8@OWNER.COM", "AQAAAAEAACcQAAAAEPAg0W2xIHfKE0Qo9ekipH4Ws4boG8J3WafIihgeIw3bkVt8HuiXn1ziYG7N2SiOsQ==", null, false, "profilePicURL", "5caf143b-da62-492e-9c4c-3a631cdd77b9", false, "owner8@owner.com" },
+                    { "610ab053-2c5a-451b-9634-03b59ea4a473", 0, "169c576b-71f5-4ef3-8fcb-3479eca00a65", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7347), "owner9@owner.com", true, "Lily", "May", false, null, "OWNER9@OWNER.COM", "OWNER9@OWNER.COM", "AQAAAAEAACcQAAAAECVovqGuA1YQfaRvscY2NNIkcWwMpjpBXR0M8DX8WUxBI+csFc27FLYYtiZEoYLrfQ==", null, false, "profilePicURL", "cf814eb1-d2f0-47ac-8dbd-54482814dc77", false, "owner9@owner.com" },
+                    { "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c", 0, "b26c078d-4fca-474d-9a24-a10a61a69c88", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7283), "owner7@owner.com", true, "Marco", "Cruz", false, null, "OWNER7@OWNER.COM", "OWNER7@OWNER.COM", "AQAAAAEAACcQAAAAEBVv8Uq/aPgSdpU2RqHFEpK4qjEIuqdxGJH74XDaZLJNlMmjs6nvMgWm5hOYmjmyzw==", null, false, "profilePicURL", "2f09438a-adca-4bed-8a26-4ac7ae834dd3", false, "owner7@owner.com" },
+                    { "8980e4ca-2628-490d-840a-9c9414ab9f33", 0, "d135f42d-5dae-407f-a9d4-c4ec642f61cc", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7364), "owner10@owner.com", true, "Jack", "Marston", false, null, "OWNER10@OWNER.COM", "OWNER10@OWNER.COM", "AQAAAAEAACcQAAAAEGWUPhlBTkUPIHt+6T0Gr5BWNKWisEa5YoXyy3lNKEUdkg5LgbTBoLvnDukVNk9AAg==", null, false, "profilePicURL", "69434a7f-f6f5-4f2f-9aec-4594d2e1bd27", false, "owner10@owner.com" },
+                    { "96256cfb-df20-4a1f-8898-f06f634a17d7", 0, "4effdcbd-6484-43ad-bab0-83c882123a07", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7587), "customer10@customer.com", true, "Bryony", "Becker", false, null, "CUSTOMER10@CUSTOMER.COM", "CUSTOMER10@CUSTOMER.COM", "AQAAAAEAACcQAAAAEKVcchmWhHnjalMY5hraREK3IBwyNUlTPgJtImH1Xep8pN+5GBKrX9M+vPehNZBtsw==", null, false, "profilePicURL", "84717c40-eafd-40e7-b0a1-96e7e0937a09", false, "customer10@customer.com" },
+                    { "a9b6dc74-38a5-4794-a703-59204f461adb", 0, "a0a0780d-c13c-4218-8b33-03da54eec896", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7228), "owner4@owner.com", true, "Gabriel", "Peric", false, null, "OWNER4@OWNER.COM", "OWNER4@OWNER.COM", "AQAAAAEAACcQAAAAEIU8yzY8qyVdf4in9DudUM7iY05JOmjhrqNJaZTHIOkQ0gYQKHoTWY13kTGMG0cNCg==", null, false, "profilePicURL", "d795d540-219a-4312-bbae-4d3b0558c2d5", false, "owner4@owner.com" },
+                    { "bfa19e5f-4529-4276-bde8-8e6d3de2c423", 0, "13ea44e7-8dae-4bb7-976e-64a952c9004c", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7435), "customer4@customer.com", true, "Ava-Rose", "Chapman", false, null, "CUSTOMER4@CUSTOMER.COM", "CUSTOMER4@CUSTOMER.COM", "AQAAAAEAACcQAAAAEEt9bp+SvbENnxoXtYu72VAdxwMKe5g/YAF/QVJgJ9NuMwu4noRxkgl1NyozVkwOvg==", null, false, "profilePicURL", "eede314b-fa5b-4b39-927c-59c9959e9990", false, "customer4@customer.com" },
+                    { "c0102fde-8991-4e2a-bfca-cdda51f13a66", 0, "3a2fa07d-ff91-407f-a2d7-fa01172115d2", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7537), "admin@admin.com", true, "Admin", "Admin", false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEBV2gxBxN+2LPP5ANXjkeemF30oRfgXO4wGpm0FJGctaak2mpi7trvDcNdv6A4BgiQ==", null, false, "profilePicURL", "d6172bcd-0893-437a-b705-43122add4781", false, "admin@admin.com" },
+                    { "c21bf410-3e22-4720-b01a-f2d91191a222", 0, "87fe1bfb-3589-4d5e-a44e-c8adcb6d5214", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7453), "customer5@customer.com", true, "Sienna", "Barnett", false, null, "CUSTOMER5@CUSTOMER.COM", "CUSTOMER5@CUSTOMER.COM", "AQAAAAEAACcQAAAAEPTIsNjNI4VW6S0pzH9kB5VfZHk74SQc3cCgqON1IwRjxBAP2+fzO/oEeoFQ5AGANw==", null, false, "profilePicURL", "0f9d29a6-6105-4649-a166-0762aee21984", false, "customer5@customer.com" },
+                    { "e7d88cb7-a424-4795-8965-17273642b773", 0, "8e7b2c00-3070-485c-8e23-06551a9cff1f", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7571), "customer9@customer.com", true, "Sadia", "Francis", false, null, "CUSTOMER9@CUSTOMER.COM", "CUSTOMER9@CUSTOMER.COM", "AQAAAAEAACcQAAAAEIVtjbANdiz7i8QcOVjuzKAK+9HGsky+s4UtyNTDiyewjBW/S9CIvbwqrU2/uaYdcQ==", null, false, "profilePicURL", "7ca95f02-1224-4ae7-a823-0e9243192c8b", false, "customer9@customer.com" },
+                    { "ea811464-0c63-4c45-ac26-d4eb5bff334f", 0, "9bfe5e83-4173-4624-ba5d-f7cd07563c4f", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7246), "owner5@owner.com", true, "Percy", "Jackson", false, null, "OWNER5@OWNER.COM", "OWNER5@OWNER.COM", "AQAAAAEAACcQAAAAENkfljFnlRsfqt+a9BiR7t/NUuFuatOskbTpHVmrsbm5soJCmLrkaq2O7sOlYdIVqw==", null, false, "profilePicURL", "4b0d4e53-c70f-4118-8c78-b63d6adb1548", false, "owner5@owner.com" },
+                    { "f338b628-feaf-4a03-95ad-defb7aec5c83", 0, "096f10f9-3070-45c1-824d-1e96bc810fdc", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7537), "customer7@customer.com", true, "Madiha", "Brock", false, null, "CUSTOMER7@CUSTOMER.COM", "CUSTOMER7@CUSTOMER.COM", "AQAAAAEAACcQAAAAECY+X3TYP+EMktbvCs6tSNS/EVWZw61ITebbgHYUV+W5HD+oXhkXpfty4fLr2LkBvQ==", null, false, "profilePicURL", "d6172bcd-0893-437a-b705-43122add4781", false, "customer7@customer.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -314,26 +314,26 @@ namespace Cinema.Data.Migrations
                 values: new object[,]
                 {
                     { 1, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Experience the magic of movies under the stars at Starlight Cinemas! Our open-air theaters offer a unique and enchanting movie-going experience that combines the joy of cinema with the beauty of the night sky. Founded on January 15, 1985, Starlight Cinemas has been a cherished destination for families, couples, and friends seeking to create unforgettable memories. With 50 rows and 30 columns, our theaters accommodate a large audience while maintaining an intimate atmosphere. Grab your popcorn and recline in our comfortable seats as you immerse yourself in a world of cinematic wonder and twinkling constellations.", new DateTime(1985, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "StarlightCinemas.jpg", "Starlight Cinemas", "2055e8c8-5a8e-49c3-9f0a-a987700af2ee", 30, 50, "#000000" },
-                    { 2, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Cineplex Delights, the perfect destination for delightful movies the whole family can enjoy! Established on March 5, 1999, our mission has been to bring joy, laughter, and heartwarming stories to our audiences. With 40 rows and 40 columns, our theaters provide a spacious yet cozy environment for a truly immersive cinematic experience. From the latest blockbusters to timeless classics, we curate a diverse selection of films to cater to every taste. Our friendly staff, comfortable seating, and delicious concessions ensure that your time at Cineplex Delights will be nothing short of delightful!", new DateTime(1999, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "CineplexDelights.jpg", "Cineplex Delights", "8980e4ca-2628-490d-840a-9c9414ab9f33", 40, 40, "#000000" },
-                    { 3, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Step into the world of cinematic splendor at Golden Screen Theatres, where every movie shines like gold. Established on December 2, 1977, we take pride in our long-standing tradition of delivering exceptional film experiences to our patrons. With 60 rows and 45 columns, our theaters boast a grand ambiance, befitting the finest movie presentations. Our state-of-the-art facilities, crystal-clear audio, and high-definition visuals enhance your enjoyment of every film. Whether you're a film connoisseur or a casual movie-goer, Golden Screen Theatres promises to elevate your love for the silver screen to dazzling new heights.", new DateTime(1977, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "GoldenScreenTheatres.jpg", "Golden Screen Theatres", "a9b6dc74-38a5-4794-a703-59204f461adb", 45, 60, "#000000" },
-                    { 4, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Relive the golden age of cinema at Retro Rewind Cinema! Founded on October 20, 2005, our theater is a tribute to the timeless classics that continue to captivate audiences across generations. Featuring 30 rows and 60 columns, our spacious yet cozy auditoriums ensure an intimate connection with the films of yesteryears. From black-and-white masterpieces to beloved blockbusters, every screening is an immersive journey into cinematic history. Our vintage decor and classic movie posters transport you back in time as you savor the magic of the silver screen. Step into a bygone era at Retro Rewind Cinema!", new DateTime(2005, 10, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "RetroRewindCinema.jpg", "Retro Rewind Cinema", "60223fcf-5fa4-434f-a4ba-9389a4f571a0", 60, 30, "#000000" },
-                    { 5, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Embark on thrilling cinematic adventures at Cinematic Adventures, where every movie takes you on a journey of excitement, emotion, and wonder. Established on June 12, 2010, our theater is dedicated to curating a diverse selection of films that cater to every taste and preference. With 45 rows and 35 columns, our spacious theaters ensure maximum comfort and an enjoyable movie-going experience. Whether you're a fan of action-packed blockbusters, heartwarming dramas, or thought-provoking indies, Cinematic Adventures has something special in store for you. Let the magic of cinema sweep you away on an unforgettable adventure!", new DateTime(2010, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "CinematicAdventures.jpg", "Cinematic Adventures", "a9b6dc74-38a5-4794-a703-59204f461adb", 35, 45, "#000000" },
-                    { 6, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "At City Lights Cinemas, movies come to life and brighten up the city! Founded on July 7, 1990, our theater has been a beacon of entertainment and culture, enriching the lives of our diverse audience. With 50 rows and 30 columns, our theaters strike the perfect balance between an intimate atmosphere and a vibrant communal experience. From heartwarming romances to pulse-pounding thrillers, we curate a rich selection of films that cater to various tastes. Join us for an unforgettable evening of cinematic joy, as the city lights dance in harmony with the magic of the silver screen.", new DateTime(1990, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "CityLightsCinemas.jpg", "City Lights Cinemas", "2055e8c8-5a8e-49c3-9f0a-a987700af2ee", 30, 50, "#000000" },
-                    { 7, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to the Silver Screen Showcase, where every movie presentation is a shining gem of cinematic brilliance. Established on April 28, 1982, our theater has been a destination for film enthusiasts seeking extraordinary cinematic experiences. With 55 rows and 25 columns, our theaters offer an intimate and captivating setting for movie-goers to lose themselves in the art of storytelling. From critically acclaimed masterpieces to avant-garde works, every screening is a celebration of the finest films from around the world. Come, bask in the luminous glow of cinema at the Silver Screen Showcase!", new DateTime(1982, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "SilverScreenShowcase.jpg", "Silver Screen Showcase", "2055e8c8-5a8e-49c3-9f0a-a987700af2ee", 25, 55, "#000000" },
-                    { 8, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Experience the magic of cinematic festivals at Festival Flicks, where we celebrate the art of cinema like no other. Founded on September 8, 2003, our theater is dedicated to hosting special film festivals that showcase diverse perspectives, cultures, and genres. With 40 rows and 40 columns, our theaters offer a comfortable and inclusive space for cinephiles to immerse themselves in extraordinary storytelling. From avant-garde experimental films to heartwarming documentaries, every festival presents a unique and thought-provoking experience. Join us in our love for the silver screen and celebrate the beauty of cinema at Festival Flicks!", new DateTime(2003, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), "FestivalFlicks.jpg", "Festival Flicks", "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c", 40, 40, "#000000" },
-                    { 9, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Embark on an otherworldly cinematic journey at Glamour Galaxy Theatres, where movies transport you to realms beyond imagination. Founded on November 19, 1995, our theater is a gateway to captivating narratives set in distant galaxies and enchanting fantasy worlds. With 60 rows and 20 columns, our theaters provide a spacious and immersive setting for grand space operas and dazzling visual effects. From mind-bending sci-fi epics to magical tales of cosmic wonder, every screening at Glamour Galaxy Theatres promises to be an unforgettable adventure through the infinite possibilities of storytelling on the silver screen.", new DateTime(1995, 11, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "GlamourGalaxyTheatres.jpg", "Glamour Galaxy Theatres", "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c", 20, 60, "#000000" },
-                    { 10, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to the Majestic Movie House, where the grandeur of cinema comes to life like never before. Established on August 3, 1970, our theater is a testament to the enduring power of movies in shaping culture and inspiring hearts. With 35 rows and 50 columns, our theaters offer an intimate and inviting space to experience films in all their splendor. From epic historical dramas to mesmerizing fantasies, every screening at Majestic Movie House is a larger-than-life spectacle. Come, be enthralled by the magic of storytelling, as the curtains rise and the majesty of cinema unfolds before you.", new DateTime(1970, 8, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "MajesticMovieHouse.jpg", "Majestic Movie House", "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c", 50, 35, "#000000" },
-                    { 11, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Step into Dreamland Cinemas, where your wildest dreams come to life on the silver screen. Established on May 22, 2008, our theater is dedicated to curating an extraordinary collection of films that transport you to mesmerizing realms and heartwarming tales. With 30 rows and 60 columns, our theaters offer a spacious and enchanting ambiance for a truly immersive cinematic experience. From whimsical animations to captivating fantasies, every screening at Dreamland Cinemas is a delightful journey into the realm of imagination. Unleash your inner child and embark on a magical adventure with us!", new DateTime(2008, 5, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "DreamlandCinemas.jpg", "Dreamland Cinemas", "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c", 60, 30, "#000000" },
-                    { 12, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Cinema Paradiso, a paradise for movie enthusiasts seeking a truly enchanting cinematic experience. Founded on December 12, 1988, our theater is dedicated to curating an eclectic mix of films that cater to every taste and preference. With 40 rows and 45 columns, our theaters strike the perfect balance between intimacy and grandeur, ensuring an immersive and unforgettable movie-going experience. From heartwarming romances to mind-bending mysteries, every screening at Cinema Paradiso is a celebration of the art of storytelling. Step into our cinematic paradise and let the magic of movies transport you to wondrous realms.", new DateTime(1988, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "CinemaParadiso.jpg", "Cinema Paradiso", "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c", 45, 40, "#000000" },
-                    { 13, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Prepare for epic cinematic journeys at Epic Adventure Theatres, where larger-than-life stories unfold before your eyes. Established on January 30, 2002, our theater is dedicated to showcasing the most awe-inspiring adventures ever captured on celluloid. With 60 rows and 25 columns, our theaters offer a spacious and immersive setting for blockbuster spectacles and heroic tales. From thrilling action sequences to breathtaking visual effects, every screening at Epic Adventure Theatres is a heart-pounding rollercoaster ride. Join us as we embark on epic quests, conquer new frontiers, and witness the triumph of the human spirit on the silver screen.", new DateTime(2002, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), "EpicAdventureTheatres.jpg", "Epic Adventure Theatres", "8980e4ca-2628-490d-840a-9c9414ab9f33", 25, 60, "#000000" },
-                    { 14, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Sunset Screenings, where every movie ends with a breathtaking sunset, adding an extra touch of magic to your cinema experience. Founded on July 18, 1993, our theater is dedicated to creating unforgettable moments and heartwarming memories for our audiences. With 55 rows and 30 columns, our theaters strike the perfect balance between an intimate atmosphere and a communal sense of wonder. From romantic dramas to feel-good comedies, every screening at Sunset Screenings is a journey of emotions. Join us as we bask in the glow of cinematic brilliance and savor the beauty of sunsets on the silver screen.", new DateTime(1993, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "SunsetScreenings.jpg", "Sunset Screenings", "156fc675-02de-4250-9edb-869c85e13e61", 30, 55, "#000000" },
-                    { 15, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Step into the world of Classic Cinephile, where timeless classics stand the test of time and continue to captivate audiences through the ages. Established on March 7, 1965, our theater is a tribute to the artistry and brilliance of films that have shaped the course of cinematic history. With 50 rows and 30 columns, our theaters offer a comfortable and intimate setting for cinephiles to immerse themselves in the golden era of cinema. From iconic black-and-white masterpieces to beloved musicals, every screening at Classic Cinephile is a celebration of the finest storytelling in the annals of film.", new DateTime(1965, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "ClassicCinephile.jpg", "Classic Cinephile", "ea811464-0c63-4c45-ac26-d4eb5bff334f", 30, 50, "#000000" },
-                    { 16, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Moonlight Movies, where enchanting movies are paired with the mesmerizing glow of moonlight, creating a magical cinematic experience like no other. Founded on October 10, 2011, our theater is dedicated to curating a diverse selection of films that cater to various tastes and preferences. With 45 rows and 35 columns, our theaters offer a cozy and intimate ambiance for a truly immersive movie-going experience. From heartwarming dramas to soul-stirring romances, every screening at Moonlight Movies is a journey of emotions. Join us as we revel in the magic of movies under the shimmering light of the moon.", new DateTime(2011, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "MoonlightMovies.jpg", "Moonlight Movies", "ea811464-0c63-4c45-ac26-d4eb5bff334f", 35, 45, "#000000" },
-                    { 17, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Step into the future of cinema at Vista Vision Theatres, where every movie presentation is a visionary experience. Founded on June 5, 1998, our theater is dedicated to pushing the boundaries of visual storytelling and cinematic technology. With 40 rows and 40 columns, our theaters provide a spacious and cutting-edge setting for immersive cinematic adventures. From mind-bending sci-fi epics to visually stunning animations, every screening at Vista Vision Theatres is a glimpse into the future of entertainment. Join us as we embrace innovation and witness the evolution of cinema on the silver screen.", new DateTime(1998, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "VistaVisionTheatres.jpg", "Vista Vision Theatres", "218dcf68-aa10-4c63-994f-50853fb19296", 40, 40, "#000000" },
-                    { 18, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Luminous Lumiere Cinema, where movies shine with the brilliance of luminescence. Founded on January 1, 1974, our theater is dedicated to curating a collection of visually stunning films that captivate your senses and ignite your imagination. With 30 rows and 50 columns, our theaters offer an intimate and captivating ambiance for movie-goers to experience the magic of light and shadow. From mesmerizing art-house creations to visually breathtaking documentaries, every screening at Luminous Lumiere Cinema is a celebration of the art of visual storytelling. Come, be dazzled by the luminous wonders of cinema.", new DateTime(1974, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "LuminousLumiereCinema.jpg", "Luminous Lumiere Cinema", "2055e8c8-5a8e-49c3-9f0a-a987700af2ee", 50, 30, "#000000" },
-                    { 19, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Enter the realm of enchantment at Magic Lantern Theatres, where movies are like magical lanterns that illuminate your imagination. Founded on November 11, 1983, our theater is dedicated to curating an extraordinary collection of films that transport you to worlds of fantasy, mystery, and wonder. With 50 rows and 35 columns, our theaters offer a spacious and immersive setting for cinematic adventures of every genre. From mystical tales to captivating animations, every screening at Magic Lantern Theatres is a journey into the extraordinary. Come, let the magic of cinema ignite your dreams and kindle the fire of imagination.", new DateTime(1983, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "MagicLanternTheatres.jpg", "Magic Lantern Theatres", "8980e4ca-2628-490d-840a-9c9414ab9f33", 35, 50, "#000000" },
-                    { 20, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Escape into the realm of dreams at Dreamscape Theatres, where movies blur the lines between reality and imagination. Founded on November 8, 2007, our theater is dedicated to curating a collection of mind-bending films that challenge perceptions and inspire wonder. With 35 rows and 50 columns, our theaters provide a comfortable and immersive space for a cinematic journey through the subconscious. From surreal art-house creations to thought-provoking psychological thrillers, every screening at Dreamscape Theatres is a voyage into the depths of the human mind.", new DateTime(2007, 11, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), "DreamscapeTheatres.jpg", "Dreamscape Theatres", "2055e8c8-5a8e-49c3-9f0a-a987700af2ee", 50, 35, "#000000" },
-                    { 21, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Cinema Royale, where every movie presentation is a royal affair. Founded on December 10, 1991, our theater exudes elegance and sophistication, creating a majestic setting for cinematic experiences fit for royalty. With 60 rows and 25 columns, our spacious theaters ensure maximum comfort and an unparalleled view of the silver screen. From regal historical dramas to opulent period pieces, every screening at Cinema Royale is a celebration of grandeur and the finest storytelling. Join us as we roll out the red carpet and immerse ourselves in the splendor of cinema.", new DateTime(1991, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "CinemaRoyale.jpg", "Cinema Royale", "2055e8c8-5a8e-49c3-9f0a-a987700af2ee", 25, 60, "#000000" }
+                    { 2, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Cineplex Delights, the perfect destination for delightful movies the whole family can enjoy! Established on March 5, 1999, our mission has been to bring joy, laughter, and heartwarming stories to our audiences. With 40 rows and 40 columns, our theaters provide a spacious yet cozy environment for a truly immersive cinematic experience. From the latest blockbusters to timeless classics, we curate a diverse selection of films to cater to every taste. Our friendly staff, comfortable seating, and delicious concessions ensure that your time at Cineplex Delights will be nothing short of delightful!", new DateTime(1999, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "CineplexDelights.jpg", "Cineplex Delights", "ea811464-0c63-4c45-ac26-d4eb5bff334f", 40, 40, "#000000" },
+                    { 3, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Step into the world of cinematic splendor at Golden Screen Theatres, where every movie shines like gold. Established on December 2, 1977, we take pride in our long-standing tradition of delivering exceptional film experiences to our patrons. With 60 rows and 45 columns, our theaters boast a grand ambiance, befitting the finest movie presentations. Our state-of-the-art facilities, crystal-clear audio, and high-definition visuals enhance your enjoyment of every film. Whether you're a film connoisseur or a casual movie-goer, Golden Screen Theatres promises to elevate your love for the silver screen to dazzling new heights.", new DateTime(1977, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "GoldenScreenTheatres.jpg", "Golden Screen Theatres", "2055e8c8-5a8e-49c3-9f0a-a987700af2ee", 45, 60, "#000000" },
+                    { 4, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Relive the golden age of cinema at Retro Rewind Cinema! Founded on October 20, 2005, our theater is a tribute to the timeless classics that continue to captivate audiences across generations. Featuring 30 rows and 60 columns, our spacious yet cozy auditoriums ensure an intimate connection with the films of yesteryears. From black-and-white masterpieces to beloved blockbusters, every screening is an immersive journey into cinematic history. Our vintage decor and classic movie posters transport you back in time as you savor the magic of the silver screen. Step into a bygone era at Retro Rewind Cinema!", new DateTime(2005, 10, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "RetroRewindCinema.jpg", "Retro Rewind Cinema", "a9b6dc74-38a5-4794-a703-59204f461adb", 60, 30, "#000000" },
+                    { 5, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Embark on thrilling cinematic adventures at Cinematic Adventures, where every movie takes you on a journey of excitement, emotion, and wonder. Established on June 12, 2010, our theater is dedicated to curating a diverse selection of films that cater to every taste and preference. With 45 rows and 35 columns, our spacious theaters ensure maximum comfort and an enjoyable movie-going experience. Whether you're a fan of action-packed blockbusters, heartwarming dramas, or thought-provoking indies, Cinematic Adventures has something special in store for you. Let the magic of cinema sweep you away on an unforgettable adventure!", new DateTime(2010, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "CinematicAdventures.jpg", "Cinematic Adventures", "610ab053-2c5a-451b-9634-03b59ea4a473", 35, 45, "#000000" },
+                    { 6, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "At City Lights Cinemas, movies come to life and brighten up the city! Founded on July 7, 1990, our theater has been a beacon of entertainment and culture, enriching the lives of our diverse audience. With 50 rows and 30 columns, our theaters strike the perfect balance between an intimate atmosphere and a vibrant communal experience. From heartwarming romances to pulse-pounding thrillers, we curate a rich selection of films that cater to various tastes. Join us for an unforgettable evening of cinematic joy, as the city lights dance in harmony with the magic of the silver screen.", new DateTime(1990, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "CityLightsCinemas.jpg", "City Lights Cinemas", "ea811464-0c63-4c45-ac26-d4eb5bff334f", 30, 50, "#000000" },
+                    { 7, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to the Silver Screen Showcase, where every movie presentation is a shining gem of cinematic brilliance. Established on April 28, 1982, our theater has been a destination for film enthusiasts seeking extraordinary cinematic experiences. With 55 rows and 25 columns, our theaters offer an intimate and captivating setting for movie-goers to lose themselves in the art of storytelling. From critically acclaimed masterpieces to avant-garde works, every screening is a celebration of the finest films from around the world. Come, bask in the luminous glow of cinema at the Silver Screen Showcase!", new DateTime(1982, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "SilverScreenShowcase.jpg", "Silver Screen Showcase", "a9b6dc74-38a5-4794-a703-59204f461adb", 25, 55, "#000000" },
+                    { 8, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Experience the magic of cinematic festivals at Festival Flicks, where we celebrate the art of cinema like no other. Founded on September 8, 2003, our theater is dedicated to hosting special film festivals that showcase diverse perspectives, cultures, and genres. With 40 rows and 40 columns, our theaters offer a comfortable and inclusive space for cinephiles to immerse themselves in extraordinary storytelling. From avant-garde experimental films to heartwarming documentaries, every festival presents a unique and thought-provoking experience. Join us in our love for the silver screen and celebrate the beauty of cinema at Festival Flicks!", new DateTime(2003, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), "FestivalFlicks.jpg", "Festival Flicks", "610ab053-2c5a-451b-9634-03b59ea4a473", 40, 40, "#000000" },
+                    { 9, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Embark on an otherworldly cinematic journey at Glamour Galaxy Theatres, where movies transport you to realms beyond imagination. Founded on November 19, 1995, our theater is a gateway to captivating narratives set in distant galaxies and enchanting fantasy worlds. With 60 rows and 20 columns, our theaters provide a spacious and immersive setting for grand space operas and dazzling visual effects. From mind-bending sci-fi epics to magical tales of cosmic wonder, every screening at Glamour Galaxy Theatres promises to be an unforgettable adventure through the infinite possibilities of storytelling on the silver screen.", new DateTime(1995, 11, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "GlamourGalaxyTheatres.jpg", "Glamour Galaxy Theatres", "610ab053-2c5a-451b-9634-03b59ea4a473", 20, 60, "#000000" },
+                    { 10, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to the Majestic Movie House, where the grandeur of cinema comes to life like never before. Established on August 3, 1970, our theater is a testament to the enduring power of movies in shaping culture and inspiring hearts. With 35 rows and 50 columns, our theaters offer an intimate and inviting space to experience films in all their splendor. From epic historical dramas to mesmerizing fantasies, every screening at Majestic Movie House is a larger-than-life spectacle. Come, be enthralled by the magic of storytelling, as the curtains rise and the majesty of cinema unfolds before you.", new DateTime(1970, 8, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "MajesticMovieHouse.jpg", "Majestic Movie House", "ea811464-0c63-4c45-ac26-d4eb5bff334f", 50, 35, "#000000" },
+                    { 11, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Step into Dreamland Cinemas, where your wildest dreams come to life on the silver screen. Established on May 22, 2008, our theater is dedicated to curating an extraordinary collection of films that transport you to mesmerizing realms and heartwarming tales. With 30 rows and 60 columns, our theaters offer a spacious and enchanting ambiance for a truly immersive cinematic experience. From whimsical animations to captivating fantasies, every screening at Dreamland Cinemas is a delightful journey into the realm of imagination. Unleash your inner child and embark on a magical adventure with us!", new DateTime(2008, 5, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "DreamlandCinemas.jpg", "Dreamland Cinemas", "60223fcf-5fa4-434f-a4ba-9389a4f571a0", 60, 30, "#000000" },
+                    { 12, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Cinema Paradiso, a paradise for movie enthusiasts seeking a truly enchanting cinematic experience. Founded on December 12, 1988, our theater is dedicated to curating an eclectic mix of films that cater to every taste and preference. With 40 rows and 45 columns, our theaters strike the perfect balance between intimacy and grandeur, ensuring an immersive and unforgettable movie-going experience. From heartwarming romances to mind-bending mysteries, every screening at Cinema Paradiso is a celebration of the art of storytelling. Step into our cinematic paradise and let the magic of movies transport you to wondrous realms.", new DateTime(1988, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "CinemaParadiso.jpg", "Cinema Paradiso", "ea811464-0c63-4c45-ac26-d4eb5bff334f", 45, 40, "#000000" },
+                    { 13, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Prepare for epic cinematic journeys at Epic Adventure Theatres, where larger-than-life stories unfold before your eyes. Established on January 30, 2002, our theater is dedicated to showcasing the most awe-inspiring adventures ever captured on celluloid. With 60 rows and 25 columns, our theaters offer a spacious and immersive setting for blockbuster spectacles and heroic tales. From thrilling action sequences to breathtaking visual effects, every screening at Epic Adventure Theatres is a heart-pounding rollercoaster ride. Join us as we embark on epic quests, conquer new frontiers, and witness the triumph of the human spirit on the silver screen.", new DateTime(2002, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), "EpicAdventureTheatres.jpg", "Epic Adventure Theatres", "60223fcf-5fa4-434f-a4ba-9389a4f571a0", 25, 60, "#000000" },
+                    { 14, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Sunset Screenings, where every movie ends with a breathtaking sunset, adding an extra touch of magic to your cinema experience. Founded on July 18, 1993, our theater is dedicated to creating unforgettable moments and heartwarming memories for our audiences. With 55 rows and 30 columns, our theaters strike the perfect balance between an intimate atmosphere and a communal sense of wonder. From romantic dramas to feel-good comedies, every screening at Sunset Screenings is a journey of emotions. Join us as we bask in the glow of cinematic brilliance and savor the beauty of sunsets on the silver screen.", new DateTime(1993, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "SunsetScreenings.jpg", "Sunset Screenings", "a9b6dc74-38a5-4794-a703-59204f461adb", 30, 55, "#000000" },
+                    { 15, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Step into the world of Classic Cinephile, where timeless classics stand the test of time and continue to captivate audiences through the ages. Established on March 7, 1965, our theater is a tribute to the artistry and brilliance of films that have shaped the course of cinematic history. With 50 rows and 30 columns, our theaters offer a comfortable and intimate setting for cinephiles to immerse themselves in the golden era of cinema. From iconic black-and-white masterpieces to beloved musicals, every screening at Classic Cinephile is a celebration of the finest storytelling in the annals of film.", new DateTime(1965, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "ClassicCinephile.jpg", "Classic Cinephile", "5556c45e-395d-402b-b765-750666b092fc", 30, 50, "#000000" },
+                    { 16, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Moonlight Movies, where enchanting movies are paired with the mesmerizing glow of moonlight, creating a magical cinematic experience like no other. Founded on October 10, 2011, our theater is dedicated to curating a diverse selection of films that cater to various tastes and preferences. With 45 rows and 35 columns, our theaters offer a cozy and intimate ambiance for a truly immersive movie-going experience. From heartwarming dramas to soul-stirring romances, every screening at Moonlight Movies is a journey of emotions. Join us as we revel in the magic of movies under the shimmering light of the moon.", new DateTime(2011, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "MoonlightMovies.jpg", "Moonlight Movies", "2055e8c8-5a8e-49c3-9f0a-a987700af2ee", 35, 45, "#000000" },
+                    { 17, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Step into the future of cinema at Vista Vision Theatres, where every movie presentation is a visionary experience. Founded on June 5, 1998, our theater is dedicated to pushing the boundaries of visual storytelling and cinematic technology. With 40 rows and 40 columns, our theaters provide a spacious and cutting-edge setting for immersive cinematic adventures. From mind-bending sci-fi epics to visually stunning animations, every screening at Vista Vision Theatres is a glimpse into the future of entertainment. Join us as we embrace innovation and witness the evolution of cinema on the silver screen.", new DateTime(1998, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "VistaVisionTheatres.jpg", "Vista Vision Theatres", "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c", 40, 40, "#000000" },
+                    { 18, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Luminous Lumiere Cinema, where movies shine with the brilliance of luminescence. Founded on January 1, 1974, our theater is dedicated to curating a collection of visually stunning films that captivate your senses and ignite your imagination. With 30 rows and 50 columns, our theaters offer an intimate and captivating ambiance for movie-goers to experience the magic of light and shadow. From mesmerizing art-house creations to visually breathtaking documentaries, every screening at Luminous Lumiere Cinema is a celebration of the art of visual storytelling. Come, be dazzled by the luminous wonders of cinema.", new DateTime(1974, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "LuminousLumiereCinema.jpg", "Luminous Lumiere Cinema", "218dcf68-aa10-4c63-994f-50853fb19296", 50, 30, "#000000" },
+                    { 19, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Enter the realm of enchantment at Magic Lantern Theatres, where movies are like magical lanterns that illuminate your imagination. Founded on November 11, 1983, our theater is dedicated to curating an extraordinary collection of films that transport you to worlds of fantasy, mystery, and wonder. With 50 rows and 35 columns, our theaters offer a spacious and immersive setting for cinematic adventures of every genre. From mystical tales to captivating animations, every screening at Magic Lantern Theatres is a journey into the extraordinary. Come, let the magic of cinema ignite your dreams and kindle the fire of imagination.", new DateTime(1983, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "MagicLanternTheatres.jpg", "Magic Lantern Theatres", "a9b6dc74-38a5-4794-a703-59204f461adb", 35, 50, "#000000" },
+                    { 20, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Escape into the realm of dreams at Dreamscape Theatres, where movies blur the lines between reality and imagination. Founded on November 8, 2007, our theater is dedicated to curating a collection of mind-bending films that challenge perceptions and inspire wonder. With 35 rows and 50 columns, our theaters provide a comfortable and immersive space for a cinematic journey through the subconscious. From surreal art-house creations to thought-provoking psychological thrillers, every screening at Dreamscape Theatres is a voyage into the depths of the human mind.", new DateTime(2007, 11, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), "DreamscapeTheatres.jpg", "Dreamscape Theatres", "a9b6dc74-38a5-4794-a703-59204f461adb", 50, 35, "#000000" },
+                    { 21, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Cinema Royale, where every movie presentation is a royal affair. Founded on December 10, 1991, our theater exudes elegance and sophistication, creating a majestic setting for cinematic experiences fit for royalty. With 60 rows and 25 columns, our spacious theaters ensure maximum comfort and an unparalleled view of the silver screen. From regal historical dramas to opulent period pieces, every screening at Cinema Royale is a celebration of grandeur and the finest storytelling. Join us as we roll out the red carpet and immerse ourselves in the splendor of cinema.", new DateTime(1991, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "CinemaRoyale.jpg", "Cinema Royale", "5556c45e-395d-402b-b765-750666b092fc", 25, 60, "#000000" }
                 });
 
             migrationBuilder.InsertData(
@@ -341,35 +341,35 @@ namespace Cinema.Data.Migrations
                 columns: new[] { "Id", "AccentColor", "ApprovalStatus", "BackgroundColor", "BoardColor", "ButtonBackgroundColor", "ButtonTextColor", "Description", "FoundedOn", "ImageUrl", "Name", "OwnerId", "SeatCols", "SeatRows", "TextColor" },
                 values: new object[,]
                 {
-                    { 22, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Step into the enchanting world of the Magical Movie Garden, where every film is a blossoming experience. Founded on April 4, 2009, our theater is dedicated to curating a collection of heartwarming films that touch the soul like gentle petals. With 50 rows and 35 columns, our theaters offer a cozy and inviting ambiance for a truly magical movie-going experience. From feel-good family adventures to whimsical fairy tales, every screening at the Magical Movie Garden is a delightful journey into the realm of imagination.", new DateTime(2009, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), "MagicalMovieGarden.jpg", "Magical Movie Garden", "2055e8c8-5a8e-49c3-9f0a-a987700af2ee", 35, 50, "#000000" },
-                    { 23, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Prepare to be starstruck at Starstruck Theatres, where movie stars grace the silver screen in all their glory. Founded on February 14, 1996, our theater is dedicated to showcasing blockbuster hits and the biggest names in Hollywood. With 40 rows and 40 columns, our theaters offer a glamorous and immersive setting for fans to indulge in the glitz and glam of showbiz. From red carpet premieres to action-packed adventures, every screening at Starstruck Theatres is a rendezvous with the stars.", new DateTime(1996, 2, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "StarstruckTheatres.jpg", "Starstruck Theatres", "ea811464-0c63-4c45-ac26-d4eb5bff334f", 40, 40, "#000000" },
-                    { 24, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Embark on a cosmic journey at Cosmic Cinema, where movies transport you to the farthest reaches of the universe. Founded on June 25, 2013, our theater is dedicated to curating a selection of visually stunning films that celebrate the wonders of space and astronomy. With 45 rows and 35 columns, our theaters offer an immersive and awe-inspiring setting for a cinematic encounter with the cosmos. From breathtaking space documentaries to epic sci-fi sagas, every screening at Cosmic Cinema is a celestial voyage like no other.", new DateTime(2013, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "CosmicCinema.jpg", "Cosmic Cinema", "ea811464-0c63-4c45-ac26-d4eb5bff334f", 35, 45, "#000000" },
-                    { 25, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Discover the charm of the past at Rustic Reel Theatres, where vintage movies come to life. Founded on October 29, 1989, our theater is a nostalgic haven for cinephiles seeking the magic of classic films. With 30 rows and 60 columns, our intimate and rustic auditoriums transport you back in time to the golden era of cinema. From black-and-white masterpieces to timeless romance, every screening at Rustic Reel Theatres is a heartwarming journey to the days of old Hollywood.", new DateTime(1989, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), "RusticReelTheatres.jpg", "Rustic Reel Theatres", "ea811464-0c63-4c45-ac26-d4eb5bff334f", 60, 30, "#000000" },
-                    { 26, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Fantasia Flicks, where movies take you on fantastical adventures beyond your wildest dreams. Founded on September 21, 2004, our theater is dedicated to curating a collection of magical films that ignite the spark of imagination. With 55 rows and 30 columns, our theaters offer a captivating and otherworldly setting for an unforgettable cinematic experience. From mythical quests to enchanting fairy tales, every screening at Fantasia Flicks is a portal to a realm of wonder and fantasy.", new DateTime(2004, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "FantasiaFlicks.jpg", "Fantasia Flicks", "a9b6dc74-38a5-4794-a703-59204f461adb", 30, 55, "#000000" },
-                    { 27, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Step into the Renaissance era at Renaissance Cinemas, where classic art and movies converge. Founded on July 12, 1997, our theater celebrates the artistry and creativity of both Renaissance masterpieces and cinematic wonders. With 50 rows and 30 columns, our theaters offer an elegant and immersive setting for an elevated movie-going experience. From historical dramas to opulent period pieces, every screening at Renaissance Cinemas is a tribute to the timeless beauty of art and storytelling.", new DateTime(1997, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "RenaissanceCinemas.jpg", "Renaissance Cinemas", "5556c45e-395d-402b-b765-750666b092fc", 30, 50, "#000000" },
-                    { 28, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Cinema Paradigm, where movies redefine the boundaries of storytelling and imagination. Founded on December 5, 2010, our theater is dedicated to curating avant-garde films that challenge norms and push the limits of creativity. With 60 rows and 20 columns, our theaters provide a cutting-edge and thought-provoking space for cinephiles to explore new cinematic frontiers. From experimental narratives to abstract visual poetry, every screening at Cinema Paradigm is a journey into the uncharted territories of cinema.", new DateTime(2010, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "CinemaParadigm.jpg", "Cinema Paradigm", "156fc675-02de-4250-9edb-869c85e13e61", 20, 60, "#000000" },
-                    { 29, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Enter the realm of enchantment at Enchanted Screenings, where every movie is a spellbinding experience. Founded on August 28, 1994, our theater is dedicated to curating a collection of magical films that transport you to whimsical worlds and extraordinary adventures. With 40 rows and 45 columns, our theaters offer a cozy and immersive setting for a truly enchanting movie-going experience. From fairy tale classics to fantastical animations, every screening at Enchanted Screenings is a journey into the magic of storytelling.", new DateTime(1994, 8, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "EnchantedScreenings.jpg", "Enchanted Screenings", "5556c45e-395d-402b-b765-750666b092fc", 45, 40, "#000000" },
-                    { 30, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Prepare for thrilling adventures at Adventureplex Cinemas, where every movie is an adrenaline-pumping experience. Founded on January 17, 2001, our theater is dedicated to showcasing action-packed blockbusters and high-octane escapades. With 45 rows and 35 columns, our theaters offer a dynamic and electrifying setting for cinematic feats of daring and bravery. From pulse-pounding thrillers to heart-stopping stunts, every screening at Adventureplex Cinemas is a thrilling ride you won't forget.", new DateTime(2001, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), "AdventureplexCinemas.jpg", "Adventureplex Cinemas", "ea811464-0c63-4c45-ac26-d4eb5bff334f", 35, 45, "#000000" },
-                    { 31, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Step into a world of vivid visions at Vivid Visions Cinema, where movies captivate your senses and immerse you in a tapestry of colors and emotions. Founded on May 13, 2012, our theater is dedicated to curating visually stunning films that celebrate the art of cinematography. With 55 rows and 30 columns, our theaters offer an intimate and mesmerizing ambiance for a truly immersive movie-going experience. From breathtaking landscapes to abstract visual poetry, every screening at Vivid Visions Cinema is a feast for the eyes and the soul.", new DateTime(2012, 5, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), "VividVisionsCinema.jpg", "Vivid Visions Cinema", "5556c45e-395d-402b-b765-750666b092fc", 30, 55, "#000000" },
-                    { 32, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Wonderscope Theatres, where every movie is a portal to magical worlds and breathtaking wonders. Founded on February 19, 2008, our theater is dedicated to curating a collection of imaginative films that spark curiosity and ignite the sense of wonder. With 30 rows and 60 columns, our theaters offer a spacious and enchanting setting for a truly captivating cinematic experience. From whimsical animations to awe-inspiring documentaries, every screening at Wonderscope Theatres is an exploration of the beauty and mysteries of our world.", new DateTime(2008, 2, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "WonderscopeTheatres.jpg", "Wonderscope Theatres", "2055e8c8-5a8e-49c3-9f0a-a987700af2ee", 60, 30, "#000000" },
-                    { 33, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Enter the realm of Cinemagic Emporium, where movies are like magical artifacts that weave stories of enchantment and heroism. Founded on September 30, 1993, our theater is dedicated to curating a diverse selection of films that celebrate the power of storytelling. With 40 rows and 40 columns, our theaters offer a spacious and immersive setting for cinephiles to embark on extraordinary journeys. From epic quests to tales of mythical creatures, every screening at Cinemagic Emporium is a treasure trove of cinematic delights.", new DateTime(1993, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), "CinemagicEmporium.jpg", "Cinemagic Emporium", "610ab053-2c5a-451b-9634-03b59ea4a473", 40, 40, "#000000" },
+                    { 22, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Step into the enchanting world of the Magical Movie Garden, where every film is a blossoming experience. Founded on April 4, 2009, our theater is dedicated to curating a collection of heartwarming films that touch the soul like gentle petals. With 50 rows and 35 columns, our theaters offer a cozy and inviting ambiance for a truly magical movie-going experience. From feel-good family adventures to whimsical fairy tales, every screening at the Magical Movie Garden is a delightful journey into the realm of imagination.", new DateTime(2009, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), "MagicalMovieGarden.jpg", "Magical Movie Garden", "218dcf68-aa10-4c63-994f-50853fb19296", 35, 50, "#000000" },
+                    { 23, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Prepare to be starstruck at Starstruck Theatres, where movie stars grace the silver screen in all their glory. Founded on February 14, 1996, our theater is dedicated to showcasing blockbuster hits and the biggest names in Hollywood. With 40 rows and 40 columns, our theaters offer a glamorous and immersive setting for fans to indulge in the glitz and glam of showbiz. From red carpet premieres to action-packed adventures, every screening at Starstruck Theatres is a rendezvous with the stars.", new DateTime(1996, 2, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "StarstruckTheatres.jpg", "Starstruck Theatres", "218dcf68-aa10-4c63-994f-50853fb19296", 40, 40, "#000000" },
+                    { 24, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Embark on a cosmic journey at Cosmic Cinema, where movies transport you to the farthest reaches of the universe. Founded on June 25, 2013, our theater is dedicated to curating a selection of visually stunning films that celebrate the wonders of space and astronomy. With 45 rows and 35 columns, our theaters offer an immersive and awe-inspiring setting for a cinematic encounter with the cosmos. From breathtaking space documentaries to epic sci-fi sagas, every screening at Cosmic Cinema is a celestial voyage like no other.", new DateTime(2013, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "CosmicCinema.jpg", "Cosmic Cinema", "156fc675-02de-4250-9edb-869c85e13e61", 35, 45, "#000000" },
+                    { 25, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Discover the charm of the past at Rustic Reel Theatres, where vintage movies come to life. Founded on October 29, 1989, our theater is a nostalgic haven for cinephiles seeking the magic of classic films. With 30 rows and 60 columns, our intimate and rustic auditoriums transport you back in time to the golden era of cinema. From black-and-white masterpieces to timeless romance, every screening at Rustic Reel Theatres is a heartwarming journey to the days of old Hollywood.", new DateTime(1989, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), "RusticReelTheatres.jpg", "Rustic Reel Theatres", "156fc675-02de-4250-9edb-869c85e13e61", 60, 30, "#000000" },
+                    { 26, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Fantasia Flicks, where movies take you on fantastical adventures beyond your wildest dreams. Founded on September 21, 2004, our theater is dedicated to curating a collection of magical films that ignite the spark of imagination. With 55 rows and 30 columns, our theaters offer a captivating and otherworldly setting for an unforgettable cinematic experience. From mythical quests to enchanting fairy tales, every screening at Fantasia Flicks is a portal to a realm of wonder and fantasy.", new DateTime(2004, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "FantasiaFlicks.jpg", "Fantasia Flicks", "5556c45e-395d-402b-b765-750666b092fc", 30, 55, "#000000" },
+                    { 27, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Step into the Renaissance era at Renaissance Cinemas, where classic art and movies converge. Founded on July 12, 1997, our theater celebrates the artistry and creativity of both Renaissance masterpieces and cinematic wonders. With 50 rows and 30 columns, our theaters offer an elegant and immersive setting for an elevated movie-going experience. From historical dramas to opulent period pieces, every screening at Renaissance Cinemas is a tribute to the timeless beauty of art and storytelling.", new DateTime(1997, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "RenaissanceCinemas.jpg", "Renaissance Cinemas", "218dcf68-aa10-4c63-994f-50853fb19296", 30, 50, "#000000" },
+                    { 28, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Cinema Paradigm, where movies redefine the boundaries of storytelling and imagination. Founded on December 5, 2010, our theater is dedicated to curating avant-garde films that challenge norms and push the limits of creativity. With 60 rows and 20 columns, our theaters provide a cutting-edge and thought-provoking space for cinephiles to explore new cinematic frontiers. From experimental narratives to abstract visual poetry, every screening at Cinema Paradigm is a journey into the uncharted territories of cinema.", new DateTime(2010, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "CinemaParadigm.jpg", "Cinema Paradigm", "2055e8c8-5a8e-49c3-9f0a-a987700af2ee", 20, 60, "#000000" },
+                    { 29, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Enter the realm of enchantment at Enchanted Screenings, where every movie is a spellbinding experience. Founded on August 28, 1994, our theater is dedicated to curating a collection of magical films that transport you to whimsical worlds and extraordinary adventures. With 40 rows and 45 columns, our theaters offer a cozy and immersive setting for a truly enchanting movie-going experience. From fairy tale classics to fantastical animations, every screening at Enchanted Screenings is a journey into the magic of storytelling.", new DateTime(1994, 8, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "EnchantedScreenings.jpg", "Enchanted Screenings", "ea811464-0c63-4c45-ac26-d4eb5bff334f", 45, 40, "#000000" },
+                    { 30, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Prepare for thrilling adventures at Adventureplex Cinemas, where every movie is an adrenaline-pumping experience. Founded on January 17, 2001, our theater is dedicated to showcasing action-packed blockbusters and high-octane escapades. With 45 rows and 35 columns, our theaters offer a dynamic and electrifying setting for cinematic feats of daring and bravery. From pulse-pounding thrillers to heart-stopping stunts, every screening at Adventureplex Cinemas is a thrilling ride you won't forget.", new DateTime(2001, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), "AdventureplexCinemas.jpg", "Adventureplex Cinemas", "a9b6dc74-38a5-4794-a703-59204f461adb", 35, 45, "#000000" },
+                    { 31, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Step into a world of vivid visions at Vivid Visions Cinema, where movies captivate your senses and immerse you in a tapestry of colors and emotions. Founded on May 13, 2012, our theater is dedicated to curating visually stunning films that celebrate the art of cinematography. With 55 rows and 30 columns, our theaters offer an intimate and mesmerizing ambiance for a truly immersive movie-going experience. From breathtaking landscapes to abstract visual poetry, every screening at Vivid Visions Cinema is a feast for the eyes and the soul.", new DateTime(2012, 5, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), "VividVisionsCinema.jpg", "Vivid Visions Cinema", "2055e8c8-5a8e-49c3-9f0a-a987700af2ee", 30, 55, "#000000" },
+                    { 32, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Wonderscope Theatres, where every movie is a portal to magical worlds and breathtaking wonders. Founded on February 19, 2008, our theater is dedicated to curating a collection of imaginative films that spark curiosity and ignite the sense of wonder. With 30 rows and 60 columns, our theaters offer a spacious and enchanting setting for a truly captivating cinematic experience. From whimsical animations to awe-inspiring documentaries, every screening at Wonderscope Theatres is an exploration of the beauty and mysteries of our world.", new DateTime(2008, 2, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "WonderscopeTheatres.jpg", "Wonderscope Theatres", "8980e4ca-2628-490d-840a-9c9414ab9f33", 60, 30, "#000000" },
+                    { 33, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Enter the realm of Cinemagic Emporium, where movies are like magical artifacts that weave stories of enchantment and heroism. Founded on September 30, 1993, our theater is dedicated to curating a diverse selection of films that celebrate the power of storytelling. With 40 rows and 40 columns, our theaters offer a spacious and immersive setting for cinephiles to embark on extraordinary journeys. From epic quests to tales of mythical creatures, every screening at Cinemagic Emporium is a treasure trove of cinematic delights.", new DateTime(1993, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), "CinemagicEmporium.jpg", "Cinemagic Emporium", "ea811464-0c63-4c45-ac26-d4eb5bff334f", 40, 40, "#000000" },
                     { 34, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Prepare to be dazzled at Spectra Cinema, where movies unfold like vibrant spectrums of emotion and artistry. Founded on July 27, 1999, our theater is dedicated to curating visually stunning films that evoke a kaleidoscope of feelings. With 60 rows and 25 columns, our theaters offer a spacious and immersive setting for cinematic experiences that burst with color and vibrancy. From abstract visual poetry to breathtaking animations, every screening at Spectra Cinema is a celebration of the boundless possibilities of artistic expression.", new DateTime(1999, 7, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), "SpectraCinema.jpg", "Spectra Cinema", "8980e4ca-2628-490d-840a-9c9414ab9f33", 25, 60, "#000000" },
-                    { 35, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Sunrise Cinematech, where movies rise like the sun, illuminating the world with their brilliance. Founded on December 3, 1981, our theater is dedicated to curating a collection of cinematic masterpieces that showcase the art of filmmaking. With 55 rows and 25 columns, our theaters offer an intimate and captivating ambiance for a truly immersive movie-going experience. From critically acclaimed dramas to thought-provoking documentaries, every screening at Sunrise Cinematech is a celebration of the power of storytelling to inspire and enlighten.", new DateTime(1981, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "SunriseCinematech.jpg", "Sunrise Cinematech", "156fc675-02de-4250-9edb-869c85e13e61", 25, 55, "#000000" },
-                    { 36, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to CineVerse Theatres, where movies become a catalyst for thought-provoking discussions and intellectual exploration. Founded on October 6, 2005, our theater is dedicated to curating films that spark conversations and challenge perspectives. With 40 rows and 40 columns, our theaters offer an intimate and engaging setting for film enthusiasts to come together and share their cinematic experiences. From powerful dramas to mind-bending mysteries, every screening at CineVerse Theatres is an invitation to delve deeper into the art of storytelling.", new DateTime(2005, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "CineVerseTheatres.jpg", "CineVerse Theatres", "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c", 40, 40, "#000000" },
-                    { 37, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Embark on a cinematic journey through galaxies at Galactic Cinemaworks, where science fiction and imagination collide. Founded on July 14, 2003, our theater is dedicated to curating the best of sci-fi films that transport you to distant stars and futuristic worlds. With 50 rows and 35 columns, our theaters provide a spacious and immersive setting for thrilling space adventures and epic interstellar battles. From visionary space odysseys to thought-provoking futuristic tales, every screening at Galactic Cinemaworks is a tribute to the boundless possibilities of the cosmos.", new DateTime(2003, 7, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "GalacticCinemaworks.jpg", "Galactic Cinemaworks", "156fc675-02de-4250-9edb-869c85e13e61", 35, 50, "#000000" },
-                    { 38, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Step into the realm of enchantment at Majestic Magic Theatres, where movies come to life with the wonders of illusion and wonder. Founded on January 1, 1990, our theater is dedicated to curating films that celebrate the art of magic and illusion. With 35 rows and 50 columns, our theaters offer a captivating and spellbinding setting for a truly magical cinematic experience. From dazzling magic shows to captivating fantasy adventures, every screening at Majestic Magic Theatres is a celebration of the extraordinary.", new DateTime(1990, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "MajesticMagicTheatres.jpg", "Majestic Magic Theatres", "218dcf68-aa10-4c63-994f-50853fb19296", 50, 35, "#000000" },
-                    { 39, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Golden Age Cinemas, a time capsule that transports you to the glorious era of classic movies. Founded on March 21, 1978, our theater is dedicated to showcasing timeless masterpieces and beloved Hollywood classics. With 55 rows and 30 columns, our theaters offer an elegant and nostalgic ambiance for cinephiles to relive the magic of cinema's golden age. From iconic movie stars to unforgettable dialogue, every screening at Golden Age Cinemas is a celebration of the timeless allure of vintage films.", new DateTime(1978, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "GoldenAgeCinemas.jpg", "Golden Age Cinemas", "610ab053-2c5a-451b-9634-03b59ea4a473", 30, 55, "#000000" },
-                    { 40, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Enter the sanctuary of cinema at CineArt Sanctuary, where movies are cherished as works of art. Founded on September 9, 2015, our theater is dedicated to curating a collection of artistic films that inspire and captivate the soul. With 30 rows and 60 columns, our theaters offer a serene and contemplative setting for a truly immersive cinematic experience. From thought-provoking dramas to visually stunning masterpieces, every screening at CineArt Sanctuary is an invitation to embrace the artistry of filmmaking.", new DateTime(2015, 9, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "CineArtSanctuary.jpg", "CineArt Sanctuary", "156fc675-02de-4250-9edb-869c85e13e61", 60, 30, "#000000" },
-                    { 41, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Prepare for stellar cinematic adventures at Stellar Cinemas, where every movie shines with brilliance and spectacle. Founded on November 20, 2000, our theater is dedicated to curating blockbuster hits and visually stunning films that leave you in awe. With 60 rows and 25 columns, our theaters offer a spacious and immersive setting for larger-than-life cinematic experiences. From jaw-dropping action sequences to breathtaking visual effects, every screening at Stellar Cinemas is a cosmic journey to the stars.", new DateTime(2000, 11, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "StellarCinemas.jpg", "Stellar Cinemas", "5556c45e-395d-402b-b765-750666b092fc", 25, 60, "#000000" },
-                    { 42, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Wanderlust Theatres, where movies take you on journeys to breathtaking destinations around the world. Founded on April 9, 2010, our theater is dedicated to curating a collection of travel films that immerse you in the wonders of different cultures and landscapes. With 45 rows and 35 columns, our theaters offer a cozy and wanderlust-inspiring setting for a truly enriching cinematic experience. From scenic documentaries to adventurous travelogues, every screening at Wanderlust Theatres is an invitation to explore the beauty of our planet.", new DateTime(2010, 4, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "WanderlustTheatres.jpg", "Wanderlust Theatres", "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c", 35, 45, "#000000" },
-                    { 43, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Experience the grandeur of cinema at Grandeur Cinematech, where movies unfold with cinematic brilliance and splendor. Founded on May 18, 1986, our theater is dedicated to showcasing visually stunning films that celebrate the art of filmmaking. With 50 rows and 30 columns, our theaters offer an elegant and immersive setting for an extraordinary movie-going experience. From sweeping cinematography to breathtaking visual storytelling, every screening at Grandeur Cinematech is a celebration of the artistry and magic of movies.", new DateTime(1986, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "GrandeurCinematech.jpg", "Grandeur Cinematech", "156fc675-02de-4250-9edb-869c85e13e61", 30, 50, "#000000" },
-                    { 44, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Artistic Aura Cinemas, where movies are a canvas for artistic expression and creativity. Founded on August 12, 1992, our theater is dedicated to curating films that celebrate the diverse forms of art and creativity. With 55 rows and 25 columns, our theaters offer an intimate and inspiring setting for cinephiles to revel in the beauty of artistic storytelling. From poetic narratives to abstract visual experiments, every screening at Artistic Aura Cinemas is a celebration of the myriad colors and emotions of the human experience.", new DateTime(1992, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "ArtisticAuraCinemas.jpg", "Artistic Aura Cinemas", "610ab053-2c5a-451b-9634-03b59ea4a473", 25, 55, "#000000" },
-                    { 45, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Step into the arcade of cinema at Arcade Cinemas, where every movie is a thrilling gaming experience. Founded on December 24, 2006, our theater is dedicated to curating films that blend the excitement of gaming with captivating storytelling. With 35 rows and 50 columns, our theaters offer an electrifying and immersive setting for an action-packed cinematic adventure. From virtual reality fantasies to high-stakes gaming thrillers, every screening at Arcade Cinemas is a joystick ride into the world of cinematic gaming.", new DateTime(2006, 12, 24, 0, 0, 0, 0, DateTimeKind.Unspecified), "ArcadeCinemas.jpg", "Arcade Cinemas", "a9b6dc74-38a5-4794-a703-59204f461adb", 50, 35, "#000000" },
-                    { 46, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to CineVerse Theatres, where movies become a catalyst for thought-provoking discussions and intellectual exploration. Founded on October 6, 2005, our theater is dedicated to curating films that spark conversations and challenge perspectives. With 40 rows and 40 columns, our theaters offer an intimate and engaging setting for film enthusiasts to come together and share their cinematic experiences. From powerful dramas to mind-bending mysteries, every screening at CineVerse Theatres is an invitation to delve deeper into the art of storytelling.", new DateTime(2005, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "CineVerseTheatres.jpg", "CineVerse Theatres", "a9b6dc74-38a5-4794-a703-59204f461adb", 40, 40, "#000000" },
-                    { 47, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Embark on a cinematic journey through galaxies at Galactic Cinemaworks, where science fiction and imagination collide. Founded on July 14, 2003, our theater is dedicated to curating the best of sci-fi films that transport you to distant stars and futuristic worlds. With 50 rows and 35 columns, our theaters provide a spacious and immersive setting for thrilling space adventures and epic interstellar battles. From visionary space odysseys to thought-provoking futuristic tales, every screening at Galactic Cinemaworks is a tribute to the boundless possibilities of the cosmos.", new DateTime(2003, 7, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "GalacticCinemaworks.jpg", "Galactic Cinemaworks", "2055e8c8-5a8e-49c3-9f0a-a987700af2ee", 35, 50, "#000000" },
-                    { 48, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Step into the realm of enchantment at Majestic Magic Theatres, where movies come to life with the wonders of illusion and wonder. Founded on January 1, 1990, our theater is dedicated to curating films that celebrate the art of magic and illusion. With 35 rows and 50 columns, our theaters offer a captivating and spellbinding setting for a truly magical cinematic experience. From dazzling magic shows to captivating fantasy adventures, every screening at Majestic Magic Theatres is a celebration of the extraordinary.", new DateTime(1990, 1, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "MajesticMagicTheatres.jpg", "Majestic Magic Theatres", "156fc675-02de-4250-9edb-869c85e13e61", 50, 35, "#000000" },
+                    { 35, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Sunrise Cinematech, where movies rise like the sun, illuminating the world with their brilliance. Founded on December 3, 1981, our theater is dedicated to curating a collection of cinematic masterpieces that showcase the art of filmmaking. With 55 rows and 25 columns, our theaters offer an intimate and captivating ambiance for a truly immersive movie-going experience. From critically acclaimed dramas to thought-provoking documentaries, every screening at Sunrise Cinematech is a celebration of the power of storytelling to inspire and enlighten.", new DateTime(1981, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "SunriseCinematech.jpg", "Sunrise Cinematech", "60223fcf-5fa4-434f-a4ba-9389a4f571a0", 25, 55, "#000000" },
+                    { 36, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to CineVerse Theatres, where movies become a catalyst for thought-provoking discussions and intellectual exploration. Founded on October 6, 2005, our theater is dedicated to curating films that spark conversations and challenge perspectives. With 40 rows and 40 columns, our theaters offer an intimate and engaging setting for film enthusiasts to come together and share their cinematic experiences. From powerful dramas to mind-bending mysteries, every screening at CineVerse Theatres is an invitation to delve deeper into the art of storytelling.", new DateTime(2005, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "CineVerseTheatres.jpg", "CineVerse Theatres", "2055e8c8-5a8e-49c3-9f0a-a987700af2ee", 40, 40, "#000000" },
+                    { 37, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Embark on a cinematic journey through galaxies at Galactic Cinemaworks, where science fiction and imagination collide. Founded on July 14, 2003, our theater is dedicated to curating the best of sci-fi films that transport you to distant stars and futuristic worlds. With 50 rows and 35 columns, our theaters provide a spacious and immersive setting for thrilling space adventures and epic interstellar battles. From visionary space odysseys to thought-provoking futuristic tales, every screening at Galactic Cinemaworks is a tribute to the boundless possibilities of the cosmos.", new DateTime(2003, 7, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "GalacticCinemaworks.jpg", "Galactic Cinemaworks", "2055e8c8-5a8e-49c3-9f0a-a987700af2ee", 35, 50, "#000000" },
+                    { 38, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Step into the realm of enchantment at Majestic Magic Theatres, where movies come to life with the wonders of illusion and wonder. Founded on January 1, 1990, our theater is dedicated to curating films that celebrate the art of magic and illusion. With 35 rows and 50 columns, our theaters offer a captivating and spellbinding setting for a truly magical cinematic experience. From dazzling magic shows to captivating fantasy adventures, every screening at Majestic Magic Theatres is a celebration of the extraordinary.", new DateTime(1990, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "MajesticMagicTheatres.jpg", "Majestic Magic Theatres", "2055e8c8-5a8e-49c3-9f0a-a987700af2ee", 50, 35, "#000000" },
+                    { 39, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Golden Age Cinemas, a time capsule that transports you to the glorious era of classic movies. Founded on March 21, 1978, our theater is dedicated to showcasing timeless masterpieces and beloved Hollywood classics. With 55 rows and 30 columns, our theaters offer an elegant and nostalgic ambiance for cinephiles to relive the magic of cinema's golden age. From iconic movie stars to unforgettable dialogue, every screening at Golden Age Cinemas is a celebration of the timeless allure of vintage films.", new DateTime(1978, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "GoldenAgeCinemas.jpg", "Golden Age Cinemas", "a9b6dc74-38a5-4794-a703-59204f461adb", 30, 55, "#000000" },
+                    { 40, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Enter the sanctuary of cinema at CineArt Sanctuary, where movies are cherished as works of art. Founded on September 9, 2015, our theater is dedicated to curating a collection of artistic films that inspire and captivate the soul. With 30 rows and 60 columns, our theaters offer a serene and contemplative setting for a truly immersive cinematic experience. From thought-provoking dramas to visually stunning masterpieces, every screening at CineArt Sanctuary is an invitation to embrace the artistry of filmmaking.", new DateTime(2015, 9, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "CineArtSanctuary.jpg", "CineArt Sanctuary", "218dcf68-aa10-4c63-994f-50853fb19296", 60, 30, "#000000" },
+                    { 41, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Prepare for stellar cinematic adventures at Stellar Cinemas, where every movie shines with brilliance and spectacle. Founded on November 20, 2000, our theater is dedicated to curating blockbuster hits and visually stunning films that leave you in awe. With 60 rows and 25 columns, our theaters offer a spacious and immersive setting for larger-than-life cinematic experiences. From jaw-dropping action sequences to breathtaking visual effects, every screening at Stellar Cinemas is a cosmic journey to the stars.", new DateTime(2000, 11, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "StellarCinemas.jpg", "Stellar Cinemas", "218dcf68-aa10-4c63-994f-50853fb19296", 25, 60, "#000000" },
+                    { 42, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Wanderlust Theatres, where movies take you on journeys to breathtaking destinations around the world. Founded on April 9, 2010, our theater is dedicated to curating a collection of travel films that immerse you in the wonders of different cultures and landscapes. With 45 rows and 35 columns, our theaters offer a cozy and wanderlust-inspiring setting for a truly enriching cinematic experience. From scenic documentaries to adventurous travelogues, every screening at Wanderlust Theatres is an invitation to explore the beauty of our planet.", new DateTime(2010, 4, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "WanderlustTheatres.jpg", "Wanderlust Theatres", "60223fcf-5fa4-434f-a4ba-9389a4f571a0", 35, 45, "#000000" },
+                    { 43, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Experience the grandeur of cinema at Grandeur Cinematech, where movies unfold with cinematic brilliance and splendor. Founded on May 18, 1986, our theater is dedicated to showcasing visually stunning films that celebrate the art of filmmaking. With 50 rows and 30 columns, our theaters offer an elegant and immersive setting for an extraordinary movie-going experience. From sweeping cinematography to breathtaking visual storytelling, every screening at Grandeur Cinematech is a celebration of the artistry and magic of movies.", new DateTime(1986, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "GrandeurCinematech.jpg", "Grandeur Cinematech", "ea811464-0c63-4c45-ac26-d4eb5bff334f", 30, 50, "#000000" },
+                    { 44, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Artistic Aura Cinemas, where movies are a canvas for artistic expression and creativity. Founded on August 12, 1992, our theater is dedicated to curating films that celebrate the diverse forms of art and creativity. With 55 rows and 25 columns, our theaters offer an intimate and inspiring setting for cinephiles to revel in the beauty of artistic storytelling. From poetic narratives to abstract visual experiments, every screening at Artistic Aura Cinemas is a celebration of the myriad colors and emotions of the human experience.", new DateTime(1992, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "ArtisticAuraCinemas.jpg", "Artistic Aura Cinemas", "ea811464-0c63-4c45-ac26-d4eb5bff334f", 25, 55, "#000000" },
+                    { 45, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Step into the arcade of cinema at Arcade Cinemas, where every movie is a thrilling gaming experience. Founded on December 24, 2006, our theater is dedicated to curating films that blend the excitement of gaming with captivating storytelling. With 35 rows and 50 columns, our theaters offer an electrifying and immersive setting for an action-packed cinematic adventure. From virtual reality fantasies to high-stakes gaming thrillers, every screening at Arcade Cinemas is a joystick ride into the world of cinematic gaming.", new DateTime(2006, 12, 24, 0, 0, 0, 0, DateTimeKind.Unspecified), "ArcadeCinemas.jpg", "Arcade Cinemas", "610ab053-2c5a-451b-9634-03b59ea4a473", 50, 35, "#000000" },
+                    { 46, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to CineVerse Theatres, where movies become a catalyst for thought-provoking discussions and intellectual exploration. Founded on October 6, 2005, our theater is dedicated to curating films that spark conversations and challenge perspectives. With 40 rows and 40 columns, our theaters offer an intimate and engaging setting for film enthusiasts to come together and share their cinematic experiences. From powerful dramas to mind-bending mysteries, every screening at CineVerse Theatres is an invitation to delve deeper into the art of storytelling.", new DateTime(2005, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "CineVerseTheatres.jpg", "CineVerse Theatres", "218dcf68-aa10-4c63-994f-50853fb19296", 40, 40, "#000000" },
+                    { 47, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Embark on a cinematic journey through galaxies at Galactic Cinemaworks, where science fiction and imagination collide. Founded on July 14, 2003, our theater is dedicated to curating the best of sci-fi films that transport you to distant stars and futuristic worlds. With 50 rows and 35 columns, our theaters provide a spacious and immersive setting for thrilling space adventures and epic interstellar battles. From visionary space odysseys to thought-provoking futuristic tales, every screening at Galactic Cinemaworks is a tribute to the boundless possibilities of the cosmos.", new DateTime(2003, 7, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "GalacticCinemaworks.jpg", "Galactic Cinemaworks", "218dcf68-aa10-4c63-994f-50853fb19296", 35, 50, "#000000" },
+                    { 48, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Step into the realm of enchantment at Majestic Magic Theatres, where movies come to life with the wonders of illusion and wonder. Founded on January 1, 1990, our theater is dedicated to curating films that celebrate the art of magic and illusion. With 35 rows and 50 columns, our theaters offer a captivating and spellbinding setting for a truly magical cinematic experience. From dazzling magic shows to captivating fantasy adventures, every screening at Majestic Magic Theatres is a celebration of the extraordinary.", new DateTime(1990, 1, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "MajesticMagicTheatres.jpg", "Majestic Magic Theatres", "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c", 50, 35, "#000000" },
                     { 49, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Welcome to Golden Age Cinemas, a time capsule that transports you to the glorious era of classic movies. Founded on March 21, 1978, our theater is dedicated to showcasing timeless masterpieces and beloved Hollywood classics. With 55 rows and 30 columns, our theaters offer an elegant and nostalgic ambiance for cinephiles to relive the magic of cinema's golden age. From iconic movie stars to unforgettable dialogue, every screening at Golden Age Cinemas is a celebration of the timeless allure of vintage films.", new DateTime(1978, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "GoldenAgeCinemas.jpg", "Golden Age Cinemas", "156fc675-02de-4250-9edb-869c85e13e61", 30, 55, "#000000" },
-                    { 50, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Enter the sanctuary of cinema at CineArt Sanctuary, where movies are cherished as works of art. Founded on September 9, 2015, our theater is dedicated to curating a collection of artistic films that inspire and captivate the soul. With 30 rows and 60 columns, our theaters offer a serene and contemplative setting for a truly immersive cinematic experience. From thought-provoking dramas to visually stunning masterpieces, every screening at CineArt Sanctuary is an invitation to embrace the artistry of filmmaking.", new DateTime(2015, 9, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "CineArtSanctuary.jpg", "CineArt Sanctuary", "5556c45e-395d-402b-b765-750666b092fc", 60, 30, "#000000" }
+                    { 50, "#FF0000", 0, "#000000", "#FFFFFF", "#FFFFFF", "#000000", "Enter the sanctuary of cinema at CineArt Sanctuary, where movies are cherished as works of art. Founded on September 9, 2015, our theater is dedicated to curating a collection of artistic films that inspire and captivate the soul. With 30 rows and 60 columns, our theaters offer a serene and contemplative setting for a truly immersive cinematic experience. From thought-provoking dramas to visually stunning masterpieces, every screening at CineArt Sanctuary is an invitation to embrace the artistry of filmmaking.", new DateTime(2015, 9, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "CineArtSanctuary.jpg", "CineArt Sanctuary", "610ab053-2c5a-451b-9634-03b59ea4a473", 60, 30, "#000000" }
                 });
 
             migrationBuilder.InsertData(
@@ -4133,8 +4133,10 @@ namespace Cinema.Data.Migrations
                 columns: new[] { "CustomerId", "MovieId", "Rating" },
                 values: new object[,]
                 {
-                    { "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", 44, 7m },
-                    { "2f09c66b-0830-4fcc-8a0f-f29b0990c669", 100, 4m }
+                    { "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", 86, 2m },
+                    { "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", 100, 10m },
+                    { "2a8f5f5c-e539-4868-837b-9a19852a904e", 43, 2m },
+                    { "4634669c-c5ad-41e6-8b41-f1524c9654ad", 76, 10m }
                 });
 
             migrationBuilder.InsertData(
@@ -4142,48 +4144,48 @@ namespace Cinema.Data.Migrations
                 columns: new[] { "Id", "CinemaId", "CustomerId", "ForDate", "MovieId", "Price", "SectorId", "SerialNumber" },
                 values: new object[,]
                 {
-                    { 1, 30, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 19, 17, 45, 0, 0, DateTimeKind.Unspecified), 71, 20m, 190, "R51C24" },
-                    { 2, 11, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 15, 9, 15, 0, 0, DateTimeKind.Unspecified), 22, 15m, 167, "R32C32" },
-                    { 3, 24, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 24, 23, 0, 0, 0, DateTimeKind.Unspecified), 76, 7m, 263, "R10C16" },
-                    { 4, 46, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 16, 12, 30, 0, 0, DateTimeKind.Unspecified), 15, 12m, 437, "R31C31" },
-                    { 5, 42, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 17, 10, 40, 0, 0, DateTimeKind.Unspecified), 55, 10m, 79, "R54C16" },
-                    { 6, 24, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 21, 19, 45, 0, 0, DateTimeKind.Unspecified), 76, 7m, 143, "R6C30" },
-                    { 7, 3, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 9, 21, 0, 0, 0, DateTimeKind.Unspecified), 30, 5m, 306, "R20C13" },
-                    { 8, 42, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 17, 14, 20, 0, 0, DateTimeKind.Unspecified), 55, 10m, 62, "R49C17" },
-                    { 9, 37, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 28, 10, 20, 0, 0, DateTimeKind.Unspecified), 68, 7m, 37, "R25C47" },
-                    { 10, 13, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 3, 14, 15, 0, 0, DateTimeKind.Unspecified), 12, 8m, 396, "R11C35" },
-                    { 11, 45, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 25, 23, 10, 0, 0, DateTimeKind.Unspecified), 81, 20m, 189, "R53C9" },
-                    { 12, 22, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 7, 10, 40, 0, 0, DateTimeKind.Unspecified), 48, 20m, 201, "R46C23" },
-                    { 13, 25, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 18, 10, 15, 0, 0, DateTimeKind.Unspecified), 92, 21m, 131, "R47C6" },
-                    { 14, 46, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 16, 12, 30, 0, 0, DateTimeKind.Unspecified), 15, 12m, 10, "R2C20" },
-                    { 15, 26, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 13, 22, 30, 0, 0, DateTimeKind.Unspecified), 58, 13m, 264, "R14C33" },
-                    { 16, 42, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 3, 18, 45, 0, 0, DateTimeKind.Unspecified), 21, 15m, 296, "R11C13" },
-                    { 17, 12, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 28, 20, 20, 0, 0, DateTimeKind.Unspecified), 44, 13m, 274, "R29C25" },
-                    { 18, 24, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 14, 22, 40, 0, 0, DateTimeKind.Unspecified), 88, 5m, 319, "R40C23" },
-                    { 19, 47, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 21, 23, 50, 0, 0, DateTimeKind.Unspecified), 41, 12m, 178, "R17C47" },
-                    { 20, 48, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 21, 11, 10, 0, 0, DateTimeKind.Unspecified), 51, 11m, 146, "R21C27" },
-                    { 21, 46, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 16, 12, 30, 0, 0, DateTimeKind.Unspecified), 15, 12m, 205, "R3C40" },
-                    { 22, 36, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 18, 14, 0, 0, 0, DateTimeKind.Unspecified), 2, 18m, 428, "R14C16" },
-                    { 23, 4, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 7, 31, 15, 10, 0, 0, DateTimeKind.Unspecified), 67, 10m, 122, "R37C30" },
-                    { 24, 37, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 25, 12, 50, 0, 0, DateTimeKind.Unspecified), 64, 13m, 222, "R8C22" },
-                    { 25, 38, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 12, 10, 40, 0, 0, DateTimeKind.Unspecified), 7, 9m, 349, "R40C5" },
-                    { 26, 38, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 17, 15, 10, 0, 0, DateTimeKind.Unspecified), 36, 21m, 445, "R54C4" },
-                    { 27, 6, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 20, 15, 10, 0, 0, DateTimeKind.Unspecified), 96, 25m, 356, "R15C58" },
-                    { 28, 38, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 12, 10, 40, 0, 0, DateTimeKind.Unspecified), 7, 9m, 122, "R43C24" },
-                    { 29, 49, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 11, 10, 20, 0, 0, DateTimeKind.Unspecified), 48, 10m, 352, "R50C20" },
-                    { 30, 38, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 11, 8, 40, 0, 0, DateTimeKind.Unspecified), 93, 22m, 149, "R35C22" },
-                    { 31, 37, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 28, 10, 20, 0, 0, DateTimeKind.Unspecified), 68, 7m, 327, "R44C13" },
-                    { 32, 37, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 25, 20, 45, 0, 0, DateTimeKind.Unspecified), 64, 13m, 269, "R37C27" },
-                    { 33, 39, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 19, 20, 30, 0, 0, DateTimeKind.Unspecified), 90, 17m, 216, "R28C16" },
-                    { 34, 32, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 10, 22, 50, 0, 0, DateTimeKind.Unspecified), 62, 11m, 124, "R52C16" },
-                    { 35, 31, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 3, 10, 50, 0, 0, DateTimeKind.Unspecified), 6, 13m, 308, "R35C4" },
-                    { 36, 32, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 10, 22, 50, 0, 0, DateTimeKind.Unspecified), 62, 11m, 400, "R28C36" },
-                    { 37, 37, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 28, 10, 20, 0, 0, DateTimeKind.Unspecified), 68, 7m, 155, "R19C12" },
-                    { 38, 25, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 18, 10, 15, 0, 0, DateTimeKind.Unspecified), 92, 21m, 204, "R9C29" },
-                    { 39, 39, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 7, 29, 19, 15, 0, 0, DateTimeKind.Unspecified), 96, 20m, 298, "R22C13" },
-                    { 40, 32, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 11, 18, 45, 0, 0, DateTimeKind.Unspecified), 12, 12m, 23, "R21C32" },
-                    { 41, 43, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 13, 20, 45, 0, 0, DateTimeKind.Unspecified), 86, 21m, 227, "R27C39" },
-                    { 42, 9, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 18, 19, 30, 0, 0, DateTimeKind.Unspecified), 50, 7m, 218, "R35C7" }
+                    { 1, 6, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 8, 15, 10, 0, 0, DateTimeKind.Unspecified), 60, 23m, 376, "R29C2" },
+                    { 2, 47, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 4, 23, 40, 0, 0, DateTimeKind.Unspecified), 70, 9m, 503, "R9C47" },
+                    { 3, 20, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 7, 31, 18, 20, 0, 0, DateTimeKind.Unspecified), 70, 21m, 528, "R18C29" },
+                    { 4, 41, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 17, 20, 20, 0, 0, DateTimeKind.Unspecified), 39, 22m, 508, "R28C9" },
+                    { 5, 46, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 7, 30, 21, 15, 0, 0, DateTimeKind.Unspecified), 69, 8m, 585, "R23C35" },
+                    { 6, 45, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 3, 19, 30, 0, 0, DateTimeKind.Unspecified), 96, 7m, 255, "R34C23" },
+                    { 7, 34, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 7, 31, 14, 50, 0, 0, DateTimeKind.Unspecified), 57, 8m, 143, "R6C18" },
+                    { 8, 44, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 5, 19, 50, 0, 0, DateTimeKind.Unspecified), 92, 24m, 454, "R38C15" },
+                    { 9, 36, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 4, 9, 15, 0, 0, DateTimeKind.Unspecified), 8, 10m, 282, "R47C15" },
+                    { 10, 23, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 8, 9, 15, 0, 0, DateTimeKind.Unspecified), 48, 25m, 96, "R28C15" },
+                    { 11, 16, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 9, 8, 0, 0, 0, DateTimeKind.Unspecified), 51, 6m, 134, "R18C5" },
+                    { 12, 10, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 15, 20, 20, 0, 0, DateTimeKind.Unspecified), 32, 22m, 447, "R4C33" },
+                    { 13, 13, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 12, 10, 30, 0, 0, DateTimeKind.Unspecified), 10, 6m, 340, "R26C8" },
+                    { 14, 34, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 14, 18, 10, 0, 0, DateTimeKind.Unspecified), 89, 17m, 443, "R53C15" },
+                    { 15, 25, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 17, 18, 15, 0, 0, DateTimeKind.Unspecified), 24, 9m, 81, "R13C23" },
+                    { 16, 23, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 17, 19, 10, 0, 0, DateTimeKind.Unspecified), 21, 14m, 567, "R11C33" },
+                    { 17, 46, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 7, 31, 10, 0, 0, 0, DateTimeKind.Unspecified), 81, 24m, 260, "R17C13" },
+                    { 18, 25, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 17, 15, 50, 0, 0, DateTimeKind.Unspecified), 24, 9m, 551, "R17C10" },
+                    { 19, 49, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified), 67, 23m, 137, "R18C57" },
+                    { 20, 42, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 14, 15, 45, 0, 0, DateTimeKind.Unspecified), 18, 14m, 378, "R23C32" },
+                    { 21, 45, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 2, 21, 0, 0, 0, DateTimeKind.Unspecified), 96, 7m, 197, "R32C6" },
+                    { 22, 26, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 7, 31, 12, 20, 0, 0, DateTimeKind.Unspecified), 82, 24m, 304, "R27C24" },
+                    { 23, 29, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 16, 21, 15, 0, 0, DateTimeKind.Unspecified), 36, 5m, 253, "R29C50" },
+                    { 24, 1, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 13, 11, 30, 0, 0, DateTimeKind.Unspecified), 8, 6m, 479, "R15C49" },
+                    { 25, 41, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 17, 8, 20, 0, 0, DateTimeKind.Unspecified), 86, 25m, 495, "R37C29" },
+                    { 26, 9, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 11, 12, 30, 0, 0, DateTimeKind.Unspecified), 63, 14m, 592, "R19C12" },
+                    { 27, 43, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 14, 21, 50, 0, 0, DateTimeKind.Unspecified), 17, 18m, 204, "R9C30" },
+                    { 28, 50, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 4, 18, 45, 0, 0, DateTimeKind.Unspecified), 99, 18m, 144, "R1C34" },
+                    { 29, 23, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 11, 12, 50, 0, 0, DateTimeKind.Unspecified), 48, 25m, 359, "R4C26" },
+                    { 30, 34, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 2, 13, 15, 0, 0, DateTimeKind.Unspecified), 68, 16m, 515, "R15C23" },
+                    { 31, 17, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 5, 13, 10, 0, 0, DateTimeKind.Unspecified), 95, 9m, 496, "R46C2" },
+                    { 32, 6, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 10, 13, 0, 0, 0, DateTimeKind.Unspecified), 69, 8m, 343, "R31C16" },
+                    { 33, 45, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 3, 23, 40, 0, 0, DateTimeKind.Unspecified), 79, 7m, 609, "R19C30" },
+                    { 34, 7, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 12, 20, 50, 0, 0, DateTimeKind.Unspecified), 13, 19m, 532, "R29C33" },
+                    { 35, 49, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 2, 22, 45, 0, 0, DateTimeKind.Unspecified), 83, 22m, 613, "R23C18" },
+                    { 36, 20, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 3, 16, 0, 0, 0, DateTimeKind.Unspecified), 49, 18m, 36, "R48C27" },
+                    { 37, 31, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 11, 17, 10, 0, 0, DateTimeKind.Unspecified), 52, 17m, 32, "R36C2" },
+                    { 38, 45, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 7, 16, 45, 0, 0, DateTimeKind.Unspecified), 29, 16m, 279, "R33C4" },
+                    { 39, 46, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 2, 15, 15, 0, 0, DateTimeKind.Unspecified), 33, 6m, 461, "R20C21" },
+                    { 40, 37, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 14, 14, 15, 0, 0, DateTimeKind.Unspecified), 3, 12m, 239, "R44C5" },
+                    { 41, 45, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 7, 31, 13, 45, 0, 0, DateTimeKind.Unspecified), 93, 21m, 383, "R41C27" },
+                    { 42, 2, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 11, 18, 40, 0, 0, DateTimeKind.Unspecified), 19, 16m, 144, "R8C41" }
                 });
 
             migrationBuilder.InsertData(
@@ -4191,48 +4193,48 @@ namespace Cinema.Data.Migrations
                 columns: new[] { "Id", "CinemaId", "CustomerId", "ForDate", "MovieId", "Price", "SectorId", "SerialNumber" },
                 values: new object[,]
                 {
-                    { 43, 25, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 18, 10, 15, 0, 0, DateTimeKind.Unspecified), 92, 21m, 273, "R30C7" },
-                    { 44, 12, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 27, 21, 45, 0, 0, DateTimeKind.Unspecified), 44, 13m, 192, "R10C23" },
-                    { 45, 20, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 8, 17, 45, 0, 0, DateTimeKind.Unspecified), 82, 23m, 385, "R48C27" },
-                    { 46, 31, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 18, 20, 20, 0, 0, DateTimeKind.Unspecified), 53, 8m, 27, "R59C9" },
-                    { 47, 32, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 11, 18, 45, 0, 0, DateTimeKind.Unspecified), 12, 12m, 236, "R46C17" },
-                    { 48, 3, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 11, 18, 20, 0, 0, DateTimeKind.Unspecified), 30, 5m, 356, "R13C60" },
-                    { 49, 36, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 24, 22, 10, 0, 0, DateTimeKind.Unspecified), 52, 11m, 119, "R17C11" },
-                    { 50, 42, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 3, 18, 45, 0, 0, DateTimeKind.Unspecified), 21, 15m, 439, "R15C11" },
-                    { 51, 41, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 24, 15, 50, 0, 0, DateTimeKind.Unspecified), 85, 25m, 229, "R15C7" },
-                    { 52, 35, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 18, 23, 50, 0, 0, DateTimeKind.Unspecified), 63, 6m, 348, "R26C21" },
-                    { 53, 31, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 3, 10, 50, 0, 0, DateTimeKind.Unspecified), 6, 13m, 347, "R26C1" },
-                    { 54, 37, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 27, 18, 30, 0, 0, DateTimeKind.Unspecified), 7, 24m, 215, "R22C13" },
-                    { 55, 26, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 13, 22, 30, 0, 0, DateTimeKind.Unspecified), 58, 13m, 103, "R28C15" },
-                    { 56, 11, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 15, 16, 0, 0, 0, DateTimeKind.Unspecified), 41, 6m, 232, "R18C20" },
-                    { 57, 15, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 26, 10, 10, 0, 0, DateTimeKind.Unspecified), 72, 16m, 55, "R14C5" },
-                    { 58, 45, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 25, 23, 10, 0, 0, DateTimeKind.Unspecified), 81, 20m, 378, "R12C14" },
-                    { 59, 47, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 21, 8, 30, 0, 0, DateTimeKind.Unspecified), 41, 12m, 334, "R6C18" },
-                    { 60, 36, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 18, 14, 0, 0, 0, DateTimeKind.Unspecified), 2, 18m, 325, "R23C19" },
-                    { 61, 22, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 27, 21, 30, 0, 0, DateTimeKind.Unspecified), 29, 21m, 344, "R35C47" },
-                    { 62, 48, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 21, 11, 10, 0, 0, DateTimeKind.Unspecified), 51, 11m, 399, "R28C20" },
-                    { 63, 11, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 27, 10, 0, 0, 0, DateTimeKind.Unspecified), 38, 16m, 353, "R11C13" },
-                    { 64, 46, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 16, 12, 30, 0, 0, DateTimeKind.Unspecified), 15, 12m, 135, "R5C33" },
-                    { 65, 49, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 7, 20, 20, 0, 0, DateTimeKind.Unspecified), 53, 12m, 34, "R18C1" },
-                    { 66, 22, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 7, 10, 40, 0, 0, DateTimeKind.Unspecified), 48, 20m, 161, "R2C35" },
-                    { 67, 30, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 23, 15, 15, 0, 0, DateTimeKind.Unspecified), 26, 19m, 201, "R47C29" },
-                    { 68, 42, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 17, 14, 20, 0, 0, DateTimeKind.Unspecified), 55, 10m, 12, "R20C11" },
-                    { 69, 9, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 28, 17, 50, 0, 0, DateTimeKind.Unspecified), 86, 14m, 234, "R32C26" },
-                    { 70, 38, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 2, 13, 15, 0, 0, DateTimeKind.Unspecified), 67, 12m, 348, "R27C29" },
-                    { 71, 49, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 1, 18, 50, 0, 0, DateTimeKind.Unspecified), 43, 21m, 64, "R10C30" },
-                    { 72, 36, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 18, 14, 0, 0, 0, DateTimeKind.Unspecified), 2, 18m, 439, "R12C14" },
-                    { 73, 34, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 15, 22, 10, 0, 0, DateTimeKind.Unspecified), 24, 21m, 174, "R13C47" },
-                    { 74, 32, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 10, 22, 50, 0, 0, DateTimeKind.Unspecified), 62, 11m, 52, "R35C25" },
-                    { 75, 48, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 21, 11, 10, 0, 0, DateTimeKind.Unspecified), 51, 11m, 343, "R31C32" },
-                    { 76, 5, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 6, 21, 0, 0, 0, DateTimeKind.Unspecified), 67, 25m, 24, "R34C2" },
-                    { 77, 41, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 25, 17, 40, 0, 0, DateTimeKind.Unspecified), 85, 25m, 368, "R56C22" },
-                    { 78, 3, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 14, 21, 20, 0, 0, DateTimeKind.Unspecified), 52, 20m, 394, "R14C8" },
-                    { 79, 40, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 18, 18, 45, 0, 0, DateTimeKind.Unspecified), 22, 20m, 383, "R36C29" },
-                    { 80, 35, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 11, 19, 15, 0, 0, DateTimeKind.Unspecified), 42, 8m, 230, "R15C28" },
-                    { 81, 3, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 5, 10, 30, 0, 0, DateTimeKind.Unspecified), 30, 5m, 295, "R31C33" },
-                    { 82, 49, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 9, 10, 15, 0, 0, DateTimeKind.Unspecified), 48, 10m, 233, "R32C14" },
-                    { 83, 24, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 18, 18, 40, 0, 0, DateTimeKind.Unspecified), 88, 5m, 323, "R15C32" },
-                    { 84, 37, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 27, 18, 30, 0, 0, DateTimeKind.Unspecified), 7, 24m, 113, "R36C6" }
+                    { 43, 20, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 2, 20, 45, 0, 0, DateTimeKind.Unspecified), 49, 18m, 137, "R18C58" },
+                    { 44, 4, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 12, 21, 10, 0, 0, DateTimeKind.Unspecified), 64, 8m, 632, "R3C11" },
+                    { 45, 10, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 7, 19, 50, 0, 0, DateTimeKind.Unspecified), 55, 6m, 575, "R31C33" },
+                    { 46, 8, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 9, 16, 20, 0, 0, DateTimeKind.Unspecified), 94, 15m, 464, "R27C16" },
+                    { 47, 11, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 14, 8, 0, 0, 0, DateTimeKind.Unspecified), 24, 12m, 433, "R6C7" },
+                    { 48, 7, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 13, 18, 30, 0, 0, DateTimeKind.Unspecified), 19, 12m, 621, "R7C23" },
+                    { 49, 42, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 12, 9, 10, 0, 0, DateTimeKind.Unspecified), 73, 8m, 411, "R4C31" },
+                    { 50, 1, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 14, 11, 0, 0, 0, DateTimeKind.Unspecified), 82, 22m, 33, "R32C18" },
+                    { 51, 41, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 17, 20, 20, 0, 0, DateTimeKind.Unspecified), 39, 22m, 594, "R11C31" },
+                    { 52, 1, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 16, 13, 30, 0, 0, DateTimeKind.Unspecified), 82, 22m, 159, "R22C24" },
+                    { 53, 49, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified), 67, 23m, 37, "R41C39" },
+                    { 54, 16, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 9, 9, 45, 0, 0, DateTimeKind.Unspecified), 69, 14m, 553, "R25C12" },
+                    { 55, 26, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 10, 8, 30, 0, 0, DateTimeKind.Unspecified), 54, 22m, 149, "R29C17" },
+                    { 56, 22, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 2, 8, 45, 0, 0, DateTimeKind.Unspecified), 61, 11m, 131, "R8C27" },
+                    { 57, 3, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 5, 17, 50, 0, 0, DateTimeKind.Unspecified), 68, 7m, 1, "R3C2" },
+                    { 58, 8, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 16, 10, 30, 0, 0, DateTimeKind.Unspecified), 91, 20m, 296, "R36C31" },
+                    { 59, 2, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 10, 14, 0, 0, 0, DateTimeKind.Unspecified), 44, 10m, 419, "R34C27" },
+                    { 60, 45, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 6, 8, 10, 0, 0, DateTimeKind.Unspecified), 32, 14m, 425, "R29C5" },
+                    { 61, 36, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 7, 30, 19, 0, 0, 0, DateTimeKind.Unspecified), 1, 20m, 573, "R33C7" },
+                    { 62, 22, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 8, 19, 0, 0, 0, DateTimeKind.Unspecified), 75, 24m, 301, "R18C29" },
+                    { 63, 46, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 7, 30, 9, 30, 0, 0, DateTimeKind.Unspecified), 69, 8m, 211, "R23C31" },
+                    { 64, 10, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 6, 8, 50, 0, 0, DateTimeKind.Unspecified), 55, 6m, 27, "R17C18" },
+                    { 65, 37, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 5, 12, 15, 0, 0, DateTimeKind.Unspecified), 37, 20m, 445, "R2C14" },
+                    { 66, 45, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 7, 20, 10, 0, 0, DateTimeKind.Unspecified), 32, 14m, 120, "R16C35" },
+                    { 67, 12, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 16, 12, 30, 0, 0, DateTimeKind.Unspecified), 77, 11m, 584, "R29C29" },
+                    { 68, 17, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 5, 21, 30, 0, 0, DateTimeKind.Unspecified), 35, 22m, 630, "R52C13" },
+                    { 69, 22, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 16, 8, 20, 0, 0, DateTimeKind.Unspecified), 50, 9m, 522, "R54C6" },
+                    { 70, 26, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 8, 12, 30, 0, 0, DateTimeKind.Unspecified), 54, 22m, 614, "R25C37" },
+                    { 71, 45, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 3, 23, 40, 0, 0, DateTimeKind.Unspecified), 79, 7m, 536, "R43C2" },
+                    { 72, 34, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 1, 15, 30, 0, 0, DateTimeKind.Unspecified), 57, 8m, 236, "R35C11" },
+                    { 73, 13, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 15, 20, 50, 0, 0, DateTimeKind.Unspecified), 10, 6m, 382, "R45C7" },
+                    { 74, 17, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 3, 14, 10, 0, 0, DateTimeKind.Unspecified), 22, 16m, 238, "R40C32" },
+                    { 75, 37, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 5, 20, 45, 0, 0, DateTimeKind.Unspecified), 98, 8m, 532, "R24C34" },
+                    { 76, 45, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 8, 15, 40, 0, 0, DateTimeKind.Unspecified), 96, 7m, 355, "R50C17" },
+                    { 77, 10, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 1, 11, 30, 0, 0, DateTimeKind.Unspecified), 28, 19m, 178, "R9C7" },
+                    { 78, 5, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 16, 12, 20, 0, 0, DateTimeKind.Unspecified), 66, 24m, 439, "R34C5" },
+                    { 79, 46, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 7, 30, 16, 30, 0, 0, DateTimeKind.Unspecified), 69, 8m, 361, "R14C7" },
+                    { 80, 10, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 7, 19, 50, 0, 0, DateTimeKind.Unspecified), 55, 6m, 619, "R35C47" },
+                    { 81, 20, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 2, 17, 50, 0, 0, DateTimeKind.Unspecified), 29, 8m, 254, "R35C14" },
+                    { 82, 45, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 11, 13, 10, 0, 0, DateTimeKind.Unspecified), 79, 7m, 360, "R5C39" },
+                    { 83, 7, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 6, 9, 10, 0, 0, DateTimeKind.Unspecified), 30, 10m, 183, "R21C24" },
+                    { 84, 45, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 7, 31, 22, 0, 0, 0, DateTimeKind.Unspecified), 62, 9m, 512, "R7C3" }
                 });
 
             migrationBuilder.InsertData(
@@ -4240,22 +4242,136 @@ namespace Cinema.Data.Migrations
                 columns: new[] { "Id", "CinemaId", "CustomerId", "ForDate", "MovieId", "Price", "SectorId", "SerialNumber" },
                 values: new object[,]
                 {
-                    { 85, 49, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 8, 16, 40, 0, 0, DateTimeKind.Unspecified), 53, 12m, 376, "R34C29" },
-                    { 86, 20, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 9, 21, 40, 0, 0, DateTimeKind.Unspecified), 9, 17m, 230, "R4C28" },
-                    { 87, 9, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 28, 13, 40, 0, 0, DateTimeKind.Unspecified), 86, 14m, 169, "R46C27" },
-                    { 88, 46, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 17, 15, 50, 0, 0, DateTimeKind.Unspecified), 86, 24m, 393, "R53C19" },
-                    { 89, 47, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 13, 21, 50, 0, 0, DateTimeKind.Unspecified), 49, 16m, 185, "R26C9" },
-                    { 90, 40, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 18, 18, 45, 0, 0, DateTimeKind.Unspecified), 22, 20m, 299, "R25C18" },
-                    { 91, 45, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 25, 23, 10, 0, 0, DateTimeKind.Unspecified), 81, 20m, 138, "R25C35" },
-                    { 92, 49, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 11, 10, 20, 0, 0, DateTimeKind.Unspecified), 48, 10m, 404, "R35C42" },
-                    { 93, 15, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 26, 10, 10, 0, 0, DateTimeKind.Unspecified), 72, 16m, 99, "R26C47" },
-                    { 94, 31, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 27, 16, 30, 0, 0, DateTimeKind.Unspecified), 49, 11m, 267, "R17C32" },
-                    { 95, 11, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 18, 11, 30, 0, 0, DateTimeKind.Unspecified), 38, 16m, 368, "R56C24" },
-                    { 96, 35, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 18, 23, 50, 0, 0, DateTimeKind.Unspecified), 63, 6m, 148, "R34C15" },
-                    { 97, 41, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 1, 11, 20, 0, 0, DateTimeKind.Unspecified), 81, 18m, 192, "R5C23" },
-                    { 98, 13, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 20, 12, 30, 0, 0, DateTimeKind.Unspecified), 57, 5m, 272, "R6C17" },
-                    { 99, 37, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 27, 18, 30, 0, 0, DateTimeKind.Unspecified), 7, 24m, 294, "R34C26" },
-                    { 100, 49, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 1, 18, 50, 0, 0, DateTimeKind.Unspecified), 43, 21m, 239, "R20C3" }
+                    { 85, 37, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 7, 13, 0, 0, 0, DateTimeKind.Unspecified), 79, 17m, 275, "R18C31" },
+                    { 86, 45, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 16, 13, 45, 0, 0, DateTimeKind.Unspecified), 36, 13m, 164, "R59C6" },
+                    { 87, 45, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 6, 9, 20, 0, 0, DateTimeKind.Unspecified), 79, 7m, 49, "R22C5" },
+                    { 88, 6, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 13, 14, 0, 0, 0, DateTimeKind.Unspecified), 28, 8m, 571, "R30C34" },
+                    { 89, 11, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 15, 15, 20, 0, 0, DateTimeKind.Unspecified), 24, 12m, 197, "R35C8" },
+                    { 90, 16, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 11, 12, 15, 0, 0, DateTimeKind.Unspecified), 2, 15m, 325, "R5C24" },
+                    { 91, 1, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 14, 11, 0, 0, 0, DateTimeKind.Unspecified), 82, 22m, 498, "R55C5" },
+                    { 92, 2, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 14, 8, 50, 0, 0, DateTimeKind.Unspecified), 5, 22m, 269, "R58C22" },
+                    { 93, 45, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 1, 23, 0, 0, 0, DateTimeKind.Unspecified), 93, 21m, 85, "R39C18" },
+                    { 94, 10, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 6, 19, 45, 0, 0, DateTimeKind.Unspecified), 55, 6m, 326, "R19C9" },
+                    { 95, 14, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 7, 11, 30, 0, 0, DateTimeKind.Unspecified), 7, 24m, 642, "R21C43" },
+                    { 96, 6, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 11, 11, 45, 0, 0, DateTimeKind.Unspecified), 69, 8m, 594, "R18C34" },
+                    { 97, 49, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified), 67, 23m, 437, "R26C10" },
+                    { 98, 10, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 16, 22, 15, 0, 0, DateTimeKind.Unspecified), 100, 11m, 493, "R26C30" },
+                    { 99, 24, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 14, 15, 15, 0, 0, DateTimeKind.Unspecified), 73, 24m, 453, "R23C37" },
+                    { 100, 49, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified), 67, 23m, 164, "R51C4" },
+                    { 101, 10, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 4, 11, 30, 0, 0, DateTimeKind.Unspecified), 67, 7m, 592, "R14C5" },
+                    { 102, 4, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 12, 18, 50, 0, 0, DateTimeKind.Unspecified), 48, 5m, 443, "R51C11" },
+                    { 103, 14, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 13, 20, 45, 0, 0, DateTimeKind.Unspecified), 7, 24m, 551, "R14C14" },
+                    { 104, 17, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 11, 8, 0, 0, 0, DateTimeKind.Unspecified), 7, 5m, 70, "R18C12" },
+                    { 105, 16, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 6, 20, 40, 0, 0, DateTimeKind.Unspecified), 91, 15m, 465, "R26C35" },
+                    { 106, 12, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 11, 19, 50, 0, 0, DateTimeKind.Unspecified), 13, 16m, 604, "R8C2" },
+                    { 107, 36, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 4, 9, 15, 0, 0, DateTimeKind.Unspecified), 8, 10m, 146, "R19C24" },
+                    { 108, 47, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 16, 9, 20, 0, 0, DateTimeKind.Unspecified), 29, 21m, 490, "R12C4" },
+                    { 109, 49, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 3, 13, 20, 0, 0, DateTimeKind.Unspecified), 19, 8m, 309, "R43C11" },
+                    { 110, 50, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 14, 12, 50, 0, 0, DateTimeKind.Unspecified), 20, 22m, 507, "R19C55" },
+                    { 111, 42, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 16, 8, 15, 0, 0, DateTimeKind.Unspecified), 88, 17m, 53, "R7C11" },
+                    { 112, 46, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 2, 12, 0, 0, 0, DateTimeKind.Unspecified), 57, 25m, 50, "R28C25" },
+                    { 113, 1, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 16, 23, 50, 0, 0, DateTimeKind.Unspecified), 82, 22m, 328, "R30C5" },
+                    { 114, 15, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 15, 21, 45, 0, 0, DateTimeKind.Unspecified), 81, 11m, 464, "R21C21" },
+                    { 115, 28, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 12, 11, 10, 0, 0, DateTimeKind.Unspecified), 98, 5m, 428, "R40C19" },
+                    { 116, 10, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 16, 9, 30, 0, 0, DateTimeKind.Unspecified), 82, 20m, 270, "R8C14" },
+                    { 117, 7, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 14, 22, 50, 0, 0, DateTimeKind.Unspecified), 19, 12m, 583, "R29C7" },
+                    { 118, 49, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified), 67, 23m, 314, "R10C39" },
+                    { 119, 10, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 7, 19, 50, 0, 0, DateTimeKind.Unspecified), 55, 6m, 305, "R26C34" },
+                    { 120, 34, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 15, 18, 15, 0, 0, DateTimeKind.Unspecified), 87, 10m, 345, "R42C22" },
+                    { 121, 8, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 9, 16, 20, 0, 0, DateTimeKind.Unspecified), 94, 15m, 633, "R7C20" },
+                    { 122, 5, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 10, 20, 45, 0, 0, DateTimeKind.Unspecified), 44, 5m, 87, "R50C19" },
+                    { 123, 49, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 2, 11, 20, 0, 0, DateTimeKind.Unspecified), 83, 22m, 306, "R38C6" },
+                    { 124, 34, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 13, 11, 40, 0, 0, DateTimeKind.Unspecified), 89, 17m, 163, "R49C16" },
+                    { 125, 16, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 14, 11, 30, 0, 0, DateTimeKind.Unspecified), 13, 10m, 3, "R11C12" },
+                    { 126, 37, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 5, 12, 15, 0, 0, DateTimeKind.Unspecified), 37, 20m, 593, "R14C20" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Tickets",
+                columns: new[] { "Id", "CinemaId", "CustomerId", "ForDate", "MovieId", "Price", "SectorId", "SerialNumber" },
+                values: new object[,]
+                {
+                    { 127, 45, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 3, 18, 20, 0, 0, DateTimeKind.Unspecified), 93, 21m, 549, "R3C15" },
+                    { 128, 12, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 11, 19, 45, 0, 0, DateTimeKind.Unspecified), 13, 16m, 101, "R37C31" },
+                    { 129, 1, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 13, 11, 30, 0, 0, DateTimeKind.Unspecified), 8, 6m, 559, "R54C6" },
+                    { 130, 45, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 6, 8, 10, 0, 0, DateTimeKind.Unspecified), 32, 14m, 38, "R59C12" },
+                    { 131, 10, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 10, 22, 0, 0, 0, DateTimeKind.Unspecified), 92, 6m, 346, "R3C15" },
+                    { 132, 46, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 12, 12, 50, 0, 0, DateTimeKind.Unspecified), 4, 13m, 319, "R11C46" },
+                    { 133, 14, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 16, 15, 40, 0, 0, DateTimeKind.Unspecified), 24, 8m, 34, "R36C38" },
+                    { 134, 49, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 4, 17, 50, 0, 0, DateTimeKind.Unspecified), 83, 22m, 293, "R30C35" },
+                    { 135, 22, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 3, 10, 15, 0, 0, DateTimeKind.Unspecified), 75, 24m, 619, "R33C49" },
+                    { 136, 10, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 6, 15, 40, 0, 0, DateTimeKind.Unspecified), 85, 14m, 118, "R14C4" },
+                    { 137, 38, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 17, 16, 15, 0, 0, DateTimeKind.Unspecified), 29, 12m, 142, "R7C8" },
+                    { 138, 19, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 14, 16, 50, 0, 0, DateTimeKind.Unspecified), 99, 18m, 592, "R13C10" },
+                    { 139, 49, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified), 67, 23m, 215, "R2C1" },
+                    { 140, 6, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 13, 18, 20, 0, 0, DateTimeKind.Unspecified), 53, 11m, 285, "R5C11" },
+                    { 141, 22, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 1, 20, 45, 0, 0, DateTimeKind.Unspecified), 66, 19m, 43, "R6C34" },
+                    { 142, 49, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 7, 31, 18, 40, 0, 0, DateTimeKind.Unspecified), 83, 22m, 363, "R16C43" },
+                    { 143, 38, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 7, 14, 0, 0, 0, DateTimeKind.Unspecified), 59, 22m, 236, "R37C8" },
+                    { 144, 45, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 7, 31, 19, 20, 0, 0, DateTimeKind.Unspecified), 62, 9m, 138, "R27C12" },
+                    { 145, 2, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 12, 22, 45, 0, 0, DateTimeKind.Unspecified), 19, 16m, 478, "R18C44" },
+                    { 146, 19, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 8, 8, 10, 0, 0, DateTimeKind.Unspecified), 99, 18m, 333, "R48C18" },
+                    { 147, 12, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 10, 11, 10, 0, 0, DateTimeKind.Unspecified), 37, 11m, 152, "R32C25" },
+                    { 148, 26, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 10, 12, 30, 0, 0, DateTimeKind.Unspecified), 99, 6m, 237, "R39C22" },
+                    { 149, 16, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 9, 9, 45, 0, 0, DateTimeKind.Unspecified), 69, 14m, 98, "R29C36" },
+                    { 150, 36, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 4, 9, 15, 0, 0, DateTimeKind.Unspecified), 8, 10m, 619, "R33C47" },
+                    { 151, 37, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 15, 11, 10, 0, 0, DateTimeKind.Unspecified), 3, 12m, 34, "R35C44" },
+                    { 152, 38, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 11, 14, 15, 0, 0, DateTimeKind.Unspecified), 57, 7m, 158, "R26C1" },
+                    { 153, 2, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 12, 13, 45, 0, 0, DateTimeKind.Unspecified), 77, 21m, 482, "R30C34" },
+                    { 154, 45, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 8, 9, 0, 0, 0, DateTimeKind.Unspecified), 24, 5m, 121, "R14C49" },
+                    { 155, 44, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 15, 20, 30, 0, 0, DateTimeKind.Unspecified), 13, 24m, 386, "R8C21" },
+                    { 156, 22, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 7, 31, 14, 0, 0, 0, DateTimeKind.Unspecified), 23, 17m, 385, "R5C8" },
+                    { 157, 17, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 3, 13, 15, 0, 0, DateTimeKind.Unspecified), 22, 16m, 73, "R30C17" },
+                    { 158, 1, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 15, 14, 40, 0, 0, DateTimeKind.Unspecified), 80, 13m, 551, "R15C3" },
+                    { 159, 17, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 5, 9, 15, 0, 0, DateTimeKind.Unspecified), 25, 10m, 77, "R49C18" },
+                    { 160, 24, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 4, 23, 15, 0, 0, DateTimeKind.Unspecified), 74, 23m, 613, "R22C25" },
+                    { 161, 49, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified), 67, 23m, 400, "R8C47" },
+                    { 162, 23, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 7, 30, 20, 20, 0, 0, DateTimeKind.Unspecified), 31, 10m, 68, "R3C12" },
+                    { 163, 5, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 9, 15, 40, 0, 0, DateTimeKind.Unspecified), 21, 19m, 171, "R30C26" },
+                    { 164, 20, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 5, 16, 30, 0, 0, DateTimeKind.Unspecified), 49, 18m, 391, "R34C4" },
+                    { 165, 7, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 7, 30, 12, 45, 0, 0, DateTimeKind.Unspecified), 94, 22m, 339, "R19C17" },
+                    { 166, 42, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 9, 22, 45, 0, 0, DateTimeKind.Unspecified), 73, 8m, 302, "R20C34" },
+                    { 167, 46, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 4, 18, 10, 0, 0, DateTimeKind.Unspecified), 2, 22m, 226, "R23C47" },
+                    { 168, 30, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 15, 12, 45, 0, 0, DateTimeKind.Unspecified), 89, 18m, 529, "R13C35" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Tickets",
+                columns: new[] { "Id", "CinemaId", "CustomerId", "ForDate", "MovieId", "Price", "SectorId", "SerialNumber" },
+                values: new object[,]
+                {
+                    { 169, 49, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 2, 12, 40, 0, 0, DateTimeKind.Unspecified), 19, 8m, 211, "R24C36" },
+                    { 170, 46, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 7, 30, 21, 15, 0, 0, DateTimeKind.Unspecified), 69, 8m, 618, "R35C42" },
+                    { 171, 4, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 11, 15, 40, 0, 0, DateTimeKind.Unspecified), 64, 8m, 435, "R18C6" },
+                    { 172, 9, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 9, 12, 40, 0, 0, DateTimeKind.Unspecified), 48, 25m, 345, "R44C28" },
+                    { 173, 15, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 10, 10, 30, 0, 0, DateTimeKind.Unspecified), 81, 11m, 381, "R31C32" },
+                    { 174, 17, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 11, 8, 0, 0, 0, DateTimeKind.Unspecified), 7, 5m, 74, "R34C15" },
+                    { 175, 39, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 7, 31, 9, 50, 0, 0, DateTimeKind.Unspecified), 3, 17m, 35, "R46C12" },
+                    { 176, 12, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 6, 10, 30, 0, 0, DateTimeKind.Unspecified), 37, 11m, 289, "R15C27" },
+                    { 177, 24, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 17, 14, 10, 0, 0, DateTimeKind.Unspecified), 24, 19m, 619, "R34C49" },
+                    { 178, 30, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 16, 14, 45, 0, 0, DateTimeKind.Unspecified), 89, 18m, 513, "R7C21" },
+                    { 179, 20, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 8, 11, 40, 0, 0, DateTimeKind.Unspecified), 70, 21m, 297, "R7C2" },
+                    { 180, 46, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 4, 23, 10, 0, 0, DateTimeKind.Unspecified), 2, 22m, 399, "R7C35" },
+                    { 181, 49, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 3, 13, 20, 0, 0, DateTimeKind.Unspecified), 19, 8m, 274, "R18C16" },
+                    { 182, 46, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 12, 9, 50, 0, 0, DateTimeKind.Unspecified), 2, 22m, 351, "R26C19" },
+                    { 183, 45, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 16, 15, 15, 0, 0, DateTimeKind.Unspecified), 33, 18m, 237, "R31C20" },
+                    { 184, 10, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 15, 20, 20, 0, 0, DateTimeKind.Unspecified), 32, 22m, 341, "R24C26" },
+                    { 185, 45, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 7, 20, 10, 0, 0, DateTimeKind.Unspecified), 32, 14m, 516, "R24C10" },
+                    { 186, 42, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 15, 9, 15, 0, 0, DateTimeKind.Unspecified), 3, 22m, 98, "R29C34" },
+                    { 187, 4, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 8, 15, 30, 0, 0, DateTimeKind.Unspecified), 48, 5m, 385, "R1C7" },
+                    { 188, 49, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 2, 22, 45, 0, 0, DateTimeKind.Unspecified), 83, 22m, 375, "R12C35" },
+                    { 189, 37, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 8, 12, 50, 0, 0, DateTimeKind.Unspecified), 98, 8m, 219, "R16C6" },
+                    { 190, 5, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 14, 14, 10, 0, 0, DateTimeKind.Unspecified), 28, 22m, 437, "R28C12" },
+                    { 191, 6, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 6, 19, 20, 0, 0, DateTimeKind.Unspecified), 60, 23m, 97, "R29C26" },
+                    { 192, 45, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 1, 15, 40, 0, 0, DateTimeKind.Unspecified), 93, 21m, 483, "R22C46" },
+                    { 193, 45, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 13, 9, 50, 0, 0, DateTimeKind.Unspecified), 36, 13m, 599, "R37C25" },
+                    { 194, 2, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 9, 11, 30, 0, 0, DateTimeKind.Unspecified), 75, 23m, 564, "R2C49" },
+                    { 195, 46, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 7, 31, 10, 0, 0, 0, DateTimeKind.Unspecified), 81, 24m, 393, "R49C12" },
+                    { 196, 49, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified), 67, 23m, 420, "R34C37" },
+                    { 197, 5, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 7, 9, 20, 0, 0, DateTimeKind.Unspecified), 5, 20m, 548, "R46C20" },
+                    { 198, 17, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 7, 30, 23, 40, 0, 0, DateTimeKind.Unspecified), 91, 24m, 178, "R4C11" },
+                    { 199, 43, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 17, 19, 50, 0, 0, DateTimeKind.Unspecified), 17, 18m, 496, "R48C14" },
+                    { 200, 44, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 5, 19, 50, 0, 0, DateTimeKind.Unspecified), 92, 24m, 521, "R43C17" }
                 });
 
             migrationBuilder.AddForeignKey(
@@ -16641,19 +16757,14 @@ namespace Cinema.Data.Migrations
                 keyValue: 65);
 
             migrationBuilder.DeleteData(
-                table: "Sectors",
+                table: "Movies",
                 keyColumn: "Id",
-                keyValue: 1);
+                keyValue: 72);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 2);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 3);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -16688,7 +16799,17 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 10);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 11);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 12);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -16743,6 +16864,16 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 23);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 24);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 25);
 
             migrationBuilder.DeleteData(
@@ -16773,31 +16904,6 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 32);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 33);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 35);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 36);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 38);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 39);
 
             migrationBuilder.DeleteData(
@@ -16814,11 +16920,6 @@ namespace Cinema.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 42);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 43);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -16848,27 +16949,22 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 49);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 50);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 51);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 53);
+                keyValue: 52);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 54);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 55);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -16903,7 +16999,17 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 62);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 63);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 64);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -16923,17 +17029,7 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 68);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 69);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 70);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -16948,16 +17044,6 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 73);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 74);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 75);
 
             migrationBuilder.DeleteData(
@@ -16968,22 +17054,17 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 77);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 78);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 80);
+                keyValue: 79);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 81);
+                keyValue: 80);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17003,17 +17084,7 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 85);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 86);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 87);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17058,17 +17129,7 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 96);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 97);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 98);
+                keyValue: 99);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17078,12 +17139,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 101);
+                keyValue: 102);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 102);
+                keyValue: 103);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17133,6 +17194,11 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 113);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 114);
 
             migrationBuilder.DeleteData(
@@ -17153,22 +17219,22 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 118);
+                keyValue: 119);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 120);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 121);
+                keyValue: 122);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 123);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 124);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17213,17 +17279,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 134);
+                keyValue: 135);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 136);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 137);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17243,22 +17304,17 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 142);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 144);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 145);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 147);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 148);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17273,17 +17329,17 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 152);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 153);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 154);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 155);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17298,32 +17354,17 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 158);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 159);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 160);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 161);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 162);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 163);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 164);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17338,17 +17379,22 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 167);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 168);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 170);
+                keyValue: 169);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 171);
+                keyValue: 170);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17359,6 +17405,11 @@ namespace Cinema.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 173);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 174);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17398,12 +17449,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 183);
+                keyValue: 184);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 184);
+                keyValue: 185);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17423,7 +17474,22 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 189);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 190);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 191);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 192);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17448,11 +17514,6 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 197);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 198);
 
             migrationBuilder.DeleteData(
@@ -17468,12 +17529,22 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 201);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 202);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 203);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 205);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17503,11 +17574,6 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 211);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 212);
 
             migrationBuilder.DeleteData(
@@ -17523,12 +17589,17 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 216);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 217);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 219);
+                keyValue: 218);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17539,6 +17610,11 @@ namespace Cinema.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 221);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 222);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17558,7 +17634,7 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 226);
+                keyValue: 227);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17568,22 +17644,37 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 229);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 230);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 231);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 232);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 233);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 234);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 235);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 237);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 238);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17653,21 +17744,6 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 253);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 254);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 255);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 256);
 
             migrationBuilder.DeleteData(
@@ -17688,17 +17764,22 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 260);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 261);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 262);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 263);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 264);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17713,12 +17794,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 268);
+                keyValue: 267);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 270);
+                keyValue: 268);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17728,7 +17809,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 275);
+                keyValue: 272);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 273);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17748,11 +17834,6 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 279);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 280);
 
             migrationBuilder.DeleteData(
@@ -17763,22 +17844,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 282);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 283);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 284);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 285);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17798,11 +17869,6 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 289);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 290);
 
             migrationBuilder.DeleteData(
@@ -17818,12 +17884,22 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 293);
+                keyValue: 294);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 297);
+                keyValue: 295);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 298);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 299);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17833,27 +17909,7 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 301);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 302);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 303);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 304);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 305);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17863,7 +17919,7 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 309);
+                keyValue: 308);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17884,11 +17940,6 @@ namespace Cinema.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 313);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 314);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17928,17 +17979,17 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 323);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 324);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 326);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 328);
+                keyValue: 327);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17963,7 +18014,7 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 333);
+                keyValue: 334);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17988,32 +18039,27 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 339);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 340);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 341);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 342);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 345);
+                keyValue: 344);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 346);
+                keyValue: 347);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 348);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 349);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18023,7 +18069,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 351);
+                keyValue: 352);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 353);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18033,7 +18084,7 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 355);
+                keyValue: 356);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18048,27 +18099,7 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 359);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 360);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 361);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 362);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 363);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18089,6 +18120,11 @@ namespace Cinema.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 367);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 368);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18123,11 +18159,6 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 375);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 377);
 
             migrationBuilder.DeleteData(
@@ -18143,22 +18174,7 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 381);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 382);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 384);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 386);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18183,17 +18199,22 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 391);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 392);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 394);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 395);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 396);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18219,6 +18240,11 @@ namespace Cinema.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 403);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 404);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18249,11 +18275,6 @@ namespace Cinema.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 410);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 411);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18293,16 +18314,6 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 419);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 420);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 421);
 
             migrationBuilder.DeleteData(
@@ -18319,11 +18330,6 @@ namespace Cinema.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 424);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 425);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18358,17 +18364,7 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 433);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 434);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 435);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18398,22 +18394,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 443);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 444);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 446);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 447);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18439,16 +18425,6 @@ namespace Cinema.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 452);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 453);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 454);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18483,27 +18459,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 461);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 462);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 463);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 464);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 465);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18568,32 +18529,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 478);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 479);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 480);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 481);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 482);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 483);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18628,11 +18569,6 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 490);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 491);
 
             migrationBuilder.DeleteData(
@@ -18643,32 +18579,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 493);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 494);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 495);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 496);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 497);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 498);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18693,11 +18609,6 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 503);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 504);
 
             migrationBuilder.DeleteData(
@@ -18709,16 +18620,6 @@ namespace Cinema.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 506);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 507);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 508);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18738,27 +18639,7 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 512);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 513);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 514);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 515);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 516);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18779,16 +18660,6 @@ namespace Cinema.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 520);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 521);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 522);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18818,27 +18689,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 528);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 529);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 530);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 531);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 532);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18854,11 +18710,6 @@ namespace Cinema.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 535);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 536);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18918,32 +18769,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 548);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 549);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 550);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 551);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 552);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 553);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18973,11 +18804,6 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 559);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 560);
 
             migrationBuilder.DeleteData(
@@ -18998,22 +18824,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 564);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 565);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 566);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 567);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -19033,27 +18849,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 571);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 572);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 573);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 574);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 575);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -19093,21 +18894,6 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 583);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 584);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 585);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 586);
 
             migrationBuilder.DeleteData(
@@ -19138,21 +18924,6 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 592);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 593);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 594);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 595);
 
             migrationBuilder.DeleteData(
@@ -19169,11 +18940,6 @@ namespace Cinema.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 598);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 599);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -19198,11 +18964,6 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 604);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 605);
 
             migrationBuilder.DeleteData(
@@ -19223,11 +18984,6 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 609);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 610);
 
             migrationBuilder.DeleteData(
@@ -19239,16 +18995,6 @@ namespace Cinema.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 612);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 613);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 614);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -19268,22 +19014,7 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 618);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 619);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 620);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 621);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -19328,22 +19059,7 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 630);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 631);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 632);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 633);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -19384,11 +19100,6 @@ namespace Cinema.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 641);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 642);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -19896,14 +19607,524 @@ namespace Cinema.Data.Migrations
                 keyValue: 100);
 
             migrationBuilder.DeleteData(
-                table: "UsersMovies",
-                keyColumns: new[] { "CustomerId", "MovieId" },
-                keyValues: new object[] { "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", 44 });
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 101);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 102);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 103);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 104);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 105);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 106);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 107);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 108);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 109);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 110);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 111);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 112);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 113);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 114);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 115);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 116);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 117);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 118);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 119);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 120);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 121);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 122);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 123);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 124);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 125);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 126);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 127);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 128);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 129);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 130);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 131);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 132);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 133);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 134);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 135);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 136);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 137);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 138);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 139);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 140);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 141);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 142);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 143);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 144);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 145);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 146);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 147);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 148);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 149);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 150);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 151);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 152);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 153);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 154);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 155);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 156);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 157);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 158);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 159);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 160);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 161);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 162);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 163);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 164);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 165);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 166);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 167);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 168);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 169);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 170);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 171);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 172);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 173);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 174);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 175);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 176);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 177);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 178);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 179);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 180);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 181);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 182);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 183);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 184);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 185);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 186);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 187);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 188);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 189);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 190);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 191);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 192);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 193);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 194);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 195);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 196);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 197);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 198);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 199);
+
+            migrationBuilder.DeleteData(
+                table: "Tickets",
+                keyColumn: "Id",
+                keyValue: 200);
 
             migrationBuilder.DeleteData(
                 table: "UsersMovies",
                 keyColumns: new[] { "CustomerId", "MovieId" },
-                keyValues: new object[] { "2f09c66b-0830-4fcc-8a0f-f29b0990c669", 100 });
+                keyValues: new object[] { "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", 86 });
+
+            migrationBuilder.DeleteData(
+                table: "UsersMovies",
+                keyColumns: new[] { "CustomerId", "MovieId" },
+                keyValues: new object[] { "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", 100 });
+
+            migrationBuilder.DeleteData(
+                table: "UsersMovies",
+                keyColumns: new[] { "CustomerId", "MovieId" },
+                keyValues: new object[] { "2a8f5f5c-e539-4868-837b-9a19852a904e", 43 });
+
+            migrationBuilder.DeleteData(
+                table: "UsersMovies",
+                keyColumns: new[] { "CustomerId", "MovieId" },
+                keyValues: new object[] { "4634669c-c5ad-41e6-8b41-f1524c9654ad", 76 });
 
             migrationBuilder.DeleteData(
                 table: "Actors",
@@ -20703,87 +20924,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Cinemas",
                 keyColumn: "Id",
-                keyValue: 6);
+                keyValue: 2);
 
             migrationBuilder.DeleteData(
                 table: "Cinemas",
                 keyColumn: "Id",
-                keyValue: 20);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 33);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 37);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 38);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 39);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 40);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 41);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 42);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 43);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 44);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 45);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 46);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 47);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 48);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 49);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 50);
+                keyValue: 9);
 
             migrationBuilder.DeleteData(
                 table: "Movies",
@@ -21138,11 +21284,6 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Movies",
                 keyColumn: "Id",
-                keyValue: 72);
-
-            migrationBuilder.DeleteData(
-                table: "Movies",
-                keyColumn: "Id",
                 keyValue: 73);
 
             migrationBuilder.DeleteData(
@@ -21283,22 +21424,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 10);
+                keyValue: 1);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 12);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 23);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 24);
+                keyValue: 3);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21308,7 +21439,27 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 32);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 33);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 34);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 35);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 36);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21318,57 +21469,102 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 52);
+                keyValue: 38);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 55);
+                keyValue: 43);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 62);
+                keyValue: 49);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 64);
+                keyValue: 50);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 79);
+                keyValue: 53);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 99);
+                keyValue: 68);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 103);
+                keyValue: 70);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 113);
+                keyValue: 73);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 119);
+                keyValue: 74);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 122);
+                keyValue: 77);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 124);
+                keyValue: 81);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 85);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 87);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 96);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 97);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 98);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 101);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 118);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 120);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 121);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21378,7 +21574,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 135);
+                keyValue: 134);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 137);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21388,7 +21589,17 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 142);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 143);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 144);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21398,37 +21609,37 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 148);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 149);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 155);
+                keyValue: 152);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 161);
+                keyValue: 158);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 167);
+                keyValue: 159);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 169);
+                keyValue: 163);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 174);
+                keyValue: 164);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 171);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21438,27 +21649,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 185);
+                keyValue: 183);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 189);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 190);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 192);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 201);
+                keyValue: 197);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21468,7 +21664,7 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 205);
+                keyValue: 211);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21478,47 +21674,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 216);
+                keyValue: 219);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 218);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 222);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 227);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 229);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 230);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 232);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 233);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 234);
+                keyValue: 226);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21528,22 +21689,37 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 237);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 238);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 239);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 263);
+                keyValue: 253);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 264);
+                keyValue: 254);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 267);
+                keyValue: 255);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 260);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21553,12 +21729,7 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 272);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 273);
+                keyValue: 270);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21568,12 +21739,32 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 294);
+                keyValue: 275);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 295);
+                keyValue: 279);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 282);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 285);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 289);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 293);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21583,12 +21774,27 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 298);
+                keyValue: 297);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 299);
+                keyValue: 301);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 302);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 304);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 305);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21598,7 +21804,12 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 308);
+                keyValue: 309);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 314);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21608,22 +21819,37 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 323);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 325);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 327);
+                keyValue: 326);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 334);
+                keyValue: 328);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 333);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 339);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 340);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 341);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21633,42 +21859,47 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 344);
+                keyValue: 345);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 347);
+                keyValue: 346);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 348);
+                keyValue: 351);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 349);
+                keyValue: 355);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 352);
+                keyValue: 359);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 353);
+                keyValue: 360);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 356);
+                keyValue: 361);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 368);
+                keyValue: 363);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 375);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21683,6 +21914,16 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 381);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 382);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 383);
 
             migrationBuilder.DeleteData(
@@ -21693,17 +21934,17 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 386);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 391);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 393);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 394);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 396);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21718,12 +21959,37 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 404);
+                keyValue: 411);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 419);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 420);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 425);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 428);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 433);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 435);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21738,22 +22004,297 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 443);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 445);
 
             migrationBuilder.DeleteData(
-                table: "AspNetUsers",
+                table: "Sectors",
                 keyColumn: "Id",
-                keyValue: "610ab053-2c5a-451b-9634-03b59ea4a473");
+                keyValue: 447);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 453);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 454);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 461);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 464);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 465);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 478);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 479);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 482);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 483);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 490);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 493);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 495);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 496);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 498);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 503);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 507);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 508);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 512);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 513);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 515);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 516);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 521);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 522);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 528);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 529);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 532);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 536);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 548);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 549);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 551);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 553);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 559);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 564);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 567);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 571);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 573);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 575);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 583);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 584);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 585);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 592);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 593);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 594);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 599);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 604);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 609);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 613);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 614);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 618);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 619);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 621);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 630);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 632);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 633);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 642);
 
             migrationBuilder.DeleteData(
                 table: "Cinemas",
                 keyColumn: "Id",
                 keyValue: 1);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 2);
 
             migrationBuilder.DeleteData(
                 table: "Cinemas",
@@ -21773,17 +22314,17 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Cinemas",
                 keyColumn: "Id",
+                keyValue: 6);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
                 keyValue: 7);
 
             migrationBuilder.DeleteData(
                 table: "Cinemas",
                 keyColumn: "Id",
                 keyValue: 8);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 9);
 
             migrationBuilder.DeleteData(
                 table: "Cinemas",
@@ -21834,6 +22375,11 @@ namespace Cinema.Data.Migrations
                 table: "Cinemas",
                 keyColumn: "Id",
                 keyValue: 19);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
+                keyValue: 20);
 
             migrationBuilder.DeleteData(
                 table: "Cinemas",
@@ -21898,6 +22444,11 @@ namespace Cinema.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Cinemas",
                 keyColumn: "Id",
+                keyValue: 33);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
                 keyValue: 34);
 
             migrationBuilder.DeleteData(
@@ -21909,6 +22460,76 @@ namespace Cinema.Data.Migrations
                 table: "Cinemas",
                 keyColumn: "Id",
                 keyValue: 36);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
+                keyValue: 37);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
+                keyValue: 38);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
+                keyValue: 39);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
+                keyValue: 40);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
+                keyValue: 41);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
+                keyValue: 42);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
+                keyValue: 43);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
+                keyValue: 44);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
+                keyValue: 45);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
+                keyValue: 46);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
+                keyValue: 47);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
+                keyValue: 48);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
+                keyValue: 49);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
+                keyValue: 50);
 
             migrationBuilder.DeleteData(
                 table: "Genres",
@@ -21989,6 +22610,11 @@ namespace Cinema.Data.Migrations
                 table: "AspNetUsers",
                 keyColumn: "Id",
                 keyValue: "60223fcf-5fa4-434f-a4ba-9389a4f571a0");
+
+            migrationBuilder.DeleteData(
+                table: "AspNetUsers",
+                keyColumn: "Id",
+                keyValue: "610ab053-2c5a-451b-9634-03b59ea4a473");
 
             migrationBuilder.DeleteData(
                 table: "AspNetUsers",
