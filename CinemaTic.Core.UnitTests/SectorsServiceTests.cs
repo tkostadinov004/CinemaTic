@@ -59,7 +59,7 @@ namespace CinemaTic.Core.UnitTests
                 AddedBy = new ApplicationUser("156fc675-02de-4250-9edb-869c85e13e61", 0, "8f06bfbc-e1e3-4f95-9bc1-30add0031c34", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7086), "owner1@owner.com", true, "James", "Johnson", false, null, "OWNER1@OWNER.COM", "OWNER1@OWNER.COM", null, null, false, "profilePicURL", "1969a695-01c0-49be-8d42-482cb1c327bc", false, "owner1@owner.com"),
                 Director = "Director Test",
                 Actors = new List<ActorMovie>(),
-                Cinemas = new List<Cinema.Data.Models.CinemaMovie>() { new CinemaMovie() {CinemaId = 1, MovieId = 1 } },
+                Cinemas = new List<CinemaMovie>() { new CinemaMovie() {CinemaId = 1, MovieId = 1 } },
             });
             _context.Sectors.Add(new Data.Models.Sector
             {
