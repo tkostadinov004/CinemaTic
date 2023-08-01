@@ -86,8 +86,9 @@
 </div>
 <script src="~/js/ownerdashboard.js"></script>
 <script>
+    var page = 1;
     window.onload = function () {
-        getItems('Admin', 'SearchAndFilterCinemas', "", '');
+        getItems('Admin', 'SearchAndFilterCinemas', '', '', '', '', page);
     };
     var search = document.getElementById("search-bar");
     var filterOptions = document.getElementById('filter-options');
@@ -97,12 +98,12 @@
         search.addEventListener("keyup", function () {
             clearTimeout(timeout);
             timeout = setTimeout(function () {
-                getItems('Admin', 'SearchAndFilterCinemas', search.value, '', (filterOptions ? filterOptions.value : null), (activeSort ? activeSort.id : null));
+                getItems('Admin', 'SearchAndFilterCinemas', search.value, '', (filterOptions ? filterOptions.value : null), (activeSort ? activeSort.id : null), page);
             }, 300);
         });
     }
     filterOptions.addEventListener("change", function () {
-        getItems('Admin', 'SearchAndFilterCinemas', (search ? search.value : null), '', (filterOptions ? filterOptions.value : null), (activeSort ? activeSort.id : null));
+        getItems('Admin', 'SearchAndFilterCinemas', (search ? search.value : null), '', (filterOptions ? filterOptions.value : null), (activeSort ? activeSort.id : null), page);
     });
     document.querySelectorAll(".sort-button").forEach(i => i.addEventListener('click', function () {
         var alreadyActive = document.querySelector('.sort-button.selected');
@@ -111,6 +112,6 @@
         }
         activeSort = i;
         i.classList.add("selected");
-        getItems('Admin', 'SearchAndFilterCinemas', (search ? search.value : null), '', (filterOptions ? filterOptions.value : null), i.id);
+        getItems('Admin', 'SearchAndFilterCinemas', (search ? search.value : null), '', (filterOptions ? filterOptions.value : null), i.id, page);
     }));
 </script>

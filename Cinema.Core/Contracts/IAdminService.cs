@@ -14,8 +14,8 @@ namespace Cinema.Core.Contracts
         Task<bool> CinemaExistsAsync(int? id);
         Task<ApplicationUser> GetUserByIdAsync(string id);
         Task<IEnumerable<Data.Models.Cinema>> GetAllCinemasAsync();
-        Task<IEnumerable<AdminAllCinemasViewModel>> SearchAndFilterCinemasAsync(string searchText, string filterValue, string sortBy);
-        Task<IEnumerable<UserDetailsViewModel>> SearchAndFilterUsersAsync(string searchText, string filterValue);
+        Task<IEnumerable<AdminAllCinemasViewModel>> SearchAndFilterCinemasAsync(string searchText, string filterValue, string sortBy, int? pageNumber);
+        Task<IEnumerable<UserDetailsViewModel>> SearchAndFilterUsersAsync(string searchText, string filterValue, string sortBy, int? pageNumber);
         Task<UserDetailsViewModel> GetUserDetailsViewModelByIdAsync(string id);
         Task<AdminCinemaDetailsViewModel> GetCinemaDetailsViewModelByIdAsync(int? id);
         Task<ChangeCinemaApprovalStatusViewModel> GetChangeApprovalStatusViewModelByIdAsync(int? id);

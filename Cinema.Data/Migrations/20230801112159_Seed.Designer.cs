@@ -4,6 +4,7 @@ using Cinema.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cinema.Data.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230801112159_Seed")]
+    partial class Seed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2557,7 +2559,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OWNER1@OWNER.COM",
                             NormalizedUserName = "OWNER1@OWNER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAJKbXNmZ6Kq5Aq+2Ap36XSG1HHmjmaOqVSIES6Se3x2j1pzhNpw936voepWBYk8Dw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIYdVbgmiuz1BnPMRPrPu3EWq3UfLAIBF/tE/nqG5aVgINEYeX46MDFw9GX/+zTjbA==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "1969a695-01c0-49be-8d42-482cb1c327bc",
@@ -2577,7 +2579,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER2@CUSTOMER.COM",
                             NormalizedUserName = "CUSTOMER2@CUSTOMER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENoKtOuGN9zHhhmWQsrWdtWxLSuutNYoVqR6mvvBd97UBmF1cAEBxLixusBvYEkZug==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKVwKPAZTataE6hIw84BvWlq6cRTXNnlYt0oRepxQYt1bFUISOJcnKNmacLNL0/P2g==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "23628fe3-34d3-436b-b12b-7386bda03b50",
@@ -2597,7 +2599,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER6@CUSTOMER.COM",
                             NormalizedUserName = "CUSTOMER6@CUSTOMER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAELeEBikUXJkMSqK+8M7I1TFC9tU1kHOTCbT3FLUdlsuuFtTGi+xg1isielHDj92GYg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHub9LhSfEjuZ5a4xxiIgGqYM1XZ6m2MPJHl/HKNRxB+ZFTWXWCPLx+GXy7Wswqpwg==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "d3103320-f4b9-4654-ba99-654bc1cdf6c4",
@@ -2617,7 +2619,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OWNER2@OWNER.COM",
                             NormalizedUserName = "OWNER2@OWNER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKyXVEkYiitu/g4nxJzPhgP+b1zOMe5sKZgWyYb4ivr3QESMx++GwyRl9XdXN/zyjg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEH9590bWETDx/f3eWFDK/nhUYCcO8ZbMJXB9tSzrfdzUrkH5TmnuYQdSW6Tdnpiz8g==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "0dcc8f9a-b2bd-40a5-8f68-ad4c06ccd772",
@@ -2637,7 +2639,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OWNER3@OWNER.COM",
                             NormalizedUserName = "OWNER3@OWNER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMM4s/8yxlKO0HUvakBulpawkq1im5l712Su+rA515XeIJN3Q2GhpDBNRfvr8ezqUQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEy1rD0+YNdrKjS3xMbXk1lAMo4PeS0kUf3GRRZ7Niljy26EwB2xbrd4AyoaruRv1A==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "ea79ff42-c2cd-49bd-8d71-1cc1c1f27dab",
@@ -2657,7 +2659,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER1@CUSTOMER.COM",
                             NormalizedUserName = "CUSTOMER1@CUSTOMER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPf8ikx9O1fm44G5VTFu5bA5q0uofddhSGDPeBo4O+fzMbny3dTaiQ4lnrP66+yfgA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEUPcUZDJ4o+uRZ0A8Cb23yeQlCobllpj97wK5CQ1AYKes43jUtgQQOL3iUP/8dLRA==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "41af5f84-823a-4d6e-8dc3-6917d36c1983",
@@ -2677,7 +2679,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER8@CUSTOMER.COM",
                             NormalizedUserName = "CUSTOMER8@CUSTOMER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAED+bqQEOxUqrepjmbG3OSF0fMvGZuJ2NUweHquJ/EOCZkFJTFFhZ4rk2jWuI4d8bAw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFoeANuh9F5HuucSWm4m5cGI2ERKR+/bvmS7aU2wBfCoosApuSja/Er97O3eqbVnjA==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "11d3f4f3-b612-4683-90db-2a0c77867a06",
@@ -2697,7 +2699,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER3@CUSTOMER.COM",
                             NormalizedUserName = "CUSTOMER3@CUSTOMER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEC4NKJug/G9yHOv6hMjYJLjNCXhH5kMhzFln6zkbKJblPnaS1eNt6UkTK8S+43RwCA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAo9riMnRZd7BiDCRw9CxwHhPgDnbDHhLNkNUwtmA8gNMfYUX0M8lgLpLNB3UcbE4g==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "18e0ad1c-2ce4-494c-8a08-4eb3e491aae1",
@@ -2717,7 +2719,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OWNER6@OWNER.COM",
                             NormalizedUserName = "OWNER6@OWNER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKHPnUk8n54S6MaqM9pPhE0AStNZ9i2YV44kqZXf4s3G5ZwEU693lVF9gjkaFKZ6Fg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECPxWkbe+LEWvSxClQyskMjLrUqyizhNP/IuupgOAbRB5OzPXG6j3aad9BtDl6p/Tg==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "35a42130-bf0d-4f5a-85a4-032f27fb34fe",
@@ -2737,7 +2739,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OWNER8@OWNER.COM",
                             NormalizedUserName = "OWNER8@OWNER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHXIfLGu12AwfJetgS7pnkoC1sTguD+UkQ3D3rH90fBw/0Lrq/KR9k0yAhdf1gLzfA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBhX8g5FB07aDTi3JuRA4LAWhNK10GLfc5KvUV7nArXVbX+ZXsVHK9f5MNevdqR2/Q==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "5caf143b-da62-492e-9c4c-3a631cdd77b9",
@@ -2757,7 +2759,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OWNER9@OWNER.COM",
                             NormalizedUserName = "OWNER9@OWNER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECtFZ97TVshZqY7cQ8zSjtRGPZVE/DO1xYF3FtGtR6rA8JdiIOPmjJfW3eOcWaSXQQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOV6ksAqnvTwcMf9wrhLoILqSvPmpNgRNYls1agDYXWc6sCnHx6cKNnCFskAZNq0kw==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "cf814eb1-d2f0-47ac-8dbd-54482814dc77",
@@ -2777,7 +2779,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OWNER7@OWNER.COM",
                             NormalizedUserName = "OWNER7@OWNER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJrrvpfG8+DyZjTX9Q+ASVZeAR1CjLy+B3h3CtmaPXeszHOD2+1D7SnrvZVlNhP2Gg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBDfow5xrqGsBjw4oodC5stWB3lf6bHEa44w1/px+t0neX4lJzTB2S+M65YBoqIF4Q==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "2f09438a-adca-4bed-8a26-4ac7ae834dd3",
@@ -2797,7 +2799,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OWNER10@OWNER.COM",
                             NormalizedUserName = "OWNER10@OWNER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEK6CwLxVkn69B8Oug1b68FFdTeazYA/oOPd0sU4/sqXAdxERpps7E1DxcTZ1k5ITnw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJTvPltEGNBIqB+sQZAvHOg3Suo85ro5WE8BON5I1PHgNDNtkVpj5hRWKAdtWbXwRA==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "69434a7f-f6f5-4f2f-9aec-4594d2e1bd27",
@@ -2817,7 +2819,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER10@CUSTOMER.COM",
                             NormalizedUserName = "CUSTOMER10@CUSTOMER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMLsRhqghauwGYcJ2klGv8ZFRznCQvyyKvvCfE/QuD5JwuONSomB3R+IvrmcFgsoog==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELy8a4IThPWS/VOyJET02THwwzV+aw15jhnnDjBcvPHGkZpnOsJoQ6ZSECVCsZVPOw==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "84717c40-eafd-40e7-b0a1-96e7e0937a09",
@@ -2837,7 +2839,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OWNER4@OWNER.COM",
                             NormalizedUserName = "OWNER4@OWNER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECwyiTlvhWXzOypYwVpmeIWhUgE8p4SuYTZ9a2/fS3DsyqXT9sZGYcmgd5cflIWhog==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEB/axwPztarbXOMlDcO7bUMnqAU8pd8PrwN32w0RgLY3NloSHEXnd6c2I1Wc4Cqtwg==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "d795d540-219a-4312-bbae-4d3b0558c2d5",
@@ -2857,7 +2859,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER4@CUSTOMER.COM",
                             NormalizedUserName = "CUSTOMER4@CUSTOMER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBbqZ60rT6iDMOl0kByAniZCDU9skJzfmVWgLBGRVc8fZ58d5ASQZxnQfkfC2fbcpw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBonXqX3UdNpBwptGunJ+/d+t5T9Fw+8YYjRCDdvtotgaxR8xdKEtpZY4LemicGxjw==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "eede314b-fa5b-4b39-927c-59c9959e9990",
@@ -2877,7 +2879,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER5@CUSTOMER.COM",
                             NormalizedUserName = "CUSTOMER5@CUSTOMER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEG8FqqlgyF0SuV4gnxFzIiQ9oBwZnzgIumUSRdK9f/NEZQEFWTl/iRN9VUJ3XuQ1kA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGuiVM+Ma5X9ORwziUxZo5qk0ba5xKIn2/QzkCAhEh7Q7wx3E4B5ZKaBaU0Tn9qu4g==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "0f9d29a6-6105-4649-a166-0762aee21984",
@@ -2897,7 +2899,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER9@CUSTOMER.COM",
                             NormalizedUserName = "CUSTOMER9@CUSTOMER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENourNW0VmlkK2hKaA+MnYXIeaOFXoS05TRMrQlPlVoOFz+GzE7QmTJk44gKXCIaYg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELPednz6bhPDwj2u8h47E3tqdVUff4XB30zNBp3DBATdQxClHkm2MGBFDMUpOFpfjA==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "7ca95f02-1224-4ae7-a823-0e9243192c8b",
@@ -2917,7 +2919,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OWNER5@OWNER.COM",
                             NormalizedUserName = "OWNER5@OWNER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDSv9nI24IYA8Pln52jsWZqd5Lga7FW+UHC7hWGLS3EyIVqjFOzjoJgirDAiNm0y/w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGBcz2Nu5L5I2hjU2fets75haPy65WClET7KODy7NKRSpaBc0Sf3UJH4YsT2ULw4aw==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "4b0d4e53-c70f-4118-8c78-b63d6adb1548",
@@ -2937,7 +2939,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CUSTOMER7@CUSTOMER.COM",
                             NormalizedUserName = "CUSTOMER7@CUSTOMER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIfhE0EgrCFdmAHxbmVPV+k5nWh4adVwJWHVJfUabmnHPeVZI9Vz9yroFzR40w2YjQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFygr789cCFas2axywXM6reY2oV+84t0EuopGJ50lT/7VbrohPXm+alh2v5Ogv3l9A==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "d6172bcd-0893-437a-b705-43122add4781",
@@ -2957,7 +2959,7 @@ namespace Cinema.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAkQXuHgg8JuVWHp4dLcIoBeUEPcXBzqbADycF9I3AKFt70vfsrT4TNPpq8VD1dSew==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMYGdB9gV3gxxqBhZBNZXMOwdADmqVUhS+jgVgD+/ez2eYFf3i2KI2Nbd5mbyuX7Uw==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "profilePicURL",
                             SecurityStamp = "d6172bcd-0893-437a-b705-43122add4781",
@@ -19897,7 +19899,7 @@ namespace Cinema.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("GenreId")
+                    b.Property<int>("GenreId")
                         .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
@@ -30463,7 +30465,8 @@ namespace Cinema.Data.Migrations
                     b.HasOne("Cinema.Data.Models.Genre", "Genre")
                         .WithMany("Movies")
                         .HasForeignKey("GenreId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("AddedBy");
 

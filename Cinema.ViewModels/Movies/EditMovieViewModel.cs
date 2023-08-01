@@ -34,7 +34,7 @@ namespace Cinema.ViewModels.Movies
         [RegularExpression(YoutubeTrailerRegex, ErrorMessage = "Enter a correct YouTube URL")]
         public string TrailerUrl { get; set; }
         [Display(Name = "Image")]
-        public IFormFile Image { get; set; }
+        public IFormFile? Image { get; set; }
         public List<ActorDropdownViewModel>? ActorsDropdown { get; set; }
         public IEnumerable<SelectListItem>? Genres { get; set; }
     }

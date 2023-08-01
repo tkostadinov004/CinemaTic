@@ -50,7 +50,7 @@ namespace Cinema.Controllers
                 return NotFound();
             }
             var viewModel = await _moviesService.GetDetailsViewModelAsync(id, User.Identity.Name);
-            if(viewModel == null)
+            if (viewModel == null)
             {
                 return NotFound();
             }
@@ -85,7 +85,7 @@ namespace Cinema.Controllers
                 return NotFound();
             }
             var viewModel = await _moviesService.GetEditViewModelAsync(id);
-            if(viewModel == null)
+            if (viewModel == null)
             {
                 return NotFound();
             }
@@ -118,7 +118,7 @@ namespace Cinema.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("AllMovies", "Movies");
+                return RedirectToAction("Details", "Movies", new { id = viewModel.Id });
             }
             return View();
         }
@@ -137,9 +137,10 @@ namespace Cinema.Controllers
         }
 
         // POST: Movies/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
+        [Authorize(Roles = "Owner")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (!await _moviesService.ExistsByIdAsync(id))
             {
@@ -158,7 +159,7 @@ namespace Cinema.Controllers
                 return NotFound();
             }
             await _moviesService.AddMovieToCinemasAsync(viewModel);
-            return RedirectToAction("AllMovies", "Movies");
+            return RedirectToAction("Details", "Movies", new { id = viewModel.MovieId });
         }
     }
 }

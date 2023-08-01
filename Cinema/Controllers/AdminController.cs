@@ -67,7 +67,7 @@ namespace Cinema.Controllers
         [HttpGet]
         public async Task<IActionResult> ChangeApprovalStatus([ModelBinder(typeof(IdModelBinder))] int id)
         {
-            if (!await _adminService.CinemaExistsAsync(id)) 
+            if (!await _adminService.CinemaExistsAsync(id))
             {
                 return NotFound();
             }
@@ -89,14 +89,14 @@ namespace Cinema.Controllers
             await _adminService.ChangeApprovalByIdStatusAsync(id, approvalCode);
             return RedirectToAction("AllCinemas", "Admin");
         }
-        public async Task<IActionResult> SearchAndFilterCinemas(string searchText, string filterValue, string sortBy)
+        public async Task<IActionResult> SearchAndFilterCinemas(string searchText, string filterValue, string sortBy, int? pageNumber)
         {
-            var cinemas = await _adminService.SearchAndFilterCinemasAsync(searchText, filterValue, sortBy);
+            var cinemas = await _adminService.SearchAndFilterCinemasAsync(searchText, filterValue, sortBy, pageNumber);
             return PartialView("_CinemasPartial", cinemas);
         }
-        public async Task<IActionResult> SearchAndFilterUsers(string searchText, string filterValue)
+        public async Task<IActionResult> SearchAndFilterUsers(string searchText, string filterValue, string sortBy, int? pageNumber)
         {
-            var users = await _adminService.SearchAndFilterUsersAsync(searchText, filterValue);
+            var users = await _adminService.SearchAndFilterUsersAsync(searchText, filterValue, sortBy, pageNumber);
             return PartialView("_UsersPartial", users);
         }
         public async Task<IActionResult> PromoteToOwner(string id)

@@ -20,7 +20,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-lg-5 me-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_1">Home</a>
+                            <a class="nav-link click-scroll" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
 
                         <li class="nav-item">
@@ -31,15 +31,6 @@
                             <a class="nav-link click-scroll" href="#section_3">How it works</a>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-
-                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                                <li><a class="dropdown-item" href="topics-listing.html">Topics Listing</a></li>
-
-                                <li><a class="dropdown-item">adsdad</a></li>
-                            </ul>
-                        </li>
                     </ul>
                     <ul class="navbar-nav ms-lg-5 me-lg-auto text-white">
                         <li class="nav-item">
@@ -78,8 +69,8 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="your-cinemas" role="button" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
 
                                 <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="your-cinemas">
-                                    <li><a class="dropdown-item" asp-controller="Customer" asp-action="ChangeProfilePicture">Change profile picture</a></li>
-                                    <li><a class="dropdown-item" asp-controller="Customer" asp-action="ChangePassword">Change password</a></li>
+                                    <li><a class="dropdown-item" asp-controller="User" asp-action="ChangeProfilePicture">Change profile picture</a></li>
+                                    <li><a class="dropdown-item" asp-controller="User" asp-action="ChangePassword">Change password</a></li>
                                 </ul>
                             </li>
 

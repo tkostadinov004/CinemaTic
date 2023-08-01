@@ -117,13 +117,13 @@ namespace Cinema.Controllers
             return PartialView("_CinemasPartial", cinemas);
         }
         [Authorize(Roles = "Administrator, Owner")]
-        public async Task<IActionResult> SearchMoviesByCinema(string searchText, [ModelBinder(typeof(IdModelBinder))] int id)
+        public async Task<IActionResult> SearchMoviesByCinema(string searchText, string sortBy, [ModelBinder(typeof(IdModelBinder))] int id)
         {
             if (!await _ownersService.ExistsByIdAsync(id))
             {
                 return NotFound();
             }
-            var movies = await _ownersService.SearchMoviesByCinemaAsync(searchText, id);
+            var movies = await _ownersService.SearchMoviesByCinemaAsync(searchText, sortBy, id);
             return PartialView("_CinemaMoviesPartial", movies);
         }
         [Authorize(Roles = "Owner")]

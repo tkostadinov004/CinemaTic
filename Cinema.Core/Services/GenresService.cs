@@ -160,7 +160,7 @@ namespace Cinema.Core.Services
         }
         public async Task<IEnumerable<GenreListViewModel>> SortGenresAsync(string sortBy)
         {
-            var genres = _context.Genres.Include(i => i.Movies).AsEnumerable();
+            var genres = _context.Genres.Include(i => i.Movies).OrderBy(i => i.Name).AsEnumerable();
 
             if (string.IsNullOrEmpty(sortBy) == false)
             {

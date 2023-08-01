@@ -36,6 +36,7 @@ namespace Cinema.Data
             modelBuilder.Entity<CustomerCinema>().HasOne(i => i.Cinema).WithMany(i => i.Customers).OnDelete(DeleteBehavior.NoAction);
             modelBuilder.Entity<Ticket>().HasOne(i => i.Cinema).WithMany(i => i.Tickets).OnDelete(DeleteBehavior.NoAction);
             modelBuilder.Entity<Movie>().HasOne(i => i.AddedBy).WithMany(a => a.MoviesAdded).OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<Movie>().HasOne(i => i.Genre).WithMany(g => g.Movies).IsRequired(false).OnDelete(DeleteBehavior.SetNull);
 
             modelBuilder.Entity<ActionLog>().HasOne(i => i.User).WithMany(a => a.UserActions);
 

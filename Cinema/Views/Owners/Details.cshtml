@@ -46,7 +46,7 @@
         <div class="cinema-cell stock">
             <button id="edit" class="action-button active crud-button open-popup-btn">Edit</button>
             <button id="delete" class="action-button active crud-button open-popup-btn">Delete</button>
-            <button id="preview-sectors" class="action-button active crud-button open-popup-btn">Preview sector layout</button>
+            <button id="preview-sectors" class="action-button active crud-button open-popup-btn">Preview cinema page</button>
         </div>
     </div>
     @if (Model.ApprovalStatus == ApprovalStatus.Approved)
@@ -107,7 +107,7 @@
     }
     else
     {
-        <div class="message-container mt-5 text-white text-center">
+        <div class="message-container mt-5 text-center">
             <h4>There are no movies here</h4>
             @if (Model.ApprovalStatus == ApprovalStatus.PendingApproval)
             {
@@ -132,7 +132,7 @@
         search.addEventListener("keyup", function () {
             clearTimeout(timeout);
             timeout = setTimeout(function () {
-                getItems('Movies', 'SearchAndFilterMovies', search.value, '', '', (activeSort ? activeSort.id : null));
+                getItems('Owners', 'SearchMoviesByCinema', search.value, '@Model.Id', '', (activeSort ? activeSort.id : null));
             }, 300);
         });
     }
@@ -144,7 +144,7 @@
         }
         i.classList.add("selected");
         activeSort = i;
-        getItems('Movies', 'SearchAndFilterMovies', (search ? search.value : null), '', '', activeSort.id);
+        getItems('Owners', 'SearchMoviesByCinema', (search ? search.value : null), '@Model.Id', '', activeSort.id);
     }));
 
     var modalContainer = document.getElementById('review-form-container');

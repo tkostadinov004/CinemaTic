@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.Controllers
 {
-    [Authorize(Roles = "Owner, Customer")]
+    [Authorize]
     public class UserController : Controller
     {
         private readonly IUsersService _userService;

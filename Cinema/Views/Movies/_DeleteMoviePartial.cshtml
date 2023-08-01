@@ -9,7 +9,7 @@
                 <span class="px-2">@Model.Name</span>
             </div>
         </div>
-        <button class="app-content-headerButton" asp-controller="Movies" asp-action="Delete" asp-route-cinemaId="@Model.Id">Delete</button>
+        <button class="app-content-headerButton" asp-controller="Movies" asp-action="Delete" asp-route-id="@Model.Id">Delete</button>
     </div>
     <div class="delete-image form-group mx-0">
         <img src="~/client-images/Movies/@Model.ImageUrl" />

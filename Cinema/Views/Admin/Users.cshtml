@@ -45,12 +45,30 @@
         <div class="products-header">
             <div class="cinema-cell image">
                 User
+                <button class="sort-button" id="name-sort-desc" title="Sort descending">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="name-sort" title="Sort ascending">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
             </div>
             <div class="cinema-cell status-cell">
                 Email
+                <button class="sort-button" id="email-sort-desc" title="Sort descending">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="email-sort" title="Sort ascending">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
             </div>
             <div class="cinema-cell sales">
                 Role
+                <button class="sort-button" id="role-sort-desc" title="Sort descending">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="role-sort" title="Sort ascending">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
             </div>
             <div class="cinema-cell sales">
                 
@@ -62,22 +80,34 @@
 </div>
 <partial name="_PopupModalPartial" />
 <script src="~/js/ownerdashboard.js"></script>
+<script src="~/js/rating-modal.js"></script>
 <script>
+    var page = 1;
     window.onload = function () {
-        getItems('Admin', 'SearchAndFilterUsers', "", '');
+        getItems('Admin', 'SearchAndFilterUsers', '', '', '', '', page);
     };
     var search = document.getElementById("search-bar");
+    var filterOptions = document.getElementById('filter-options');
+    var activeSort = document.querySelector('.sort-button.selected');
     if (search) {
         let timeout = null;
         search.addEventListener("keyup", function () {
             clearTimeout(timeout);
             timeout = setTimeout(function () {
-                getItems('Admin', 'SearchAndFilterUsers', search.value, '');
+                getItems('Admin', 'SearchAndFilterUsers', search.value, '', (filterOptions ? filterOptions.value : null), (activeSort ? activeSort.id : null), page);
             }, 300);
         });
     }
-    var filterOptions = document.getElementById('filter-options');
     filterOptions.addEventListener("change", function () {
-        getItems('Admin', 'SearchAndFilterUsers', (search ? search.value : null), '', this.value);
+        getItems('Admin', 'SearchAndFilterUsers', (search ? search.value : null), '', this.value, (activeSort ? activeSort.id : null), page);
     });
+    document.querySelectorAll(".sort-button").forEach(i => i.addEventListener('click', function () {
+        var alreadyActive = document.querySelector('.sort-button.selected');
+        if (alreadyActive) {
+            alreadyActive.classList.remove("selected");
+        }
+        activeSort = i;
+        i.classList.add("selected");
+        getItems('Admin', 'SearchAndFilterUsers', (search ? search.value : null), '', (filterOptions ? filterOptions.value : null), i.id, page);
+    }));
 </script>

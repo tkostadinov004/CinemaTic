@@ -227,7 +227,7 @@ namespace Cinema.Core.Services
                 Name = i.Movie.Title,
                 ImageUrl = i.Movie.ImageUrl,
                 AverageRating = i.Movie.UserRating.Value,
-                Genre = i.Movie.Genre.Name,
+                Genre = i.Movie.Genre != null ? i.Movie.Genre.Name : "No genre",
                 RatingCount = i.Movie.RatingCount
             });
             if (string.IsNullOrEmpty(searchText) == false)

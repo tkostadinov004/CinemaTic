@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <div class="d-flex mt-4">
-                    <button id="edit" class="action-button active crud-button open-popup-btn">Edit</button>
+                    <button id="edit" class="action-button active crud-button open-popup-btn mx-0">Edit</button>
                     <button id="delete" class="action-button active crud-button open-popup-btn">Delete</button>
                 </div>
             </div>
@@ -64,6 +64,33 @@
                             <i class="fa-solid fa-arrow-down"></i>
                         </button>
                         <button class="sort-button" id="name-sort" title="Sort ascending">
+                            <i class="fa-solid fa-arrow-up"></i>
+                        </button>
+                    </div>
+                    <div class="cinema-cell image">
+                        From date
+                        <button class="sort-button" id="fromDate-sort-desc" title="Sort descending">
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </button>
+                        <button class="sort-button" id="fromDate-sort" title="Sort ascending">
+                            <i class="fa-solid fa-arrow-up"></i>
+                        </button>
+                    </div>
+                    <div class="cinema-cell image">
+                        To date
+                        <button class="sort-button" id="toDate-sort-desc" title="Sort descending">
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </button>
+                        <button class="sort-button" id="toDate-sort" title="Sort ascending">
+                            <i class="fa-solid fa-arrow-up"></i>
+                        </button>
+                    </div>
+                    <div class="cinema-cell image">
+                        Ticket price
+                        <button class="sort-button" id="price-sort-desc" title="Sort descending">
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </button>
+                        <button class="sort-button" id="price-sort" title="Sort ascending">
                             <i class="fa-solid fa-arrow-up"></i>
                         </button>
                     </div>
@@ -112,7 +139,7 @@
                                     </div>
                                 }
                             </div>
-                            <button class="mt-4 mx-0 action-button active crud-button" type="submit" asp-controller="Owners" asp-action="AddMovieToCinemas">Submit</button>
+                            <button class="mt-4 mx-0 action-button active crud-button" type="submit" asp-controller="Movies" asp-action="AddMovieToCinemas">Submit</button>
                         </div>
                     </div>
                 </form>

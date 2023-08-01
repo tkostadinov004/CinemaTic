@@ -41,7 +41,7 @@
     <div class="form-group">
         <div class="active-form">
             <i class="input-icon">BG</i>
-            <input type="color" class="form-control form-style color-picker" value="#000000">
+            <input type="color" class="form-control form-style color-picker" asp-for="BackgroundColor">
             <input type="text" class="visualizer" onfocusout="setDefaultColor(this, '#000000');" placeholder="Background color" asp-for="BackgroundColor" />
         </div>
         <span asp-validation-for="BackgroundColor" class="text-danger"></span>
@@ -49,7 +49,7 @@
     <div class="form-group">
         <div class="active-form">
             <i class="input-icon">HD</i>
-            <input type="color" class="form-control form-style color-picker" value="#FFFFFF">
+            <input type="color" class="form-control form-style color-picker" asp-for="BoardColor">
             <input type="text" class="visualizer" onfocusout="setDefaultColor(this, '#FFFFFF');" placeholder="Board color" asp-for="BoardColor" />
         </div>
         <span asp-validation-for="BoardColor" class="text-danger"></span>
@@ -57,7 +57,7 @@
     <div class="form-group">
         <div class="active-form">
             <i class="input-icon">TX</i>
-            <input type="color" class="form-control form-style color-picker" value="#FFFFFF">
+            <input type="color" class="form-control form-style color-picker" asp-for="TextColor">
             <input type="text" class="visualizer" onfocusout="setDefaultColor(this, '#FFFFFF');" placeholder="Text color" asp-for="TextColor" />
         </div>
         <span asp-validation-for="TextColor" class="text-danger"></span>
@@ -65,7 +65,7 @@
     <div class="form-group">
         <div class="active-form">
             <i class="input-icon">BT</i>
-            <input type="color" class="form-control form-style color-picker" value="#FFFFFF">
+            <input type="color" class="form-control form-style color-picker" asp-for="ButtonBackgroundColor">
             <input type="text" class="visualizer" onfocusout="setDefaultColor(this, '#FFFFFF');" placeholder="Button background color" asp-for="ButtonBackgroundColor" />
         </div>
         <span asp-validation-for="ButtonBackgroundColor" class="text-danger"></span>
@@ -73,7 +73,7 @@
     <div class="form-group">
         <div class="active-form">
             <i class="input-icon">BT</i>
-            <input type="color" class="form-control form-style color-picker" value="#000000">
+            <input type="color" class="form-control form-style color-picker" asp-for="ButtonTextColor">
             <input type="text" class="visualizer" onfocusout="setDefaultColor(this, '#000000');" placeholder="Button text color" asp-for="ButtonTextColor" />
         </div>
         <span asp-validation-for="ButtonTextColor" class="text-danger"></span>
@@ -81,7 +81,7 @@
     <div class="form-group">
         <div class="active-form">
             <i class="input-icon">AC</i>
-            <input type="color" class="form-control form-style color-picker" value="#FF0000">
+            <input type="color" class="form-control form-style color-picker" asp-for="AccentColor">
             <input type="text" class="visualizer" onfocusout="setDefaultColor(this, '#FF0000');" placeholder="Accent color" asp-for="AccentColor" />
         </div>
         <span asp-validation-for="AccentColor" class="text-danger"></span>

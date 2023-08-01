@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Cinema.ViewModels.Admin.UserDetailsViewModel>
+﻿@model PaginatedList<Cinema.ViewModels.Admin.UserDetailsViewModel>
 
 @foreach (var user in Model)
 {
@@ -45,8 +45,39 @@
         </div>
     </div>
 }
-<script src="~/js/rating-modal.js"></script>
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<ul class="pagination gap-1">
+    <li class="page-item">
+        <a class="action-button active previous @prevDisabled">
+            Previous
+        </a>
+    </li>
+    <li class="page-item">
+        <a class="action-button active next @nextDisabled">
+            Next
+        </a>
+    </li>
+</ul>
 <script>
+    document.querySelectorAll('.page-item a').forEach(i => i.addEventListener("click", function () {
+        if (i.classList.contains("previous")) {
+            page = page - 1;
+        }
+        else if (i.classList.contains("next")) {
+            page = page + 1;
+        }
+        getItems('Admin', 'SearchAndFilterUsers', search.value, '', (filterOptions ? filterOptions.value : null), (activeSort ? activeSort.id : null), page);
+    }));
+</script>
+<script>
+    openButtons = document.querySelectorAll('.open-popup-btn');
+    modal = document.getElementById('modal');
+    modalOverlay = document.querySelector('.modal-overlay');
+    openButtons.forEach(i => i.addEventListener('click', openModal));
+
     var modalContainer = document.getElementById('review-form-container');
 
     var promoteButton = document.querySelectorAll(".promote");

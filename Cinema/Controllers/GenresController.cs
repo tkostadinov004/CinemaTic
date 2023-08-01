@@ -123,7 +123,7 @@ namespace Cinema.Controllers
                 return NotFound();
             }
             await _genresService.DeleteByIdAsync(genreId);
-            return Json(Url.Action("AllGenres", "Genres"));
+            return RedirectToAction("AllGenres", "Genres");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Cinema.ViewModels.Admin.AdminAllCinemasViewModel>
+﻿@model PaginatedList<Cinema.ViewModels.Admin.AdminAllCinemasViewModel>
 
 @foreach (var cinema in Model)
 {
@@ -22,3 +22,30 @@
         </div>
     </div>
 }
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<ul class="pagination gap-1">
+    <li class="page-item">
+        <a class="action-button active previous @prevDisabled">
+            Previous
+        </a>
+    </li>
+    <li class="page-item">
+        <a class="action-button active next @nextDisabled">
+            Next
+        </a>
+    </li>
+</ul>
+<script>
+    document.querySelectorAll('.page-item a').forEach(i => i.addEventListener("click", function () {
+        if (i.classList.contains("previous")) {
+            page = page - 1;
+        }
+        else if (i.classList.contains("next")) {
+            page = page + 1;
+        }
+        getItems('Admin', 'SearchAndFilterCinemas', search.value, '', (filterOptions ? filterOptions.value : null), (activeSort ? activeSort.id : null), page);
+    }));
+</script>

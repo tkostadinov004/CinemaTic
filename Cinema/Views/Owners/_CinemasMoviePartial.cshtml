@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Cinema.ViewModels.Cinemas.CinemaListViewModel>
+﻿@model IEnumerable<Cinema.ViewModels.Cinemas.CinemaContainingMovieViewModel>
 
 @foreach (var cinema in Model)
 {
@@ -8,9 +8,18 @@
         </button>
         <div class="cinema-cell image">
             <a class="d-flex align-items-center cinema-link" asp-controller="Owners" asp-action="Details" asp-route-id="@cinema.Id">
-                <img src="~/client-images/Cinemas/@cinema.ImageUrl" alt="cinema-logo">
+                <img src="~/client-images/Cinemas/@cinema.CinemaLogoUrl" alt="cinema-logo">
                 <span>@cinema.Name</span>
             </a>
+        </div>
+        <div class="cinema-cell">
+           <span>@cinema.FromDate</span>
+        </div>
+        <div class="cinema-cell">
+            <span>@cinema.ToDate</span>
+        </div>
+        <div class="cinema-cell">
+            <span>@string.Format($"${cinema.TicketPrice:f2}")</span>
         </div>
     </div>
 }

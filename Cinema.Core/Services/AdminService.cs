@@ -7,6 +7,7 @@ using Cinema.ViewModels.Admin;
 using Cinema.Data.Enums;
 using Cinema.Core.Utilities;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace Cinema.Core.Services
 {
@@ -73,9 +74,9 @@ namespace Cinema.Core.Services
         {
             return await _context.Cinemas.Include(i => i.Owner).ToListAsync();
         }
-        public async Task<IEnumerable<AdminAllCinemasViewModel>> SearchAndFilterCinemasAsync(string searchText, string filterValue, string sortBy)
+        public async Task<IEnumerable<AdminAllCinemasViewModel>> SearchAndFilterCinemasAsync(string searchText, string filterValue, string sortBy, int? pageNumber)
         {
-            var cinemas = await this.GetAllCinemasAsync();
+            var cinemas = _context.Cinemas.Include(i => i.Owner).OrderBy(i => i.Name).AsQueryable();
             if (string.IsNullOrEmpty(searchText) == false)
             {
                 cinemas = cinemas.Where(i => i.Name.ToLower().StartsWith(searchText.ToLower()));
@@ -125,7 +126,7 @@ namespace Cinema.Core.Services
                         break;
                 }
             }
-            return cinemas.Select(i => new AdminAllCinemasViewModel
+            return await PaginatedList<AdminAllCinemasViewModel>.CreateAsync(cinemas.Select(i => new AdminAllCinemasViewModel
             {
                 Id = i.Id,
                 Name = i.Name,
@@ -134,7 +135,7 @@ namespace Cinema.Core.Services
                 AddedById = i.OwnerId,
                 AddedOn = i.FoundedOn.ToString(Constants.DateTimeFormat),
                 ImageUrl = i.ImageUrl
-            });
+            }), pageNumber ?? 1, 10);
         }
 
         public async Task<UserDetailsViewModel> GetUserDetailsViewModelByIdAsync(string id)
@@ -202,24 +203,53 @@ namespace Cinema.Core.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<UserDetailsViewModel>> SearchAndFilterUsersAsync(string searchText, string filterValue)
+        public async Task<IEnumerable<UserDetailsViewModel>> SearchAndFilterUsersAsync(string searchText, string filterValue, string sortBy, int? pageNumber)
         {
-            var users = await _context.Users.Where(i => i.UserName != "admin@admin.com").ToListAsync();
+            var users = _context.Users.Where(i => i.UserName != "admin@admin.com").OrderBy(i => $"{i.FirstName} {i.LastName}").AsEnumerable();
             if (string.IsNullOrEmpty(searchText) == false)
             {
                 users = users.Where(i => $"{i.FirstName} {i.LastName}".ToLower().StartsWith(searchText.ToLower())).ToList();
             }
-            if (string.IsNullOrEmpty(filterValue) == false)
+            if (string.IsNullOrEmpty(filterValue) == false && filterValue != "-Select a role-")
             {
                 var userIdsInRole = (await _userManager.GetUsersInRoleAsync(filterValue)).Select(i => i.Id).ToList();
                 users = users.Where(i => userIdsInRole.Contains(i.Id)).ToList();
             }
+            if (string.IsNullOrEmpty(sortBy) == false)
+            {
+                var sortParameter = sortBy.Split('-')[0];
+                var sortDirection = sortBy.Split('-')[^1];
 
+                switch (sortParameter)
+                {
+                    case "name":
+                        users = users.OrderBy(i => $"{i.FirstName} {i.LastName}");
+                        if (sortDirection == "desc")
+                        {
+                            users = users.OrderByDescending(i => $"{i.FirstName} {i.LastName}");
+                        }
+                        break;
+                    case "email":
+                        users = users.OrderBy(i => i.Email);
+                        if (sortDirection == "desc")
+                        {
+                            users = users.OrderByDescending(i => i.Email);
+                        }
+                        break;
+                    case "role":
+                        users = users.OrderBy(i => string.Join(", ", _userManager.GetRolesAsync(i).Result));
+                        if (sortDirection == "desc")
+                        {
+                            users = users.OrderByDescending(i => string.Join(", ", _userManager.GetRolesAsync(i).Result));
+                        }
+                        break;
+                }
+            }
             foreach (var item in users)
             {
                 await _imageService.ReplaceWithDefaultIfNotPresentAsync(item.Email, "Users", item.ProfilePictureUrl);
             }
-            return users.Select(i => new UserDetailsViewModel
+            return await PaginatedList<UserDetailsViewModel>.CreateAsync(users.Select(i => new UserDetailsViewModel
             {
                 Id = i.Id,
                 UserName = i.UserName,
@@ -232,7 +262,7 @@ namespace Cinema.Core.Services
                     Type = i.Type.ToString()
                 }),
                 Roles = string.Join(", ", _userManager.GetRolesAsync(i).Result)
-            });
+            }), pageNumber ?? 1, 8);
         }
 
         public async Task<AdminUserCRUDViewModel> GetAdminUserCRUDPartialAsync(string id)

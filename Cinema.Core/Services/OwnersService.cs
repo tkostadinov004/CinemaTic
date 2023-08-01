@@ -9,6 +9,7 @@ using Cinema.ViewModels.Movies;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace Cinema.Core.Services
@@ -165,7 +166,13 @@ namespace Cinema.Core.Services
                     Description = cinema.Description,
                     FoundedOn = cinema.FoundedOn,
                     Image = null,
-                    Name = cinema.Name
+                    Name = cinema.Name,
+                    AccentColor = cinema.AccentColor,
+                    BackgroundColor = cinema.BackgroundColor,
+                    BoardColor = cinema.BoardColor,
+                    TextColor = cinema.TextColor,
+                    ButtonBackgroundColor = cinema.ButtonBackgroundColor,
+                    ButtonTextColor = cinema.ButtonTextColor
                 };
             }
             return null;
@@ -253,7 +260,7 @@ namespace Cinema.Core.Services
             return cinemas;
         }
 
-        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByCinemaAsync(string searchText, int? cinemaId)
+        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByCinemaAsync(string searchText, string sortBy, int? cinemaId)
         {
             var cinema = await _context.Cinemas
                 .Include(i => i.Movies)
@@ -267,13 +274,50 @@ namespace Cinema.Core.Services
                 Name = i.Movie.Title,
                 ImageUrl = i.Movie.ImageUrl,
                 AverageRating = i.Movie.UserRating.Value,
-                Genre = i.Movie.Genre.Name,
+                Genre = i.Movie.Genre != null ? i.Movie.Genre.Name : "No genre",
                 RatingCount = i.Movie.RatingCount,
                 AddedBy = $"{i.Movie.AddedBy.FirstName} {i.Movie.AddedBy.LastName}"
             });
             if (string.IsNullOrEmpty(searchText) == false)
             {
-                movies = movies.Where(i => i.Name.StartsWith(searchText));
+                movies = movies.Where(i => i.Name.ToLower().StartsWith(searchText.ToLower()));
+            }
+            if (string.IsNullOrEmpty(sortBy) == false)
+            {
+                var sortParameter = sortBy.Split('-')[0];
+                var sortDirection = sortBy.Split('-')[^1];
+
+                switch (sortParameter)
+                {
+                    case "name":
+                        movies = movies.OrderBy(i => i.Name);
+                        if (sortDirection == "desc")
+                        {
+                            movies = movies.OrderByDescending(i => i.Name);
+                        }
+                        break;
+                    case "genre":
+                        movies = movies.OrderBy(i => i.Genre);
+                        if (sortDirection == "desc")
+                        {
+                            movies = movies.OrderByDescending(i => i.Genre);
+                        }
+                        break;
+                    case "rating":
+                        movies = movies.OrderBy(i => i.AverageRating);
+                        if (sortDirection == "desc")
+                        {
+                            movies = movies.OrderByDescending(i => i.AverageRating);
+                        }
+                        break;
+                    case "ratingcount":
+                        movies = movies.OrderBy(i => i.RatingCount);
+                        if (sortDirection == "desc")
+                        {
+                            movies = movies.OrderByDescending(i => i.RatingCount);
+                        }
+                        break;
+                }
             }
             return movies;
         }
@@ -305,19 +349,20 @@ namespace Cinema.Core.Services
             return null;
         }
 
-        public async Task<IEnumerable<CinemaListViewModel>> GetCinemasContainingMovieAsync(int? movieId, string userEmail)
+        public async Task<IEnumerable<CinemaContainingMovieViewModel>> GetCinemasContainingMovieAsync(int? movieId, string userEmail)
         {
-            var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == movieId);
+            var movie = await _context.Movies.Include(i => i.Cinemas).ThenInclude(i => i.Cinema).FirstOrDefaultAsync(i => i.Id == movieId);
             var user = await _userManager.FindByEmailAsync(userEmail);
 
-            return await _context.Cinemas.Include(i => i.Movies).Where(i => i.OwnerId == user.Id && i.Movies.Any(m => m.MovieId == movie.Id)).Select(i => new CinemaListViewModel
+            return movie.Cinemas.Where(i => i.Cinema.OwnerId == user.Id).Select(i => new CinemaContainingMovieViewModel
             {
-                Id = i.Id,
-                Name = i.Name,
-                ImageUrl = i.ImageUrl,
-                FoundedOn = i.FoundedOn.ToString(Constants.DateTimeFormat),
-                MoviesCount = i.Movies.Count()
-            }).ToListAsync();
+                Id = i.Cinema.Id,
+                Name = i.Cinema.Name,
+                FromDate = i.FromDate.ToString(Constants.DateTimeFormat),
+                ToDate = i.ToDate.ToString(Constants.DateTimeFormat),
+                TicketPrice = i.TicketPrice,
+                CinemaLogoUrl = i.Cinema.ImageUrl
+            }).ToList();
         }
     }
 }

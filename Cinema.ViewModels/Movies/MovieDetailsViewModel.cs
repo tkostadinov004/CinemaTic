@@ -23,7 +23,7 @@ namespace Cinema.ViewModels.Movies
         public decimal? CurrentUserRating { get; set; }
         public List<string>? Actors { get; set; }
         public List<CinemaCheckboxViewModel>? UserCinemas { get; set; }
-        public int GenreId { get; set; }
+        public int? GenreId { get; set; }
         public IEnumerable<SelectListItem>? Genres { get; set; }
         public IEnumerable<SelectListItem>? ActorsDropdown { get; set; }
         public IFormFile? Image { get; set; }

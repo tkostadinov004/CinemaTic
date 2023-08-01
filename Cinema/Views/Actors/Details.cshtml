@@ -3,9 +3,9 @@
 @{
     ViewData["Title"] = $"Actor - {Model.FullName}";
 }
+<link href="~/css/ratingmodal.css" rel="stylesheet" />
 <link href="~/css/manageStyle.css" rel="stylesheet" />
 <link rel="stylesheet" href="~/css/cardStyle.css" />
-<link href="~/css/ratingmodal.css" rel="stylesheet" />
 <div class="app-content">
     <div class="app-content-header">
         <button class="mode-switch" title="Switch Theme">
@@ -49,16 +49,8 @@
     </div>
     <div class="app-content-actions">
         <input id="search-bar" class="search-bar" placeholder="Search..." type="text">
-        <div class="app-content-actions-wrapper">
-            <button class="action-button list active" title="List View">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6" /><line x1="8" y1="12" x2="21" y2="12" /><line x1="8" y1="18" x2="21" y2="18" /><line x1="3" y1="6" x2="3.01" y2="6" /><line x1="3" y1="12" x2="3.01" y2="12" /><line x1="3" y1="18" x2="3.01" y2="18" /></svg>
-            </button>
-            <button class="action-button grid" title="Grid View">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /></svg>
-            </button>
-        </div>
     </div>
-    <div class="products-area-wrapper movies-wrapper tableView">
+    <div class="products-area-wrapper tableView mt-1">
         <div class="products-header">
             <div class="cinema-cell image">
                 Movie
@@ -97,11 +89,14 @@
                 </button>
             </div>
         </div>
-        <div class="movies-container" id="results-container">
+        <div class="results-container cinemas-grid" id="results-container">
         </div>
     </div>
 </div>
 <partial name="_PopupModalPartial" />
+<script src="~/js/ownerdashboard.js"></script>
+<script src="~/js/rating-modal.js"></script>
+
 <script>
     window.onload = function () {
         getItems('Actors', 'SearchMoviesByActor', "", '@Model.Id');
@@ -144,5 +139,3 @@
         getUDpartial('Actors', 'DeleteActor', '@Model.Id');
     }); 
 </script>
-<script src="~/js/ownerdashboard.js"></script>
-<script src="~/js/rating-modal.js"></script>

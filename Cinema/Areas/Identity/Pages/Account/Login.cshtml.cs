@@ -94,8 +94,6 @@ namespace Cinema.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User logged in.");
                     TempData["UserLoggedIn"] = true;
-
-                    await _imageService.ReplaceWithDefaultIfNotPresentAsync(Input.Email, "Users", "asd");
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)

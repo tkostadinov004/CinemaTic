@@ -79,19 +79,27 @@ namespace Cinema.Core.Services
             var movieActors = movie.Actors;
             foreach (var actorViewModel in viewModel.ActorsDropdown)
             {
-                var actor = await _context.ActorsMovies.Include(i => i.Actor).Include(i => i.Movie).FirstOrDefaultAsync(i => i.ActorId == actorViewModel.Id);
-                if (movieActors.Any(i => i.ActorId == actor.ActorId))
+                var actor = await _context.Actors.FirstOrDefaultAsync(i => i.Id == actorViewModel.Id);
+                if (actor != null)
                 {
-                    if (actorViewModel.IsChecked == false)
+                    var actorMovie = await _context.ActorsMovies.FirstOrDefaultAsync(i => i.MovieId == movie.Id && i.ActorId == actor.Id);
+                    if (actorMovie != null)
                     {
-                        movieActors.Remove(actor);
+                        if (actorViewModel.IsChecked == false)
+                        {
+                            movieActors.Remove(actorMovie);
+                        }
                     }
-                }
-                else
-                {
-                    if (actorViewModel.IsChecked == true)
+                    else
                     {
-                        movieActors.Add(actor);
+                        if (actorViewModel.IsChecked == true)
+                        {
+                            movieActors.Add(new ActorMovie
+                            {
+                                ActorId = actor.Id,
+                                MovieId = movie.Id
+                            });
+                        }
                     }
                 }
             }
@@ -107,7 +115,7 @@ namespace Cinema.Core.Services
 
         public async Task<SelectList> GetActorsDropdownAsync()
         {
-            var actors = await _context.Actors.AsNoTracking().ToListAsync();
+            var actors = await _context.Actors.OrderBy(i => i.FullName).AsNoTracking().ToListAsync();
             return new SelectList(from a in actors select new { Id = a.Id, FullName = $"{a.FullName}" }, nameof(Actor.Id), "FullName");
         }
 
@@ -218,7 +226,7 @@ namespace Cinema.Core.Services
                 .Include(i => i.Actors)
                 .Include(i => i.Genre)
                 .Include(i => i.Cinemas)
-                .Include(i => i.AddedBy).AsQueryable();
+                .Include(i => i.AddedBy).OrderBy(i => i.Title).AsQueryable();
             if (string.IsNullOrEmpty(searchText) == false)
             {
                 movies = movies.Where(i => i.Title.ToLower().StartsWith(searchText.ToLower()));
@@ -279,7 +287,7 @@ namespace Cinema.Core.Services
                 Name = i.Title,
                 ImageUrl = i.ImageUrl,
                 AverageRating = i.UserRating.Value,
-                Genre = i.Genre.Name,
+                Genre = i.Genre != null ? i.Genre.Name : "No genre",
                 RatingCount = i.RatingCount,
                 AddedBy = $"{i.AddedBy.FirstName} {i.AddedBy.LastName}"
             }).ToList(), pageNumber ?? 1, 8);
@@ -296,7 +304,7 @@ namespace Cinema.Core.Services
         public async Task<EditMovieViewModel> GetEditViewModelAsync(int? id)
         {
             var movie = await this.GetByIdAsync(id);
-            if(movie != null)
+            if (movie != null)
             {
                 return new EditMovieViewModel
                 {
@@ -304,11 +312,11 @@ namespace Cinema.Core.Services
                     Title = movie.Title,
                     Description = movie.Description,
                     Director = movie.Director,
-                    GenreId = movie.GenreId,
+                    GenreId = movie.GenreId ?? 0,
                     Image = null,
                     RunningTime = movie.RunningTime.ToString(),
                     TrailerUrl = movie.TrailerUrl,
-                    ActorsDropdown = (await _context.Actors.ToListAsync()).Select(i => new ActorDropdownViewModel
+                    ActorsDropdown = (await _context.Actors.OrderBy(i => i.FullName).ToListAsync()).Select(i => new ActorDropdownViewModel
                     {
                         Id = i.Id,
                         FullName = i.FullName,
@@ -323,7 +331,7 @@ namespace Cinema.Core.Services
         public async Task<DeleteMovieViewModel> GetDeleteViewModelAsync(int? id)
         {
             var movie = await this.GetByIdAsync(id);
-            if(movie != null)
+            if (movie != null)
             {
                 return new DeleteMovieViewModel
                 {
