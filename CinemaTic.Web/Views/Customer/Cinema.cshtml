@@ -1,0 +1,150 @@
+﻿@model CinemaTic.ViewModels.Cinemas.CustomerCinemaPageViewModel
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<link href="~/css/cardstyle.css" rel="stylesheet" />
+<link href="~/css/cinemas.css" rel="stylesheet" />
+<link href="~/css/search-dropdown.css" rel="stylesheet" />
+<link href="~/css/ratingModal.css" rel="stylesheet" />
+<partial name="_CinemaNavbarPartial"/>
+<div class="main-cinema-container">
+    <div class="main">
+        <img src="~/client-images/defaults/martin-martz-ZUj-wUCw0u4-unsplash.png" class="bg-image" />
+        <div class="main-container pt-5" style="padding-top: 15vh !important; height: 100vh;">
+            <div class="col-xl-12 text-white">
+                <h5 class="text-center text-white">Top movies, recommended by our sponsors: </h5>
+            </div>
+            <div class="movie-grid d-flex justify-content-center gap-3 mt-5" style="width: 100%;">
+                <div class="card-wrapper">
+                    <div class="card">
+                        <img src="~/client-images/Movies/12 Angry Men.jpg" alt="cinema-logo">
+                        <div class="descriptions">
+                            <div class="description-buttons">
+                                <a class="desc-button">
+                                    <i class="fa-solid fa-circle-info f-size-b"></i>
+                                    Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-wrapper">
+                    <div class="card">
+                        <img src="~/client-images/Movies/2001ASpaceOdyssey.jpg" alt="cinema-logo">
+                        <div class="descriptions">
+                            <div class="description-buttons">
+                                <a class="desc-button">
+                                    <i class="fa-solid fa-circle-info f-size-b"></i>
+                                    Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-wrapper">
+                    <div class="card">
+                        <img src="~/client-images/Movies/A Clockwork Orange.jpg" alt="cinema-logo">
+                        <div class="descriptions">
+                            <div class="description-buttons">
+                                <a class="desc-button">
+                                    <i class="fa-solid fa-circle-info f-size-b"></i>
+                                    Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100">
+                <div class="col-xl-12 mt-5 dates-container">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <span class="text-black">Book tickets</span>
+                        <div class="d-flex selection-buttons">
+                            <button class="active" id="movie-grid-button">Movie grid</button>
+                            <div class="dropdown">
+                                <button class="dropbtn" tabindex="0">
+                                    By movie
+                                    <i class="fa-solid fa-arrow-down"></i>
+                                </button>
+                                <div class="dropdown-content dropdown-input">
+                                    <input type="text" placeholder="Search.." id="input-search" />
+                                    <div class="items d-flex flex-column">
+                                        @foreach (var movie in Model.Movies)
+                                        {
+                                            <div>
+                                                <button class="movie-item">@movie.Name</button>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <button class="date active" onkey>Today</button>
+                        @foreach (var item in Model.Dates.Skip(1))
+                        {
+                            <button class="date" for-date="@item.Value">@item.Key</button>
+                        }
+                    </div>
+                </div>
+                <section class="movies-list">
+                    <div class="gradient-box" style=""></div>
+                    <div class="dates-info-container">
+                        <div id="movie-grid">
+                        </div>
+                        <div id="by-movie" hidden>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="rating-container">
+    <div style="height: 90%;
+    width: 90%;z-index: 2000; left: 5%; top: 5%;" id="modal" role="dialog" aria-modal="true" aria-labelledby="add-review-header" class="edit-modal">
+        <button class="close-btn" aria-label="close" title="Close" style="z-index: 30;">x</button>
+        <div id="review-form-container" class="d-flex justify-content-center align-items-center position-relative w-100 h-100">
+            <iframe id="youtube-container" class="w-100 h-100 pt-5" src="" title="YouTube video player" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="modal-overlay" style="z-index: 1001;"></div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/cinemas.js"></script>
+<script src="~/js/search-dropdown.js"></script>
+<script>
+    function getMovies(data) {
+        $.ajax({
+            type: "GET",
+            url: `/Customer/GetMoviesByDate`,
+            data: data,
+            success: function (response) {
+                $("#movie-grid").html(response);
+            },
+            failure: function (response) {
+                window.location = '/Error/statuscode=403';
+            },
+            error: function (response) {
+                window.location = '/Error/statuscode=403';
+            }
+        })
+    }
+
+    window.onload = function () {
+        getMovies({ cinemaId: '@Model.Id' });
+    }
+
+    let dateButtons = document.querySelectorAll('button.date');
+    dateButtons.forEach(i => i.addEventListener("click", function () {
+        dateButtons.forEach(k => k.classList.remove("active"));
+        i.classList.add("active");
+
+        getMovies({ cinemaId: '@Model.Id', date: i.getAttribute('for-date') });
+    }));
+    changeColors('@Model.BackgroundColor', '@Model.BoardColor', '@Model.TextColor', '@Model.ButtonBackgroundColor', '@Model.ButtonTextColor', '@Model.AccentColor');
+</script>
+<script src="~/js/rating-modal.js"></script>

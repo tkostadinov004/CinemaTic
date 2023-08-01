@@ -1,0 +1,43 @@
+﻿@inject Microsoft.AspNetCore.Identity.UserManager<CinemaTic.Data.Models.ApplicationUser> _userManager
+
+<div id="sticky-wrapper" class="sticky-wrapper" style="height: 10vh;">
+    <nav class="navbar navbar-expand-lg justify-content-center">
+        <div class="container">
+            <a class="navbar-brand text-white" asp-controller="Home" asp-action="Index">
+                <span>CinemaTic Logo</span>
+            </a>
+            @if (User.IsInRole("Customer"))
+            {
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-lg-5 me-lg-auto">
+
+                        <li class="nav-item text-white">
+                            <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Index">Home</a>
+                        </li>
+
+                        <li class="nav-item text-white">
+                            <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Cinemas" asp-route-all="@false">Your cinemas</a>
+                        </li>
+
+                        <li class="nav-item text-white">
+                            <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Tickets">Tickets</a>
+                        </li>
+
+                        <li class="nav-item text-white">
+                            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                <button class="nav-link click-scroll text-white">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <div class="d-flex flex-column align-items-center">
+                    @{
+                        var user = await _userManager.FindByEmailAsync(User.Identity.Name);
+                    }
+                    <img id="profile-picture" class="circle-image" src="~/client-images/Users/@user.ProfilePictureUrl" />
+                    @* <a class="text-white" href="#">Your account</a>*@
+                </div>
+            }
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,108 @@
+﻿@inject Microsoft.AspNetCore.Identity.UserManager<CinemaTic.Data.Models.ApplicationUser> _userManager
+
+<div id="sticky-wrapper" class="sticky-wrapper" style="height: 10vh;">
+    <nav class="navbar navbar-expand-lg justify-content-center">
+        <div class="container">
+            <a class="navbar-brand text-white" asp-controller="Home" asp-action="Index">
+                <span>CinemaTic </span>
+            </a>
+
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <div class="d-lg-none ms-auto me-4">
+                    <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_2">Features</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_3">How it works</a>
+                        </li>
+
+                    </ul>
+                    <ul class="navbar-nav ms-lg-5 me-lg-auto text-white">
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                        </li>
+                    </ul>
+                </div>
+            }
+            else
+            {
+                @if (User.IsInRole("Customer"))
+                {
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-5 me-lg-auto">
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Index">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Cinemas" asp-route-all="@false">Your cinemas</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Cinemas" asp-route-all="@true">All cinemas</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Tickets">Tickets</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="your-cinemas" role="button" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
+
+                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="your-cinemas">
+                                    <li><a class="dropdown-item" asp-controller="User" asp-action="ChangeProfilePicture">Change profile picture</a></li>
+                                    <li><a class="dropdown-item" asp-controller="User" asp-action="ChangePassword">Change password</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                    <button class="nav-link click-scroll">Logout</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="d-flex flex-column align-items-center position-absolute" style="right: 2vw;">
+                        @{
+                            var user = await _userManager.FindByEmailAsync(User.Identity.Name);
+                        }
+                        <img id="profile-picture" src="~/client-images/Users/@user.ProfilePictureUrl" class="circle-image"/>
+                        @* <a class="text-white" href="#">Your account</a>*@
+                    </div>
+                }
+            }
+        </div>
+    </nav>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/click-scroll.js"></script>
+<script>
+    $(function () {
+        var url = window.location.href;
+        $(".nav-link").each(function () {
+            if (url == (this.href)) {
+                $(this).closest("li").children().eq(0).addClass("active");
+            }
+        });
+    });
+</script>

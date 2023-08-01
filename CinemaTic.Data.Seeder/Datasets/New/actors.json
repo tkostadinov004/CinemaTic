@@ -1,0 +1,2890 @@
+[
+  {
+    "name": "tim robbins",
+    "net_worth": 70000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "musician",
+      "screenwriter",
+      "activist",
+      "film_director",
+      "film_producer",
+      "voice_actor"
+    ],
+    "height": 1.96,
+    "birthday": "1958-10-16",
+    "age": 64,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTI1OTYxNzAxOF5BMl5BanBnXkFtZTYwNTE5ODI4._V1_.jpg"
+  },
+  {
+    "name": "morgan freeman",
+    "net_worth": 250000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "television_producer",
+      "voice_actor",
+      "presenter",
+      "film_director",
+      "businessperson"
+    ],
+    "height": 1.88,
+    "birthday": "1937-06-01",
+    "age": 86,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTc0MDMyMzI2OF5BMl5BanBnXkFtZTcwMzM2OTk1MQ@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "bob gunton",
+    "net_worth": 3000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "soldier",
+      "voice_actor"
+    ],
+    "height": 1.85,
+    "birthday": "1945-11-15",
+    "age": 77,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTQ2NTU1NzU5Nl5BMl5BanBnXkFtZTcwODU3NjI2NA@@._V1_.jpg"
+  },
+
+  {
+    "name": "marlon brando",
+    "net_worth": 100000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor"
+    ],
+    "height": 1.75,
+    "birthday": "1924-04-03",
+    "age": 80,
+    "is_alive": false,
+    "death": "2004-07-01",
+    "image": "https://m.media-amazon.com/images/M/MV5BMTg3MDYyMDE5OF5BMl5BanBnXkFtZTcwNjgyNTEzNA@@._V1_QL75_UY207_CR64,0,140,207_.jpg"
+  },
+
+  {
+    "name": "al pacino",
+    "net_worth": 120000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_director",
+      "film_producer",
+      "theatre_director"
+    ],
+    "height": 1.7,
+    "birthday": "1940-04-25",
+    "age": 83,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTQzMzg1ODAyNl5BMl5BanBnXkFtZTYwMjAxODQ1._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "james caan",
+    "net_worth": 20000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "singer",
+      "voice_actor"
+    ],
+    "height": 1.76,
+    "birthday": "1940-03-26",
+    "age": 83,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTI5NjkyNDQ3NV5BMl5BanBnXkFtZTcwNjY5NTQ0Mw@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "robert de niro",
+    "net_worth": 500000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "film_director",
+      "voice_actor",
+      "television_producer"
+    ],
+    "height": 1.77,
+    "birthday": "1943-08-17",
+    "age": 79,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMjAwNDU3MzcyOV5BMl5BanBnXkFtZTcwMjc0MTIxMw@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "robert duvall",
+    "net_worth": 70000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "film_director",
+      "screenwriter",
+      "television_producer",
+      "soldier",
+      "truck_driver"
+    ],
+    "height": 1.74,
+    "birthday": "1931-01-05",
+    "age": 92,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMjk1MjA2Mjc2MF5BMl5BanBnXkFtZTcwOTE4MTUwMg@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "john travolta",
+    "net_worth": 250000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "singer",
+      "dancer",
+      "voice_actor",
+      "film_producer"
+    ],
+    "height": 1.88,
+    "birthday": "1954-02-18",
+    "age": 69,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMjk1MjA2Mjc2MF5BMl5BanBnXkFtZTcwOTE4MTUwMg@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "uma thurman",
+    "net_worth": 45000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "model",
+      "film_producer",
+      "screenwriter",
+      "television_producer"
+    ],
+    "height": 1.81,
+    "birthday": "1970-04-29",
+    "age": 53,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMjMxNzk1MTQyMl5BMl5BanBnXkFtZTgwMDIzMDEyMTE@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "clint eastwood",
+    "net_worth": 375000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_director",
+      "film_producer",
+      "politician",
+      "composer",
+      "pianist",
+      "film_score_composer",
+      "television_producer",
+      "businessperson",
+      "investor"
+    ],
+    "height": 1.93,
+    "birthday": "1930-05-31",
+    "age": 93,
+    "is_alive": true,
+    "image": "https://cdn.britannica.com/75/152975-050-99123EE6/Clint-Eastwood-2008.jpg"
+  },
+  {
+    "name": "eli wallach",
+    "net_worth": 6000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer"
+    ],
+    "height": 1.78,
+    "birthday": "1915-12-07",
+    "age": 98,
+    "is_alive": false,
+    "death": "2014-06-24",
+    "image": "https://m.media-amazon.com/images/M/MV5BNjk1NzcyZTItMjZkOC00MjM2LThiYWUtZDE5NGZlZDliYmViXkEyXkFqcGdeQXVyMDc2NTEzMw@@._V1_.jpg"
+  },
+
+  {
+    "name": "lee van cleef",
+    "net_worth": 2000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "soldier",
+      "accountant"
+    ],
+    "height": 1.88,
+    "birthday": "1925-01-09",
+    "age": 64,
+    "is_alive": false,
+    "death": "1989-12-16",
+    "image": "https://flxt.tmsimg.com/assets/38566_v9_ba.jpg"
+  },
+
+  {
+    "name": "christian bale",
+    "net_worth": 120000000,
+    "gender": "male",
+    "nationality": "gb",
+    "occupation": [
+      "actor",
+      "voice_actor"
+    ],
+    "height": 1.83,
+    "birthday": "1974-01-30",
+    "age": 49,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTkxMzk4MjQ4MF5BMl5BanBnXkFtZTcwMzExODQxOA@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "heath ledger",
+    "net_worth": 16000000,
+    "gender": "male",
+    "nationality": "au",
+    "occupation": [
+      "actor",
+      "music_video_director"
+    ],
+    "height": 1.85,
+    "birthday": "1979-04-04",
+    "age": 28,
+    "is_alive": false,
+    "death": "2008-01-22",
+    "image": "https://m.media-amazon.com/images/M/MV5BMTI2NTY0NzA4MF5BMl5BanBnXkFtZTYwMjE1MDE0._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "aaron eckhart",
+    "net_worth": 16000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer"
+    ],
+    "height": 1.83,
+    "birthday": "1968-03-12",
+    "age": 55,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTc4MTAyNzMzNF5BMl5BanBnXkFtZTcwMzQ5MzQzMg@@._V1_.jpg"
+  },
+
+  {
+    "name": "henry fonda",
+    "net_worth": 20000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "television_producer",
+      "soldier"
+    ],
+    "height": 1.87,
+    "birthday": "1905-05-16",
+    "age": 77,
+    "is_alive": false,
+    "death": "1982-08-12",
+    "image": "https://m.media-amazon.com/images/M/MV5BOTEwNjQ2ODQ4Nl5BMl5BanBnXkFtZTYwMzEwMTM2._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "liam neeson",
+    "net_worth": 145000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "voice_actor"
+    ],
+    "height": 1.93,
+    "birthday": "1952-06-07",
+    "age": 71,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMjA1MTQ3NzU1MV5BMl5BanBnXkFtZTgwMDE3Mjg0MzE@._V1_.jpg"
+  },
+
+  {
+    "name": "ralph fiennes",
+    "net_worth": 30000000,
+    "gender": "male",
+    "nationality": "gb",
+    "occupation": [
+      "actor",
+      "voice_actor",
+      "film_producer",
+      "film_director"
+    ],
+    "height": 1.83,
+    "birthday": "1962-12-22",
+    "age": 60,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMzc5MjE1NDgyN15BMl5BanBnXkFtZTcwNzg2ODgwNA@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "ben kingsley",
+    "net_worth": 60000000,
+    "gender": "male",
+    "nationality": "gb",
+    "occupation": [
+      "actor",
+      "voice_actor"
+    ],
+    "height": 1.73,
+    "birthday": "1943-12-31",
+    "age": 79,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BOTU2Njg2NzM4M15BMl5BanBnXkFtZTgwNjYwNjQwMTI@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "elijah wood",
+    "net_worth": 20000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "voice_actor"
+    ],
+    "height": 1.68,
+    "birthday": "1981-01-28",
+    "age": 42,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTM0NDIxMzQ5OF5BMl5BanBnXkFtZTcwNzAyNTA4Nw@@._V1_.jpg"
+  },
+
+  {
+    "name": "viggo mortensen",
+    "net_worth": 40000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "poet",
+      "musician",
+      "photographer",
+      "painter",
+      "singer",
+      "author"
+    ],
+    "height": 1.8,
+    "birthday": "1958-10-20",
+    "age": 64,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BNDQzOTg4NzA2Nl5BMl5BanBnXkFtZTcwMzkwNjkxMg@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "ian mckellen",
+    "net_worth": 60000000,
+    "gender": "male",
+    "nationality": "gb",
+    "occupation": [
+      "actor",
+      "voice_actor",
+      "businessperson",
+      "screenwriter"
+    ],
+    "height": 1.8,
+    "birthday": "1939-05-25",
+    "age": 84,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTQ2MjgyNjk3MV5BMl5BanBnXkFtZTcwNTA3NTY5Mg@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "brad pitt",
+    "net_worth": 300000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "voice_actor",
+      "television_producer"
+    ],
+    "height": 1.8,
+    "birthday": "1963-12-18",
+    "age": 59,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMjA1MjE2MTQ2MV5BMl5BanBnXkFtZTcwMjE5MDY0Nw@@._V1_.jpg"
+  },
+
+  {
+    "name": "edward norton",
+    "net_worth": 300000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "film_producer",
+      "actor",
+      "film_director",
+      "screenwriter",
+      "voice_actor",
+      "environmentalist",
+      "journalist"
+    ],
+    "height": 1.83,
+    "birthday": "1969-08-18",
+    "age": 53,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTYwNjQ5MTI1NF5BMl5BanBnXkFtZTcwMzU5MTI2Mw@@._V1_.jpg"
+  },
+
+  {
+    "name": "mark hamill",
+    "net_worth": 18000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "voice_actor",
+      "film_producer",
+      "writer",
+      "film_director",
+      "television_producer"
+    ],
+    "height": 1.75,
+    "birthday": "1951-09-25",
+    "age": 71,
+    "is_alive": true,
+    "image": "https://flxt.tmsimg.com/assets/73414_v9_bc.jpg"
+  },
+
+  {
+    "name": "harrison ford",
+    "net_worth": 300000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "pilot",
+      "carpentry"
+    ],
+    "height": 1.85,
+    "birthday": "1942-07-13",
+    "age": 81,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTY4Mjg0NjIxOV5BMl5BanBnXkFtZTcwMTM2NTI3MQ@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "carrie fisher",
+    "net_worth": 25000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "novelist",
+      "actor",
+      "screenwriter",
+      "script_doctor",
+      "spokesperson",
+      "voice_actor",
+      "playwright",
+      "singer"
+    ],
+    "height": 1.55,
+    "birthday": "1956-10-21",
+    "age": 60,
+    "is_alive": false,
+    "death": "2016-12-27",
+    "image": "https://media.wired.com/photos/59268bc9f3e2356fd8009a4f/master/w_1600%2Cc_limit/CF11-GHB6TK.jpg"
+  },
+
+  {
+    "name": "orlando bloom",
+    "net_worth": 40000000,
+    "gender": "male",
+    "nationality": "gb",
+    "occupation": [
+      "actor"
+    ],
+    "height": 1.8,
+    "birthday": "1977-01-13",
+    "age": 46,
+    "is_alive": true,
+    "image": "https://flxt.tmsimg.com/assets/288723_v9_bc.jpg"
+  },
+
+  {
+    "name": "jack nicholson",
+    "net_worth": 400000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "screenwriter",
+      "film_director"
+    ],
+    "height": 1.77,
+    "birthday": "1937-04-22",
+    "age": 86,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTQ3OTY0ODk0M15BMl5BanBnXkFtZTYwNzE4Njc4._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "louise fletcher",
+    "net_worth": 1000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor"
+    ],
+    "height": 1.78,
+    "birthday": "1934-07-22",
+    "age": 89,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTIzOTcwNzYzMl5BMl5BanBnXkFtZTYwMjQ3MTI0._V1_.jpg"
+  },
+
+  {
+    "name": "Leonardo DiCaprio",
+    "net_worth": 260000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "television_producer"
+    ],
+    "height": 1.83,
+    "birthday": "1974-11-11",
+    "age": 48,
+    "is_alive": true,
+    "image": "https://cdn.britannica.com/65/227665-050-D74A477E/American-actor-Leonardo-DiCaprio-2016.jpg"
+  },
+
+  {
+    "name": "joseph gordon-levitt",
+    "net_worth": 35000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_director",
+      "theatrical_producer",
+      "screenwriter",
+      "film_producer",
+      "entrepreneur",
+      "film_editor"
+    ],
+    "height": 1.76,
+    "birthday": "1981-02-17",
+    "age": 42,
+    "is_alive": true,
+    "image": "https://www.themoviedb.org/t/p/w500/z2FA8js799xqtfiFjBTicFYdfk.jpg"
+  },
+
+  {
+    "name": "ray liotta",
+    "net_worth": 14000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "voice_actor"
+    ],
+    "height": 1.83,
+    "birthday": "1954-12-18",
+    "age": 68,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTU3NzM5MjUwMF5BMl5BanBnXkFtZTYwNDM2NDky._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "joe pesci",
+    "net_worth": 50000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "comedian",
+      "musician",
+      "singer"
+    ],
+    "height": 1.63,
+    "birthday": "1943-02-09",
+    "age": 80,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMzc3MTcxNDYxNV5BMl5BanBnXkFtZTcwOTI3NjE1Mw@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "tom hanks",
+    "net_worth": 400000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "film_producer",
+      "screenwriter",
+      "television_producer",
+      "television_director",
+      "actor",
+      "voice_actor",
+      "film_director",
+      "motivational_speaker"
+    ],
+    "height": 1.83,
+    "birthday": "1956-07-09",
+    "age": 67,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTQ2MjMwNDA3Nl5BMl5BanBnXkFtZTcwMTA2NDY3NQ@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "robin wright",
+    "net_worth": 65000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "model",
+      "spokesperson",
+      "businessperson",
+      "singer",
+      "film_producer"
+    ],
+    "height": 1.68,
+    "birthday": "1966-04-08",
+    "age": 57,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTU0NTc4MzEyOV5BMl5BanBnXkFtZTcwODY0ODkzMQ@@._V1_.jpg"
+  },
+
+  {
+    "name": "gary sinise",
+    "net_worth": 40000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "television_producer",
+      "musician",
+      "film_producer",
+      "film_director",
+      "television_director",
+      "voice_actor",
+      "spokesperson",
+      "theatre_director"
+    ],
+    "height": 1.75,
+    "birthday": "1955-03-17",
+    "age": 68,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMzE4NzcyMzU3OV5BMl5BanBnXkFtZTYwOTM2NDE2._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "keanu reeves",
+    "net_worth": 360000000,
+    "gender": "male",
+    "nationality": "ca",
+    "occupation": [
+      "actor",
+      "voice_actor"
+    ],
+    "height": 1.86,
+    "birthday": "1964-09-02",
+    "age": 58,
+    "is_alive": true,
+    "image": "https://cdn.britannica.com/11/215011-050-3127A07E/American-actor-Keanu-Reeves-2014.jpg"
+  },
+
+  {
+    "name": "laurence fishburne",
+    "net_worth": 30000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "playwright",
+      "film_producer",
+      "film_director",
+      "voice_actor",
+      "screenwriter"
+    ],
+    "height": 1.84,
+    "birthday": "1961-07-30",
+    "age": 61,
+    "is_alive": true,
+    "image": "https://cdn.britannica.com/93/223293-050-28BCE441/American-actor-Laurence-Fishburne-2017.jpg"
+  },
+
+  {
+    "name": "carrie-anne moss",
+    "net_worth": 3000000,
+    "gender": "female",
+    "nationality": "ca",
+    "occupation": [
+      "actor",
+      "model",
+      "voice_actor"
+    ],
+    "height": 1.73,
+    "birthday": "1967-08-21",
+    "age": 55,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTYxMjgwNzEwOF5BMl5BanBnXkFtZTcwNTQ0NzI5Ng@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "kevin spacey",
+    "net_worth": 100000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "screenwriter",
+      "film_director",
+      "television_producer",
+      "voice_actor",
+      "theatre_director"
+    ],
+    "height": 1.79,
+    "birthday": "1959-07-26",
+    "age": 64,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTY1NzMyODc3Nl5BMl5BanBnXkFtZTgwNzE2MzA1NDM@._V1_.jpg"
+  },
+
+  {
+    "name": "jodie foster",
+    "net_worth": 100000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "musician",
+      "film_director",
+      "film_producer",
+      "voice_actor",
+      "television_director"
+    ],
+    "height": 1.61,
+    "birthday": "1962-11-19",
+    "age": 60,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTM3MjgyOTQwNF5BMl5BanBnXkFtZTcwMDczMzEwNA@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "anthony hopkins",
+    "net_worth": 160000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_score_composer",
+      "musician",
+      "film_director"
+    ],
+    "height": 1.74,
+    "birthday": "1937-12-31",
+    "age": 85,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTg5ODk1NTc5Ml5BMl5BanBnXkFtZTYwMjAwOTI4._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "name": "charles bronson",
+    "net_worth": 65000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "soldier",
+      "miner"
+    ],
+    "height": 1.74,
+    "birthday": "1921-11-03",
+    "age": 81,
+    "is_alive": false,
+    "death": "2003-08-30",
+    "image": "https://resizing.flixster.com/WWS65qYlJKRmOJXiap4NAYoBQZw=/218x280/v2/https://flxt.tmsimg.com/assets/11485_v9_ba.jpg"
+  },
+  {
+    "name": "claudia cardinale",
+    "net_worth": 10000000,
+    "gender": "female",
+    "nationality": "it",
+    "occupation": [
+      "actor"
+    ],
+    "height": 1.73,
+    "birthday": "1938-04-15",
+    "age": 85,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BYWRkZmZkYmMtZjQ1Ni00MGQwLTkxZjUtOWU3ODlkZDRmY2FjXkEyXkFqcGdeQXVyMDc2NTEzMw@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "humphrey bogart",
+    "net_worth": 5000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor"
+    ],
+    "height": 1.74,
+    "birthday": "1899-12-25",
+    "age": 57,
+    "is_alive": false,
+    "death": "1957-01-14",
+    "image": "https://m.media-amazon.com/images/M/MV5BZDRiZWJjOTMtNzczMi00ZTIyLWJmNjAtMzlkNWU5ODc4NDk1XkEyXkFqcGdeQXVyMDc2NTEzMw@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "ingrid bergman",
+    "net_worth": 20000000,
+    "gender": "female",
+    "nationality": "se",
+    "occupation": [
+      "actor"
+    ],
+    "height": 1.75,
+    "birthday": "1915-08-29",
+    "age": 67,
+    "is_alive": false,
+    "death": "1982-08-29",
+    "image": "https://m.media-amazon.com/images/M/MV5BMjQyMTYxODQzMF5BMl5BanBnXkFtZTgwMDA1MTI2NDM@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "gabriel byrne",
+    "net_worth": 16000000,
+    "gender": "male",
+    "nationality": "ie",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "film_director",
+      "writer",
+      "teacher",
+      "cook",
+      "author",
+      "screenwriter",
+      "archaeologist"
+    ],
+    "height": 1.78,
+    "birthday": "1950-05-12",
+    "age": 73,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMjAxMzE1ODA1Ml5BMl5BanBnXkFtZTcwODY3MjU5MQ@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "chazz palminteri",
+    "net_worth": 16000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "screenwriter",
+      "film_producer",
+      "businessperson",
+      "voice_actor",
+      "film_director"
+    ],
+    "height": 1.91,
+    "birthday": "1952-05-15",
+    "age": 71,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMjExNjU4NTUzOV5BMl5BanBnXkFtZTgwMTY3MDMzMTE@._V1_.jpg"
+  },
+
+  {
+    "name": "karen allen",
+    "net_worth": 10000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "fashion_designer",
+      "teacher",
+      "entrepreneur",
+      "singer",
+      "songwriter",
+      "musician",
+      "playwright",
+      "poet",
+      "screenwriter"
+    ],
+    "height": 1.7,
+    "birthday": "1951-10-05",
+    "age": 71,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTg2NjgyMjQwMF5BMl5BanBnXkFtZTcwNzkwMjE3MQ@@._V1_.jpg"
+  },
+
+  {
+    "name": "james stewart",
+    "net_worth": 30000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "pilot",
+      "military_officer",
+      "television_director"
+    ],
+    "height": 1.91,
+    "birthday": "1908-05-20",
+    "age": 89,
+    "is_alive": false,
+    "death": "1997-07-02",
+    "image": "https://m.media-amazon.com/images/M/MV5BMjIwNzMzODY0NV5BMl5BanBnXkFtZTcwMDk3NDQyOA@@._V1_.jpg"
+  },
+
+  {
+    "name": "grace kelly",
+    "net_worth": 40000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "fashion_model",
+      "crown_princess",
+      "actor"
+    ],
+    "height": 1.69,
+    "birthday": "1929-11-12",
+    "age": 52,
+    "is_alive": false,
+    "death": "1982-09-14",
+    "image": "https://m.media-amazon.com/images/M/MV5BODU0Y2MwNjYtOWJmYi00ZjhiLWJhMzktOTlmYjlkYTFhOWY0XkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "donna reed",
+    "net_worth": 10000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor"
+    ],
+    "height": 1.7,
+    "birthday": "1921-01-27",
+    "age": 64,
+    "is_alive": false,
+    "death": "1986-01-14",
+    "image": "https://m.media-amazon.com/images/M/MV5BZDVlZWNhODQtYzUwMS00MWQ4LWIyMjUtYTU0M2E2ODYwM2VkXkEyXkFqcGdeQXVyMDc2NTEzMw@@._V1_.jpg"
+  },
+
+  {
+    "name": "lionel barrymore",
+    "net_worth": 30000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_director",
+      "composer",
+      "graphic_artist",
+      "screenwriter",
+      "author",
+      "film_producer"
+    ],
+    "height": 1.83,
+    "birthday": "1878-04-28",
+    "age": 76,
+    "is_alive": false,
+    "death": "1954-11-15",
+    "image": "https://images.mubicdn.net/images/cast_member/20310/cache-5235-1597570810/image-w856.jpg?size=800x"
+  },
+
+  {
+    "name": "anthony perkins",
+    "net_worth": 6000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "musician",
+      "singer",
+      "minister_of_religion"
+    ],
+    "height": 1.87,
+    "birthday": "1932-04-04",
+    "age": 60,
+    "is_alive": false,
+    "death": "1992-09-12",
+    "image": "https://m.media-amazon.com/images/M/MV5BMTIzMTUyMTYxM15BMl5BanBnXkFtZTYwNzE5OTI2._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "janet leigh",
+    "net_worth": 20000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "author"
+    ],
+    "height": 1.66,
+    "birthday": "1927-07-06",
+    "age": 77,
+    "is_alive": false,
+    "death": "2004-10-03",
+    "image": "https://m.media-amazon.com/images/M/MV5BMjU3MjY5OTE0MF5BMl5BanBnXkFtZTYwMzUyMDY2._V1_.jpg"
+  },
+
+  {
+    "name": "vera miles",
+    "net_worth": 8000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor"
+    ],
+    "height": 1.61,
+    "birthday": "1930-08-23",
+    "age": 92,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTgwOTY2MTk4MF5BMl5BanBnXkFtZTcwMTAwNjYwNA@@._V1_.jpg"
+  },
+
+  {
+    "name": "jean reno",
+    "net_worth": 70000000,
+    "gender": "male",
+    "nationality": "fr",
+    "occupation": [
+      "actor",
+      "voice_actor"
+    ],
+    "height": 1.88,
+    "birthday": "1948-07-30",
+    "age": 74,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTgzNjA1MjY2M15BMl5BanBnXkFtZTYwMjgzOTk0._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "gary oldman",
+    "net_worth": 40000000,
+    "gender": "male",
+    "nationality": "gb",
+    "occupation": [
+      "actor",
+      "musician",
+      "film_producer",
+      "film_director",
+      "screenwriter",
+      "voice_actor"
+    ],
+    "height": 1.74,
+    "birthday": "1958-03-21",
+    "age": 65,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTc3NTM4MzQ5MV5BMl5BanBnXkFtZTcwOTE4MDczNw@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "natalie portman",
+    "net_worth": 90000000,
+    "gender": "female",
+    "nationality": "il",
+    "occupation": [
+      "actor",
+      "model",
+      "film_producer",
+      "film_director",
+      "screenwriter"
+    ],
+    "height": 1.6,
+    "birthday": "1981-06-09",
+    "age": 42,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BYzU0ZGRhZWItMGJlNy00YzlkLWIzOWYtNDA2NzlhMDg3YjMwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg"
+  },
+
+  {
+    "name": "william holden",
+    "net_worth": 20000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "conservationist"
+    ],
+    "height": 1.8,
+    "birthday": "1918-04-17",
+    "age": 63,
+    "is_alive": false,
+    "death": "1981-11-12",
+    "image": "https://m.media-amazon.com/images/M/MV5BNzVhMjZiMzItMTIxYi00M2EzLWE0YWMtYTZhODk4NDQ2ZDJmXkEyXkFqcGdeQXVyMDUyOTUyNQ@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "edward furlong",
+    "net_worth": 100000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "model",
+      "musician"
+    ],
+    "height": 1.7,
+    "birthday": "1977-08-02",
+    "age": 45,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTI1MzgxODkyMl5BMl5BanBnXkFtZTcwNTc1NDIzMQ@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "beverly d'angelo",
+    "net_worth": 20000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "singer",
+      "actor",
+      "cartoonist",
+      "television_producer",
+      "voice_actor",
+      "musician"
+    ],
+    "height": 1.57,
+    "birthday": "1951-11-15",
+    "age": 71,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTMyNTk4ODU5NV5BMl5BanBnXkFtZTcwODU0OTgwMw@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "martin sheen",
+    "net_worth": 60000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "voice_actor",
+      "film_producer",
+      "activist",
+      "television_producer"
+    ],
+    "height": 1.7,
+    "birthday": "1940-08-03",
+    "age": 82,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BOTM1MTA5MTY0MV5BMl5BanBnXkFtZTcwMTQ4OTUzMg@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "arnold schwarzenegger",
+    "net_worth": 400000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "bodybuilder",
+      "politician",
+      "entrepreneur",
+      "businessperson",
+      "investor",
+      "film_producer",
+      "television_director",
+      "writer"
+    ],
+    "height": 1.88,
+    "birthday": "1947-07-30",
+    "age": 75,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTI3MDc4NzUyMV5BMl5BanBnXkFtZTcwMTQyMTc5MQ@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "linda hamilton",
+    "net_worth": 70000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "voice_actor"
+    ],
+    "height": 1.68,
+    "birthday": "1956-09-26",
+    "age": 66,
+    "is_alive": true,
+    "image": "https://flxt.tmsimg.com/assets/719_v9_bb.jpg"
+  },
+
+  {
+    "name": "matt damon",
+    "net_worth": 170000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "television_producer",
+      "screenwriter",
+      "voice_actor",
+      "spokesperson"
+    ],
+    "height": 1.78,
+    "birthday": "1970-10-08",
+    "age": 52,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTM0NzYzNDgxMl5BMl5BanBnXkFtZTcwMDg2MTMyMw@@._V1_.jpg"
+  },
+
+  {
+    "name": "tom sizemore",
+    "net_worth": 3000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "singer"
+    ],
+    "height": 1.8,
+    "birthday": "1961-11-29",
+    "age": 61,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BNjA3NjA0MzIwOV5BMl5BanBnXkFtZTYwNzk5NDE1._V1_.jpg"
+  },
+
+  {
+    "name": "guy pearce",
+    "net_worth": 20000000,
+    "gender": "male",
+    "nationality": "au",
+    "occupation": [
+      "actor",
+      "musician"
+    ],
+    "height": 1.8,
+    "birthday": "1967-10-05",
+    "age": 55,
+    "is_alive": true,
+    "image": "https://flxt.tmsimg.com/assets/74054_v9_bc.jpg"
+  },
+
+  {
+    "name": "joe pantoliano",
+    "net_worth": 8000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "voice_actor",
+      "writer",
+      "film_director"
+    ],
+    "height": 1.76,
+    "birthday": "1951-09-12",
+    "age": 71,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BODBlYWY1MWUtZDdmYS00Y2VkLThmNDEtNGE4ZDAzNjk5NmI1XkEyXkFqcGdeQXVyNjUxMjc1OTM@._V1_.jpg"
+  },
+
+  {
+    "name": "peter sellers",
+    "net_worth": 10000000,
+    "gender": "male",
+    "nationality": "gb",
+    "occupation": [
+      "actor",
+      "screenwriter",
+      "film_director",
+      "comedian",
+      "singer"
+    ],
+    "height": 1.73,
+    "birthday": "1925-09-08",
+    "age": 54,
+    "is_alive": false,
+    "death": "1980-07-24",
+    "image": "https://m.media-amazon.com/images/M/MV5BMTI0MjE1MjczMF5BMl5BanBnXkFtZTYwMDIxNTQ2._V1_.jpg"
+  },
+
+  {
+    "name": "george c. scott",
+    "net_worth": 25000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_director",
+      "film_producer",
+      "theatrical_producer",
+      "theatre_director",
+      "soldier",
+      "voice_actor"
+    ],
+    "height": 1.85,
+    "birthday": "1927-10-18",
+    "age": 71,
+    "is_alive": false,
+    "death": "1999-09-22",
+    "image": "https://m.media-amazon.com/images/M/MV5BODEyOGM4YjctMDJlMS00ZWMxLWI2YzAtZDBjMDdlZjcxZTQ1XkEyXkFqcGdeQXVyMDc2NTEzMw@@._V1_.jpg"
+  },
+
+  {
+    "name": "sigourney weaver",
+    "net_worth": 60000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "voice_actor"
+    ],
+    "height": 1.82,
+    "birthday": "1949-10-08",
+    "age": 73,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTk1MTcyNTE3OV5BMl5BanBnXkFtZTcwMTA0MTMyMw@@._V1_.jpg"
+  },
+
+  {
+    "name": "tom skerritt",
+    "net_worth": 8000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "teacher",
+      "television_director"
+    ],
+    "height": 1.83,
+    "birthday": "1933-08-25",
+    "age": 89,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BNzY3Mjk5MTMyMl5BMl5BanBnXkFtZTYwMjUxMTc1._V1_.jpg"
+  },
+
+  {
+    "name": "john hurt",
+    "net_worth": 30000000,
+    "gender": "male",
+    "nationality": "gb",
+    "occupation": [
+      "actor",
+      "voice_actor"
+    ],
+    "height": 1.75,
+    "birthday": "1940-01-22",
+    "age": 83,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTM1NTgyMTAyOV5BMl5BanBnXkFtZTcwMTE4MjQwNA@@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "name": "daveigh chase",
+    "net_worth": 500000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "singer",
+      "voice_actor"
+    ],
+    "height": 1.7,
+    "birthday": "1990-07-24",
+    "age": 33,
+    "is_alive": true,
+    "image": "https://flxt.tmsimg.com/assets/213104_v9_ba.jpg"
+  },
+
+  {
+    "name": "suzanne pleshette",
+    "net_worth": 5000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "voice_actor"
+    ],
+    "height": 1.63,
+    "birthday": "1937-01-31",
+    "age": 86,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTU0NzkwMjA3N15BMl5BanBnXkFtZTYwNDkwNTgy._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "cary grant",
+    "net_worth": 60000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor"
+    ],
+    "height": 1.87,
+    "birthday": "1904-01-18",
+    "age": 82,
+    "is_alive": false,
+    "death": "1986-11-29",
+    "image": "https://cdn.britannica.com/85/66285-050-EDCFC25A/Cary-Grant-1959.jpg"
+  },
+
+  {
+    "name": "eva marie saint",
+    "net_worth": 20000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer"
+    ],
+    "height": 1.63,
+    "birthday": "1924-07-04",
+    "age": 99,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMjg4NDU4OTI4NF5BMl5BanBnXkFtZTcwODYxNjk0MQ@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "michael j. fox",
+    "net_worth": 65000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "author",
+      "television_producer",
+      "film_producer",
+      "voice_actor"
+    ],
+    "height": 1.63,
+    "birthday": "1961-06-09",
+    "age": 62,
+    "is_alive": true,
+    "image": "https://cdn.britannica.com/33/130633-050-DA6DF1CF/Michael-J-Fox-activist.jpg"
+  },
+
+  {
+    "name": "christopher lloyd",
+    "net_worth": 200000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "screenwriter",
+      "television_producer"
+    ],
+    "birthday": "1960-06-18",
+    "age": 63,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMjAzMDAxNTQ1M15BMl5BanBnXkFtZTcwMzI0MTg2OA@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "lea thompson",
+    "net_worth": 14000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "television_producer",
+      "film_producer",
+      "ballet_dancer",
+      "television_director",
+      "film_director"
+    ],
+    "height": 1.63,
+    "birthday": "1961-05-31",
+    "age": 62,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BZjgzNmViYTktMjhjNy00NDc1LWI2MjMtNGUxYmFlZTNhODViXkEyXkFqcGdeQXVyMjA3MjIzMDA@._V1_.jpg"
+  },
+
+  {
+    "name": "roberto benigni",
+    "net_worth": 15000000,
+    "gender": "male",
+    "nationality": "it",
+    "occupation": [
+      "actor",
+      "comedian",
+      "screenwriter",
+      "film_director",
+      "television_director",
+      "theatre_director",
+      "singer-songwriter",
+      "poet"
+    ],
+    "height": 1.69,
+    "birthday": "1952-10-27",
+    "age": 70,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTUwMzI1Nzg5NF5BMl5BanBnXkFtZTYwODU5NjYz._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "shelley duvall",
+    "net_worth": 2000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "television_producer",
+      "screenwriter"
+    ],
+    "height": 1.73,
+    "birthday": "1949-07-07",
+    "age": 74,
+    "is_alive": true,
+    "image": "https://www.usmagazine.com/wp-content/uploads/2023/02/Shelley-Duvall-Through-the-Years-Her-Film-Roles-Her-Life-Then-and-Now-9.jpg?w=1566&quality=86&strip=all"
+  },
+
+  {
+    "name": "danny lloyd",
+    "net_worth": 400000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "teacher",
+      "actor"
+    ],
+    "birthday": "1973-01-01",
+    "age": 50,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMWQ5ODdkNDEtODMxYi00MjQ2LTk1ZGItYzhkZDg4NWY2MzI3XkEyXkFqcGdeQXVyNjUxMjc1OTM@._V1_.jpg"
+  },
+
+  {
+    "name": "adrien brody",
+    "net_worth": 16000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "voice_actor"
+    ],
+    "height": 1.85,
+    "birthday": "1973-04-14",
+    "age": 50,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMjI3ODkxMjU3OF5BMl5BanBnXkFtZTgwMTk2Njk3MTE@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "thomas kretschmann",
+    "net_worth": 8000000,
+    "gender": "male",
+    "nationality": "de",
+    "occupation": [
+      "actor",
+      "voice_actor",
+      "swimmer"
+    ],
+    "height": 1.76,
+    "birthday": "1962-09-08",
+    "age": 60,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTY1Njc5MzE1OF5BMl5BanBnXkFtZTcwMTc1NDM4Nw@@._V1_.jpg"
+  },
+
+  {
+    "name": "orson welles",
+    "net_worth": 20000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "film_director",
+      "film_producer",
+      "screenwriter",
+      "actor",
+      "television_director",
+      "playwright",
+      "film_editor",
+      "theatre_director",
+      "costume_designer",
+      "production_designer"
+    ],
+    "height": 1.85,
+    "birthday": "1915-05-06",
+    "age": 70,
+    "is_alive": false,
+    "death": "1985-10-10",
+    "image": "https://m.media-amazon.com/images/M/MV5BOGJiOThkNDYtNWY1Mi00ZTQ1LWFlZWItOTkwNWE4ZDMyYTEyXkEyXkFqcGdeQXVyMDc2NTEzMw@@._V1_.jpg"
+  },
+
+  {
+    "name": "kirk douglas",
+    "net_worth": 60000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "author",
+      "film_director",
+      "businessperson",
+      "soldier"
+    ],
+    "height": 1.75,
+    "birthday": "1916-12-09",
+    "age": 103,
+    "is_alive": false,
+    "death": "2020-02-05",
+    "image": "https://m.media-amazon.com/images/M/MV5BNzI4NjI4ZTYtYTlhZi00NDc1LWI2YWEtZGI2NDNhYTUzYWU5XkEyXkFqcGdeQXVyMDc2NTEzMw@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "kim novak",
+    "net_worth": 15000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "artist",
+      "visual_artist"
+    ],
+    "height": 1.68,
+    "birthday": "1933-02-13",
+    "age": 90,
+    "is_alive": true,
+    "image": "https://i.guim.co.uk/img/media/3232a3b330b455043abd187d1fd0310baf1bef48/0_330_2593_1556/master/2593.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=3140e0c40296056d0b8dbc1679cdc45a"
+  },
+  {
+    "name": "jamie foxx",
+    "net_worth": 150000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "television_producer",
+      "screenwriter",
+      "pianist",
+      "musician",
+      "television_director",
+      "singer-songwriter",
+      "stand-up_comedian",
+      "radio_personality",
+      "film_producer"
+    ],
+    "height": 1.75,
+    "birthday": "1967-12-13",
+    "age": 55,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTkyNjY1NDg3NF5BMl5BanBnXkFtZTgwNjA2MTg0MzE@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "name": "christoph waltz",
+    "net_worth": 30000000,
+    "gender": "male",
+    "nationality": "de",
+    "occupation": [
+      "actor"
+    ],
+    "height": 1.7,
+    "birthday": "1956-10-04",
+    "age": 66,
+    "is_alive": true,
+    "image": "https://flxt.tmsimg.com/assets/171314_v9_bb.jpg"
+  },
+
+  {
+    "name": "fred macmurray",
+    "net_worth": 150000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "musician"
+    ],
+    "height": 1.9,
+    "birthday": "1908-08-30",
+    "age": 114,
+    "is_alive": true,
+    "image": "https://flxt.tmsimg.com/assets/73714_v9_bb.jpg"
+  },
+
+  {
+    "name": "barbara stanwyck",
+    "net_worth": 1000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "fashion_model"
+    ],
+    "height": 1.65,
+    "birthday": "1907-07-16",
+    "age": 82,
+    "is_alive": false,
+    "death": "1990-01-20",
+    "image": "https://hips.hearstapps.com/hmg-prod/images/barbara-stanwyck-gettyimages-119107092.jpg?resize=1200:*"
+  },
+
+  {
+    "name": "edward g. robinson",
+    "net_worth": 100000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor"
+    ],
+    "height": 1.7,
+    "birthday": "1893-12-12",
+    "age": 79,
+    "is_alive": false,
+    "death": "1973-01-26",
+    "image": "https://m.media-amazon.com/images/M/MV5BMjE0NzcwMzU5Nl5BMl5BanBnXkFtZTYwNTkwMjI2._V1_.jpg"
+  },
+
+  {
+    "name": "tom hardy",
+    "net_worth": 45000000,
+    "gender": "male",
+    "nationality": "gb",
+    "occupation": [
+      "actor"
+    ],
+    "height": 1.75,
+    "birthday": "1977-09-15",
+    "age": 45,
+    "is_alive": true,
+    "image": "https://flxt.tmsimg.com/assets/269411_v9_bd.jpg"
+  },
+
+  {
+    "name": "anne hathaway",
+    "net_worth": 60000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "voice_actor"
+    ],
+    "height": 1.73,
+    "birthday": "1982-11-12",
+    "age": 40,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTRhNzQ3NGMtZmQ1Mi00ZTViLTk3OTgtOTk0YzE2YTgwMmFjXkEyXkFqcGdeQXVyNzg5MzIyOA@@._V1_.jpg"
+  },
+
+  {
+    "name": "michael biehn",
+    "net_worth": 8000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_director",
+      "film_producer",
+      "screenwriter"
+    ],
+    "height": 1.83,
+    "birthday": "1956-07-31",
+    "age": 66,
+    "is_alive": true,
+    "image": "https://flxt.tmsimg.com/assets/156_v9_ba.jpg"
+  },
+
+  {
+    "name": "cybill shepherd",
+    "net_worth": 40000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "singer",
+      "model",
+      "actor",
+      "television_producer",
+      "film_producer",
+      "writer",
+      "activist"
+    ],
+    "height": 1.73,
+    "birthday": "1950-02-18",
+    "age": 73,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTUzNTA1Mzg5M15BMl5BanBnXkFtZTYwNjkzNDk3._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "annette bening",
+    "net_worth": 70000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "voice_actor"
+    ],
+    "height": 1.69,
+    "birthday": "1958-05-29",
+    "age": 65,
+    "is_alive": true,
+    "image": "https://cdn.britannica.com/34/215934-050-C8F13B2C/American-actress-Annette-Bening-2010.jpg"
+  },
+
+  {
+    "name": "thora birch",
+    "net_worth": 8000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "voice_actor",
+      "film_director",
+      "film_producer"
+    ],
+    "height": 1.63,
+    "birthday": "1982-03-11",
+    "age": 41,
+    "is_alive": true,
+    "image": "https://flxt.tmsimg.com/assets/152150_v9_bb.jpg"
+  },
+
+  {
+    "name": "michael clarke duncan",
+    "net_worth": 18000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "bodyguard",
+      "voice_actor",
+      "model"
+    ],
+    "height": 1.96,
+    "birthday": "1957-12-10",
+    "age": 54,
+    "is_alive": false,
+    "death": "2012-09-03",
+    "image": "https://m.media-amazon.com/images/M/MV5BMTI3NDY2ODk5OV5BMl5BanBnXkFtZTYwMjQ0NzE0._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "david morse",
+    "net_worth": 3000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "singer",
+      "television_director",
+      "screenwriter",
+      "film_producer"
+    ],
+    "height": 1.93,
+    "birthday": "1953-10-11",
+    "age": 69,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTgwNjUzOTE1N15BMl5BanBnXkFtZTYwNTU4NDQ0._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "russell crowe",
+    "net_worth": 100000000,
+    "gender": "male",
+    "nationality": "nz",
+    "occupation": [
+      "actor",
+      "singer",
+      "musician",
+      "film_producer",
+      "film_director"
+    ],
+    "height": 1.82,
+    "birthday": "1964-04-07",
+    "age": 59,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTQyMTExNTMxOF5BMl5BanBnXkFtZTcwNDg1NzkzNw@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "joaquin phoenix",
+    "net_worth": 50000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "television_producer",
+      "musician",
+      "music_video_director",
+      "social_activist"
+    ],
+    "height": 1.73,
+    "birthday": "1974-10-28",
+    "age": 48,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BZGMyY2Q4NTEtMWVkZS00NzcwLTkzNmQtYzBlMWZhZGNhMDhkXkEyXkFqcGdeQXVyNjk1MjYyNTA@._V1_.jpg"
+  },
+
+  {
+    "name": "connie nielsen",
+    "net_worth": 8000000,
+    "gender": "female",
+    "nationality": "dk",
+    "occupation": [
+      "actor"
+    ],
+    "height": 1.78,
+    "birthday": "1965-07-03",
+    "age": 58,
+    "is_alive": true,
+    "image": "https://flxt.tmsimg.com/assets/155555_v9_ba.jpg"
+  },
+
+  {
+    "name": "jeff garlin",
+    "net_worth": 15000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "television_producer",
+      "film_director",
+      "voice_actor",
+      "screenwriter",
+      "author",
+      "comedian",
+      "radio_personality",
+      "film_producer"
+    ],
+    "height": 1.85,
+    "birthday": "1962-06-05",
+    "age": 61,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMzY4MDE4OTk2MF5BMl5BanBnXkFtZTcwNjYxMzA2MQ@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "tim allen",
+    "net_worth": 100000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "comedian",
+      "actor",
+      "voice_actor",
+      "television_producer",
+      "film_producer",
+      "screenwriter",
+      "film_director",
+      "television_director"
+    ],
+    "height": 1.8,
+    "birthday": "1953-06-13",
+    "age": 70,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTI5ODY0NTAwOF5BMl5BanBnXkFtZTcwOTI3NjQxMw@@._V1_.jpg"
+  },
+
+  {
+    "name": "joan cusack",
+    "net_worth": 20000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "voice_actor"
+    ],
+    "height": 1.75,
+    "birthday": "1962-10-11",
+    "age": 60,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTMzMTAxMjQzMV5BMl5BanBnXkFtZTYwMzU1OTE1._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "hugh jackman",
+    "net_worth": 180000000,
+    "gender": "male",
+    "nationality": "au",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "television_producer",
+      "voice_actor",
+      "presenter",
+      "singer",
+      "dancer"
+    ],
+    "height": 1.88,
+    "birthday": "1968-10-12",
+    "age": 54,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BNDExMzIzNjk3Nl5BMl5BanBnXkFtZTcwOTE4NDU5OA@@._V1_.jpg"
+  },
+
+  {
+    "name": "scarlett johansson",
+    "net_worth": 165000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "singer",
+      "model",
+      "voice_actor"
+    ],
+    "height": 1.6,
+    "birthday": "1984-11-22",
+    "age": 38,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTM3OTUwMDYwNl5BMl5BanBnXkFtZTcwNTUyNzc3Nw@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "malcolm mcdowell",
+    "net_worth": 50000000,
+    "gender": "male",
+    "nationality": "gb",
+    "occupation": [
+      "actor",
+      "voice_actor",
+      "salesperson",
+      "waiting_staff",
+      "presenter",
+      "film_producer"
+    ],
+    "height": 1.74,
+    "birthday": "1943-06-13",
+    "age": 80,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTcxMjQxNzczM15BMl5BanBnXkFtZTcwMTg3MTMwNw@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "peter o'toole",
+    "net_worth": 50000000,
+    "gender": "male",
+    "nationality": "ie",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "voice_actor"
+    ],
+    "height": 1.88,
+    "birthday": "1932-08-02",
+    "age": 81,
+    "is_alive": false,
+    "death": "2013-12-14",
+    "image": "https://m.media-amazon.com/images/M/MV5BMjA0MDYyNzczN15BMl5BanBnXkFtZTYwNjMzNjMz._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "alec guinness",
+    "net_worth": 100000000,
+    "gender": "male",
+    "nationality": "gb",
+    "occupation": [
+      "actor"
+    ],
+    "height": 1.78,
+    "birthday": "1914-04-02",
+    "age": 86,
+    "is_alive": false,
+    "death": "2000-08-05",
+    "image": "https://m.media-amazon.com/images/M/MV5BMTUyMjgzMjczOF5BMl5BanBnXkFtZTgwNzcyMzQyNDM@._V1_.jpg"
+  },
+
+  {
+    "name": "anthony quinn",
+    "net_worth": 20000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "writer",
+      "painter",
+      "film_producer",
+      "film_director",
+      "professional_boxer",
+      "restaurateur"
+    ],
+    "height": 1.85,
+    "birthday": "1915-04-21",
+    "age": 86,
+    "is_alive": false,
+    "death": "2001-06-03",
+    "image": "https://m.media-amazon.com/images/M/MV5BMTY2MTAxMzIxMV5BMl5BanBnXkFtZTYwODc3OTE2._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "audrey tautou",
+    "net_worth": 20000000,
+    "gender": "female",
+    "nationality": "fr",
+    "occupation": [
+      "actor",
+      "model"
+    ],
+    "height": 1.6,
+    "birthday": "1976-08-09",
+    "age": 46,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTYzOTgyNjk1Nl5BMl5BanBnXkFtZTcwNjMwMjI1OQ@@._V1_.jpg"
+  },
+  {
+    "name": "rufus wainwright",
+    "net_worth": 10000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "singer",
+      "actor",
+      "musician",
+      "songwriter",
+      "artist",
+      "composer",
+      "film_producer",
+      "music_artist"
+    ],
+    "height": 1.8,
+    "birthday": "1973-07-22",
+    "age": 50,
+    "is_alive": true,
+    "image": "https://photos.bandsintown.com/large/9731677.jpeg"
+  },
+  {
+    "name": "rufus sewell",
+    "net_worth": 5000000,
+    "gender": "male",
+    "nationality": "gb",
+    "occupation": [
+      "actor"
+    ],
+    "height": 1.83,
+    "birthday": "1967-10-29",
+    "age": 55,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BZjY1OTk4MDgtNmU1Mi00ODBjLTk3YjktNTI1ZGExYTE3MGY4XkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_.jpg"
+  },
+
+  {
+    "name": "gregory peck",
+    "net_worth": 40000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer"
+    ],
+    "height": 1.91,
+    "birthday": "1916-04-05",
+    "age": 87,
+    "is_alive": false,
+    "death": "2003-06-12",
+    "image": "https://m.media-amazon.com/images/M/MV5BMTA5Njg2OGItZjJiMS00MDU4LWEzZDAtYjQ0NDBjYWYzZjFjXkEyXkFqcGdeQXVyMDc2NTEzMw@@._V1_.jpg"
+  },
+
+  {
+    "name": "harvey keitel",
+    "net_worth": 45000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "voice_actor"
+    ],
+    "height": 1.71,
+    "birthday": "1939-05-13",
+    "age": 84,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTcxMDcxMjgxOV5BMl5BanBnXkFtZTcwODc2NTk2MQ@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "tim roth",
+    "net_worth": 7000000,
+    "gender": "male",
+    "nationality": "gb",
+    "occupation": [
+      "actor",
+      "television_producer",
+      "film_director"
+    ],
+    "height": 1.7,
+    "birthday": "1961-05-14",
+    "age": 62,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMjA5NTA3MDQyOV5BMl5BanBnXkFtZTcwODM4NDE3Mw@@._V1_.jpg"
+  },
+
+  {
+    "name": "michael madsen",
+    "net_worth": 10000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "poet",
+      "photographer",
+      "writer",
+      "voice_actor"
+    ],
+    "height": 1.88,
+    "birthday": "1958-09-25",
+    "age": 64,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTI4ODA5NzY2N15BMl5BanBnXkFtZTYwNjc3NTI1._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "matthew broderick",
+    "net_worth": 200000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "voice_actor",
+      "film_director",
+      "singer"
+    ],
+    "height": 1.73,
+    "birthday": "1962-03-21",
+    "age": 61,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTg2NjA0MzM0OF5BMl5BanBnXkFtZTcwMDU5ODAxMw@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "jeremy irons",
+    "net_worth": 16000000,
+    "gender": "male",
+    "nationality": "gb",
+    "occupation": [
+      "actor",
+      "voice_actor"
+    ],
+    "height": 1.87,
+    "birthday": "1948-09-19",
+    "age": 74,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTY5Mzg2NDY5OV5BMl5BanBnXkFtZTcwMDQwNzA0Mg@@._V1_.jpg"
+  },
+
+  {
+    "name": "james earl jones",
+    "net_worth": 40000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "voice_actor",
+      "soldier"
+    ],
+    "height": 1.87,
+    "birthday": "1931-01-17",
+    "age": 92,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTcwNTg1MzMwM15BMl5BanBnXkFtZTcwNTQyMDgyMg@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "james woods",
+    "net_worth": 10000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "television_producer",
+      "voice_actor",
+      "film_producer"
+    ],
+    "height": 1.8,
+    "birthday": "1947-04-18",
+    "age": 76,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTM3NTEzNjI5NV5BMl5BanBnXkFtZTcwNjQzOTkwNA@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "elizabeth mcgovern",
+    "net_worth": 4000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "singer-songwriter",
+      "musician"
+    ],
+    "height": 1.75,
+    "birthday": "1961-07-18",
+    "age": 62,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMjI3MzM5ODYyNF5BMl5BanBnXkFtZTcwODIwNzk4Ng@@._V1_.jpg"
+  },
+
+  {
+    "name": "ellen burstyn",
+    "net_worth": 20000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "voice_actor",
+      "model",
+      "minister"
+    ],
+    "height": 1.7,
+    "birthday": "1932-12-07",
+    "age": 90,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTU4MjYxMDc3MF5BMl5BanBnXkFtZTYwNzU3MDIz._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "jared leto",
+    "net_worth": 90000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "musician",
+      "singer-songwriter",
+      "composer",
+      "film_producer",
+      "photographer",
+      "painter",
+      "businessperson",
+      "film_director",
+      "philanthropist"
+    ],
+    "height": 1.75,
+    "birthday": "1971-12-26",
+    "age": 51,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTczMjUwNDUzMF5BMl5BanBnXkFtZTgwNDA4OTAzMTE@._V1_.jpg"
+  },
+
+  {
+    "name": "jennifer connelly",
+    "net_worth": 50000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "model",
+      "voice_actor"
+    ],
+    "height": 1.69,
+    "birthday": "1970-12-12",
+    "age": 52,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BNWM0OTlhYmQtZWI0NS00NzM0LWE5YjItMWZmYzkzY2FmNTc2XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "jim carrey",
+    "net_worth": 180000000,
+    "gender": "male",
+    "nationality": "ca",
+    "occupation": [
+      "comedian",
+      "actor",
+      "screenwriter",
+      "film_producer",
+      "voice_actor"
+    ],
+    "height": 1.87,
+    "birthday": "1962-01-17",
+    "age": 61,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTQwMjAwNzI0M15BMl5BanBnXkFtZTcwOTY1MTMyOQ@@._V1_.jpg"
+  },
+
+  {
+    "name": "kate winslet",
+    "net_worth": 65000000,
+    "gender": "female",
+    "nationality": "gb",
+    "occupation": [
+      "actor",
+      "singer",
+      "voice_actor"
+    ],
+    "height": 1.69,
+    "birthday": "1975-10-05",
+    "age": 47,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BODgzMzM2NTE0Ml5BMl5BanBnXkFtZTcwMTcyMTkyOQ@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "tom wilkinson",
+    "net_worth": 12000000,
+    "gender": "male",
+    "nationality": "gb",
+    "occupation": [
+      "actor",
+      "voice_actor"
+    ],
+    "height": 1.85,
+    "birthday": "1948-02-05",
+    "age": 75,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTcxNzc0NzQyN15BMl5BanBnXkFtZTcwNjI1NDA2MQ@@._V1_.jpg"
+  },
+
+  {
+    "name": "matthew modine",
+    "net_worth": 10000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_director",
+      "film_producer",
+      "screenwriter",
+      "voice_actor"
+    ],
+    "height": 1.93,
+    "birthday": "1959-03-22",
+    "age": 64,
+    "is_alive": true,
+    "image": "https://flxt.tmsimg.com/assets/71061_v9_bb.jpg"
+  },
+
+  {
+    "name": "r. lee ermey",
+    "net_worth": 12000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "voice_actor",
+      "drill_instructor",
+      "soldier",
+      "spokesperson"
+    ],
+    "height": 1.82,
+    "birthday": "1944-03-24",
+    "age": 74,
+    "is_alive": false,
+    "death": "2018-04-15",
+    "image": "https://m.media-amazon.com/images/M/MV5BMTA4Mzg5MjgzODleQTJeQWpwZ15BbWU3MDY4MDA5MDM@._V1_.jpg"
+  },
+
+  {
+    "name": "Vincent D'Onofrio",
+    "net_worth": 14000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "film_director",
+      "screenwriter",
+      "singer",
+      "teacher",
+      "spokesperson",
+      "voice_actor"
+    ],
+    "height": 1.93,
+    "birthday": "1959-06-30",
+    "age": 64,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTk0NTE2MDkzNF5BMl5BanBnXkFtZTYwODUzMjcz._V1_.jpg"
+  },
+
+  {
+    "name": "mel gibson",
+    "net_worth": 425000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "screenwriter",
+      "film_director",
+      "film_producer",
+      "television_producer",
+      "television_director",
+      "voice_actor"
+    ],
+    "height": 1.77,
+    "birthday": "1956-01-03",
+    "age": 67,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BNTUzOTMwNTM0OV5BMl5BanBnXkFtZTcwNDQwMTUxMw@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "sophie marceau",
+    "net_worth": 50000000,
+    "gender": "female",
+    "nationality": "fr",
+    "occupation": [
+      "actor",
+      "screenwriter",
+      "film_director",
+      "author",
+      "singer",
+      "model"
+    ],
+    "height": 1.73,
+    "birthday": "1966-11-17",
+    "age": 56,
+    "is_alive": true,
+    "image": "https://flxt.tmsimg.com/assets/59706_v9_bb.jpg"
+  },
+
+  {
+    "name": "faye dunaway",
+    "net_worth": 40000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "television_producer"
+    ],
+    "height": 1.7,
+    "birthday": "1941-01-14",
+    "age": 82,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTk4OTU5MDY0OV5BMl5BanBnXkFtZTYwNTc0MTM1._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "gene kelly",
+    "net_worth": 10000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "singer",
+      "dancer",
+      "actor",
+      "film_director",
+      "choreographer",
+      "film_producer",
+      "television_producer"
+    ],
+    "height": 1.7,
+    "birthday": "1912-08-23",
+    "age": 83,
+    "is_alive": false,
+    "death": "1996-02-02",
+    "image": "https://m.media-amazon.com/images/M/MV5BMTM3MzIyMDI5Ml5BMl5BanBnXkFtZTYwNzQ2MjU2._V1_.jpg"
+  },
+
+  {
+    "name": "john cleese",
+    "net_worth": 10000000,
+    "gender": "male",
+    "nationality": "gb",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "comedian",
+      "screenwriter",
+      "voice_actor",
+      "television_producer",
+      "writer",
+      "film_director"
+    ],
+    "height": 1.96,
+    "birthday": "1939-10-27",
+    "age": 83,
+    "is_alive": null,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTQ1MTIzMzM1MF5BMl5BanBnXkFtZTYwNjQ3ODI1._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "name": "eric idle",
+    "net_worth": 60000000,
+    "gender": "male",
+    "nationality": "gb",
+    "occupation": [
+      "actor",
+      "comedian",
+      "screenwriter",
+      "musician",
+      "composer",
+      "film_producer",
+      "singer-songwriter",
+      "television_director",
+      "voice_actor",
+      "film_director"
+    ],
+    "height": 1.85,
+    "birthday": "1943-03-29",
+    "age": 80,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BNzY4NTQwNDA4M15BMl5BanBnXkFtZTYwNTg5Njcz._V1_FMjpg_UX1000_.jpg"
+  },
+
+
+  {
+    "name": "marilyn monroe",
+    "net_worth": 10000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "model",
+      "singer",
+      "showgirl",
+      "film_producer"
+    ],
+    "height": 1.66,
+    "birthday": "1926-06-01",
+    "age": 36,
+    "is_alive": false,
+    "death": "1962-08-05",
+    "image": "https://m.media-amazon.com/images/M/MV5BMTczM2I1MjktMTdhYi00ZmU1LWE5N2ItNmUyYWMzOWY4NGNiXkEyXkFqcGdeQXVyMzQ3Nzk5MTU@._V1_.jpg"
+  },
+
+  {
+    "name": "tony curtis",
+    "net_worth": 60000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "painter"
+    ],
+    "height": 1.75,
+    "birthday": "1925-06-03",
+    "age": 85,
+    "is_alive": false,
+    "death": "2010-09-29",
+    "image": "https://m.media-amazon.com/images/M/MV5BNzI3MzYxNzUtM2Y4ZS00YTY4LWExN2EtNDRjOTA1OTJmNDQyXkEyXkFqcGdeQXVyMDc2NTEzMw@@._V1_.jpg"
+  },
+
+  {
+    "name": "jack lemmon",
+    "net_worth": 25000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "musician",
+      "actor"
+    ],
+    "height": 1.75,
+    "birthday": "1925-02-08",
+    "age": 76,
+    "is_alive": false,
+    "death": "2001-06-27",
+    "image": "https://m.media-amazon.com/images/M/MV5BODUxYWFlNWYtYmViMC00OTExLTk3YjAtZGU4MDc3MTcwZTZmXkEyXkFqcGdeQXVyMDc2NTEzMw@@._V1_FMjpg_UX1000_.jpg"
+  },
+
+  {
+    "name": "f. murray abraham",
+    "net_worth": 10000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor"
+    ],
+    "height": 1.8,
+    "birthday": "1939-10-24",
+    "age": 83,
+    "is_alive": true,
+    "image": "https://cdn.britannica.com/04/237304-050-4D1F8A65/Actor-F-Murray-Abraham-22nd-Annual-Screen-Actors-Guild-Awards.jpg"
+  },
+
+  {
+    "name": "tom hulce",
+    "net_worth": 15000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "theatrical_producer",
+      "theatre_director",
+      "voice_actor",
+      "singer",
+      "film_producer"
+    ],
+    "height": 1.7,
+    "birthday": "1953-12-06",
+    "age": 69,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTM0ODY0MTE0NF5BMl5BanBnXkFtZTcwOTQwNTIzOA@@._V1_.jpg"
+  },
+
+  {
+    "name": "gary lockwood",
+    "net_worth": 1500000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "stunt_performer"
+    ],
+    "height": 1.87,
+    "birthday": "1937-02-21",
+    "age": 86,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTQ0MDMzNjQ1Nl5BMl5BanBnXkFtZTYwNzMxOTI2._V1_.jpg"
+  },
+
+  {
+    "name": "bette davis",
+    "net_worth": 2000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor"
+    ],
+    "height": 1.6,
+    "birthday": "1908-04-05",
+    "age": 81,
+    "is_alive": false,
+    "death": "1989-10-06",
+    "image": "https://m.media-amazon.com/images/M/MV5BOTIzOTU4ZDEtZTFkMy00ZGY5LWJmMWUtNzA4YTMxZWE0Y2QyXkEyXkFqcGdeQXVyMDc2NTEzMw@@._V1_.jpg"
+  },
+
+  {
+    "name": "tyrone power, jr.",
+    "net_worth": 3000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor"
+    ],
+    "birthday": "1959-01-22",
+    "age": 64,
+    "is_alive": true,
+    "image": "https://flxt.tmsimg.com/assets/101773_v9_ba.jpg"
+  },
+
+  {
+    "name": "marlene dietrich",
+    "net_worth": 30000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "singer",
+      "actor",
+      "violinist"
+    ],
+    "height": 1.68,
+    "birthday": "1901-12-27",
+    "age": 90,
+    "is_alive": false,
+    "death": "1992-05-06",
+    "image": "https://hips.hearstapps.com/hmg-prod/images/marlene-dietrich-gettyimages-517391774.jpg?resize=1200:*"
+  },
+
+  {
+    "name": "paul newman",
+    "net_worth": 80000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "film_director",
+      "entrepreneur",
+      "businessperson",
+      "activist",
+      "voice_actor",
+      "philanthropist",
+      "race_car_driver"
+    ],
+    "height": 1.77,
+    "birthday": "1925-01-26",
+    "age": 83,
+    "is_alive": false,
+    "death": "2008-09-26",
+    "image": "https://cdn.britannica.com/64/126664-050-35C7CECA/Paul-Newman.jpg"
+  },
+
+  {
+    "name": "robert redford",
+    "net_worth": 200000000,
+    "gender": "male",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "film_director",
+      "businessperson",
+      "television_producer",
+      "activist",
+      "environmentalist",
+      "philanthropist"
+    ],
+    "height": 1.79,
+    "birthday": "1937-08-18",
+    "age": 85,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTk1Nzc5MzQyMV5BMl5BanBnXkFtZTcwNjQ5OTA0Mg@@._V1_QL75_UY207_CR5,0,140,207_.jpg"
+  },
+
+  {
+    "name": "shirley maclaine",
+    "net_worth": 50000000,
+    "gender": "female",
+    "nationality": "us",
+    "occupation": [
+      "actor",
+      "dancer",
+      "singer",
+      "author",
+      "screenwriter",
+      "film_producer",
+      "activist",
+      "film_director"
+    ],
+    "height": 1.7,
+    "birthday": "1934-04-24",
+    "age": 89,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTI0MTE5MjQ1MF5BMl5BanBnXkFtZTYwMzU2MDg1._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "name": "sean connery",
+    "net_worth": 350000000,
+    "gender": "male",
+    "nationality": "gb",
+    "occupation": [
+      "actor",
+      "film_producer",
+      "voice_actor"
+    ],
+    "height": 1.89,
+    "birthday": "1930-08-25",
+    "age": 90,
+    "is_alive": false,
+    "death": "2020-10-31",
+    "image": "https://m.media-amazon.com/images/M/MV5BMzcwNTM4MzctYjQzMi00NTA2LTljYWItNTYzNmE1MTYxN2RlXkEyXkFqcGdeQXVyMDI2NDg0NQ@@._V1_.jpg"
+  },
+
+  {
+    "name": "alison doody",
+    "net_worth": 25000000,
+    "gender": "female",
+    "nationality": "ie",
+    "occupation": [
+      "actor",
+      "model"
+    ],
+    "height": 1.75,
+    "birthday": "1966-11-11",
+    "age": 56,
+    "is_alive": true,
+    "image": "https://m.media-amazon.com/images/M/MV5BMTc5NjI5MTExM15BMl5BanBnXkFtZTcwMjUxNDczMw@@._V1_.jpg"
+  }
+]

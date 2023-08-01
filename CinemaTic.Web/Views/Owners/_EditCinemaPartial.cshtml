@@ -1,0 +1,124 @@
+﻿@model CinemaTic.ViewModels.Cinemas.EditCinemaViewModel
+
+<form asp-controller="Owners" asp-action="EditCinema" method="post" enctype="multipart/form-data" class="edit-form">
+    <input type="hidden" asp-for="Id" />
+    <div role="list" asp-validation-summary="None" class="text-danger"></div>
+    <div class="form-group">
+        <div class="active-form">
+            <i class="fa-solid fa-film input-icon"></i>
+            <input asp-for="Name" class="form-control form-style" placeholder="Your cinema's name" />
+        </div>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <div class="active-form">
+            <i class="fa-solid fa-pen input-icon"></i>
+            <input asp-for="Description" class="form-control form-style" placeholder="Description" />
+        </div>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <div class="active-form">
+            <i class="fa-solid fa-calendar-days input-icon"></i>
+            <input asp-for="FoundedOn" value="@(Model.FoundedOn.ToString("MM/dd/yyyy"))" type="text" class="form-control form-style" placeholder="Date of creation" onfocus="(this.type = 'date')" onblur="(this.type = 'text')" />
+        </div>
+        <span asp-validation-for="FoundedOn" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <div class="active-form">
+            <i class="input-icon">R</i>
+            <input asp-for="SeatRows" type="text" class="form-control form-style" placeholder="Rows" />
+        </div>
+        <span asp-validation-for="SeatRows" class="text-danger"></span>
+    </div>
+    <div class="form-group" style="margin-bottom: 10px;">
+        <div class="active-form">
+            <i class="input-icon">C</i>
+            <input asp-for="SeatCols" type="text" class="form-control form-style" placeholder="Columns" />
+        </div>
+        <span asp-validation-for="SeatCols" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <div class="active-form">
+            <i class="input-icon">BG</i>
+            <input type="color" class="form-control form-style color-picker" asp-for="BackgroundColor">
+            <input type="text" class="visualizer" onfocusout="setDefaultColor(this, '#000000');" placeholder="Background color" asp-for="BackgroundColor" />
+        </div>
+        <span asp-validation-for="BackgroundColor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <div class="active-form">
+            <i class="input-icon">HD</i>
+            <input type="color" class="form-control form-style color-picker" asp-for="BoardColor">
+            <input type="text" class="visualizer" onfocusout="setDefaultColor(this, '#FFFFFF');" placeholder="Board color" asp-for="BoardColor" />
+        </div>
+        <span asp-validation-for="BoardColor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <div class="active-form">
+            <i class="input-icon">TX</i>
+            <input type="color" class="form-control form-style color-picker" asp-for="TextColor">
+            <input type="text" class="visualizer" onfocusout="setDefaultColor(this, '#FFFFFF');" placeholder="Text color" asp-for="TextColor" />
+        </div>
+        <span asp-validation-for="TextColor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <div class="active-form">
+            <i class="input-icon">BT</i>
+            <input type="color" class="form-control form-style color-picker" asp-for="ButtonBackgroundColor">
+            <input type="text" class="visualizer" onfocusout="setDefaultColor(this, '#FFFFFF');" placeholder="Button background color" asp-for="ButtonBackgroundColor" />
+        </div>
+        <span asp-validation-for="ButtonBackgroundColor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <div class="active-form">
+            <i class="input-icon">BT</i>
+            <input type="color" class="form-control form-style color-picker" asp-for="ButtonTextColor">
+            <input type="text" class="visualizer" onfocusout="setDefaultColor(this, '#000000');" placeholder="Button text color" asp-for="ButtonTextColor" />
+        </div>
+        <span asp-validation-for="ButtonTextColor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <div class="active-form">
+            <i class="input-icon">AC</i>
+            <input type="color" class="form-control form-style color-picker" asp-for="AccentColor">
+            <input type="text" class="visualizer" onfocusout="setDefaultColor(this, '#FF0000');" placeholder="Accent color" asp-for="AccentColor" />
+        </div>
+        <span asp-validation-for="AccentColor" class="text-danger"></span>
+    </div>
+    <div class="form-group image-form-group">
+        <div class="d-flex justify-content-between">
+            <div class="active-form image-upload">
+                <label asp-for="Image" for="image-upload" class="image-upload-box">
+                    <i class="upload-text">Upload your cinema's logo</i>
+                </label>
+                <input asp-for="Image" id="image-upload" class="form-control form-style upload-form" onchange="loadFile(event)" />
+            </div>
+            <div class="temp-img-container">
+                <img id="tempImg" hidden />
+            </div>
+        </div>
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <button class="app-content-headerButton" asp-controller="Owners" asp-action="EditCinema">Edit</button>
+</form>
+<script>
+    document.querySelectorAll('input[type="color"]').forEach(i => i.addEventListener("input", function () {
+        var visualizer = i.nextElementSibling;
+        visualizer.value = i.value;
+    }));
+    document.querySelectorAll('input.visualizer').forEach(i => i.addEventListener("input", function () {
+        var colorPicker = i.previousElementSibling;
+        if (i.value) {
+            colorPicker.value = i.value;
+        }
+    }));
+    function setDefaultColor(element, color) {
+        if (!element.value) {
+            element.value = color;
+            element.previousElementSibling.value = color;
+        }
+    }
+</script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>

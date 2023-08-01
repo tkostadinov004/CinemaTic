@@ -1,0 +1,89 @@
+﻿@model CinemaTic.ViewModels.Admin.AdminCinemaDetailsViewModel
+@{
+    ViewData["Title"] = $"Cinema - {Model.Name}";
+}
+
+<link href="~/css/manageStyle.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/cardStyle.css" />
+<link href="~/css/ratingmodal.css" rel="stylesheet" />
+<div class="app-content">
+    <div class="products-area-wrapper gridView m-0 justify-content-center details">
+        <div class="products-header">
+            <div class="cinema-cell image">
+                Cinema
+                <button class="sort-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"></path><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5z"></path></svg>
+                </button>
+            </div>
+            <div class="cinema-cell description">
+                Description<button class="sort-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"></path><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5z"></path></svg>
+                </button>
+            </div>
+            <div class="cinema-cell status-cell">
+                Status<button class="sort-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"></path><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5z"></path></svg>
+                </button>
+            </div>
+            <div class="cinema-cell sales">
+                Added on<button class="sort-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"></path><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5z"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div class="cinema-row details-card mb-3">
+            <div class="cinema-cell image details-photo-pic">
+                <a class="d-flex align-items-center cinema-link flex-column">
+                    <img src="~/client-images/Cinemas/@Model.ImageUrl" alt="cinema-logo">
+                    <span>@Model.Name</span>
+                </a>
+            </div>
+            <div class="cinema-cell status-cell">
+                <span class="cell-label">Status:</span>
+                <span class="status pending-approval">Pending approval</span>
+            </div>
+            <div class="cinema-cell description">
+                <span class="cell-label">Description:</span>
+                <span class="cinema-description">
+                    @Model.Description
+                </span>
+            </div>
+            <div class="cinema-cell sales"><span class="cell-label">Founded on:</span>@Model.FoundedOn</div>
+        </div>
+        <div class="cinema-cell stock mb-3">
+            <button id="change-status" class="action-button active crud-button open-popup-btn">Change approval status</button>
+        </div>
+    </div>
+    <div class="products-area-wrapper movies-wrapper tableView">
+        <div class="products-header">
+            <div class="cinema-cell image">
+                Movie
+            </div>
+            <div class="cinema-cell status-cell">
+                Genre
+            </div>
+            <div class="cinema-cell sales">
+                Average user rating
+            </div>
+            <div class="cinema-cell stock">
+                Ratings count
+            </div>
+        </div>
+        <div class="movies-container" id="results-container">
+        </div>
+    </div>
+</div>
+<partial name="_PopupModalPartial" />
+<script>
+    window.onload = function () {
+        getItems('Owners', 'SearchMoviesByCinema', "", '@Model.Id');
+    };
+    var modalContainer = document.getElementById('review-form-container');
+    var editButton = document.getElementById("change-status");
+    editButton.addEventListener("click", function () {
+        modalContainer.innerHTML = "";
+        getUDpartial('Admin', 'ChangeApprovalStatus', '@Model.Id');
+    });
+</script>
+<script src="~/js/ownerdashboard.js"></script>
+<script src="~/js/rating-modal.js"></script>

@@ -1,0 +1,80 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<CinemaTic.Data.Models.ApplicationUser> SignInManager
+@inject UserManager<CinemaTic.Data.Models.ApplicationUser> UserManager
+
+
+@if (UserManager.Users.Count() > 0 && SignInManager.IsSignedIn(User))
+{
+    <ul class="nav-links" role="list">
+        @if ((string)ViewData["Title"] != "Home")
+        {
+            @if (User.IsInRole("Administrator"))
+            {
+                <li><a class="nx-btn" asp-controller="Admin" asp-action="Index">Go back</a></li>
+            }
+            else
+            {
+                <li><a class="nx-btn" href="javascript:history.back()">Go back</a></li>
+            }
+        }
+        <li>
+            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="nx-btn">Logout</button>
+            </form>
+        </li>
+        @if (User.IsInRole("Administrator") == false)
+        {
+            <li>
+                <div id="myNav" class="overlay">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <div class="overlay-content">
+                        @{
+                            var user = @UserManager.FindByEmailAsync(User.Identity.Name).Result;
+                            string names = $"{user.FirstName} {user.LastName}";
+                        }
+                        <h1 class="welcome-title">Welcome, @names!</h1>
+                        @if (User.IsInRole("Owner"))
+                        {
+                            <a class="" asp-controller="Genres" asp-action="Index">Genres</a>
+                            <a class="" asp-controller="Actors" asp-action="Index">Actors</a>
+                            <a class="" asp-controller="Movies" asp-action="Index">Movies</a>
+                        }
+                        @if (User.IsInRole("Customer"))
+                        {
+                            <a class="" asp-controller="Tickets" asp-action="Index">Your tickets</a>
+                        }
+                    </div>
+                </div>
+                <span class="hamburger-icon" onclick="openNav()">&#9776;</span>
+            </li>
+        }
+    </ul>
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.height = "100%";
+            document.body.style.overflow = "hidden";
+        }
+        function closeNav() {
+            document.getElementById("myNav").style.height = "0%";
+            document.body.style.overflow = "visible";
+        }
+    </script>
+}
+else
+{
+    <ul class="nav-links" role="list">
+        @if ((string)ViewData["Title"] == "Home")
+        {
+            <li>
+                <a class="nx-btn" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            </li>
+            <li>
+                <a class="nx-btn" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            </li>
+        }
+        else
+        {
+            <a class="nx-btn" href="/">Go back</a>
+        }
+    </ul>
+}

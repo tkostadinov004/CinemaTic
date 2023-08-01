@@ -1,0 +1,30 @@
+﻿@model CinemaTic.ViewModels.Users.SidebarUserViewModel
+<div class="account-info">
+    <div class="account-info-picture">
+        <img src="~/client-images/Users/@Model.ImageUrl" class="circle-image" alt="Account"> <!--change-->
+    </div>
+    <div class="account-info-name">@Model.Name</div>
+    <button class="account-info-more">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1" /><circle cx="19" cy="12" r="1" /><circle cx="5" cy="12" r="1" /></svg>
+    </button>
+    <div class="user-actions-dropdown">
+        <a asp-controller="User" asp-action="ChangeProfilePicture" class="user-action-button">Change profile picture</a>
+        <a asp-controller="User" asp-action="ChangePassword" class="user-action-button">Change password</a>
+        <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button type="submit" class="user-action-button">Logout</button>
+        </form>
+    </div>
+</div>
+<script>
+    var userActions = document.querySelector(".account-info-more");
+    if (userActions) {
+        userActions.addEventListener("click", function () {
+            document.querySelector(".user-actions-dropdown").classList.toggle("active");
+        });
+    }
+    window.onclick = function (e) {
+        if (!e.target.matches('.account-info, .account-info *')) {
+            document.querySelector(".user-actions-dropdown").classList.remove("active");
+        }
+    };
+</script>

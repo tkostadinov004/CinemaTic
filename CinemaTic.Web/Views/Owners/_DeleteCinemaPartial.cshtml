@@ -1,0 +1,17 @@
+﻿@model CinemaTic.ViewModels.Cinemas.DeleteCinemaViewModel
+
+<form asp-controller="Owners" asp-action="DeleteCinema" method="post" enctype="multipart/form-data" class="delete-cinema-form d-flex justify-content-center align-items-center">
+   <div class="delete-text d-flex flex-column">
+        <h5>Are you sure you want to delete this cinema?</h5>
+        <div class="form-group">
+            <div class="active-form">
+                <i class="fa-solid fa-film input-icon"></i>
+                <span class="px-2">@Model.Name</span>
+            </div>
+        </div>
+        <button class="app-content-headerButton" asp-controller="Owners" asp-action="DeleteCinema" asp-route-cinemaId="@Model.Id">Delete</button>
+   </div>
+    <div class="delete-image form-group mx-0">
+        <img src="~/client-images/Cinemas/@Model.ImageUrl"/>
+    </div>
+</form>
