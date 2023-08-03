@@ -7,6 +7,14 @@
 <link rel="stylesheet" href="~/css/cardStyle.css" />
 <link href="~/css/ratingmodal.css" rel="stylesheet" />
 <div class="app-content">
+    <div class="app-content-header">
+        <button class="mode-switch" title="Switch Theme">
+            <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+                <defs></defs>
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+            </svg>
+        </button>
+    </div>
     <div class="products-area-wrapper gridView m-0 justify-content-center details">
         <div class="products-header">
             <div class="cinema-cell image">
@@ -40,7 +48,7 @@
             </div>
             <div class="cinema-cell status-cell">
                 <span class="cell-label">Status:</span>
-                <span class="status pending-approval">Pending approval</span>
+                <span class="status">@Model.Status</span>
             </div>
             <div class="cinema-cell description">
                 <span class="cell-label">Description:</span>
@@ -58,15 +66,39 @@
         <div class="products-header">
             <div class="cinema-cell image">
                 Movie
+                <button class="sort-button" id="name-sort-desc" title="Sort descending">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="name-sort" title="Sort ascending">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
             </div>
             <div class="cinema-cell status-cell">
                 Genre
+                <button class="sort-button" id="genre-sort-desc" title="Sort descending">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="genre-sort" title="Sort ascending">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
             </div>
             <div class="cinema-cell sales">
                 Average user rating
+                <button class="sort-button" id="rating-sort-desc" title="Sort descending">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="rating-sort" title="Sort ascending">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
             </div>
             <div class="cinema-cell stock">
                 Ratings count
+                <button class="sort-button" id="ratingcount-sort-desc" title="Sort descending">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="ratingcount-sort" title="Sort ascending">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
             </div>
         </div>
         <div class="movies-container" id="results-container">
@@ -80,6 +112,18 @@
     };
     var modalContainer = document.getElementById('review-form-container');
     var editButton = document.getElementById("change-status");
+
+    var activeSort = document.querySelector('.sort-button.selected');
+    document.querySelectorAll(".sort-button").forEach(i => i.addEventListener('click', function () {
+        var alreadyActive = document.querySelector('.sort-button.selected');
+        if (alreadyActive) {
+            alreadyActive.classList.remove("selected");
+        }
+        i.classList.add("selected");
+        activeSort = i;
+        getItems('Owners', 'SearchMoviesByCinema', '', '@Model.Id', '', activeSort.id);
+    }));
+
     editButton.addEventListener("click", function () {
         modalContainer.innerHTML = "";
         getUDpartial('Admin', 'ChangeApprovalStatus', '@Model.Id');

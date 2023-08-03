@@ -49,14 +49,14 @@ namespace CinemaTic.Web.Controllers
 
             return View(cinema);
         }
-        public async Task<IActionResult> User(string id)
+        public async Task<IActionResult> User(string id, int? actionPageNumber)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var user = await _adminService.GetUserDetailsViewModelByIdAsync(id);
+            var user = await _adminService.GetUserDetailsViewModelByIdAsync(id, actionPageNumber);
             if (user == null)
             {
                 return NotFound();
@@ -86,7 +86,7 @@ namespace CinemaTic.Web.Controllers
             {
                 return NotFound();
             }
-            await _adminService.ChangeApprovalByIdStatusAsync(id, approvalCode);
+            await _adminService.ChangeApprovalStatusByIdStatusAsync(id, approvalCode);
             return RedirectToAction("AllCinemas", "Admin");
         }
         public async Task<IActionResult> SearchAndFilterCinemas(string searchText, string filterValue, string sortBy, int? pageNumber)

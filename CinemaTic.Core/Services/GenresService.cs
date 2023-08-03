@@ -3,6 +3,7 @@ using CinemaTic.Core.Utilities;
 using CinemaTic.Data;
 using CinemaTic.Data.Enums;
 using CinemaTic.Data.Models;
+using CinemaTic.Extensions;
 using CinemaTic.Extensions.ModelBinders;
 using CinemaTic.ViewModels.Genres;
 using CinemaTic.ViewModels.Movies;

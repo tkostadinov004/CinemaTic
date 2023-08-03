@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace CinemaTic.Core.Utilities
+namespace CinemaTic.Extensions
 {
     public class PaginatedList<T> : List<T>
     {

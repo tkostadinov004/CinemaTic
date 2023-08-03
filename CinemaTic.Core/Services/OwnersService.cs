@@ -117,7 +117,7 @@ namespace CinemaTic.Core.Services
                 Id = i.Id,
                 Name = i.Name,
                 Status = (i.ApprovalStatus == ApprovalStatus.Approved ? "Approved" : (i.ApprovalStatus == ApprovalStatus.PendingApproval ? "Pending approval" : "Denied approval")),
-                FoundedOn = i.FoundedOn.ToString(Constants.DateTimeFormat),
+                FoundedOn = i.FoundedOn,
                 ImageUrl = i.ImageUrl,
                 StatusCode = i.ApprovalStatus,
                 MoviesCount = i.Movies.Count
@@ -195,7 +195,9 @@ namespace CinemaTic.Core.Services
 
         public async Task<IEnumerable<CinemaListViewModel>> SearchAndFilterCinemasAsync(string searchText, string filterValue, string sortBy, string userEmail)
         {
-            var cinemas = await this.GetAllByUserAsync(userEmail);
+            var user = await _userManager.FindByEmailAsync(userEmail);
+
+            var cinemas = _context.Cinemas.Include(i => i.Movies).Where(i => i.OwnerId == user.Id);
             if (string.IsNullOrEmpty(searchText) == false)
             {
                 cinemas = cinemas.Where(i => i.Name.ToLower().StartsWith(searchText.ToLower()));
@@ -203,18 +205,7 @@ namespace CinemaTic.Core.Services
             if (string.IsNullOrEmpty(filterValue) == false && Regex.IsMatch(filterValue, @"^[0-9]*$"))
             {
                 int enumValue = int.Parse(filterValue);
-                switch (enumValue)
-                {
-                    case (int)ApprovalStatus.Approved:
-                        cinemas = cinemas.Where(i => i.Status == "Approved");
-                        break;
-                    case (int)ApprovalStatus.PendingApproval:
-                        cinemas = cinemas.Where(i => i.Status == "Pending approval");
-                        break;
-                    case (int)ApprovalStatus.DeniedApproval:
-                        cinemas = cinemas.Where(i => i.Status == "Denied approval");
-                        break;
-                }
+                cinemas = cinemas.Where(i => i.ApprovalStatus == Enum.Parse<ApprovalStatus>(filterValue));
             }
             if (string.IsNullOrEmpty(sortBy) == false)
             {
@@ -231,10 +222,10 @@ namespace CinemaTic.Core.Services
                         }
                         break;
                     case "status":
-                        cinemas = cinemas.OrderBy(i => i.StatusCode);
+                        cinemas = cinemas.OrderBy(i => i.ApprovalStatus);
                         if (sortDirection == "desc")
                         {
-                            cinemas = cinemas.OrderByDescending(i => i.StatusCode);
+                            cinemas = cinemas.OrderByDescending(i => i.ApprovalStatus);
                         }
                         break;
                     case "addedon":
@@ -245,22 +236,31 @@ namespace CinemaTic.Core.Services
                         }
                         break;
                     case "count":
-                        cinemas = cinemas.OrderBy(i => i.MoviesCount);
+                        cinemas = cinemas.OrderBy(i => i.Movies.Count);
                         if (sortDirection == "desc")
                         {
-                            cinemas = cinemas.OrderByDescending(i => i.MoviesCount);
+                            cinemas = cinemas.OrderByDescending(i => i.Movies.Count);
                         }
                         break;
                 }
             }
             else
             {
-                cinemas = cinemas.OrderBy(i => i.Status);
+                cinemas = cinemas.OrderBy(i => i.Name);
             }
-            return cinemas;
+            return cinemas.Select(i => new CinemaListViewModel
+            {
+                Id = i.Id,
+                Name = i.Name,
+                Status = (i.ApprovalStatus == ApprovalStatus.Approved ? "Approved" : (i.ApprovalStatus == ApprovalStatus.PendingApproval ? "Pending approval" : "Denied approval")),
+                FoundedOn = i.FoundedOn,
+                ImageUrl = i.ImageUrl,
+                StatusCode = i.ApprovalStatus,
+                MoviesCount = i.Movies.Count
+            }).ToList();
         }
 
-        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByCinemaAsync(string searchText, string sortBy, int? cinemaId)
+        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchAndSortMoviesByCinemaAsync(string searchText, string sortBy, int? cinemaId)
         {
             var cinema = await _context.Cinemas
                 .Include(i => i.Movies)
@@ -349,20 +349,67 @@ namespace CinemaTic.Core.Services
             return null;
         }
 
-        public async Task<IEnumerable<CinemaContainingMovieViewModel>> GetCinemasContainingMovieAsync(int? movieId, string userEmail)
+        public async Task<IEnumerable<CinemaContainingMovieViewModel>> GetCinemasContainingMovieAsync(int? movieId, string sortBy, string userEmail)
         {
             var movie = await _context.Movies.Include(i => i.Cinemas).ThenInclude(i => i.Cinema).FirstOrDefaultAsync(i => i.Id == movieId);
             var user = await _userManager.FindByEmailAsync(userEmail);
 
-            return movie.Cinemas.Where(i => i.Cinema.OwnerId == user.Id).Select(i => new CinemaContainingMovieViewModel
+            if (movie != null && user != null)
             {
-                Id = i.Cinema.Id,
-                Name = i.Cinema.Name,
-                FromDate = i.FromDate.ToString(Constants.DateTimeFormat),
-                ToDate = i.ToDate.ToString(Constants.DateTimeFormat),
-                TicketPrice = i.TicketPrice,
-                CinemaLogoUrl = i.Cinema.ImageUrl
-            }).ToList();
+                var cinemas = movie.Cinemas.Where(i => i.Cinema.OwnerId == user.Id);
+                if (string.IsNullOrEmpty(sortBy) == false)
+                {
+                    var sortParameter = sortBy.Split('-')[0];
+                    var sortDirection = sortBy.Split('-')[^1];
+
+                    switch (sortParameter)
+                    {
+                        case "name":
+                            cinemas = cinemas.OrderBy(i => i.Cinema.Name);
+                            if (sortDirection == "desc")
+                            {
+                                cinemas = cinemas.OrderByDescending(i => i.Cinema.Name);
+                            }
+                            break;
+                        case "fromDate":
+                            cinemas = cinemas.OrderBy(i => i.FromDate);
+                            if (sortDirection == "desc")
+                            {
+                                cinemas = cinemas.OrderByDescending(i => i.FromDate);
+                            }
+                            break;
+                        case "toDate":
+                            cinemas = cinemas.OrderBy(i => i.ToDate);
+                            if (sortDirection == "desc")
+                            {
+                                cinemas = cinemas.OrderByDescending(i => i.ToDate);
+                            }
+                            break;
+                        case "price":
+                            cinemas = cinemas.OrderBy(i => i.TicketPrice);
+                            if (sortDirection == "desc")
+                            {
+                                cinemas = cinemas.OrderByDescending(i => i.TicketPrice);
+                            }
+                            break;
+                    }
+                }
+                else
+                {
+                    cinemas = cinemas.OrderBy(i => i.Cinema.Name);
+                }
+                return cinemas.Select(i => new CinemaContainingMovieViewModel
+                {
+                    Id = i.Cinema.Id,
+                    MovieId = i.MovieId,
+                    Name = i.Cinema.Name,
+                    FromDate = i.FromDate.ToString(Constants.DateTimeFormat),
+                    ToDate = i.ToDate.ToString(Constants.DateTimeFormat),
+                    TicketPrice = i.TicketPrice,
+                    CinemaLogoUrl = i.Cinema.ImageUrl
+                }).ToList();
+            }
+            return null;
         }
     }
 }

@@ -18,10 +18,10 @@ namespace CinemaTic.Core.Contracts
         Task DeleteByIdAsync(int? id);
         Task<bool> ExistsByIdAsync(int? id);
         Task<IEnumerable<CinemaListViewModel>> SearchAndFilterCinemasAsync(string searchText, string filterValue, string sortBy, string userEmail);
-        Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByCinemaAsync(string searchText, string sortBy, int? cinemaId);
+        Task<IEnumerable<MovieInfoCardViewModel>> SearchAndSortMoviesByCinemaAsync(string searchText, string sortBy, int? cinemaId);
         Task<EditCinemaViewModel> GetEditViewModelByIdAsync(int? cinemaId);
         Task<DeleteCinemaViewModel> PrepareDeleteViewModelAsync(int? id);
         Task<CinemaPagePreviewViewModel> GetPreviewViewModelAsync(string userEmail, int? cinemaId);
-        Task<IEnumerable<CinemaContainingMovieViewModel>> GetCinemasContainingMovieAsync(int? movieId, string userEmail);
+        Task<IEnumerable<CinemaContainingMovieViewModel>> GetCinemasContainingMovieAsync(int? movieId, string sortBy, string userEmail);
     }
 }

@@ -13,7 +13,6 @@
             </div>
             <select id="status-selector" class="status-selector" name="approvalCode" asp-for="ApprovalCode">
                 <option value="@((int)ApprovalStatus.Approved)">Approved</option>
-                <option value="@((int)ApprovalStatus.PendingApproval)">Pending approval</option>
                 <option value="@((int)ApprovalStatus.DeniedApproval)">Denied approval</option>
             </select>
             <button type="submit" class="app-content-headerButton bg-primary" asp-controller="Admin" asp-action="ChangeApprovalStatus">Change</button>

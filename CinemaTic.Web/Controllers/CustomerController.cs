@@ -2,6 +2,7 @@
 using CinemaTic.Core.Services;
 using CinemaTic.Core.Utilities;
 using CinemaTic.Data.Models;
+using CinemaTic.Extensions;
 using CinemaTic.Extensions.ModelBinders;
 using CinemaTic.ViewModels.Customers;
 using CinemaTic.ViewModels.Sectors;

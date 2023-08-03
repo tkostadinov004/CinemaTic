@@ -722,6 +722,9 @@ div.active-form {
 ::-webkit-calendar-picker-indicator {
     filter: invert(100%);
 }
+.set-movies {
+    color: var(--app-content-main-color);
+}
 input[type=date]::-webkit-datetime-edit {
     color: #a5a5a5;
 }
@@ -810,7 +813,7 @@ span.actors-list {
     word-break: break-word;
     width: 400px;
 }
-button.action-button.crud-button {
+.action-button.crud-button {
     color: var(--app-content-main-color);
     padding: 10px 30px;
 }
@@ -1033,10 +1036,10 @@ input.dropdown-select {
     color: var(--app-content-main-color);
 }
 i.green {
-    color: lightgreen;
+    color: forestgreen;
 }
-i.blue {
-    color: lightblue;
+i.orange {
+    color: orange;
 }
 .dropdown-select, .dropdown-select:focus {
     background-color: var(--app-bg);
@@ -1104,3 +1107,40 @@ ul.pagination {
 div.message-container {
     color: var(--app-content-main-color);
 }
+.account-info-name {
+    white-space: initial;
+    width: 100px;
+}
+div.date-container {
+    flex-basis: 25%;
+}
+.top-date-container {
+    width: 90%;
+}
+button.add, button.remove {
+    border: 0;
+    background: transparent;
+    color: var(--app-content-main-color);
+}
+div.times input, div.times input:focus {
+    border: 0;
+    background: green;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 5px;
+    width: 150px;
+}
+button.add:hover, button.remove:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+}
+div.times div.active-form {
+    gap: 10px;
+}
+.crud-header {
+    color: var(--app-content-main-color);
+}
+button.set-times, button.edit-cinema-movie {
+    justify-content: center;
+    width: 165px;
+} 

@@ -1,5 +1,6 @@
 ﻿using CinemaTic.Core.Utilities;
 using CinemaTic.Data.Models;
+using CinemaTic.Extensions;
 using CinemaTic.ViewModels.Actors;
 using CinemaTic.ViewModels.Movies;
 

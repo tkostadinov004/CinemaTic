@@ -1,5 +1,6 @@
 ﻿using CinemaTic.Core.Utilities;
 using CinemaTic.Data.Models;
+using CinemaTic.Extensions;
 using CinemaTic.ViewModels.Movies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,5 +26,9 @@ namespace CinemaTic.Core.Contracts
         Task<EditMovieViewModel> GetEditViewModelAsync(int? id);
         Task<DeleteMovieViewModel> GetDeleteViewModelAsync(int? id);
         Task<PaginatedList<MovieInfoCardViewModel>> SearchAndFilterMoviesAsync(string searchText, string filterValue, string sortBy, int? pageNumber);
+        Task<SetMovieScheduleViewModel> GetSetMovieSchedulePartialAsync(int? cinemaId, int? movieId);
+        Task<EditCinemaMovieDataViewModel> GetEditCinemaMovieDataViewModelAsync(int? cinemaId, int? movieId);
+        Task SetMovieScheduleAsync(SetMovieScheduleViewModel viewModel);
+        Task EditCinemaMovieDataAsync(EditCinemaMovieDataViewModel viewModel);
     }
 }

@@ -20,10 +20,10 @@ namespace CinemaTic.ViewModels.Movies
         [Display(Name = "Plot description")]
         [StringLength(MovieDescriptionMaxLength, MinimumLength = MovieDescriptionMinLength, ErrorMessage = "{0} should be between {2} and {1} characters")]
         public string Description { get; set; }
-        [Range(1, double.MaxValue, ErrorMessage = "The movie should be at least 1 minute long!")]
-        [Required(ErrorMessage = "The movie should be at least 1 minute long!")]
+        [Range(typeof(int), "1", "400", ErrorMessage = "The movie should be at least 1 minute long!")]
+        [Required(ErrorMessage = "Enter a running time")]
         [Display(Name = "Running time")]
-        public int RunningTime { get; set; }
+        public string RunningTime { get; set; }
         [Required(ErrorMessage = "Enter a trailer url!")]
         [Display(Name = "Trailer URL")]
         [RegularExpression(YoutubeTrailerRegex, ErrorMessage = "Enter a correct YouTube URL")]

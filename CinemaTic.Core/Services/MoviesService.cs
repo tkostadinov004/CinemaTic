@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Text.RegularExpressions;
+using CinemaTic.Extensions;
 
 namespace CinemaTic.Core.Services
 {
@@ -33,21 +34,28 @@ namespace CinemaTic.Core.Services
 
         public async Task CreateMovieAsync(CreateMovieViewModel viewModel, string userEmail)
         {
-            var actors = viewModel.ActorsDropdown.Where(i => i.IsChecked);
             Movie movie = new Movie
             {
                 Description = viewModel.Description,
-                RunningTime = viewModel.RunningTime,
+                RunningTime = int.Parse(viewModel.RunningTime),
                 Title = viewModel.Title,
                 ImageUrl = await this.UploadPhotoAsync(viewModel.Image),
                 TrailerUrl = viewModel.TrailerUrl,
                 UserRating = 0,
                 GenreId = viewModel.GenreId,
                 AddedBy = await _userManager.FindByEmailAsync(userEmail),
-                Director = viewModel.Director,
-                Actors = actors.Select(i => _context.ActorsMovies.Include(i => i.Actor).Include(i => i.Movie).FirstOrDefault(a => a.ActorId == i.Id)).ToList()
+                Director = viewModel.Director
             };
             _context.Movies.Add(movie);
+            await _context.SaveChangesAsync();
+            if (viewModel.ActorsDropdown != null)
+            {
+                movie.Actors = viewModel.ActorsDropdown.Where(i => i.IsChecked).Select(i => new ActorMovie
+                {
+                    ActorId = i.Id,
+                    MovieId = movie.Id
+                }).ToList();
+            }
             await _context.SaveChangesAsync();
             await _logger.LogActionAsync(UserActionType.Create, LogMessages.AddEntityMessage, "movie", movie.Title, $"({movie.Director} - {movie.RunningTime} minutes)");
         }
@@ -145,7 +153,7 @@ namespace CinemaTic.Core.Services
             var currentUser = await _userManager.FindByEmailAsync(userEmail);
             if (id != null)
             {
-                var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == id);
+                var movie = await _context.Movies.Include(i => i.Actors).ThenInclude(i => i.Actor).FirstOrDefaultAsync(i => i.Id == id);
                 var ratings = await _context.UsersMovies.Include(i => i.Customer).Where(i => i.MovieId == movie.Id).ToListAsync();
                 var viewModel = new MovieDetailsViewModel
                 {
@@ -184,7 +192,7 @@ namespace CinemaTic.Core.Services
         {
             return new CreateMovieViewModel
             {
-                ActorsDropdown = await _context.Actors.Select(i => new ActorDropdownViewModel
+                ActorsDropdown = await _context.Actors.OrderBy(i => i.FullName).Select(i => new ActorDropdownViewModel
                 {
                     Id = i.Id,
                     FullName = i.FullName,
@@ -341,6 +349,93 @@ namespace CinemaTic.Core.Services
                 };
             }
             return null;
+        }
+
+        public async Task<SetMovieScheduleViewModel> GetSetMovieSchedulePartialAsync(int? cinemaId, int? movieId)
+        {
+            var cinemaMovie = await _context.CinemasMovies.FirstOrDefaultAsync(i => i.CinemaId == cinemaId && i.MovieId == movieId);
+            if (cinemaMovie != null)
+            {
+                var dates = await GlobalMethods.GetDateRangeAsync(cinemaMovie.FromDate, cinemaMovie.ToDate);
+                var scheduleViewModels = dates.Select(i => new DateTimeScheduleViewModel
+                {
+                    Date = i.Date,
+                    Times = _context.CinemasMoviesTimes.Where(c => c.CinemaId == cinemaId && c.MovieId == movieId && c.ForDateTime.Date == i.Date).Select(c => c.ForDateTime).ToList(),
+                    CinemaId = cinemaMovie.CinemaId,
+                    MovieId = cinemaMovie.MovieId
+                }).ToList();
+                return new SetMovieScheduleViewModel
+                {
+                    CinemaId = cinemaMovie.CinemaId,
+                    MovieId = cinemaMovie.MovieId,
+                    Dates = scheduleViewModels
+                };
+            }
+            return null;
+        }
+
+        public async Task SetMovieScheduleAsync(SetMovieScheduleViewModel viewModel)
+        {
+            var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == viewModel.MovieId);
+            var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == viewModel.CinemaId);
+            if (movie != null && cinema != null && viewModel.Dates != null)
+            {
+                foreach (var date in viewModel.Dates)
+                {
+                    if (date.Times != null)
+                    {
+                        var schedule = await _context.CinemasMoviesTimes.Where(i => i.CinemaId == cinema.Id && i.MovieId == movie.Id && i.ForDateTime.Date == date.Date).ToListAsync();
+                        var timesForAdding = date.Times.DistinctBy(i => i.TimeOfDay).Where(i => !schedule.Any(s => s.ForDateTime.TimeOfDay == i.TimeOfDay)).Select(i => new CinemaMovieTime
+                        {
+                            CinemaId = viewModel.CinemaId,
+                            MovieId = viewModel.MovieId,
+                            ForDateTime = date.Date.Date + i.TimeOfDay
+                        });
+                        var timesForDeleting = schedule.Where(i => !date.Times.Any(t => t.TimeOfDay == i.ForDateTime.TimeOfDay));
+
+                        _context.AddRange(timesForAdding);
+                        _context.RemoveRange(timesForDeleting);
+                    }
+                }
+                await _context.SaveChangesAsync();
+                await _logger.LogActionAsync(UserActionType.Update, LogMessages.SetMovieSchedule, movie.Title, cinema.Name);
+            }
+        }
+
+        public async Task<EditCinemaMovieDataViewModel> GetEditCinemaMovieDataViewModelAsync(int? cinemaId, int? movieId)
+        {
+            var cinemaMovie = await _context.CinemasMovies.FirstOrDefaultAsync(i => i.CinemaId == cinemaId && i.MovieId == movieId);
+            if (cinemaMovie != null)
+            {
+                return new EditCinemaMovieDataViewModel
+                {
+                    CinemaId = cinemaMovie.CinemaId,
+                    MovieId = cinemaMovie.MovieId,
+                    FromDate = cinemaMovie.FromDate,
+                    ToDate = cinemaMovie.ToDate,
+                    TicketPrice = cinemaMovie.TicketPrice
+                };
+            }
+            return null;
+        }
+
+        public async Task EditCinemaMovieDataAsync(EditCinemaMovieDataViewModel viewModel)
+        {
+            var cinemaMovie = await _context.CinemasMovies.FirstOrDefaultAsync(i => i.CinemaId == viewModel.CinemaId && i.MovieId == viewModel.MovieId);
+            if (cinemaMovie != null)
+            {
+                var excludedDatesSchedules = Enumerable.Except(await GlobalMethods.GetDateRangeAsync(cinemaMovie.FromDate, cinemaMovie.ToDate), await GlobalMethods.GetDateRangeAsync(viewModel.FromDate, viewModel.ToDate))
+                    .SelectMany(date =>
+                    {
+                        return _context.CinemasMoviesTimes.Where(ct => ct.CinemaId == cinemaMovie.CinemaId && ct.MovieId == cinemaMovie.MovieId && ct.ForDateTime.Date == date).ToList();
+                    });
+                _context.CinemasMoviesTimes.RemoveRange(excludedDatesSchedules);
+
+                cinemaMovie.FromDate = viewModel.FromDate;
+                cinemaMovie.ToDate = viewModel.ToDate;
+                cinemaMovie.TicketPrice = viewModel.TicketPrice;
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

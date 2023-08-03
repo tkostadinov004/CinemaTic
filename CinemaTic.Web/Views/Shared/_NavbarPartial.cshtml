@@ -9,10 +9,6 @@
 
             @if (!User.Identity.IsAuthenticated)
             {
-                <div class="d-lg-none ms-auto me-4">
-                    <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
-                </div>
-
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -24,11 +20,11 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_2">Features</a>
+                            <a class="nav-link click-scroll" href="#features">Features</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_3">How it works</a>
+                            <a class="nav-link click-scroll" href="#how">How it works</a>
                         </li>
 
                     </ul>
@@ -97,6 +93,13 @@
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/js/click-scroll.js"></script>
 <script>
+    //var toggler = document.querySelector('.navbar-toggler');
+    //if(toggler) {
+    //    toggler.addEventListener("click", function() {
+    //        toggler.removeAttribute('aria-expanded');
+    //        document.querySelector('.navbar-collapse').classList.remove('show');
+    //    });
+    //}
     $(function () {
         var url = window.location.href;
         $(".nav-link").each(function () {

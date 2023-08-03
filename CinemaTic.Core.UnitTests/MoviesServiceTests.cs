@@ -74,7 +74,7 @@ namespace CinemaTic.Core.UnitTests
                 Director = "Test Director",
                 GenreId = new Genre { Id = 1, Name = "Test" }.Id,
                 TrailerUrl = "asdadadasd",
-                RunningTime = 150,
+                RunningTime = "150",
                 Image = picture,
                 ActorsDropdown = new List<ActorDropdownViewModel> { }
             };

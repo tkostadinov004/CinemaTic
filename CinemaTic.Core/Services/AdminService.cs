@@ -8,6 +8,7 @@ using CinemaTic.Data.Enums;
 using CinemaTic.Core.Utilities;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using CinemaTic.Extensions;
 
 namespace CinemaTic.Core.Services
 {
@@ -138,7 +139,7 @@ namespace CinemaTic.Core.Services
             }), pageNumber ?? 1, 10);
         }
 
-        public async Task<UserDetailsViewModel> GetUserDetailsViewModelByIdAsync(string id)
+        public async Task<UserDetailsViewModel> GetUserDetailsViewModelByIdAsync(string id, int? actionPageNumber)
         {
             var user = await _context.Users.Include(i => i.UserActions).FirstOrDefaultAsync(i => i.Id == id);
 
@@ -148,7 +149,7 @@ namespace CinemaTic.Core.Services
                 UserName = user.UserName,
                 FullName = $"{user.FirstName} {user.LastName}",
                 ImageUrl = user.ProfilePictureUrl,
-                Actions = user.UserActions.Select(i => new UserActionViewModel
+                Actions = await PaginatedList<UserActionViewModel>.CreateAsync(user.UserActions.Select(i => new UserActionViewModel
                 {
                     Id = i.Id,
                     Action = $"({i.Date.ToString("MM/dd/yyyy")}) {i.Message}",
@@ -162,7 +163,7 @@ namespace CinemaTic.Core.Services
                         _ => ""
                     },
                     Date = i.Date.ToString("MM/dd/yyyy")
-                }),
+                }), actionPageNumber ?? 1, 5),
                 Roles = string.Join(", ", await _userManager.GetRolesAsync(user))
             };
         }
@@ -195,17 +196,25 @@ namespace CinemaTic.Core.Services
             };
         }
 
-        public async Task ChangeApprovalByIdStatusAsync(int? id, ApprovalStatus approvalCode)
+        public async Task ChangeApprovalStatusByIdStatusAsync(int? id, ApprovalStatus approvalCode)
         {
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == id);
-            cinema.ApprovalStatus = approvalCode;
-
-            await _context.SaveChangesAsync();
+            if(cinema != null)
+            {
+                cinema.ApprovalStatus = approvalCode;
+                if(approvalCode == ApprovalStatus.DeniedApproval)
+                {
+                    _context.CinemasMovies.RemoveRange(_context.CinemasMovies.Where(i => i.CinemaId == cinema.Id));
+                    _context.CinemasMoviesTimes.RemoveRange(_context.CinemasMoviesTimes.Where(i => i.CinemaId == cinema.Id));
+                    _context.CustomersCinemas.RemoveRange(_context.CustomersCinemas.Where(i => i.CinemaId == cinema.Id));
+                }
+                await _context.SaveChangesAsync();
+            }
         }
 
         public async Task<IEnumerable<UserDetailsViewModel>> SearchAndFilterUsersAsync(string searchText, string filterValue, string sortBy, int? pageNumber)
         {
-            var users = _context.Users.Where(i => i.UserName != "admin@admin.com").OrderBy(i => $"{i.FirstName} {i.LastName}").AsEnumerable();
+            var users = _context.Users.Where(i => i.UserName != "admin@admin.com").ToList().OrderBy(i => $"{i.FirstName} {i.LastName}").AsEnumerable();
             if (string.IsNullOrEmpty(searchText) == false)
             {
                 users = users.Where(i => $"{i.FirstName} {i.LastName}".ToLower().StartsWith(searchText.ToLower())).ToList();
@@ -255,12 +264,6 @@ namespace CinemaTic.Core.Services
                 UserName = i.UserName,
                 FullName = $"{i.FirstName} {i.LastName}",
                 ImageUrl = i.ProfilePictureUrl,
-                Actions = i.UserActions.Select(i => new UserActionViewModel
-                {
-                    Id = i.Id,
-                    Action = i.Message,
-                    Type = i.Type.ToString()
-                }),
                 Roles = string.Join(", ", _userManager.GetRolesAsync(i).Result)
             }), pageNumber ?? 1, 8);
         }

@@ -44,8 +44,9 @@ namespace CinemaTic.Web.Controllers
             if (ModelState.IsValid)
             {
                 await _ownersService.CreateCinemaAsync(viewModel, User.Identity.Name);
+                return RedirectToAction("UserCinemas", "Owners");
             }
-            return RedirectToAction("UserCinemas", "Owners");
+            return View("AddCinema", viewModel);
         }
         [Authorize(Roles = "Owner")]
         [HttpGet]
@@ -123,7 +124,7 @@ namespace CinemaTic.Web.Controllers
             {
                 return NotFound();
             }
-            var movies = await _ownersService.SearchMoviesByCinemaAsync(searchText, sortBy, id);
+            var movies = await _ownersService.SearchAndSortMoviesByCinemaAsync(searchText, sortBy, id);
             return PartialView("_CinemaMoviesPartial", movies);
         }
         [Authorize(Roles = "Owner")]
@@ -136,13 +137,18 @@ namespace CinemaTic.Web.Controllers
             return View("_CustomPagePreview", await _ownersService.GetPreviewViewModelAsync(User.Identity.Name, cinemaId));
         }
         [Authorize(Roles = "Owner")]
-        public async Task<IActionResult> GetCinemasContainingMovie([ModelBinder(typeof(IdModelBinder))] int movieId)
+        public async Task<IActionResult> GetCinemasContainingMovie([ModelBinder(typeof(IdModelBinder))] int movieId, string sortBy)
         {
             if (!await _moviesService.ExistsByIdAsync(movieId))
             {
                 return NotFound();
             }
-            return PartialView("_CinemasMoviePartial", await _ownersService.GetCinemasContainingMovieAsync(movieId, User.Identity.Name));
+            var viewModel = await _ownersService.GetCinemasContainingMovieAsync(movieId, sortBy, User.Identity.Name);
+            if(viewModel == null)
+            {
+                return NotFound();
+            }
+            return PartialView("_CinemasMoviePartial", viewModel);
         }
     }
 }

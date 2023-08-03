@@ -18,6 +18,7 @@ namespace CinemaTic.Core.Utilities
         public const string RateMovieMessage = "Rated movie \"{0}\" with a rating of {1}";
         public const string ChangeRatingMovieMessage = "Changed rating for movie \"{0}\" from {1} to {2}";
         public const string AddMovieToCinemaMessage = "Added movie \"{0}\" to cinema \"{1}\"";
+        public const string SetMovieSchedule = "Set scheduling for movie \"{0}\" at cinema \"{1}\"";
         public const string UserLoginMessage = "User logged in";
         public const string UserRegisterMessage = "User was registered";
         public const string UserLogoutMessage = "User logged out";

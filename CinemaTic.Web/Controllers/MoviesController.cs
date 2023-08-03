@@ -9,6 +9,8 @@ using CinemaTic.ViewModels.Cinemas;
 using CinemaTic.Core.Services;
 using CinemaTic.Extensions.ModelBinders;
 using CinemaTic.Core.Utilities;
+using System.Linq;
+using CinemaTic.Data.Models;
 
 namespace CinemaTic.Web.Controllers
 {
@@ -16,10 +18,12 @@ namespace CinemaTic.Web.Controllers
     public class MoviesController : Controller
     {
         private readonly IMoviesService _moviesService;
+        private readonly IOwnersService _ownersService;
 
-        public MoviesController(IMoviesService moviesService)
+        public MoviesController(IMoviesService moviesService, IOwnersService ownersService)
         {
             _moviesService = moviesService;
+            _ownersService = ownersService;
         }
 
         [HttpGet]
@@ -70,11 +74,16 @@ namespace CinemaTic.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CreateMovieViewModel movieVM)
         {
+            if (!movieVM.ActorsDropdown.Where(i => i.IsChecked).Any())
+            {
+                ModelState.AddModelError("ActorsDropdown", "Select at least 1 actor");
+            }
             if (ModelState.IsValid)
             {
                 await _moviesService.CreateMovieAsync(movieVM, User.Identity.Name);
+                return RedirectToAction("AllMovies", "Movies");
             }
-            return RedirectToAction("AllMovies", "Owners");
+            return View("Create", movieVM);
         }
 
         // GET: Movies/Edit/5
@@ -123,8 +132,7 @@ namespace CinemaTic.Web.Controllers
             return View();
         }
 
-        // GET: Movies/Delete/5
-        [Authorize(Roles = "Owner")]
+        [HttpGet]
         public async Task<IActionResult> Delete([ModelBinder(typeof(IdModelBinder))] int id)
         {
             if (!await _moviesService.ExistsByIdAsync(id))
@@ -136,9 +144,7 @@ namespace CinemaTic.Web.Controllers
             return PartialView("_DeleteMoviePartial", viewModel);
         }
 
-        // POST: Movies/Delete/5
         [HttpPost]
-        [Authorize(Roles = "Owner")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int? id)
         {
@@ -149,7 +155,7 @@ namespace CinemaTic.Web.Controllers
             await _moviesService.DeleteByIdAsync(id);
             return RedirectToAction(nameof(AllMovies));
         }
-        [Authorize(Roles = "Owner")]
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddMovieToCinemas(MovieDetailsViewModel viewModel)
@@ -159,6 +165,58 @@ namespace CinemaTic.Web.Controllers
                 return NotFound();
             }
             await _moviesService.AddMovieToCinemasAsync(viewModel);
+            return RedirectToAction("Details", "Movies", new { id = viewModel.MovieId });
+        }
+        [HttpGet]
+        public async Task<IActionResult> SetMovieSchedule(int? cinemaId, int? movieId)
+        {
+            if (!await _ownersService.ExistsByIdAsync(cinemaId) || !await _moviesService.ExistsByIdAsync(movieId))
+            {
+                return NotFound();
+            }
+
+            var viewModel = await _moviesService.GetSetMovieSchedulePartialAsync(cinemaId, movieId);
+            if (viewModel == null)
+            {
+                return NotFound();
+            }
+            return PartialView("_SetMovieSchedulePartial", viewModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> SetMovieSchedule(SetMovieScheduleViewModel viewModel)
+        {
+            if (!await _ownersService.ExistsByIdAsync(viewModel.CinemaId) || !await _moviesService.ExistsByIdAsync(viewModel.MovieId))
+            {
+                return NotFound();
+            }
+
+            await _moviesService.SetMovieScheduleAsync(viewModel);
+            return RedirectToAction("Details", "Movies", new { id = viewModel.MovieId });
+        }
+        [HttpGet]
+        public async Task<IActionResult> EditCinemaMovieData(int? cinemaId, int? movieId)
+        {
+            if (!await _ownersService.ExistsByIdAsync(cinemaId) || !await _moviesService.ExistsByIdAsync(movieId))
+            {
+                return NotFound();
+            }
+
+            var viewModel = await _moviesService.GetEditCinemaMovieDataViewModelAsync(cinemaId, movieId);
+            if (viewModel == null)
+            {
+                return NotFound();
+            }
+            return PartialView("_EditCinemaMovieDataPartial", viewModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditCinemaMovieData(EditCinemaMovieDataViewModel viewModel)
+        {
+            if (!await _ownersService.ExistsByIdAsync(viewModel.CinemaId) || !await _moviesService.ExistsByIdAsync(viewModel.MovieId))
+            {
+                return NotFound();
+            }
+
+            await _moviesService.EditCinemaMovieDataAsync(viewModel);
             return RedirectToAction("Details", "Movies", new { id = viewModel.MovieId });
         }
     }

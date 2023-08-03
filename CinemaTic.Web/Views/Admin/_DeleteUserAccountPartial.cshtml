@@ -9,12 +9,11 @@
                 <div class="active-form flex-column align-items-start">
                     <div class="user-container">
                         <i class="fa-solid fa-film input-icon"></i>
-                        <span class="px-2">@Model.FullName</span>
+                        <span class="px-2">@Model.FullName (@Model.UserName)</span>
                     </div>
-                    <span class="px-2">(@Model.UserName)</span>
                 </div>
             </div>
-            <button type="submit" class="app-content-headerButton bg-danger" asp-controller="Admin" asp-action="DeleteUserAccount">Delete</button>
+            <button type="submit" class="app-content-headerButton bg-danger mt-2" asp-controller="Admin" asp-action="DeleteUserAccount">Delete</button>
         </form>
     </div>
 </div>

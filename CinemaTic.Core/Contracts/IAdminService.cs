@@ -16,10 +16,10 @@ namespace CinemaTic.Core.Contracts
         Task<IEnumerable<Cinema>> GetAllCinemasAsync();
         Task<IEnumerable<AdminAllCinemasViewModel>> SearchAndFilterCinemasAsync(string searchText, string filterValue, string sortBy, int? pageNumber);
         Task<IEnumerable<UserDetailsViewModel>> SearchAndFilterUsersAsync(string searchText, string filterValue, string sortBy, int? pageNumber);
-        Task<UserDetailsViewModel> GetUserDetailsViewModelByIdAsync(string id);
+        Task<UserDetailsViewModel> GetUserDetailsViewModelByIdAsync(string id, int? actionPageNumber);
         Task<AdminCinemaDetailsViewModel> GetCinemaDetailsViewModelByIdAsync(int? id);
         Task<ChangeCinemaApprovalStatusViewModel> GetChangeApprovalStatusViewModelByIdAsync(int? id);
-        Task ChangeApprovalByIdStatusAsync(int? id, ApprovalStatus approvalCode);
+        Task ChangeApprovalStatusByIdStatusAsync(int? id, ApprovalStatus approvalCode);
         Task<AdminUserCRUDViewModel> GetAdminUserCRUDPartialAsync(string id);
     }
 }

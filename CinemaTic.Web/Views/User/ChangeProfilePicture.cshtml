@@ -1,4 +1,7 @@
 ﻿@model CinemaTic.ViewModels.Users.ChangeProfilePictureViewModel
+@{
+    ViewData["Title"] = "Change profile picture";
+}
 
 @if (User.IsInRole("Customer"))
 {
@@ -8,7 +11,7 @@
     <partial name="_NavbarPartial" />
     <section class="main-section hero-section">
         <div class="container login-container w-75">
-            <h2 class="login-title">Register</h2>
+            <h2 class="login-title">Change your profile picture</h2>
             <form class="login-form" asp-controller="User" asp-action="ChangeProfilePicture" method="post" enctype="multipart/form-data">
                 <input type="hidden" asp-for="Id" />
                 <div role="list" asp-validation-summary="None" class="text-danger"></div>
@@ -37,7 +40,7 @@ else
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <div class="app-content">
         <div class="app-content-header">
-            <h1 class="app-content-headerText">Change profile picture</h1>
+            <h1 class="app-content-headerText">Change your profile picture</h1>
             <button class="mode-switch" title="Switch Theme">
                 <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
                     <defs></defs>

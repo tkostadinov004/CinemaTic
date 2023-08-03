@@ -1,6 +1,7 @@
 ﻿using CinemaTic.Core.Contracts;
 using CinemaTic.Core.DTOs.Charts;
 using CinemaTic.Data;
+using CinemaTic.Data.Enums;
 using CinemaTic.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -59,7 +60,7 @@ namespace CinemaTic.Core.Services
         public async Task<CustomersPerCinemaDTO> GetCustomersPerCinemaAsync(string userEmail)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
-            var cinemasCustomers = (await _context.Cinemas.Include(i => i.Customers).Where(i => i.OwnerId == user.Id).Select(i => new
+            var cinemasCustomers = (await _context.Cinemas.Include(i => i.Customers).Where(i => i.OwnerId == user.Id && i.ApprovalStatus == ApprovalStatus.Approved).Select(i => new
             {
                 Name = i.Name,
                 CustomersCount = i.Customers.Count
@@ -75,7 +76,13 @@ namespace CinemaTic.Core.Services
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
 
-            var movies = _context.Cinemas.Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.TicketsBought).Where(i => i.OwnerId == user.Id).Select(i => i.Movies.OrderByDescending(m => m.Movie.TicketsBought.Sum(t => t.Price)).FirstOrDefault().Movie.Title).GroupBy(i => i);
+            var movies = _context.Cinemas
+                .Include(i => i.Movies)
+                .ThenInclude(i => i.Movie)
+                .ThenInclude(i => i.TicketsBought)
+                .Where(i => i.OwnerId == user.Id && i.ApprovalStatus == ApprovalStatus.Approved)
+                .Select(i => i.Movies.OrderByDescending(m => m.Movie.TicketsBought.Sum(t => t.Price)).FirstOrDefault().Movie.Title)
+                .GroupBy(i => i);
             return new BestSellingMoviesPerCinemaDTO
             {
                 Labels = movies.Select(i => i.Key ?? "None").ToArray(),

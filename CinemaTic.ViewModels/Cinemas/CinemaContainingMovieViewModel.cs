@@ -9,6 +9,7 @@ namespace CinemaTic.ViewModels.Cinemas
     public class CinemaContainingMovieViewModel
     {
         public int Id { get; set; }
+        public int MovieId { get; set; }
         public string Name { get; set;}
         public string FromDate { get; set; }
         public string ToDate { get; set; }

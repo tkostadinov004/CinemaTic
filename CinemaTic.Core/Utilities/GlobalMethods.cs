@@ -1,4 +1,5 @@
 ﻿using CinemaTic.Data;
+using CinemaTic.Data.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +30,11 @@ namespace CinemaTic.Core.Utilities
             }
 
             return countries.OrderBy(i => i).Select(i => new SelectListItem(i, i));
+        }
+        public static async Task<IEnumerable<DateTime>> GetDateRangeAsync(DateTime startDate, DateTime endDate)
+        {
+            return Enumerable.Range(0, 1 + endDate.Subtract(startDate).Days)
+                             .Select(offset => startDate.AddDays(offset));
         }
     }
 }

@@ -94,8 +94,11 @@
                             <i class="fa-solid fa-arrow-up"></i>
                         </button>
                     </div>
+                    <div class="cinema-cell image">
+                        
+                    </div>
                 </div>
-                <div class="results-container cinemas-grid" id="results-container">
+                <div class="results-container cinemas-grid" id="cinemas-movies-container">
                 </div>
             </div>
             @if (Model.UserCinemas.Count > 0)
@@ -148,6 +151,8 @@
     </div>
 </div>
 <partial name="_PopupModalPartial" />
+<script src="~/js/ownerdashboard.js"></script>
+<script src="~/js/rating-modal.js"></script>
 <script>
     var modalContainer = document.getElementById('review-form-container');
     var editButton = document.getElementById("edit");
@@ -175,7 +180,7 @@
         url: `/Owners/GetCinemasContainingMovie`,
         data: { movieId: '@Model.MovieId' },
         success: function (response) {
-            $("#results-container").html(response);
+            $("#cinemas-movies-container").html(response);
         },
         failure: function (response) {
             window.location = '/Error/statuscode=403';
@@ -184,6 +189,27 @@
             window.location = '/Error/statuscode=403';
         }
     });
+    var activeSort = document.querySelector('.sort-button.selected');
+    document.querySelectorAll(".sort-button").forEach(i => i.addEventListener('click', function () {
+        var alreadyActive = document.querySelector('.sort-button.selected');
+        if (alreadyActive) {
+            alreadyActive.classList.remove("selected");
+        }
+        activeSort = i;
+        i.classList.add("selected");
+        $.ajax({
+            type: "GET",
+            url: `/Owners/GetCinemasContainingMovie`,
+            data: { movieId: '@Model.MovieId', sortBy: i.id },
+            success: function (response) {
+                $("#cinemas-movies-container").html(response);
+            },
+            failure: function (response) {
+                window.location = '/Error/statuscode=403';
+            },
+            error: function (response) {
+                window.location = '/Error/statuscode=403';
+            }
+        });
+    }));
 </script>
-<script src="~/js/ownerdashboard.js"></script>
-<script src="~/js/rating-modal.js"></script>

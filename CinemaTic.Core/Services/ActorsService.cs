@@ -7,6 +7,7 @@ using CinemaTic.ViewModels.Actors;
 using CinemaTic.ViewModels.Movies;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using CinemaTic.Extensions;
 
 namespace CinemaTic.Core.Services
 {

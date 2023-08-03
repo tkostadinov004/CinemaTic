@@ -723,11 +723,11 @@ blockquote {
 
     .timeline-container .vertical-scrollable-timeline .list-progress {
         width: 8px;
-        height: 70%;
+        height: 67%;
         background-color: var(--primary-color);
         position: absolute;
         left: 52px;
-        top: 0;
+        top: 18%;
         overflow: hidden;
     }
 
@@ -760,7 +760,7 @@ blockquote {
         .timeline-container .vertical-scrollable-timeline li .icon-holder {
             position: absolute;
             left: 0;
-            top: 0;
+/*            top: 0;*/
             width: 104px;
             height: 104px;
             display: flex;
@@ -793,6 +793,7 @@ blockquote {
             content: "";
             position: absolute;
             height: 100%;
+            top: 30%;
             width: 8px;
             background-color: transparent;
             left: 52px;

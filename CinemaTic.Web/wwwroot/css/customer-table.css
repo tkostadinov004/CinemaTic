@@ -83,3 +83,12 @@ tr.alert td button.remove-button {
     border-radius: 5px;
     background: indianred;
 }
+
+span.description {
+    display: -webkit-box;
+    max-width: 500px;
+    word-break: break-word;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
