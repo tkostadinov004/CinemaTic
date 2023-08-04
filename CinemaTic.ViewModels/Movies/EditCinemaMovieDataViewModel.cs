@@ -12,14 +12,14 @@ namespace CinemaTic.ViewModels.Movies
     {
         public int CinemaId { get; set; }
         public int MovieId { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Enter a starting date")]
         [PastDateValidation]
         public DateTime FromDate { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Enter an ending date")]
         [PastDateValidation]
         public DateTime ToDate { get; set; }
-        [Required]
-        [Range(1, double.MaxValue)]
+        [Required(ErrorMessage = "Enter a ticket price")]
+        [Range(1, double.MaxValue, ErrorMessage = "The price should be at least $1")]
         public decimal TicketPrice { get; set; }
     }
 }

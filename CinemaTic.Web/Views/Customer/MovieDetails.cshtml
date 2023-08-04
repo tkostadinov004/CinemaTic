@@ -127,7 +127,7 @@
 
                         }
                     </div>
-                    <input asp-controller="Customer" asp-action="SetRating" asp-route-movieId="@Model.MovieId" method="post" id="submit-review-btn" class="w-100 rate-button" value="@(Model.CurrentUserRating == null ? "Rate" : "Change rating")" type="submit" />
+                    <input asp-controller="Customer" asp-action="SetRating" asp-route-movieId="@Model.Id" method="post" id="submit-review-btn" class="w-100 rate-button" value="@(Model.CurrentUserRating == null ? "Rate" : "Change rating")" type="submit" />
                 </div>
             </form>
         </div>

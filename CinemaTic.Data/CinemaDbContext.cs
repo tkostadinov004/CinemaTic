@@ -12,7 +12,7 @@ namespace CinemaTic.Data
             : base(options)
         {
         }
-        public DbSet<Data.Models.Cinema> Cinemas { get; set; }
+        public DbSet<Cinema> Cinemas { get; set; }
         public DbSet<Actor> Actors { get; set; }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Ticket> Tickets { get; set; }

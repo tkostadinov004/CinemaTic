@@ -160,12 +160,12 @@ namespace CinemaTic.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddMovieToCinemas(MovieDetailsViewModel viewModel)
         {
-            if (!await _moviesService.ExistsByIdAsync(viewModel.MovieId))
+            if (!await _moviesService.ExistsByIdAsync(viewModel.Id))
             {
                 return NotFound();
             }
             await _moviesService.AddMovieToCinemasAsync(viewModel);
-            return RedirectToAction("Details", "Movies", new { id = viewModel.MovieId });
+            return RedirectToAction("Details", "Movies", new { id = viewModel.Id });
         }
         [HttpGet]
         public async Task<IActionResult> SetMovieSchedule(int? cinemaId, int? movieId)
@@ -216,7 +216,10 @@ namespace CinemaTic.Web.Controllers
                 return NotFound();
             }
 
-            await _moviesService.EditCinemaMovieDataAsync(viewModel);
+            if(ModelState.IsValid)
+            {
+                await _moviesService.EditCinemaMovieDataAsync(viewModel);
+            }           
             return RedirectToAction("Details", "Movies", new { id = viewModel.MovieId });
         }
     }

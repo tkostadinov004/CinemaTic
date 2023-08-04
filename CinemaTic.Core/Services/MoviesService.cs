@@ -159,12 +159,12 @@ namespace CinemaTic.Core.Services
                 {
                     Director = movie.Director,
                     Description = movie.Description,
-                    Genre = movie.Genre,
+                    Genre = movie.Genre != null ? movie.Genre.Name : "No genre",
                     ImageUrl = movie.ImageUrl,
                     RunningTime = movie.RunningTime,
                     Title = movie.Title,
                     TrailerId = Regex.Match(movie.TrailerUrl, Constants.TrailerUrlRegex).Groups[3].Value,
-                    MovieId = movie.Id,
+                    Id = movie.Id,
                     Actors = movie.Actors.Select(i => i.Actor.FullName).ToList(),
                     AverageRating = ratings.Count == 0 ? 0 : ratings.Select(i => i.Rating).Average(),
                     RatingCount = ratings.Count,
@@ -174,9 +174,6 @@ namespace CinemaTic.Core.Services
                         Id = i.Id,
                         Name = i.Name
                     }).ToList(),
-                    ActorsDropdown = await this.GetActorsDropdownAsync(),
-                    Genres = await this.GetGenresDropdownAsync(),
-                    GenreId = movie.GenreId
                 };
                 return viewModel;
             }
@@ -185,7 +182,7 @@ namespace CinemaTic.Core.Services
 
         public async Task<SelectList> GetGenresDropdownAsync()
         {
-            return new SelectList(await _context.Genres.AsNoTracking().ToListAsync(), nameof(Genre.Id), nameof(Genre.Name));
+            return new SelectList(await _context.Genres.OrderBy(i => i.Name).AsNoTracking().ToListAsync(), nameof(Genre.Id), nameof(Genre.Name));
         }
 
         public async Task<CreateMovieViewModel> GetCreateViewModelAsync()
@@ -207,7 +204,7 @@ namespace CinemaTic.Core.Services
         }
         public async Task AddMovieToCinemasAsync(MovieDetailsViewModel viewModel)
         {
-            var movie = await _context.Movies.Include(i => i.Cinemas).FirstOrDefaultAsync(i => i.Id == viewModel.MovieId);
+            var movie = await _context.Movies.Include(i => i.Cinemas).FirstOrDefaultAsync(i => i.Id == viewModel.Id);
             foreach (var cinemaViewModel in viewModel.UserCinemas)
             {
                 var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == cinemaViewModel.Id);

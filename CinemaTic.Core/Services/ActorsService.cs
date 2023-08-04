@@ -217,7 +217,7 @@ namespace CinemaTic.Core.Services
             }), pageNumber ?? 1, 5);
         }
 
-        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByActorAsync(string searchText, int? actorId)
+        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByActorAsync(string searchText, string sortBy, int? actorId)
         {
             var actor = await _context.Actors.Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.Genre)
                 .FirstOrDefaultAsync(i => i.Id == actorId);
@@ -234,6 +234,47 @@ namespace CinemaTic.Core.Services
             if (string.IsNullOrEmpty(searchText) == false)
             {
                 movies = movies.Where(i => i.Name.ToLower().StartsWith(searchText.ToLower()));
+            }
+            if (string.IsNullOrEmpty(sortBy) == false)
+            {
+                var sortParameter = sortBy.Split('-')[0];
+                var sortDirection = sortBy.Split('-')[^1];
+
+                switch (sortParameter)
+                {
+                    case "name":
+                        movies = movies.OrderBy(i => i.Name);
+                        if (sortDirection == "desc")
+                        {
+                            movies = movies.OrderByDescending(i => i.Name);
+                        }
+                        break;
+                    case "genre":
+                        movies = movies.OrderBy(i => i.Genre);
+                        if (sortDirection == "desc")
+                        {
+                            movies = movies.OrderByDescending(i => i.Genre);
+                        }
+                        break;
+                    case "rating":
+                        movies = movies.OrderBy(i => i.AverageRating);
+                        if (sortDirection == "desc")
+                        {
+                            movies = movies.OrderByDescending(i => i.AverageRating);
+                        }
+                        break;
+                    case "ratingcount":
+                        movies = movies.OrderBy(i => i.RatingCount);
+                        if (sortDirection == "desc")
+                        {
+                            movies = movies.OrderByDescending(i => i.RatingCount);
+                        }
+                        break;
+                }
+            }
+            else
+            {
+                movies = movies.OrderBy(i => i.Name);
             }
             return movies;
         }

@@ -95,7 +95,7 @@ namespace CinemaTic.Web.Controllers
             {
                 await _genresService.EditByIdAsync(viewModel);
             }
-            return Json(Url.Action("AllGenres", "Genres"));
+            return RedirectToAction("Details", "Genres", new { id = viewModel.Id });
         }
         [HttpGet]
         public async Task<IActionResult> DeleteGenre(int? id)
@@ -123,6 +123,7 @@ namespace CinemaTic.Web.Controllers
                 return NotFound();
             }
             await _genresService.DeleteByIdAsync(genreId);
+
             return RedirectToAction("AllGenres", "Genres");
         }
     }

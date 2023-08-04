@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -80,8 +81,12 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
-using var scope = app.Services.CreateScope();
-var initializer = new DbInitializer(scope.ServiceProvider.GetService<CinemaDbContext>(), scope.ServiceProvider.GetService<UserManager<ApplicationUser>>());
-initializer.Run(scope.ServiceProvider, true);
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider
+        .GetRequiredService<CinemaDbContext>();
+
+    context.Database.Migrate();
+}
 
 app.Run();

@@ -67,13 +67,13 @@ namespace CinemaTic.Web.Controllers
             var actors = await _actorsService.SearchAndFilterActorsAsync(searchText, filterValue, sortBy, pageNumber ?? 1);
             return PartialView("_ActorsPartial", actors);
         }
-        public async Task<IActionResult> SearchMoviesByActor(string searchText, [ModelBinder(typeof(IdModelBinder))] int id)
+        public async Task<IActionResult> SearchMoviesByActor(string searchText,string sortBy, [ModelBinder(typeof(IdModelBinder))] int id)
         {
             if (!await _actorsService.ExistsByIdAsync(id))
             {
                 return NotFound();
             }
-            var movies = await _actorsService.SearchMoviesByActorAsync(searchText, id);
+            var movies = await _actorsService.SearchMoviesByActorAsync(searchText,sortBy,  id);
             return PartialView("_ActorMoviesPartial", movies);
         }
         [HttpGet]

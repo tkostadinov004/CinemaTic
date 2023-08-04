@@ -42,9 +42,13 @@
                         <span>Cast: </span>
                         <span class="actors-list">@string.Join(", ", Model.Actors)</span>
                     </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Genre: </span>
+                        <span>@Model.Genre</span>
+                    </div>
                     <div class="d-flex justify-content-between">
                         <span>Director: </span>
-                        <span class="actors-list">@Model.Director</span>
+                        <span>@Model.Director</span>
                     </div>
                 </div>
                 <div class="d-flex mt-4">
@@ -104,7 +108,7 @@
             @if (Model.UserCinemas.Count > 0)
             {
                 <form asp-controller="Movies" asp-action="AddMovieToCinemas" method="post">
-                    <input type="hidden" asp-for="@Model.MovieId" />
+                    <input type="hidden" asp-for="@Model.Id" />
                     <div class="col-md-8 col-sm-6 col-xs-12 mt-5 mb-3 owner-movie-details">
                         <h6>Add this movie to your cinemas</h6>
                         <div class="d-flex flex-column align-items-start mt-4">
@@ -158,13 +162,13 @@
     var editButton = document.getElementById("edit");
     editButton.addEventListener("click", function () {
         modalContainer.innerHTML = "";
-        getUDpartial('Movies', 'Edit', '@Model.MovieId');
+        getUDpartial('Movies', 'Edit', '@Model.Id');
     });
 
     var deleteButton = document.getElementById("delete");
     deleteButton.addEventListener("click", function () {
         modalContainer.innerHTML = "";
-        getUDpartial('Movies', 'Delete', '@Model.MovieId');
+        getUDpartial('Movies', 'Delete', '@Model.Id');
     });
 
     document.querySelectorAll('input[name="cinemas"]').forEach(i => i.addEventListener("change", function () {
@@ -178,7 +182,7 @@
     $.ajax({
         type: "GET",
         url: `/Owners/GetCinemasContainingMovie`,
-        data: { movieId: '@Model.MovieId' },
+        data: { movieId: '@Model.Id' },
         success: function (response) {
             $("#cinemas-movies-container").html(response);
         },
@@ -200,7 +204,7 @@
         $.ajax({
             type: "GET",
             url: `/Owners/GetCinemasContainingMovie`,
-            data: { movieId: '@Model.MovieId', sortBy: i.id },
+            data: { movieId: '@Model.Id', sortBy: i.id },
             success: function (response) {
                 $("#cinemas-movies-container").html(response);
             },
