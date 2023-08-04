@@ -16,7 +16,7 @@ namespace CinemaTic.Extensions.ModelBinders
 
             string dateString = valueResult.FirstValue;
             DateTime date;
-            bool success = DateTime.TryParseExact(dateString, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date);
+            bool success = DateTime.TryParse(dateString, out date);
             if (success)
             {
                 bindingContext.Result = ModelBindingResult.Success(date);

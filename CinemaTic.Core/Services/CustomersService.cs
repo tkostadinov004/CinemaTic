@@ -32,18 +32,29 @@ namespace CinemaTic.Core.Services
         {
             var user = await _context.Users.Include(i => i.CinemasVisited).ThenInclude(i => i.Cinema).FirstOrDefaultAsync(i => i.Email == userEmail);
 
-            return new CustomerHomePageViewModel
+            if (user != null)
             {
-                Cinemas = user.CinemasVisited.Select(i => new CustomerCinemaViewModel
+                var mostPopularMovie = _context.Tickets.Include(i => i.Movie).Where(i => i.CustomerId == user.Id).ToList().GroupBy(i => i.MovieId).OrderByDescending(i => i.Count()).FirstOrDefault().FirstOrDefault();
+                var totalMoneySpent = await _context.Tickets.Where(i => i.CustomerId == user.Id).SumAsync(i => i.Price);
+                return new CustomerHomePageViewModel
                 {
-                    CinemaId = i.CinemaId,
-                    CinemaName = i.Cinema.Name,
-                    Description = i.Cinema.Description,
-                    FavoriteSince = "",
-                    ImageUrl = i.Cinema.ImageUrl
-                }),
-                FullName = $"{user.FirstName} {user.LastName}"
-            };
+                    Cinemas = user.CinemasVisited.Select(i => new CustomerCinemaViewModel
+                    {
+                        CinemaId = i.CinemaId,
+                        CinemaName = i.Cinema.Name,
+                        Description = i.Cinema.Description,
+                        FavoriteSince = "",
+                        ImageUrl = i.Cinema.ImageUrl
+                    }),
+                    FullName = $"{user.FirstName} {user.LastName}",
+                    MostPopularMovieName = mostPopularMovie.Movie.Title,
+                    MostPopularMoviePosterUrl = mostPopularMovie.Movie.ImageUrl,
+                    TotalMoneySpent = totalMoneySpent,
+                    CinemasCount = user.CinemasVisited.Count,
+                    MoviesCount = await _context.Tickets.Where(i => i.CustomerId == user.Id).GroupBy(i => i.MovieId).CountAsync()
+                };
+            }
+            return null;
         }
 
         public async Task<IEnumerable<CinemasViewModel>> GetCinemasByUserAsync(bool? all, string userEmail)

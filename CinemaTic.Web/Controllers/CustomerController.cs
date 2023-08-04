@@ -61,7 +61,7 @@ namespace CinemaTic.Web.Controllers
                 return NotFound();
             }
 
-            if (await _ownersService.ExistsByIdAsync(id))
+            if (!await _ownersService.ExistsByIdAsync(id))
             {
                 return NotFound();
             }
@@ -77,7 +77,7 @@ namespace CinemaTic.Web.Controllers
                 return NotFound();
             }
 
-            if (await _ownersService.ExistsByIdAsync(id))
+            if (!await _ownersService.ExistsByIdAsync(id))
             {
                 return NotFound();
             }

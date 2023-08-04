@@ -1,6 +1,5 @@
 ﻿@model CinemaTic.ViewModels.Tickets.BuyTicketViewModel
 @{
-    TempData["ForDateTime"] = Model.ForDateTime;
     TempData["CinemaId"] = Model.CinemaId;
     ViewData["Title"] = $"Buy ticket - {Model.Title}";
 }
@@ -13,7 +12,7 @@
         <img src="~/client-images/Movies/@Model.ImageUrl" />
         <div class="movie-details-container d-flex flex-column gap-3 text-white">
             <h3>@Model.Title</h3>
-            <span>@($"{Model.ForDateTime.DayOfWeek.ToString()} {Model.ForDateTime.Day} {Model.ForDateTime.ToString("MMMM")} at {Model.ForDateTime.ToString("hh:mm tt")}")</span>
+            <span>@($"{Model.ForDateTime.DayOfWeek.ToString()}, {Model.ForDateTime.Day} {Model.ForDateTime.ToString("MMMM")} at {Model.ForDateTime.ToString("hh:mm tt")}")</span>
             <span class="description">@Model.Description</span>
             <span>Cinema: <b>@Model.CinemaName</b></span>
         </div>
@@ -34,7 +33,7 @@
         $.ajax({
             type: "GET",
             url: `/Sectors/GetCinemaSectors`,
-            data: { id: '@Model.CinemaId', movieId: '@Model.MovieId' },
+            data: { id: '@Model.CinemaId', movieId: '@Model.MovieId', forDate: '@Model.ForDateTime' },
             success: function (response) {
                 $("#results-container").html(response);
             },

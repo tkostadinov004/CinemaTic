@@ -84,11 +84,11 @@ tr.alert td button.remove-button {
     background: indianred;
 }
 
-span.description {
+td span.description {
     display: -webkit-box;
     max-width: 500px;
     word-break: break-word;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }

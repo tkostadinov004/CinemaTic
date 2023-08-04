@@ -61,20 +61,20 @@
                                     </td>
                                     <td>@cinema.Owner</td>
                                     <td class="status">
-                                        <span class="active">
+                                        <span class="description">
                                             @cinema.Description
                                         </span>
                                     </td>
                                     <td style="width: 20%;">
                                         @if (!cinema.IsInFavorites)
                                         {
-                                            <form asp-controller="Customer" asp-action="AddCinemaToFavorites">
+                                            <form asp-controller="Customer" asp-action="AddCinemaToFavorites" method="post">
                                                 <button class="add-button" type="submit" asp-controller="Customer" asp-action="AddCinemaToFavorites" asp-route-id="@cinema.Id">Add cinema to favorites</button>
                                             </form>
                                         }
                                         else
                                         {
-                                            <form asp-controller="Customer" asp-action="RemoveCinemaFromFavorites">
+                                            <form asp-controller="Customer" asp-action="RemoveCinemaFromFavorites" method="post">
                                                 <button class="remove-button mt-3" type="submit" asp-controller="Customer" asp-action="RemoveCinemaFromFavorites" asp-route-id="@cinema.Id">Remove cinema from favorites</button>
                                             </form>
                                         }

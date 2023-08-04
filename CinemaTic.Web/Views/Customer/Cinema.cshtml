@@ -135,7 +135,7 @@
     }
 
     window.onload = function () {
-        getMovies({ cinemaId: '@Model.Id' });
+        getMovies({ cinemaId: '@Model.Id', date: '@DateTime.Today' });
     }
 
     let dateButtons = document.querySelectorAll('button.date');

@@ -5,7 +5,7 @@
 }
 <div class="d-flex flex-column justify-content-center m-auto mb-4" style="width: fit-content;">
     <h4 class="text-center">Sector @Model.Name</h4>
-    <button class="back-button">Back</button>
+    <button class="ticket-button">Back</button>
 </div>
 <div class="seats-container d-flex flex-column m-auto" style="width: fit-content;">
     <form asp-controller="Customer" asp-action="BuyTicket" method="post">
@@ -62,11 +62,11 @@
             </div>
         }
         <p class="mt-3" id="seats-info">No seats!</p>
-        <button type="submit" asp-controller="Customer" asp-action="BuyTicket" asp-route-sectorId="@Model.Id" asp-route-movieId="@Model.ForMovieId" asp-route-forDate="@Model.ForDateTime">Buy ticket(s)!</button>
+        <button class="ticket-button buy-button" type="submit" asp-controller="Customer" asp-action="BuyTicket" asp-route-sectorId="@Model.Id" asp-route-movieId="@Model.ForMovieId" asp-route-forDate="@Model.ForDateTime">Buy ticket(s)!</button>
     </form>
 </div>
 <script>
-    document.querySelector('.back-button').addEventListener("click", function () {
+    document.querySelector('.ticket-button').addEventListener("click", function () {
         document.getElementById('results-container').innerHTML = "";
         $.ajax({
             type: "GET",

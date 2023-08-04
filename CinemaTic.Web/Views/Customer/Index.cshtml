@@ -6,48 +6,69 @@
     TempData.Remove("NewUser");
 }
 <partial name="_NavbarPartial" />
-<section class="main-section hero-section d-flex justify-content-center align-items-center" id="section_1">
-    <div class="row justify-content-center home-sections">
-        @if (newUser == false)
-        {
-            @if (Model.Cinemas.Count() > 0)
-            {
-                @foreach (var item in Model.Cinemas)
-                {
-                    <div class="cinema-section">
-                        <div class="custom-block custom-block-overlay">
-                            <div class="d-flex flex-column h-100">
-                                <img src="~/client-images/Cinemas/@item.ImageUrl" class="custom-block-image img-fluid" alt="">
+<section class="main-section hero-section" id="section_1">
+    <div class="container">
+        <div class="row">
 
-                                <div class="h-100 custom-block-overlay-text d-flex flex-column justify-content-between">
-                                    <div>
-                                        <h5 class="text-white mb-2">@item.CinemaName</h5>
+            <div class="col-12 text-center text-white">
+                <h3 class="mb-4">Welcome to CinemaTic, @Model.FullName</h3>
+            </div>
 
-                                        <p class="text-white cinema-description">@item.Description</p>
-                                    </div>
-                                    <div class="user-buttons d-flex flex-row justify-content-around">
-                                        <a class="btn custom-btn mt-2 mt-lg-3" asp-controller="Customer" asp-action="Cinema" asp-route-cinemaId="@item.CinemaId">See your cinema's page</a>
-                                    </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="create-tab" data-bs-toggle="tab" data-bs-target="#create-tab-pane" type="button" role="tab" aria-controls="create-tab-pane" aria-selected="true">Cinemas</button>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="manage-tab" data-bs-toggle="tab" data-bs-target="#manage-tab-pane" type="button" role="tab" aria-controls="manage-tab-pane" aria-selected="false">Tickets</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container features-container">
+        <div class="row">
+            <div class="col-12">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="create-tab-pane" role="tabpanel" aria-labelledby="create-tab" tabindex="0">
+                        <div class="row sub-block">
+                            <span class="sub-title">You currently have @Model.Cinemas.Count() favorite cinemas</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                <div class="custom-block bg-white shadow-lg">
+                                    <a>
+                                        <div class="d-flex justify-content-center">
+                                            <div>
+                                                <h5 class="mb-2">Your favorite movie is: </h5>
+                                                <h6 class="text-center">@Model.MostPopularMovieName</h6>
+                                            </div>
+                                        </div>
+
+                                        <img src="~/client-images/Movies/@Model.MostPopularMoviePosterUrl" class="custom-block-image img-fluid" alt="">
+                                    </a>
                                 </div>
-
-                                <div class="section-overlay"></div>
                             </div>
                         </div>
                     </div>
-                }
-            }
-            else
-            {
-                <h2 class="display-2">You don't have any favorite cinemas!</h2>
-            }
-        }
-        else
-        {
-            <h2 class="display-2">Welcome to CinemaTic, @Model.FullName</h2>
-        }
+
+                    <div class="tab-pane fade" id="manage-tab-pane" role="tabpanel" aria-labelledby="manage-tab" tabindex="0">
+                        <div class="row sub-block">
+                            <span class="sub-title">So far, you have spent @string.Format($"${Model.TotalMoneySpent:f2}") on @Model.MoviesCount movies at @Model.CinemasCount cinemas </span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
-<style>
+@*<style>
     section.main-section {
         flex-wrap: wrap;
         row-gap: 20px;
@@ -64,5 +85,19 @@
     div.custom-block.custom-block-overlay {
         min-height: 350px;
         max-height: 100px;
+    }
+</style>*@
+<style>
+    section.main-section {
+        padding-top: 10vh;
+    }
+    ul.nav.nav-tabs {
+        border: 0;
+    }
+    div.tab-content {
+        background: transparent;
+    }
+    li.nav-item button.nav-link {
+        background: transparent !important;
     }
 </style>

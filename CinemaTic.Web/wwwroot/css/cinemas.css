@@ -213,22 +213,28 @@ button.sector-button {
     .seat .seat-bottom {
         gap: 10px;
     }
-button.back-button {
+button.ticket-button {
     border: 0;
     padding: 2px 55px;
     color: white;
     border-radius: 5px;
     background: indianred;
 }
-    button.back-button:hover {
+    button.ticket-button.buy-button {
+        background: #27bbcf;
+    }
+    button.ticket-button:hover {
         background: #a74b4b;
+    }
+    button.ticket-button.buy-button:hover {
+        background: #1c8f9e;
     }
     i.fa-couch.occupied {
         color: red;
     }
 i.fa-couch.selected {
     transition: 0.5s;
-    color: blue;
+    color: #4d81b8;
 }
     .seat-row {
         gap: 10px;
