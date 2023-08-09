@@ -3,6 +3,7 @@ using CinemaTic.Core.Utilities;
 using CinemaTic.Data;
 using CinemaTic.Data.Enums;
 using CinemaTic.Data.Models;
+using CinemaTic.Extensions;
 using CinemaTic.ViewModels.Cinemas;
 using CinemaTic.ViewModels.Customers;
 using CinemaTic.ViewModels.Movies;
@@ -34,7 +35,8 @@ namespace CinemaTic.Core.Services
 
             if (user != null)
             {
-                var mostPopularMovie = _context.Tickets.Include(i => i.Movie).Where(i => i.CustomerId == user.Id).ToList().GroupBy(i => i.MovieId).OrderByDescending(i => i.Count()).FirstOrDefault().FirstOrDefault();
+                var mostPopularMovieGroup = _context.Tickets.Include(i => i.Movie).Where(i => i.CustomerId == user.Id).ToList().GroupBy(i => i.MovieId).OrderByDescending(i => i.Count()).FirstOrDefault();
+                var mostPopularMovie = mostPopularMovieGroup != null ? mostPopularMovieGroup.FirstOrDefault() : null;
                 var totalMoneySpent = await _context.Tickets.Where(i => i.CustomerId == user.Id).SumAsync(i => i.Price);
                 return new CustomerHomePageViewModel
                 {
@@ -47,8 +49,8 @@ namespace CinemaTic.Core.Services
                         ImageUrl = i.Cinema.ImageUrl
                     }),
                     FullName = $"{user.FirstName} {user.LastName}",
-                    MostPopularMovieName = mostPopularMovie.Movie.Title,
-                    MostPopularMoviePosterUrl = mostPopularMovie.Movie.ImageUrl,
+                    MostPopularMovieName = mostPopularMovie != null ? mostPopularMovie.Movie.Title : "",
+                    MostPopularMoviePosterUrl = mostPopularMovie != null ? mostPopularMovie.Movie.ImageUrl : "",
                     TotalMoneySpent = totalMoneySpent,
                     CinemasCount = user.CinemasVisited.Count,
                     MoviesCount = await _context.Tickets.Where(i => i.CustomerId == user.Id).GroupBy(i => i.MovieId).CountAsync()
@@ -102,12 +104,12 @@ namespace CinemaTic.Core.Services
             await _logger.LogActionAsync(UserActionType.Delete, LogMessages.RemoveCinemaToFavoritesMessage, cinema.Name);
         }
 
-        public async Task<IEnumerable<CustomerTicketViewModel>> GetTicketsForCustomerAsync(string userEmail)
+        public async Task<IEnumerable<CustomerTicketViewModel>> GetTicketsForCustomerAsync(string userEmail, int? pageNumber)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
             var tickets = await _context.Tickets.Include(i => i.Cinema).Include(i => i.Movie).Include(i => i.Sector).Where(i => i.CustomerId == user.Id).ToListAsync();
 
-            return tickets.Select(i => new CustomerTicketViewModel
+            return await PaginatedList<CustomerTicketViewModel>.CreateAsync( tickets.Select(i => new CustomerTicketViewModel
             {
                 Id = i.Id,
                 Movie = i.Movie.Title,
@@ -117,7 +119,7 @@ namespace CinemaTic.Core.Services
                 Cinema = i.Cinema.Name,
                 Date = i.ForDate.ToString(Constants.DateTimeFormat),
                 Price = i.Price.ToString()
-            });
+            }), pageNumber ?? 1, 5);
         }
         public async Task<CustomerCinemaPageViewModel> PrepareCinemaViewModelAsync(string userEmail, int? cinemaId)
         {

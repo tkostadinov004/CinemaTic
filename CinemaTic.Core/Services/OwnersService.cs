@@ -62,8 +62,21 @@ namespace CinemaTic.Core.Services
 
         public async Task DeleteByIdAsync(int? id)
         {
+            var customerCinemas = _context.CustomersCinemas.Where(i => i.CinemaId == id);
+            _context.CustomersCinemas.RemoveRange(customerCinemas);
+            await _context.SaveChangesAsync();
+
+            var tickets = _context.Tickets.Where(i => i.CinemaId == id);
+            _context.Tickets.RemoveRange(tickets);
+            await _context.SaveChangesAsync();
+
+            var sectors = _context.Sectors.Where(i => i.CinemaId == id);
+            _context.Sectors.RemoveRange(sectors);
+            await _context.SaveChangesAsync();
+
             var cinema = await _context.Cinemas.FindAsync(id);
             _context.Cinemas.Remove(cinema);
+
             await _imageService.DeleteImageAsync("Cinemas", cinema.ImageUrl);
             await _context.SaveChangesAsync();
             await _logger.LogActionAsync(UserActionType.Delete, LogMessages.DeleteEntityMessage, "cinema", cinema.Name, $"({cinema.SeatRows} rows and {cinema.SeatCols} columns)");

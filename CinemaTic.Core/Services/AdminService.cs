@@ -35,6 +35,19 @@ namespace CinemaTic.Core.Services
             var user = await _userManager.FindByIdAsync(id);
             if (user != null)
             {
+                if (await _userManager.IsInRoleAsync(user, "Owner"))
+                {
+                    _context.Tickets.RemoveRange(_context.Tickets.Include(i => i.Cinema).Where(i => i.Cinema.OwnerId == id));
+                    await _context.SaveChangesAsync();
+                    _context.Sectors.RemoveRange(_context.Sectors.Include(i => i.Cinema).Where(i => i.Cinema.OwnerId == id));
+                    await _context.SaveChangesAsync();
+                    _context.CustomersCinemas.RemoveRange(_context.CustomersCinemas.Include(i => i.Cinema).Where(i => i.Cinema.OwnerId == id));
+                    await _context.SaveChangesAsync();
+                    _context.Cinemas.RemoveRange(_context.Cinemas.Where(i => i.OwnerId == id));
+                    await _context.SaveChangesAsync();
+                    _context.Movies.RemoveRange(_context.Movies.Where(i => i.AddedById == id));
+                    await _context.SaveChangesAsync();
+                }
                 await _userManager.DeleteAsync(user);
                 return true;
             }

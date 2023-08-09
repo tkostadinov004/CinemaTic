@@ -153,7 +153,7 @@ namespace CinemaTic.Core.Services
             var currentUser = await _userManager.FindByEmailAsync(userEmail);
             if (id != null)
             {
-                var movie = await _context.Movies.Include(i => i.Actors).ThenInclude(i => i.Actor).FirstOrDefaultAsync(i => i.Id == id);
+                var movie = await _context.Movies.Include(i => i.Actors).ThenInclude(i => i.Actor).Include(i => i.Genre).FirstOrDefaultAsync(i => i.Id == id);
                 var ratings = await _context.UsersMovies.Include(i => i.Customer).Where(i => i.MovieId == movie.Id).ToListAsync();
                 var viewModel = new MovieDetailsViewModel
                 {

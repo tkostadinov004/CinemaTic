@@ -53,13 +53,10 @@ builder.Services.AddScoped<IUsersService, UsersService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.UseStatusCodePagesWithReExecute("/statuscode={0}");
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
-}
-else if (app.Environment.IsProduction())
-{
-    app.UseStatusCodePagesWithReExecute("/statuscode={0}");
 }
 else
 {

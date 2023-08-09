@@ -43,13 +43,7 @@ namespace CinemaTic.Web.Controllers
             {
                 return NotFound();
             }
-
             if (!await _moviesService.ExistsByIdAsync(id))
-            {
-                return NotFound();
-            }
-            var movie = await _moviesService.GetByIdAsync(id);
-            if (movie == null)
             {
                 return NotFound();
             }

@@ -58,6 +58,7 @@ namespace CinemaTic.Web.Controllers
             if (ModelState.IsValid)
             {
                 await _actorsService.CreateActorAsync(actorVM);
+                return RedirectToAction("AllActors", "Actors");
             }
             actorVM.Countries = (await _actorsService.GetCreateViewModelAsync()).Countries;
             return View(nameof(AddActor), actorVM);
@@ -93,9 +94,14 @@ namespace CinemaTic.Web.Controllers
             {
                 return NotFound();
             }
+            if (!await _actorsService.ExistsByIdAsync(viewModel.Id))
+            {
+                return NotFound();
+            }
             if (ModelState.IsValid)
             {
                 await _actorsService.EditActorAsync(viewModel);
+                return RedirectToAction("Details", "Actors", new { id = viewModel.Id });
             }
             return RedirectToAction("AllActors", "Actors");
         }

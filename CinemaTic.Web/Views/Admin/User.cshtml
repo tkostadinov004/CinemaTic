@@ -62,18 +62,21 @@
             var prevDisabled = !Model.Actions.HasPreviousPage ? "disabled" : "";
             var nextDisabled = !Model.Actions.HasNextPage ? "disabled" : "";
         }
-        <ul class="pagination gap-1">
-            <li class="page-item">
-                <a class="action-button active previous @prevDisabled">
-                    Previous
-                </a>
-            </li>
-            <li class="page-item">
-                <a class="action-button active next @nextDisabled">
-                    Next
-                </a>
-            </li>
-        </ul>
+       @if (Model.Actions.Count > 0)
+        {
+            <ul class="pagination gap-1">
+                <li class="page-item">
+                    <a class="action-button active previous @prevDisabled">
+                        Previous
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="action-button active next @nextDisabled">
+                        Next
+                    </a>
+                </li>
+            </ul>
+        }
     </div>
 </div>
 <script src="~/js/ownerdashboard.js"></script>

@@ -63,7 +63,7 @@
                 </div>
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
-            <button class="app-content-headerButton" asp-route-userEmail="@User.Identity.Name">Add actor</button>
+            <button class="app-content-headerButton" asp-controller="Actors" asp-action="AddActor">Add actor</button>
         </form>
     </div>
 </div>

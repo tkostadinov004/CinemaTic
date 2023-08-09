@@ -60,9 +60,8 @@ namespace CinemaTic.Web.Controllers
             if (ModelState.IsValid)
             {
                 await _genresService.CreateAsync(viewModel);
-                return RedirectToAction(nameof(AllGenres));
             }
-            return PartialView("_AddGenrePartial", viewModel);
+            return RedirectToAction(nameof(AllGenres));
         }
         public async Task<IActionResult> SearchAndSortMoviesByGenre(string searchText, string sortBy, [ModelBinder(typeof(IdModelBinder))] int id, [ModelBinder(typeof(IdModelBinder))] int? pageNumber)
         {

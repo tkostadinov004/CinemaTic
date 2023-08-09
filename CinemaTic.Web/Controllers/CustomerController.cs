@@ -86,8 +86,8 @@ namespace CinemaTic.Web.Controllers
         }
         public async Task<IActionResult> Tickets(int? pageNumber)
         {
-            var tickets = await _customersService.GetTicketsForCustomerAsync(User.Identity.Name);
-            return View("Tickets", await PaginatedList<CustomerTicketViewModel>.CreateAsync(tickets, pageNumber ?? 1, 5));
+            var tickets = await _customersService.GetTicketsForCustomerAsync(User.Identity.Name, pageNumber);
+            return View("Tickets", tickets);
         }
         public async Task<IActionResult> Cinema([ModelBinder(typeof(IdModelBinder))] int cinemaId)
         {

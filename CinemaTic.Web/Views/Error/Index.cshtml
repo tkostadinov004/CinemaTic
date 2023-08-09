@@ -1,4 +1,7 @@
 ﻿@model System.Net.HttpStatusCode
+@{
+    ViewData["Title"] = "Error";
+}
 @if((int)Model == 404) 
 {
     @if (User.Identity.IsAuthenticated == false || User.IsInRole("Customer"))

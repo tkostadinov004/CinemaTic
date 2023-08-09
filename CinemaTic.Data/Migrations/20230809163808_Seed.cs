@@ -17,6 +17,10 @@ namespace CinemaTic.Data.Migrations
                 name: "FK_ActorsMovies_Movies_MoviesId",
                 table: "ActorsMovies");
 
+            migrationBuilder.DropForeignKey(
+                name: "FK_Movies_Genres_GenreId",
+                table: "Movies");
+
             migrationBuilder.RenameColumn(
                 name: "MoviesId",
                 table: "ActorsMovies",
@@ -31,6 +35,14 @@ namespace CinemaTic.Data.Migrations
                 name: "IX_ActorsMovies_MoviesId",
                 table: "ActorsMovies",
                 newName: "IX_ActorsMovies_MovieId");
+
+            migrationBuilder.AlterColumn<int>(
+                name: "GenreId",
+                table: "Movies",
+                type: "int",
+                nullable: true,
+                oldClrType: typeof(int),
+                oldType: "int");
 
             migrationBuilder.InsertData(
                 table: "Actors",
@@ -232,14 +244,14 @@ namespace CinemaTic.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreationDate", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfilePictureUrl", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "156fc675-02de-4250-9edb-869c85e13e61", 0, "8f06bfbc-e1e3-4f95-9bc1-30add0031c34", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7086), "owner1@owner.com", true, "James", "Johnson", false, null, "OWNER1@OWNER.COM", "OWNER1@OWNER.COM", "AQAAAAEAACcQAAAAEIYdVbgmiuz1BnPMRPrPu3EWq3UfLAIBF/tE/nqG5aVgINEYeX46MDFw9GX/+zTjbA==", null, false, "profilePicURL", "1969a695-01c0-49be-8d42-482cb1c327bc", false, "owner1@owner.com" },
-                    { "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", 0, "1c85f3a1-2adc-4bc0-8e52-72f91f9c11e6", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7401), "customer2@customer.com", true, "Owais", "Flynn", false, null, "CUSTOMER2@CUSTOMER.COM", "CUSTOMER2@CUSTOMER.COM", "AQAAAAEAACcQAAAAEKVwKPAZTataE6hIw84BvWlq6cRTXNnlYt0oRepxQYt1bFUISOJcnKNmacLNL0/P2g==", null, false, "profilePicURL", "23628fe3-34d3-436b-b12b-7386bda03b50", false, "customer2@customer.com" },
-                    { "1c850a33-6e0a-4c03-bb2d-c5a388042364", 0, "7ee1ee23-0839-40da-908d-b87ef4d668df", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7518), "customer6@customer.com", true, "Peggy", "Pope", false, null, "CUSTOMER6@CUSTOMER.COM", "CUSTOMER6@CUSTOMER.COM", "AQAAAAEAACcQAAAAEHub9LhSfEjuZ5a4xxiIgGqYM1XZ6m2MPJHl/HKNRxB+ZFTWXWCPLx+GXy7Wswqpwg==", null, false, "profilePicURL", "d3103320-f4b9-4654-ba99-654bc1cdf6c4", false, "customer6@customer.com" },
-                    { "2055e8c8-5a8e-49c3-9f0a-a987700af2ee", 0, "a294bebb-1a63-4316-8f84-629edf1d64e0", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7180), "owner2@owner.com", true, "Mary", "Lou", false, null, "OWNER2@OWNER.COM", "OWNER2@OWNER.COM", "AQAAAAEAACcQAAAAEH9590bWETDx/f3eWFDK/nhUYCcO8ZbMJXB9tSzrfdzUrkH5TmnuYQdSW6Tdnpiz8g==", null, false, "profilePicURL", "0dcc8f9a-b2bd-40a5-8f68-ad4c06ccd772", false, "owner2@owner.com" },
-                    { "218dcf68-aa10-4c63-994f-50853fb19296", 0, "76e4b52a-578d-47d2-8a5f-c0f9fc0b5c3e", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7212), "owner3@owner.com", true, "Margarita", "Costner", false, null, "OWNER3@OWNER.COM", "OWNER3@OWNER.COM", "AQAAAAEAACcQAAAAEEy1rD0+YNdrKjS3xMbXk1lAMo4PeS0kUf3GRRZ7Niljy26EwB2xbrd4AyoaruRv1A==", null, false, "profilePicURL", "ea79ff42-c2cd-49bd-8d71-1cc1c1f27dab", false, "owner3@owner.com" },
-                    { "2a8f5f5c-e539-4868-837b-9a19852a904e", 0, "5012f086-228e-4796-9b77-9f767892e80c", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7385), "customer1@customer.com", true, "Barney", "Hobbs", false, null, "CUSTOMER1@CUSTOMER.COM", "CUSTOMER1@CUSTOMER.COM", "AQAAAAEAACcQAAAAEEUPcUZDJ4o+uRZ0A8Cb23yeQlCobllpj97wK5CQ1AYKes43jUtgQQOL3iUP/8dLRA==", null, false, "profilePicURL", "41af5f84-823a-4d6e-8dc3-6917d36c1983", false, "customer1@customer.com" },
-                    { "2f09c66b-0830-4fcc-8a0f-f29b0990c669", 0, "159b0533-e321-4cca-a2de-243612f00487", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7553), "customer8@customer.com", true, "Frazer", "Hensley", false, null, "CUSTOMER8@CUSTOMER.COM", "CUSTOMER8@CUSTOMER.COM", "AQAAAAEAACcQAAAAEFoeANuh9F5HuucSWm4m5cGI2ERKR+/bvmS7aU2wBfCoosApuSja/Er97O3eqbVnjA==", null, false, "profilePicURL", "11d3f4f3-b612-4683-90db-2a0c77867a06", false, "customer8@customer.com" },
-                    { "4634669c-c5ad-41e6-8b41-f1524c9654ad", 0, "2485e1c3-2020-40bc-b989-f73593f7ed05", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7419), "customer3@customer.com", true, "Kiran", "Delacruz", false, null, "CUSTOMER3@CUSTOMER.COM", "CUSTOMER3@CUSTOMER.COM", "AQAAAAEAACcQAAAAEAo9riMnRZd7BiDCRw9CxwHhPgDnbDHhLNkNUwtmA8gNMfYUX0M8lgLpLNB3UcbE4g==", null, false, "profilePicURL", "18e0ad1c-2ce4-494c-8a08-4eb3e491aae1", false, "customer3@customer.com" }
+                    { "156fc675-02de-4250-9edb-869c85e13e61", 0, "8f06bfbc-e1e3-4f95-9bc1-30add0031c34", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7086), "owner1@owner.com", true, "James", "Johnson", false, null, "OWNER1@OWNER.COM", "OWNER1@OWNER.COM", "AQAAAAEAACcQAAAAEGCDV4wdiCMFig9/Yp0+M8zUFf+QrZpNk6QmHlv1y0MocGfY672s3vGi31oPL5bGWg==", null, false, "profilePicURL", "1969a695-01c0-49be-8d42-482cb1c327bc", false, "owner1@owner.com" },
+                    { "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", 0, "1c85f3a1-2adc-4bc0-8e52-72f91f9c11e6", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7401), "customer2@customer.com", true, "Owais", "Flynn", false, null, "CUSTOMER2@CUSTOMER.COM", "CUSTOMER2@CUSTOMER.COM", "AQAAAAEAACcQAAAAEFxYajpio8rncypxtQxC8jUETYxEPSpdSSXFkl9btYjFWMitAxUcJJhyIct13raPfA==", null, false, "profilePicURL", "23628fe3-34d3-436b-b12b-7386bda03b50", false, "customer2@customer.com" },
+                    { "1c850a33-6e0a-4c03-bb2d-c5a388042364", 0, "7ee1ee23-0839-40da-908d-b87ef4d668df", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7518), "customer6@customer.com", true, "Peggy", "Pope", false, null, "CUSTOMER6@CUSTOMER.COM", "CUSTOMER6@CUSTOMER.COM", "AQAAAAEAACcQAAAAEM++YZkXqOBSltoQWwvEw/8hxWB/EweBRCIT4OypkTJJxBi+T5p0fdWj3Gs6JDSrbg==", null, false, "profilePicURL", "d3103320-f4b9-4654-ba99-654bc1cdf6c4", false, "customer6@customer.com" },
+                    { "2055e8c8-5a8e-49c3-9f0a-a987700af2ee", 0, "a294bebb-1a63-4316-8f84-629edf1d64e0", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7180), "owner2@owner.com", true, "Mary", "Lou", false, null, "OWNER2@OWNER.COM", "OWNER2@OWNER.COM", "AQAAAAEAACcQAAAAEDFnUZzdFFOxI9A8jODnJdHPiliUKcbN+P4tLqOW09crjJ776dy1UBeQxdcpYQxXVg==", null, false, "profilePicURL", "0dcc8f9a-b2bd-40a5-8f68-ad4c06ccd772", false, "owner2@owner.com" },
+                    { "218dcf68-aa10-4c63-994f-50853fb19296", 0, "76e4b52a-578d-47d2-8a5f-c0f9fc0b5c3e", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7212), "owner3@owner.com", true, "Margarita", "Costner", false, null, "OWNER3@OWNER.COM", "OWNER3@OWNER.COM", "AQAAAAEAACcQAAAAENMxjnl4+Bwj8RiTXBTxHSjfKMnjy0aFcEZclClIMkbbauNQPHEvfEUo1uar79fQag==", null, false, "profilePicURL", "ea79ff42-c2cd-49bd-8d71-1cc1c1f27dab", false, "owner3@owner.com" },
+                    { "2a8f5f5c-e539-4868-837b-9a19852a904e", 0, "5012f086-228e-4796-9b77-9f767892e80c", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7385), "customer1@customer.com", true, "Barney", "Hobbs", false, null, "CUSTOMER1@CUSTOMER.COM", "CUSTOMER1@CUSTOMER.COM", "AQAAAAEAACcQAAAAEFldyqbmCTG3Y30g+2LOSTamfIlfIw0FuKO8olKyK4ojhviZm/J5FvfrAZYaCFZe0g==", null, false, "profilePicURL", "41af5f84-823a-4d6e-8dc3-6917d36c1983", false, "customer1@customer.com" },
+                    { "2f09c66b-0830-4fcc-8a0f-f29b0990c669", 0, "159b0533-e321-4cca-a2de-243612f00487", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7553), "customer8@customer.com", true, "Frazer", "Hensley", false, null, "CUSTOMER8@CUSTOMER.COM", "CUSTOMER8@CUSTOMER.COM", "AQAAAAEAACcQAAAAEIAJUYvQUPlEOnNR4VIPp8MTGfaiVMwX1Ravod8DenxF5icNyTBVUm2g5yKjEAWSxA==", null, false, "profilePicURL", "11d3f4f3-b612-4683-90db-2a0c77867a06", false, "customer8@customer.com" },
+                    { "4634669c-c5ad-41e6-8b41-f1524c9654ad", 0, "2485e1c3-2020-40bc-b989-f73593f7ed05", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7419), "customer3@customer.com", true, "Kiran", "Delacruz", false, null, "CUSTOMER3@CUSTOMER.COM", "CUSTOMER3@CUSTOMER.COM", "AQAAAAEAACcQAAAAEDoAju86eg7HmnEyV+lDUR5pj4EwQvyZLU+fkL+0XFnBH58nbewGN+3lUFlO9LUjIw==", null, false, "profilePicURL", "18e0ad1c-2ce4-494c-8a08-4eb3e491aae1", false, "customer3@customer.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -247,19 +259,19 @@ namespace CinemaTic.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreationDate", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfilePictureUrl", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "5556c45e-395d-402b-b765-750666b092fc", 0, "b65be569-e85a-4a74-a7bc-425b7635069f", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7264), "owner6@owner.com", true, "Javier", "Gonzalez", false, null, "OWNER6@OWNER.COM", "OWNER6@OWNER.COM", "AQAAAAEAACcQAAAAECPxWkbe+LEWvSxClQyskMjLrUqyizhNP/IuupgOAbRB5OzPXG6j3aad9BtDl6p/Tg==", null, false, "profilePicURL", "35a42130-bf0d-4f5a-85a4-032f27fb34fe", false, "owner6@owner.com" },
-                    { "60223fcf-5fa4-434f-a4ba-9389a4f571a0", 0, "4f65a024-e0d8-424b-95be-4c4966e0ed73", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7299), "owner8@owner.com", true, "John", "Chang", false, null, "OWNER8@OWNER.COM", "OWNER8@OWNER.COM", "AQAAAAEAACcQAAAAEBhX8g5FB07aDTi3JuRA4LAWhNK10GLfc5KvUV7nArXVbX+ZXsVHK9f5MNevdqR2/Q==", null, false, "profilePicURL", "5caf143b-da62-492e-9c4c-3a631cdd77b9", false, "owner8@owner.com" },
-                    { "610ab053-2c5a-451b-9634-03b59ea4a473", 0, "169c576b-71f5-4ef3-8fcb-3479eca00a65", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7347), "owner9@owner.com", true, "Lily", "May", false, null, "OWNER9@OWNER.COM", "OWNER9@OWNER.COM", "AQAAAAEAACcQAAAAEOV6ksAqnvTwcMf9wrhLoILqSvPmpNgRNYls1agDYXWc6sCnHx6cKNnCFskAZNq0kw==", null, false, "profilePicURL", "cf814eb1-d2f0-47ac-8dbd-54482814dc77", false, "owner9@owner.com" },
-                    { "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c", 0, "b26c078d-4fca-474d-9a24-a10a61a69c88", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7283), "owner7@owner.com", true, "Marco", "Cruz", false, null, "OWNER7@OWNER.COM", "OWNER7@OWNER.COM", "AQAAAAEAACcQAAAAEBDfow5xrqGsBjw4oodC5stWB3lf6bHEa44w1/px+t0neX4lJzTB2S+M65YBoqIF4Q==", null, false, "profilePicURL", "2f09438a-adca-4bed-8a26-4ac7ae834dd3", false, "owner7@owner.com" },
-                    { "8980e4ca-2628-490d-840a-9c9414ab9f33", 0, "d135f42d-5dae-407f-a9d4-c4ec642f61cc", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7364), "owner10@owner.com", true, "Jack", "Marston", false, null, "OWNER10@OWNER.COM", "OWNER10@OWNER.COM", "AQAAAAEAACcQAAAAEJTvPltEGNBIqB+sQZAvHOg3Suo85ro5WE8BON5I1PHgNDNtkVpj5hRWKAdtWbXwRA==", null, false, "profilePicURL", "69434a7f-f6f5-4f2f-9aec-4594d2e1bd27", false, "owner10@owner.com" },
-                    { "96256cfb-df20-4a1f-8898-f06f634a17d7", 0, "4effdcbd-6484-43ad-bab0-83c882123a07", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7587), "customer10@customer.com", true, "Bryony", "Becker", false, null, "CUSTOMER10@CUSTOMER.COM", "CUSTOMER10@CUSTOMER.COM", "AQAAAAEAACcQAAAAELy8a4IThPWS/VOyJET02THwwzV+aw15jhnnDjBcvPHGkZpnOsJoQ6ZSECVCsZVPOw==", null, false, "profilePicURL", "84717c40-eafd-40e7-b0a1-96e7e0937a09", false, "customer10@customer.com" },
-                    { "a9b6dc74-38a5-4794-a703-59204f461adb", 0, "a0a0780d-c13c-4218-8b33-03da54eec896", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7228), "owner4@owner.com", true, "Gabriel", "Peric", false, null, "OWNER4@OWNER.COM", "OWNER4@OWNER.COM", "AQAAAAEAACcQAAAAEB/axwPztarbXOMlDcO7bUMnqAU8pd8PrwN32w0RgLY3NloSHEXnd6c2I1Wc4Cqtwg==", null, false, "profilePicURL", "d795d540-219a-4312-bbae-4d3b0558c2d5", false, "owner4@owner.com" },
-                    { "bfa19e5f-4529-4276-bde8-8e6d3de2c423", 0, "13ea44e7-8dae-4bb7-976e-64a952c9004c", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7435), "customer4@customer.com", true, "Ava-Rose", "Chapman", false, null, "CUSTOMER4@CUSTOMER.COM", "CUSTOMER4@CUSTOMER.COM", "AQAAAAEAACcQAAAAEBonXqX3UdNpBwptGunJ+/d+t5T9Fw+8YYjRCDdvtotgaxR8xdKEtpZY4LemicGxjw==", null, false, "profilePicURL", "eede314b-fa5b-4b39-927c-59c9959e9990", false, "customer4@customer.com" },
-                    { "c0102fde-8991-4e2a-bfca-cdda51f13a66", 0, "3a2fa07d-ff91-407f-a2d7-fa01172115d2", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7537), "admin@admin.com", true, "Admin", "Admin", false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEMYGdB9gV3gxxqBhZBNZXMOwdADmqVUhS+jgVgD+/ez2eYFf3i2KI2Nbd5mbyuX7Uw==", null, false, "profilePicURL", "d6172bcd-0893-437a-b705-43122add4781", false, "admin@admin.com" },
-                    { "c21bf410-3e22-4720-b01a-f2d91191a222", 0, "87fe1bfb-3589-4d5e-a44e-c8adcb6d5214", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7453), "customer5@customer.com", true, "Sienna", "Barnett", false, null, "CUSTOMER5@CUSTOMER.COM", "CUSTOMER5@CUSTOMER.COM", "AQAAAAEAACcQAAAAEGuiVM+Ma5X9ORwziUxZo5qk0ba5xKIn2/QzkCAhEh7Q7wx3E4B5ZKaBaU0Tn9qu4g==", null, false, "profilePicURL", "0f9d29a6-6105-4649-a166-0762aee21984", false, "customer5@customer.com" },
-                    { "e7d88cb7-a424-4795-8965-17273642b773", 0, "8e7b2c00-3070-485c-8e23-06551a9cff1f", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7571), "customer9@customer.com", true, "Sadia", "Francis", false, null, "CUSTOMER9@CUSTOMER.COM", "CUSTOMER9@CUSTOMER.COM", "AQAAAAEAACcQAAAAELPednz6bhPDwj2u8h47E3tqdVUff4XB30zNBp3DBATdQxClHkm2MGBFDMUpOFpfjA==", null, false, "profilePicURL", "7ca95f02-1224-4ae7-a823-0e9243192c8b", false, "customer9@customer.com" },
-                    { "ea811464-0c63-4c45-ac26-d4eb5bff334f", 0, "9bfe5e83-4173-4624-ba5d-f7cd07563c4f", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7246), "owner5@owner.com", true, "Percy", "Jackson", false, null, "OWNER5@OWNER.COM", "OWNER5@OWNER.COM", "AQAAAAEAACcQAAAAEGBcz2Nu5L5I2hjU2fets75haPy65WClET7KODy7NKRSpaBc0Sf3UJH4YsT2ULw4aw==", null, false, "profilePicURL", "4b0d4e53-c70f-4118-8c78-b63d6adb1548", false, "owner5@owner.com" },
-                    { "f338b628-feaf-4a03-95ad-defb7aec5c83", 0, "096f10f9-3070-45c1-824d-1e96bc810fdc", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7537), "customer7@customer.com", true, "Madiha", "Brock", false, null, "CUSTOMER7@CUSTOMER.COM", "CUSTOMER7@CUSTOMER.COM", "AQAAAAEAACcQAAAAEFygr789cCFas2axywXM6reY2oV+84t0EuopGJ50lT/7VbrohPXm+alh2v5Ogv3l9A==", null, false, "profilePicURL", "d6172bcd-0893-437a-b705-43122add4781", false, "customer7@customer.com" }
+                    { "5556c45e-395d-402b-b765-750666b092fc", 0, "b65be569-e85a-4a74-a7bc-425b7635069f", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7264), "owner6@owner.com", true, "Javier", "Gonzalez", false, null, "OWNER6@OWNER.COM", "OWNER6@OWNER.COM", "AQAAAAEAACcQAAAAEJKMReb/SFCsJkC2yHMvHXE0sOoC2xp6D2PkvnVWXio1l4I4X5tGPoBqy8lg0/Lhpw==", null, false, "profilePicURL", "35a42130-bf0d-4f5a-85a4-032f27fb34fe", false, "owner6@owner.com" },
+                    { "60223fcf-5fa4-434f-a4ba-9389a4f571a0", 0, "4f65a024-e0d8-424b-95be-4c4966e0ed73", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7299), "owner8@owner.com", true, "John", "Chang", false, null, "OWNER8@OWNER.COM", "OWNER8@OWNER.COM", "AQAAAAEAACcQAAAAEDkHnyy0whOhwblSsyzPF4jOj4luziCU3IoG4HNld707s9cYalo0cBRidYF9JVT9NA==", null, false, "profilePicURL", "5caf143b-da62-492e-9c4c-3a631cdd77b9", false, "owner8@owner.com" },
+                    { "610ab053-2c5a-451b-9634-03b59ea4a473", 0, "169c576b-71f5-4ef3-8fcb-3479eca00a65", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7347), "owner9@owner.com", true, "Lily", "May", false, null, "OWNER9@OWNER.COM", "OWNER9@OWNER.COM", "AQAAAAEAACcQAAAAELOnqEl8wIwz4gGviYYPl3w8X1KZaiTNyR3ZY5fw87eOH3cBsaTGMXDetqBgcVC+VA==", null, false, "profilePicURL", "cf814eb1-d2f0-47ac-8dbd-54482814dc77", false, "owner9@owner.com" },
+                    { "64ca1994-bfd0-4d26-8ec4-4d1bc82bd95c", 0, "b26c078d-4fca-474d-9a24-a10a61a69c88", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7283), "owner7@owner.com", true, "Marco", "Cruz", false, null, "OWNER7@OWNER.COM", "OWNER7@OWNER.COM", "AQAAAAEAACcQAAAAEB3wLduIK9OtyQd/8HWi7XM+vauGyvhsayNo72Rit916/ANXmsNmYHMT8KE1+zqMSA==", null, false, "profilePicURL", "2f09438a-adca-4bed-8a26-4ac7ae834dd3", false, "owner7@owner.com" },
+                    { "8980e4ca-2628-490d-840a-9c9414ab9f33", 0, "d135f42d-5dae-407f-a9d4-c4ec642f61cc", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7364), "owner10@owner.com", true, "Jack", "Marston", false, null, "OWNER10@OWNER.COM", "OWNER10@OWNER.COM", "AQAAAAEAACcQAAAAEPG0YtW6Qh0yEKvkU6klnKxX1Y1DGRlViH2cd/Qssejzinurki/50T5uF+zWpxe/QQ==", null, false, "profilePicURL", "69434a7f-f6f5-4f2f-9aec-4594d2e1bd27", false, "owner10@owner.com" },
+                    { "96256cfb-df20-4a1f-8898-f06f634a17d7", 0, "4effdcbd-6484-43ad-bab0-83c882123a07", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7587), "customer10@customer.com", true, "Bryony", "Becker", false, null, "CUSTOMER10@CUSTOMER.COM", "CUSTOMER10@CUSTOMER.COM", "AQAAAAEAACcQAAAAEL8uHGOLUzLQkbuYOUXZi/6Jj6qh/dPH/1WUNeUcJAb3uhnhmB0Vhj9RYtfP8+wRrg==", null, false, "profilePicURL", "84717c40-eafd-40e7-b0a1-96e7e0937a09", false, "customer10@customer.com" },
+                    { "a9b6dc74-38a5-4794-a703-59204f461adb", 0, "a0a0780d-c13c-4218-8b33-03da54eec896", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7228), "owner4@owner.com", true, "Gabriel", "Peric", false, null, "OWNER4@OWNER.COM", "OWNER4@OWNER.COM", "AQAAAAEAACcQAAAAEEEPznzLG6J9+8PxF4fRXB+9Qjhjs9gpyOWERuL+HBJjwAlq3iQ0YpsNdG5Wr//NGA==", null, false, "profilePicURL", "d795d540-219a-4312-bbae-4d3b0558c2d5", false, "owner4@owner.com" },
+                    { "bfa19e5f-4529-4276-bde8-8e6d3de2c423", 0, "13ea44e7-8dae-4bb7-976e-64a952c9004c", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7435), "customer4@customer.com", true, "Ava-Rose", "Chapman", false, null, "CUSTOMER4@CUSTOMER.COM", "CUSTOMER4@CUSTOMER.COM", "AQAAAAEAACcQAAAAEIlrjcoyeJZQ2/C3Qax9SMecL427TnIJiwwzhoV8GDC/cQx56s94Fj5t9bSAA7Jhfg==", null, false, "profilePicURL", "eede314b-fa5b-4b39-927c-59c9959e9990", false, "customer4@customer.com" },
+                    { "c0102fde-8991-4e2a-bfca-cdda51f13a66", 0, "3a2fa07d-ff91-407f-a2d7-fa01172115d2", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7537), "admin@admin.com", true, "Admin", "Admin", false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEGD5kckHnRLxhs4W2L6l9Q6ObvHX/8qbrSiI85lNLVpkCMovqMF25omZs0m2vPVPFQ==", null, false, "profilePicURL", "d6172bcd-0893-437a-b705-43122add4781", false, "admin@admin.com" },
+                    { "c21bf410-3e22-4720-b01a-f2d91191a222", 0, "87fe1bfb-3589-4d5e-a44e-c8adcb6d5214", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7453), "customer5@customer.com", true, "Sienna", "Barnett", false, null, "CUSTOMER5@CUSTOMER.COM", "CUSTOMER5@CUSTOMER.COM", "AQAAAAEAACcQAAAAEFLLkV8Wm7QgdZvqKiGFqvsHtjuL9lf/imyr2fWh29SWJOSNdctWQRLVDDUwl+jL4Q==", null, false, "profilePicURL", "0f9d29a6-6105-4649-a166-0762aee21984", false, "customer5@customer.com" },
+                    { "e7d88cb7-a424-4795-8965-17273642b773", 0, "8e7b2c00-3070-485c-8e23-06551a9cff1f", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7571), "customer9@customer.com", true, "Sadia", "Francis", false, null, "CUSTOMER9@CUSTOMER.COM", "CUSTOMER9@CUSTOMER.COM", "AQAAAAEAACcQAAAAEBQUPlM+zhoZ4X2YELZFCGVCT/WbCutvuuX1zN1DC8C0iIfy9oRpTTNFMAOqo7O9wg==", null, false, "profilePicURL", "7ca95f02-1224-4ae7-a823-0e9243192c8b", false, "customer9@customer.com" },
+                    { "ea811464-0c63-4c45-ac26-d4eb5bff334f", 0, "9bfe5e83-4173-4624-ba5d-f7cd07563c4f", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7246), "owner5@owner.com", true, "Percy", "Jackson", false, null, "OWNER5@OWNER.COM", "OWNER5@OWNER.COM", "AQAAAAEAACcQAAAAEKpqLrUVCiw5v3pTyQeZLlMGrPT7jEpJlDyFT4slMxcfFe9M7Pzf5RovycpPJyTsJA==", null, false, "profilePicURL", "4b0d4e53-c70f-4118-8c78-b63d6adb1548", false, "owner5@owner.com" },
+                    { "f338b628-feaf-4a03-95ad-defb7aec5c83", 0, "096f10f9-3070-45c1-824d-1e96bc810fdc", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7537), "customer7@customer.com", true, "Madiha", "Brock", false, null, "CUSTOMER7@CUSTOMER.COM", "CUSTOMER7@CUSTOMER.COM", "AQAAAAEAACcQAAAAEDpdSWZ0J5HO6JGArcR0Mtvk8zwsEbeb7RcmwJQn11kWSUL30sQ7WNhtjIxozz2DOA==", null, false, "profilePicURL", "d6172bcd-0893-437a-b705-43122add4781", false, "customer7@customer.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -4144,48 +4156,48 @@ namespace CinemaTic.Data.Migrations
                 columns: new[] { "Id", "CinemaId", "CustomerId", "ForDate", "MovieId", "Price", "SectorId", "SerialNumber" },
                 values: new object[,]
                 {
-                    { 1, 6, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 8, 15, 10, 0, 0, DateTimeKind.Unspecified), 60, 23m, 376, "R29C2" },
-                    { 2, 47, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 4, 23, 40, 0, 0, DateTimeKind.Unspecified), 70, 9m, 503, "R9C47" },
-                    { 3, 20, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 7, 31, 18, 20, 0, 0, DateTimeKind.Unspecified), 70, 21m, 528, "R18C29" },
-                    { 4, 41, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 17, 20, 20, 0, 0, DateTimeKind.Unspecified), 39, 22m, 508, "R28C9" },
-                    { 5, 46, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 7, 30, 21, 15, 0, 0, DateTimeKind.Unspecified), 69, 8m, 585, "R23C35" },
-                    { 6, 45, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 3, 19, 30, 0, 0, DateTimeKind.Unspecified), 96, 7m, 255, "R34C23" },
-                    { 7, 34, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 7, 31, 14, 50, 0, 0, DateTimeKind.Unspecified), 57, 8m, 143, "R6C18" },
-                    { 8, 44, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 5, 19, 50, 0, 0, DateTimeKind.Unspecified), 92, 24m, 454, "R38C15" },
-                    { 9, 36, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 4, 9, 15, 0, 0, DateTimeKind.Unspecified), 8, 10m, 282, "R47C15" },
-                    { 10, 23, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 8, 9, 15, 0, 0, DateTimeKind.Unspecified), 48, 25m, 96, "R28C15" },
-                    { 11, 16, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 9, 8, 0, 0, 0, DateTimeKind.Unspecified), 51, 6m, 134, "R18C5" },
-                    { 12, 10, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 15, 20, 20, 0, 0, DateTimeKind.Unspecified), 32, 22m, 447, "R4C33" },
-                    { 13, 13, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 12, 10, 30, 0, 0, DateTimeKind.Unspecified), 10, 6m, 340, "R26C8" },
-                    { 14, 34, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 14, 18, 10, 0, 0, DateTimeKind.Unspecified), 89, 17m, 443, "R53C15" },
-                    { 15, 25, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 17, 18, 15, 0, 0, DateTimeKind.Unspecified), 24, 9m, 81, "R13C23" },
-                    { 16, 23, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 17, 19, 10, 0, 0, DateTimeKind.Unspecified), 21, 14m, 567, "R11C33" },
-                    { 17, 46, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 7, 31, 10, 0, 0, 0, DateTimeKind.Unspecified), 81, 24m, 260, "R17C13" },
-                    { 18, 25, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 17, 15, 50, 0, 0, DateTimeKind.Unspecified), 24, 9m, 551, "R17C10" },
-                    { 19, 49, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified), 67, 23m, 137, "R18C57" },
-                    { 20, 42, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 14, 15, 45, 0, 0, DateTimeKind.Unspecified), 18, 14m, 378, "R23C32" },
-                    { 21, 45, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 2, 21, 0, 0, 0, DateTimeKind.Unspecified), 96, 7m, 197, "R32C6" },
-                    { 22, 26, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 7, 31, 12, 20, 0, 0, DateTimeKind.Unspecified), 82, 24m, 304, "R27C24" },
-                    { 23, 29, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 16, 21, 15, 0, 0, DateTimeKind.Unspecified), 36, 5m, 253, "R29C50" },
-                    { 24, 1, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 13, 11, 30, 0, 0, DateTimeKind.Unspecified), 8, 6m, 479, "R15C49" },
-                    { 25, 41, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 17, 8, 20, 0, 0, DateTimeKind.Unspecified), 86, 25m, 495, "R37C29" },
-                    { 26, 9, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 11, 12, 30, 0, 0, DateTimeKind.Unspecified), 63, 14m, 592, "R19C12" },
-                    { 27, 43, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 14, 21, 50, 0, 0, DateTimeKind.Unspecified), 17, 18m, 204, "R9C30" },
-                    { 28, 50, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 4, 18, 45, 0, 0, DateTimeKind.Unspecified), 99, 18m, 144, "R1C34" },
-                    { 29, 23, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 11, 12, 50, 0, 0, DateTimeKind.Unspecified), 48, 25m, 359, "R4C26" },
-                    { 30, 34, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 2, 13, 15, 0, 0, DateTimeKind.Unspecified), 68, 16m, 515, "R15C23" },
-                    { 31, 17, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 5, 13, 10, 0, 0, DateTimeKind.Unspecified), 95, 9m, 496, "R46C2" },
-                    { 32, 6, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 10, 13, 0, 0, 0, DateTimeKind.Unspecified), 69, 8m, 343, "R31C16" },
-                    { 33, 45, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 3, 23, 40, 0, 0, DateTimeKind.Unspecified), 79, 7m, 609, "R19C30" },
-                    { 34, 7, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 12, 20, 50, 0, 0, DateTimeKind.Unspecified), 13, 19m, 532, "R29C33" },
-                    { 35, 49, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 2, 22, 45, 0, 0, DateTimeKind.Unspecified), 83, 22m, 613, "R23C18" },
-                    { 36, 20, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 3, 16, 0, 0, 0, DateTimeKind.Unspecified), 49, 18m, 36, "R48C27" },
-                    { 37, 31, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 11, 17, 10, 0, 0, DateTimeKind.Unspecified), 52, 17m, 32, "R36C2" },
-                    { 38, 45, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 7, 16, 45, 0, 0, DateTimeKind.Unspecified), 29, 16m, 279, "R33C4" },
-                    { 39, 46, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 2, 15, 15, 0, 0, DateTimeKind.Unspecified), 33, 6m, 461, "R20C21" },
-                    { 40, 37, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 14, 14, 15, 0, 0, DateTimeKind.Unspecified), 3, 12m, 239, "R44C5" },
-                    { 41, 45, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 7, 31, 13, 45, 0, 0, DateTimeKind.Unspecified), 93, 21m, 383, "R41C27" },
-                    { 42, 2, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 11, 18, 40, 0, 0, DateTimeKind.Unspecified), 19, 16m, 144, "R8C41" }
+                    { 1, 7, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 14, 15, 50, 0, 0, DateTimeKind.Unspecified), 30, 10m, 89, "R53C19" },
+                    { 2, 30, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 7, 30, 11, 30, 0, 0, DateTimeKind.Unspecified), 93, 9m, 380, "R39C19" },
+                    { 3, 16, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 6, 20, 40, 0, 0, DateTimeKind.Unspecified), 91, 15m, 202, "R41C31" },
+                    { 4, 5, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 15, 10, 45, 0, 0, DateTimeKind.Unspecified), 66, 24m, 57, "R18C26" },
+                    { 5, 46, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 4, 18, 10, 0, 0, DateTimeKind.Unspecified), 2, 22m, 580, "R16C7" },
+                    { 7, 20, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 2, 20, 45, 0, 0, DateTimeKind.Unspecified), 49, 18m, 253, "R23C50" },
+                    { 8, 21, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 9, 11, 20, 0, 0, DateTimeKind.Unspecified), 69, 8m, 265, "R39C20" },
+                    { 9, 46, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 4, 23, 10, 0, 0, DateTimeKind.Unspecified), 2, 22m, 588, "R33C36" },
+                    { 10, 8, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 8, 17, 10, 0, 0, DateTimeKind.Unspecified), 33, 7m, 97, "R27C19" },
+                    { 11, 4, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 3, 10, 45, 0, 0, DateTimeKind.Unspecified), 66, 13m, 50, "R28C18" },
+                    { 12, 37, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 9, 23, 40, 0, 0, DateTimeKind.Unspecified), 98, 8m, 467, "R40C16" },
+                    { 13, 29, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 10, 14, 30, 0, 0, DateTimeKind.Unspecified), 73, 6m, 368, "R33C22" },
+                    { 14, 10, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 2, 18, 45, 0, 0, DateTimeKind.Unspecified), 67, 7m, 126, "R34C5" },
+                    { 15, 2, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 12, 13, 0, 0, 0, DateTimeKind.Unspecified), 77, 21m, 22, "R38C31" },
+                    { 16, 39, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 7, 30, 14, 20, 0, 0, DateTimeKind.Unspecified), 3, 17m, 499, "R51C27" },
+                    { 17, 35, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 6, 22, 0, 0, 0, DateTimeKind.Unspecified), 51, 24m, 436, "R17C25" },
+                    { 18, 6, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 13, 16, 0, 0, 0, DateTimeKind.Unspecified), 53, 11m, 74, "R39C8" },
+                    { 19, 48, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 4, 19, 30, 0, 0, DateTimeKind.Unspecified), 71, 22m, 604, "R4C4" },
+                    { 20, 13, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 2, 22, 0, 0, 0, DateTimeKind.Unspecified), 98, 20m, 162, "R42C9" },
+                    { 21, 8, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 9, 16, 20, 0, 0, DateTimeKind.Unspecified), 94, 15m, 98, "R25C31" },
+                    { 22, 16, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 5, 17, 20, 0, 0, DateTimeKind.Unspecified), 68, 20m, 200, "R44C3" },
+                    { 23, 45, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 13, 12, 45, 0, 0, DateTimeKind.Unspecified), 28, 18m, 572, "R26C49" },
+                    { 24, 23, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 1, 8, 20, 0, 0, DateTimeKind.Unspecified), 31, 10m, 286, "R7C29" },
+                    { 25, 42, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 12, 9, 10, 0, 0, DateTimeKind.Unspecified), 73, 8m, 532, "R30C32" },
+                    { 26, 8, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 16, 10, 30, 0, 0, DateTimeKind.Unspecified), 91, 20m, 97, "R24C27" },
+                    { 28, 8, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 7, 29, 11, 40, 0, 0, DateTimeKind.Unspecified), 14, 18m, 100, "R40C30" },
+                    { 29, 15, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 10, 9, 30, 0, 0, DateTimeKind.Unspecified), 89, 20m, 179, "R2C23" },
+                    { 30, 18, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 8, 18, 10, 0, 0, DateTimeKind.Unspecified), 23, 24m, 216, "R9C16" },
+                    { 32, 12, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 16, 15, 0, 0, 0, DateTimeKind.Unspecified), 77, 11m, 146, "R19C26" },
+                    { 33, 7, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 1, 17, 15, 0, 0, DateTimeKind.Unspecified), 94, 22m, 83, "R21C17" },
+                    { 34, 46, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 12, 12, 50, 0, 0, DateTimeKind.Unspecified), 4, 13m, 580, "R20C15" },
+                    { 35, 35, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 14, 15, 30, 0, 0, DateTimeKind.Unspecified), 50, 14m, 438, "R28C20" },
+                    { 36, 10, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 4, 17, 20, 0, 0, DateTimeKind.Unspecified), 92, 6m, 119, "R15C20" },
+                    { 37, 50, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 4, 18, 45, 0, 0, DateTimeKind.Unspecified), 99, 18m, 634, "R9C40" },
+                    { 38, 16, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 7, 12, 20, 0, 0, DateTimeKind.Unspecified), 91, 15m, 202, "R44C34" },
+                    { 39, 4, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 16, 22, 45, 0, 0, DateTimeKind.Unspecified), 54, 20m, 41, "R3C15" },
+                    { 40, 19, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 12, 23, 45, 0, 0, DateTimeKind.Unspecified), 99, 18m, 230, "R15C11" },
+                    { 42, 50, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 14, 23, 40, 0, 0, DateTimeKind.Unspecified), 77, 21m, 643, "R22C56" },
+                    { 43, 22, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 5, 12, 30, 0, 0, DateTimeKind.Unspecified), 75, 24m, 275, "R20C31" },
+                    { 44, 45, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 14, 10, 45, 0, 0, DateTimeKind.Unspecified), 33, 18m, 572, "R22C46" },
+                    { 45, 37, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 5, 13, 30, 0, 0, DateTimeKind.Unspecified), 37, 20m, 459, "R7C34" },
+                    { 46, 35, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 15, 10, 10, 0, 0, DateTimeKind.Unspecified), 14, 25m, 435, "R19C9" }
                 });
 
             migrationBuilder.InsertData(
@@ -4193,48 +4205,48 @@ namespace CinemaTic.Data.Migrations
                 columns: new[] { "Id", "CinemaId", "CustomerId", "ForDate", "MovieId", "Price", "SectorId", "SerialNumber" },
                 values: new object[,]
                 {
-                    { 43, 20, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 2, 20, 45, 0, 0, DateTimeKind.Unspecified), 49, 18m, 137, "R18C58" },
-                    { 44, 4, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 12, 21, 10, 0, 0, DateTimeKind.Unspecified), 64, 8m, 632, "R3C11" },
-                    { 45, 10, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 7, 19, 50, 0, 0, DateTimeKind.Unspecified), 55, 6m, 575, "R31C33" },
-                    { 46, 8, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 9, 16, 20, 0, 0, DateTimeKind.Unspecified), 94, 15m, 464, "R27C16" },
-                    { 47, 11, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 14, 8, 0, 0, 0, DateTimeKind.Unspecified), 24, 12m, 433, "R6C7" },
-                    { 48, 7, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 13, 18, 30, 0, 0, DateTimeKind.Unspecified), 19, 12m, 621, "R7C23" },
-                    { 49, 42, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 12, 9, 10, 0, 0, DateTimeKind.Unspecified), 73, 8m, 411, "R4C31" },
-                    { 50, 1, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 14, 11, 0, 0, 0, DateTimeKind.Unspecified), 82, 22m, 33, "R32C18" },
-                    { 51, 41, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 17, 20, 20, 0, 0, DateTimeKind.Unspecified), 39, 22m, 594, "R11C31" },
-                    { 52, 1, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 16, 13, 30, 0, 0, DateTimeKind.Unspecified), 82, 22m, 159, "R22C24" },
-                    { 53, 49, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified), 67, 23m, 37, "R41C39" },
-                    { 54, 16, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 9, 9, 45, 0, 0, DateTimeKind.Unspecified), 69, 14m, 553, "R25C12" },
-                    { 55, 26, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 10, 8, 30, 0, 0, DateTimeKind.Unspecified), 54, 22m, 149, "R29C17" },
-                    { 56, 22, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 2, 8, 45, 0, 0, DateTimeKind.Unspecified), 61, 11m, 131, "R8C27" },
-                    { 57, 3, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 5, 17, 50, 0, 0, DateTimeKind.Unspecified), 68, 7m, 1, "R3C2" },
-                    { 58, 8, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 16, 10, 30, 0, 0, DateTimeKind.Unspecified), 91, 20m, 296, "R36C31" },
-                    { 59, 2, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 10, 14, 0, 0, 0, DateTimeKind.Unspecified), 44, 10m, 419, "R34C27" },
-                    { 60, 45, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 6, 8, 10, 0, 0, DateTimeKind.Unspecified), 32, 14m, 425, "R29C5" },
-                    { 61, 36, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 7, 30, 19, 0, 0, 0, DateTimeKind.Unspecified), 1, 20m, 573, "R33C7" },
-                    { 62, 22, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 8, 19, 0, 0, 0, DateTimeKind.Unspecified), 75, 24m, 301, "R18C29" },
-                    { 63, 46, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 7, 30, 9, 30, 0, 0, DateTimeKind.Unspecified), 69, 8m, 211, "R23C31" },
-                    { 64, 10, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 6, 8, 50, 0, 0, DateTimeKind.Unspecified), 55, 6m, 27, "R17C18" },
-                    { 65, 37, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 5, 12, 15, 0, 0, DateTimeKind.Unspecified), 37, 20m, 445, "R2C14" },
-                    { 66, 45, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 7, 20, 10, 0, 0, DateTimeKind.Unspecified), 32, 14m, 120, "R16C35" },
-                    { 67, 12, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 16, 12, 30, 0, 0, DateTimeKind.Unspecified), 77, 11m, 584, "R29C29" },
-                    { 68, 17, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 5, 21, 30, 0, 0, DateTimeKind.Unspecified), 35, 22m, 630, "R52C13" },
-                    { 69, 22, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 16, 8, 20, 0, 0, DateTimeKind.Unspecified), 50, 9m, 522, "R54C6" },
-                    { 70, 26, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 8, 12, 30, 0, 0, DateTimeKind.Unspecified), 54, 22m, 614, "R25C37" },
-                    { 71, 45, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 3, 23, 40, 0, 0, DateTimeKind.Unspecified), 79, 7m, 536, "R43C2" },
-                    { 72, 34, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 1, 15, 30, 0, 0, DateTimeKind.Unspecified), 57, 8m, 236, "R35C11" },
-                    { 73, 13, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 15, 20, 50, 0, 0, DateTimeKind.Unspecified), 10, 6m, 382, "R45C7" },
-                    { 74, 17, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 3, 14, 10, 0, 0, DateTimeKind.Unspecified), 22, 16m, 238, "R40C32" },
-                    { 75, 37, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 5, 20, 45, 0, 0, DateTimeKind.Unspecified), 98, 8m, 532, "R24C34" },
-                    { 76, 45, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 8, 15, 40, 0, 0, DateTimeKind.Unspecified), 96, 7m, 355, "R50C17" },
-                    { 77, 10, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 1, 11, 30, 0, 0, DateTimeKind.Unspecified), 28, 19m, 178, "R9C7" },
-                    { 78, 5, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 16, 12, 20, 0, 0, DateTimeKind.Unspecified), 66, 24m, 439, "R34C5" },
-                    { 79, 46, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 7, 30, 16, 30, 0, 0, DateTimeKind.Unspecified), 69, 8m, 361, "R14C7" },
-                    { 80, 10, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 7, 19, 50, 0, 0, DateTimeKind.Unspecified), 55, 6m, 619, "R35C47" },
-                    { 81, 20, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 2, 17, 50, 0, 0, DateTimeKind.Unspecified), 29, 8m, 254, "R35C14" },
-                    { 82, 45, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 11, 13, 10, 0, 0, DateTimeKind.Unspecified), 79, 7m, 360, "R5C39" },
-                    { 83, 7, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 6, 9, 10, 0, 0, DateTimeKind.Unspecified), 30, 10m, 183, "R21C24" },
-                    { 84, 45, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 7, 31, 22, 0, 0, 0, DateTimeKind.Unspecified), 62, 9m, 512, "R7C3" }
+                    { 47, 11, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 14, 19, 30, 0, 0, DateTimeKind.Unspecified), 39, 18m, 134, "R14C11" },
+                    { 48, 43, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 4, 10, 50, 0, 0, DateTimeKind.Unspecified), 4, 25m, 548, "R46C30" },
+                    { 49, 30, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 7, 30, 11, 30, 0, 0, DateTimeKind.Unspecified), 93, 9m, 383, "R44C23" },
+                    { 50, 16, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 9, 9, 45, 0, 0, DateTimeKind.Unspecified), 69, 14m, 193, "R12C33" },
+                    { 51, 2, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 9, 19, 15, 0, 0, DateTimeKind.Unspecified), 77, 21m, 21, "R33C17" },
+                    { 52, 7, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 15, 16, 50, 0, 0, DateTimeKind.Unspecified), 19, 12m, 79, "R5C20" },
+                    { 53, 38, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 4, 22, 45, 0, 0, DateTimeKind.Unspecified), 14, 20m, 479, "R15C47" },
+                    { 54, 42, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 14, 15, 45, 0, 0, DateTimeKind.Unspecified), 18, 14m, 535, "R40C32" },
+                    { 55, 8, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 7, 29, 10, 10, 0, 0, DateTimeKind.Unspecified), 14, 18m, 99, "R40C12" },
+                    { 56, 4, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 17, 15, 40, 0, 0, DateTimeKind.Unspecified), 34, 15m, 44, "R6C46" },
+                    { 57, 9, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 15, 13, 15, 0, 0, DateTimeKind.Unspecified), 48, 25m, 106, "R21C4" },
+                    { 58, 12, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 16, 12, 30, 0, 0, DateTimeKind.Unspecified), 77, 11m, 148, "R27C4" },
+                    { 59, 11, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 5, 8, 20, 0, 0, DateTimeKind.Unspecified), 47, 22m, 136, "R15C37" },
+                    { 60, 44, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 16, 8, 50, 0, 0, DateTimeKind.Unspecified), 90, 19m, 558, "R42C24" },
+                    { 61, 41, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 15, 22, 50, 0, 0, DateTimeKind.Unspecified), 39, 22m, 515, "R19C21" },
+                    { 62, 34, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 10, 22, 10, 0, 0, DateTimeKind.Unspecified), 8, 18m, 428, "R40C18" },
+                    { 63, 39, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 7, 31, 19, 10, 0, 0, DateTimeKind.Unspecified), 3, 17m, 497, "R47C19" },
+                    { 66, 8, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 13, 23, 0, 0, 0, DateTimeKind.Unspecified), 83, 16m, 97, "R23C25" },
+                    { 67, 48, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 7, 30, 8, 50, 0, 0, DateTimeKind.Unspecified), 71, 22m, 616, "R33C9" },
+                    { 68, 23, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 16, 9, 10, 0, 0, DateTimeKind.Unspecified), 21, 14m, 285, "R7C1" },
+                    { 69, 45, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 3, 8, 50, 0, 0, DateTimeKind.Unspecified), 24, 5m, 568, "R11C48" },
+                    { 70, 19, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 17, 16, 20, 0, 0, DateTimeKind.Unspecified), 24, 8m, 229, "R6C31" },
+                    { 71, 5, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 10, 9, 10, 0, 0, DateTimeKind.Unspecified), 5, 20m, 66, "R42C16" },
+                    { 72, 30, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 7, 31, 9, 10, 0, 0, DateTimeKind.Unspecified), 93, 9m, 384, "R45C33" },
+                    { 73, 48, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 17, 22, 50, 0, 0, DateTimeKind.Unspecified), 92, 6m, 605, "R8C25" },
+                    { 74, 12, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 17, 20, 30, 0, 0, DateTimeKind.Unspecified), 52, 24m, 150, "R29C36" },
+                    { 75, 18, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 6, 11, 15, 0, 0, DateTimeKind.Unspecified), 30, 15m, 222, "R15C46" },
+                    { 76, 19, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 17, 15, 10, 0, 0, DateTimeKind.Unspecified), 24, 8m, 240, "R43C24" },
+                    { 77, 36, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 10, 21, 45, 0, 0, DateTimeKind.Unspecified), 94, 12m, 455, "R32C18" },
+                    { 78, 45, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 3, 15, 20, 0, 0, DateTimeKind.Unspecified), 24, 5m, 564, "R5C46" },
+                    { 79, 42, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 13, 10, 15, 0, 0, DateTimeKind.Unspecified), 73, 8m, 530, "R29C15" },
+                    { 80, 42, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 12, 22, 40, 0, 0, DateTimeKind.Unspecified), 3, 22m, 533, "R39C14" },
+                    { 82, 35, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 12, 13, 10, 0, 0, DateTimeKind.Unspecified), 56, 23m, 439, "R35C10" },
+                    { 83, 29, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 4, 23, 0, 0, 0, DateTimeKind.Unspecified), 24, 6m, 363, "R13C32" },
+                    { 84, 17, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 3, 10, 20, 0, 0, DateTimeKind.Unspecified), 22, 16m, 213, "R31C20" },
+                    { 85, 27, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 16, 15, 10, 0, 0, DateTimeKind.Unspecified), 54, 20m, 341, "R27C20" },
+                    { 86, 11, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 13, 16, 45, 0, 0, DateTimeKind.Unspecified), 39, 18m, 140, "R27C44" },
+                    { 87, 17, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 5, 9, 15, 0, 0, DateTimeKind.Unspecified), 25, 10m, 207, "R15C21" },
+                    { 88, 31, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 11, 17, 10, 0, 0, DateTimeKind.Unspecified), 52, 17m, 396, "R54C20" },
+                    { 89, 15, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 10, 14, 20, 0, 0, DateTimeKind.Unspecified), 36, 11m, 184, "R38C12" },
+                    { 90, 50, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 3, 20, 20, 0, 0, DateTimeKind.Unspecified), 99, 18m, 633, "R5C20" },
+                    { 91, 9, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 11, 12, 30, 0, 0, DateTimeKind.Unspecified), 63, 14m, 108, "R40C13" }
                 });
 
             migrationBuilder.InsertData(
@@ -4242,48 +4254,48 @@ namespace CinemaTic.Data.Migrations
                 columns: new[] { "Id", "CinemaId", "CustomerId", "ForDate", "MovieId", "Price", "SectorId", "SerialNumber" },
                 values: new object[,]
                 {
-                    { 85, 37, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 7, 13, 0, 0, 0, DateTimeKind.Unspecified), 79, 17m, 275, "R18C31" },
-                    { 86, 45, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 16, 13, 45, 0, 0, DateTimeKind.Unspecified), 36, 13m, 164, "R59C6" },
-                    { 87, 45, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 6, 9, 20, 0, 0, DateTimeKind.Unspecified), 79, 7m, 49, "R22C5" },
-                    { 88, 6, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 13, 14, 0, 0, 0, DateTimeKind.Unspecified), 28, 8m, 571, "R30C34" },
-                    { 89, 11, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 15, 15, 20, 0, 0, DateTimeKind.Unspecified), 24, 12m, 197, "R35C8" },
-                    { 90, 16, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 11, 12, 15, 0, 0, DateTimeKind.Unspecified), 2, 15m, 325, "R5C24" },
-                    { 91, 1, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 14, 11, 0, 0, 0, DateTimeKind.Unspecified), 82, 22m, 498, "R55C5" },
-                    { 92, 2, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 14, 8, 50, 0, 0, DateTimeKind.Unspecified), 5, 22m, 269, "R58C22" },
-                    { 93, 45, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 1, 23, 0, 0, 0, DateTimeKind.Unspecified), 93, 21m, 85, "R39C18" },
-                    { 94, 10, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 6, 19, 45, 0, 0, DateTimeKind.Unspecified), 55, 6m, 326, "R19C9" },
-                    { 95, 14, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 7, 11, 30, 0, 0, DateTimeKind.Unspecified), 7, 24m, 642, "R21C43" },
-                    { 96, 6, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 11, 11, 45, 0, 0, DateTimeKind.Unspecified), 69, 8m, 594, "R18C34" },
-                    { 97, 49, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified), 67, 23m, 437, "R26C10" },
-                    { 98, 10, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 16, 22, 15, 0, 0, DateTimeKind.Unspecified), 100, 11m, 493, "R26C30" },
-                    { 99, 24, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 14, 15, 15, 0, 0, DateTimeKind.Unspecified), 73, 24m, 453, "R23C37" },
-                    { 100, 49, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified), 67, 23m, 164, "R51C4" },
-                    { 101, 10, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 4, 11, 30, 0, 0, DateTimeKind.Unspecified), 67, 7m, 592, "R14C5" },
-                    { 102, 4, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 12, 18, 50, 0, 0, DateTimeKind.Unspecified), 48, 5m, 443, "R51C11" },
-                    { 103, 14, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 13, 20, 45, 0, 0, DateTimeKind.Unspecified), 7, 24m, 551, "R14C14" },
-                    { 104, 17, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 11, 8, 0, 0, 0, DateTimeKind.Unspecified), 7, 5m, 70, "R18C12" },
-                    { 105, 16, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 6, 20, 40, 0, 0, DateTimeKind.Unspecified), 91, 15m, 465, "R26C35" },
-                    { 106, 12, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 11, 19, 50, 0, 0, DateTimeKind.Unspecified), 13, 16m, 604, "R8C2" },
-                    { 107, 36, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 4, 9, 15, 0, 0, DateTimeKind.Unspecified), 8, 10m, 146, "R19C24" },
-                    { 108, 47, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 16, 9, 20, 0, 0, DateTimeKind.Unspecified), 29, 21m, 490, "R12C4" },
-                    { 109, 49, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 3, 13, 20, 0, 0, DateTimeKind.Unspecified), 19, 8m, 309, "R43C11" },
-                    { 110, 50, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 14, 12, 50, 0, 0, DateTimeKind.Unspecified), 20, 22m, 507, "R19C55" },
-                    { 111, 42, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 16, 8, 15, 0, 0, DateTimeKind.Unspecified), 88, 17m, 53, "R7C11" },
-                    { 112, 46, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 2, 12, 0, 0, 0, DateTimeKind.Unspecified), 57, 25m, 50, "R28C25" },
-                    { 113, 1, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 16, 23, 50, 0, 0, DateTimeKind.Unspecified), 82, 22m, 328, "R30C5" },
-                    { 114, 15, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 15, 21, 45, 0, 0, DateTimeKind.Unspecified), 81, 11m, 464, "R21C21" },
-                    { 115, 28, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 12, 11, 10, 0, 0, DateTimeKind.Unspecified), 98, 5m, 428, "R40C19" },
-                    { 116, 10, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 16, 9, 30, 0, 0, DateTimeKind.Unspecified), 82, 20m, 270, "R8C14" },
-                    { 117, 7, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 14, 22, 50, 0, 0, DateTimeKind.Unspecified), 19, 12m, 583, "R29C7" },
-                    { 118, 49, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified), 67, 23m, 314, "R10C39" },
-                    { 119, 10, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 7, 19, 50, 0, 0, DateTimeKind.Unspecified), 55, 6m, 305, "R26C34" },
-                    { 120, 34, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 15, 18, 15, 0, 0, DateTimeKind.Unspecified), 87, 10m, 345, "R42C22" },
-                    { 121, 8, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 9, 16, 20, 0, 0, DateTimeKind.Unspecified), 94, 15m, 633, "R7C20" },
-                    { 122, 5, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 10, 20, 45, 0, 0, DateTimeKind.Unspecified), 44, 5m, 87, "R50C19" },
-                    { 123, 49, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 2, 11, 20, 0, 0, DateTimeKind.Unspecified), 83, 22m, 306, "R38C6" },
-                    { 124, 34, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 13, 11, 40, 0, 0, DateTimeKind.Unspecified), 89, 17m, 163, "R49C16" },
-                    { 125, 16, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 14, 11, 30, 0, 0, DateTimeKind.Unspecified), 13, 10m, 3, "R11C12" },
-                    { 126, 37, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 5, 12, 15, 0, 0, DateTimeKind.Unspecified), 37, 20m, 593, "R14C20" }
+                    { 92, 17, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 5, 13, 10, 0, 0, DateTimeKind.Unspecified), 95, 9m, 211, "R28C34" },
+                    { 93, 39, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 1, 13, 0, 0, 0, DateTimeKind.Unspecified), 3, 17m, 488, "R7C10" },
+                    { 94, 49, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 7, 31, 10, 40, 0, 0, DateTimeKind.Unspecified), 83, 22m, 625, "R21C16" },
+                    { 95, 17, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 3, 13, 15, 0, 0, DateTimeKind.Unspecified), 22, 16m, 210, "R21C19" },
+                    { 96, 4, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 16, 16, 30, 0, 0, DateTimeKind.Unspecified), 54, 20m, 49, "R21C11" },
+                    { 98, 10, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 15, 8, 20, 0, 0, DateTimeKind.Unspecified), 82, 20m, 118, "R11C3" },
+                    { 100, 46, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 1, 18, 30, 0, 0, DateTimeKind.Unspecified), 81, 24m, 587, "R32C17" },
+                    { 101, 15, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 9, 14, 10, 0, 0, DateTimeKind.Unspecified), 36, 11m, 187, "R45C23" },
+                    { 102, 48, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 16, 15, 45, 0, 0, DateTimeKind.Unspecified), 92, 6m, 615, "R27C50" },
+                    { 103, 15, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 11, 18, 30, 0, 0, DateTimeKind.Unspecified), 81, 11m, 184, "R32C7" },
+                    { 104, 17, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 7, 20, 50, 0, 0, DateTimeKind.Unspecified), 87, 24m, 203, "R4C15" },
+                    { 105, 34, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 15, 18, 15, 0, 0, DateTimeKind.Unspecified), 87, 10m, 429, "R42C9" },
+                    { 106, 22, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 17, 19, 40, 0, 0, DateTimeKind.Unspecified), 50, 9m, 279, "R35C10" },
+                    { 107, 11, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 14, 8, 0, 0, 0, DateTimeKind.Unspecified), 24, 12m, 130, "R8C9" },
+                    { 108, 35, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 14, 15, 30, 0, 0, DateTimeKind.Unspecified), 50, 14m, 443, "R54C10" },
+                    { 110, 43, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 12, 17, 0, 0, 0, DateTimeKind.Unspecified), 15, 8m, 548, "R50C19" },
+                    { 111, 36, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 2, 10, 40, 0, 0, DateTimeKind.Unspecified), 67, 16m, 449, "R18C24" },
+                    { 112, 26, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 10, 8, 30, 0, 0, DateTimeKind.Unspecified), 54, 22m, 327, "R18C24" },
+                    { 113, 31, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 11, 17, 10, 0, 0, DateTimeKind.Unspecified), 52, 17m, 391, "R38C8" },
+                    { 115, 13, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 6, 21, 30, 0, 0, DateTimeKind.Unspecified), 58, 14m, 157, "R12C21" },
+                    { 118, 2, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 13, 15, 20, 0, 0, DateTimeKind.Unspecified), 5, 22m, 13, "R2C32" },
+                    { 119, 49, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified), 67, 23m, 620, "R5C4" },
+                    { 120, 13, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 5, 19, 10, 0, 0, DateTimeKind.Unspecified), 58, 14m, 156, "R13C9" },
+                    { 121, 9, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 12, 9, 40, 0, 0, DateTimeKind.Unspecified), 63, 14m, 110, "R41C12" },
+                    { 122, 22, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 7, 31, 14, 0, 0, 0, DateTimeKind.Unspecified), 23, 17m, 282, "R48C5" },
+                    { 123, 15, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 16, 19, 30, 0, 0, DateTimeKind.Unspecified), 89, 20m, 182, "R25C6" },
+                    { 124, 5, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 10, 8, 20, 0, 0, DateTimeKind.Unspecified), 44, 5m, 54, "R1C20" },
+                    { 125, 43, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 17, 19, 50, 0, 0, DateTimeKind.Unspecified), 17, 18m, 539, "R9C6" },
+                    { 126, 4, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 12, 21, 10, 0, 0, DateTimeKind.Unspecified), 64, 8m, 46, "R18C24" },
+                    { 128, 4, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 17, 18, 50, 0, 0, DateTimeKind.Unspecified), 54, 20m, 52, "R27C50" },
+                    { 129, 32, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 16, 10, 50, 0, 0, DateTimeKind.Unspecified), 13, 10m, 403, "R16C34" },
+                    { 130, 7, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 14, 14, 50, 0, 0, DateTimeKind.Unspecified), 13, 19m, 79, "R9C21" },
+                    { 131, 46, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 12, 12, 50, 0, 0, DateTimeKind.Unspecified), 4, 13m, 584, "R30C28" },
+                    { 132, 34, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 4, 13, 15, 0, 0, DateTimeKind.Unspecified), 57, 8m, 429, "R48C6" },
+                    { 133, 17, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 11, 16, 10, 0, 0, DateTimeKind.Unspecified), 7, 5m, 211, "R24C33" },
+                    { 134, 32, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 15, 18, 20, 0, 0, DateTimeKind.Unspecified), 13, 10m, 403, "R20C44" },
+                    { 135, 2, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 12, 13, 0, 0, 0, DateTimeKind.Unspecified), 77, 21m, 21, "R36C19" },
+                    { 136, 32, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 7, 20, 30, 0, 0, DateTimeKind.Unspecified), 7, 5m, 406, "R23C26" },
+                    { 137, 8, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 16, 10, 30, 0, 0, DateTimeKind.Unspecified), 91, 20m, 101, "R36C37" },
+                    { 139, 2, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 7, 9, 30, 0, 0, DateTimeKind.Unspecified), 77, 21m, 21, "R38C17" },
+                    { 140, 42, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 16, 8, 15, 0, 0, DateTimeKind.Unspecified), 88, 17m, 532, "R24C33" },
+                    { 141, 12, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 7, 16, 15, 0, 0, DateTimeKind.Unspecified), 37, 11m, 149, "R26C30" }
                 });
 
             migrationBuilder.InsertData(
@@ -4291,48 +4303,48 @@ namespace CinemaTic.Data.Migrations
                 columns: new[] { "Id", "CinemaId", "CustomerId", "ForDate", "MovieId", "Price", "SectorId", "SerialNumber" },
                 values: new object[,]
                 {
-                    { 127, 45, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 3, 18, 20, 0, 0, DateTimeKind.Unspecified), 93, 21m, 549, "R3C15" },
-                    { 128, 12, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 11, 19, 45, 0, 0, DateTimeKind.Unspecified), 13, 16m, 101, "R37C31" },
-                    { 129, 1, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 13, 11, 30, 0, 0, DateTimeKind.Unspecified), 8, 6m, 559, "R54C6" },
-                    { 130, 45, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 6, 8, 10, 0, 0, DateTimeKind.Unspecified), 32, 14m, 38, "R59C12" },
-                    { 131, 10, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 10, 22, 0, 0, 0, DateTimeKind.Unspecified), 92, 6m, 346, "R3C15" },
-                    { 132, 46, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 12, 12, 50, 0, 0, DateTimeKind.Unspecified), 4, 13m, 319, "R11C46" },
-                    { 133, 14, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 16, 15, 40, 0, 0, DateTimeKind.Unspecified), 24, 8m, 34, "R36C38" },
-                    { 134, 49, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 4, 17, 50, 0, 0, DateTimeKind.Unspecified), 83, 22m, 293, "R30C35" },
-                    { 135, 22, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 3, 10, 15, 0, 0, DateTimeKind.Unspecified), 75, 24m, 619, "R33C49" },
-                    { 136, 10, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 6, 15, 40, 0, 0, DateTimeKind.Unspecified), 85, 14m, 118, "R14C4" },
-                    { 137, 38, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 17, 16, 15, 0, 0, DateTimeKind.Unspecified), 29, 12m, 142, "R7C8" },
-                    { 138, 19, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 14, 16, 50, 0, 0, DateTimeKind.Unspecified), 99, 18m, 592, "R13C10" },
-                    { 139, 49, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified), 67, 23m, 215, "R2C1" },
-                    { 140, 6, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 13, 18, 20, 0, 0, DateTimeKind.Unspecified), 53, 11m, 285, "R5C11" },
-                    { 141, 22, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 1, 20, 45, 0, 0, DateTimeKind.Unspecified), 66, 19m, 43, "R6C34" },
-                    { 142, 49, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 7, 31, 18, 40, 0, 0, DateTimeKind.Unspecified), 83, 22m, 363, "R16C43" },
-                    { 143, 38, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 7, 14, 0, 0, 0, DateTimeKind.Unspecified), 59, 22m, 236, "R37C8" },
-                    { 144, 45, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 7, 31, 19, 20, 0, 0, DateTimeKind.Unspecified), 62, 9m, 138, "R27C12" },
-                    { 145, 2, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 12, 22, 45, 0, 0, DateTimeKind.Unspecified), 19, 16m, 478, "R18C44" },
-                    { 146, 19, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 8, 8, 10, 0, 0, DateTimeKind.Unspecified), 99, 18m, 333, "R48C18" },
-                    { 147, 12, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 10, 11, 10, 0, 0, DateTimeKind.Unspecified), 37, 11m, 152, "R32C25" },
-                    { 148, 26, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 10, 12, 30, 0, 0, DateTimeKind.Unspecified), 99, 6m, 237, "R39C22" },
-                    { 149, 16, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 9, 9, 45, 0, 0, DateTimeKind.Unspecified), 69, 14m, 98, "R29C36" },
-                    { 150, 36, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 4, 9, 15, 0, 0, DateTimeKind.Unspecified), 8, 10m, 619, "R33C47" },
-                    { 151, 37, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 15, 11, 10, 0, 0, DateTimeKind.Unspecified), 3, 12m, 34, "R35C44" },
-                    { 152, 38, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 11, 14, 15, 0, 0, DateTimeKind.Unspecified), 57, 7m, 158, "R26C1" },
-                    { 153, 2, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 12, 13, 45, 0, 0, DateTimeKind.Unspecified), 77, 21m, 482, "R30C34" },
-                    { 154, 45, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 8, 9, 0, 0, 0, DateTimeKind.Unspecified), 24, 5m, 121, "R14C49" },
-                    { 155, 44, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 15, 20, 30, 0, 0, DateTimeKind.Unspecified), 13, 24m, 386, "R8C21" },
-                    { 156, 22, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 7, 31, 14, 0, 0, 0, DateTimeKind.Unspecified), 23, 17m, 385, "R5C8" },
-                    { 157, 17, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 3, 13, 15, 0, 0, DateTimeKind.Unspecified), 22, 16m, 73, "R30C17" },
-                    { 158, 1, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 15, 14, 40, 0, 0, DateTimeKind.Unspecified), 80, 13m, 551, "R15C3" },
-                    { 159, 17, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 5, 9, 15, 0, 0, DateTimeKind.Unspecified), 25, 10m, 77, "R49C18" },
-                    { 160, 24, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 4, 23, 15, 0, 0, DateTimeKind.Unspecified), 74, 23m, 613, "R22C25" },
-                    { 161, 49, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified), 67, 23m, 400, "R8C47" },
-                    { 162, 23, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 7, 30, 20, 20, 0, 0, DateTimeKind.Unspecified), 31, 10m, 68, "R3C12" },
-                    { 163, 5, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 9, 15, 40, 0, 0, DateTimeKind.Unspecified), 21, 19m, 171, "R30C26" },
-                    { 164, 20, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 5, 16, 30, 0, 0, DateTimeKind.Unspecified), 49, 18m, 391, "R34C4" },
-                    { 165, 7, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 7, 30, 12, 45, 0, 0, DateTimeKind.Unspecified), 94, 22m, 339, "R19C17" },
-                    { 166, 42, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 9, 22, 45, 0, 0, DateTimeKind.Unspecified), 73, 8m, 302, "R20C34" },
-                    { 167, 46, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 4, 18, 10, 0, 0, DateTimeKind.Unspecified), 2, 22m, 226, "R23C47" },
-                    { 168, 30, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 15, 12, 45, 0, 0, DateTimeKind.Unspecified), 89, 18m, 529, "R13C35" }
+                    { 142, 9, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 16, 17, 30, 0, 0, DateTimeKind.Unspecified), 71, 18m, 109, "R38C18" },
+                    { 144, 43, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 4, 22, 40, 0, 0, DateTimeKind.Unspecified), 24, 21m, 544, "R26C19" },
+                    { 145, 22, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 2, 8, 45, 0, 0, DateTimeKind.Unspecified), 61, 11m, 272, "R9C32" },
+                    { 146, 49, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 7, 31, 10, 40, 0, 0, DateTimeKind.Unspecified), 83, 22m, 620, "R2C1" },
+                    { 148, 46, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 7, 30, 9, 30, 0, 0, DateTimeKind.Unspecified), 69, 8m, 578, "R5C23" },
+                    { 149, 47, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 4, 19, 45, 0, 0, DateTimeKind.Unspecified), 70, 9m, 595, "R30C2" },
+                    { 150, 5, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 10, 8, 20, 0, 0, DateTimeKind.Unspecified), 44, 5m, 63, "R36C18" },
+                    { 151, 5, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 17, 13, 40, 0, 0, DateTimeKind.Unspecified), 66, 24m, 61, "R30C31" },
+                    { 152, 7, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 8, 17, 15, 0, 0, DateTimeKind.Unspecified), 19, 12m, 89, "R55C21" },
+                    { 153, 48, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 7, 30, 8, 50, 0, 0, DateTimeKind.Unspecified), 71, 22m, 617, "R33C20" },
+                    { 154, 45, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 9, 19, 50, 0, 0, DateTimeKind.Unspecified), 32, 14m, 561, "R6C15" },
+                    { 155, 16, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 12, 18, 40, 0, 0, DateTimeKind.Unspecified), 98, 22m, 192, "R16C21" },
+                    { 156, 46, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 12, 9, 50, 0, 0, DateTimeKind.Unspecified), 2, 22m, 582, "R17C32" },
+                    { 157, 44, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 15, 20, 30, 0, 0, DateTimeKind.Unspecified), 13, 24m, 553, "R27C15" },
+                    { 158, 35, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 14, 14, 20, 0, 0, DateTimeKind.Unspecified), 50, 14m, 442, "R44C18" },
+                    { 159, 22, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 11, 12, 45, 0, 0, DateTimeKind.Unspecified), 61, 11m, 282, "R47C9" },
+                    { 160, 31, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 7, 11, 15, 0, 0, DateTimeKind.Unspecified), 46, 17m, 393, "R46C14" },
+                    { 161, 10, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 3, 17, 15, 0, 0, DateTimeKind.Unspecified), 87, 24m, 117, "R10C47" },
+                    { 162, 17, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 8, 16, 10, 0, 0, DateTimeKind.Unspecified), 87, 24m, 205, "R10C32" },
+                    { 163, 19, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 5, 8, 40, 0, 0, DateTimeKind.Unspecified), 99, 18m, 237, "R32C25" },
+                    { 164, 50, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 13, 15, 30, 0, 0, DateTimeKind.Unspecified), 1, 17m, 640, "R22C4" },
+                    { 165, 32, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 9, 9, 30, 0, 0, DateTimeKind.Unspecified), 49, 17m, 399, "R2C37" },
+                    { 167, 11, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 16, 15, 30, 0, 0, DateTimeKind.Unspecified), 16, 13m, 130, "R9C8" },
+                    { 168, 7, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 13, 13, 45, 0, 0, DateTimeKind.Unspecified), 30, 10m, 80, "R14C9" },
+                    { 169, 18, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 17, 17, 45, 0, 0, DateTimeKind.Unspecified), 30, 15m, 220, "R19C28" },
+                    { 170, 36, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 10, 18, 20, 0, 0, DateTimeKind.Unspecified), 94, 12m, 453, "R30C31" },
+                    { 171, 42, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 12, 19, 50, 0, 0, DateTimeKind.Unspecified), 18, 14m, 537, "R42C26" },
+                    { 172, 6, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 9, 22, 50, 0, 0, DateTimeKind.Unspecified), 87, 16m, 77, "R44C17" },
+                    { 173, 45, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 10, 16, 0, 0, 0, DateTimeKind.Unspecified), 29, 16m, 572, "R25C49" },
+                    { 174, 5, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 15, 23, 0, 0, 0, DateTimeKind.Unspecified), 28, 22m, 56, "R15C11" },
+                    { 175, 10, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 16, 22, 40, 0, 0, DateTimeKind.Unspecified), 100, 11m, 125, "R24C50" },
+                    { 176, 18, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 2, 21, 40, 0, 0, DateTimeKind.Unspecified), 23, 24m, 217, "R4C36" },
+                    { 177, 16, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 11, 12, 40, 0, 0, DateTimeKind.Unspecified), 2, 15m, 188, "R4C1" },
+                    { 178, 10, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 14, 13, 40, 0, 0, DateTimeKind.Unspecified), 100, 11m, 128, "R34C41" },
+                    { 179, 48, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 14, 12, 10, 0, 0, DateTimeKind.Unspecified), 86, 10m, 604, "R10C9" },
+                    { 180, 17, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 9, 16, 0, 0, 0, DateTimeKind.Unspecified), 60, 25m, 209, "R24C7" },
+                    { 181, 10, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 6, 23, 50, 0, 0, DateTimeKind.Unspecified), 85, 14m, 125, "R29C50" },
+                    { 182, 16, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 13, 10, 30, 0, 0, DateTimeKind.Unspecified), 37, 22m, 192, "R19C30" },
+                    { 183, 22, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 15, 9, 30, 0, 0, DateTimeKind.Unspecified), 61, 11m, 277, "R27C28" },
+                    { 184, 21, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 12, 10, 40, 0, 0, DateTimeKind.Unspecified), 69, 8m, 263, "R23C19" },
+                    { 185, 24, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 11, 20, 15, 0, 0, DateTimeKind.Unspecified), 73, 24m, 305, "R27C31" },
+                    { 188, 22, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 9, 20, 45, 0, 0, DateTimeKind.Unspecified), 75, 24m, 283, "R41C28" }
                 });
 
             migrationBuilder.InsertData(
@@ -4340,38 +4352,18 @@ namespace CinemaTic.Data.Migrations
                 columns: new[] { "Id", "CinemaId", "CustomerId", "ForDate", "MovieId", "Price", "SectorId", "SerialNumber" },
                 values: new object[,]
                 {
-                    { 169, 49, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 2, 12, 40, 0, 0, DateTimeKind.Unspecified), 19, 8m, 211, "R24C36" },
-                    { 170, 46, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 7, 30, 21, 15, 0, 0, DateTimeKind.Unspecified), 69, 8m, 618, "R35C42" },
-                    { 171, 4, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 11, 15, 40, 0, 0, DateTimeKind.Unspecified), 64, 8m, 435, "R18C6" },
-                    { 172, 9, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 9, 12, 40, 0, 0, DateTimeKind.Unspecified), 48, 25m, 345, "R44C28" },
-                    { 173, 15, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 10, 10, 30, 0, 0, DateTimeKind.Unspecified), 81, 11m, 381, "R31C32" },
-                    { 174, 17, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 11, 8, 0, 0, 0, DateTimeKind.Unspecified), 7, 5m, 74, "R34C15" },
-                    { 175, 39, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 7, 31, 9, 50, 0, 0, DateTimeKind.Unspecified), 3, 17m, 35, "R46C12" },
-                    { 176, 12, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 6, 10, 30, 0, 0, DateTimeKind.Unspecified), 37, 11m, 289, "R15C27" },
-                    { 177, 24, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 17, 14, 10, 0, 0, DateTimeKind.Unspecified), 24, 19m, 619, "R34C49" },
-                    { 178, 30, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 16, 14, 45, 0, 0, DateTimeKind.Unspecified), 89, 18m, 513, "R7C21" },
-                    { 179, 20, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 8, 11, 40, 0, 0, DateTimeKind.Unspecified), 70, 21m, 297, "R7C2" },
-                    { 180, 46, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 4, 23, 10, 0, 0, DateTimeKind.Unspecified), 2, 22m, 399, "R7C35" },
-                    { 181, 49, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 3, 13, 20, 0, 0, DateTimeKind.Unspecified), 19, 8m, 274, "R18C16" },
-                    { 182, 46, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 12, 9, 50, 0, 0, DateTimeKind.Unspecified), 2, 22m, 351, "R26C19" },
-                    { 183, 45, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 16, 15, 15, 0, 0, DateTimeKind.Unspecified), 33, 18m, 237, "R31C20" },
-                    { 184, 10, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 15, 20, 20, 0, 0, DateTimeKind.Unspecified), 32, 22m, 341, "R24C26" },
-                    { 185, 45, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 7, 20, 10, 0, 0, DateTimeKind.Unspecified), 32, 14m, 516, "R24C10" },
-                    { 186, 42, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 15, 9, 15, 0, 0, DateTimeKind.Unspecified), 3, 22m, 98, "R29C34" },
-                    { 187, 4, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 8, 15, 30, 0, 0, DateTimeKind.Unspecified), 48, 5m, 385, "R1C7" },
-                    { 188, 49, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 2, 22, 45, 0, 0, DateTimeKind.Unspecified), 83, 22m, 375, "R12C35" },
-                    { 189, 37, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 8, 12, 50, 0, 0, DateTimeKind.Unspecified), 98, 8m, 219, "R16C6" },
-                    { 190, 5, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 14, 14, 10, 0, 0, DateTimeKind.Unspecified), 28, 22m, 437, "R28C12" },
-                    { 191, 6, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 6, 19, 20, 0, 0, DateTimeKind.Unspecified), 60, 23m, 97, "R29C26" },
-                    { 192, 45, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 1, 15, 40, 0, 0, DateTimeKind.Unspecified), 93, 21m, 483, "R22C46" },
-                    { 193, 45, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 13, 9, 50, 0, 0, DateTimeKind.Unspecified), 36, 13m, 599, "R37C25" },
-                    { 194, 2, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 9, 11, 30, 0, 0, DateTimeKind.Unspecified), 75, 23m, 564, "R2C49" },
-                    { 195, 46, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 7, 31, 10, 0, 0, 0, DateTimeKind.Unspecified), 81, 24m, 393, "R49C12" },
-                    { 196, 49, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified), 67, 23m, 420, "R34C37" },
-                    { 197, 5, "c21bf410-3e22-4720-b01a-f2d91191a222", new DateTime(2023, 8, 7, 9, 20, 0, 0, DateTimeKind.Unspecified), 5, 20m, 548, "R46C20" },
-                    { 198, 17, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 7, 30, 23, 40, 0, 0, DateTimeKind.Unspecified), 91, 24m, 178, "R4C11" },
-                    { 199, 43, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 17, 19, 50, 0, 0, DateTimeKind.Unspecified), 17, 18m, 496, "R48C14" },
-                    { 200, 44, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 5, 19, 50, 0, 0, DateTimeKind.Unspecified), 92, 24m, 521, "R43C17" }
+                    { 189, 49, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 2, 19, 15, 0, 0, DateTimeKind.Unspecified), 67, 23m, 625, "R21C26" },
+                    { 190, 6, "4634669c-c5ad-41e6-8b41-f1524c9654ad", new DateTime(2023, 8, 7, 23, 20, 0, 0, DateTimeKind.Unspecified), 28, 8m, 72, "R22C2" },
+                    { 191, 45, "96256cfb-df20-4a1f-8898-f06f634a17d7", new DateTime(2023, 8, 16, 13, 45, 0, 0, DateTimeKind.Unspecified), 36, 13m, 570, "R24C21" },
+                    { 192, 11, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 13, 19, 40, 0, 0, DateTimeKind.Unspecified), 45, 16m, 132, "R10C38" },
+                    { 193, 42, "f338b628-feaf-4a03-95ad-defb7aec5c83", new DateTime(2023, 8, 15, 9, 15, 0, 0, DateTimeKind.Unspecified), 3, 22m, 528, "R15C17" },
+                    { 194, 36, "1c850a33-6e0a-4c03-bb2d-c5a388042364", new DateTime(2023, 8, 2, 9, 20, 0, 0, DateTimeKind.Unspecified), 8, 10m, 456, "R33C38" },
+                    { 195, 38, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 16, 18, 20, 0, 0, DateTimeKind.Unspecified), 45, 11m, 485, "R34C20" },
+                    { 196, 45, "2a8f5f5c-e539-4868-837b-9a19852a904e", new DateTime(2023, 8, 11, 13, 10, 0, 0, DateTimeKind.Unspecified), 79, 7m, 566, "R19C28" },
+                    { 197, 50, "e7d88cb7-a424-4795-8965-17273642b773", new DateTime(2023, 8, 3, 20, 20, 0, 0, DateTimeKind.Unspecified), 99, 18m, 635, "R9C54" },
+                    { 198, 25, "bfa19e5f-4529-4276-bde8-8e6d3de2c423", new DateTime(2023, 8, 17, 15, 50, 0, 0, DateTimeKind.Unspecified), 24, 9m, 322, "R26C31" },
+                    { 199, 6, "191d6e78-88fb-40ce-b85c-d8bcf4a1ae4c", new DateTime(2023, 8, 12, 10, 20, 0, 0, DateTimeKind.Unspecified), 69, 8m, 70, "R19C5" },
+                    { 200, 22, "2f09c66b-0830-4fcc-8a0f-f29b0990c669", new DateTime(2023, 8, 16, 8, 20, 0, 0, DateTimeKind.Unspecified), 50, 9m, 281, "R36C31" }
                 });
 
             migrationBuilder.AddForeignKey(
@@ -4389,6 +4381,14 @@ namespace CinemaTic.Data.Migrations
                 principalTable: "Movies",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Movies_Genres_GenreId",
+                table: "Movies",
+                column: "GenreId",
+                principalTable: "Genres",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.SetNull);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -4400,6 +4400,10 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DropForeignKey(
                 name: "FK_ActorsMovies_Movies_MovieId",
                 table: "ActorsMovies");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_Movies_Genres_GenreId",
+                table: "Movies");
 
             migrationBuilder.DeleteData(
                 table: "Actors",
@@ -16764,7 +16768,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 1);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 2);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 3);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -16814,11 +16828,6 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 13);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 14);
 
             migrationBuilder.DeleteData(
@@ -16854,16 +16863,6 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 21);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 22);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 23);
 
             migrationBuilder.DeleteData(
@@ -16880,6 +16879,11 @@ namespace CinemaTic.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 26);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 27);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -16904,6 +16908,41 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 32);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 33);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 34);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 35);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 36);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 37);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 38);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 39);
 
             migrationBuilder.DeleteData(
@@ -16914,27 +16953,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 41);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 42);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 44);
+                keyValue: 43);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 45);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 46);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -16954,27 +16983,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 52);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 54);
+                keyValue: 53);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 55);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 56);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 57);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -16994,17 +17008,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 61);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 62);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 63);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17019,12 +17023,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 66);
+                keyValue: 67);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 67);
+                keyValue: 68);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17039,7 +17043,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 72);
+                keyValue: 73);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17059,12 +17063,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 79);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 80);
+                keyValue: 81);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17074,12 +17073,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 83);
+                keyValue: 84);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 84);
+                keyValue: 85);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17089,12 +17088,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 88);
+                keyValue: 87);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 89);
+                keyValue: 88);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17129,12 +17128,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 99);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 100);
+                keyValue: 96);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17159,27 +17153,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 106);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 107);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 108);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 109);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 110);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17214,12 +17188,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 117);
+                keyValue: 120);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 119);
+                keyValue: 121);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17239,22 +17213,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 125);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 126);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 127);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 128);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17264,12 +17223,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 130);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 132);
+                keyValue: 131);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17284,7 +17238,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 136);
+                keyValue: 137);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 138);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17294,12 +17253,22 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 140);
+                keyValue: 141);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 141);
+                keyValue: 142);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 143);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 144);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17314,17 +17283,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 148);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 150);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 151);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 152);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17344,12 +17308,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 156);
+                keyValue: 158);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 157);
+                keyValue: 159);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17364,7 +17328,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 162);
+                keyValue: 163);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 164);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17399,6 +17368,11 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 171);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 172);
 
             migrationBuilder.DeleteData(
@@ -17429,7 +17403,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 179);
+                keyValue: 178);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17444,12 +17418,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 182);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 184);
+                keyValue: 183);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17460,16 +17429,6 @@ namespace CinemaTic.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 186);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 187);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 188);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17489,16 +17448,6 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 192);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 193);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 194);
 
             migrationBuilder.DeleteData(
@@ -17514,6 +17463,11 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 197);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 198);
 
             migrationBuilder.DeleteData(
@@ -17524,27 +17478,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 200);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 201);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 202);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 203);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 205);
+                keyValue: 204);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17554,22 +17493,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 207);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 208);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 209);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 210);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17579,22 +17503,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 213);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 214);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 216);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 217);
+                keyValue: 215);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17604,17 +17518,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 220);
+                keyValue: 219);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 221);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 222);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17634,22 +17543,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 226);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 227);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 228);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 229);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 230);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17679,7 +17583,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 240);
+                keyValue: 236);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 238);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 239);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17744,6 +17658,16 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 254);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 255);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 256);
 
             migrationBuilder.DeleteData(
@@ -17764,6 +17688,11 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 260);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 261);
 
             migrationBuilder.DeleteData(
@@ -17774,17 +17703,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 263);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 264);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 265);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17804,12 +17723,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 271);
+                keyValue: 269);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 272);
+                keyValue: 270);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 271);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17819,12 +17743,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 276);
+                keyValue: 274);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 277);
+                keyValue: 276);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17839,22 +17763,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 281);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 283);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 284);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 286);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17865,6 +17774,11 @@ namespace CinemaTic.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 288);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 289);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17884,12 +17798,27 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 293);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 294);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 295);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 296);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 297);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17909,7 +17838,27 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 301);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 302);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 303);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 304);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 306);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17920,6 +17869,11 @@ namespace CinemaTic.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 308);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 309);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17944,6 +17898,11 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 314);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 315);
 
             migrationBuilder.DeleteData(
@@ -17964,17 +17923,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 319);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 320);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 321);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 322);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -17989,7 +17948,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 327);
+                keyValue: 325);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 326);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 328);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18010,6 +17979,11 @@ namespace CinemaTic.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 332);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 333);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18039,12 +18013,37 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 339);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 340);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 342);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 343);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 344);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 345);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 346);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18069,6 +18068,11 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 351);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 352);
 
             migrationBuilder.DeleteData(
@@ -18084,6 +18088,11 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 355);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 356);
 
             migrationBuilder.DeleteData(
@@ -18095,6 +18104,21 @@ namespace CinemaTic.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 358);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 359);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 360);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 361);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18120,11 +18144,6 @@ namespace CinemaTic.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 367);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 368);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18159,7 +18178,22 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 375);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 376);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 377);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 378);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18169,12 +18203,22 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 380);
+                keyValue: 381);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 384);
+                keyValue: 382);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 385);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 386);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18214,17 +18258,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 396);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 397);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 398);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 400);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18239,22 +18283,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 403);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 404);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 405);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 406);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18275,6 +18309,11 @@ namespace CinemaTic.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 410);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 411);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18314,6 +18353,16 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 419);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 420);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 421);
 
             migrationBuilder.DeleteData(
@@ -18334,17 +18383,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 425);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 426);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 427);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 429);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18364,17 +18413,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 433);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 434);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 436);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 438);
+                keyValue: 437);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18389,12 +18438,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 442);
+                keyValue: 444);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 444);
+                keyValue: 445);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18404,12 +18453,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 448);
+                keyValue: 447);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 449);
+                keyValue: 448);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18429,12 +18478,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 455);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 456);
+                keyValue: 454);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18449,12 +18493,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 459);
+                keyValue: 460);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 460);
+                keyValue: 461);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18469,12 +18513,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 466);
+                keyValue: 464);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 467);
+                keyValue: 465);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 466);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18529,6 +18578,11 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 478);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 480);
 
             migrationBuilder.DeleteData(
@@ -18539,12 +18593,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 484);
+                keyValue: 482);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 485);
+                keyValue: 483);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 484);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18559,12 +18618,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 488);
+                keyValue: 489);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 489);
+                keyValue: 490);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18579,17 +18638,27 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 493);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 494);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 497);
+                keyValue: 495);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 499);
+                keyValue: 496);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 498);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18609,6 +18678,11 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 503);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 504);
 
             migrationBuilder.DeleteData(
@@ -18620,6 +18694,16 @@ namespace CinemaTic.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 506);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 507);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 508);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18639,7 +18723,22 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 512);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 513);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 514);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 516);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18660,6 +18759,16 @@ namespace CinemaTic.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 520);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 521);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 522);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18689,7 +18798,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 530);
+                keyValue: 529);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18699,32 +18808,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 533);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 534);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 535);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 537);
+                keyValue: 536);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 538);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 539);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18749,11 +18843,6 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 544);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 545);
 
             migrationBuilder.DeleteData(
@@ -18769,7 +18858,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 549);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 550);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 551);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18799,17 +18898,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 558);
+                keyValue: 559);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 560);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 561);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18829,12 +18923,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 566);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 568);
+                keyValue: 567);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18844,17 +18933,22 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 570);
+                keyValue: 571);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 572);
+                keyValue: 573);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 574);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 575);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18869,17 +18963,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 578);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 579);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 580);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18889,22 +18973,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 582);
+                keyValue: 583);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 585);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 586);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 587);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 588);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18924,7 +19003,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 595);
+                keyValue: 592);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 593);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 594);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18940,6 +19029,11 @@ namespace CinemaTic.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 598);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 599);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18964,11 +19058,6 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 605);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 606);
 
             migrationBuilder.DeleteData(
@@ -18980,6 +19069,11 @@ namespace CinemaTic.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 608);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 609);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -18999,22 +19093,27 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 615);
+                keyValue: 613);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 616);
+                keyValue: 614);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 617);
+                keyValue: 618);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 620);
+                keyValue: 619);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 621);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -19030,11 +19129,6 @@ namespace CinemaTic.Data.Migrations
                 table: "Sectors",
                 keyColumn: "Id",
                 keyValue: 624);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 625);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -19059,17 +19153,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 630);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 631);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 634);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 635);
+                keyValue: 632);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -19094,17 +19188,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 640);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 641);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 643);
+                keyValue: 642);
 
             migrationBuilder.DeleteData(
                 table: "Tickets",
@@ -19130,11 +19219,6 @@ namespace CinemaTic.Data.Migrations
                 table: "Tickets",
                 keyColumn: "Id",
                 keyValue: 5);
-
-            migrationBuilder.DeleteData(
-                table: "Tickets",
-                keyColumn: "Id",
-                keyValue: 6);
 
             migrationBuilder.DeleteData(
                 table: "Tickets",
@@ -19239,11 +19323,6 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Tickets",
                 keyColumn: "Id",
-                keyValue: 27);
-
-            migrationBuilder.DeleteData(
-                table: "Tickets",
-                keyColumn: "Id",
                 keyValue: 28);
 
             migrationBuilder.DeleteData(
@@ -19255,11 +19334,6 @@ namespace CinemaTic.Data.Migrations
                 table: "Tickets",
                 keyColumn: "Id",
                 keyValue: 30);
-
-            migrationBuilder.DeleteData(
-                table: "Tickets",
-                keyColumn: "Id",
-                keyValue: 31);
 
             migrationBuilder.DeleteData(
                 table: "Tickets",
@@ -19305,11 +19379,6 @@ namespace CinemaTic.Data.Migrations
                 table: "Tickets",
                 keyColumn: "Id",
                 keyValue: 40);
-
-            migrationBuilder.DeleteData(
-                table: "Tickets",
-                keyColumn: "Id",
-                keyValue: 41);
 
             migrationBuilder.DeleteData(
                 table: "Tickets",
@@ -19424,16 +19493,6 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Tickets",
                 keyColumn: "Id",
-                keyValue: 64);
-
-            migrationBuilder.DeleteData(
-                table: "Tickets",
-                keyColumn: "Id",
-                keyValue: 65);
-
-            migrationBuilder.DeleteData(
-                table: "Tickets",
-                keyColumn: "Id",
                 keyValue: 66);
 
             migrationBuilder.DeleteData(
@@ -19505,11 +19564,6 @@ namespace CinemaTic.Data.Migrations
                 table: "Tickets",
                 keyColumn: "Id",
                 keyValue: 80);
-
-            migrationBuilder.DeleteData(
-                table: "Tickets",
-                keyColumn: "Id",
-                keyValue: 81);
 
             migrationBuilder.DeleteData(
                 table: "Tickets",
@@ -19589,17 +19643,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Tickets",
                 keyColumn: "Id",
-                keyValue: 97);
-
-            migrationBuilder.DeleteData(
-                table: "Tickets",
-                keyColumn: "Id",
                 keyValue: 98);
-
-            migrationBuilder.DeleteData(
-                table: "Tickets",
-                keyColumn: "Id",
-                keyValue: 99);
 
             migrationBuilder.DeleteData(
                 table: "Tickets",
@@ -19649,11 +19693,6 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Tickets",
                 keyColumn: "Id",
-                keyValue: 109);
-
-            migrationBuilder.DeleteData(
-                table: "Tickets",
-                keyColumn: "Id",
                 keyValue: 110);
 
             migrationBuilder.DeleteData(
@@ -19674,22 +19713,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Tickets",
                 keyColumn: "Id",
-                keyValue: 114);
-
-            migrationBuilder.DeleteData(
-                table: "Tickets",
-                keyColumn: "Id",
                 keyValue: 115);
-
-            migrationBuilder.DeleteData(
-                table: "Tickets",
-                keyColumn: "Id",
-                keyValue: 116);
-
-            migrationBuilder.DeleteData(
-                table: "Tickets",
-                keyColumn: "Id",
-                keyValue: 117);
 
             migrationBuilder.DeleteData(
                 table: "Tickets",
@@ -19735,11 +19759,6 @@ namespace CinemaTic.Data.Migrations
                 table: "Tickets",
                 keyColumn: "Id",
                 keyValue: 126);
-
-            migrationBuilder.DeleteData(
-                table: "Tickets",
-                keyColumn: "Id",
-                keyValue: 127);
 
             migrationBuilder.DeleteData(
                 table: "Tickets",
@@ -19794,11 +19813,6 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Tickets",
                 keyColumn: "Id",
-                keyValue: 138);
-
-            migrationBuilder.DeleteData(
-                table: "Tickets",
-                keyColumn: "Id",
                 keyValue: 139);
 
             migrationBuilder.DeleteData(
@@ -19819,11 +19833,6 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Tickets",
                 keyColumn: "Id",
-                keyValue: 143);
-
-            migrationBuilder.DeleteData(
-                table: "Tickets",
-                keyColumn: "Id",
                 keyValue: 144);
 
             migrationBuilder.DeleteData(
@@ -19835,11 +19844,6 @@ namespace CinemaTic.Data.Migrations
                 table: "Tickets",
                 keyColumn: "Id",
                 keyValue: 146);
-
-            migrationBuilder.DeleteData(
-                table: "Tickets",
-                keyColumn: "Id",
-                keyValue: 147);
 
             migrationBuilder.DeleteData(
                 table: "Tickets",
@@ -19930,11 +19934,6 @@ namespace CinemaTic.Data.Migrations
                 table: "Tickets",
                 keyColumn: "Id",
                 keyValue: 165);
-
-            migrationBuilder.DeleteData(
-                table: "Tickets",
-                keyColumn: "Id",
-                keyValue: 166);
 
             migrationBuilder.DeleteData(
                 table: "Tickets",
@@ -20030,16 +20029,6 @@ namespace CinemaTic.Data.Migrations
                 table: "Tickets",
                 keyColumn: "Id",
                 keyValue: 185);
-
-            migrationBuilder.DeleteData(
-                table: "Tickets",
-                keyColumn: "Id",
-                keyValue: 186);
-
-            migrationBuilder.DeleteData(
-                table: "Tickets",
-                keyColumn: "Id",
-                keyValue: 187);
 
             migrationBuilder.DeleteData(
                 table: "Tickets",
@@ -20924,12 +20913,32 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Cinemas",
                 keyColumn: "Id",
-                keyValue: 2);
+                keyValue: 1);
 
             migrationBuilder.DeleteData(
                 table: "Cinemas",
                 keyColumn: "Id",
-                keyValue: 9);
+                keyValue: 3);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
+                keyValue: 14);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
+                keyValue: 28);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
+                keyValue: 33);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
+                keyValue: 40);
 
             migrationBuilder.DeleteData(
                 table: "Movies",
@@ -21424,57 +21433,32 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 1);
+                keyValue: 13);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 3);
+                keyValue: 21);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 27);
+                keyValue: 22);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 32);
+                keyValue: 41);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 33);
+                keyValue: 44);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 34);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 35);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 36);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 37);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 38);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 43);
+                keyValue: 46);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21489,12 +21473,37 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 53);
+                keyValue: 52);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 68);
+                keyValue: 54);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 56);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 57);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 61);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 63);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 66);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21504,7 +21513,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 73);
+                keyValue: 72);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21519,22 +21528,22 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 81);
+                keyValue: 79);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 85);
+                keyValue: 80);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 87);
+                keyValue: 83);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 96);
+                keyValue: 89);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21549,7 +21558,42 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 99);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 100);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 101);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 106);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 108);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 109);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 110);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 117);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21559,17 +21603,32 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 120);
+                keyValue: 119);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 121);
+                keyValue: 125);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 131);
+                keyValue: 126);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 128);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 130);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 132);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21579,27 +21638,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 137);
+                keyValue: 136);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 138);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 142);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 143);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 144);
+                keyValue: 140);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21609,57 +21653,102 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 148);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 149);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 152);
+                keyValue: 150);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 158);
+                keyValue: 156);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 159);
+                keyValue: 157);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 163);
+                keyValue: 162);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 164);
+                keyValue: 179);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 171);
+                keyValue: 182);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 178);
+                keyValue: 184);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 183);
+                keyValue: 187);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 197);
+                keyValue: 188);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 204);
+                keyValue: 192);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 193);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 200);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 202);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 203);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 205);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 207);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 209);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 210);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21669,22 +21758,37 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 215);
+                keyValue: 213);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 219);
+                keyValue: 216);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 226);
+                keyValue: 217);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 236);
+                keyValue: 220);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 222);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 229);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 230);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21694,12 +21798,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 238);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 239);
+                keyValue: 240);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21709,32 +21808,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 254);
+                keyValue: 263);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 255);
+                keyValue: 265);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 260);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 269);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 270);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 274);
+                keyValue: 272);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21744,7 +21828,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 277);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 279);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 281);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21754,42 +21848,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 283);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 285);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 289);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 293);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 296);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 297);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 301);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 302);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 304);
+                keyValue: 286);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21799,52 +21868,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 306);
+                keyValue: 322);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 309);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 314);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 319);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 325);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 326);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 328);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 333);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 339);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 340);
+                keyValue: 327);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21854,72 +21883,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 343);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 345);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 346);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 351);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 355);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 359);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 360);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 361);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 363);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 375);
+                keyValue: 368);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 376);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 378);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 381);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 382);
+                keyValue: 380);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21929,12 +21903,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 385);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 386);
+                keyValue: 384);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21949,32 +21918,22 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 396);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 399);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 400);
+                keyValue: 403);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 411);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 419);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 420);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 425);
+                keyValue: 406);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21984,7 +21943,7 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 433);
+                keyValue: 429);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -21994,7 +21953,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 437);
+                keyValue: 436);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 438);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -22004,17 +21968,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
+                keyValue: 442);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
                 keyValue: 443);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 445);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 447);
+                keyValue: 449);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -22024,27 +21988,22 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 454);
+                keyValue: 455);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 461);
+                keyValue: 456);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 464);
+                keyValue: 459);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 465);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 478);
+                keyValue: 467);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -22054,62 +22013,22 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 482);
+                keyValue: 485);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 483);
+                keyValue: 488);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 490);
+                keyValue: 497);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 493);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 495);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 496);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 498);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 503);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 507);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 508);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 512);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 513);
+                keyValue: 499);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -22119,27 +22038,12 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 516);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 521);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 522);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 528);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 529);
+                keyValue: 530);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -22149,7 +22053,27 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 536);
+                keyValue: 533);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 535);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 537);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 539);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 544);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -22159,22 +22083,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 549);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 551);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
                 keyValue: 553);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 559);
+                keyValue: 558);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 561);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -22184,27 +22103,37 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 567);
+                keyValue: 566);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 571);
+                keyValue: 568);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 573);
+                keyValue: 570);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 575);
+                keyValue: 572);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 583);
+                keyValue: 578);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 580);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 582);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -22214,27 +22143,17 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 585);
+                keyValue: 587);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 592);
+                keyValue: 588);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 593);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 594);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 599);
+                keyValue: 595);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -22244,42 +22163,32 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 609);
+                keyValue: 605);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 613);
+                keyValue: 615);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 614);
+                keyValue: 616);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 618);
+                keyValue: 617);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 619);
+                keyValue: 620);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 621);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 630);
-
-            migrationBuilder.DeleteData(
-                table: "Sectors",
-                keyColumn: "Id",
-                keyValue: 632);
+                keyValue: 625);
 
             migrationBuilder.DeleteData(
                 table: "Sectors",
@@ -22289,17 +22198,27 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Sectors",
                 keyColumn: "Id",
-                keyValue: 642);
+                keyValue: 634);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 635);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 640);
+
+            migrationBuilder.DeleteData(
+                table: "Sectors",
+                keyColumn: "Id",
+                keyValue: 643);
 
             migrationBuilder.DeleteData(
                 table: "Cinemas",
                 keyColumn: "Id",
-                keyValue: 1);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 3);
+                keyValue: 2);
 
             migrationBuilder.DeleteData(
                 table: "Cinemas",
@@ -22329,6 +22248,11 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Cinemas",
                 keyColumn: "Id",
+                keyValue: 9);
+
+            migrationBuilder.DeleteData(
+                table: "Cinemas",
+                keyColumn: "Id",
                 keyValue: 10);
 
             migrationBuilder.DeleteData(
@@ -22345,11 +22269,6 @@ namespace CinemaTic.Data.Migrations
                 table: "Cinemas",
                 keyColumn: "Id",
                 keyValue: 13);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 14);
 
             migrationBuilder.DeleteData(
                 table: "Cinemas",
@@ -22419,11 +22338,6 @@ namespace CinemaTic.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "Cinemas",
                 keyColumn: "Id",
-                keyValue: 28);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
                 keyValue: 29);
 
             migrationBuilder.DeleteData(
@@ -22440,11 +22354,6 @@ namespace CinemaTic.Data.Migrations
                 table: "Cinemas",
                 keyColumn: "Id",
                 keyValue: 32);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 33);
 
             migrationBuilder.DeleteData(
                 table: "Cinemas",
@@ -22475,11 +22384,6 @@ namespace CinemaTic.Data.Migrations
                 table: "Cinemas",
                 keyColumn: "Id",
                 keyValue: 39);
-
-            migrationBuilder.DeleteData(
-                table: "Cinemas",
-                keyColumn: "Id",
-                keyValue: 40);
 
             migrationBuilder.DeleteData(
                 table: "Cinemas",
@@ -22651,6 +22555,16 @@ namespace CinemaTic.Data.Migrations
                 table: "ActorsMovies",
                 newName: "IX_ActorsMovies_MoviesId");
 
+            migrationBuilder.AlterColumn<int>(
+                name: "GenreId",
+                table: "Movies",
+                type: "int",
+                nullable: false,
+                defaultValue: 0,
+                oldClrType: typeof(int),
+                oldType: "int",
+                oldNullable: true);
+
             migrationBuilder.AddForeignKey(
                 name: "FK_ActorsMovies_Actors_ActorsId",
                 table: "ActorsMovies",
@@ -22664,6 +22578,14 @@ namespace CinemaTic.Data.Migrations
                 table: "ActorsMovies",
                 column: "MoviesId",
                 principalTable: "Movies",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Movies_Genres_GenreId",
+                table: "Movies",
+                column: "GenreId",
+                principalTable: "Genres",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
         }

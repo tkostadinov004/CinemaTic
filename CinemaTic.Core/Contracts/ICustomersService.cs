@@ -20,7 +20,7 @@ namespace CinemaTic.Core.Contracts
         Task AddCinemaToFavoritesAsync(int? cinemaId, string userEmail);
         Task RemoveCinemaFromFavoritesAsync(int? cinemaId, string userEmail);
         Task SetRatingToMovieAsync(int? id, decimal rating, string userEmail);
-        Task<IEnumerable<CustomerTicketViewModel>> GetTicketsForCustomerAsync(string userEmail);
+        Task<IEnumerable<CustomerTicketViewModel>> GetTicketsForCustomerAsync(string userEmail, int? pageNumber);
         Task<CustomerCinemaPageViewModel> PrepareCinemaViewModelAsync(string userEmail, int? cinemaId);
         Task<IEnumerable<CinemaMovieViewModel>> GetMoviesByDateAsync(int? cinemaId, DateTime date);
         Task<BuyTicketViewModel> GetBuyTicketViewModelAsync(int? cinemaId, int? movieId, DateTime time);

@@ -43,21 +43,6 @@ namespace CinemaTic.Data.Configurations
                     new ApplicationUser( "f338b628-feaf-4a03-95ad-defb7aec5c83", 0, "096f10f9-3070-45c1-824d-1e96bc810fdc", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7537), "customer7@customer.com", true, "Madiha", "Brock", false, null, "CUSTOMER7@CUSTOMER.COM", "CUSTOMER7@CUSTOMER.COM", null, null, false, "profilePicURL", "d6172bcd-0893-437a-b705-43122add4781", false, "customer7@customer.com" ),
                     new ApplicationUser( "c0102fde-8991-4e2a-bfca-cdda51f13a66", 0, "3a2fa07d-ff91-407f-a2d7-fa01172115d2", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7537), "admin@admin.com", true, "Admin", "Admin", false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", null, null, false, "profilePicURL", "d6172bcd-0893-437a-b705-43122add4781", false, "admin@admin.com" ),
             };
-            for (int i = 0; i < users.Count; i++)
-            {
-                if (users[i].Email.StartsWith("owner"))
-                {
-                    users[i].PasswordHash = new PasswordHasher<ApplicationUser>().HashPassword(users[i], "ownerPass123*");
-                }
-                else if (users[i].Email.StartsWith("customer"))
-                {
-                    users[i].PasswordHash = new PasswordHasher<ApplicationUser>().HashPassword(users[i], "customerPass123*");
-                }
-                else if (users[i].Email.StartsWith("admin"))
-                {
-                    users[i].PasswordHash = new PasswordHasher<ApplicationUser>().HashPassword(users[i], "adminPass123*");
-                }
-            }
             return users;
         }
     }
