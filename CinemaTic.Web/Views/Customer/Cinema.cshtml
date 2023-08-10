@@ -16,45 +16,22 @@
                 <h5 class="text-center text-white">Top movies, recommended by our sponsors: </h5>
             </div>
             <div class="movie-grid d-flex justify-content-center gap-3 mt-5" style="width: 100%;">
-                <div class="card-wrapper">
-                    <div class="card">
-                        <img src="~/client-images/Movies/12 Angry Men.jpg" alt="cinema-logo">
-                        <div class="descriptions">
-                            <div class="description-buttons">
-                                <a class="desc-button">
-                                    <i class="fa-solid fa-circle-info f-size-b"></i>
-                                    Details
-                                </a>
+                @foreach (var movie in Model.SponsorRecommendedMovies)
+                {
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <img src="~/client-images/Movies/@movie.ImageUrl" alt="cinema-logo">
+                            <div class="descriptions">
+                                <div class="description-buttons">
+                                    <a class="desc-button text-white" asp-controller="Customer" asp-action="MovieDetails" asp-route-id="@movie.Id">
+                                        <i class="fa-solid fa-circle-info f-size-b"></i>
+                                        Details
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card-wrapper">
-                    <div class="card">
-                        <img src="~/client-images/Movies/2001ASpaceOdyssey.jpg" alt="cinema-logo">
-                        <div class="descriptions">
-                            <div class="description-buttons">
-                                <a class="desc-button">
-                                    <i class="fa-solid fa-circle-info f-size-b"></i>
-                                    Details
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-wrapper">
-                    <div class="card">
-                        <img src="~/client-images/Movies/A Clockwork Orange.jpg" alt="cinema-logo">
-                        <div class="descriptions">
-                            <div class="description-buttons">
-                                <a class="desc-button">
-                                    <i class="fa-solid fa-circle-info f-size-b"></i>
-                                    Details
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
             <div class="w-100">
                 <div class="col-xl-12 mt-5 dates-container">
@@ -62,7 +39,7 @@
                         <span class="text-black">Book tickets</span>
                         <div class="d-flex selection-buttons">
                             <button class="active" id="movie-grid-button">Movie grid</button>
-                            <div class="dropdown">
+                            @*<div class="dropdown">
                                 <button class="dropbtn" tabindex="0">
                                     By movie
                                     <i class="fa-solid fa-arrow-down"></i>
@@ -78,7 +55,7 @@
                                         }
                                     </div>
                                 </div>
-                            </div>
+                            </div>*@
                         </div>
                     </div>
                     <div class="row mt-4">

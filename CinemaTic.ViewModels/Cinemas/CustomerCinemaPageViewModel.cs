@@ -14,12 +14,12 @@ namespace CinemaTic.ViewModels.Cinemas
         public string CinemaLogoUrl { get; set; }
         public string ProfilePictureUrl { get; set; }
         public Dictionary<string, string> Dates { get; set; }
-        public IEnumerable<CinemaMovieViewModel> Movies { get; set; }
         public string BackgroundColor { get; set; }
         public string BoardColor { get; set; }
         public string TextColor { get; set; }
         public string ButtonBackgroundColor { get; set; }
         public string ButtonTextColor { get; set; }
         public string AccentColor { get; set; }
+        public IEnumerable<SponsorRecommendedMovieViewModel> SponsorRecommendedMovies { get; set; }
     }
 }

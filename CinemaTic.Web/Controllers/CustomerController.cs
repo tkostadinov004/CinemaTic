@@ -122,7 +122,7 @@ namespace CinemaTic.Web.Controllers
                 return NotFound();
             }
             await _customersService.BuyTicketAsync(sectorId, movieId, viewModel, forDate, User.Identity.Name);
-            return RedirectToAction("Cinema", "Customer", new { userEmail = User.Identity.Name, cinemaId = TempData["CinemaId"] });
+            return RedirectToAction("Cinema", "Customer", new { cinemaId = TempData["CinemaId"] });
         }
         [HttpGet]
         public async Task<IActionResult> GetMoviesByDate([ModelBinder(typeof(IdModelBinder))] int cinemaId, [ModelBinder(typeof(DateModelBinder))] DateTime date)

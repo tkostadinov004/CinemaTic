@@ -143,15 +143,10 @@ namespace CinemaTic.Core.Services
                 ButtonBackgroundColor = cinema.ButtonBackgroundColor,
                 ButtonTextColor = cinema.ButtonTextColor,
                 TextColor = cinema.TextColor,
-                Movies = cinema.Movies.Select(i => new CinemaMovieViewModel
+                SponsorRecommendedMovies = cinema.Movies.OrderBy(i => new Random().Next()).Take(3).Select(i => new SponsorRecommendedMovieViewModel
                 {
                     Id = i.MovieId,
-                    Genre = i.Movie.Genre.Name,
-                    TrailerId = Regex.Match(i.Movie.TrailerUrl, Constants.TrailerUrlRegex).Groups[3].Value,
-                    Name = i.Movie.Title,
-                    RunningTime = i.Movie.RunningTime.ToString(),
-                    ImageUrl = i.Movie.ImageUrl,
-                    Schedule = { }
+                    ImageUrl = i.Movie.ImageUrl
                 })
             };
         }
