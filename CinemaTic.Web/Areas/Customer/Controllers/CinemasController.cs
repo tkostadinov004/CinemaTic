@@ -22,7 +22,7 @@ namespace CinemaTic.Web.Areas.Customer.Controllers
         public async Task<IActionResult> Index(bool? all, int? pageNumber)
         {
             TempData["All"] = all;
-            var cinemas = await _customersService.GetCinemasByUserAsync(all, User.Identity.Name);
+            var cinemas = await _customersService.GetCinemasAsync(all, User.Identity.Name);
             return View(await PaginatedList<CinemasViewModel>.CreateAsync(cinemas, pageNumber ?? 1, 5));
         }
         public async Task<IActionResult> Cinema([ModelBinder(typeof(IdModelBinder))] int id)

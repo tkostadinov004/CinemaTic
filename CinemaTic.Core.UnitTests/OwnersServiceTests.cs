@@ -169,8 +169,8 @@ namespace CinemaTic.Core.UnitTests
             int incorrectId = -1;
             Assert.Multiple(async () =>
             {
-                Assert.That(await _ownersService.GetByIdAsync(correctId), Is.Not.Null);
-                Assert.That(await _ownersService.GetByIdAsync(incorrectId), Is.Null);
+                Assert.That(await _ownersService.GetDetailsViewModelByIdAsync(correctId), Is.Not.Null);
+                Assert.That(await _ownersService.GetDetailsViewModelByIdAsync(incorrectId), Is.Null);
             });
         }
         [Test]
@@ -191,8 +191,8 @@ namespace CinemaTic.Core.UnitTests
             int incorrectId = -1;
             Assert.Multiple(async () =>
             {
-                Assert.That(await _ownersService.PrepareDeleteViewModelAsync(correctId), Is.Not.Null);
-                Assert.That(await _ownersService.PrepareDeleteViewModelAsync(incorrectId), Is.Null);
+                Assert.That(await _ownersService.GetDeleteViewModelAsync(correctId), Is.Not.Null);
+                Assert.That(await _ownersService.GetDeleteViewModelAsync(incorrectId), Is.Null);
             });
         }
         [Test]

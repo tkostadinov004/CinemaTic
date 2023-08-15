@@ -22,7 +22,10 @@ namespace CinemaTic.Core.Services
         {
             _context = context;
         }
-
+        /// <summary>
+        /// <para>Generates the sectors of a given <see cref="Cinema"/>.</para>
+        /// </summary>
+        /// <returns>A <see cref="List{T}"/> of <see cref="Sector"/></returns>
         public async Task<List<Sector>> DefineSectorsAsync(int rows, int cols)
         {
             char startLetter = 'A';
@@ -48,18 +51,26 @@ namespace CinemaTic.Core.Services
             }
             return sectors;
         }
-
+        /// <summary>
+        /// <para>Deletes the sectors of a given <see cref="Cinema"/>.</para>
+        /// </summary>
         public async Task DeleteSectorsAsync(int? cinemaId)
         {
             _context.Sectors.RemoveRange(await _context.Sectors.Where(i => i.CinemaId == cinemaId).ToListAsync());
             await _context.SaveChangesAsync();
         }
-
+        /// <summary>
+        /// <para>Checks whether a <see cref="Sector"/> exists in the database.</para>
+        /// </summary>
+        /// <returns><see cref="bool"/></returns>
         public async Task<bool> ExistsByIdAsync(int? id)
         {
             return await _context.Sectors.AnyAsync(i => i.Id == id);
         }
-
+        /// <summary>
+        /// <para>Gets the view model, used for displaying the sector grid.</para>
+        /// </summary>
+        /// <returns>A <see cref="SectorGridViewModel"/> object</returns>
         public async Task<SectorGridViewModel> GetCinemaSectorsGridAsync(int? cinemaId, int? movieId, DateTime forDate)
         {
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == cinemaId);
@@ -90,7 +101,10 @@ namespace CinemaTic.Core.Services
                 return null;
             }
         }
-
+        /// <summary>
+        /// <para>Gets the seats of a given <see cref="Sector"/></para>
+        /// </summary>
+        /// <returns>A <see cref="List{List{T}}"/> of <see cref="SectorSeatViewModel"/></returns>
         public async Task<List<List<SectorSeatViewModel>>> GetSeatsForSectorAsync(int? sectorId, DateTime forDateTime)
         {
             var seats = new List<List<SectorSeatViewModel>>();
@@ -115,7 +129,10 @@ namespace CinemaTic.Core.Services
             }
             return seats;
         }
-
+        /// <summary>
+        /// <para>Gets a <see cref="Sector"/> by given id.</para>
+        /// </summary>
+        /// <returns>A <see cref="SectorDetailsViewModel"/> object</returns>
         public async Task<SectorDetailsViewModel> GetSectorByIdAsync(int? sectorId, int? movieId, DateTime forDateTime)
         {
             var sector = await _context.Sectors.FirstOrDefaultAsync(i => i.Id == sectorId);

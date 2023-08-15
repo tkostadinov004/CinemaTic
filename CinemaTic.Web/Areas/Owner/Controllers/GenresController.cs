@@ -89,7 +89,7 @@ namespace CinemaTic.Web.Areas.Owner.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _genresService.EditByIdAsync(viewModel);
+                await _genresService.EditAsync(viewModel);
             }
             return RedirectToAction(nameof(Details), new { id = viewModel.Id });
         }

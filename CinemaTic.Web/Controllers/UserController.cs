@@ -34,15 +34,15 @@ namespace CinemaTic.Web.Controllers
 
             if (User.IsInRole("Owner"))
             {
-                return RedirectToAction("Index", "Owners");
+                return RedirectToAction("Index", "Dashboard", new { area = "Owner" });
             }
             else if (User.IsInRole("Customer"))
             {
-                return RedirectToAction("Index", "Customer");
+                return RedirectToAction("Index", "Dashboard", new { area = "Customer" });
             }
             else
             {
-                return RedirectToAction("Index", "Admin");
+                return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
             }
         }
         [HttpGet]
@@ -57,15 +57,15 @@ namespace CinemaTic.Web.Controllers
 
             if (User.IsInRole("Owner"))
             {
-                return RedirectToAction("Index", "Owners");
+                return RedirectToAction("Index", "Dashboard", new { area = "Owner" });
             }
             else if (User.IsInRole("Customer"))
             {
-                return RedirectToAction("Index", "Customer");
+                return RedirectToAction("Index", "Dashboard", new { area = "Customer" });
             }
             else
             {
-                return RedirectToAction("Index", "Admin");
+                return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
             }
         }
     }

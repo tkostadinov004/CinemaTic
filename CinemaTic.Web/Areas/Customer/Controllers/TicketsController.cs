@@ -39,6 +39,11 @@ namespace CinemaTic.Web.Areas.Customer.Controllers
             {
                 return NotFound();
             }
+            if (!await _customersService.CustomerHasCinemaAsync(cinemaId, User.Identity.Name))
+            {
+                TempData["ErrorMessage"] = "You must add this cinema to favorites in order to buy tickets!";
+                return Forbid();
+            }
             return View(await _customersService.GetBuyTicketViewModelAsync(cinemaId, movieId, forDate));
         }
         [HttpPost]

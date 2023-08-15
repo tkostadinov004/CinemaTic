@@ -1,5 +1,6 @@
 ﻿using CinemaTic.Data.Enums;
 using CinemaTic.Data.Models;
+using CinemaTic.Extensions;
 using CinemaTic.ViewModels.Admin;
 
 namespace CinemaTic.Core.Contracts
@@ -14,8 +15,8 @@ namespace CinemaTic.Core.Contracts
         Task<bool> CinemaExistsAsync(int? id);
         Task<ApplicationUser> GetUserByIdAsync(string id);
         Task<IEnumerable<Cinema>> GetAllCinemasAsync();
-        Task<IEnumerable<AdminAllCinemasViewModel>> QueryCinemasAsync(string searchText, string filterValue, string sortBy, int? pageNumber);
-        Task<IEnumerable<UserDetailsViewModel>> QueryUsersAsync(string searchText, string filterValue, string sortBy, int? pageNumber);
+        Task<PaginatedList<AdminAllCinemasViewModel>> QueryCinemasAsync(string searchText, string filterValue, string sortBy, int? pageNumber);
+        Task<PaginatedList<UserDetailsViewModel>> QueryUsersAsync(string searchText, string filterValue, string sortBy, int? pageNumber);
         Task<UserDetailsViewModel> GetUserDetailsViewModelByIdAsync(string id, int? actionPageNumber);
         Task<AdminCinemaDetailsViewModel> GetCinemaDetailsViewModelByIdAsync(int? id);
         Task<ChangeCinemaApprovalStatusViewModel> GetChangeApprovalStatusViewModelByIdAsync(int? id);

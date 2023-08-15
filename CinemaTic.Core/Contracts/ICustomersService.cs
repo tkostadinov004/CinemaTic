@@ -16,10 +16,11 @@ namespace CinemaTic.Core.Contracts
     public interface ICustomersService
     {
         Task<CustomerHomePageViewModel> GetHomePageViewModelAsync(string userEmail);
-        Task<IEnumerable<CinemasViewModel>> GetCinemasByUserAsync(bool? all, string userEmail);
+        Task<IEnumerable<CinemasViewModel>> GetCinemasAsync(bool? all, string userEmail);
         Task AddCinemaToFavoritesAsync(int? cinemaId, string userEmail);
         Task RemoveCinemaFromFavoritesAsync(int? cinemaId, string userEmail);
         Task SetRatingToMovieAsync(int? id, decimal rating, string userEmail);
+        Task<bool> CustomerHasCinemaAsync(int? cinemaId, string userEmail);
         Task<IEnumerable<CustomerTicketViewModel>> GetTicketsForCustomerAsync(string userEmail, int? pageNumber);
         Task<CustomerCinemaPageViewModel> PrepareCinemaViewModelAsync(string userEmail, int? cinemaId);
         Task<IEnumerable<CinemaMovieViewModel>> GetMoviesByDateAsync(int? cinemaId, DateTime date);

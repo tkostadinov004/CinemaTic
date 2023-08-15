@@ -145,32 +145,6 @@ namespace CinemaTic.Core.UnitTests
             Assert.NotNull(movie);
         }
         [Test]
-        public async Task GetsActorDropdownCorrectly()
-        {
-            _context.Actors.Add(new Data.Models.Actor
-            {
-                Id = 1,
-                FullName = "Test",
-                Nationality = "Bulgaria",
-                Birthdate = DateTime.Now,
-                ImageUrl = "Image.jpg",
-                Rating = 5.0m
-            });
-            _context.Actors.Add(new Data.Models.Actor
-            {
-                Id = 2,
-                FullName = "George Jameson",
-                Nationality = "United States",
-                Birthdate = DateTime.Now,
-                ImageUrl = "Image2.jpg",
-                Rating = 6.0m
-            });
-            _context.SaveChanges();
-
-            var dropdown = await _moviesService.GetActorsDropdownAsync();
-            Assert.That(dropdown.Count(), Is.EqualTo(_context.Actors.Count()));
-        }
-        [Test]
         public async Task DoesNotThrowExceptionOnNullIds()
         {
             Assert.Multiple(async () =>

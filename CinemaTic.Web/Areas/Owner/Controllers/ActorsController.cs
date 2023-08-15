@@ -58,9 +58,9 @@ namespace CinemaTic.Web.Areas.Owner.Controllers
             actorVM.Countries = (await _actorsService.GetCreateViewModelAsync()).Countries;
             return View(actorVM);
         }
-        public async Task<IActionResult> QueryActors(string searchText, string filterValue, string sortBy, [ModelBinder(typeof(IdModelBinder))] int? pageNumber)
+        public async Task<IActionResult> QueryActors(string searchText, string sortBy, [ModelBinder(typeof(IdModelBinder))] int? pageNumber)
         {
-            var actors = await _actorsService.QueryActorsAsync(searchText, filterValue, sortBy, pageNumber ?? 1);
+            var actors = await _actorsService.QueryActorsAsync(searchText, sortBy, pageNumber ?? 1);
             return PartialView("_ActorsPartial", actors);
         }
         public async Task<IActionResult> QueryMoviesByActor([ModelBinder(typeof(IdModelBinder))] int id, string searchText, string sortBy)

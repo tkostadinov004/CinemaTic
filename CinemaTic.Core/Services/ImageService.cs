@@ -26,7 +26,11 @@ namespace CinemaTic.Core.Services
             _webHostEnvironment = webHostEnvironment;
             _userManager = userManager;
         }
-
+        /// <summary>
+        /// <para>Uploads an image to the application storage.</para>
+        /// <para>If no image is attached, the method throws an <see cref="ArgumentNullException"/>.</para>
+        /// </summary>
+        /// <returns>The unique image url as a <see cref="string"/></returns>
         public async Task<string> UploadPhotoAsync(string imageType, IFormFile formFile)
         {
             string uniqueFileName = null;
@@ -48,6 +52,10 @@ namespace CinemaTic.Core.Services
             }
             return uniqueFileName;
         }
+        /// <summary>
+        /// <para>Deletes an image from the application storage.</para>
+        /// </summary>
+        /// <returns>A <see cref="bool"/> value showing whether the image was successfully deleted</returns>
         public async Task<bool> DeleteImageAsync(string imageType, string imageUrl)
         {
             string profilePhotoFileName = Path.Combine(_webHostEnvironment.WebRootPath, Constants.ImagesFolder, imageType, imageUrl);
@@ -58,13 +66,20 @@ namespace CinemaTic.Core.Services
             }
             return false;
         }
-
+        /// <summary>
+        /// <para>Checks whether an image exists in the application storage.</para>
+        /// </summary>
+        /// <returns><see cref="bool"/></returns>
         public async Task<bool> ImageExistsAsync(string imageType, string imageUrl)
         {
             string profilePhotoFileName = Path.Combine(_webHostEnvironment.WebRootPath, Constants.ImagesFolder, imageType, imageUrl);
 
             return File.Exists(profilePhotoFileName);
         }
+        /// <summary>
+        /// <para>Sets a default profile picture for a user if no such profile picture exists in the application storage.</para>
+        /// </summary>
+        /// <returns>A <see cref="bool"/> value showing whether a replacement was made</returns>
         public async Task<bool> ReplaceWithDefaultIfNotPresentAsync(string userEmail, string imageType, string imageUrl)
         {
             bool exists = await this.ImageExistsAsync(imageType, imageUrl);

@@ -163,7 +163,7 @@ namespace CinemaTic.Web.Areas.Owner.Controllers
                 return NotFound();
             }
 
-            var viewModel = await _moviesService.GetSetMovieSchedulePartialAsync(cinemaId, movieId);
+            var viewModel = await _moviesService.GetSetMovieScheduleViewModelAsync(cinemaId, movieId);
             if (viewModel == null)
             {
                 return NotFound();
@@ -216,7 +216,7 @@ namespace CinemaTic.Web.Areas.Owner.Controllers
             {
                 return NotFound();
             }
-            var viewModel = await _cinemasService.GetCinemasContainingMovieAsync(movieId, User.Identity.Name, sortBy);
+            var viewModel = await _cinemasService.QueryCinemasContainingMovieAsync(movieId, User.Identity.Name, sortBy);
             if (viewModel == null)
             {
                 return NotFound();

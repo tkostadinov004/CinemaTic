@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Text.RegularExpressions;
 using CinemaTic.Extensions;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CinemaTic.Core.Services
 {
@@ -31,7 +32,9 @@ namespace CinemaTic.Core.Services
             _logger = logger;
             _imageService = imageService;
         }
-
+        /// <summary>
+        /// <para>Adds a <see cref="Movie"/> to the database.</para>
+        /// </summary>
         public async Task CreateMovieAsync(CreateMovieViewModel viewModel, string userEmail)
         {
             Movie movie = new Movie
@@ -39,7 +42,7 @@ namespace CinemaTic.Core.Services
                 Description = viewModel.Description,
                 RunningTime = int.Parse(viewModel.RunningTime),
                 Title = viewModel.Title,
-                ImageUrl = await this.UploadPhotoAsync(viewModel.Image),
+                ImageUrl = await _imageService.UploadPhotoAsync("Movies", viewModel.Image),
                 TrailerUrl = viewModel.TrailerUrl,
                 UserRating = 0,
                 GenreId = viewModel.GenreId,
@@ -59,7 +62,9 @@ namespace CinemaTic.Core.Services
             await _context.SaveChangesAsync();
             await _logger.LogActionAsync(UserActionType.Create, LogMessages.AddEntityMessage, "movie", movie.Title, $"({movie.Director} - {movie.RunningTime} minutes)");
         }
-
+        /// <summary>
+        /// Deletes a <see cref="Movie"/> from the database by given id.
+        /// </summary>
         public async Task DeleteByIdAsync(int? id)
         {
             var movie = await _context.Movies.FindAsync(id);
@@ -68,7 +73,9 @@ namespace CinemaTic.Core.Services
             await _context.SaveChangesAsync();
             await _logger.LogActionAsync(UserActionType.Delete, LogMessages.DeleteEntityMessage, "movie", movie.Title, $"({movie.Director} - {movie.RunningTime} minutes)");
         }
-
+        /// <summary>
+        /// Edits a <see cref="Movie"/>.
+        /// </summary>
         public async Task EditMovieAsync(EditMovieViewModel viewModel)
         {
             var movie = await _context.Movies.Include(i => i.Actors).FirstOrDefaultAsync(i => i.Id == viewModel.Id);
@@ -81,7 +88,7 @@ namespace CinemaTic.Core.Services
 
             if (viewModel.Image != null)
             {
-                string photoName = await this.UploadPhotoAsync(viewModel.Image);
+                string photoName = await _imageService.UploadPhotoAsync("Movies", viewModel.Image);
                 movie.ImageUrl = photoName;
             }
             var movieActors = movie.Actors;
@@ -115,18 +122,18 @@ namespace CinemaTic.Core.Services
             await _context.SaveChangesAsync();
             await _logger.LogActionAsync(UserActionType.Update, LogMessages.EditEntityMessage, "movie", movie.Title, "");
         }
-
+        /// <summary>
+        /// <para>Checks whether a <see cref="Movie"/> exists in the database.</para>
+        /// </summary>
+        /// <returns><see cref="bool"/></returns>
         public async Task<bool> ExistsByIdAsync(int? id)
         {
             return await _context.Movies.AnyAsync(e => e.Id == id);
         }
-
-        public async Task<SelectList> GetActorsDropdownAsync()
-        {
-            var actors = await _context.Actors.OrderBy(i => i.FullName).AsNoTracking().ToListAsync();
-            return new SelectList(from a in actors select new { Id = a.Id, FullName = $"{a.FullName}" }, nameof(Actor.Id), "FullName");
-        }
-
+        /// <summary>
+        /// <para>Gets all <see cref="Movie"/> records from the database (method used for testing purposes only).</para>
+        /// </summary>
+        /// <returns><see cref="IEnumerable{T}"/> of <see cref="Movie"/></returns>
         public async Task<IEnumerable<Movie>> GetAllAsync()
         {
             return await _context.Movies
@@ -136,7 +143,10 @@ namespace CinemaTic.Core.Services
                 .Include(i => i.AddedBy)
                 .ToListAsync();
         }
-
+        /// <summary>
+        /// <para>Gets a <see cref="Movie"/> by id.</para>
+        /// </summary>
+        /// <returns>A <see cref="Movie"/> object.</returns>
         public async Task<Movie> GetByIdAsync(int? id)
         {
             return await _context.Movies
@@ -147,7 +157,10 @@ namespace CinemaTic.Core.Services
                 .Include(i => i.AddedBy)
                 .FirstOrDefaultAsync(m => m.Id == id);
         }
-
+        /// <summary>
+        /// <para>Gets the details view model of a <see cref="Movie"/> by given id.</para>
+        /// </summary>
+        /// <returns>A <see cref="MovieDetailsViewModel"/> object</returns>
         public async Task<MovieDetailsViewModel> GetDetailsViewModelAsync(int? id, string userEmail)
         {
             var currentUser = await _userManager.FindByEmailAsync(userEmail);
@@ -179,12 +192,18 @@ namespace CinemaTic.Core.Services
             }
             return null;
         }
-
+        /// <summary>
+        /// <para>Gets all genres.</para>
+        /// </summary>
+        /// <returns>A <see cref="SelectList"/> of genres</returns>
         public async Task<SelectList> GetGenresDropdownAsync()
         {
             return new SelectList(await _context.Genres.OrderBy(i => i.Name).AsNoTracking().ToListAsync(), nameof(Genre.Id), nameof(Genre.Name));
         }
-
+        /// <summary>
+        /// <para>Gets the view model used for creating a <see cref="Genre"/>.</para>
+        /// </summary>
+        /// <returns>A <see cref="CreateMovieViewModel"/> object</returns>
         public async Task<CreateMovieViewModel> GetCreateViewModelAsync()
         {
             return new CreateMovieViewModel
@@ -198,10 +217,9 @@ namespace CinemaTic.Core.Services
                 Genres = await this.GetGenresDropdownAsync()
             };
         }
-        public async Task<string> UploadPhotoAsync(IFormFile image)
-        {
-            return await _imageService.UploadPhotoAsync("Movies", image);
-        }
+        /// <summary>
+        /// <para>Adds a given <see cref="Movie"/> to the scheduling system of one or more cinemas.</para>
+        /// </summary>
         public async Task AddMovieToCinemasAsync(MovieDetailsViewModel viewModel)
         {
             var movie = await _context.Movies.Include(i => i.Cinemas).FirstOrDefaultAsync(i => i.Id == viewModel.Id);
@@ -225,6 +243,11 @@ namespace CinemaTic.Core.Services
             }
             await _context.SaveChangesAsync();
         }
+        /// <summary>
+        /// <para>Gets an <see cref="PaginatedList{T}"/> of all movies.</para>
+        /// <para>The method supports searching by title, filtering by <see cref="Cinema"/> and sorting (by title, genre, average user rating, amount of ratings, and full name of the <see cref="ApplicationUser"/> who added the movie).</para>
+        /// </summary>
+        /// <returns>An <see cref="PaginatedList{T}"/> of <see cref="MovieInfoCardViewModel"/></returns>
         public async Task<PaginatedList<MovieInfoCardViewModel>> QueryMoviesAsync(string searchText, string filterValue, string sortBy, int? pageNumber)
         {
             var movies = _context.Movies
@@ -297,15 +320,21 @@ namespace CinemaTic.Core.Services
                 AddedBy = $"{i.AddedBy.FirstName} {i.AddedBy.LastName}"
             }).ToList(), pageNumber ?? 1, 8);
         }
-
+        /// <summary>
+        /// <para>Gets a view model used for filtering movies by cinema. The view models contains a <see cref="SelectList"/> of all cinemas.</para>
+        /// </summary>
+        /// <returns>A <see cref="FilterMoviesViewModel"/> object.</returns>
         public async Task<FilterMoviesViewModel> GetFilterViewModelAsync()
         {
             return new FilterMoviesViewModel
             {
-                Cinemas = new SelectList(await _context.Cinemas.AsNoTracking().ToListAsync(), nameof(Data.Models.Cinema.Id), nameof(Data.Models.Cinema.Name))
+                Cinemas = new SelectList(await _context.Cinemas.AsNoTracking().ToListAsync(), nameof(Cinema.Id), nameof(Cinema.Name))
             };
         }
-
+        /// <summary>
+        /// <para>Gets the view model used for editing of a <see cref="Movie"/> by id.</para>
+        /// </summary>
+        /// <returns>An <see cref="EditMovieViewModel"/> object</returns>
         public async Task<EditMovieViewModel> GetEditViewModelAsync(int? id)
         {
             var movie = await this.GetByIdAsync(id);
@@ -332,7 +361,10 @@ namespace CinemaTic.Core.Services
             }
             return null;
         }
-
+        /// <summary>
+        /// <para>Gets the view model used for deleting of a <see cref="Movie"/> by id.</para>
+        /// </summary>
+        /// <returns>An <see cref="DeleteMovieViewModel"/> object</returns>
         public async Task<DeleteMovieViewModel> GetDeleteViewModelAsync(int? id)
         {
             var movie = await this.GetByIdAsync(id);
@@ -347,8 +379,11 @@ namespace CinemaTic.Core.Services
             }
             return null;
         }
-
-        public async Task<SetMovieScheduleViewModel> GetSetMovieSchedulePartialAsync(int? cinemaId, int? movieId)
+        /// <summary>
+        /// <para>Gets the view model used for setting the schedule of a given <see cref="Movie"/> at a given <see cref="Cinema"/>.</para>
+        /// </summary>
+        /// <returns>A <see cref="SetMovieScheduleViewModel"/> object</returns>
+        public async Task<SetMovieScheduleViewModel> GetSetMovieScheduleViewModelAsync(int? cinemaId, int? movieId)
         {
             var cinemaMovie = await _context.CinemasMovies.FirstOrDefaultAsync(i => i.CinemaId == cinemaId && i.MovieId == movieId);
             if (cinemaMovie != null)
@@ -370,7 +405,9 @@ namespace CinemaTic.Core.Services
             }
             return null;
         }
-
+        /// <summary>
+        /// <para>Sets or edits the schedule of a given <see cref="Movie"/> at a given <see cref="Cinema"/>.</para>
+        /// </summary>
         public async Task SetMovieScheduleAsync(SetMovieScheduleViewModel viewModel)
         {
             var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == viewModel.MovieId);
@@ -398,7 +435,9 @@ namespace CinemaTic.Core.Services
                 await _logger.LogActionAsync(UserActionType.Update, LogMessages.SetMovieSchedule, movie.Title, cinema.Name);
             }
         }
-
+        /// <summary>
+        /// <para>Gets the view model used for editing the ticket price and screening timespan of a given <see cref="Movie"/> at a given <see cref="Cinema"/>.</para>
+        /// </summary>
         public async Task<EditCinemaMovieDataViewModel> GetEditCinemaMovieDataViewModelAsync(int? cinemaId, int? movieId)
         {
             var cinemaMovie = await _context.CinemasMovies.FirstOrDefaultAsync(i => i.CinemaId == cinemaId && i.MovieId == movieId);
@@ -415,7 +454,9 @@ namespace CinemaTic.Core.Services
             }
             return null;
         }
-
+        /// <summary>
+        /// <para>Edits the ticket price and screening timespan of a given <see cref="Movie"/> at a given <see cref="Cinema"/>.</para>
+        /// </summary>
         public async Task EditCinemaMovieDataAsync(EditCinemaMovieDataViewModel viewModel)
         {
             var cinemaMovie = await _context.CinemasMovies.FirstOrDefaultAsync(i => i.CinemaId == viewModel.CinemaId && i.MovieId == viewModel.MovieId);

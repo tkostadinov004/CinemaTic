@@ -63,7 +63,7 @@ namespace CinemaTic.Core.UnitTests
                 Id = 1,
                 Name = "Western"
             };
-            await _genresService.EditByIdAsync(viewModel);
+            await _genresService.EditAsync(viewModel);
             var edited = _context.Genres.AsNoTracking().FirstOrDefault(i => i.Id == 1);
 
             Assert.That(edited.Name, Is.Not.EqualTo(original.Name));

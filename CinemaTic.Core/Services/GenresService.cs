@@ -20,6 +20,9 @@ namespace CinemaTic.Core.Services
             _context = context;
             _logger = logger;
         }
+        /// <summary>
+        /// <para>Adds a <see cref="Genre"/> to the database.</para>
+        /// </summary>
         public async Task CreateAsync(CreateGenreViewModel viewModel)
         {
             Genre genre = new Genre
@@ -30,7 +33,9 @@ namespace CinemaTic.Core.Services
             await _context.SaveChangesAsync();
             await _logger.LogActionAsync(UserActionType.Create, LogMessages.AddEntityMessage, "genre", genre.Name, "");
         }
-
+        /// <summary>
+        /// Deletes a <see cref="Genre"/> from the database by given id.
+        /// </summary>
         public async Task DeleteByIdAsync(int? id)
         {
             var genre = await _context.Genres.FindAsync(id);
@@ -39,8 +44,10 @@ namespace CinemaTic.Core.Services
             await _context.SaveChangesAsync();
             await _logger.LogActionAsync(UserActionType.Delete, LogMessages.DeleteEntityMessage, "genre", genre.Name, "");
         }
-
-        public async Task EditByIdAsync(EditGenreViewModel viewModel)
+        /// <summary>
+        /// Edits a <see cref="Genre"/>.
+        /// </summary>
+        public async Task EditAsync(EditGenreViewModel viewModel)
         {
             var genre = await _context.Genres.FirstOrDefaultAsync(i => i.Id == viewModel.Id);
             if (genre != null)
@@ -51,22 +58,34 @@ namespace CinemaTic.Core.Services
                 await _logger.LogActionAsync(UserActionType.Update, LogMessages.EditEntityMessage, "genre", genre.Name, "");
             }
         }
-
+        /// <summary>
+        /// <para>Checks whether a <see cref="Genre"/> exists in the database.</para>
+        /// </summary>
+        /// <returns><see cref="bool"/></returns>
         public async Task<bool> ExistsByIdAsync(int? id)
         {
             return await _context.Genres.AnyAsync(e => e.Id == id);
         }
-
+        /// <summary>
+        /// <para>Gets all <see cref="Genre"/> records from the database (method used for testing purposes only).</para>
+        /// </summary>
+        /// <returns>An <see cref="IEnumerable{T}"/> of <see cref="Genre"/></returns>
         public async Task<IEnumerable<Genre>> GetAllAsync()
         {
             return await _context.Genres.Include(i => i.Movies).ToListAsync();
         }
-
+        /// <summary>
+        /// <para>Gets a <see cref="Genre"/> by id.</para>
+        /// </summary>
+        /// <returns>A <see cref="Genre"/> object.</returns>
         public async Task<Genre> GetByIdAsync(int? id)
         {
             return await _context.Genres.Include(i => i.Movies).FirstOrDefaultAsync(i => i.Id == id);
         }
-
+        /// <summary>
+        /// <para>Gets the view model used for editing of a <see cref="Genre"/> by id.</para>
+        /// </summary>
+        /// <returns>An <see cref="EditGenreViewModel"/> object</returns>
         public async Task<EditGenreViewModel> GetEditViewModelByIdAsync(int? genreId)
         {
             var genre = await _context.Genres.FirstOrDefaultAsync(i => i.Id == genreId);
@@ -80,7 +99,10 @@ namespace CinemaTic.Core.Services
             }
             return null;
         }
-
+        /// <summary>
+        /// <para>Gets the view model used for deleting of a <see cref="Genre"/> by id.</para>
+        /// </summary>
+        /// <returns>An <see cref="DeleteGenreViewModel"/> object</returns>
         public async Task<DeleteGenreViewModel> GetDeleteViewModelByIdAsync(int? id)
         {
             var genre = await _context.Genres.FirstOrDefaultAsync(i => i.Id == id);
@@ -94,7 +116,10 @@ namespace CinemaTic.Core.Services
             }
             return null;
         }
-
+        /// <summary>
+        /// <para>Gets the details view model of a <see cref="Genre"/> by given id.</para>
+        /// </summary>
+        /// <returns>A <see cref="GenreDetailsViewModel"/> object</returns>
         public async Task<GenreDetailsViewModel> GetDetailsViewModelByIdAsync(int? id)
         {
             var genre = await _context.Genres.Include(i => i.Movies).FirstOrDefaultAsync(i => i.Id == id);
@@ -109,8 +134,12 @@ namespace CinemaTic.Core.Services
             }
             return null;
         }
-
-        public async Task<IEnumerable<MovieInfoCardViewModel>> QueryMoviesByGenreAsync(int? genreId, string searchText, string sortBy, int? pageNumber)
+        /// <summary>
+        /// <para>Gets a <see cref="PaginatedList{T}"/>, containing the movies of a given <see cref="Genre"/>.</para>
+        /// <para>The method supports searching by title and sorting (by title, average user rating, and amount of user ratings).</para>
+        /// </summary>
+        /// <returns>An <see cref="PaginatedList{T}"/> of <see cref="MovieInfoCardViewModel"/></returns>
+        public async Task<PaginatedList<MovieInfoCardViewModel>> QueryMoviesByGenreAsync(int? genreId, string searchText, string sortBy, int? pageNumber)
         {
             var genre = await _context.Genres.Include(i => i.Movies)
                 .FirstOrDefaultAsync(i => i.Id == genreId);
@@ -159,6 +188,11 @@ namespace CinemaTic.Core.Services
                 RatingCount = i.RatingCount
             }), pageNumber ?? 1, 5);
         }
+        /// <summary>
+        /// <para>Gets aх <see cref="IEnumerable{T}"/> of all genres.</para>
+        /// <para>The method supports sorting (by name and amount of movies).</para>
+        /// </summary>
+        /// <returns>An <see cref="PaginatedList{T}"/> of <see cref="GenreListViewModel"/></returns>
         public async Task<IEnumerable<GenreListViewModel>> SortGenresAsync(string sortBy)
         {
             var genres = _context.Genres.Include(i => i.Movies).OrderBy(i => i.Name).AsEnumerable();

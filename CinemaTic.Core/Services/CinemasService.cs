@@ -1,15 +1,12 @@
-﻿using AutoMapper;
-using CinemaTic.Core.Contracts;
+﻿using CinemaTic.Core.Contracts;
 using CinemaTic.Core.Utilities;
 using CinemaTic.Data;
 using CinemaTic.Data.Enums;
 using CinemaTic.Data.Models;
 using CinemaTic.ViewModels.Cinemas;
 using CinemaTic.ViewModels.Movies;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace CinemaTic.Core.Services
@@ -18,26 +15,26 @@ namespace CinemaTic.Core.Services
     {
         private readonly CinemaDbContext _context;
         private UserManager<ApplicationUser> _userManager;
-        private readonly IMapper _mapper;
         private readonly ISectorsService _sectorsService;
         private readonly ILogService _logger;
         private readonly IImageService _imageService;
 
-        public CinemasService(CinemaDbContext context, UserManager<ApplicationUser> userManager, IMapper mapper, ISectorsService sectorsService, ILogService logger, IImageService imageService)
+        public CinemasService(CinemaDbContext context, UserManager<ApplicationUser> userManager, ISectorsService sectorsService, ILogService logger, IImageService imageService)
         {
             _context = context;
             _userManager = userManager;
-            _mapper = mapper;
             _sectorsService = sectorsService;
             _logger = logger;
             _imageService = imageService;
         }
-
+        /// <summary>
+        /// <para>Adds a <see cref="Cinema"/> to the database.</para>
+        /// </summary>
         public async Task CreateCinemaAsync(CreateCinemaViewModel viewModel, string userEmail)
         {
             string imageUrl = await _imageService.UploadPhotoAsync("Cinemas", viewModel.Image);
 
-            var cinema = new Data.Models.Cinema
+            var cinema = new Cinema
             {
                 AccentColor = viewModel.AccentColor,
                 BackgroundColor = viewModel.BackgroundColor,
@@ -59,7 +56,9 @@ namespace CinemaTic.Core.Services
             await _context.SaveChangesAsync();
             await _logger.LogActionAsync(UserActionType.Create, LogMessages.AddEntityMessage, "cinema", viewModel.Name, $"({viewModel.SeatRows} rows and {viewModel.SeatCols} columns)");
         }
-
+        /// <summary>
+        /// Deletes a <see cref="Cinema"/> from the database by given id.
+        /// </summary>
         public async Task DeleteByIdAsync(int? id)
         {
             var customerCinemas = _context.CustomersCinemas.Where(i => i.CinemaId == id);
@@ -81,7 +80,9 @@ namespace CinemaTic.Core.Services
             await _context.SaveChangesAsync();
             await _logger.LogActionAsync(UserActionType.Delete, LogMessages.DeleteEntityMessage, "cinema", cinema.Name, $"({cinema.SeatRows} rows and {cinema.SeatCols} columns)");
         }
-
+        /// <summary>
+        /// Edits a <see cref="Cinema"/>.
+        /// </summary>
         public async Task EditCinemaAsync(EditCinemaViewModel viewModel)
         {
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == viewModel.Id);
@@ -114,12 +115,18 @@ namespace CinemaTic.Core.Services
             await _context.SaveChangesAsync();
             await _logger.LogActionAsync(UserActionType.Update, LogMessages.EditEntityMessage, "cinema", cinema.Name, "");
         }
-
+        /// <summary>
+        /// <para>Checks whether a <see cref="Cinema"/> exists in the database.</para>
+        /// </summary>
+        /// <returns><see cref="bool"/></returns>
         public async Task<bool> ExistsByIdAsync(int? id)
         {
             return await _context.Cinemas.AnyAsync(i => i.Id == id);
         }
-
+        /// <summary>
+        /// <para>Gets all cinemas that an <see cref="ApplicationUser"/> owns.</para>
+        /// </summary>
+        /// <returns>An <see cref="IEnumerable{T}"/> of <see cref="CinemaListViewModel"/></returns>
         public async Task<IEnumerable<CinemaListViewModel>> GetAllByUserAsync(string userEmail)
         {
             ApplicationUser user = await _userManager.FindByEmailAsync(userEmail);
@@ -136,8 +143,11 @@ namespace CinemaTic.Core.Services
                 MoviesCount = i.Movies.Count
             }).ToList();
         }
-
-        public async Task<CinemaDetailsViewModel> GetByIdAsync(int? id)
+        /// <summary>
+        /// <para>Gets the details view model of a <see cref="Cinema"/> by given id.</para>
+        /// </summary>
+        /// <returns>A <see cref="CinemaDetailsViewModel"/> object</returns>
+        public async Task<CinemaDetailsViewModel> GetDetailsViewModelByIdAsync(int? id)
         {
             var cinema = await _context.Cinemas
                 .Include(i => i.Owner)
@@ -165,7 +175,10 @@ namespace CinemaTic.Core.Services
             }
             return null;
         }
-
+        /// <summary>
+        /// <para>Gets the view model used for editing of a <see cref="Cinema"/> by id.</para>
+        /// </summary>
+        /// <returns>An <see cref="EditCinemaViewModel"/> object</returns>
         public async Task<EditCinemaViewModel> GetEditViewModelByIdAsync(int? cinemaId)
         {
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == cinemaId);
@@ -190,8 +203,11 @@ namespace CinemaTic.Core.Services
             }
             return null;
         }
-
-        public async Task<DeleteCinemaViewModel> PrepareDeleteViewModelAsync(int? id)
+        /// <summary>
+        /// <para>Gets the view model used for deleting of a <see cref="Cinema"/> by id.</para>
+        /// </summary>
+        /// <returns>An <see cref="DeleteCinemaViewModel"/> object</returns>
+        public async Task<DeleteCinemaViewModel> GetDeleteViewModelAsync(int? id)
         {
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == id);
             if (cinema != null)
@@ -205,7 +221,11 @@ namespace CinemaTic.Core.Services
             }
             return null;
         }
-
+        /// <summary>
+        /// <para>Gets an <see cref="IEnumerable{T}"/> of cinemas than an <see cref="ApplicationUser"/> owns.</para>
+        /// <para>The method supports searching by name, filtering by <see cref="ApprovalStatus"/> and sorting (by name, approval status, date of adding, and amount of movies).</para>
+        /// </summary>
+        /// <returns>An <see cref="IEnumerable{T}"/> of <see cref="CinemaListViewModel"/></returns>
         public async Task<IEnumerable<CinemaListViewModel>> QueryCinemasAsync(string searchText, string filterValue, string sortBy, string userEmail)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
@@ -272,7 +292,11 @@ namespace CinemaTic.Core.Services
                 MoviesCount = i.Movies.Count
             }).ToList();
         }
-
+        /// <summary>
+        /// <para>Gets a <see cref="IEnumerable{T}"/> of movies offered in a given <see cref="Cinema"/>.</para>
+        /// <para>The method supports searching by title, filtering by <see cref="IdentityRole"/> and sorting (by name, genre, average user rating, and amount of ratings).</para>
+        /// </summary>
+        /// <returns>A <see cref="IEnumerable{T}"/> of <see cref="MovieInfoCardViewModel"/></returns>
         public async Task<IEnumerable<MovieInfoCardViewModel>> QueryMoviesByCinemaAsync(int? cinemaId, string searchText, string sortBy)
         {
             var cinema = await _context.Cinemas
@@ -334,7 +358,10 @@ namespace CinemaTic.Core.Services
             }
             return movies;
         }
-
+        /// <summary>
+        /// <para>Gets the view model used for previewing the page of a cinema.</para>
+        /// </summary>
+        /// <returns>A <see cref="CinemaPagePreviewViewModel"/> object</returns>
         public async Task<CinemaPagePreviewViewModel> GetPreviewViewModelAsync(string userEmail, int? cinemaId)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
@@ -361,8 +388,12 @@ namespace CinemaTic.Core.Services
             }
             return null;
         }
-
-        public async Task<IEnumerable<CinemaContainingMovieViewModel>> GetCinemasContainingMovieAsync(int? movieId, string userEmail, string sortBy)
+        /// <summary>
+        /// <para>Gets an <see cref="IEnumerable{T}"/> of cinemas, in which a given <see cref="Movie"/> is shown.</para>
+        ///  <para>The method supports sorting (by name, starting date of screening, ending date of screening, and ticket price).</para>
+        /// </summary>
+        /// <returns>An <see cref="IEnumerable{T}"/> of <see cref="CinemaContainingMovieViewModel"/></returns>
+        public async Task<IEnumerable<CinemaContainingMovieViewModel>> QueryCinemasContainingMovieAsync(int? movieId, string userEmail, string sortBy)
         {
             var movie = await _context.Movies.Include(i => i.Cinemas).ThenInclude(i => i.Cinema).FirstOrDefaultAsync(i => i.Id == movieId);
             var user = await _userManager.FindByEmailAsync(userEmail);
@@ -423,6 +454,15 @@ namespace CinemaTic.Core.Services
                 }).ToList();
             }
             return null;
+        }
+        /// <summary>
+        /// <para>Checks whether an <see cref="ApplicationUser"/> owns a given <see cref="Cinema"/>.</para>
+        /// </summary>
+        /// <returns><see cref="bool"/></returns>
+        public async Task<bool> OwnerHasCinemaAsync(int? cinemaId, string userEmail)
+        {
+            var user = await _userManager.FindByEmailAsync(userEmail);
+            return _context.Cinemas.Where(i => i.OwnerId == user.Id).Any(i => i.Id == cinemaId);
         }
     }
 }

@@ -29,6 +29,10 @@ namespace CinemaTic.Core.Services
             _context = context;
             _logger = logger;
         }
+        /// <summary>
+        /// <para>Gets the home page view model of the customer's dashboard.</para>
+        /// </summary>
+        /// <returns>A <see cref="CustomerHomePageViewModel"/> object</returns>
         public async Task<CustomerHomePageViewModel> GetHomePageViewModelAsync(string userEmail)
         {
             var user = await _context.Users.Include(i => i.CinemasVisited).ThenInclude(i => i.Cinema).FirstOrDefaultAsync(i => i.Email == userEmail);
@@ -58,8 +62,12 @@ namespace CinemaTic.Core.Services
             }
             return null;
         }
-
-        public async Task<IEnumerable<CinemasViewModel>> GetCinemasByUserAsync(bool? all, string userEmail)
+        /// <summary>
+        /// <para>Gets cinemas from the database.</para>
+        /// <para>If the value of <paramref name="all"/> is false, the method will return the given <see cref="ApplicationUser"/>'s favorite cinemas only.</para>
+        /// </summary>
+        /// <returns>An <see cref="IEnumerable{T}"/> of <see cref="CinemasViewModel"/></returns>
+        public async Task<IEnumerable<CinemasViewModel>> GetCinemasAsync(bool? all, string userEmail)
         {
             var cinemas = await _context.Cinemas.Include(i => i.Owner).Include(i => i.Customers).ToListAsync();
             var user = await _userManager.FindByEmailAsync(userEmail);
@@ -78,7 +86,9 @@ namespace CinemaTic.Core.Services
                 IsInFavorites = _context.CustomersCinemas.Any(cc => cc.CinemaId == i.Id && cc.CustomerId == user.Id)
             });
         }
-
+        /// <summary>
+        /// <para>Adds a given <see cref="Cinema"/> to a given <see cref="ApplicationUser"/>'s collection of favorite cinemas.</para>
+        /// </summary>
         public async Task AddCinemaToFavoritesAsync(int? cinemaId, string userEmail)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
@@ -92,7 +102,9 @@ namespace CinemaTic.Core.Services
             await _context.SaveChangesAsync();
             await _logger.LogActionAsync(UserActionType.Create, LogMessages.AddCinemaToFavoritesMessage, cinema.Name);
         }
-
+        /// <summary>
+        /// <para>Removes a given <see cref="Cinema"/> from a given <see cref="ApplicationUser"/>'s collection of favorite cinemas.</para>
+        /// </summary>
         public async Task RemoveCinemaFromFavoritesAsync(int? cinemaId, string userEmail)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
@@ -103,13 +115,16 @@ namespace CinemaTic.Core.Services
             await _context.SaveChangesAsync();
             await _logger.LogActionAsync(UserActionType.Delete, LogMessages.RemoveCinemaToFavoritesMessage, cinema.Name);
         }
-
+        /// <summary>
+        /// <para>Gets a collection of all tickets that a given <see cref="ApplicationUser"/> has.</para>
+        /// </summary>
+        /// <returns>An <see cref="IEnumerable{T}"/> of <see cref="CustomerTicketViewModel"/></returns>
         public async Task<IEnumerable<CustomerTicketViewModel>> GetTicketsForCustomerAsync(string userEmail, int? pageNumber)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
             var tickets = await _context.Tickets.Include(i => i.Cinema).Include(i => i.Movie).Include(i => i.Sector).Where(i => i.CustomerId == user.Id).ToListAsync();
 
-            return await PaginatedList<CustomerTicketViewModel>.CreateAsync( tickets.Select(i => new CustomerTicketViewModel
+            return await PaginatedList<CustomerTicketViewModel>.CreateAsync(tickets.Select(i => new CustomerTicketViewModel
             {
                 Id = i.Id,
                 Movie = i.Movie.Title,
@@ -121,6 +136,10 @@ namespace CinemaTic.Core.Services
                 Price = i.Price.ToString()
             }), pageNumber ?? 1, 5);
         }
+        /// <summary>
+        /// <para>Gets the details view model of a <see cref="Cinema"/>.</para>
+        /// </summary>
+        /// <returns>A <see cref="CustomerCinemaPageViewModel"/> object</returns>
         public async Task<CustomerCinemaPageViewModel> PrepareCinemaViewModelAsync(string userEmail, int? cinemaId)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
@@ -150,6 +169,10 @@ namespace CinemaTic.Core.Services
                 })
             };
         }
+        /// <summary>
+        /// <para>Gets a collection of all movies, offered in a given <see cref="Cinema"/> at a given <see cref="DateTime"/>.</para>
+        /// </summary>
+        /// <returns>An <see cref="IEnumerable{T}"/> of <see cref="CinemaMovieViewModel"/></returns>
         public async Task<IEnumerable<CinemaMovieViewModel>> GetMoviesByDateAsync(int? cinemaId, DateTime date)
         {
             var cinema = await _context.Cinemas.Include(i => i.Schedule).Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.Genre).FirstOrDefaultAsync(i => i.Id == cinemaId);
@@ -170,6 +193,10 @@ namespace CinemaTic.Core.Services
                     .ToList(),
             });
         }
+        /// <summary>
+        /// <para>Gets the view model used for buying tickets.</para>
+        /// </summary>
+        /// <returns>A <see cref="BuyTicketViewModel"/> object.</returns>
         public async Task<BuyTicketViewModel> GetBuyTicketViewModelAsync(int? cinemaId, int? movieId, DateTime forDate)
         {
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == cinemaId);
@@ -188,6 +215,9 @@ namespace CinemaTic.Core.Services
                 ForDateTime = forDate
             };
         }
+        /// <summary>
+        /// <para>Buys a ticket for a given <see cref="Movie"/> at a given <see cref="Cinema"/>.</para>
+        /// </summary>
         public async Task BuyTicketAsync(int? sectorId, int? movieId, string userEmail, SectorDetailsViewModel sectorViewModel, DateTime forDate)
         {
             var sector = await _context.Sectors.FirstOrDefaultAsync(i => i.Id == sectorId);
@@ -210,6 +240,9 @@ namespace CinemaTic.Core.Services
             }
             await _context.SaveChangesAsync();
         }
+        /// <summary>
+        /// <para>Sets or changes a given <see cref="ApplicationUser"/>'s rating of a given <see cref="Movie"/>.</para>
+        /// </summary>
         public async Task SetRatingToMovieAsync(int? id, decimal rating, string userEmail)
         {
             var currentUser = await _userManager.FindByEmailAsync(userEmail);
@@ -245,6 +278,15 @@ namespace CinemaTic.Core.Services
                 await _context.SaveChangesAsync();
                 await _logger.LogActionAsync(UserActionType.Update, LogMessages.ChangeRatingMovieMessage, movie.Title, $"{oldRating:f1}", $"{rating:f1}");
             }
+        }
+        /// <summary>
+        /// <para>Checks whether an <see cref="ApplicationUser"/> has a given <see cref="Cinema"/> in their favorites collection.</para>
+        /// </summary>
+        /// <returns><see cref="bool"/></returns>
+        public async Task<bool> CustomerHasCinemaAsync(int? cinemaId, string userEmail)
+        {
+            var user = await _userManager.FindByEmailAsync(userEmail);
+            return _context.CustomersCinemas.Where(i => i.CustomerId == user.Id).Any(i => i.CinemaId == cinemaId);
         }
     }
 }

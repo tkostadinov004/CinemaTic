@@ -25,11 +25,18 @@ namespace CinemaTic.Core.Services
             _context = context;
             _imageService = imageService;
         }
+        /// <summary>
+        /// <para>Gets all <see cref="ApplicationUser"/> records from the database (method used for testing purposes only).</para>
+        /// </summary>
+        /// <returns><see cref="IEnumerable{T}"/> of <see cref="ApplicationUser"/></returns>
         public async Task<IEnumerable<ApplicationUser>> GetAllUsersAsync()
         {
             return await _context.Users.ToListAsync();
         }
-
+        /// <summary>
+        /// <para>Deletes an <see cref="ApplicationUser"/> by given id.</para>
+        /// </summary>
+        /// <returns>A <see cref="bool"/> value showing whether the account was successfully deleted</returns>
         public async Task<bool> DeleteAccountAsync(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -53,7 +60,11 @@ namespace CinemaTic.Core.Services
             }
             return false;
         }
-
+        /// <summary>
+        /// <para>Demotes an <see cref="ApplicationUser"/> by given id.</para>
+        /// <para>Demoting means removing the "Owner" role from the current <see cref="ApplicationUser"/>, thus depriving the <see cref="ApplicationUser"/> of owner privileges.</para>
+        /// </summary>
+        /// <returns>A <see cref="bool"/> value showing whether the account was successfully demoted</returns>
         public async Task<bool> DemoteUserAsync(string id)
         {
             var owner = await _userManager.FindByIdAsync(id);
@@ -65,12 +76,11 @@ namespace CinemaTic.Core.Services
             }
             return false;
         }
-
-        public async Task<ApplicationUser> GetUserByIdAsync(string id)
-        {
-            return await _userManager.FindByIdAsync(id);
-        }
-
+        /// <summary>
+        /// <para>Promotes an <see cref="ApplicationUser"/> by given id.</para>
+        /// <para>Promoting means adding the "Owner" role to the current <see cref="ApplicationUser"/>, thus giving the <see cref="ApplicationUser"/> owner privileges.</para>
+        /// </summary>
+        /// <returns>A <see cref="bool"/> value showing whether the account was successfully promoted</returns>
         public async Task<bool> PromoteUserAsync(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -83,12 +93,28 @@ namespace CinemaTic.Core.Services
             }
             return false;
         }
-
+        /// <summary>
+        /// <para>Gets an <see cref="ApplicationUser"/> by given id.</para>
+        /// </summary>
+        /// <returns>An <see cref="ApplicationUser"/> object</returns>
+        public async Task<ApplicationUser> GetUserByIdAsync(string id)
+        {
+            return await _userManager.FindByIdAsync(id);
+        }
+        /// <summary>
+        /// <para>Gets all cinemas.</para>
+        /// </summary>
+        /// <returns>An <see cref="IEnumerable{T}"/> of <see cref="Cinema"/></returns>
         public async Task<IEnumerable<Cinema>> GetAllCinemasAsync()
         {
             return await _context.Cinemas.Include(i => i.Owner).ToListAsync();
         }
-        public async Task<IEnumerable<AdminAllCinemasViewModel>> QueryCinemasAsync(string searchText, string filterValue, string sortBy, int? pageNumber)
+        /// <summary>
+        /// <para>Gets a <see cref="PaginatedList{T}"/> of cinemas.</para>
+        /// <para>The method supports searching by name, filtering by <see cref="ApprovalStatus"/> and sorting (by name, approval status, date of adding, and name of owner).</para>
+        /// </summary>
+        /// <returns>A <see cref="PaginatedList{T}"/> of <see cref="AdminAllCinemasViewModel"/></returns>
+        public async Task<PaginatedList<AdminAllCinemasViewModel>> QueryCinemasAsync(string searchText, string filterValue, string sortBy, int? pageNumber)
         {
             var cinemas = _context.Cinemas.Include(i => i.Owner).OrderBy(i => i.Name).AsQueryable();
             if (string.IsNullOrEmpty(searchText) == false)
@@ -151,7 +177,11 @@ namespace CinemaTic.Core.Services
                 ImageUrl = i.ImageUrl
             }), pageNumber ?? 1, 10);
         }
-
+        /// <summary>
+        /// <para>Gets the details view model of an <see cref="ApplicationUser"/> by id.</para>
+        /// <para>The method supports pagination of the user's action logs.</para>
+        /// </summary>
+        /// <returns>A <see cref="UserDetailsViewModel"/> object</returns>
         public async Task<UserDetailsViewModel> GetUserDetailsViewModelByIdAsync(string id, int? actionPageNumber)
         {
             var user = await _context.Users.Include(i => i.UserActions).FirstOrDefaultAsync(i => i.Id == id);
@@ -180,7 +210,10 @@ namespace CinemaTic.Core.Services
                 Roles = string.Join(", ", await _userManager.GetRolesAsync(user))
             };
         }
-
+        /// <summary>
+        /// <para>Gets the details view model of a <see cref="Cinema"/> by id.</para>
+        /// </summary>
+        /// <returns>A <see cref="AdminCinemaDetailsViewModel"/> object</returns>
         public async Task<AdminCinemaDetailsViewModel> GetCinemaDetailsViewModelByIdAsync(int? id)
         {
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == id);
@@ -196,7 +229,10 @@ namespace CinemaTic.Core.Services
             };
 
         }
-
+        /// <summary>
+        /// <para>Gets the view model for changing the <see cref="ApprovalStatus"/> of a <see cref="Cinema"/> by id.</para>
+        /// </summary>
+        /// <returns>A <see cref="ChangeCinemaApprovalStatusViewModel"/> object</returns>
         public async Task<ChangeCinemaApprovalStatusViewModel> GetChangeApprovalStatusViewModelByIdAsync(int? id)
         {
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == id);
@@ -208,14 +244,16 @@ namespace CinemaTic.Core.Services
                 ApprovalCode = (int)cinema.ApprovalStatus
             };
         }
-
+        /// <summary>
+        /// <para>Changes the <see cref="ApprovalStatus"/> of a <see cref="Cinema"/> by id.</para>
+        /// </summary>
         public async Task ChangeApprovalStatusByIdStatusAsync(int? id, ApprovalStatus approvalCode)
         {
             var cinema = await _context.Cinemas.FirstOrDefaultAsync(i => i.Id == id);
-            if(cinema != null)
+            if (cinema != null)
             {
                 cinema.ApprovalStatus = approvalCode;
-                if(approvalCode == ApprovalStatus.DeniedApproval)
+                if (approvalCode == ApprovalStatus.DeniedApproval)
                 {
                     _context.CinemasMovies.RemoveRange(_context.CinemasMovies.Where(i => i.CinemaId == cinema.Id));
                     _context.CinemasMoviesTimes.RemoveRange(_context.CinemasMoviesTimes.Where(i => i.CinemaId == cinema.Id));
@@ -224,8 +262,12 @@ namespace CinemaTic.Core.Services
                 await _context.SaveChangesAsync();
             }
         }
-
-        public async Task<IEnumerable<UserDetailsViewModel>> QueryUsersAsync(string searchText, string filterValue, string sortBy, int? pageNumber)
+        /// <summary>
+        /// <para>Gets a <see cref="PaginatedList{T}"/> of users.</para>
+        /// <para>The method supports searching by name, filtering by <see cref="IdentityRole"/> and sorting (by name, email, and role).</para>
+        /// </summary>
+        /// <returns>A <see cref="PaginatedList{T}"/> of <see cref="UserDetailsViewModel"/></returns>
+        public async Task<PaginatedList<UserDetailsViewModel>> QueryUsersAsync(string searchText, string filterValue, string sortBy, int? pageNumber)
         {
             var users = _context.Users.Where(i => i.UserName != "admin@admin.com").ToList().OrderBy(i => $"{i.FirstName} {i.LastName}").AsEnumerable();
             if (string.IsNullOrEmpty(searchText) == false)
@@ -280,7 +322,11 @@ namespace CinemaTic.Core.Services
                 Roles = string.Join(", ", _userManager.GetRolesAsync(i).Result)
             }), pageNumber ?? 1, 8);
         }
-
+        /// <summary>
+        /// <para>Gets a view model for modifying an <see cref="ApplicationUser"/>'s account.</para>
+        /// <para>The method is used for getting the view model of all 3 actions (promoting, demoting, and deleting account)</para>
+        /// </summary>
+        /// <returns>An <see cref="AdminUserCRUDViewModel"/> object</returns>
         public async Task<AdminUserCRUDViewModel> GetAdminUserCRUDPartialAsync(string id)
         {
             var user = await this.GetUserByIdAsync(id);
@@ -293,11 +339,18 @@ namespace CinemaTic.Core.Services
                 Roles = string.Join(", ", await _userManager.GetRolesAsync(user))
             };
         }
-
+        /// <summary>
+        /// <para>Checks whether an <see cref="ApplicationUser"/> exists in the database.</para>
+        /// </summary>
+        /// <returns><see cref="bool"/></returns>
         public async Task<bool> UserExistsAsync(string id)
         {
             return await _context.Users.AnyAsync(i => i.Id == id);
         }
+        /// <summary>
+        /// <para>Checks whether a <see cref="Cinema"/> exists in the database.</para>
+        /// </summary>
+        /// <returns><see cref="bool"/></returns>
         public async Task<bool> CinemaExistsAsync(int? id)
         {
             return await _context.Cinemas.AnyAsync(i => i.Id == id);

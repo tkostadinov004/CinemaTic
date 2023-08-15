@@ -13,15 +13,16 @@ namespace CinemaTic.Core.Contracts
     {
         Task CreateCinemaAsync(CreateCinemaViewModel item, string userEmail);
         Task<IEnumerable<CinemaListViewModel>> GetAllByUserAsync(string userEmail);
-        Task<CinemaDetailsViewModel> GetByIdAsync(int? id);
+        Task<CinemaDetailsViewModel> GetDetailsViewModelByIdAsync(int? id);
         Task EditCinemaAsync(EditCinemaViewModel item);
         Task DeleteByIdAsync(int? id);
         Task<bool> ExistsByIdAsync(int? id);
+        Task<bool> OwnerHasCinemaAsync(int? cinemaId, string userEmail);
         Task<IEnumerable<CinemaListViewModel>> QueryCinemasAsync(string searchText, string filterValue, string sortBy, string userEmail);
         Task<IEnumerable<MovieInfoCardViewModel>> QueryMoviesByCinemaAsync(int? cinemaId, string searchText, string sortBy);
         Task<EditCinemaViewModel> GetEditViewModelByIdAsync(int? cinemaId);
-        Task<DeleteCinemaViewModel> PrepareDeleteViewModelAsync(int? id);
+        Task<DeleteCinemaViewModel> GetDeleteViewModelAsync(int? id);
         Task<CinemaPagePreviewViewModel> GetPreviewViewModelAsync(string userEmail, int? cinemaId);
-        Task<IEnumerable<CinemaContainingMovieViewModel>> GetCinemasContainingMovieAsync(int? movieId, string userEmail, string sortBy);
+        Task<IEnumerable<CinemaContainingMovieViewModel>> QueryCinemasContainingMovieAsync(int? movieId, string userEmail, string sortBy);
     }
 }

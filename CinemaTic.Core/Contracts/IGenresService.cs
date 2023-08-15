@@ -1,4 +1,5 @@
 ﻿using CinemaTic.Data.Models;
+using CinemaTic.Extensions;
 using CinemaTic.ViewModels.Genres;
 using CinemaTic.ViewModels.Movies;
 
@@ -11,9 +12,9 @@ namespace CinemaTic.Core.Contracts
         Task DeleteByIdAsync(int? id);
         Task<bool> ExistsByIdAsync(int? id);
         Task CreateAsync(CreateGenreViewModel item);
-        Task EditByIdAsync(EditGenreViewModel item);
+        Task EditAsync(EditGenreViewModel item);
         Task<IEnumerable<GenreListViewModel>> SortGenresAsync(string sortBy);
-        Task<IEnumerable<MovieInfoCardViewModel>> QueryMoviesByGenreAsync(int? genreId, string searchText, string sortBy, int? pageNumber);
+        Task<PaginatedList<MovieInfoCardViewModel>> QueryMoviesByGenreAsync(int? genreId, string searchText, string sortBy, int? pageNumber);
         Task<EditGenreViewModel> GetEditViewModelByIdAsync(int? genreId);
         Task<DeleteGenreViewModel> GetDeleteViewModelByIdAsync(int? id);
         Task<GenreDetailsViewModel> GetDetailsViewModelByIdAsync(int? id);

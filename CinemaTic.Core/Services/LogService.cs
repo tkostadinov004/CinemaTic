@@ -27,7 +27,9 @@ namespace CinemaTic.Core.Services
             _context = context;
             _httpContextAccessor = httpContextAccessor;
         }
-
+        /// <summary>
+        /// <para>Adds a log message to the database.</para>
+        /// </summary>
         public async Task LogActionAsync(UserActionType type, string message, params object[] attributes)
         {
             var user = await this.GetUser();

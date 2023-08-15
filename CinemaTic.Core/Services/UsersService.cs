@@ -30,12 +30,18 @@ namespace CinemaTic.Core.Services
             _logger = logger;
             _imageService = imageService;
         }
-
+        /// <summary>
+        /// <para>Gets the <see cref="ApplicationUser"/> by a given email.</para>
+        /// </summary>
+        /// <returns>An <see cref="ApplicationUser"/> object</returns>
         public async Task<ApplicationUser> GetUserByEmailAsync(string userEmail)
         {
             return await _userManager.FindByEmailAsync(userEmail);
         }
-
+        /// <summary>
+        /// <para>Gets the sidebar view model of a given <see cref="ApplicationUser"/>.</para>
+        /// </summary>
+        /// <returns>A <see cref="SidebarUserViewModel"/> object</returns>
         public async Task<SidebarUserViewModel> GetSidebarViewModelByEmailAsync(string userEmail)
         {
             var user = await this.GetUserByEmailAsync(userEmail);
@@ -49,6 +55,10 @@ namespace CinemaTic.Core.Services
             }
             return null;
         }
+        /// <summary>
+        /// <para>Gets a view model used for changing the password of a given <see cref="ApplicationUser"/>.</para>
+        /// </summary>
+        /// <returns>A <see cref="ChangePasswordViewModel"/> object</returns>
         public async Task<ChangePasswordViewModel> GetChangePasswordViewModelAsync(string userEmail)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
@@ -62,7 +72,9 @@ namespace CinemaTic.Core.Services
             }
             return null;
         }
-
+        /// <summary>
+        /// <para>Changes the password of a given <see cref="ApplicationUser"/>.</para>
+        /// </summary>
         public async Task ChangePasswordAsync(ChangePasswordViewModel viewModel)
         {
             var user = await _userManager.FindByIdAsync(viewModel.Id);
@@ -70,6 +82,10 @@ namespace CinemaTic.Core.Services
             await _signInManager.RefreshSignInAsync(user);
             await _logger.LogActionAsync(UserActionType.AccountActions, LogMessages.ChangePasswordMessage);
         }
+        /// <summary>
+        /// <para>Gets a view model used for changing the profile picture of a given <see cref="ApplicationUser"/>.</para>
+        /// </summary>
+        /// <returns>A <see cref="ChangeProfilePictureViewModel"/> object</returns>
         public async Task<ChangeProfilePictureViewModel> GetChangeProfilePictureViewModelAsync(string userEmail)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
@@ -82,7 +98,9 @@ namespace CinemaTic.Core.Services
             }
             return null;
         }
-
+        /// <summary>
+        /// <para>Changes the profile picture of a given <see cref="ApplicationUser"/>.</para>
+        /// </summary>
         public async Task ChangeProfilePictureViewModelAsync(ChangeProfilePictureViewModel viewModel)
         {
             var user = await _userManager.FindByIdAsync(viewModel.Id);

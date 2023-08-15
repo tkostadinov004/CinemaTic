@@ -48,7 +48,12 @@ namespace CinemaTic.Web.Areas.Owner.Controllers
             {
                 return NotFound();
             }
-            return View(await _cinemasService.GetByIdAsync(id));
+
+            if(!await _cinemasService.OwnerHasCinemaAsync(id, User.Identity.Name))
+            {
+                return Forbid();
+            }
+            return View(await _cinemasService.GetDetailsViewModelByIdAsync(id));
         }
         [HttpGet]
         public async Task<IActionResult> Edit([ModelBinder(typeof(IdModelBinder))] int id)
@@ -81,7 +86,7 @@ namespace CinemaTic.Web.Areas.Owner.Controllers
             {
                 return NotFound();
             }
-            return PartialView("_DeleteCinemaPartial", await _cinemasService.PrepareDeleteViewModelAsync(id.Value));
+            return PartialView("_DeleteCinemaPartial", await _cinemasService.GetDeleteViewModelAsync(id.Value));
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

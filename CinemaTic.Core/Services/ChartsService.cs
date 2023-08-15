@@ -24,7 +24,11 @@ namespace CinemaTic.Core.Services
             _context = context;
             _userManager = userManager;
         }
-
+        /// <summary>
+        /// <para>Gets the sum of incomes of an <see cref="ApplicationUser"/>'s cinemas, as well as a sum of the incomes of all the cinemas, registered in CinemaTic.</para>
+        /// <para>The data is used for showing the market share of an <see cref="ApplicationUser"/>.</para>
+        /// </summary>
+        /// <returns>A <see cref="CinemaShareDTO"/> object</returns>
         public async Task<CinemaShareDTO> GetMarketShareByUserAsync(string userEmail)
         {
             var tickets = await _context.Tickets.Include(i => i.Cinema).Select(i => new
@@ -40,7 +44,11 @@ namespace CinemaTic.Core.Services
                 TotalIncome = tickets.Sum(i => i.Price)
             };
         }
-
+        /// <summary>
+        /// <para>Gets the incomes of an <see cref="ApplicationUser"/>'s cinemas</para>
+        /// <para>The data is used for showing the total income of each cinema that an <see cref="ApplicationUser"/> owns.</para>
+        /// </summary>
+        /// <returns>A <see cref="TotalIncomesDTO"/> object</returns>
         public async Task<TotalIncomesDTO> GetTotalIncomesAsync(string userEmail)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
@@ -56,7 +64,10 @@ namespace CinemaTic.Core.Services
                 Incomes = cinemasIncomes.Values.ToArray()
             };
         }
-
+        /// <summary>
+        /// <para>Gets the amounts of customers of an <see cref="ApplicationUser"/>'s cinemas.</para>
+        /// </summary>
+        /// <returns>A <see cref="CustomersPerCinemaDTO"/> object</returns>
         public async Task<CustomersPerCinemaDTO> GetCustomersPerCinemaAsync(string userEmail)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
@@ -71,7 +82,10 @@ namespace CinemaTic.Core.Services
                 CustomersCounts = cinemasCustomers.Select(i => i.CustomersCount).ToArray()
             };
         }
-
+        /// <summary>
+        /// <para>Gets the best selling movie of every <see cref="Cinema"/> that an <see cref="ApplicationUser"/> owns.</para>
+        /// </summary>
+        /// <returns>A <see cref="BestSellingMoviesPerCinemaDTO"/> object</returns>
         public async Task<BestSellingMoviesPerCinemaDTO> GetBestSellingMoviesPerCinemaAsync(string userEmail)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
@@ -89,7 +103,10 @@ namespace CinemaTic.Core.Services
                 MoviesCounts = movies.Select(i => i.Count()).ToArray()
             };
         }
-
+        /// <summary>
+        /// <para>Gets the amount of registered users per month of the current year.</para>
+        /// </summary>
+        /// <returns>A <see cref="UsersPerMonthDTO"/> object</returns>
         public async Task<UsersPerMonthDTO> GetRegisteredUsersByMonthAsync()
         {
             var months = Enumerable.Range(1, DateTime.Now.Month);
@@ -101,7 +118,10 @@ namespace CinemaTic.Core.Services
                 UsersCounts = users.Select(i => i.Value).ToArray()
             };
         }
-
+        /// <summary>
+        /// <para>Gets the accumulated amount of registered users per month of the current year.</para>
+        /// </summary>
+        /// <returns>A <see cref="UsersGrowthDTO"/> object</returns>
         public async Task<UsersGrowthDTO> GetUsersGrowthAsync()
         {
             var months = Enumerable.Range(1, DateTime.Now.Month);

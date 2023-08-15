@@ -22,6 +22,9 @@ namespace CinemaTic.Core.Services
             _logger = logger;
             _imageService = imageService;
         }
+        /// <summary>
+        /// Adds an <see cref="Actor"/> to the database.
+        /// </summary>
         public async Task CreateActorAsync(CreateActorViewModel? viewModel)
         {
             if (viewModel != null)
@@ -41,7 +44,9 @@ namespace CinemaTic.Core.Services
                 await _logger.LogActionAsync(UserActionType.Create, LogMessages.AddEntityMessage, "actor", viewModel.FullName, $"({viewModel.Nationality})");
             }
         }
-
+        /// <summary>
+        /// Deletes an <see cref="Actor"/> from the database by given id.
+        /// </summary>
         public async Task DeleteByIdAsync(int? id)
         {
             var actor = await _context.Actors.FindAsync(id);
@@ -53,7 +58,9 @@ namespace CinemaTic.Core.Services
                 await _logger.LogActionAsync(UserActionType.Delete, LogMessages.DeleteEntityMessage, "actor", actor.FullName, $"({actor.Nationality})");
             }
         }
-
+        /// <summary>
+        /// Edits an <see cref="Actor"/>.
+        /// </summary>
         public async Task EditActorAsync(EditActorViewModel viewModel)
         {
             var actor = await _context.Actors.FirstOrDefaultAsync(i => i.Id == viewModel.Id);
@@ -74,17 +81,27 @@ namespace CinemaTic.Core.Services
                 await _logger.LogActionAsync(UserActionType.Update, LogMessages.EditEntityMessage, "actor", actor.FullName, $"({actor.Nationality})");
             }
         }
-
+        /// <summary>
+        /// Checks whether an <see cref="Actor"/> is present in the databaseл
+        /// </summary>
         public async Task<bool> ExistsByIdAsync(int? id)
         {
             return await _context.Actors.AnyAsync(i => i.Id == id);
         }
+        /// <summary>
+        /// Gets an <see cref="Actor"/> by their id.
+        /// </summary>
+        /// <returns>An <see cref="Actor"/> object.</returns>
         public async Task<Actor> GetByIdAsync(int? id)
         {
             return await _context.Actors
                 .Include(i => i.Movies)
                 .FirstOrDefaultAsync(i => i.Id == id);
         }
+        /// <summary>
+        /// Gets the details view model of an <see cref="Actor"/>.
+        /// </summary>
+        /// <returns>An <see cref="ActorDetailsViewModel"/> object</returns>
         public async Task<ActorDetailsViewModel> GetDetailsViewModelByIdAsync(int? id)
         {
             var actor = await _context.Actors
@@ -139,7 +156,10 @@ namespace CinemaTic.Core.Services
                 ImageUrl = actor.ImageUrl
             };
         }
-
+        /// <summary>
+        /// Gets a list of countries (used for selecting an <see cref="Actor"/>'s nationality)
+        /// </summary>
+        /// <returns>A <see cref="CreateActorViewModel"/> object.</returns>
         public async Task<CreateActorViewModel> GetCreateViewModelAsync()
         {
             return new CreateActorViewModel
@@ -148,18 +168,17 @@ namespace CinemaTic.Core.Services
                 Birthdate = null
             };
         }
-
-        public async Task<PaginatedList<ActorListViewModel>> QueryActorsAsync(string searchText, string filterValue, string sortBy, int? pageNumber)
+        /// <summary>
+        /// <para>Gets a <see cref="PaginatedList{ActorDetailsViewModel}"/> of actors.</para>
+        /// <para>The method supports searching by name and sorting (by name, birthdate, nationality, rating, and count of movies).</para>
+        /// </summary>
+        /// <returns>A <see cref="PaginatedList{T}"/> of <see cref="ActorListViewModel"/></returns>
+        public async Task<PaginatedList<ActorListViewModel>> QueryActorsAsync(string searchText, string sortBy, int? pageNumber)
         {
             var actors = _context.Actors.Include(i => i.Movies).AsQueryable();
             if (string.IsNullOrEmpty(searchText) == false)
             {
                 actors = actors.Where(i => i.FullName.ToLower().StartsWith(searchText.ToLower()));
-            }
-            if (string.IsNullOrEmpty(filterValue) == false && filterValue != "-Select a cinema-")
-            {
-                var movie = await _context.Movies.FirstOrDefaultAsync(i => i.Id == int.Parse(filterValue));
-                actors = actors.Where(i => i.Movies.Any(m => m.MovieId == movie.Id));
             }
             if (string.IsNullOrEmpty(sortBy) == false)
             {
@@ -216,7 +235,11 @@ namespace CinemaTic.Core.Services
                 Rating = i.Rating.ToString()
             }), pageNumber ?? 1, 5);
         }
-
+        /// <summary>
+        /// <para>Gets a <see cref="IEnumerable{MovieInfoCardViewModel}"/>  of the movies, in which an actor is starring.</para>
+        /// <para>The method supports searching by name and sorting (by name, genre, average user rating, and the amount of user ratings).</para>
+        /// </summary>
+        /// <returns>A <see cref="IEnumerable{MovieInfoCardViewModel}"/> of <see cref="MovieInfoCardViewModel"/></returns>
         public async Task<IEnumerable<MovieInfoCardViewModel>> QueryMoviesByActorAsync(int? actorId, string searchText, string sortBy)
         {
             var actor = await _context.Actors.Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.Genre)
