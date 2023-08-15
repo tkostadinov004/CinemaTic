@@ -3,6 +3,7 @@ using CinemaTic.Core.Profiles;
 using CinemaTic.Core.Services;
 using CinemaTic.Data;
 using CinemaTic.Data.Models;
+using CinemaTic.Web.Controllers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -10,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using System.Web.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,7 +45,7 @@ builder.Services.AddScoped<IAdminService, AdminService>();
 builder.Services.AddScoped<IGenresService, GenresService>();
 builder.Services.AddScoped<IMoviesService, MoviesService>();
 builder.Services.AddScoped<ICustomersService, CustomersService>();
-builder.Services.AddScoped<IOwnersService, OwnersService>();
+builder.Services.AddScoped<ICinemasService, CinemasService>();
 builder.Services.AddScoped<ISectorsService, SectorsService>();
 builder.Services.AddScoped<IChartsService, ChartsService>();
 builder.Services.AddScoped<ILogService, LogService>();
@@ -74,10 +76,13 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-app.MapRazorPages();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute("areas", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+    
+    endpoints.MapDefaultControllerRoute();
+    endpoints.MapRazorPages();
+});
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider

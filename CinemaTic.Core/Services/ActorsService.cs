@@ -149,7 +149,7 @@ namespace CinemaTic.Core.Services
             };
         }
 
-        public async Task<PaginatedList<ActorListViewModel>> SearchAndFilterActorsAsync(string searchText, string filterValue, string sortBy, int? pageNumber)
+        public async Task<PaginatedList<ActorListViewModel>> QueryActorsAsync(string searchText, string filterValue, string sortBy, int? pageNumber)
         {
             var actors = _context.Actors.Include(i => i.Movies).AsQueryable();
             if (string.IsNullOrEmpty(searchText) == false)
@@ -217,7 +217,7 @@ namespace CinemaTic.Core.Services
             }), pageNumber ?? 1, 5);
         }
 
-        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchMoviesByActorAsync(string searchText, string sortBy, int? actorId)
+        public async Task<IEnumerable<MovieInfoCardViewModel>> QueryMoviesByActorAsync(int? actorId, string searchText, string sortBy)
         {
             var actor = await _context.Actors.Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.Genre)
                 .FirstOrDefaultAsync(i => i.Id == actorId);

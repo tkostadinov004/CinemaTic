@@ -88,7 +88,7 @@ namespace CinemaTic.Core.Services
         {
             return await _context.Cinemas.Include(i => i.Owner).ToListAsync();
         }
-        public async Task<IEnumerable<AdminAllCinemasViewModel>> SearchAndFilterCinemasAsync(string searchText, string filterValue, string sortBy, int? pageNumber)
+        public async Task<IEnumerable<AdminAllCinemasViewModel>> QueryCinemasAsync(string searchText, string filterValue, string sortBy, int? pageNumber)
         {
             var cinemas = _context.Cinemas.Include(i => i.Owner).OrderBy(i => i.Name).AsQueryable();
             if (string.IsNullOrEmpty(searchText) == false)
@@ -225,7 +225,7 @@ namespace CinemaTic.Core.Services
             }
         }
 
-        public async Task<IEnumerable<UserDetailsViewModel>> SearchAndFilterUsersAsync(string searchText, string filterValue, string sortBy, int? pageNumber)
+        public async Task<IEnumerable<UserDetailsViewModel>> QueryUsersAsync(string searchText, string filterValue, string sortBy, int? pageNumber)
         {
             var users = _context.Users.Where(i => i.UserName != "admin@admin.com").ToList().OrderBy(i => $"{i.FirstName} {i.LastName}").AsEnumerable();
             if (string.IsNullOrEmpty(searchText) == false)

@@ -4,7 +4,7 @@ var usersPerMonth; var usersGrowth;
 function getRegisteredUsersByMonth() {
     $.ajax({
         type: "GET",
-        url: `/Charts/GetRegisteredUsersByMonth`,
+        url: `/Admin/Charts/GetRegisteredUsersByMonth`,
         data: {},
         success: function (response) {
             usersPerMonth = new Chart(document.getElementById('registeredByMonth'), {
@@ -56,7 +56,7 @@ function getRegisteredUsersByMonth() {
 function getUsersGrowth() {
     $.ajax({
         type: "GET",
-        url: `/Charts/GetUsersGrowth`,
+        url: `/Admin/Charts/GetUsersGrowth`,
         data: {},
         success: function (response) {
             usersGrowth = new Chart(document.getElementById('usersGrowth'), {

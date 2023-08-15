@@ -25,7 +25,7 @@ namespace CinemaTic.Core.Contracts
         Task<FilterMoviesViewModel> GetFilterViewModelAsync();
         Task<EditMovieViewModel> GetEditViewModelAsync(int? id);
         Task<DeleteMovieViewModel> GetDeleteViewModelAsync(int? id);
-        Task<PaginatedList<MovieInfoCardViewModel>> SearchAndFilterMoviesAsync(string searchText, string filterValue, string sortBy, int? pageNumber);
+        Task<PaginatedList<MovieInfoCardViewModel>> QueryMoviesAsync(string searchText, string filterValue, string sortBy, int? pageNumber);
         Task<SetMovieScheduleViewModel> GetSetMovieSchedulePartialAsync(int? cinemaId, int? movieId);
         Task<EditCinemaMovieDataViewModel> GetEditCinemaMovieDataViewModelAsync(int? cinemaId, int? movieId);
         Task SetMovieScheduleAsync(SetMovieScheduleViewModel viewModel);

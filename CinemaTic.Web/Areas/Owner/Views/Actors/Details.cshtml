@@ -1,0 +1,141 @@
+﻿@model CinemaTic.ViewModels.Actors.ActorDetailsViewModel
+
+@{
+    ViewData["Title"] = $"Actor - {Model.FullName}";
+}
+<link href="~/css/modal.css" rel="stylesheet" />
+<link href="~/css/manage-dashboard.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/cards.css" />
+<div class="app-content">
+    <div class="app-content-header">
+        <button class="mode-switch" title="Switch Theme">
+            <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+                <defs></defs>
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+            </svg>
+        </button>
+    </div>
+    <div class="products-area-wrapper gridView m-0 mt-4 justify-content-center details">
+        <div class="cinema-row details-card mb-3">
+            <div class="cinema-cell image details-photo-pic">
+                <a class="d-flex align-items-center cinema-link flex-column">
+                    <img src="~/client-images/Actors/@Model.ImageUrl" alt="cinema-logo">
+                    <span>@Model.FullName</span>
+                </a>
+            </div>
+            <div class="cinema-cell status-cell">
+                <span class="cell-label">Date of birth:</span>
+                <span>@Model.Birthdate</span>
+            </div>
+            <div class="cinema-cell description">
+                <span class="cell-label">Nationality:</span>
+                <span class="cinema-description">
+                    @Model.Nationality
+                </span>
+            </div>
+            <div class="cinema-cell description">
+                <span class="cell-label">Rating:</span>
+                <span>@Model.Rating</span>
+            </div>
+            <div class="cinema-cell description">
+                <span class="cell-label">Movies:</span>
+                <span>@Model.MoviesCount</span>
+            </div>
+        </div>
+        <div class="cinema-cell stock">
+            <button id="edit" class="action-button active crud-button open-popup-btn">Edit</button>
+            <button id="delete" class="action-button active crud-button open-popup-btn">Delete</button>
+        </div>
+    </div>
+    <div class="app-content-actions">
+        <input id="search-bar" class="search-bar" placeholder="Search..." type="text">
+    </div>
+    <div class="products-area-wrapper tableView mt-1">
+        <div class="products-header">
+            <div class="cinema-cell image">
+                Movie
+                <button class="sort-button" id="name-sort-desc" title="Sort descending">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="name-sort" title="Sort ascending">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+            <div class="cinema-cell status-cell">
+                Genre
+                <button class="sort-button" id="genre-sort-desc" title="Sort descending">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="genre-sort" title="Sort ascending">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+            <div class="cinema-cell sales">
+                Average user rating
+                <button class="sort-button" id="rating-sort-desc" title="Sort descending">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="rating-sort" title="Sort ascending">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+            <div class="cinema-cell stock">
+                Ratings count
+                <button class="sort-button" id="ratingcount-sort-desc" title="Sort descending">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="ratingcount-sort" title="Sort ascending">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+        </div>
+        <div class="results-container cinemas-grid" id="results-container">
+        </div>
+    </div>
+</div>
+<partial name="_PopupModalPartial" />
+<script src="~/js/dashboard.js"></script>
+<script src="~/js/modal.js"></script>
+
+<script>
+    window.onload = function () {
+        getItemCollectionByParent('Owner', 'Actors', 'QueryMoviesByActor', '@Model.Id');
+    };
+    var search = document.getElementById("search-bar");
+    var activeSort = document.querySelector('.sort-button.selected');
+    if (search) {
+        let timeout = null;
+        search.addEventListener("keyup", function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                getItemCollectionByParent('Owner', 'Actors', 'QueryMoviesByActor', '@Model.Id', search.value, (activeSort ? activeSort.id : null));
+            }, 300);
+        });
+    }
+
+    document.querySelectorAll(".sort-button").forEach(i => i.addEventListener('click', function () {
+        var alreadyActive = document.querySelector('.sort-button.selected');
+        if (alreadyActive) {
+            alreadyActive.classList.remove("selected");
+        }
+        activeSort = i;
+        i.classList.add("selected");
+        getItemCollectionByParent('Owner', 'Actors', 'QueryMoviesByActor', '@Model.Id', (search ? search.value : null), null, i.id);
+    }));
+
+    var modalContainer = document.getElementById('ud-form-container');
+    var popupModal = document.getElementById("modal");
+    var editButton = document.getElementById("edit");
+    editButton.addEventListener("click", function () {
+        modalContainer.innerHTML = "";
+        popupModal.classList.remove("preview");
+        getUDpartial('Owner', 'Actors', 'Edit', '@Model.Id');
+    });
+
+    var deleteButton = document.getElementById("delete");
+    deleteButton.addEventListener("click", function () {
+        modalContainer.innerHTML = "";
+        popupModal.classList.remove("preview");
+        getUDpartial('Owner', 'Actors', 'Delete', '@Model.Id');
+    });
+</script>

@@ -25,7 +25,7 @@ namespace CinemaTic.Core.UnitTests
     {
         private CinemaDbContext _context;
         private Mock<UserManager<ApplicationUser>> _userManagerMock;
-        private IOwnersService _ownersService;
+        private ICinemasService _ownersService;
         private Mock<IImageService> _imageServiceMock;
         [SetUp]
         public void TestInitialize()
@@ -46,7 +46,7 @@ namespace CinemaTic.Core.UnitTests
    new Mock<IServiceProvider>().Object,
    new Mock<ILogger<UserManager<ApplicationUser>>>().Object);
             _imageServiceMock = new Mock<IImageService>();
-            _ownersService = new OwnersService(_context, _userManagerMock.Object, new Mock<IMapper>().Object, new Mock<ISectorsService>().Object, new Mock<ILogService>().Object, _imageServiceMock.Object);
+            _ownersService = new CinemasService(_context, _userManagerMock.Object, new Mock<IMapper>().Object, new Mock<ISectorsService>().Object, new Mock<ILogService>().Object, _imageServiceMock.Object);
             _context.Users.Add(new ApplicationUser("156fc675-02de-4250-9edb-869c85e13e61", 0, "8f06bfbc-e1e3-4f95-9bc1-30add0031c34", new DateTime(2023, 7, 29, 12, 59, 18, 234, DateTimeKind.Local).AddTicks(7086), "owner1@owner.com", true, "James", "Johnson", false, null, "OWNER1@OWNER.COM", "OWNER1@OWNER.COM", null, null, false, "profilePicURL", "1969a695-01c0-49be-8d42-482cb1c327bc", false, "owner1@owner.com"));
             _context.Cinemas.Add(new Data.Models.Cinema
             {
@@ -237,7 +237,7 @@ namespace CinemaTic.Core.UnitTests
             var user = await _context.Users.FirstOrDefaultAsync(i => i.Id == "156fc675-02de-4250-9edb-869c85e13e61");
             _userManagerMock.Setup(userManager => userManager.FindByEmailAsync(user.Email)).ReturnsAsync(user);
 
-            var cinemas = await _ownersService.SearchAndFilterCinemasAsync("cin", "", "name-sort-desc", user.Email);
+            var cinemas = await _ownersService.QueryCinemasAsync("cin", "", "name-sort-desc", user.Email);
             Assert.That(cinemas.FirstOrDefault().Id, Is.EqualTo(2));
         }
         [Test]

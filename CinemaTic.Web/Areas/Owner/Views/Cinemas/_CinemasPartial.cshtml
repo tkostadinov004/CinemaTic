@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CinemaTic.ViewModels.Cinemas.CinemaListViewModel>
+
+@foreach (var cinema in Model)
+{
+    <div class="cinema-row info-cinema">
+        <button class="cell-more-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1" /><circle cx="12" cy="5" r="1" /><circle cx="12" cy="19" r="1" /></svg>
+        </button>
+        <div class="cinema-cell image">
+            <a class="d-flex align-items-center cinema-link" asp-area="Owner" asp-controller="Cinemas" asp-action="Details" asp-route-id="@cinema.Id">
+                <img class="h-100" src="~/client-images/Cinemas/@cinema.ImageUrl" alt="cinema-logo">
+                <span>@cinema.Name</span>
+            </a>
+        </div>
+        <div class="cinema-cell status-cell">
+            <span class="cell-label">Status:</span>
+            <span class="status">@cinema.Status</span>
+        </div>
+        <div class="cinema-cell sales"><span class="cell-label">Added on:</span>@cinema.FoundedOn.ToString(Constants.DateTimeFormat)</div>
+        <div class="cinema-cell stock">
+            <span class="cell-label">Movies:</span>
+            @if (cinema.StatusCode == ApprovalStatus.Approved)
+            {
+                @cinema.MoviesCount
+            }
+            else
+            {
+                <span>Not available</span>
+            }
+        </div>
+    </div>
+}

@@ -2,7 +2,6 @@
 @inject SignInManager<CinemaTic.Data.Models.ApplicationUser> SignInManager
 @inject UserManager<CinemaTic.Data.Models.ApplicationUser> UserManager
 
-
 @if (UserManager.Users.Count() > 0 && SignInManager.IsSignedIn(User))
 {
     <ul class="nav-links" role="list">

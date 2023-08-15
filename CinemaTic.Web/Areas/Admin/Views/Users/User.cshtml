@@ -1,0 +1,82 @@
+﻿@model CinemaTic.ViewModels.Admin.UserDetailsViewModel
+@{
+    ViewData["Title"] = $"User - {Model.FullName}";
+}
+
+<div class="app-content">
+    <div class="app-content-header">
+        <button class="mode-switch" title="Switch Theme">
+            <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+                <defs></defs>
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+            </svg>
+        </button>
+    </div>
+    <div class="products-area-wrapper gridView m-0 justify-content-center details">
+        <div class="products-header">
+            <div class="cinema-cell image">
+                Full name
+                <button class="sort-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"></path><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5z"></path></svg>
+                </button>
+            </div>
+            <div class="cinema-cell description">
+                Email<button class="sort-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"></path><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5z"></path></svg>
+                </button>
+            </div>
+            <div class="cinema-cell status-cell">
+                Role<button class="sort-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"></path><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5z"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div class="cinema-row details-card mb-3">
+            <div class="cinema-cell image details-photo-pic">
+                <a class="d-flex align-items-center cinema-link flex-column">
+                    <img src="~/client-images/Users/@Model.ImageUrl" alt="cinema-logo">
+                    <span>@Model.FullName</span>
+                </a>
+            </div>
+            <div class="cinema-cell status-cell">
+                <span class="cell-label">Email:</span>
+                <span class="status">@Model.UserName</span>
+            </div>
+            <div class="cinema-cell status-cell">
+                <span class="cell-label">Role:</span>
+                <span>@Model.Roles</span>
+            </div>
+        </div>
+        <div class="my-5 actions-container w-75">
+            <h5 class="text-center mb-4">Actions</h5>
+            <div class="actions d-flex flex-column gap-3">
+                @foreach (var item in Model.Actions)
+                {
+                    <div class="action @item.Type">
+                        <span>@item.Action</span>
+                    </div>
+                }
+            </div>
+        </div>
+        @{
+            var prevDisabled = !Model.Actions.HasPreviousPage ? "disabled" : "";
+            var nextDisabled = !Model.Actions.HasNextPage ? "disabled" : "";
+        }
+       @if (Model.Actions.Count > 0)
+        {
+            <ul class="pagination gap-1">
+                <li class="page-item">
+                    <a class="action-button active previous @prevDisabled">
+                        Previous
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="action-button active next @nextDisabled">
+                        Next
+                    </a>
+                </li>
+            </ul>
+        }
+    </div>
+</div>
+<script src="~/js/dashboard.js"></script>

@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "All genres";
+}
+<link href="~/css/manage-dashboard.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/cards.css" />
+<link href="~/css/modal.css" rel="stylesheet" />
+<div class="app-content">
+    <div class="app-content-header" id="cinemas">
+        <h1 class="app-content-headerText">All genres</h1>
+        <button class="mode-switch" title="Switch Theme">
+            <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+                <defs></defs>
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+            </svg>
+        </button>
+        <button class="app-content-headerButton open-popup-btn" id="add-genre-btn">Add a genre</button>
+    </div>
+    <div class="products-area-wrapper movies-wrapper tableView mt-3">
+        <div class="products-header">
+            <div class="cinema-cell image">
+                Genre
+                <button class="sort-button" id="name-sort-desc" title="Sort descending">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="name-sort" title="Sort ascending">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+            <div class="cinema-cell status-cell">
+                Movies
+                <button class="sort-button" id="moviescount-sort-desc" title="Sort descending">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <button class="sort-button" id="moviescount-sort" title="Sort ascending">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+        </div>
+        <div class="movies-container" id="results-container">
+        </div>
+    </div>
+</div>
+<partial name="_PopupModalPartial" />
+<script>
+    window.onload = function () {
+        getItems('Owner', 'Genres', 'SortGenres');
+    };
+    var activeSort = document.querySelector('.sort-button.selected');
+
+    document.querySelectorAll(".sort-button").forEach(i => i.addEventListener('click', function () {
+        var alreadyActive = document.querySelector('.sort-button.selected');
+        if (alreadyActive) {
+            alreadyActive.classList.remove("selected");
+        }
+        activeSort = i;
+        i.classList.add("selected");
+        getItems('Owner', 'Genres', 'SortGenres', null, null, null, i.id);
+    }));
+    document.getElementById('add-genre-btn').addEventListener('click', function () {
+        getUDpartial('Owner', 'Genres', 'Add');
+    });
+</script>
+<script src="~/js/dashboard.js"></script>

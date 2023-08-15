@@ -225,7 +225,7 @@ namespace CinemaTic.Core.Services
             }
             await _context.SaveChangesAsync();
         }
-        public async Task<PaginatedList<MovieInfoCardViewModel>> SearchAndFilterMoviesAsync(string searchText, string filterValue, string sortBy, int? pageNumber)
+        public async Task<PaginatedList<MovieInfoCardViewModel>> QueryMoviesAsync(string searchText, string filterValue, string sortBy, int? pageNumber)
         {
             var movies = _context.Movies
                 .Include(i => i.Actors)

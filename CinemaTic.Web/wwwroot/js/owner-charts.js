@@ -13,7 +13,7 @@ function getData(data) {
 function getMarketShare() {
     $.ajax({
         type: "GET",
-        url: `/Charts/GetMarketShare`,
+        url: `/Owner/Charts/GetMarketShare`,
         data: { },
         success: function (response) {
             marketShare = new Chart(document.getElementById('marketShare'), {
@@ -55,7 +55,7 @@ function getMarketShare() {
 function getTotalIncomes() {
     $.ajax({
         type: "GET",
-        url: `/Charts/GetTotalIncomes`,
+        url: `/Owner/Charts/GetTotalIncomes`,
         data: {},
         success: function (response) {
             let colors = [];
@@ -104,7 +104,7 @@ function getTotalIncomes() {
 function getCustomersPerCinema() {
     $.ajax({
         type: "GET",
-        url: `/Charts/GetCustomersPerCinema`,
+        url: `/Owner/Charts/GetCustomersPerCinema`,
         data: {},
         success: function (response) {
             let colors = [];
@@ -159,7 +159,7 @@ function getCustomersPerCinema() {
 function getBestSellingMoviesPerCinema() {
     $.ajax({
         type: "GET",
-        url: `/Charts/GetBestSellingMoviesPerCinema`,
+        url: `/Owner/Charts/GetBestSellingMoviesPerCinema`,
         data: {},
         success: function (response) {
             let colors = [];

@@ -208,7 +208,7 @@ namespace CinemaTic.Core.UnitTests
         [Test]
         public async Task SearchesAndFiltersCinemasCorrectly()
         {
-            var cinemas = await _adminService.SearchAndFilterCinemasAsync("test", ApprovalStatus.Approved.ToString(), "name-sort-desc", 1);
+            var cinemas = await _adminService.QueryCinemasAsync("test", ApprovalStatus.Approved.ToString(), "name-sort-desc", 1);
 
             Assert.Multiple(() =>
             {

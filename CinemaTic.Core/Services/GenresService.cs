@@ -110,7 +110,7 @@ namespace CinemaTic.Core.Services
             return null;
         }
 
-        public async Task<IEnumerable<MovieInfoCardViewModel>> SearchAndSortMoviesByGenre(int? genreId, string searchText, string sortBy, int? pageNumber)
+        public async Task<IEnumerable<MovieInfoCardViewModel>> QueryMoviesByGenreAsync(int? genreId, string searchText, string sortBy, int? pageNumber)
         {
             var genre = await _context.Genres.Include(i => i.Movies)
                 .FirstOrDefaultAsync(i => i.Id == genreId);

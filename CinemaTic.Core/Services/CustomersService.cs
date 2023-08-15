@@ -29,7 +29,7 @@ namespace CinemaTic.Core.Services
             _context = context;
             _logger = logger;
         }
-        public async Task<CustomerHomePageViewModel> GetCinemasForUserAsync(string userEmail)
+        public async Task<CustomerHomePageViewModel> GetHomePageViewModelAsync(string userEmail)
         {
             var user = await _context.Users.Include(i => i.CinemasVisited).ThenInclude(i => i.Cinema).FirstOrDefaultAsync(i => i.Email == userEmail);
 
@@ -188,11 +188,11 @@ namespace CinemaTic.Core.Services
                 ForDateTime = forDate
             };
         }
-        public async Task BuyTicketAsync(int? sectorId, int? movieId, SectorDetailsViewModel viewModel, DateTime forDate, string userEmail)
+        public async Task BuyTicketAsync(int? sectorId, int? movieId, string userEmail, SectorDetailsViewModel sectorViewModel, DateTime forDate)
         {
             var sector = await _context.Sectors.FirstOrDefaultAsync(i => i.Id == sectorId);
             var cinemaMovie = await _context.CinemasMovies.Include(i => i.Cinema).Include(i => i.Movie).FirstOrDefaultAsync(i => i.CinemaId == sector.CinemaId && i.MovieId == movieId);
-            var selectedSeats = viewModel.Seats.SelectMany(i => i).Where(i => i.IsChecked && i.IsOccupied == false);
+            var selectedSeats = sectorViewModel.Seats.SelectMany(i => i).Where(i => i.IsChecked && i.IsOccupied == false);
             foreach (var seat in selectedSeats)
             {
                 Ticket ticket = new Ticket

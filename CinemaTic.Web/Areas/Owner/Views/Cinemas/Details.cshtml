@@ -1,0 +1,187 @@
+﻿@model CinemaTic.ViewModels.Cinemas.CinemaDetailsViewModel
+
+@{
+    ViewData["Title"] = $"Cinema - {Model.Name}";
+}
+<link href="~/css/manage-dashboard.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/cards.css" />
+<link href="~/css/modal.css" rel="stylesheet" />
+<div class="app-content">
+    <div class="app-content-header">
+        <button class="mode-switch" title="Switch Theme">
+            <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+                <defs></defs>
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+            </svg>
+        </button>
+    </div>
+    <div class="products-area-wrapper gridView m-0 mt-4 justify-content-center details">
+        <div class="cinema-row details-card mb-3">
+            <div class="cinema-cell image details-photo-pic">
+                <a class="d-flex align-items-center cinema-link flex-column">
+                    <img src="~/client-images/Cinemas/@Model.ImageUrl" alt="cinema-logo">
+                    <span>@Model.Name</span>
+                </a>
+            </div>
+            <div class="cinema-cell status-cell">
+                <span class="cell-label">Status:</span>
+                <span class="status">@Model.Status</span>
+            </div>
+            <div class="cinema-cell description">
+                <span class="cell-label">Description:</span>
+                <span class="cinema-description">
+                    @Model.Description
+                </span>
+            </div>
+            <div class="cinema-cell sales"><span class="cell-label">Founded on:</span>@Model.FoundedOn</div>
+            <div class="cinema-cell description">
+                <span class="cell-label">Rows:</span>
+                <span>@Model.SeatRows</span>
+            </div>
+            <div class="cinema-cell description">
+                <span class="cell-label">Columns:</span>
+                <span>@Model.SeatCols</span>
+            </div>
+        </div>
+        <div class="cinema-cell stock">
+            <button id="edit" class="action-button active crud-button open-popup-btn">Edit</button>
+            <button id="delete" class="action-button active crud-button open-popup-btn">Delete</button>
+            <button id="preview-sectors" class="action-button active crud-button open-popup-btn">Preview cinema page</button>
+        </div>
+    </div>
+    @if (Model.ApprovalStatus == ApprovalStatus.Approved)
+    {
+        <div class="app-content-actions">
+            <input id="search-bar" class="search-bar" placeholder="Search..." type="text">
+           @* <div class="app-content-actions-wrapper">
+                <button class="action-button list active" title="List View">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6" /><line x1="8" y1="12" x2="21" y2="12" /><line x1="8" y1="18" x2="21" y2="18" /><line x1="3" y1="6" x2="3.01" y2="6" /><line x1="3" y1="12" x2="3.01" y2="12" /><line x1="3" y1="18" x2="3.01" y2="18" /></svg>
+                </button>
+                <button class="action-button grid" title="Grid View">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /></svg>
+                </button>
+            </div>*@
+        </div>
+        <div class="products-area-wrapper movies-wrapper tableView">
+            <div class="products-header">
+                <div class="cinema-cell image">
+                    Movie
+                    <button class="sort-button" id="name-sort-desc" title="Sort descending">
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </button>
+                    <button class="sort-button" id="name-sort" title="Sort ascending">
+                        <i class="fa-solid fa-arrow-up"></i>
+                    </button>
+                </div>
+                <div class="cinema-cell status-cell">
+                    Genre
+                    <button class="sort-button" id="genre-sort-desc" title="Sort descending">
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </button>
+                    <button class="sort-button" id="genre-sort" title="Sort ascending">
+                        <i class="fa-solid fa-arrow-up"></i>
+                    </button>
+                </div>
+                <div class="cinema-cell sales">
+                    Average user rating
+                    <button class="sort-button" id="rating-sort-desc" title="Sort descending">
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </button>
+                    <button class="sort-button" id="rating-sort" title="Sort ascending">
+                        <i class="fa-solid fa-arrow-up"></i>
+                    </button>
+                </div>
+                <div class="cinema-cell stock">
+                    Ratings count
+                    <button class="sort-button" id="ratingcount-sort-desc" title="Sort descending">
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </button>
+                    <button class="sort-button" id="ratingcount-sort" title="Sort ascending">
+                        <i class="fa-solid fa-arrow-up"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="movies-container" id="results-container">
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="message-container mt-5 text-center">
+            <h4>There are no movies here</h4>
+            @if (Model.ApprovalStatus == ApprovalStatus.PendingApproval)
+            {
+                <h5>You must wait for your cinema to be approved by an administrator!</h5>
+            }
+            else
+            {
+                <h5>Your cinema was denied approval!</h5>
+            }
+        </div>
+    }
+</div>
+<partial name="_PopupModalPartial" />
+<script>
+    window.onload = function () {
+        getItemCollectionByParent('Owner', 'Cinemas', 'QueryMoviesByCinema', '@Model.Id');
+    };
+    var search = document.getElementById("search-bar");
+    var activeSort = document.querySelector('.sort-button.selected');
+    if (search) {
+        let timeout = null;
+        search.addEventListener("keyup", function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                getItemCollectionByParent('Owner', 'Cinemas', 'QueryMoviesByCinema', '@Model.Id', search.value, null, (activeSort ? activeSort.id : null));
+            }, 300);
+        });
+    }
+
+    document.querySelectorAll(".sort-button").forEach(i => i.addEventListener('click', function () {
+        var alreadyActive = document.querySelector('.sort-button.selected');
+        if (alreadyActive) {
+            alreadyActive.classList.remove("selected");
+        }
+        i.classList.add("selected");
+        activeSort = i;
+        getItemCollectionByParent('Owner', 'Cinemas', 'QueryMoviesByCinema', '@Model.Id', (search ? search.value : null), null, activeSort.id);
+    }));
+
+    var modalContainer = document.getElementById('ud-form-container');
+    var popupModal = document.getElementById("modal");
+    var editButton = document.getElementById("edit");
+    editButton.addEventListener("click", function () {
+        modalContainer.innerHTML = "";
+        popupModal.classList.remove("preview");
+        getUDpartial('Owner', 'Cinemas', 'Edit', '@Model.Id');
+    });
+
+    var deleteButton = document.getElementById("delete");
+    deleteButton.addEventListener("click", function () {
+        modalContainer.innerHTML = "";
+        popupModal.classList.remove("preview");
+        getUDpartial('Owner', 'Cinemas', 'Delete', '@Model.Id');
+    });
+
+    var previewButton = document.getElementById("preview-sectors");
+    previewButton.addEventListener("click", function () {
+        modalContainer.innerHTML = "";
+        popupModal.classList.add("preview");
+        $.ajax({
+            type: "GET",
+            url: `/Owner/Cinemas/GenerateCustomPagePreview`,
+            data: { id: '@Model.Id' },
+            success: function (response) {
+               location.href = '/Owner/Cinemas/GenerateCustomPagePreview?id=@Model.Id';
+            },
+            failure: function (response) {
+                window.location = '/Error/statuscode=403';
+            },
+            error: function (response) {
+                window.location = '/Error/statuscode=403';
+            }
+        });
+    });
+</script>
+<script src="~/js/dashboard.js"></script>
+<script src="~/js/modal.js"></script>

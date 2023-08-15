@@ -46,19 +46,19 @@
                         <ul class="navbar-nav ms-lg-5 me-lg-auto">
 
                             <li class="nav-item">
-                                <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Index">Home</a>
+                                <a class="nav-link click-scroll" asp-area="Customer" asp-controller="Dashboard" asp-action="Index">Home</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Cinemas" asp-route-all="@false">Favorite cinemas</a>
+                                <a class="nav-link click-scroll" asp-area="Customer" asp-controller="Cinemas" asp-action="Index" asp-route-all="@false">Favorite cinemas</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Cinemas" asp-route-all="@true">All cinemas</a>
+                                <a class="nav-link click-scroll" asp-area="Customer" asp-controller="Cinemas" asp-action="Index" asp-route-all="@true">All cinemas</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Tickets">Tickets</a>
+                                <a class="nav-link click-scroll" asp-area="Customer" asp-controller="Tickets" asp-action="Index">Tickets</a>
                             </li>
 
                             <li class="nav-item dropdown">

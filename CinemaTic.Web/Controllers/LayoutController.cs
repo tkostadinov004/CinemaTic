@@ -40,7 +40,7 @@ namespace CinemaTic.Web.Controllers
 
                 return PhysicalFile(Path.Combine(Constants.ImagesFolder, "Users", user.ProfilePictureUrl), "image/png");
             }
-            return Ok();
+            return NotFound();
         }
     }
 }

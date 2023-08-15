@@ -42,21 +42,16 @@ namespace CinemaTic.Web.Controllers
 
             if (User.IsInRole("Owner"))
             {
-                return RedirectToAction("Index", "Owners");
+                return RedirectToAction("Index", "Dashboard", new { area = "Owner" });
             }
             if (User.IsInRole("Administrator"))
             {
-                return RedirectToAction("Index", "Admin");
+                return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
             }
             if (User.IsInRole("Customer"))
             {
-                return RedirectToAction("Index", "Customer");
+                return RedirectToAction("Index", "Dashboard", new { area = "Customer" });
             }
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
             return View();
         }
 

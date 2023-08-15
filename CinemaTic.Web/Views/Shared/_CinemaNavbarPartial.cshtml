@@ -3,7 +3,7 @@
 <div id="sticky-wrapper" class="sticky-wrapper" style="height: 10vh !important;">
     <nav class="navbar navbar-expand-lg justify-content-center">
         <div class="container">
-            <a class="navbar-brand text-white" asp-controller="Home" asp-action="Index">
+            <a class="navbar-brand text-white" asp-area="Customer" asp-controller="Dashboard" asp-action="Index">
                 <span>CinemaTic</span>
             </a>
             @if (User.IsInRole("Customer"))
@@ -12,15 +12,15 @@
                     <ul class="navbar-nav ms-lg-5 me-lg-auto">
 
                         <li class="nav-item text-white">
-                            <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Index">Home</a>
+                            <a class="nav-link click-scroll" asp-area="Customer" asp-controller="Dashboard" asp-action="Index">Home</a>
                         </li>
 
                         <li class="nav-item text-white">
-                            <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Cinemas" asp-route-all="@false">Your cinemas</a>
+                            <a class="nav-link click-scroll" asp-area="Customer" asp-controller="Cinemas" asp-action="Index" asp-route-all="@false">Your cinemas</a>
                         </li>
 
                         <li class="nav-item text-white">
-                            <a class="nav-link click-scroll" asp-controller="Customer" asp-action="Tickets">Tickets</a>
+                            <a class="nav-link click-scroll" asp-area="Customer" asp-controller="Tickets" asp-action="Index">Tickets</a>
                         </li>
 
                         <li class="nav-item text-white">

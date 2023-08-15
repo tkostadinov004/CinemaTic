@@ -257,7 +257,7 @@ namespace CinemaTic.Core.UnitTests
             });
             _context.SaveChanges();
 
-            var movies = await _moviesService.SearchAndFilterMoviesAsync("test", "", "name-sort-desc", null);
+            var movies = await _moviesService.QueryMoviesAsync("test", "", "name-sort-desc", null);
             Assert.That(movies.FirstOrDefault().Id, Is.EqualTo(2));
         }
         [TearDown]

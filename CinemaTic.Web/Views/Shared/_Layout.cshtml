@@ -13,11 +13,11 @@
     <link href="~/fontawesome/css/all.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/lib/bootstrap/dist/css/bootstrap-icons.css" rel="stylesheet" />
-    <link href="~/css/layoutStyle.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/layout.css" rel="stylesheet" asp-append-version="true" />
     <link rel="shortcut icon" href="~/img/favicon.ico" />
     @if (User.Identity.IsAuthenticated && !User.IsInRole("Customer"))
     {
-        <link href="~/css/manageStyle.css" rel="stylesheet" />
+        <link href="~/css/manage-dashboard.css" rel="stylesheet" />
     }
 </head>
 <body>

@@ -203,7 +203,7 @@ namespace CinemaTic.Core.UnitTests
         [Test]
         public async Task SearchesCorrectly()
         {
-            var actors = await _actorsService.SearchAndFilterActorsAsync("iv", "", "nationality-sort", 1);
+            var actors = await _actorsService.QueryActorsAsync("iv", "", "nationality-sort", 1);
             Assert.Multiple(() =>
             {
                 Assert.That(actors.Count(), Is.EqualTo(2));

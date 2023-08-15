@@ -1,0 +1,60 @@
+﻿using CinemaTic.Core.Contracts;
+using CinemaTic.Extensions.ModelBinders;
+using CinemaTic.ViewModels.Sectors;
+using CinemaTic.Web.Areas.Customer.Controllers.BaseControllers;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
+
+namespace CinemaTic.Web.Areas.Customer.Controllers
+{
+    public class TicketsController : CustomerController
+    {
+        private readonly ICustomersService _customersService;
+        private readonly ICinemasService _cinemasService;
+        private readonly IMoviesService _moviesService;
+        private readonly ISectorsService _sectorsService;
+
+        public TicketsController(ICustomersService customersService, ICinemasService cinemasService, IMoviesService moviesService, ISectorsService sectorsService)
+        {
+            _customersService = customersService;
+            _cinemasService = cinemasService;
+            _moviesService = moviesService;
+            _sectorsService = sectorsService;
+        }
+
+        public async Task<IActionResult> Index(int? pageNumber)
+        {
+            var tickets = await _customersService.GetTicketsForCustomerAsync(User.Identity.Name, pageNumber);
+            return View(nameof(Index), tickets);
+        }
+
+        public async Task<IActionResult> BuyTicket(int cinemaId, int movieId, [ModelBinder(typeof(DateModelBinder))] DateTime forDate)
+        {
+            if (!await _cinemasService.ExistsByIdAsync(cinemaId))
+            {
+                return NotFound();
+            }
+            if (!await _moviesService.ExistsByIdAsync(movieId))
+            {
+                return NotFound();
+            }
+            return View(await _customersService.GetBuyTicketViewModelAsync(cinemaId, movieId, forDate));
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> BuyTicket(int sectorId, int movieId, SectorDetailsViewModel viewModel, DateTime forDate)
+        {
+            if (!await _sectorsService.ExistsByIdAsync(sectorId))
+            {
+                return NotFound();
+            }
+            if (!await _moviesService.ExistsByIdAsync(movieId))
+            {
+                return NotFound();
+            }
+            await _customersService.BuyTicketAsync(sectorId, movieId, User.Identity.Name, viewModel, forDate);
+            return RedirectToAction(nameof(Index), "Tickets", new { cinemaId = TempData["CinemaId"] });
+        }
+    }
+}

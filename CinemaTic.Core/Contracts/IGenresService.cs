@@ -13,7 +13,7 @@ namespace CinemaTic.Core.Contracts
         Task CreateAsync(CreateGenreViewModel item);
         Task EditByIdAsync(EditGenreViewModel item);
         Task<IEnumerable<GenreListViewModel>> SortGenresAsync(string sortBy);
-        Task<IEnumerable<MovieInfoCardViewModel>> SearchAndSortMoviesByGenre(int? genreId, string searchText, string sortBy, int? pageNumber);
+        Task<IEnumerable<MovieInfoCardViewModel>> QueryMoviesByGenreAsync(int? genreId, string searchText, string sortBy, int? pageNumber);
         Task<EditGenreViewModel> GetEditViewModelByIdAsync(int? genreId);
         Task<DeleteGenreViewModel> GetDeleteViewModelByIdAsync(int? id);
         Task<GenreDetailsViewModel> GetDetailsViewModelByIdAsync(int? id);
