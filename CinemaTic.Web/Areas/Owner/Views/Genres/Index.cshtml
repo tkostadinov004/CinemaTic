@@ -42,8 +42,9 @@
 </div>
 <partial name="_PopupModalPartial" />
 <script>
+    var page = 1;
     window.onload = function () {
-        getItems('Owner', 'Genres', 'SortGenres');
+        getItems('Owner', 'Genres', 'QueryGenres', page);
     };
     var activeSort = document.querySelector('.sort-button.selected');
 
@@ -54,7 +55,7 @@
         }
         activeSort = i;
         i.classList.add("selected");
-        getItems('Owner', 'Genres', 'SortGenres', null, null, null, i.id);
+        getItems('Owner', 'Genres', 'QueryGenres', null, null, null, i.id);
     }));
     document.getElementById('add-genre-btn').addEventListener('click', function () {
         getUDpartial('Owner', 'Genres', 'Add');

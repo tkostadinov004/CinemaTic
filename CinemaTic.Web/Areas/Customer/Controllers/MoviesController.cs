@@ -33,7 +33,7 @@ namespace CinemaTic.Web.Areas.Customer.Controllers
             return View(await _moviesService.GetDetailsViewModelAsync(id, User.Identity.Name));
         }
         [HttpGet]
-        public async Task<IActionResult> GetMoviesByDate([ModelBinder(typeof(IdModelBinder))] int cinemaId, [ModelBinder(typeof(DateModelBinder))] DateTime date)
+        public async Task<IActionResult> GetMoviesByDate([ModelBinder(typeof(IntegerModelBinder))] int cinemaId, [ModelBinder(typeof(DateModelBinder))] DateTime date)
         {
             if (!await _cinemasService.ExistsByIdAsync(cinemaId))
             {

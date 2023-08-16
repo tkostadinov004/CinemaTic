@@ -318,7 +318,7 @@ namespace CinemaTic.Core.Services
                 Genre = i.Genre != null ? i.Genre.Name : "No genre",
                 RatingCount = i.RatingCount,
                 AddedBy = $"{i.AddedBy.FirstName} {i.AddedBy.LastName}"
-            }).ToList(), pageNumber ?? 1, 8);
+            }).ToList(), pageNumber ?? 1, Constants.MoviesPerPage);
         }
         /// <summary>
         /// <para>Gets a view model used for filtering movies by cinema. The view models contains a <see cref="SelectList"/> of all cinemas.</para>
@@ -416,9 +416,9 @@ namespace CinemaTic.Core.Services
             {
                 foreach (var date in viewModel.Dates)
                 {
+                    var schedule = await _context.CinemasMoviesTimes.Where(i => i.CinemaId == cinema.Id && i.MovieId == movie.Id && i.ForDateTime.Date == date.Date).ToListAsync();
                     if (date.Times != null)
                     {
-                        var schedule = await _context.CinemasMoviesTimes.Where(i => i.CinemaId == cinema.Id && i.MovieId == movie.Id && i.ForDateTime.Date == date.Date).ToListAsync();
                         var timesForAdding = date.Times.DistinctBy(i => i.TimeOfDay).Where(i => !schedule.Any(s => s.ForDateTime.TimeOfDay == i.TimeOfDay)).Select(i => new CinemaMovieTime
                         {
                             CinemaId = viewModel.CinemaId,
@@ -427,8 +427,12 @@ namespace CinemaTic.Core.Services
                         });
                         var timesForDeleting = schedule.Where(i => !date.Times.Any(t => t.TimeOfDay == i.ForDateTime.TimeOfDay));
 
-                        _context.AddRange(timesForAdding);
-                        _context.RemoveRange(timesForDeleting);
+                        _context.CinemasMoviesTimes.AddRange(timesForAdding);
+                        _context.CinemasMoviesTimes.RemoveRange(timesForDeleting);
+                    }
+                    else if(schedule.Count > 0)
+                    {
+                        _context.CinemasMoviesTimes.RemoveRange(schedule);
                     }
                 }
                 await _context.SaveChangesAsync();

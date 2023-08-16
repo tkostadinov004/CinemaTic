@@ -25,7 +25,7 @@ namespace CinemaTic.Web.Areas.Owner.Controllers
         {
             return View(await _moviesService.GetFilterViewModelAsync());
         }
-        public async Task<IActionResult> QueryMovies(string searchText, string filterValue, string sortBy, [ModelBinder(typeof(IdModelBinder))] int? pageNumber)
+        public async Task<IActionResult> QueryMovies(string searchText, string filterValue, string sortBy, [ModelBinder(typeof(IntegerModelBinder))] int? pageNumber)
         {
             var movies = await _moviesService.QueryMoviesAsync(searchText, filterValue, sortBy, pageNumber ?? 1);
             return PartialView("_MoviesPartial", movies);
@@ -75,7 +75,7 @@ namespace CinemaTic.Web.Areas.Owner.Controllers
         }
 
         // GET: Movies/Edit/5
-        public async Task<IActionResult> Edit([ModelBinder(typeof(IdModelBinder))] int id)
+        public async Task<IActionResult> Edit([ModelBinder(typeof(IntegerModelBinder))] int id)
         {
             if (!await _moviesService.ExistsByIdAsync(id))
             {
@@ -121,7 +121,7 @@ namespace CinemaTic.Web.Areas.Owner.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Delete([ModelBinder(typeof(IdModelBinder))] int id)
+        public async Task<IActionResult> Delete([ModelBinder(typeof(IntegerModelBinder))] int id)
         {
             if (!await _moviesService.ExistsByIdAsync(id))
             {
@@ -210,13 +210,13 @@ namespace CinemaTic.Web.Areas.Owner.Controllers
             }
             return RedirectToAction(nameof(Details), new { id = viewModel.MovieId });
         }
-        public async Task<IActionResult> GetCinemasContainingMovie([ModelBinder(typeof(IdModelBinder))] int movieId, string sortBy)
+        public async Task<IActionResult> GetCinemasContainingMovie([ModelBinder(typeof(IntegerModelBinder))] int movieId, string sortBy, [ModelBinder(typeof(IntegerModelBinder))] int? pageNumber)
         {
             if (!await _moviesService.ExistsByIdAsync(movieId))
             {
                 return NotFound();
             }
-            var viewModel = await _cinemasService.QueryCinemasContainingMovieAsync(movieId, User.Identity.Name, sortBy);
+            var viewModel = await _cinemasService.QueryCinemasContainingMovieAsync(movieId, User.Identity.Name, sortBy, pageNumber);
             if (viewModel == null)
             {
                 return NotFound();

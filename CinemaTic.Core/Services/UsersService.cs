@@ -5,12 +5,6 @@ using CinemaTic.Data.Enums;
 using CinemaTic.Data.Models;
 using CinemaTic.ViewModels.Users;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaTic.Core.Services
 {

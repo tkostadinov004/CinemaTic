@@ -169,7 +169,7 @@ namespace CinemaTic.Core.Services
             };
         }
         /// <summary>
-        /// <para>Gets a <see cref="PaginatedList{ActorDetailsViewModel}"/> of actors.</para>
+        /// <para>Gets a <see cref="PaginatedList{T}"/> of actors.</para>
         /// <para>The method supports searching by name and sorting (by name, birthdate, nationality, rating, and count of movies).</para>
         /// </summary>
         /// <returns>A <see cref="PaginatedList{T}"/> of <see cref="ActorListViewModel"/></returns>
@@ -233,14 +233,14 @@ namespace CinemaTic.Core.Services
                 MoviesCount = i.Movies.Count.ToString(),
                 Nationality = i.Nationality,
                 Rating = i.Rating.ToString()
-            }), pageNumber ?? 1, 5);
+            }), pageNumber ?? 1, Constants.ActorsPerPage);
         }
         /// <summary>
-        /// <para>Gets a <see cref="IEnumerable{MovieInfoCardViewModel}"/>  of the movies, in which an actor is starring.</para>
+        /// <para>Gets a <see cref="PaginatedList{T}"/>  of the movies, in which an actor is starring.</para>
         /// <para>The method supports searching by name and sorting (by name, genre, average user rating, and the amount of user ratings).</para>
         /// </summary>
-        /// <returns>A <see cref="IEnumerable{MovieInfoCardViewModel}"/> of <see cref="MovieInfoCardViewModel"/></returns>
-        public async Task<IEnumerable<MovieInfoCardViewModel>> QueryMoviesByActorAsync(int? actorId, string searchText, string sortBy)
+        /// <returns>A <see cref="PaginatedList{T}"/> of <see cref="MovieInfoCardViewModel"/></returns>
+        public async Task<PaginatedList<MovieInfoCardViewModel>> QueryMoviesByActorAsync(int? actorId, string searchText, string sortBy, int? pageNumber)
         {
             var actor = await _context.Actors.Include(i => i.Movies).ThenInclude(i => i.Movie).ThenInclude(i => i.Genre)
                 .FirstOrDefaultAsync(i => i.Id == actorId);
@@ -299,7 +299,7 @@ namespace CinemaTic.Core.Services
             {
                 movies = movies.OrderBy(i => i.Name);
             }
-            return movies;
+            return await PaginatedList<MovieInfoCardViewModel>.CreateAsync(movies, pageNumber ?? 1, Constants.ActorMoviesPerPage);
         }
     }
 }

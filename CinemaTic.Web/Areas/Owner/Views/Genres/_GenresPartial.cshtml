@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CinemaTic.ViewModels.Genres.GenreListViewModel>
+﻿@model PaginatedList<CinemaTic.ViewModels.Genres.GenreListViewModel>
 
 @foreach (var genre in Model)
 {
@@ -14,4 +14,34 @@
         <div class="cinema-cell sales"><span class="cell-label">Movies:</span>@genre.MoviesCount</div>
     </div>
 }
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+@if (Model.TotalPages > 1)
+{
+    <ul class="pagination gap-1">
+        <li class="page-item">
+            <a class="action-button active previous @prevDisabled">
+                Previous
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="action-button active next @nextDisabled">
+                Next
+            </a>
+        </li>
+    </ul>
+}
 <script src="~/js/modal.js"></script>
+<script>
+    document.querySelectorAll('.page-item a').forEach(i => i.addEventListener("click", function () {
+        if (i.classList.contains("previous")) {
+            page = page - 1;
+        }
+        else if (i.classList.contains("next")) {
+            page = page + 1;
+        }
+        getItems('Owner', 'Genres', 'QueryGenres', page, null, null, (activeSort ? activeSort.id : null));
+    }));
+</script>

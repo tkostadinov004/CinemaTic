@@ -62,7 +62,7 @@
             var prevDisabled = !Model.Actions.HasPreviousPage ? "disabled" : "";
             var nextDisabled = !Model.Actions.HasNextPage ? "disabled" : "";
         }
-       @if (Model.Actions.Count > 0)
+       @if (Model.Actions.TotalPages > 1)
         {
             <ul class="pagination gap-1">
                 <li class="page-item">

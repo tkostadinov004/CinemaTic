@@ -18,6 +18,6 @@ namespace CinemaTic.Core.Contracts
         Task<EditActorViewModel> GetEditViewModelByIdAsync(int? cinemaId);
         Task<DeleteActorViewModel> GetDeleteViewModelByIdAsync(int? id);
         Task<PaginatedList<ActorListViewModel>> QueryActorsAsync(string searchText, string sortBy, int? pageNumber);
-        Task<IEnumerable<MovieInfoCardViewModel>> QueryMoviesByActorAsync(int? actorId, string searchText, string sortBy);
+        Task<PaginatedList<MovieInfoCardViewModel>> QueryMoviesByActorAsync(int? actorId, string searchText, string sortBy, int? pageNumber);
     }
 }

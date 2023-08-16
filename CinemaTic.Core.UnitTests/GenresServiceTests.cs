@@ -147,7 +147,7 @@ namespace CinemaTic.Core.UnitTests
             });
             await _context.SaveChangesAsync();
 
-            var genres = await _genresService.SortGenresAsync("name-sort-desc");
+            var genres = await _genresService.QueryGenresAsync("name-sort-desc", 1);
             Assert.That(genres.FirstOrDefault().Name, Is.EqualTo(_context.Genres.OrderByDescending(i => i.Name).FirstOrDefault().Name));
         }
         [TearDown]

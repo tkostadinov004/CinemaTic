@@ -134,7 +134,7 @@ namespace CinemaTic.Core.Services
                 Cinema = i.Cinema.Name,
                 Date = i.ForDate.ToString(Constants.DateTimeFormat),
                 Price = i.Price.ToString()
-            }), pageNumber ?? 1, 5);
+            }), pageNumber ?? 1, Constants.TicketsPerPage);
         }
         /// <summary>
         /// <para>Gets the details view model of a <see cref="Cinema"/>.</para>

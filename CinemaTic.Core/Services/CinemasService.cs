@@ -3,6 +3,7 @@ using CinemaTic.Core.Utilities;
 using CinemaTic.Data;
 using CinemaTic.Data.Enums;
 using CinemaTic.Data.Models;
+using CinemaTic.Extensions;
 using CinemaTic.ViewModels.Cinemas;
 using CinemaTic.ViewModels.Movies;
 using Microsoft.AspNetCore.Identity;
@@ -389,11 +390,11 @@ namespace CinemaTic.Core.Services
             return null;
         }
         /// <summary>
-        /// <para>Gets an <see cref="IEnumerable{T}"/> of cinemas, in which a given <see cref="Movie"/> is shown.</para>
+        /// <para>Gets an <see cref="PaginatedList{T}"/> of cinemas, in which a given <see cref="Movie"/> is shown.</para>
         ///  <para>The method supports sorting (by name, starting date of screening, ending date of screening, and ticket price).</para>
         /// </summary>
-        /// <returns>An <see cref="IEnumerable{T}"/> of <see cref="CinemaContainingMovieViewModel"/></returns>
-        public async Task<IEnumerable<CinemaContainingMovieViewModel>> QueryCinemasContainingMovieAsync(int? movieId, string userEmail, string sortBy)
+        /// <returns>An <see cref="PaginatedList{T}"/> of <see cref="CinemaContainingMovieViewModel"/></returns>
+        public async Task<PaginatedList<CinemaContainingMovieViewModel>> QueryCinemasContainingMovieAsync(int? movieId, string userEmail, string sortBy, int? pageNumber)
         {
             var movie = await _context.Movies.Include(i => i.Cinemas).ThenInclude(i => i.Cinema).FirstOrDefaultAsync(i => i.Id == movieId);
             var user = await _userManager.FindByEmailAsync(userEmail);
@@ -442,7 +443,7 @@ namespace CinemaTic.Core.Services
                 {
                     cinemas = cinemas.OrderBy(i => i.Cinema.Name);
                 }
-                return cinemas.Select(i => new CinemaContainingMovieViewModel
+                return await PaginatedList<CinemaContainingMovieViewModel>.CreateAsync(cinemas.Select(i => new CinemaContainingMovieViewModel
                 {
                     Id = i.Cinema.Id,
                     MovieId = i.MovieId,
@@ -451,7 +452,7 @@ namespace CinemaTic.Core.Services
                     ToDate = i.ToDate.ToString(Constants.DateTimeFormat),
                     TicketPrice = i.TicketPrice,
                     CinemaLogoUrl = i.Cinema.ImageUrl
-                }).ToList();
+                }).ToList(), pageNumber ?? 1, Constants.CinemasMoviesPerPage);
             }
             return null;
         }

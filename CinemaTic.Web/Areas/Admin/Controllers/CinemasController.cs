@@ -39,7 +39,7 @@ namespace CinemaTic.Web.Areas.Admin.Controllers
             return View(cinema);
         }
         [HttpGet]
-        public async Task<IActionResult> ChangeApprovalStatus([ModelBinder(typeof(IdModelBinder))] int id)
+        public async Task<IActionResult> ChangeApprovalStatus([ModelBinder(typeof(IntegerModelBinder))] int id)
         {
             if (!await _adminService.CinemaExistsAsync(id))
             {
@@ -54,7 +54,7 @@ namespace CinemaTic.Web.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ChangeApprovalStatus([ModelBinder(typeof(IdModelBinder))] int id, [ModelBinder(typeof(ApprovalCodeBinder))] ApprovalStatus approvalCode)
+        public async Task<IActionResult> ChangeApprovalStatus([ModelBinder(typeof(IntegerModelBinder))] int id, [ModelBinder(typeof(ApprovalCodeBinder))] ApprovalStatus approvalCode)
         {
             if (!await _adminService.CinemaExistsAsync(id))
             {
@@ -68,7 +68,7 @@ namespace CinemaTic.Web.Areas.Admin.Controllers
             var cinemas = await _adminService.QueryCinemasAsync(searchText, filterValue, sortBy, pageNumber);
             return PartialView("_CinemasPartial", cinemas);
         }
-        public async Task<IActionResult> QueryMoviesByCinema([ModelBinder(typeof(IdModelBinder))] int id, string sortBy)
+        public async Task<IActionResult> QueryMoviesByCinema([ModelBinder(typeof(IntegerModelBinder))] int id, string sortBy)
         {
             if (!await _cinemasService.ExistsByIdAsync(id))
             {

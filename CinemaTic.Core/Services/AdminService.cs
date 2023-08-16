@@ -175,7 +175,7 @@ namespace CinemaTic.Core.Services
                 AddedById = i.OwnerId,
                 AddedOn = i.FoundedOn.ToString(Constants.DateTimeFormat),
                 ImageUrl = i.ImageUrl
-            }), pageNumber ?? 1, 10);
+            }), pageNumber ?? 1, Constants.Admin_CinemasPerPage);
         }
         /// <summary>
         /// <para>Gets the details view model of an <see cref="ApplicationUser"/> by id.</para>
@@ -320,7 +320,7 @@ namespace CinemaTic.Core.Services
                 FullName = $"{i.FirstName} {i.LastName}",
                 ImageUrl = i.ProfilePictureUrl,
                 Roles = string.Join(", ", _userManager.GetRolesAsync(i).Result)
-            }), pageNumber ?? 1, 8);
+            }), pageNumber ?? 1, Constants.Admin_UsersPerPage);
         }
         /// <summary>
         /// <para>Gets a view model for modifying an <see cref="ApplicationUser"/>'s account.</para>

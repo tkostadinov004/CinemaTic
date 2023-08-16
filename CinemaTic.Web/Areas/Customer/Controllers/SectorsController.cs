@@ -21,7 +21,7 @@ namespace CinemaTic.Web.Areas.Customer.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetCinemaSectors([ModelBinder(typeof(IdModelBinder))] int cinemaId, [ModelBinder(typeof(IdModelBinder))] int movieId, [ModelBinder(typeof(DateModelBinder))] DateTime forDate)
+        public async Task<IActionResult> GetCinemaSectors([ModelBinder(typeof(IntegerModelBinder))] int cinemaId, [ModelBinder(typeof(IntegerModelBinder))] int movieId, [ModelBinder(typeof(DateModelBinder))] DateTime forDate)
         {
             if (!await _cinemasService.ExistsByIdAsync(cinemaId))
             {
@@ -34,7 +34,7 @@ namespace CinemaTic.Web.Areas.Customer.Controllers
             return PartialView("_CinemaSectorsGridPartial", await _sectorsService.GetCinemaSectorsGridAsync(cinemaId, movieId, forDate));
         }
         [HttpGet]
-        public async Task<IActionResult> GetSectorLayout([ModelBinder(typeof(IdModelBinder))] int id, [ModelBinder(typeof(IdModelBinder))] int movieId, DateTime forDateTime)
+        public async Task<IActionResult> GetSectorLayout([ModelBinder(typeof(IntegerModelBinder))] int id, [ModelBinder(typeof(IntegerModelBinder))] int movieId, DateTime forDateTime)
         {
             if (!await _sectorsService.ExistsByIdAsync(id))
             {

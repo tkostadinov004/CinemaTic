@@ -37,7 +37,7 @@
         var timesContainer = i.parentElement.nextElementSibling;
 
         let timeIndex = timesContainer.children.length;
-        const inputContent = ` <input id="Dates[${i.id}].Times_${timeIndex}" name="Dates[${i.id}].Times[${timeIndex}]" type="time" value=""> <button type="button" class="remove" title="Remove">-</button>`;
+        const inputContent = ` <input id="Dates_${i.id}__Times_${timeIndex}" name="Dates[${i.id}].Times[${timeIndex}]" type="time" value=""> <button type="button" class="remove" title="Remove">-</button>`;
        
         var node = document.createElement("div");
         node.classList.add("active-form")
@@ -60,8 +60,11 @@
         var fields = document.querySelectorAll(".times .active-form input");
         for(let i = 0; i < fields.length; i++) {
             var splitId = fields[i].id.split('__');
+            
+            var dateIndex = splitId[0].split('_')[1];
+            console.log(dateIndex);
             fields[i].id = splitId[0] + `__Times_${i}_`;
-            fields[i].setAttribute('name', `Dates[${splitId[0].split('_')[1]}]` + `.Times[${i}]`);
+            fields[i].setAttribute('name', `Dates[${dateIndex}].Times[${i}]`);
         }
     }
 </script>

@@ -58,22 +58,22 @@ namespace CinemaTic.Web.Areas.Owner.Controllers
             actorVM.Countries = (await _actorsService.GetCreateViewModelAsync()).Countries;
             return View(actorVM);
         }
-        public async Task<IActionResult> QueryActors(string searchText, string sortBy, [ModelBinder(typeof(IdModelBinder))] int? pageNumber)
+        public async Task<IActionResult> QueryActors(string searchText, string sortBy, [ModelBinder(typeof(IntegerModelBinder))] int? pageNumber)
         {
             var actors = await _actorsService.QueryActorsAsync(searchText, sortBy, pageNumber ?? 1);
             return PartialView("_ActorsPartial", actors);
         }
-        public async Task<IActionResult> QueryMoviesByActor([ModelBinder(typeof(IdModelBinder))] int id, string searchText, string sortBy)
+        public async Task<IActionResult> QueryMoviesByActor([ModelBinder(typeof(IntegerModelBinder))] int id, string searchText, string sortBy, [ModelBinder(typeof(IntegerModelBinder))] int? pageNumber)
         {
             if (!await _actorsService.ExistsByIdAsync(id))
             {
                 return NotFound();
             }
-            var movies = await _actorsService.QueryMoviesByActorAsync(id, searchText, sortBy);
+            var movies = await _actorsService.QueryMoviesByActorAsync(id, searchText, sortBy, pageNumber);
             return PartialView("_ActorMoviesPartial", movies);
         }
         [HttpGet]
-        public async Task<IActionResult> Edit([ModelBinder(typeof(IdModelBinder))] int id)
+        public async Task<IActionResult> Edit([ModelBinder(typeof(IntegerModelBinder))] int id)
         {
             if (!await _actorsService.ExistsByIdAsync(id))
             {
@@ -101,7 +101,7 @@ namespace CinemaTic.Web.Areas.Owner.Controllers
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]
-        public async Task<IActionResult> Delete([ModelBinder(typeof(IdModelBinder))] int id)
+        public async Task<IActionResult> Delete([ModelBinder(typeof(IntegerModelBinder))] int id)
         {
             if (!await _actorsService.ExistsByIdAsync(id))
             {
@@ -111,7 +111,7 @@ namespace CinemaTic.Web.Areas.Owner.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete([FromForm] DeleteActorViewModel viewModel, [ModelBinder(typeof(IdModelBinder))] int id)
+        public async Task<IActionResult> Delete([FromForm] DeleteActorViewModel viewModel, [ModelBinder(typeof(IntegerModelBinder))] int id)
         {
             if (id <= 0)
             {

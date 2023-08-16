@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CinemaTic.ViewModels.Cinemas.CinemaContainingMovieViewModel>
+﻿@model PaginatedList<CinemaTic.ViewModels.Cinemas.CinemaContainingMovieViewModel>
 
 @foreach (var cinema in Model)
 {
@@ -27,9 +27,52 @@
         </div>
     </div>
 }
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+@if(Model.TotalPages > 1)
+{
+    <ul class="pagination gap-1">
+        <li class="page-item">
+            <a class="action-button active previous @prevDisabled">
+                Previous
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="action-button active next @nextDisabled">
+                Next
+            </a>
+        </li>
+    </ul>
+}
 <script>
     openButtons = document.querySelectorAll('.open-popup-btn');
     openButtons.forEach(i => i.addEventListener('click', openModal));
+
+    document.querySelectorAll('.page-item a').forEach(i => i.addEventListener("click", function () {
+        if (i.classList.contains("previous")) {
+            page = page - 1;
+        }
+        else if (i.classList.contains("next")) {
+            page = page + 1;
+        }
+        $.ajax({
+            type: "GET",
+            url: `/Owner/Movies/GetCinemasContainingMovie`,
+            data: { movieId: movieId, sortBy: i.id, pageNumber: page },
+            success: function (response) {
+                $("#cinemas-movies-container").html(response);
+            },
+            failure: function (response) {
+                window.location = '/Error/statuscode=403';
+            },
+            error: function (response) {
+                window.location = '/Error/statuscode=403';
+            }
+        });
+    }));
+
     document.querySelectorAll(".set-times").forEach(i => i.addEventListener("click", function (event) {
         $.ajax({
             type: "GET",

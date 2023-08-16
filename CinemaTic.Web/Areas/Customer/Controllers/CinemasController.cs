@@ -25,7 +25,7 @@ namespace CinemaTic.Web.Areas.Customer.Controllers
             var cinemas = await _customersService.GetCinemasAsync(all, User.Identity.Name);
             return View(await PaginatedList<CinemasViewModel>.CreateAsync(cinemas, pageNumber ?? 1, 5));
         }
-        public async Task<IActionResult> Cinema([ModelBinder(typeof(IdModelBinder))] int id)
+        public async Task<IActionResult> Cinema([ModelBinder(typeof(IntegerModelBinder))] int id)
         {
             if (!await _cinemasService.ExistsByIdAsync(id))
             {

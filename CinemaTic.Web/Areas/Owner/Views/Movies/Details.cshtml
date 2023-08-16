@@ -158,6 +158,8 @@
 <script src="~/js/dashboard.js"></script>
 <script src="~/js/modal.js"></script>
 <script>
+    var page = 1;
+    const movieId = '@Model.Id';
     var modalContainer = document.getElementById('ud-form-container');
     var editButton = document.getElementById("edit");
     editButton.addEventListener("click", function () {

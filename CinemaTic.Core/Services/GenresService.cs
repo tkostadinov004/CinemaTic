@@ -186,14 +186,14 @@ namespace CinemaTic.Core.Services
                 ImageUrl = i.ImageUrl,
                 AverageRating = i.UserRating.Value,
                 RatingCount = i.RatingCount
-            }), pageNumber ?? 1, 5);
+            }), pageNumber ?? 1, Constants.GenreMoviesPerPage);
         }
         /// <summary>
-        /// <para>Gets aх <see cref="IEnumerable{T}"/> of all genres.</para>
+        /// <para>Gets a <see cref="PaginatedList{T}"/> of all genres.</para>
         /// <para>The method supports sorting (by name and amount of movies).</para>
         /// </summary>
         /// <returns>An <see cref="PaginatedList{T}"/> of <see cref="GenreListViewModel"/></returns>
-        public async Task<IEnumerable<GenreListViewModel>> SortGenresAsync(string sortBy)
+        public async Task<PaginatedList<GenreListViewModel>> QueryGenresAsync(string sortBy, int? pageNumber)
         {
             var genres = _context.Genres.Include(i => i.Movies).OrderBy(i => i.Name).AsEnumerable();
 
@@ -220,12 +220,12 @@ namespace CinemaTic.Core.Services
                         break;
                 }
             }
-            return genres.Select(i => new GenreListViewModel
+            return await PaginatedList<GenreListViewModel>.CreateAsync(genres.Select(i => new GenreListViewModel
             {
                 Id = i.Id,
                 Name = i.Name,
                 MoviesCount = i.Movies.Count
-            });
+            }), pageNumber ?? 1, Constants.GenresPerPage);
         }
     }
 }

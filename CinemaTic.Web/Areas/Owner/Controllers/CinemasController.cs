@@ -56,7 +56,7 @@ namespace CinemaTic.Web.Areas.Owner.Controllers
             return View(await _cinemasService.GetDetailsViewModelByIdAsync(id));
         }
         [HttpGet]
-        public async Task<IActionResult> Edit([ModelBinder(typeof(IdModelBinder))] int id)
+        public async Task<IActionResult> Edit([ModelBinder(typeof(IntegerModelBinder))] int id)
         {
             if (!await _cinemasService.ExistsByIdAsync(id))
             {
@@ -104,7 +104,7 @@ namespace CinemaTic.Web.Areas.Owner.Controllers
             var cinemas = await _cinemasService.QueryCinemasAsync(searchText, filterValue, sortBy, User.Identity.Name);
             return PartialView("_CinemasPartial", cinemas);
         }
-        public async Task<IActionResult> QueryMoviesByCinema([ModelBinder(typeof(IdModelBinder))] int id, string searchText, string sortBy)
+        public async Task<IActionResult> QueryMoviesByCinema([ModelBinder(typeof(IntegerModelBinder))] int id, string searchText, string sortBy)
         {
             if (!await _cinemasService.ExistsByIdAsync(id))
             {
@@ -113,7 +113,7 @@ namespace CinemaTic.Web.Areas.Owner.Controllers
             var movies = await _cinemasService.QueryMoviesByCinemaAsync(id, searchText, sortBy);
             return PartialView("_CinemaMoviesPartial", movies);
         }
-        public async Task<IActionResult> GenerateCustomPagePreview([ModelBinder(typeof(IdModelBinder))] int id)
+        public async Task<IActionResult> GenerateCustomPagePreview([ModelBinder(typeof(IntegerModelBinder))] int id)
         {
             if (!await _cinemasService.ExistsByIdAsync(id))
             {

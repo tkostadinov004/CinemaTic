@@ -96,10 +96,11 @@
 <partial name="_PopupModalPartial" />
 <script src="~/js/dashboard.js"></script>
 <script src="~/js/modal.js"></script>
-
 <script>
+    var page = 1;
+    const actorId = '@Model.Id';
     window.onload = function () {
-        getItemCollectionByParent('Owner', 'Actors', 'QueryMoviesByActor', '@Model.Id');
+        getItemCollectionByParent('Owner', 'Actors', 'QueryMoviesByActor', '@Model.Id', null, null, null, page);
     };
     var search = document.getElementById("search-bar");
     var activeSort = document.querySelector('.sort-button.selected');
@@ -108,7 +109,7 @@
         search.addEventListener("keyup", function () {
             clearTimeout(timeout);
             timeout = setTimeout(function () {
-                getItemCollectionByParent('Owner', 'Actors', 'QueryMoviesByActor', '@Model.Id', search.value, (activeSort ? activeSort.id : null));
+                getItemCollectionByParent('Owner', 'Actors', 'QueryMoviesByActor', '@Model.Id', search.value, null, (activeSort ? activeSort.id : null));
             }, 300);
         });
     }

@@ -23,7 +23,7 @@ namespace CinemaTic.Web.Areas.Owner.Controllers
         }
 
         // GET: Genres/Details/5
-        public async Task<IActionResult> Details([ModelBinder(typeof(IdModelBinder))] int? id)
+        public async Task<IActionResult> Details([ModelBinder(typeof(IntegerModelBinder))] int? id)
         {
             if (id == null)
             {
@@ -60,7 +60,7 @@ namespace CinemaTic.Web.Areas.Owner.Controllers
             }
             return View(viewModel);
         }
-        public async Task<IActionResult> QueryMoviesByGenre(string searchText, string sortBy, [ModelBinder(typeof(IdModelBinder))] int id, [ModelBinder(typeof(IdModelBinder))] int? pageNumber)
+        public async Task<IActionResult> QueryMoviesByGenre(string searchText, string sortBy, [ModelBinder(typeof(IntegerModelBinder))] int id, [ModelBinder(typeof(IntegerModelBinder))] int? pageNumber)
         {
             if (!await _genresService.ExistsByIdAsync(id))
             {
@@ -69,13 +69,13 @@ namespace CinemaTic.Web.Areas.Owner.Controllers
             var movies = await _genresService.QueryMoviesByGenreAsync(id, searchText, sortBy, pageNumber ?? 1);
             return PartialView("_GenreMoviesPartial", movies);
         }
-        public async Task<IActionResult> SortGenres(string sortBy)
+        public async Task<IActionResult> QueryGenres(string sortBy, int? pageNumber)
         {
-            var genres = await _genresService.SortGenresAsync(sortBy);
+            var genres = await _genresService.QueryGenresAsync(sortBy, pageNumber);
             return PartialView("_GenresPartial", genres);
         }
         [HttpGet]
-        public async Task<IActionResult> Edit([ModelBinder(typeof(IdModelBinder))] int id)
+        public async Task<IActionResult> Edit([ModelBinder(typeof(IntegerModelBinder))] int id)
         {
             if (!await _genresService.ExistsByIdAsync(id))
             {

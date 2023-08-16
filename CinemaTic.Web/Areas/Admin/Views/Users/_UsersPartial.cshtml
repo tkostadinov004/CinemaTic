@@ -49,18 +49,21 @@
     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }
-<ul class="pagination gap-1">
-    <li class="page-item">
-        <a class="action-button active previous @prevDisabled">
-            Previous
-        </a>
-    </li>
-    <li class="page-item">
-        <a class="action-button active next @nextDisabled">
-            Next
-        </a>
-    </li>
-</ul>
+@if(Model.TotalPages > 1)
+{
+    <ul class="pagination gap-1">
+        <li class="page-item">
+            <a class="action-button active previous @prevDisabled">
+                Previous
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="action-button active next @nextDisabled">
+                Next
+            </a>
+        </li>
+    </ul>
+}
 <script>
     document.querySelectorAll('.page-item a').forEach(i => i.addEventListener("click", function () {
         if (i.classList.contains("previous")) {

@@ -1,6 +1,7 @@
 ﻿using CinemaTic.Core.Utilities;
 using CinemaTic.Data.Enums;
 using CinemaTic.Data.Models;
+using CinemaTic.Extensions;
 using CinemaTic.ViewModels.Actors;
 using CinemaTic.ViewModels.Cinemas;
 using CinemaTic.ViewModels.Movies;
@@ -23,6 +24,6 @@ namespace CinemaTic.Core.Contracts
         Task<EditCinemaViewModel> GetEditViewModelByIdAsync(int? cinemaId);
         Task<DeleteCinemaViewModel> GetDeleteViewModelAsync(int? id);
         Task<CinemaPagePreviewViewModel> GetPreviewViewModelAsync(string userEmail, int? cinemaId);
-        Task<IEnumerable<CinemaContainingMovieViewModel>> QueryCinemasContainingMovieAsync(int? movieId, string userEmail, string sortBy);
+        Task<PaginatedList<CinemaContainingMovieViewModel>> QueryCinemasContainingMovieAsync(int? movieId, string userEmail, string sortBy, int? pageNumber);
     }
 }
