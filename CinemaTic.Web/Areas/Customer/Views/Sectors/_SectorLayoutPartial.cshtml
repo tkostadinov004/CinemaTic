@@ -84,9 +84,7 @@
         });
     });
     document.querySelectorAll('.fa-couch').forEach(i => i.addEventListener("click", function () {
-        console.log(i.classlist);
         if (i.classList.contains('occupied')) {
-            console.log(2);
             toastr.error('The place you selected is occupied! Select another seat!');
         }
         else {

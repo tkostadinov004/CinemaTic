@@ -42,6 +42,8 @@ namespace CinemaTic.Core.Services
                 var mostPopularMovieGroup = _context.Tickets.Include(i => i.Movie).Where(i => i.CustomerId == user.Id).ToList().GroupBy(i => i.MovieId).OrderByDescending(i => i.Count()).FirstOrDefault();
                 var mostPopularMovie = mostPopularMovieGroup != null ? mostPopularMovieGroup.FirstOrDefault() : null;
                 var totalMoneySpent = await _context.Tickets.Where(i => i.CustomerId == user.Id).SumAsync(i => i.Price);
+                var tickets = _context.Tickets.Include(i => i.Cinema).Where(i => i.CustomerId == user.Id);
+                var mostPopularCinema = tickets.ToList().GroupBy(i => i.CinemaId).OrderByDescending(i => i.Count()).FirstOrDefault();
                 return new CustomerHomePageViewModel
                 {
                     Cinemas = user.CinemasVisited.Select(i => new CustomerCinemaViewModel
@@ -55,9 +57,11 @@ namespace CinemaTic.Core.Services
                     FullName = $"{user.FirstName} {user.LastName}",
                     MostPopularMovieName = mostPopularMovie != null ? mostPopularMovie.Movie.Title : "",
                     MostPopularMoviePosterUrl = mostPopularMovie != null ? mostPopularMovie.Movie.ImageUrl : "",
+                    MostPopularCinemaName = mostPopularCinema != null ? mostPopularCinema.FirstOrDefault().Cinema.Name : "",
                     TotalMoneySpent = totalMoneySpent,
                     CinemasCount = user.CinemasVisited.Count,
-                    MoviesCount = await _context.Tickets.Where(i => i.CustomerId == user.Id).GroupBy(i => i.MovieId).CountAsync()
+                    MoviesCount = await tickets.GroupBy(i => i.MovieId).CountAsync(),
+                    TicketsCount = await tickets.CountAsync()
                 };
             }
             return null;
@@ -66,16 +70,20 @@ namespace CinemaTic.Core.Services
         /// <para>Gets cinemas from the database.</para>
         /// <para>If the value of <paramref name="all"/> is false, the method will return the given <see cref="ApplicationUser"/>'s favorite cinemas only.</para>
         /// </summary>
-        /// <returns>An <see cref="IEnumerable{T}"/> of <see cref="CinemasViewModel"/></returns>
-        public async Task<IEnumerable<CinemasViewModel>> GetCinemasAsync(bool? all, string userEmail)
+        /// <returns>A <see cref="PaginatedList{T}"/> of <see cref="CinemasViewModel"/></returns>
+        public async Task<PaginatedList<CinemasViewModel>> QueryCinemasAsync(bool? all, string searchText, int? pageNumber, string userEmail)
         {
             var cinemas = await _context.Cinemas.Include(i => i.Owner).Include(i => i.Customers).ToListAsync();
             var user = await _userManager.FindByEmailAsync(userEmail);
+            if (string.IsNullOrEmpty(searchText) == false)
+            {
+                cinemas = cinemas.Where(i => i.Name.ToLower().StartsWith(searchText.ToLower())).ToList();
+            }
             if (all.HasValue && all.Value == false)
             {
                 cinemas = cinemas.Where(i => i.Customers.Any(c => c.CustomerId == user.Id)).ToList();
             }
-            return cinemas.Select(i => new CinemasViewModel
+            return await PaginatedList<CinemasViewModel>.CreateAsync(cinemas.Select(i => new CinemasViewModel
             {
                 Id = i.Id,
                 Description = i.Description,
@@ -84,7 +92,7 @@ namespace CinemaTic.Core.Services
                 Owner = $"{i.Owner.FirstName} {i.Owner.LastName}",
                 FoundedOn = i.FoundedOn.ToString(Constants.DateTimeFormat),
                 IsInFavorites = _context.CustomersCinemas.Any(cc => cc.CinemaId == i.Id && cc.CustomerId == user.Id)
-            });
+            }).OrderBy(i => i.Name), pageNumber ?? 1, 5);
         }
         /// <summary>
         /// <para>Adds a given <see cref="Cinema"/> to a given <see cref="ApplicationUser"/>'s collection of favorite cinemas.</para>
@@ -119,12 +127,16 @@ namespace CinemaTic.Core.Services
         /// <para>Gets a collection of all tickets that a given <see cref="ApplicationUser"/> has.</para>
         /// </summary>
         /// <returns>An <see cref="IEnumerable{T}"/> of <see cref="CustomerTicketViewModel"/></returns>
-        public async Task<IEnumerable<CustomerTicketViewModel>> GetTicketsForCustomerAsync(string userEmail, int? pageNumber)
+        public async Task<IEnumerable<CustomerTicketViewModel>> QueryTicketsAsync(string userEmail, string searchText, int? pageNumber)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
             var tickets = await _context.Tickets.Include(i => i.Cinema).Include(i => i.Movie).Include(i => i.Sector).Where(i => i.CustomerId == user.Id).ToListAsync();
+            if (string.IsNullOrEmpty(searchText) == false)
+            {
+                tickets = tickets.Where(i => i.Movie.Title.ToLower().StartsWith(searchText.ToLower())).ToList();
+            }
 
-            return await PaginatedList<CustomerTicketViewModel>.CreateAsync(tickets.Select(i => new CustomerTicketViewModel
+            return await PaginatedList<CustomerTicketViewModel>.CreateAsync(tickets.OrderByDescending(i => i.ForDate).Select(i => new CustomerTicketViewModel
             {
                 Id = i.Id,
                 Movie = i.Movie.Title,

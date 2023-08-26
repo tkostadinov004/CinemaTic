@@ -132,5 +132,21 @@ namespace CinemaTic.Core.Services
                 UsersCounts = users.Select(i => i.Value).ToArray()
             };
         }
+        /// <summary>
+        /// <para>Gets the amount of bought tickets per month of the current year.</para>
+        /// </summary>
+        /// <returns>A <see cref="TicketsBoughtDTO"/> object</returns>
+        public async Task<TicketsBoughtDTO> GetTicketsBoughtByCustomerAsync(string userEmail)
+        {
+            var user = await _userManager.FindByEmailAsync(userEmail);
+            var months = Enumerable.Range(1, DateTime.Now.Month);
+
+            var tickets = months.ToDictionary(key => key, value => _context.Tickets.Where(t => t.CustomerId == user.Id && t.ForDate.Month == value).Count());
+            return new TicketsBoughtDTO
+            {
+                Labels = months.Select(month => DateTimeFormatInfo.CurrentInfo.GetMonthName(month)).ToArray(),
+                TicketsCounts = tickets.Select(i => i.Value).ToArray()
+            };
+        }
     }
 }

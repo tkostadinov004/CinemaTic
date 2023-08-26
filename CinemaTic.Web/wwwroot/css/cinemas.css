@@ -19,7 +19,7 @@ nav {
     color: white;
     padding: 0px 50px;
     position: relative;
-    z-index: 20;
+    z-index: 10000;
 }
 
 a.logo-link {

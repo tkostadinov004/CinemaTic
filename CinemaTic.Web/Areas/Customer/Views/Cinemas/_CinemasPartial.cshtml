@@ -1,0 +1,131 @@
+﻿@model PaginatedList<CinemaTic.ViewModels.Customers.CinemasViewModel>
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery antiforgery
+@{
+    ViewData["Title"] = "Cinemas";
+    var tokenSet = antiforgery.GetAndStoreTokens(Context);
+}
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<link href="~/css/customer-table.css" rel="stylesheet" />
+@if (Model.TotalPages > 1)
+{
+    <ul class="pagination mt-3 gap-1">
+        <li class="page-item">
+            <a class="action-button active previous @prevDisabled">
+                Previous
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="action-button active next @nextDisabled">
+                Next
+            </a>
+        </li>
+    </ul>
+}
+<div class="table-wrap">
+    <table class="table table-responsive-xl">
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>Name</th>
+                <th>Owner</th>
+                <th>Description</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cinema in Model)
+            {
+                <tr class="alert bg-white" role="alert">
+                    <td>
+                    </td>
+                    <td>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="img">
+                                <img src="~/client-images/Cinemas/@cinema.ImageUrl" />
+                            </div>
+                            <div class="pl-3 email">
+                                <a asp-area="Customer" asp-controller="Cinemas" asp-action="Cinema" asp-route-id="@cinema.Id">@cinema.Name</a>
+                                <span>Founded: @cinema.FoundedOn</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>@cinema.Owner</td>
+                    <td class="status">
+                        <span class="description">
+                            @cinema.Description
+                        </span>
+                    </td>
+                    <td style="width: 20%;">
+                        @if (!cinema.IsInFavorites)
+                        {
+                            <button class="add-button" id="@cinema.Id" type="submit">Add cinema to favorites</button>
+                        }
+                        else
+                        {
+                            <button class="remove-button mt-3" id="@cinema.Id" type="submit">Remove cinema from favorites</button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+    document.querySelectorAll('.page-item a').forEach(i => i.addEventListener("click", function () {
+        if (i.classList.contains("previous")) {
+            cinemasPage = cinemasPage - 1;
+        }
+        else if (i.classList.contains("next")) {
+            cinemasPage = cinemasPage + 1;
+        }
+        getCinemas('Customer', 'Cinemas', 'QueryCinemas', (checkbox ? checkbox.checked : false), cinemasPage, (cinemasSearch ? cinemasSearch.value : null));
+    }));
+    document.querySelectorAll('.add-button').forEach(i => i.addEventListener('click', function (e) {
+        $.ajax({
+            type: "POST",
+            url: `/Customer/Cinemas/AddCinemaToFavorites/${i.id}`,
+            headers: {
+                '@tokenSet.HeaderName': '@tokenSet.RequestToken'
+            },
+            success: function (response) {
+                toastr.success('Successfully added this cinema to favorites!');
+                getCinemas('Customer', 'Cinemas', 'QueryCinemas', false, null, (cinemasSearch ? cinemasSearch.value : null));
+                if (checkbox) {
+                    checkbox.checked = false;
+                }
+            },
+            failure: function (response) {
+                toastr.error('Something wrong happened!');
+            },
+            error: function (response) {
+                toastr.error('Something wrong happened!');
+            }
+        });
+    }));
+    document.querySelectorAll('.remove-button').forEach(i => i.addEventListener('click', function (e) {
+        $.ajax({
+            type: "POST",
+            url: `/Customer/Cinemas/RemoveCinemaFromFavorites/${i.id}`,
+            headers: {
+                '@tokenSet.HeaderName': '@tokenSet.RequestToken'
+            },
+            success: function (response) {
+                toastr.success('Successfully removed this cinema from favorites!');
+                if(checkbox) {
+                    checkbox.checked = false;
+                }
+                getCinemas('Customer', 'Cinemas', 'QueryCinemas', false, null, (cinemasSearch ? cinemasSearch.value : null));
+            },
+            failure: function (response) {
+                toastr.error('Something wrong happened!');
+            },
+            error: function (response) {
+                toastr.error('Something wrong happened!');
+            }
+        });
+    }));
+</script>

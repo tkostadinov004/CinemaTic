@@ -5,13 +5,9 @@ $.each(sectionArray, function (index, value) {
         var scrollTop = $(window).scrollTop(); 
 
         if (scrollTop > stickyNavTop) {
-            $('.navbar-nav .nav-item .nav-link').removeClass('inactive');
-            $('.navbar-nav .nav-item .nav-link').addClass('active');
             $('.navbar').addClass('sticky');
         }
         else {
-            $('.navbar-nav .nav-item .nav-link:link').removeClass('active');
-            $('.navbar-nav .nav-item .nav-link').addClass('inactive');
             $('.navbar').removeClass('sticky');
         }
     };

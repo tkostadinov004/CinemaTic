@@ -9,11 +9,15 @@ namespace CinemaTic.Core.Contracts
 {
     public interface IChartsService
     {
+        // Owner charts
         Task<CinemaShareDTO> GetMarketShareByUserAsync(string userEmail);
         Task<TotalIncomesDTO> GetTotalIncomesAsync(string userEmail);
         Task<CustomersPerCinemaDTO> GetCustomersPerCinemaAsync(string userEmail);
         Task<BestSellingMoviesPerCinemaDTO> GetBestSellingMoviesPerCinemaAsync(string userEmail);
+        // Admin charts
         Task<UsersPerMonthDTO> GetRegisteredUsersByMonthAsync();
         Task<UsersGrowthDTO> GetUsersGrowthAsync();
+        // Customer charts
+        Task<TicketsBoughtDTO> GetTicketsBoughtByCustomerAsync(string userEmail);
     }
 }

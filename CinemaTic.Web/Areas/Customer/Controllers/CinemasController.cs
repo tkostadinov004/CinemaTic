@@ -19,11 +19,10 @@ namespace CinemaTic.Web.Areas.Customer.Controllers
             _cinemasService = cinemasService;
         }
 
-        public async Task<IActionResult> Index(bool? all, int? pageNumber)
+        public async Task<IActionResult> QueryCinemas(bool? all, string searchText, int? pageNumber)
         {
-            TempData["All"] = all;
-            var cinemas = await _customersService.GetCinemasAsync(all, User.Identity.Name);
-            return View(await PaginatedList<CinemasViewModel>.CreateAsync(cinemas, pageNumber ?? 1, 5));
+            var cinemas = await _customersService.QueryCinemasAsync(all,searchText, pageNumber, User.Identity.Name);
+            return PartialView("_CinemasPartial", cinemas);
         }
         public async Task<IActionResult> Cinema([ModelBinder(typeof(IntegerModelBinder))] int id)
         {
@@ -47,7 +46,7 @@ namespace CinemaTic.Web.Areas.Customer.Controllers
                 return NotFound();
             }
             await _customersService.AddCinemaToFavoritesAsync(id, User.Identity.Name);
-            return RedirectToAction(nameof(Index), new { all = false });
+            return Ok();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -63,7 +62,7 @@ namespace CinemaTic.Web.Areas.Customer.Controllers
                 return NotFound();
             }
             await _customersService.RemoveCinemaFromFavoritesAsync(id, User.Identity.Name);
-            return RedirectToAction(nameof(Index), new { all = false });
+            return Ok();
         }
     }
 }

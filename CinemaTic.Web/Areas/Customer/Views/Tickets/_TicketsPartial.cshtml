@@ -1,0 +1,78 @@
+﻿@model PaginatedList<CinemaTic.ViewModels.Customers.CustomerTicketViewModel>
+@{
+    ViewData["Title"] = "Your tickets";
+}
+
+<link href="~/css/customer-table.css" rel="stylesheet" />
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+@if (Model.TotalPages > 1)
+{
+    <ul class="pagination mt-3 gap-1">
+        <li class="page-item">
+            <a class="action-button active previous @prevDisabled">
+                Previous
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="action-button active next @nextDisabled">
+                Next
+            </a>
+        </li>
+    </ul>
+}
+<div class="table-wrap">
+    <table class="table table-responsive-xl">
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>Movie</th>
+                <th>Serial number</th>
+                <th>Cinema</th>
+                <th>Sector</th>
+                <th>Price</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ticket in Model)
+            {
+                <tr class="alert bg-white" role="alert">
+                    <td>
+                    </td>
+                    <td class="d-flex align-items-center gap-3">
+                        <div class="img">
+                            <img src="~/client-images/Movies/@ticket.MoviePosterUrl" />
+                        </div>
+                        <div class="pl-3 email">
+                            <span>@ticket.Movie</span>
+                            <span>Date: @ticket.Date</span>
+                        </div>
+                    </td>
+                    <td>@ticket.SerialNumber</td>
+                    <td>@ticket.Cinema</td>
+                    <td class="status">
+                        <span class="active">
+                            @ticket.Sector
+                        </span>
+                    </td>
+                    <td>@ticket.Price</td>
+                    <td></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+    document.querySelectorAll('.page-item a').forEach(i => i.addEventListener("click", function () {
+        if (i.classList.contains("previous")) {
+            ticketsPage = ticketsPage - 1;
+        }
+        else if (i.classList.contains("next")) {
+            ticketsPage = ticketsPage + 1;
+        }
+        getTickets('Customer', 'Tickets', 'QueryTickets', ticketsPage, (ticketsSearch ? ticketsSearch.value : null));
+    }));
+</script>

@@ -1,4 +1,5 @@
 ﻿using CinemaTic.Data.Models;
+using CinemaTic.Extensions;
 using CinemaTic.ViewModels.Cinemas;
 using CinemaTic.ViewModels.Customers;
 using CinemaTic.ViewModels.Movies;
@@ -16,12 +17,12 @@ namespace CinemaTic.Core.Contracts
     public interface ICustomersService
     {
         Task<CustomerHomePageViewModel> GetHomePageViewModelAsync(string userEmail);
-        Task<IEnumerable<CinemasViewModel>> GetCinemasAsync(bool? all, string userEmail);
+        Task<PaginatedList<CinemasViewModel>> QueryCinemasAsync(bool? all, string searchText, int? pageNumber, string userEmail);
         Task AddCinemaToFavoritesAsync(int? cinemaId, string userEmail);
         Task RemoveCinemaFromFavoritesAsync(int? cinemaId, string userEmail);
         Task SetRatingToMovieAsync(int? id, decimal rating, string userEmail);
         Task<bool> CustomerHasCinemaAsync(int? cinemaId, string userEmail);
-        Task<IEnumerable<CustomerTicketViewModel>> GetTicketsForCustomerAsync(string userEmail, int? pageNumber);
+        Task<IEnumerable<CustomerTicketViewModel>> QueryTicketsAsync(string userEmail, string searchText, int? pageNumber);
         Task<CustomerCinemaPageViewModel> PrepareCinemaViewModelAsync(string userEmail, int? cinemaId);
         Task<IEnumerable<CinemaMovieViewModel>> GetMoviesByDateAsync(int? cinemaId, DateTime date);
         Task<BuyTicketViewModel> GetBuyTicketViewModelAsync(int? cinemaId, int? movieId, DateTime time);

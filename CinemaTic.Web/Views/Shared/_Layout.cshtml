@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/reset.css" />
     <link href="~/fontawesome/css/all.min.css" rel="stylesheet" />
     <link href="~/fontawesome/css/all.css" rel="stylesheet" />
@@ -15,12 +16,16 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap-icons.css" rel="stylesheet" />
     <link href="~/css/layout.css" rel="stylesheet" asp-append-version="true" />
     <link rel="shortcut icon" href="~/img/favicon.ico" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     @if (User.Identity.IsAuthenticated && !User.IsInRole("Customer"))
     {
         <link href="~/css/manage-dashboard.css" rel="stylesheet" />
     }
 </head>
 <body>
+    <nav>
+        <partial name="_NavbarPartial" />
+    </nav>
     <main>
         <div class="app-container">
             @if (User.Identity.IsAuthenticated && !User.IsInRole("Customer"))
@@ -32,7 +37,7 @@
     </main>
     @if (User.Identity.IsAuthenticated == false)
     {
-        <footer class="site-footer section-padding">
+        <footer>
             <partial name="_FooterPartial" />
         </footer>
     }
@@ -47,8 +52,11 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.esm.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="~/js/custom.js"></script>
-
+    <script>
+        AOS.init();
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

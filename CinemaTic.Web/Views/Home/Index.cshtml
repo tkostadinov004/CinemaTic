@@ -1,269 +1,360 @@
 ﻿@{
     ViewData["Title"] = "Home";
 }
-<partial name="_NavbarPartial" />
-<section class="main-section hero-section d-flex justify-content-center align-items-center" id="section_1">
+<section class="hero-section" id="section_1">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-12 mx-auto">
-                <h1 class="text-white text-center">Manage. Watch. Enjoy</h1>
-
-                <h6 class="text-center mb-5">a platform for movie enthusiasts around the world</h6>
+            <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                <h1>Manage. Watch. Enjoy.</h1>
+                <h2>a platform for movie enthusiasts around the world</h2>
+                <div class="d-flex justify-content-center justify-content-lg-start">
+                    <a href="#about" class="btn-get-started scrollto">Get Started</a>
+                </div>
             </div>
+            <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+                <img src="~/img/home/19198739.png" class="img-fluid floating" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-container">
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="section-title">
+                <h2>About Us</h2>
+            </div>
+
+            <div class="row content">
+                <div class="col-lg-6">
+                    <p>
+                        <strong>CinemaTic</strong> is a comprehensive web application that allows customers to browse cinemas and buy movie tickets while empowering cinema owners with efficient management tools. 
+                    </p>
+                    <ul role="list">
+                        <li><i class="fa-solid fa-check-double"></i> Create a custom page for your cinema, track your ticket purchasing services in real time, draw conclusions based on customer behavior.</li>
+                        <li><i class="fa-solid fa-check-double"></i> Effortlessly manage your cinemas, movie schedules, and showtimes through the CinemaTic's comprehensive dashboard.</li>
+                        <li><i class="fa-solid fa-check-double"></i> Search for your favorite cinemas, browse movies, purchase tickets, track your personal customer behavior.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0">
+                    <p>
+                        CinemaTic has a lot of features, designed to make your user experience as easy and pleasant as possible.
+                        Join us now!
+                    </p>
+                    <a href="#features" class="btn-learn-more">Features</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="explore-section section-padding" id="features">
+       <div data-aos="fade-left" data-aos-delay="100">
             <div class="container">
-                <div class="row justify-content-center home-sections">
-                    <div class="col-lg-6 col-12">
-                        <div class="custom-block custom-block-overlay">
-                            <div class="d-flex flex-column h-100">
-                                <img src="~/img/noom-peerapong-2uwFEAGUm6E-unsplash.jpg" class="custom-block-image img-fluid" alt="">
-
-                                <div class="h-100 custom-block-overlay-text d-flex flex-column justify-content-between">
-                                    <div>
-                                        <h5 class="text-white mb-2">Cinema Management</h5>
-
-                                        <p class="text-white">Create a custom page for your cinema, track your ticket purchasing services in real time, draw conclusions based on customer behavior.</p>
-                                    </div>
-                                    <div class="user-buttons d-flex flex-row justify-content-around">
-                                        <a class="btn custom-btn mt-2 mt-lg-3" asp-area="Identity" asp-page="/Account/Login">Log in as an owner</a>
-                                        <a class="btn custom-btn mt-2 mt-lg-3" asp-area="Identity" asp-page="/Account/Register">Create an owner account</a>
-                                    </div>
-                                </div>
-
-                                <div class="section-overlay"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-12">
-                        <div class="custom-block custom-block-overlay">
-                            <div class="d-flex flex-column h-100">
-                                <img src="~/img/christiann-koepke-dQyS2pMYtok-unsplash.jpg" class="custom-block-image img-fluid" alt="">
-
-                                <div class="h-100 custom-block-overlay-text d-flex flex-column justify-content-between">
-                                    <div>
-                                        <h5 class="text-white mb-2">Consumer experience</h5>
-
-                                        <p class="text-white">Look for your favorite cinemas, browse movies, purchase tickets, track your personal customer behavior.</p>
-                                    </div>
-                                    <div class="user-buttons d-flex flex-row justify-content-around">
-                                        <a class="btn custom-btn mt-2 mt-lg-3" asp-area="Identity" asp-page="/Account/Login">Log in as a customer</a>
-                                        <a class="btn custom-btn mt-2 mt-lg-3" asp-area="Identity" asp-page="/Account/Register">Register as a customer</a>
-                                    </div>
-                                </div>
-
-                                <div class="section-overlay"></div>
-                            </div>
-                        </div>
+                <div class="row">
+                    <div class="section-title">
+                        <h2 class="m-0 py-1">Features</h2>
+                        <h3>Here's what you can do with CinemaTic!</h3>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
 
-<section class="explore-section section-padding" id="features">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-12 text-center">
-                <h1 class="mb-1">Features</h1>
-                <h3 class="mb-4">Here's what you can do with CinemaTic!</h3>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="create-tab" data-bs-toggle="tab" data-bs-target="#create-tab-pane" type="button" role="tab" aria-controls="create-tab-pane" aria-selected="true">Create</button>
-                </li>
-
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="manage-tab" data-bs-toggle="tab" data-bs-target="#manage-tab-pane" type="button" role="tab" aria-controls="manage-tab-pane" aria-selected="false">Manage</button>
-                </li>
-
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="buy-tab" data-bs-toggle="tab" data-bs-target="#buy-tab-pane" type="button" role="tab" aria-controls="buy-tab-pane" aria-selected="false">Buy</button>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="container features-container">
-        <div class="row">
-            <div class="col-12">
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="create-tab-pane" role="tabpanel" aria-labelledby="create-tab" tabindex="0">
-                        <div class="row sub-block">
-                            <span class="sub-title">Create and grow your cinema business!</span>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
-                                <div class="custom-block shadow-lg home-block" style="background-color: #fafafa;">
-                                    <div class="d-flex">
-                                        <div>
-                                            <h5 class="mb-2">Create a custom page for your cinema!</h5>
-                                        </div>
-                                    </div>
-
-                                    <img src="~/img/20681.jpg" class="custom-block-image img-fluid" alt="">
-                                    <!--<a href="https://www.freepik.com/free-vector/staff-creating-film_5259946.htm#query=corporate%20illustration%20cinema&position=12&from_view=search&track=ais">Image by katemangostar</a> on Freepik-->
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
-                                <div class="custom-block bg-white shadow-lg ui-adv home-block">
-                                    <div class="d-flex">
-                                        <div>
-                                            <h5 class="mb-2">Design your cinema's User Interface!</h5>
-
-                                            <p class="mb-0">Choose colors that will be used for generating your custom page.</p>
-                                        </div>
-                                    </div>
-
-                                    <img src="~/img/5124709.jpg" class="custom-block-image img-fluid" alt="">
-                                    <!--Image by <a href="https://www.freepik.com/free-vector/printing-industry-illustration_12984121.htm#query=corporate%20illustration%20color%20picker&position=1&from_view=search&track=ais">Freepik</a>-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="manage-tab-pane" role="tabpanel" aria-labelledby="manage-tab" tabindex="0">
-                        <div class="row sub-block">
-                            <span class="sub-title">The owner's job is not easy. That's why we offer you the following services: </span>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-                                <div class="custom-block bg-white shadow-lg home-block">
-                                    <div class="d-flex">
-                                        <div>
-                                            <h5 class="mb-2">Be informed!</h5>
-
-                                            <p class="mb-0">Get statistical information for your cinema</p>
-                                        </div>
-                                    </div>
-
-                                    <img src="~/img/8454.jpg" class="custom-block-image img-fluid" alt="">
-                                    <!--<a href="https://www.freepik.com/free-vector/man-with-laptop-analyzing-infographics-diagram-bar-chart-report-flat-vector-illustration-analysis-marketing-project-manager_10173189.htm#query=corporate%20illustration%20statistics&position=0&from_view=search&track=ais">Image by pch.vector</a> on Freepik-->
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="custom-block bg-white shadow-lg home-block">
-                                    <div class="d-flex">
-                                        <div>
-                                            <h5 class="mb-2">Control the flow</h5>
-
-                                            <p class="mb-0">Add information about movies and their respective actors</p>
-                                        </div>
-                                    </div>
-
-                                    <img src="~/img/4740249.jpg" class="custom-block-image img-fluid" alt="">
-                                    <!--<a href="https://www.freepik.com/free-vector/fashion-photoshoot-concept-illustration_11683077.htm#query=corporate%20illustration%20actor&position=0&from_view=search&track=ais">Image by storyset</a> on Freepik-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="buy-tab-pane" role="tabpanel" aria-labelledby="buy-tab" tabindex="0">
-                        <div class="row">
-                            <div class="row sub-block">
-                                <span class="sub-title">It's great to watch movies with friends! That's why we've provided you the following services to make your cinema experience easier:  </span>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="custom-block bg-white shadow-lg home-block">
-                                    <div class="d-flex">
-                                        <div>
-                                            <h5 class="mb-2">Explore</h5>
-
-                                            <p class="mb-0">Look for your favorite cinemas, registered at CinemaTic, and add it to your personal dashboard.</p>
-                                        </div>
-                                    </div>
-
-                                    <img src="~/img/Sandy_Ppl-05_Single-05.jpg" class="custom-block-image img-fluid" alt="">
-                                    <!--<a href="https://www.freepik.com/free-vector/private-investigation-abstract-illustration_20891867.htm#query=corporate%20illustration%20detective&position=1&from_view=search&track=ais">Image by vectorjuice</a> on Freepik-->
-                                </div>
-                            </div>
-                            <div class="col-lg-4 cold-md-6 col-12">
-                                <div class="custom-block bg-white shadow-lg home-block">
-                                    <div class="d-flex">
-                                        <div>
-                                            <h5 class="mb-2">Choose</h5>
-
-                                            <p class="mb-0">See the weekly schedule of your favorite cinemas. Get information for movies and actors.</p>
-                                        </div>
-                                    </div>
-
-                                    <img src="~/img/2829247.jpg" class="custom-block-image img-fluid" alt="">
-                                    <!--<a href="https://www.freepik.com/free-vector/select-concept-illustration_5421729.htm#query=corporate%20illustration%20choice&position=4&from_view=search&track=ais">Image by storyset</a> on Freepik-->
-                                </div>
-                            </div>
-                            <div class="col-lg-4 cold-md-6 col-12">
-                                <div class="custom-block bg-white shadow-lg home-block">
-                                    <div class="d-flex">
-                                        <div>
-                                            <h5 class="mb-2">Buy</h5>
-
-                                            <p class="mb-0">Buy tickets for yourself (and your friends). Use our interactive seat selecting interface.</p>
-                                        </div>
-                                    </div>
-
-                                    <img src="~/img/20943943.jpg" class="custom-block-image img-fluid" alt="">
-                                    <!--<a href="https://www.freepik.com/free-vector/sales-representative-abstract-concept_12084790.htm#query=corporate%20illustration%20buy&position=0&from_view=search&track=ais">Image by vectorjuice</a> on Freepik-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="timeline-section section-padding" id="how">
-    <div class="section-overlay"></div>
-
-    <div class="container">
-        <div class="row">
-
-            <div class="col-12 text-center">
-                <h2 class="text-white mb-4">How does CinemaTic work?</h2>
-            </div>
-
-            <div class="col-lg-10 col-12 mx-auto">
-                <div class="timeline-container">
-                    <ul class="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
-                        <div class="list-progress">
-                            <div class="inner"></div>
-                        </div>
-
-                        <li class="d-flex align-items-center">
-                            <div>
-                                <h4 class="text-white mb-3">Create an account</h4>
-
-                                <p class="text-white">Join CinemaTic! Register effortlessly and unlock a world of entertainment at your fingertips. Experience hassle-free ticket booking and easy cinema management. Our user-friendly interface ensures smooth navigation, while secure registration keeps your data safe. Join CinemaTic today and embark on a journey of cinematic delight like never before. Your perfect movie experience starts here!</p>
-                            </div>
-                            <div class="icon-holder">
-                                <i class="fa-regular fa-address-card"></i>
-                            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <ul class="nav nav-tabs" id="activities" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="create-tab" data-bs-toggle="tab" data-bs-target="#create-tab-pane" type="button" role="tab" aria-controls="create-tab-pane" aria-selected="true">Create</button>
                         </li>
 
-                        <li class="d-flex align-items-center">
-                            <div>
-                                <h4 class="text-white mb-3">Be the best manager or the most loyal customer!</h4>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="manage-tab" data-bs-toggle="tab" data-bs-target="#manage-tab-pane" type="button" role="tab" aria-controls="manage-tab-pane" aria-selected="false">Manage</button>
+                        </li>
 
-                                <p class="text-white">
-                                    Experience CinemaTic Excellence: Manager Mode lets you orchestrate screenings effortlessly, optimizing schedules and boosting efficiency. Unleash your inner maestro or bask in red-carpet treatment. Elevate your cinema experience with CinemaTic – where you're always the star.
-                                </p>
-                            </div>
-
-                            <div class="icon-holder">
-                                <i class="fa-regular fa-thumbs-up"></i>
-                            </div>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="buy-tab" data-bs-toggle="tab" data-bs-target="#buy-tab-pane" type="button" role="tab" aria-controls="buy-tab-pane" aria-selected="false">Buy</button>
                         </li>
                     </ul>
                 </div>
             </div>
+
+            <div class="container features-container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="tab-content" id="tabContent">
+                            <div class="tab-pane fade show active" id="create-tab-pane" role="tabpanel" aria-labelledby="create-tab" tabindex="0">
+                                <div class="row sub-block">
+                                    <span class="sub-title">Create and grow your cinema business!</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                        <div class="custom-block shadow-lg home-block" style="background-color: #fafafa;">
+                                            <div class="d-flex">
+                                                <div>
+                                                    <h5 class="mb-2">Create a custom page for your cinema!</h5>
+                                                </div>
+                                            </div>
+
+                                            <img src="~/img/20681.jpg" class="custom-block-image img-fluid" alt="">
+                                            <!--<a href="https://www.freepik.com/free-vector/staff-creating-film_5259946.htm#query=corporate%20illustration%20cinema&position=12&from_view=search&track=ais">Image by katemangostar</a> on Freepik-->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                        <div class="custom-block bg-white shadow-lg ui-adv home-block">
+                                            <div class="d-flex">
+                                                <div>
+                                                    <h5 class="mb-2">Design your cinema's User Interface!</h5>
+
+                                                    <p class="mb-0">Choose colors that will be used for generating your custom page.</p>
+                                                </div>
+                                            </div>
+
+                                            <img src="~/img/5124709.jpg" class="custom-block-image img-fluid" alt="">
+                                            <!--Image by <a href="https://www.freepik.com/free-vector/printing-industry-illustration_12984121.htm#query=corporate%20illustration%20color%20picker&position=1&from_view=search&track=ais">Freepik</a>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="manage-tab-pane" role="tabpanel" aria-labelledby="manage-tab" tabindex="0">
+                                <div class="row sub-block">
+                                    <span class="sub-title">The owner's job is not easy. That's why we offer you the following services: </span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
+                                        <div class="custom-block bg-white shadow-lg home-block">
+                                            <div class="d-flex">
+                                                <div>
+                                                    <h5 class="mb-2">Be informed!</h5>
+
+                                                    <p class="mb-0">Get statistical information for your cinema</p>
+                                                </div>
+                                            </div>
+
+                                            <img src="~/img/8454.jpg" class="custom-block-image img-fluid" alt="">
+                                            <!--<a href="https://www.freepik.com/free-vector/man-with-laptop-analyzing-infographics-diagram-bar-chart-report-flat-vector-illustration-analysis-marketing-project-manager_10173189.htm#query=corporate%20illustration%20statistics&position=0&from_view=search&track=ais">Image by pch.vector</a> on Freepik-->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="custom-block bg-white shadow-lg home-block">
+                                            <div class="d-flex">
+                                                <div>
+                                                    <h5 class="mb-2">Control the flow</h5>
+
+                                                    <p class="mb-0">Add information about movies and their respective actors</p>
+                                                </div>
+                                            </div>
+
+                                            <img src="~/img/4740249.jpg" class="custom-block-image img-fluid" alt="">
+                                            <!--<a href="https://www.freepik.com/free-vector/fashion-photoshoot-concept-illustration_11683077.htm#query=corporate%20illustration%20actor&position=0&from_view=search&track=ais">Image by storyset</a> on Freepik-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="buy-tab-pane" role="tabpanel" aria-labelledby="buy-tab" tabindex="0">
+                                <div class="row">
+                                    <div class="row sub-block">
+                                        <span class="sub-title">It's great to watch movies with friends! That's why we've provided you the following services to make your cinema experience easier:  </span>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="custom-block bg-white shadow-lg home-block">
+                                            <div class="d-flex">
+                                                <div>
+                                                    <h5 class="mb-2">Explore</h5>
+
+                                                    <p class="mb-0">Look for your favorite cinemas, registered at CinemaTic, and add it to your personal dashboard.</p>
+                                                </div>
+                                            </div>
+
+                                            <img src="~/img/Sandy_Ppl-05_Single-05.jpg" class="custom-block-image img-fluid" alt="">
+                                            <!--<a href="https://www.freepik.com/free-vector/private-investigation-abstract-illustration_20891867.htm#query=corporate%20illustration%20detective&position=1&from_view=search&track=ais">Image by vectorjuice</a> on Freepik-->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 cold-md-6 col-12">
+                                        <div class="custom-block bg-white shadow-lg home-block">
+                                            <div class="d-flex">
+                                                <div>
+                                                    <h5 class="mb-2">Choose</h5>
+
+                                                    <p class="mb-0">See the weekly schedule of your favorite cinemas. Get information for movies and actors.</p>
+                                                </div>
+                                            </div>
+
+                                            <img src="~/img/2829247.jpg" class="custom-block-image img-fluid" alt="">
+                                            <!--<a href="https://www.freepik.com/free-vector/select-concept-illustration_5421729.htm#query=corporate%20illustration%20choice&position=4&from_view=search&track=ais">Image by storyset</a> on Freepik-->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 cold-md-6 col-12">
+                                        <div class="custom-block bg-white shadow-lg home-block">
+                                            <div class="d-flex">
+                                                <div>
+                                                    <h5 class="mb-2">Buy</h5>
+
+                                                    <p class="mb-0">Buy tickets for yourself (and your friends). Use our interactive seat selecting interface.</p>
+                                                </div>
+                                            </div>
+
+                                            <img src="~/img/20943943.jpg" class="custom-block-image img-fluid" alt="">
+                                            <!--<a href="https://www.freepik.com/free-vector/sales-representative-abstract-concept_12084790.htm#query=corporate%20illustration%20buy&position=0&from_view=search&track=ais">Image by vectorjuice</a> on Freepik-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+    </section>
+    <section id="owner-why" class="owner-why">
+        <div class="container" data-aos="fade-right">
+
+            <div class="row">
+
+                <div class="col-lg-6 d-flex flex-column justify-content-center align-items-stretch">
+
+                    <div class="content">
+                        <h3>Experience <strong>CinemaTic</strong> excellence!</h3>
+                        <p>CinemaTic's Manager Mode lets you orchestrate screenings effortlessly, optimizing schedules and boosting efficiency. Unleash your inner maestro or bask in red-carpet treatment. Elevate your cinema experience with CinemaTic – where you're always the star.</p>
+                    </div>
+
+                    <div class="accordion-list">
+                        <ul role="list">
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-1" class="collapsed" aria-expanded="false">
+                                    <div>
+                                        <span>01</span> Manage your cinemas effortlessly
+                                    </div>
+                                    <div class="icons">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                        <i class="bx bx-chevron-up icon-close"></i>
+                                    </div>
+                                </a>
+                                <div id="accordion-list-1" class="collapse" data-bs-parent=".accordion-list">
+                                    <p>
+                                        All cinema-related data, including movies, actors, schedules, and bookings, are stored in a centralized database, making it easier to maintain and update.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed" aria-expanded="false">
+                                    <div>
+                                        <span>02</span> Monitor vital statistics for your cinemas
+                                    </div>
+                                    <div class="icons">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                        <i class="bx bx-chevron-up icon-close"></i>
+                                    </div>
+                                </a>
+                                <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
+                                    <p>
+                                        Cinema owners can access real-time analytics and insights about ticket sales and popular movies.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed" aria-expanded="false">
+                                    <div>
+                                        <span>03</span> Increase your revenue
+                                    </div>
+                                    <div class="icons">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                        <i class="bx bx-chevron-up icon-close"></i>
+                                    </div>
+                                </a>
+                                <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
+                                    <p>
+                                        By offering online ticket sales, cinema owners can tap into a broader customer base, potentially leading to increased ticket sales and revenue.
+                                    </p>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6 d-flex align-items-center aos-init aos-animate" data-aos="fade-right" data-aos-delay="100">
+                    <img src="~/img/home/010293.png" class="img-fluid" alt="">
+                </div>
+            </div>
+
         </div>
-    </div>
+    </section>
+    <section id="customer-why" class="customer-why">
+        <div class="container" data-aos="fade-left">
+            <div class="row">
+                <div class="col-lg-6 d-flex align-items-center aos-init aos-animate" data-aos="fade-right" data-aos-delay="100">
+                    <img src="~/img/home/223156.png" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 content aos-init aos-animate" data-aos="fade-left" data-aos-delay="100">
+                    <h3>Be the best customer ever!</h3>
+                    <p class="fst-italic">
+                        Customers can browse through a wide selection of cinemas and movies. They can easily book tickets for upcoming movies with a user-friendly interface.
+                    </p>
+
+                    <div class="accordion-list">
+                        <ul role="list">
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-1" class="collapsed" aria-expanded="false">
+                                    <div>
+                                        <span>01</span> Diversify your choices
+                                    </div>
+                                    <div class="icons">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                        <i class="bx bx-chevron-up icon-close"></i>
+                                    </div>
+                                </a>
+                                <div id="accordion-list-1" class="collapse" data-bs-parent=".accordion-list">
+                                    <p>
+                                        CinemaTic offers a diverse range of movies and cinemas, providing customers with a comprehensive selection to choose from.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed" aria-expanded="false">
+                                    <div>
+                                        <span>02</span> Real-time ticket purchase
+                                    </div>
+                                    <div class="icons">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                        <i class="bx bx-chevron-up icon-close"></i>
+                                    </div>
+                                </a>
+                                <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
+                                    <p>
+                                        The app allows customers to see real-time seat availability, ensuring they can secure their preferred seats for their chosen showtimes.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed" aria-expanded="false">
+                                    <div>
+                                        <span>03</span> Paperless ticketing
+                                    </div>
+                                    <div class="icons">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                        <i class="bx bx-chevron-up icon-close"></i>
+                                    </div>
+                                </a>
+                                <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
+                                    <p>
+                                        Customers can access their booked tickets digitally on the app, reducing the need for physical tickets and contributing to environmental sustainability.
+                                    </p>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
 </section>

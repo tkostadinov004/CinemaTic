@@ -3,6 +3,7 @@
     margin: auto;
     padding: 36px 48px 48px 48px;
     background-color: #f2efee;
+    color: black;
     border-radius: 11px;
     box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
 }
@@ -37,7 +38,7 @@
         }
 
 .btn--form {
-    background-color: #f48982;
+    background-color: #30b4c0;
     color: #fdf2e9;
     align-self: end;
     padding: 8px;
@@ -62,8 +63,8 @@
 }
 */
 .btn--form:hover {
-    background-color: #fdf2e9;
-    color: #f48982;
+    background-color: #27919b;
+    color: #fff;
 }
 .login-form .checkbox label input {
     width: fit-content;

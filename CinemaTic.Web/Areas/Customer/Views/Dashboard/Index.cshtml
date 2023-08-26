@@ -5,82 +5,200 @@
     var newUser = TempData["NewUser"] != null ? (bool)TempData["NewUser"] : false;
     TempData.Remove("NewUser");
 }
-<partial name="_NavbarPartial" />
-<section class="main-section hero-section" id="section_1">
+<link href="~/lib/toastr/toastr.css" rel="stylesheet" />
+<section class="hero-section" id="section_1">
     <div class="container">
         <div class="row">
-
-            <div class="col-12 text-center text-white">
-                <h3 class="mb-4">Welcome to CinemaTic, @Model.FullName</h3>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="create-tab" data-bs-toggle="tab" data-bs-target="#create-tab-pane" type="button" role="tab" aria-controls="create-tab-pane" aria-selected="true">Cinemas</button>
-                </li>
-
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="manage-tab" data-bs-toggle="tab" data-bs-target="#manage-tab-pane" type="button" role="tab" aria-controls="manage-tab-pane" aria-selected="false">Tickets</button>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="container features-container">
-        <div class="row">
-            <div class="col-12">
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="create-tab-pane" role="tabpanel" aria-labelledby="create-tab" tabindex="0">
-                        <div class="row sub-block">
-                            <span class="sub-title">You currently have @Model.Cinemas.Count() favorite cinemas</span>
-                        </div>
-                        @if (!string.IsNullOrEmpty(Model.MostPopularMovieName))
-                        {
-                            <div class="row">
-                                <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
-                                    <div class="custom-block bg-white shadow-lg">
-                                        <a>
-                                            <div class="d-flex justify-content-center">
-                                                <div>
-                                                    <h5 class="mb-2 text-center">Your favorite movie is: </h5>
-                                                    <h6 class="text-center">@Model.MostPopularMovieName</h6>
-                                                </div>
-                                            </div>
-
-                                            <img src="~/client-images/Movies/@Model.MostPopularMoviePosterUrl" class="custom-block-image img-fluid" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                    </div>
-
-                    <div class="tab-pane fade" id="manage-tab-pane" role="tabpanel" aria-labelledby="manage-tab" tabindex="0">
-                        <div class="row sub-block">
-                            <span class="sub-title">So far, you have spent @string.Format($"${Model.TotalMoneySpent:f2}") on @Model.MoviesCount movies at @Model.CinemasCount cinemas </span>
-                        </div>
-                        
-                    </div>
+            <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1 welcome-credits" data-aos="fade-up" data-aos-delay="200">
+                <h1>Manage. Watch. Enjoy.</h1>
+                <h2>Welcome to CinemaTic, @Model.FullName</h2>
+                <div class="d-flex justify-content-center justify-content-lg-start">
+                    <a href="#about" class="btn-get-started scrollto">Get Started</a>
                 </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2  d-flex justify-content-center hero-img" data-aos="zoom-in" data-aos-delay="200">
+                <img src="~/img/home/19198739.png" class="img-fluid" alt="">
             </div>
         </div>
     </div>
 </section>
+<section class="section-container">
+    <section class="p-0">
+    </section>
+
+    <section>
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="col-lg-5 d-flex justify-content-center align-items-center chart-container" data-aos="fade-right" data-aos-delay="100">
+                    <div class="w-100 d-flex justify-content-center"><canvas id="ticketsBought" data-aos="zoom-in" data-aos-delay="100"></canvas></div>
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-left" data-aos-delay="100">
+                    <h3>Here's what you've been up to this year in <strong>CinemaTic:</strong></h3>
+                    <div class="accordion-list">
+                        <ul role="list">
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-1" class="collapsed" aria-expanded="false">
+                                    <div>
+                                        <span>01.</span> Tickets
+                                    </div>
+                                    <div class="icons">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                        <i class="bx bx-chevron-up icon-close"></i>
+                                    </div>
+                                </a>
+                                <div id="accordion-list-1" class="collapse" data-bs-parent=".accordion-list">
+                                    <p>
+                                        Our records indicate that you have bought @Model.TicketsCount @(Model.TicketsCount == 1 ? "ticket" : "tickets").
+                                        <br />
+                                        @if (Model.TicketsCount > 0)
+                                        {
+                                            <span>Great job!</span>
+                                        <p>
+                                            You have bought the most tickets at <strong>@Model.MostPopularCinemaName</strong>.
+                                        </p>
+                                        }
+                                        else
+                                        {
+                                        <span>We believe you can do more!</span>
+                                        }
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed" aria-expanded="false">
+                                    <div>
+                                        <span>02</span> Movies
+                                    </div>
+                                    <div class="icons">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                        <i class="bx bx-chevron-up icon-close"></i>
+                                    </div>
+                                </a>
+                                <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
+                                    @if (Model.MoviesCount > 0)
+                                    {
+                                        <p>
+                                            Good job! Based on our analysis of your customer behavior, it seems that your favorite movie so far is <strong>@Model.MostPopularMovieName</strong>.
+                                        </p>
+                                    }
+                                    else
+                                    {
+                                        <p>
+                                            We can't determine your favorite movie yet, since you haven't bought any tickets so far!
+                                        </p>
+                                    }
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="cinemas">
+        <div class="container">
+            <div class="row">
+                <div class="section-title">
+                    <h2 class="m-0 py-1">Cinemas</h2>
+                    <h3>Here you can browse all cinemas or see your favorite cinemas</h3>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-between">
+                        <input id="search-bar" class="search-bar" placeholder="Search..." type="text">
+                        <div class="checkbox-wrapper d-flex align-items-center">
+                            <input id="checkbox" type="checkbox" class="switch">
+                            <label for="checkbox">Show all</label>
+                        </div>
+                    </div>
+                    <div id="results-container">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="tickets">
+        <div class="container">
+            <div class="row">
+                <div class="section-title">
+                    <h2 class="m-0 py-1">Tickets</h2>
+                    <h3>Here you can see your tickets</h3>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-between">
+                        <input id="search-bar" class="search-bar mb-3" placeholder="Search by movie..." type="text">
+                    </div>
+                    <div id="results-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<partial name="_FooterPartial" />
+<script src="~/lib/chart.js/chart.umd.js"></script>
+<script src="~/lib/chart.js/chart.umd.min.js"></script>
+<script src="~/js/customer-charts.js"></script>
+<script src="~/js/customer-dashboard.js"></script>
+<script src="~/lib/toastr/toastr.js"></script>
+<script>
+    toastr.options.closeButton = true;
+    toastr.options.newestOnTop = true;
+    var cinemasPage = 1;
+    var cinemasSearch = document.querySelector("section#cinemas .search-bar");
+    var checkbox = document.querySelector('.checkbox-wrapper #checkbox');
+    if (cinemasSearch) {
+        let timeout = null;
+        cinemasSearch.addEventListener("keyup", function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                getCinemas('Customer', 'Cinemas', 'QueryCinemas', (checkbox ? checkbox.checked : false), null, cinemasSearch.value);
+            }, 300);
+        });
+    }
+    if (checkbox) {
+        checkbox.addEventListener('change', function () {
+            getCinemas('Customer', 'Cinemas', 'QueryCinemas', (checkbox ? checkbox.checked : false), null, cinemasSearch.value);
+        });
+    }
+
+    var ticketsPage = 1;
+    var ticketsSearch = document.querySelector("section#tickets .search-bar");
+    if (ticketsSearch) {
+        let timeout = null;
+        ticketsSearch.addEventListener("keyup", function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                getTickets('Customer', 'Tickets', 'QueryTickets', null, ticketsSearch.value);
+            }, 300);
+        });
+    }
+    getTicketsBought();
+    getCinemas('Customer', 'Cinemas', 'QueryCinemas', false, null, null);
+    getTickets('Customer', 'Tickets', 'QueryTickets', null, null);
+</script>
 <style>
     section.main-section {
         padding-top: 10vh;
     }
+
     ul.nav.nav-tabs {
         border: 0;
     }
+
     div.tab-content {
         background: transparent;
     }
+
     li.nav-item button.nav-link {
         background: transparent !important;
     }

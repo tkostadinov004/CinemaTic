@@ -4,6 +4,7 @@ using CinemaTic.ViewModels.Sectors;
 using CinemaTic.Web.Areas.Customer.Controllers.BaseControllers;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CinemaTic.Web.Areas.Customer.Controllers
@@ -23,10 +24,10 @@ namespace CinemaTic.Web.Areas.Customer.Controllers
             _sectorsService = sectorsService;
         }
 
-        public async Task<IActionResult> Index(int? pageNumber)
+        public async Task<IActionResult> QueryTickets(string searchText, int? pageNumber)
         {
-            var tickets = await _customersService.GetTicketsForCustomerAsync(User.Identity.Name, pageNumber);
-            return View(nameof(Index), tickets);
+            var tickets = await _customersService.QueryTicketsAsync(User.Identity.Name, searchText, pageNumber);
+            return PartialView("_TicketsPartial", tickets);
         }
 
         public async Task<IActionResult> BuyTicket(int cinemaId, int movieId, [ModelBinder(typeof(DateModelBinder))] DateTime forDate)
@@ -59,7 +60,7 @@ namespace CinemaTic.Web.Areas.Customer.Controllers
                 return NotFound();
             }
             await _customersService.BuyTicketAsync(sectorId, movieId, User.Identity.Name, viewModel, forDate);
-            return RedirectToAction(nameof(Index), "Tickets", new { cinemaId = TempData["CinemaId"] });
+            return Redirect(Url.RouteUrl(new { controller = "Dashboard", action = "Index"}) + "#tickets");
         }
     }
 }
